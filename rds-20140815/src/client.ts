@@ -30417,6 +30417,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   babelfishConfig?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeBabelfishConfig;
   bpeEnabled?: string;
   burstingEnabled?: boolean;
+  canTempUpgrade?: boolean;
   category?: string;
   coldDataEnabled?: boolean;
   collation?: string;
@@ -30475,6 +30476,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   slaveZones?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeSlaveZones;
   superPermissionMode?: string;
   tempDBInstanceId?: string;
+  tempUpgradeTimeEnd?: string;
+  tempUpgradeTimeStart?: string;
   timeZone?: string;
   tips?: string;
   tipsLevel?: number;
@@ -30492,6 +30495,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       babelfishConfig: 'BabelfishConfig',
       bpeEnabled: 'BpeEnabled',
       burstingEnabled: 'BurstingEnabled',
+      canTempUpgrade: 'CanTempUpgrade',
       category: 'Category',
       coldDataEnabled: 'ColdDataEnabled',
       collation: 'Collation',
@@ -30550,6 +30554,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       slaveZones: 'SlaveZones',
       superPermissionMode: 'SuperPermissionMode',
       tempDBInstanceId: 'TempDBInstanceId',
+      tempUpgradeTimeEnd: 'TempUpgradeTimeEnd',
+      tempUpgradeTimeStart: 'TempUpgradeTimeStart',
       timeZone: 'TimeZone',
       tips: 'Tips',
       tipsLevel: 'TipsLevel',
@@ -30570,6 +30576,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       babelfishConfig: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeBabelfishConfig,
       bpeEnabled: 'string',
       burstingEnabled: 'boolean',
+      canTempUpgrade: 'boolean',
       category: 'string',
       coldDataEnabled: 'boolean',
       collation: 'string',
@@ -30628,6 +30635,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       slaveZones: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeSlaveZones,
       superPermissionMode: 'string',
       tempDBInstanceId: 'string',
+      tempUpgradeTimeEnd: 'string',
+      tempUpgradeTimeStart: 'string',
       timeZone: 'string',
       tips: 'string',
       tipsLevel: 'number',
@@ -37537,15 +37546,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Use the cloud migration feature](~~365562~~)
-    *
-    * @param request ActivateMigrationTargetInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ActivateMigrationTargetInstanceResponse
+   * @summary Switches workloads over from the source PostgreSQL instance to the destination ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+   *
+   * @param request ActivateMigrationTargetInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ActivateMigrationTargetInstanceResponse
    */
   async activateMigrationTargetInstanceWithOptions(request: ActivateMigrationTargetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ActivateMigrationTargetInstanceResponse> {
     Util.validateModel(request);
@@ -37588,14 +37599,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Use the cloud migration feature](~~365562~~)
-    *
-    * @param request ActivateMigrationTargetInstanceRequest
-    * @return ActivateMigrationTargetInstanceResponse
+   * @summary Switches workloads over from the source PostgreSQL instance to the destination ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+   *
+   * @param request ActivateMigrationTargetInstanceRequest
+   * @return ActivateMigrationTargetInstanceResponse
    */
   async activateMigrationTargetInstance(request: ActivateMigrationTargetInstanceRequest): Promise<ActivateMigrationTargetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37603,21 +37616,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Usage notes
-    * *   Each tag consists of a tag key and a tag value. The tag key is required, and the tag value is optional.
-    * *   The tag key and tag value cannot start with aliyun.
-    * *   The tag key and tag value are not case-sensitive.
-    * *   The maximum length of a tag key is 64 characters, and the maximum length of a tag value is 128 characters.
-    * *   A maximum of 10 tags can be added to each instance. Each tag that is added to the same instance must have a unique tag key. If you add a new tag to the instance and the key of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
-    *
-    * @param request AddTagsToResourceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddTagsToResourceResponse
+   * @summary Adds tags to an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Usage notes
+   * *   Each tag consists of a tag key and a tag value. The tag key is required, and the tag value is optional.
+   * *   The tag key and tag value cannot start with aliyun.
+   * *   The tag key and tag value are not case-sensitive.
+   * *   The maximum length of a tag key is 64 characters, and the maximum length of a tag value is 128 characters.
+   * *   A maximum of 10 tags can be added to each instance. Each tag that is added to the same instance must have a unique tag key. If you add a new tag to the instance and the key of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
+   *
+   * @param request AddTagsToResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddTagsToResourceResponse
    */
   async addTagsToResourceWithOptions(request: AddTagsToResourceRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsToResourceResponse> {
     Util.validateModel(request);
@@ -37684,20 +37699,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Usage notes
-    * *   Each tag consists of a tag key and a tag value. The tag key is required, and the tag value is optional.
-    * *   The tag key and tag value cannot start with aliyun.
-    * *   The tag key and tag value are not case-sensitive.
-    * *   The maximum length of a tag key is 64 characters, and the maximum length of a tag value is 128 characters.
-    * *   A maximum of 10 tags can be added to each instance. Each tag that is added to the same instance must have a unique tag key. If you add a new tag to the instance and the key of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
-    *
-    * @param request AddTagsToResourceRequest
-    * @return AddTagsToResourceResponse
+   * @summary Adds tags to an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Usage notes
+   * *   Each tag consists of a tag key and a tag value. The tag key is required, and the tag value is optional.
+   * *   The tag key and tag value cannot start with aliyun.
+   * *   The tag key and tag value are not case-sensitive.
+   * *   The maximum length of a tag key is 64 characters, and the maximum length of a tag value is 128 characters.
+   * *   A maximum of 10 tags can be added to each instance. Each tag that is added to the same instance must have a unique tag key. If you add a new tag to the instance and the key of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
+   *
+   * @param request AddTagsToResourceRequest
+   * @return AddTagsToResourceResponse
    */
   async addTagsToResource(request: AddTagsToResourceRequest): Promise<AddTagsToResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37705,21 +37722,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Apply for a public endpoint for an ApsaraDB RDS for MySQL instance](~~26128~~)
-    * *   [Apply for a public endpoint for an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-    * *   [Apply for a public endpoint for an ApsaraDB RDS for SQL Server instance](~~97736~~)
-    * *   [Apply for a public endpoint for an ApsaraDB RDS for MariaDB instance](~~97740~~)
-    *
-    * @param request AllocateInstancePublicConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AllocateInstancePublicConnectionResponse
+   * @summary Apply for a public endpoint for an ApsaraDB RDS instance
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Apply for a public endpoint for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+   * *   [Apply for a public endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+   * *   [Apply for a public endpoint for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+   * *   [Apply for a public endpoint for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+   *
+   * @param request AllocateInstancePublicConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateInstancePublicConnectionResponse
    */
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
     Util.validateModel(request);
@@ -37782,20 +37801,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Apply for a public endpoint for an ApsaraDB RDS for MySQL instance](~~26128~~)
-    * *   [Apply for a public endpoint for an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-    * *   [Apply for a public endpoint for an ApsaraDB RDS for SQL Server instance](~~97736~~)
-    * *   [Apply for a public endpoint for an ApsaraDB RDS for MariaDB instance](~~97740~~)
-    *
-    * @param request AllocateInstancePublicConnectionRequest
-    * @return AllocateInstancePublicConnectionResponse
+   * @summary Apply for a public endpoint for an ApsaraDB RDS instance
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Apply for a public endpoint for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+   * *   [Apply for a public endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+   * *   [Apply for a public endpoint for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+   * *   [Apply for a public endpoint for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+   *
+   * @param request AllocateInstancePublicConnectionRequest
+   * @return AllocateInstancePublicConnectionResponse
    */
   async allocateInstancePublicConnection(request: AllocateInstancePublicConnectionRequest): Promise<AllocateInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37803,25 +37824,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)Feature description
-    * If read-only instances are attached to a primary ApsaraDB RDS for SQL Server instance, you can call this operation to apply for a unified read-only routing endpoint for the primary instance. After you apply for a read-only routing endpoint for a primary instance, the existing endpoints of the primary instance and its read-only instances remain valid. In addition, you can still apply for internal and public endpoints.
-    * ### [](#)Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-    * *   The instance is in the Running state.
-    * *   Read-only instances are attached to the primary instance.
-    * *   The instance does not have an ongoing Data Transmission Service (DTS) migration task.
-    * *   The instance runs one of the following database versions and RDS editions:
-    *     *   SQL Server on RDS Cluster Edition
-    *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-    *     *   MySQL 5.6
-    *
-    * @param request AllocateReadWriteSplittingConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AllocateReadWriteSplittingConnectionResponse
+   * @summary Applies for a read-only routing endpoint for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)Feature description
+   * If read-only instances are attached to a primary ApsaraDB RDS for SQL Server instance, you can call this operation to apply for a unified read-only routing endpoint for the primary instance. After you apply for a read-only routing endpoint for a primary instance, the existing endpoints of the primary instance and its read-only instances remain valid. In addition, you can still apply for internal and public endpoints.
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+   * *   The instance is in the Running state.
+   * *   Read-only instances are attached to the primary instance.
+   * *   The instance does not have an ongoing Data Transmission Service (DTS) migration task.
+   * *   The instance runs one of the following database versions and RDS editions:
+   *     *   SQL Server on RDS Cluster Edition
+   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+   *     *   MySQL 5.6
+   *
+   * @param request AllocateReadWriteSplittingConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateReadWriteSplittingConnectionResponse
    */
   async allocateReadWriteSplittingConnectionWithOptions(request: AllocateReadWriteSplittingConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateReadWriteSplittingConnectionResponse> {
     Util.validateModel(request);
@@ -37888,24 +37911,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)Feature description
-    * If read-only instances are attached to a primary ApsaraDB RDS for SQL Server instance, you can call this operation to apply for a unified read-only routing endpoint for the primary instance. After you apply for a read-only routing endpoint for a primary instance, the existing endpoints of the primary instance and its read-only instances remain valid. In addition, you can still apply for internal and public endpoints.
-    * ### [](#)Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-    * *   The instance is in the Running state.
-    * *   Read-only instances are attached to the primary instance.
-    * *   The instance does not have an ongoing Data Transmission Service (DTS) migration task.
-    * *   The instance runs one of the following database versions and RDS editions:
-    *     *   SQL Server on RDS Cluster Edition
-    *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-    *     *   MySQL 5.6
-    *
-    * @param request AllocateReadWriteSplittingConnectionRequest
-    * @return AllocateReadWriteSplittingConnectionResponse
+   * @summary Applies for a read-only routing endpoint for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)Feature description
+   * If read-only instances are attached to a primary ApsaraDB RDS for SQL Server instance, you can call this operation to apply for a unified read-only routing endpoint for the primary instance. After you apply for a read-only routing endpoint for a primary instance, the existing endpoints of the primary instance and its read-only instances remain valid. In addition, you can still apply for internal and public endpoints.
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+   * *   The instance is in the Running state.
+   * *   Read-only instances are attached to the primary instance.
+   * *   The instance does not have an ongoing Data Transmission Service (DTS) migration task.
+   * *   The instance runs one of the following database versions and RDS editions:
+   *     *   SQL Server on RDS Cluster Edition
+   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+   *     *   MySQL 5.6
+   *
+   * @param request AllocateReadWriteSplittingConnectionRequest
+   * @return AllocateReadWriteSplittingConnectionResponse
    */
   async allocateReadWriteSplittingConnection(request: AllocateReadWriteSplittingConnectionRequest): Promise<AllocateReadWriteSplittingConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37913,14 +37938,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *
-    * @param request AttachWhitelistTemplateToInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachWhitelistTemplateToInstanceResponse
+   * @summary Associates a whitelist template with an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *
+   * @param request AttachWhitelistTemplateToInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachWhitelistTemplateToInstanceResponse
    */
   async attachWhitelistTemplateToInstanceWithOptions(request: AttachWhitelistTemplateToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AttachWhitelistTemplateToInstanceResponse> {
     Util.validateModel(request);
@@ -37967,13 +37994,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *
-    * @param request AttachWhitelistTemplateToInstanceRequest
-    * @return AttachWhitelistTemplateToInstanceResponse
+   * @summary Associates a whitelist template with an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *
+   * @param request AttachWhitelistTemplateToInstanceRequest
+   * @return AttachWhitelistTemplateToInstanceResponse
    */
   async attachWhitelistTemplateToInstance(request: AttachWhitelistTemplateToInstanceRequest): Promise<AttachWhitelistTemplateToInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37981,22 +38010,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)Feature description
-    * When the [read/write splitting](~~51073~~) feature is enabled, this operation is used to calculate system-assigned read weights. For more information about custom read weights, see [DescribeDBInstanceNetInfo](~~610423~~).
-    * ### [](#)Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   If the instance runs MySQL, the instance uses a shared proxy.
-    * *   The instance runs one of the following MySQL versions and RDS editions:
-    *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-    *     *   MySQL 5.6
-    *     *   SQL Server on RDS Cluster Edition
-    *
-    * @param request CalculateDBInstanceWeightRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CalculateDBInstanceWeightResponse
+   * @summary Queries system-assigned read weights.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)Feature description
+   * When the [read/write splitting](https://help.aliyun.com/document_detail/51073.html) feature is enabled, this operation is used to calculate system-assigned read weights. For more information about custom read weights, see [DescribeDBInstanceNetInfo](https://help.aliyun.com/document_detail/610423.html).
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   If the instance runs MySQL, the instance uses a shared proxy.
+   * *   The instance runs one of the following MySQL versions and RDS editions:
+   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+   *     *   MySQL 5.6
+   *     *   SQL Server on RDS Cluster Edition
+   *
+   * @param request CalculateDBInstanceWeightRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CalculateDBInstanceWeightResponse
    */
   async calculateDBInstanceWeightWithOptions(request: CalculateDBInstanceWeightRequest, runtime: $Util.RuntimeOptions): Promise<CalculateDBInstanceWeightResponse> {
     Util.validateModel(request);
@@ -38027,21 +38058,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)Feature description
-    * When the [read/write splitting](~~51073~~) feature is enabled, this operation is used to calculate system-assigned read weights. For more information about custom read weights, see [DescribeDBInstanceNetInfo](~~610423~~).
-    * ### [](#)Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   If the instance runs MySQL, the instance uses a shared proxy.
-    * *   The instance runs one of the following MySQL versions and RDS editions:
-    *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-    *     *   MySQL 5.6
-    *     *   SQL Server on RDS Cluster Edition
-    *
-    * @param request CalculateDBInstanceWeightRequest
-    * @return CalculateDBInstanceWeightResponse
+   * @summary Queries system-assigned read weights.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)Feature description
+   * When the [read/write splitting](https://help.aliyun.com/document_detail/51073.html) feature is enabled, this operation is used to calculate system-assigned read weights. For more information about custom read weights, see [DescribeDBInstanceNetInfo](https://help.aliyun.com/document_detail/610423.html).
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   If the instance runs MySQL, the instance uses a shared proxy.
+   * *   The instance runs one of the following MySQL versions and RDS editions:
+   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+   *     *   MySQL 5.6
+   *     *   SQL Server on RDS Cluster Edition
+   *
+   * @param request CalculateDBInstanceWeightRequest
+   * @return CalculateDBInstanceWeightResponse
    */
   async calculateDBInstanceWeight(request: CalculateDBInstanceWeightRequest): Promise<CalculateDBInstanceWeightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38049,17 +38082,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    * ### [](#)Supported database engines
-    * *   RDS SQL Server
-    * ### [](#)Description
-    * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](~~610592~~).
-    * ### [](#)Usage notes
-    * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-    *
-    * @param request CancelImportRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelImportResponse
+   * @summary Cancels the migration task of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description This operation is phased out.
+   * ### [](#)Supported database engines
+   * *   RDS SQL Server
+   * ### [](#)Description
+   * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](https://help.aliyun.com/document_detail/610592.html).
+   * ### [](#)Usage notes
+   * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+   *
+   * @param request CancelImportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelImportResponse
    */
   async cancelImportWithOptions(request: CancelImportRequest, runtime: $Util.RuntimeOptions): Promise<CancelImportResponse> {
     Util.validateModel(request);
@@ -38110,16 +38145,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    * ### [](#)Supported database engines
-    * *   RDS SQL Server
-    * ### [](#)Description
-    * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](~~610592~~).
-    * ### [](#)Usage notes
-    * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-    *
-    * @param request CancelImportRequest
-    * @return CancelImportResponse
+   * @summary Cancels the migration task of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description This operation is phased out.
+   * ### [](#)Supported database engines
+   * *   RDS SQL Server
+   * ### [](#)Description
+   * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](https://help.aliyun.com/document_detail/610592.html).
+   * ### [](#)Usage notes
+   * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+   *
+   * @param request CancelImportRequest
+   * @return CancelImportResponse
    */
   async cancelImport(request: CancelImportRequest): Promise<CancelImportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38127,15 +38164,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request CheckAccountNameAvailableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CheckAccountNameAvailableResponse
+   * @summary Checks whether the username of the account that you want to create on an instance is available.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request CheckAccountNameAvailableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckAccountNameAvailableResponse
    */
   async checkAccountNameAvailableWithOptions(request: CheckAccountNameAvailableRequest, runtime: $Util.RuntimeOptions): Promise<CheckAccountNameAvailableResponse> {
     Util.validateModel(request);
@@ -38182,14 +38221,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request CheckAccountNameAvailableRequest
-    * @return CheckAccountNameAvailableResponse
+   * @summary Checks whether the username of the account that you want to create on an instance is available.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request CheckAccountNameAvailableRequest
+   * @return CheckAccountNameAvailableResponse
    */
   async checkAccountNameAvailable(request: CheckAccountNameAvailableRequest): Promise<CheckAccountNameAvailableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38197,15 +38238,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request CheckCloudResourceAuthorizedRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CheckCloudResourceAuthorizedResponse
+   * @summary Checks permissions that are granted on an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request CheckCloudResourceAuthorizedRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckCloudResourceAuthorizedResponse
    */
   async checkCloudResourceAuthorizedWithOptions(request: CheckCloudResourceAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<CheckCloudResourceAuthorizedResponse> {
     Util.validateModel(request);
@@ -38264,14 +38307,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request CheckCloudResourceAuthorizedRequest
-    * @return CheckCloudResourceAuthorizedResponse
+   * @summary Checks permissions that are granted on an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request CheckCloudResourceAuthorizedRequest
+   * @return CheckCloudResourceAuthorizedResponse
    */
   async checkCloudResourceAuthorized(request: CheckCloudResourceAuthorizedRequest): Promise<CheckCloudResourceAuthorizedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38279,20 +38324,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * >  If your ApsaraDB RDS for PostgreSQL instance uses the new architecture and is created after October 10, 2022, this feature is not supported for the RDS instance. For more information, see [\\[Notice\\] SLR authorization is required to create an ApsaraDB RDS for PostgreSQL instance from October 10, 2022](~~452313~~).
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~)
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for PostgreSQL instance](~~206671~~) and [Restore the data of an ApsaraDB RDS for PostgreSQL across regions](~~206662~~)
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for SQL Server instance](~~187923~~) and [Restore the data of an ApsaraDB RDS for SQL Server across regions](~~187924~~)
-    *
-    * @param request CheckCreateDdrDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CheckCreateDdrDBInstanceResponse
+   * @summary Queries whether an instance can be restored by using a cross-region backup set.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * >  If your ApsaraDB RDS for PostgreSQL instance uses the new architecture and is created after October 10, 2022, this feature is not supported for the RDS instance. For more information, see [[Notice\\] SLR authorization is required to create an ApsaraDB RDS for PostgreSQL instance from October 10, 2022](~~452313~~).
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html) and [Restore the data of an ApsaraDB RDS for PostgreSQL across regions](https://help.aliyun.com/document_detail/206662.html)
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html) and [Restore the data of an ApsaraDB RDS for SQL Server across regions](https://help.aliyun.com/document_detail/187924.html)
+   *
+   * @param request CheckCreateDdrDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckCreateDdrDBInstanceResponse
    */
   async checkCreateDdrDBInstanceWithOptions(request: CheckCreateDdrDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CheckCreateDdrDBInstanceResponse> {
     Util.validateModel(request);
@@ -38371,19 +38418,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * >  If your ApsaraDB RDS for PostgreSQL instance uses the new architecture and is created after October 10, 2022, this feature is not supported for the RDS instance. For more information, see [\\[Notice\\] SLR authorization is required to create an ApsaraDB RDS for PostgreSQL instance from October 10, 2022](~~452313~~).
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~)
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for PostgreSQL instance](~~206671~~) and [Restore the data of an ApsaraDB RDS for PostgreSQL across regions](~~206662~~)
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for SQL Server instance](~~187923~~) and [Restore the data of an ApsaraDB RDS for SQL Server across regions](~~187924~~)
-    *
-    * @param request CheckCreateDdrDBInstanceRequest
-    * @return CheckCreateDdrDBInstanceResponse
+   * @summary Queries whether an instance can be restored by using a cross-region backup set.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * >  If your ApsaraDB RDS for PostgreSQL instance uses the new architecture and is created after October 10, 2022, this feature is not supported for the RDS instance. For more information, see [[Notice\\] SLR authorization is required to create an ApsaraDB RDS for PostgreSQL instance from October 10, 2022](~~452313~~).
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html) and [Restore the data of an ApsaraDB RDS for PostgreSQL across regions](https://help.aliyun.com/document_detail/206662.html)
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html) and [Restore the data of an ApsaraDB RDS for SQL Server across regions](https://help.aliyun.com/document_detail/187924.html)
+   *
+   * @param request CheckCreateDdrDBInstanceRequest
+   * @return CheckCreateDdrDBInstanceResponse
    */
   async checkCreateDdrDBInstance(request: CheckCreateDdrDBInstanceRequest): Promise<CheckCreateDdrDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38391,15 +38440,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request CheckDBNameAvailableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CheckDBNameAvailableResponse
+   * @summary Checks whether a database name is unique and conforms to the naming conventions on an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request CheckDBNameAvailableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckDBNameAvailableResponse
    */
   async checkDBNameAvailableWithOptions(request: CheckDBNameAvailableRequest, runtime: $Util.RuntimeOptions): Promise<CheckDBNameAvailableResponse> {
     Util.validateModel(request);
@@ -38450,20 +38501,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request CheckDBNameAvailableRequest
-    * @return CheckDBNameAvailableResponse
+   * @summary Checks whether a database name is unique and conforms to the naming conventions on an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request CheckDBNameAvailableRequest
+   * @return CheckDBNameAvailableResponse
    */
   async checkDBNameAvailable(request: CheckDBNameAvailableRequest): Promise<CheckDBNameAvailableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkDBNameAvailableWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call the CheckInstanceExist operation to query whether an ApsaraDB RDS instance exists.
+   *
+   * @param request CheckInstanceExistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckInstanceExistResponse
+   */
   async checkInstanceExistWithOptions(request: CheckInstanceExistRequest, runtime: $Util.RuntimeOptions): Promise<CheckInstanceExistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38500,18 +38560,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckInstanceExistResponse>(await this.callApi(params, req, runtime), new CheckInstanceExistResponse({}));
   }
 
+  /**
+   * @summary You can call the CheckInstanceExist operation to query whether an ApsaraDB RDS instance exists.
+   *
+   * @param request CheckInstanceExistRequest
+   * @return CheckInstanceExistResponse
+   */
   async checkInstanceExist(request: CheckInstanceExistRequest): Promise<CheckInstanceExistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkInstanceExistWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    *
-    * @param request CheckServiceLinkedRoleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CheckServiceLinkedRoleResponse
+   * @summary Checks whether a service-linked role (SLR) is created.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   *
+   * @param request CheckServiceLinkedRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckServiceLinkedRoleResponse
    */
   async checkServiceLinkedRoleWithOptions(request: CheckServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceLinkedRoleResponse> {
     Util.validateModel(request);
@@ -38558,11 +38626,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    *
-    * @param request CheckServiceLinkedRoleRequest
-    * @return CheckServiceLinkedRoleResponse
+   * @summary Checks whether a service-linked role (SLR) is created.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   *
+   * @param request CheckServiceLinkedRoleRequest
+   * @return CheckServiceLinkedRoleResponse
    */
   async checkServiceLinkedRole(request: CheckServiceLinkedRoleRequest): Promise<CheckServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38570,21 +38640,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Restore data of an ApsaraDB RDS for MySQL instance](~~96147~~)
-    * *   [Restore data of an ApsaraDB RDS for PostgreSQL instance](~~96776~~)
-    * *   [Restore data of an ApsaraDB RDS for SQL Server instance](~~95722~~)
-    * *   [Restore data of an ApsaraDB RDS for MariaDB instance](~~97151~~)
-    *
-    * @param tmpReq CloneDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CloneDBInstanceResponse
+   * @summary Restores the data of an original instance to a new instance. The new instance is called a cloned instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Restore data of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96147.html)
+   * *   [Restore data of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96776.html)
+   * *   [Restore data of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
+   * *   [Restore data of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97151.html)
+   *
+   * @param tmpReq CloneDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneDBInstanceResponse
    */
   async cloneDBInstanceWithOptions(tmpReq: CloneDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CloneDBInstanceResponse> {
     Util.validateModel(tmpReq);
@@ -38733,20 +38805,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Restore data of an ApsaraDB RDS for MySQL instance](~~96147~~)
-    * *   [Restore data of an ApsaraDB RDS for PostgreSQL instance](~~96776~~)
-    * *   [Restore data of an ApsaraDB RDS for SQL Server instance](~~95722~~)
-    * *   [Restore data of an ApsaraDB RDS for MariaDB instance](~~97151~~)
-    *
-    * @param request CloneDBInstanceRequest
-    * @return CloneDBInstanceResponse
+   * @summary Restores the data of an original instance to a new instance. The new instance is called a cloned instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Restore data of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96147.html)
+   * *   [Restore data of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96776.html)
+   * *   [Restore data of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
+   * *   [Restore data of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97151.html)
+   *
+   * @param request CloneDBInstanceRequest
+   * @return CloneDBInstanceResponse
    */
   async cloneDBInstance(request: CloneDBInstanceRequest): Promise<CloneDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38754,17 +38828,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~)
-    *
-    * @param request CloneParameterGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CloneParameterGroupResponse
+   * @summary Replicates a parameter template to the current region or another region.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request CloneParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneParameterGroupResponse
    */
   async cloneParameterGroupWithOptions(request: CloneParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<CloneParameterGroupResponse> {
     Util.validateModel(request);
@@ -38823,16 +38899,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~)
-    *
-    * @param request CloneParameterGroupRequest
-    * @return CloneParameterGroupResponse
+   * @summary Replicates a parameter template to the current region or another region.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request CloneParameterGroupRequest
+   * @return CloneParameterGroupResponse
    */
   async cloneParameterGroup(request: CloneParameterGroupRequest): Promise<CloneParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38840,17 +38918,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Feature description
-    * After you call the [QueryNotify](~~610443~~) operation to query notifications for an instance, you can call this operation to mark the notifications as confirmed.
-    *
-    * @param tmpReq ConfirmNotifyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ConfirmNotifyResponse
+   * @summary Marks the notifications of an instance within your Alibaba Cloud account as confirmed.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Feature description
+   * After you call the [QueryNotify](https://help.aliyun.com/document_detail/610443.html) operation to query notifications for an instance, you can call this operation to mark the notifications as confirmed.
+   *
+   * @param tmpReq ConfirmNotifyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfirmNotifyResponse
    */
   async confirmNotifyWithOptions(tmpReq: ConfirmNotifyRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmNotifyResponse> {
     Util.validateModel(tmpReq);
@@ -38887,16 +38967,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Feature description
-    * After you call the [QueryNotify](~~610443~~) operation to query notifications for an instance, you can call this operation to mark the notifications as confirmed.
-    *
-    * @param request ConfirmNotifyRequest
-    * @return ConfirmNotifyResponse
+   * @summary Marks the notifications of an instance within your Alibaba Cloud account as confirmed.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Feature description
+   * After you call the [QueryNotify](https://help.aliyun.com/document_detail/610443.html) operation to query notifications for an instance, you can call this operation to mark the notifications as confirmed.
+   *
+   * @param request ConfirmNotifyRequest
+   * @return ConfirmNotifyResponse
    */
   async confirmNotify(request: ConfirmNotifyRequest): Promise<ConfirmNotifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38904,11 +38986,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request CopyDatabaseRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CopyDatabaseResponse
+   * @summary Replicates the databases of an instance that runs SQL Server 2008 R2 to another instance. This operation is phased out.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request CopyDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopyDatabaseResponse
    */
   async copyDatabaseWithOptions(request: CopyDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CopyDatabaseResponse> {
     Util.validateModel(request);
@@ -38947,10 +39031,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request CopyDatabaseRequest
-    * @return CopyDatabaseResponse
+   * @summary Replicates the databases of an instance that runs SQL Server 2008 R2 to another instance. This operation is phased out.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request CopyDatabaseRequest
+   * @return CopyDatabaseResponse
    */
   async copyDatabase(request: CopyDatabaseRequest): Promise<CopyDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38958,15 +39044,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS SQL Server
-    * ### References
-    * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Replicate databases between ApsaraDB RDS for SQL Server instances](~~95702~~)
-    *
-    * @param request CopyDatabaseBetweenInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CopyDatabaseBetweenInstancesResponse
+   * @summary Replicates databases between RDS SQL Server instances.
+   *
+   * @description ### Supported database engines
+   * RDS SQL Server
+   * ### References
+   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Replicate databases between ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95702.html)
+   *
+   * @param request CopyDatabaseBetweenInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopyDatabaseBetweenInstancesResponse
    */
   async copyDatabaseBetweenInstancesWithOptions(request: CopyDatabaseBetweenInstancesRequest, runtime: $Util.RuntimeOptions): Promise<CopyDatabaseBetweenInstancesResponse> {
     Util.validateModel(request);
@@ -39017,14 +39105,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS SQL Server
-    * ### References
-    * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Replicate databases between ApsaraDB RDS for SQL Server instances](~~95702~~)
-    *
-    * @param request CopyDatabaseBetweenInstancesRequest
-    * @return CopyDatabaseBetweenInstancesResponse
+   * @summary Replicates databases between RDS SQL Server instances.
+   *
+   * @description ### Supported database engines
+   * RDS SQL Server
+   * ### References
+   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Replicate databases between ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95702.html)
+   *
+   * @param request CopyDatabaseBetweenInstancesRequest
+   * @return CopyDatabaseBetweenInstancesResponse
    */
   async copyDatabaseBetweenInstances(request: CopyDatabaseBetweenInstancesRequest): Promise<CopyDatabaseBetweenInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39032,21 +39122,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * ### References
-    * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Create an account on an ApsaraDB RDS for MySQL instance](~~96089~~)
-    * *   [Create an account on an ApsaraDB RDS for PostgreSQL instance](~~96753~~)
-    * *   [Create an account on an ApsaraDB RDS for SQL Server instance](~~95810~~)
-    * *   [Create an account on an ApsaraDB RDS for MariaDB instance](~~97132~~)
-    *
-    * @param request CreateAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAccountResponse
+   * @summary Creates a database account.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * ### References
+   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Create an account on an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96089.html)
+   * *   [Create an account on an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96753.html)
+   * *   [Create an account on an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95810.html)
+   * *   [Create an account on an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97132.html)
+   *
+   * @param request CreateAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccountResponse
    */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
@@ -39105,20 +39197,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * ### References
-    * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Create an account on an ApsaraDB RDS for MySQL instance](~~96089~~)
-    * *   [Create an account on an ApsaraDB RDS for PostgreSQL instance](~~96753~~)
-    * *   [Create an account on an ApsaraDB RDS for SQL Server instance](~~95810~~)
-    * *   [Create an account on an ApsaraDB RDS for MariaDB instance](~~97132~~)
-    *
-    * @param request CreateAccountRequest
-    * @return CreateAccountResponse
+   * @summary Creates a database account.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * ### References
+   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Create an account on an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96089.html)
+   * *   [Create an account on an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96753.html)
+   * *   [Create an account on an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95810.html)
+   * *   [Create an account on an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97132.html)
+   *
+   * @param request CreateAccountRequest
+   * @return CreateAccountResponse
    */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39126,27 +39220,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Usage notes
-    * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](~~437245~~).
-    * ### [](#)Precautions
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The instance is in the Running state.
-    * *   The instance does not have ongoing backup tasks.
-    * *   The number of backup files that are created per day for an instance cannot exceed 20.
-    * ### [](#)References
-    * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](~~378074~~)
-    * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](~~96772~~)
-    * *   [Use the data backup feature for an ApsaraDB RDS for SQL Server instance](~~95717~~)
-    * *   [Use the data backup feature for an ApsaraDB RDS for MariaDB instance](~~97147~~)
-    *
-    * @param request CreateBackupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBackupResponse
+   * @summary Creates a backup file for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Usage notes
+   * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/437245.html).
+   * ### [](#)Precautions
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The instance is in the Running state.
+   * *   The instance does not have ongoing backup tasks.
+   * *   The number of backup files that are created per day for an instance cannot exceed 20.
+   * ### [](#)References
+   * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/378074.html)
+   * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+   * *   [Use the data backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+   * *   [Use the data backup feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+   *
+   * @param request CreateBackupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBackupResponse
    */
   async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
     Util.validateModel(request);
@@ -39197,26 +39293,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Usage notes
-    * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](~~437245~~).
-    * ### [](#)Precautions
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The instance is in the Running state.
-    * *   The instance does not have ongoing backup tasks.
-    * *   The number of backup files that are created per day for an instance cannot exceed 20.
-    * ### [](#)References
-    * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](~~378074~~)
-    * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](~~96772~~)
-    * *   [Use the data backup feature for an ApsaraDB RDS for SQL Server instance](~~95717~~)
-    * *   [Use the data backup feature for an ApsaraDB RDS for MariaDB instance](~~97147~~)
-    *
-    * @param request CreateBackupRequest
-    * @return CreateBackupResponse
+   * @summary Creates a backup file for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Usage notes
+   * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/437245.html).
+   * ### [](#)Precautions
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The instance is in the Running state.
+   * *   The instance does not have ongoing backup tasks.
+   * *   The number of backup files that are created per day for an instance cannot exceed 20.
+   * ### [](#)References
+   * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/378074.html)
+   * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+   * *   [Use the data backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+   * *   [Use the data backup feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+   *
+   * @param request CreateBackupRequest
+   * @return CreateBackupResponse
    */
   async createBackup(request: CreateBackupRequest): Promise<CreateBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39224,15 +39322,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Use the cloud migration feature](~~365562~~)
-    *
-    * @param request CreateCloudMigrationPrecheckTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateCloudMigrationPrecheckTaskResponse
+   * @summary Creates an assessment task for cloud migration to an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+   *
+   * @param request CreateCloudMigrationPrecheckTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCloudMigrationPrecheckTaskResponse
    */
   async createCloudMigrationPrecheckTaskWithOptions(request: CreateCloudMigrationPrecheckTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudMigrationPrecheckTaskResponse> {
     Util.validateModel(request);
@@ -39287,14 +39387,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Use the cloud migration feature](~~365562~~)
-    *
-    * @param request CreateCloudMigrationPrecheckTaskRequest
-    * @return CreateCloudMigrationPrecheckTaskResponse
+   * @summary Creates an assessment task for cloud migration to an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+   *
+   * @param request CreateCloudMigrationPrecheckTaskRequest
+   * @return CreateCloudMigrationPrecheckTaskResponse
    */
   async createCloudMigrationPrecheckTask(request: CreateCloudMigrationPrecheckTaskRequest): Promise<CreateCloudMigrationPrecheckTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39302,15 +39404,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Use the cloud migration feature](~~365562~~)
-    *
-    * @param request CreateCloudMigrationTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateCloudMigrationTaskResponse
+   * @summary Creates a cloud migration task for an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+   *
+   * @param request CreateCloudMigrationTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCloudMigrationTaskResponse
    */
   async createCloudMigrationTaskWithOptions(request: CreateCloudMigrationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudMigrationTaskResponse> {
     Util.validateModel(request);
@@ -39365,14 +39469,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Use the cloud migration feature](~~365562~~)
-    *
-    * @param request CreateCloudMigrationTaskRequest
-    * @return CreateCloudMigrationTaskResponse
+   * @summary Creates a cloud migration task for an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+   *
+   * @param request CreateCloudMigrationTaskRequest
+   * @return CreateCloudMigrationTaskResponse
    */
   async createCloudMigrationTask(request: CreateCloudMigrationTaskRequest): Promise<CreateCloudMigrationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39380,25 +39486,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * ### References
-    * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-    * *   [Create an ApsaraDB RDS for MySQL instance](~~148036~~)
-    * *   [Create a serverless ApsaraDB RDS for MySQL instance](~~412231~~)
-    * *   [Create an ApsaraDB RDS for PostgreSQL instance](~~148038~~)
-    * *   [Create a serverless ApsaraDB RDS for PostgreSQL instance](~~607753~~)
-    * *   [Enable Babelfish for an ApsaraDB RDS for PostgreSQL instance](~~428615~~)
-    * *   [Create an ApsaraDB RDS for SQL Server instance](~~148037~~)
-    * *   [Create a serverless ApsaraDB RDS for SQL Server instance](~~603465~~)
-    * *   [Create an ApsaraDB RDS for MariaDB instance](~~148040~~)
-    *
-    * @param tmpReq CreateDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDBInstanceResponse
+   * @summary Creates an instance.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * ### References
+   * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+   * *   [Create an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/148036.html)
+   * *   [Create a serverless ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/412231.html)
+   * *   [Create an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/148038.html)
+   * *   [Create a serverless ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/607753.html)
+   * *   [Enable Babelfish for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/428615.html)
+   * *   [Create an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/148037.html)
+   * *   [Create a serverless ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/603465.html)
+   * *   [Create an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/148040.html)
+   *
+   * @param tmpReq CreateDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBInstanceResponse
    */
   async createDBInstanceWithOptions(tmpReq: CreateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceResponse> {
     Util.validateModel(tmpReq);
@@ -39651,24 +39759,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * ### References
-    * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-    * *   [Create an ApsaraDB RDS for MySQL instance](~~148036~~)
-    * *   [Create a serverless ApsaraDB RDS for MySQL instance](~~412231~~)
-    * *   [Create an ApsaraDB RDS for PostgreSQL instance](~~148038~~)
-    * *   [Create a serverless ApsaraDB RDS for PostgreSQL instance](~~607753~~)
-    * *   [Enable Babelfish for an ApsaraDB RDS for PostgreSQL instance](~~428615~~)
-    * *   [Create an ApsaraDB RDS for SQL Server instance](~~148037~~)
-    * *   [Create a serverless ApsaraDB RDS for SQL Server instance](~~603465~~)
-    * *   [Create an ApsaraDB RDS for MariaDB instance](~~148040~~)
-    *
-    * @param request CreateDBInstanceRequest
-    * @return CreateDBInstanceResponse
+   * @summary Creates an instance.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * ### References
+   * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+   * *   [Create an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/148036.html)
+   * *   [Create a serverless ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/412231.html)
+   * *   [Create an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/148038.html)
+   * *   [Create a serverless ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/607753.html)
+   * *   [Enable Babelfish for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/428615.html)
+   * *   [Create an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/148037.html)
+   * *   [Create a serverless ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/603465.html)
+   * *   [Create an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/148040.html)
+   *
+   * @param request CreateDBInstanceRequest
+   * @return CreateDBInstanceResponse
    */
   async createDBInstance(request: CreateDBInstanceRequest): Promise<CreateDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39676,15 +39786,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-    * [Add a read-only endpoint for a cluster](~~464132~~)
-    *
-    * @param tmpReq CreateDBInstanceEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDBInstanceEndpointResponse
+   * @summary Creates an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+   * [Add a read-only endpoint for a cluster](https://help.aliyun.com/document_detail/464132.html)
+   *
+   * @param tmpReq CreateDBInstanceEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBInstanceEndpointResponse
    */
   async createDBInstanceEndpointWithOptions(tmpReq: CreateDBInstanceEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceEndpointResponse> {
     Util.validateModel(tmpReq);
@@ -39761,14 +39873,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-    * [Add a read-only endpoint for a cluster](~~464132~~)
-    *
-    * @param request CreateDBInstanceEndpointRequest
-    * @return CreateDBInstanceEndpointResponse
+   * @summary Creates an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+   * [Add a read-only endpoint for a cluster](https://help.aliyun.com/document_detail/464132.html)
+   *
+   * @param request CreateDBInstanceEndpointRequest
+   * @return CreateDBInstanceEndpointResponse
    */
   async createDBInstanceEndpoint(request: CreateDBInstanceEndpointRequest): Promise<CreateDBInstanceEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39776,15 +39890,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### Precautions
-    * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
-    * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
-    *
-    * @param request CreateDBInstanceEndpointAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDBInstanceEndpointAddressResponse
+   * @summary Creates a public endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### Precautions
+   * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
+   * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
+   *
+   * @param request CreateDBInstanceEndpointAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBInstanceEndpointAddressResponse
    */
   async createDBInstanceEndpointAddressWithOptions(request: CreateDBInstanceEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceEndpointAddressResponse> {
     Util.validateModel(request);
@@ -39839,14 +39955,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### Precautions
-    * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
-    * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
-    *
-    * @param request CreateDBInstanceEndpointAddressRequest
-    * @return CreateDBInstanceEndpointAddressResponse
+   * @summary Creates a public endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### Precautions
+   * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
+   * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
+   *
+   * @param request CreateDBInstanceEndpointAddressRequest
+   * @return CreateDBInstanceEndpointAddressResponse
    */
   async createDBInstanceEndpointAddress(request: CreateDBInstanceEndpointAddressRequest): Promise<CreateDBInstanceEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39854,21 +39972,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * ### References
-    * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-    * *   [Manage ApsaraDB RDS for MySQL instances in the recycle bin](~~96065~~)
-    * *   [Manage ApsaraDB RDS for PostgreSQL instances in the recycle bin](~~96752~~)
-    * *   [Manage ApsaraDB RDS for SQL Server instances in the recycle bin](~~95669~~)
-    * *   [Manage ApsaraDB RDS for MariaDB instances in the recycle bin](~~97131~~)
-    *
-    * @param request CreateDBInstanceForRebuildRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDBInstanceForRebuildResponse
+   * @summary Rebuilds an instance from the recycle bin.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * ### References
+   * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+   * *   [Manage ApsaraDB RDS for MySQL instances in the recycle bin](https://help.aliyun.com/document_detail/96065.html)
+   * *   [Manage ApsaraDB RDS for PostgreSQL instances in the recycle bin](https://help.aliyun.com/document_detail/96752.html)
+   * *   [Manage ApsaraDB RDS for SQL Server instances in the recycle bin](https://help.aliyun.com/document_detail/95669.html)
+   * *   [Manage ApsaraDB RDS for MariaDB instances in the recycle bin](https://help.aliyun.com/document_detail/97131.html)
+   *
+   * @param request CreateDBInstanceForRebuildRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBInstanceForRebuildResponse
    */
   async createDBInstanceForRebuildWithOptions(request: CreateDBInstanceForRebuildRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceForRebuildResponse> {
     Util.validateModel(request);
@@ -39975,20 +40095,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * ### References
-    * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-    * *   [Manage ApsaraDB RDS for MySQL instances in the recycle bin](~~96065~~)
-    * *   [Manage ApsaraDB RDS for PostgreSQL instances in the recycle bin](~~96752~~)
-    * *   [Manage ApsaraDB RDS for SQL Server instances in the recycle bin](~~95669~~)
-    * *   [Manage ApsaraDB RDS for MariaDB instances in the recycle bin](~~97131~~)
-    *
-    * @param request CreateDBInstanceForRebuildRequest
-    * @return CreateDBInstanceForRebuildResponse
+   * @summary Rebuilds an instance from the recycle bin.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * ### References
+   * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+   * *   [Manage ApsaraDB RDS for MySQL instances in the recycle bin](https://help.aliyun.com/document_detail/96065.html)
+   * *   [Manage ApsaraDB RDS for PostgreSQL instances in the recycle bin](https://help.aliyun.com/document_detail/96752.html)
+   * *   [Manage ApsaraDB RDS for SQL Server instances in the recycle bin](https://help.aliyun.com/document_detail/95669.html)
+   * *   [Manage ApsaraDB RDS for MariaDB instances in the recycle bin](https://help.aliyun.com/document_detail/97131.html)
+   *
+   * @param request CreateDBInstanceForRebuildRequest
+   * @return CreateDBInstanceForRebuildResponse
    */
   async createDBInstanceForRebuild(request: CreateDBInstanceForRebuildRequest): Promise<CreateDBInstanceForRebuildResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39996,15 +40118,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * MySQL
-    * ### References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Add a node to an ApsaraDB RDS for MySQL cluster](~~464129~~)
-    *
-    * @param tmpReq CreateDBNodesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDBNodesResponse
+   * @summary Adds a node to an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition. An RDS instance that runs RDS Cluster Edition is referred to as an RDS cluster.
+   *
+   * @description ### Supported database engines
+   * MySQL
+   * ### References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Add a node to an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464129.html)
+   *
+   * @param tmpReq CreateDBNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBNodesResponse
    */
   async createDBNodesWithOptions(tmpReq: CreateDBNodesRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBNodesResponse> {
     Util.validateModel(tmpReq);
@@ -40065,14 +40189,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * MySQL
-    * ### References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Add a node to an ApsaraDB RDS for MySQL cluster](~~464129~~)
-    *
-    * @param request CreateDBNodesRequest
-    * @return CreateDBNodesResponse
+   * @summary Adds a node to an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition. An RDS instance that runs RDS Cluster Edition is referred to as an RDS cluster.
+   *
+   * @description ### Supported database engines
+   * MySQL
+   * ### References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Add a node to an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464129.html)
+   *
+   * @param request CreateDBNodesRequest
+   * @return CreateDBNodesResponse
    */
   async createDBNodes(request: CreateDBNodesRequest): Promise<CreateDBNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40080,17 +40206,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~)
-    *
-    * @param request CreateDBProxyEndpointAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDBProxyEndpointAddressResponse
+   * @summary Creates the endpoint that is used to connect to the dedicated proxy of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+   *
+   * @param request CreateDBProxyEndpointAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBProxyEndpointAddressResponse
    */
   async createDBProxyEndpointAddressWithOptions(request: CreateDBProxyEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBProxyEndpointAddressResponse> {
     Util.validateModel(request);
@@ -40157,16 +40285,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~)
-    *
-    * @param request CreateDBProxyEndpointAddressRequest
-    * @return CreateDBProxyEndpointAddressResponse
+   * @summary Creates the endpoint that is used to connect to the dedicated proxy of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+   *
+   * @param request CreateDBProxyEndpointAddressRequest
+   * @return CreateDBProxyEndpointAddressResponse
    */
   async createDBProxyEndpointAddress(request: CreateDBProxyEndpointAddressRequest): Promise<CreateDBProxyEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40174,21 +40304,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Create a database in an ApsaraDB RDS for MySQL instance](~~96105~~)
-    * *   [Create a database in an ApsaraDB RDS for PostgreSQL instance](~~96758~~)
-    * *   [Create a database in an ApsaraDB RDS for SQL Server instance](~~95698~~)
-    * *   [Create a database in an ApsaraDB RDS for MariaDB instance](~~97136~~)
-    *
-    * @param request CreateDatabaseRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDatabaseResponse
+   * @summary Creates a database in an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Create a database in an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96105.html)
+   * *   [Create a database in an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96758.html)
+   * *   [Create a database in an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95698.html)
+   * *   [Create a database in an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97136.html)
+   *
+   * @param request CreateDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDatabaseResponse
    */
   async createDatabaseWithOptions(request: CreateDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatabaseResponse> {
     Util.validateModel(request);
@@ -40247,20 +40379,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Create a database in an ApsaraDB RDS for MySQL instance](~~96105~~)
-    * *   [Create a database in an ApsaraDB RDS for PostgreSQL instance](~~96758~~)
-    * *   [Create a database in an ApsaraDB RDS for SQL Server instance](~~95698~~)
-    * *   [Create a database in an ApsaraDB RDS for MariaDB instance](~~97136~~)
-    *
-    * @param request CreateDatabaseRequest
-    * @return CreateDatabaseResponse
+   * @summary Creates a database in an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Create a database in an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96105.html)
+   * *   [Create a database in an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96758.html)
+   * *   [Create a database in an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95698.html)
+   * *   [Create a database in an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97136.html)
+   *
+   * @param request CreateDatabaseRequest
+   * @return CreateDatabaseResponse
    */
   async createDatabase(request: CreateDatabaseRequest): Promise<CreateDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40268,20 +40402,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before restoration, you can call the [CheckCreateDdrDBInstance](~~121721~~) operation to check whether a cross-region backup set can be used for cross-region restoration.
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    *
-    * @param request CreateDdrInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDdrInstanceResponse
+   * @summary Restores data to a new instance across regions.
+   *
+   * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
+   * ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   *
+   * @param request CreateDdrInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDdrInstanceResponse
    */
   async createDdrInstanceWithOptions(request: CreateDdrInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDdrInstanceResponse> {
     Util.validateModel(request);
@@ -40424,19 +40560,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before restoration, you can call the [CheckCreateDdrDBInstance](~~121721~~) operation to check whether a cross-region backup set can be used for cross-region restoration.
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    *
-    * @param request CreateDdrInstanceRequest
-    * @return CreateDdrInstanceResponse
+   * @summary Restores data to a new instance across regions.
+   *
+   * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
+   * ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   *
+   * @param request CreateDdrInstanceRequest
+   * @return CreateDdrInstanceResponse
    */
   async createDdrInstance(request: CreateDdrInstanceRequest): Promise<CreateDdrInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40444,12 +40582,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  This operation is no longer maintained. You can use the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
-    * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
-    *
-    * @param request CreateDiagnosticReportRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDiagnosticReportResponse
+   * @summary Creates a diagnostic report.
+   *
+   * @description >  This operation is no longer maintained. You can call the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
+   * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
+   *
+   * @param request CreateDiagnosticReportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDiagnosticReportResponse
    */
   async createDiagnosticReportWithOptions(request: CreateDiagnosticReportRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiagnosticReportResponse> {
     Util.validateModel(request);
@@ -40484,11 +40624,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  This operation is no longer maintained. You can use the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
-    * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
-    *
-    * @param request CreateDiagnosticReportRequest
-    * @return CreateDiagnosticReportResponse
+   * @summary Creates a diagnostic report.
+   *
+   * @description >  This operation is no longer maintained. You can call the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
+   * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
+   *
+   * @param request CreateDiagnosticReportRequest
+   * @return CreateDiagnosticReportResponse
    */
   async createDiagnosticReport(request: CreateDiagnosticReportRequest): Promise<CreateDiagnosticReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40496,15 +40638,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   MySQL
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Create and release an ApsaraDB RDS global active database cluster](~~328592~~)
-    *
-    * @param request CreateGADInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateGADInstanceResponse
+   * @summary Creates an ApsaraDB RDS global active database cluster.
+   *
+   * @description ### [](#)Supported database engine
+   * *   MySQL
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Create and release an ApsaraDB RDS global active database cluster](https://help.aliyun.com/document_detail/328592.html)
+   *
+   * @param request CreateGADInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGADInstanceResponse
    */
   async createGADInstanceWithOptions(request: CreateGADInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateGADInstanceResponse> {
     Util.validateModel(request);
@@ -40563,14 +40707,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   MySQL
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Create and release an ApsaraDB RDS global active database cluster](~~328592~~)
-    *
-    * @param request CreateGADInstanceRequest
-    * @return CreateGADInstanceResponse
+   * @summary Creates an ApsaraDB RDS global active database cluster.
+   *
+   * @description ### [](#)Supported database engine
+   * *   MySQL
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Create and release an ApsaraDB RDS global active database cluster](https://help.aliyun.com/document_detail/328592.html)
+   *
+   * @param request CreateGADInstanceRequest
+   * @return CreateGADInstanceResponse
    */
   async createGADInstance(request: CreateGADInstanceRequest): Promise<CreateGADInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40578,15 +40724,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Add or remove unit nodes](~~331851~~)
-    *
-    * @param request CreateGadInstanceMemberRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateGadInstanceMemberResponse
+   * @summary Adds nodes to an ApsaraDB RDS global active database cluster.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Add or remove unit nodes](https://help.aliyun.com/document_detail/331851.html)
+   *
+   * @param request CreateGadInstanceMemberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGadInstanceMemberResponse
    */
   async createGadInstanceMemberWithOptions(request: CreateGadInstanceMemberRequest, runtime: $Util.RuntimeOptions): Promise<CreateGadInstanceMemberResponse> {
     Util.validateModel(request);
@@ -40637,20 +40785,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Add or remove unit nodes](~~331851~~)
-    *
-    * @param request CreateGadInstanceMemberRequest
-    * @return CreateGadInstanceMemberResponse
+   * @summary Adds nodes to an ApsaraDB RDS global active database cluster.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Add or remove unit nodes](https://help.aliyun.com/document_detail/331851.html)
+   *
+   * @param request CreateGadInstanceMemberRequest
+   * @return CreateGadInstanceMemberResponse
    */
   async createGadInstanceMember(request: CreateGadInstanceMemberRequest): Promise<CreateGadInstanceMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGadInstanceMemberWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建全密态规则
+   *
+   * @param tmpReq CreateMaskingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMaskingRulesResponse
+   */
   async createMaskingRulesWithOptions(tmpReq: CreateMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateMaskingRulesResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateMaskingRulesShrinkRequest({ });
@@ -40709,24 +40866,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMaskingRulesResponse>(await this.callApi(params, req, runtime), new CreateMaskingRulesResponse({}));
   }
 
+  /**
+   * @summary 创建全密态规则
+   *
+   * @param request CreateMaskingRulesRequest
+   * @return CreateMaskingRulesResponse
+   */
   async createMaskingRules(request: CreateMaskingRulesRequest): Promise<CreateMaskingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMaskingRulesWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engine
-    * SQL Server
-    * ### [](#)Limits
-    * Data migration across Alibaba Cloud accounts is not supported. For example, backup files in an Object Storage Service (OSS) bucket within Alibaba Cloud Account A cannot be migrated to an ApsaraDB RDS for SQL Server instance within Alibaba Cloud Account B.
-    * >  You can migrate backup files from an OSS bucket within Alibaba Cloud Account A to an OSS bucket within Alibaba Cloud Account B. Make sure that the data in the OSS bucket and the RDS instance belong to the same Alibaba Cloud account. Then, you can call this operation to create a migration task. For more information, see [Use Data Online Migration to migrate data between accounts](~~342762~~).
-    * ### [](#)References
-    * >  Before you call this operation, carefully read the following topic. Make sure that you fully understand the prerequisites, preparations, and impacts for calling this operation.
-    * [Migrate data from a self-managed SQL Server instance to an ApsaraDB RDS for SQL Server instance](~~100019~~)
-    *
-    * @param request CreateMigrateTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateMigrateTaskResponse
+   * @summary Creates a migration task to restore backup files from an Object Storage Service (OSS) bucket to an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * SQL Server
+   * ### [](#)Limits
+   * Data migration across Alibaba Cloud accounts is not supported. For example, backup files in an Object Storage Service (OSS) bucket within Alibaba Cloud Account A cannot be migrated to an ApsaraDB RDS for SQL Server instance within Alibaba Cloud Account B.
+   * >  You can migrate backup files from an OSS bucket within Alibaba Cloud Account A to an OSS bucket within Alibaba Cloud Account B. Make sure that the data in the OSS bucket and the RDS instance belong to the same Alibaba Cloud account. Then, you can call this operation to create a migration task. For more information, see [Use Data Online Migration to migrate data between accounts](https://help.aliyun.com/document_detail/342762.html).
+   * ### [](#)References
+   * >  Before you call this operation, carefully read the following topic. Make sure that you fully understand the prerequisites, preparations, and impacts for calling this operation.
+   * [Migrate data from a self-managed SQL Server instance to an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/100019.html)
+   *
+   * @param request CreateMigrateTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMigrateTaskResponse
    */
   async createMigrateTaskWithOptions(request: CreateMigrateTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMigrateTaskResponse> {
     Util.validateModel(request);
@@ -40793,17 +40958,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * SQL Server
-    * ### [](#)Limits
-    * Data migration across Alibaba Cloud accounts is not supported. For example, backup files in an Object Storage Service (OSS) bucket within Alibaba Cloud Account A cannot be migrated to an ApsaraDB RDS for SQL Server instance within Alibaba Cloud Account B.
-    * >  You can migrate backup files from an OSS bucket within Alibaba Cloud Account A to an OSS bucket within Alibaba Cloud Account B. Make sure that the data in the OSS bucket and the RDS instance belong to the same Alibaba Cloud account. Then, you can call this operation to create a migration task. For more information, see [Use Data Online Migration to migrate data between accounts](~~342762~~).
-    * ### [](#)References
-    * >  Before you call this operation, carefully read the following topic. Make sure that you fully understand the prerequisites, preparations, and impacts for calling this operation.
-    * [Migrate data from a self-managed SQL Server instance to an ApsaraDB RDS for SQL Server instance](~~100019~~)
-    *
-    * @param request CreateMigrateTaskRequest
-    * @return CreateMigrateTaskResponse
+   * @summary Creates a migration task to restore backup files from an Object Storage Service (OSS) bucket to an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * SQL Server
+   * ### [](#)Limits
+   * Data migration across Alibaba Cloud accounts is not supported. For example, backup files in an Object Storage Service (OSS) bucket within Alibaba Cloud Account A cannot be migrated to an ApsaraDB RDS for SQL Server instance within Alibaba Cloud Account B.
+   * >  You can migrate backup files from an OSS bucket within Alibaba Cloud Account A to an OSS bucket within Alibaba Cloud Account B. Make sure that the data in the OSS bucket and the RDS instance belong to the same Alibaba Cloud account. Then, you can call this operation to create a migration task. For more information, see [Use Data Online Migration to migrate data between accounts](https://help.aliyun.com/document_detail/342762.html).
+   * ### [](#)References
+   * >  Before you call this operation, carefully read the following topic. Make sure that you fully understand the prerequisites, preparations, and impacts for calling this operation.
+   * [Migrate data from a self-managed SQL Server instance to an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/100019.html)
+   *
+   * @param request CreateMigrateTaskRequest
+   * @return CreateMigrateTaskResponse
    */
   async createMigrateTask(request: CreateMigrateTaskRequest): Promise<CreateMigrateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40811,18 +40978,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in the following topics:
-    * *   [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](~~95737~~)
-    * *   [Migrate full backup data of SQL Server 2012, 2014, 2016, 2017, or 2019 databases](~~95738~~)
-    * *   [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, or 2019](~~95736~~)
-    *
-    * @param request CreateOnlineDatabaseTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateOnlineDatabaseTaskResponse
+   * @summary Opens the database that is involved in a backup data migration task of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in the following topics:
+   * *   [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](https://help.aliyun.com/document_detail/95737.html)
+   * *   [Migrate full backup data of SQL Server 2012, 2014, 2016, 2017, or 2019 databases](https://help.aliyun.com/document_detail/95738.html)
+   * *   [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, or 2019](https://help.aliyun.com/document_detail/95736.html)
+   *
+   * @param request CreateOnlineDatabaseTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOnlineDatabaseTaskResponse
    */
   async createOnlineDatabaseTaskWithOptions(request: CreateOnlineDatabaseTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOnlineDatabaseTaskResponse> {
     Util.validateModel(request);
@@ -40881,17 +41050,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in the following topics:
-    * *   [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](~~95737~~)
-    * *   [Migrate full backup data of SQL Server 2012, 2014, 2016, 2017, or 2019 databases](~~95738~~)
-    * *   [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, or 2019](~~95736~~)
-    *
-    * @param request CreateOnlineDatabaseTaskRequest
-    * @return CreateOnlineDatabaseTaskResponse
+   * @summary Opens the database that is involved in a backup data migration task of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in the following topics:
+   * *   [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](https://help.aliyun.com/document_detail/95737.html)
+   * *   [Migrate full backup data of SQL Server 2012, 2014, 2016, 2017, or 2019 databases](https://help.aliyun.com/document_detail/95738.html)
+   * *   [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, or 2019](https://help.aliyun.com/document_detail/95736.html)
+   *
+   * @param request CreateOnlineDatabaseTaskRequest
+   * @return CreateOnlineDatabaseTaskResponse
    */
   async createOnlineDatabaseTask(request: CreateOnlineDatabaseTaskRequest): Promise<CreateOnlineDatabaseTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40899,15 +41070,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    * ### [](#)References
-    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~)
-    *
-    * @param tmpReq CreateOrderForDeleteDBNodesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateOrderForDeleteDBNodesResponse
+   * @summary Deletes a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS MySQL
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+   *
+   * @param tmpReq CreateOrderForDeleteDBNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrderForDeleteDBNodesResponse
    */
   async createOrderForDeleteDBNodesWithOptions(tmpReq: CreateOrderForDeleteDBNodesRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrderForDeleteDBNodesResponse> {
     Util.validateModel(tmpReq);
@@ -41000,14 +41173,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    * ### [](#)References
-    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~)
-    *
-    * @param request CreateOrderForDeleteDBNodesRequest
-    * @return CreateOrderForDeleteDBNodesResponse
+   * @summary Deletes a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS MySQL
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+   *
+   * @param request CreateOrderForDeleteDBNodesRequest
+   * @return CreateOrderForDeleteDBNodesResponse
    */
   async createOrderForDeleteDBNodes(request: CreateOrderForDeleteDBNodesRequest): Promise<CreateOrderForDeleteDBNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41015,17 +41190,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~)
-    *
-    * @param request CreateParameterGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateParameterGroupResponse
+   * @summary Creates a parameter template for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request CreateParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateParameterGroupResponse
    */
   async createParameterGroupWithOptions(request: CreateParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateParameterGroupResponse> {
     Util.validateModel(request);
@@ -41088,16 +41265,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~)
-    *
-    * @param request CreateParameterGroupRequest
-    * @return CreateParameterGroupResponse
+   * @summary Creates a parameter template for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request CreateParameterGroupRequest
+   * @return CreateParameterGroupResponse
    */
   async createParameterGroup(request: CreateParameterGroupRequest): Promise<CreateParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41105,19 +41284,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS PostgreSQL
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Manage extensions](~~2402409~~)
-    * ### [](#)Precautions
-    * Install only the plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
-    * *   For more information, see [Extensions supported by ApsaraDB RDS for PostgreSQL](~~142340~~).
-    * *   You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the major engine version of an instance.
-    *
-    * @param request CreatePostgresExtensionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreatePostgresExtensionsResponse
+   * @summary Creates an extension for a database.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS PostgreSQL
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+   * ### [](#)Precautions
+   * Install only the plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
+   * *   For more information, see [Extensions supported by ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/142340.html).
+   * *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the major engine version of an instance.
+   *
+   * @param request CreatePostgresExtensionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePostgresExtensionsResponse
    */
   async createPostgresExtensionsWithOptions(request: CreatePostgresExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<CreatePostgresExtensionsResponse> {
     Util.validateModel(request);
@@ -41188,18 +41369,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS PostgreSQL
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Manage extensions](~~2402409~~)
-    * ### [](#)Precautions
-    * Install only the plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
-    * *   For more information, see [Extensions supported by ApsaraDB RDS for PostgreSQL](~~142340~~).
-    * *   You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the major engine version of an instance.
-    *
-    * @param request CreatePostgresExtensionsRequest
-    * @return CreatePostgresExtensionsResponse
+   * @summary Creates an extension for a database.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS PostgreSQL
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+   * ### [](#)Precautions
+   * Install only the plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
+   * *   For more information, see [Extensions supported by ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/142340.html).
+   * *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the major engine version of an instance.
+   *
+   * @param request CreatePostgresExtensionsRequest
+   * @return CreatePostgresExtensionsResponse
    */
   async createPostgresExtensions(request: CreatePostgresExtensionsRequest): Promise<CreatePostgresExtensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41207,19 +41390,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Create a read-only ApsaraDB RDS for MySQL instance](~~56991~~)
-    * *   [Create a read-only ApsaraDB RDS for PostgreSQL instance](~~108959~~)
-    * *   [Create a read-only ApsaraDB RDS for SQL Server instance](~~99005~~)
-    *
-    * @param request CreateReadOnlyDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateReadOnlyDBInstanceResponse
+   * @summary Creates a read-only instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Create a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/56991.html)
+   * *   [Create a read-only ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/108959.html)
+   * *   [Create a read-only ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/99005.html)
+   *
+   * @param request CreateReadOnlyDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateReadOnlyDBInstanceResponse
    */
   async createReadOnlyDBInstanceWithOptions(request: CreateReadOnlyDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateReadOnlyDBInstanceResponse> {
     Util.validateModel(request);
@@ -41382,18 +41567,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Create a read-only ApsaraDB RDS for MySQL instance](~~56991~~)
-    * *   [Create a read-only ApsaraDB RDS for PostgreSQL instance](~~108959~~)
-    * *   [Create a read-only ApsaraDB RDS for SQL Server instance](~~99005~~)
-    *
-    * @param request CreateReadOnlyDBInstanceRequest
-    * @return CreateReadOnlyDBInstanceResponse
+   * @summary Creates a read-only instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Create a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/56991.html)
+   * *   [Create a read-only ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/108959.html)
+   * *   [Create a read-only ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/99005.html)
+   *
+   * @param request CreateReadOnlyDBInstanceRequest
+   * @return CreateReadOnlyDBInstanceResponse
    */
   async createReadOnlyDBInstance(request: CreateReadOnlyDBInstanceRequest): Promise<CreateReadOnlyDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41401,12 +41588,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    *
-    * @param request CreateSecretRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateSecretResponse
+   * @summary Creates a credential for a user who uses the Data API feature.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   *
+   * @param request CreateSecretRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSecretResponse
    */
   async createSecretWithOptions(request: CreateSecretRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecretResponse> {
     Util.validateModel(request);
@@ -41481,11 +41670,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    *
-    * @param request CreateSecretRequest
-    * @return CreateSecretResponse
+   * @summary Creates a credential for a user who uses the Data API feature.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   *
+   * @param request CreateSecretRequest
+   * @return CreateSecretResponse
    */
   async createSecret(request: CreateSecretRequest): Promise<CreateSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41493,15 +41684,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * PostgreSQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Service-linked roles](~~342840~~)
-    *
-    * @param request CreateServiceLinkedRoleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateServiceLinkedRoleResponse
+   * @summary Creates a service-linked role.
+   *
+   * @description ### Supported database engine
+   * PostgreSQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Service-linked roles](https://help.aliyun.com/document_detail/342840.html)
+   *
+   * @param request CreateServiceLinkedRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceLinkedRoleResponse
    */
   async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
     Util.validateModel(request);
@@ -41544,14 +41737,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * PostgreSQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Service-linked roles](~~342840~~)
-    *
-    * @param request CreateServiceLinkedRoleRequest
-    * @return CreateServiceLinkedRoleResponse
+   * @summary Creates a service-linked role.
+   *
+   * @description ### Supported database engine
+   * PostgreSQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Service-linked roles](https://help.aliyun.com/document_detail/342840.html)
+   *
+   * @param request CreateServiceLinkedRoleRequest
+   * @return CreateServiceLinkedRoleResponse
    */
   async createServiceLinkedRole(request: CreateServiceLinkedRoleRequest): Promise<CreateServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41559,15 +41754,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * Your RDS instance runs SQL Server 2008 R2 with local disks.
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Restore the data of an ApsaraDB RDS for SQL Server instance by using a temporary RDS instance](~~95724~~)
-    *
-    * @param request CreateTempDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateTempDBInstanceResponse
+   * @summary Creates a temporary instance for an RDS instance that runs SQL Server 2008 R2 and uses local disks.
+   *
+   * @description ### [](#)Supported database engines
+   * Your RDS instance runs SQL Server 2008 R2 with local disks.
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Restore the data of an ApsaraDB RDS for SQL Server instance by using a temporary RDS instance](https://help.aliyun.com/document_detail/95724.html)
+   *
+   * @param request CreateTempDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTempDBInstanceResponse
    */
   async createTempDBInstanceWithOptions(request: CreateTempDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateTempDBInstanceResponse> {
     Util.validateModel(request);
@@ -41622,20 +41819,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * Your RDS instance runs SQL Server 2008 R2 with local disks.
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Restore the data of an ApsaraDB RDS for SQL Server instance by using a temporary RDS instance](~~95724~~)
-    *
-    * @param request CreateTempDBInstanceRequest
-    * @return CreateTempDBInstanceResponse
+   * @summary Creates a temporary instance for an RDS instance that runs SQL Server 2008 R2 and uses local disks.
+   *
+   * @description ### [](#)Supported database engines
+   * Your RDS instance runs SQL Server 2008 R2 with local disks.
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Restore the data of an ApsaraDB RDS for SQL Server instance by using a temporary RDS instance](https://help.aliyun.com/document_detail/95724.html)
+   *
+   * @param request CreateTempDBInstanceRequest
+   * @return CreateTempDBInstanceResponse
    */
   async createTempDBInstance(request: CreateTempDBInstanceRequest): Promise<CreateTempDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTempDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 下单领券接口
+   *
+   * @param request CreateYouhuiForOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateYouhuiForOrderResponse
+   */
   async createYouhuiForOrderWithOptions(request: CreateYouhuiForOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateYouhuiForOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41680,18 +41886,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateYouhuiForOrderResponse>(await this.callApi(params, req, runtime), new CreateYouhuiForOrderResponse({}));
   }
 
+  /**
+   * @summary 下单领券接口
+   *
+   * @param request CreateYouhuiForOrderRequest
+   * @return CreateYouhuiForOrderResponse
+   */
   async createYouhuiForOrder(request: CreateYouhuiForOrderRequest): Promise<CreateYouhuiForOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createYouhuiForOrderWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    *
-    * @param request DeleteADSettingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteADSettingResponse
+   * @summary Deletes an ApsaraDB RDS for SQL Server instance from an Active Directory (AD) domain.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   *
+   * @param request DeleteADSettingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteADSettingResponse
    */
   async deleteADSettingWithOptions(request: DeleteADSettingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteADSettingResponse> {
     Util.validateModel(request);
@@ -41738,11 +41952,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    *
-    * @param request DeleteADSettingRequest
-    * @return DeleteADSettingResponse
+   * @summary Deletes an ApsaraDB RDS for SQL Server instance from an Active Directory (AD) domain.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   *
+   * @param request DeleteADSettingRequest
+   * @return DeleteADSettingResponse
    */
   async deleteADSetting(request: DeleteADSettingRequest): Promise<DeleteADSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41750,21 +41966,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Delete a database account from an ApsaraDB RDS for MySQL instance](~~96104~~)
-    * *   [Delete a database account from an ApsaraDB RDS for PostgreSQL instance](~~147649~~)
-    * *   [Delete a database account from an ApsaraDB RDS for SQL Server instance](~~95694~~)
-    * *   [Delete a database account from an ApsaraDB RDS for MariaDB instance](~~97135~~)
-    *
-    * @param request DeleteAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAccountResponse
+   * @summary Deletes an account from an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Delete a database account from an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96104.html)
+   * *   [Delete a database account from an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+   * *   [Delete a database account from an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95694.html)
+   * *   [Delete a database account from an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97135.html)
+   *
+   * @param request DeleteAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccountResponse
    */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
@@ -41811,20 +42029,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Delete a database account from an ApsaraDB RDS for MySQL instance](~~96104~~)
-    * *   [Delete a database account from an ApsaraDB RDS for PostgreSQL instance](~~147649~~)
-    * *   [Delete a database account from an ApsaraDB RDS for SQL Server instance](~~95694~~)
-    * *   [Delete a database account from an ApsaraDB RDS for MariaDB instance](~~97135~~)
-    *
-    * @param request DeleteAccountRequest
-    * @return DeleteAccountResponse
+   * @summary Deletes an account from an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Delete a database account from an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96104.html)
+   * *   [Delete a database account from an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+   * *   [Delete a database account from an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95694.html)
+   * *   [Delete a database account from an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97135.html)
+   *
+   * @param request DeleteAccountRequest
+   * @return DeleteAccountResponse
    */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41832,21 +42052,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * > Only instances that run RDS High-availability Edition are supported.
-    * ### Description
-    * You can call this operation to delete backup sets of the instance itself. Backup sets of the associated instances such as read-only, disaster recovery, and cloned instances are not deleted.
-    * ### Precautions
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The instance is in the Running state.
-    * *   If the log backup feature is disabled, instances cannot be restored by point in time. You can delete data backup sets that are retained for more than seven days.
-    * *   If the log backup feature is enabled and the log backup retention period is shorter than the data backup retention period, you can delete the data backup files that are retained for a period longer than the log backup retention period.
-    *
-    * @param request DeleteBackupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteBackupResponse
+   * @summary Deletes the data backup files of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * > Only instances that run RDS High-availability Edition are supported.
+   * ### Description
+   * You can call this operation to delete backup sets of the instance itself. Backup sets of the associated instances such as read-only, disaster recovery, and cloned instances are not deleted.
+   * ### Precautions
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The instance is in the Running state.
+   * *   If the log backup feature is disabled, instances cannot be restored by point in time. You can delete data backup sets that are retained for more than seven days.
+   * *   If the log backup feature is enabled and the log backup retention period is shorter than the data backup retention period, you can delete the data backup files that are retained for a period longer than the log backup retention period.
+   *
+   * @param request DeleteBackupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBackupResponse
    */
   async deleteBackupWithOptions(request: DeleteBackupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupResponse> {
     Util.validateModel(request);
@@ -41893,20 +42115,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * > Only instances that run RDS High-availability Edition are supported.
-    * ### Description
-    * You can call this operation to delete backup sets of the instance itself. Backup sets of the associated instances such as read-only, disaster recovery, and cloned instances are not deleted.
-    * ### Precautions
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The instance is in the Running state.
-    * *   If the log backup feature is disabled, instances cannot be restored by point in time. You can delete data backup sets that are retained for more than seven days.
-    * *   If the log backup feature is enabled and the log backup retention period is shorter than the data backup retention period, you can delete the data backup files that are retained for a period longer than the log backup retention period.
-    *
-    * @param request DeleteBackupRequest
-    * @return DeleteBackupResponse
+   * @summary Deletes the data backup files of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * > Only instances that run RDS High-availability Edition are supported.
+   * ### Description
+   * You can call this operation to delete backup sets of the instance itself. Backup sets of the associated instances such as read-only, disaster recovery, and cloned instances are not deleted.
+   * ### Precautions
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The instance is in the Running state.
+   * *   If the log backup feature is disabled, instances cannot be restored by point in time. You can delete data backup sets that are retained for more than seven days.
+   * *   If the log backup feature is enabled and the log backup retention period is shorter than the data backup retention period, you can delete the data backup files that are retained for a period longer than the log backup retention period.
+   *
+   * @param request DeleteBackupRequest
+   * @return DeleteBackupResponse
    */
   async deleteBackup(request: DeleteBackupRequest): Promise<DeleteBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41914,13 +42138,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS SQL Server
-    * >  This operation is available only for users that are added to the whitelist.
-    *
-    * @param request DeleteBackupFileRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteBackupFileResponse
+   * @summary Deletes the backup files of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS SQL Server
+   * >  This operation is available only for users that are added to the whitelist.
+   *
+   * @param request DeleteBackupFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBackupFileResponse
    */
   async deleteBackupFileWithOptions(request: DeleteBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupFileResponse> {
     Util.validateModel(request);
@@ -41975,12 +42201,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS SQL Server
-    * >  This operation is available only for users that are added to the whitelist.
-    *
-    * @param request DeleteBackupFileRequest
-    * @return DeleteBackupFileResponse
+   * @summary Deletes the backup files of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS SQL Server
+   * >  This operation is available only for users that are added to the whitelist.
+   *
+   * @param request DeleteBackupFileRequest
+   * @return DeleteBackupFileResponse
    */
   async deleteBackupFile(request: DeleteBackupFileRequest): Promise<DeleteBackupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41988,21 +42216,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Release an ApsaraDB RDS for MySQL instance](~~96057~~)
-    * *   [Release an ApsaraDB RDS for PostgreSQL instance](~~96749~~)
-    * *   [Release an ApsaraDB RDS for SQL Server instance](~~95662~~)
-    * *   [Release an ApsaraDB RDS for MariaDB instance](~~97128~~)
-    *
-    * @param request DeleteDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDBInstanceResponse
+   * @summary Releases an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Release an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96057.html)
+   * *   [Release an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96749.html)
+   * *   [Release an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95662.html)
+   * *   [Release an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97128.html)
+   *
+   * @param request DeleteDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBInstanceResponse
    */
   async deleteDBInstanceWithOptions(request: DeleteDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceResponse> {
     Util.validateModel(request);
@@ -42049,20 +42279,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Release an ApsaraDB RDS for MySQL instance](~~96057~~)
-    * *   [Release an ApsaraDB RDS for PostgreSQL instance](~~96749~~)
-    * *   [Release an ApsaraDB RDS for SQL Server instance](~~95662~~)
-    * *   [Release an ApsaraDB RDS for MariaDB instance](~~97128~~)
-    *
-    * @param request DeleteDBInstanceRequest
-    * @return DeleteDBInstanceResponse
+   * @summary Releases an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Release an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96057.html)
+   * *   [Release an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96749.html)
+   * *   [Release an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95662.html)
+   * *   [Release an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97128.html)
+   *
+   * @param request DeleteDBInstanceRequest
+   * @return DeleteDBInstanceResponse
    */
   async deleteDBInstance(request: DeleteDBInstanceRequest): Promise<DeleteDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42070,15 +42302,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Delete the read-only endpoint of an ApsaraDB RDS for MySQL cluster](~~464133~~)
-    *
-    * @param request DeleteDBInstanceEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDBInstanceEndpointResponse
+   * @summary Deletes an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Delete the read-only endpoint of an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464133.html)
+   *
+   * @param request DeleteDBInstanceEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBInstanceEndpointResponse
    */
   async deleteDBInstanceEndpointWithOptions(request: DeleteDBInstanceEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceEndpointResponse> {
     Util.validateModel(request);
@@ -42117,14 +42351,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Delete the read-only endpoint of an ApsaraDB RDS for MySQL cluster](~~464133~~)
-    *
-    * @param request DeleteDBInstanceEndpointRequest
-    * @return DeleteDBInstanceEndpointResponse
+   * @summary Deletes an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Delete the read-only endpoint of an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464133.html)
+   *
+   * @param request DeleteDBInstanceEndpointRequest
+   * @return DeleteDBInstanceEndpointResponse
    */
   async deleteDBInstanceEndpoint(request: DeleteDBInstanceEndpointRequest): Promise<DeleteDBInstanceEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42132,14 +42368,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### Precautions
-    * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
-    *
-    * @param request DeleteDBInstanceEndpointAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDBInstanceEndpointAddressResponse
+   * @summary Releases the public endpoint of an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL cluster instance that runs RDS Cluster Edition.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### Precautions
+   * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
+   *
+   * @param request DeleteDBInstanceEndpointAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBInstanceEndpointAddressResponse
    */
   async deleteDBInstanceEndpointAddressWithOptions(request: DeleteDBInstanceEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceEndpointAddressResponse> {
     Util.validateModel(request);
@@ -42184,13 +42422,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### Precautions
-    * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
-    *
-    * @param request DeleteDBInstanceEndpointAddressRequest
-    * @return DeleteDBInstanceEndpointAddressResponse
+   * @summary Releases the public endpoint of an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL cluster instance that runs RDS Cluster Edition.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### Precautions
+   * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
+   *
+   * @param request DeleteDBInstanceEndpointAddressRequest
+   * @return DeleteDBInstanceEndpointAddressResponse
    */
   async deleteDBInstanceEndpointAddress(request: DeleteDBInstanceEndpointAddressRequest): Promise<DeleteDBInstanceEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42198,15 +42438,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~)
-    *
-    * @param tmpReq DeleteDBNodesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDBNodesResponse
+   * @summary Deletes a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+   *
+   * @param tmpReq DeleteDBNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBNodesResponse
    */
   async deleteDBNodesWithOptions(tmpReq: DeleteDBNodesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBNodesResponse> {
     Util.validateModel(tmpReq);
@@ -42267,14 +42509,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~)
-    *
-    * @param request DeleteDBNodesRequest
-    * @return DeleteDBNodesResponse
+   * @summary Deletes a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+   *
+   * @param request DeleteDBNodesRequest
+   * @return DeleteDBNodesResponse
    */
   async deleteDBNodes(request: DeleteDBNodesRequest): Promise<DeleteDBNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42282,17 +42526,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-    * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418274~~)
-    *
-    * @param request DeleteDBProxyEndpointAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDBProxyEndpointAddressResponse
+   * @summary Deletes the endpoint that is used to connect to the dedicated proxy of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+   * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+   *
+   * @param request DeleteDBProxyEndpointAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBProxyEndpointAddressResponse
    */
   async deleteDBProxyEndpointAddressWithOptions(request: DeleteDBProxyEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBProxyEndpointAddressResponse> {
     Util.validateModel(request);
@@ -42339,16 +42585,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-    * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418274~~)
-    *
-    * @param request DeleteDBProxyEndpointAddressRequest
-    * @return DeleteDBProxyEndpointAddressResponse
+   * @summary Deletes the endpoint that is used to connect to the dedicated proxy of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+   * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+   *
+   * @param request DeleteDBProxyEndpointAddressRequest
+   * @return DeleteDBProxyEndpointAddressResponse
    */
   async deleteDBProxyEndpointAddress(request: DeleteDBProxyEndpointAddressRequest): Promise<DeleteDBProxyEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42356,21 +42604,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * ### [](#)References
-    * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Delete a database from an ApsaraDB RDS for MySQL instance](~~96106~~)
-    * *   [Delete a database from an ApsaraDB RDS for PostgreSQL instance](~~96759~~)
-    * *   [Delete a database from an ApsaraDB RDS for SQL Server instance](~~95699~~)
-    * *   [Delete a database from an ApsaraDB RDS for MariaDB instance](~~97137~~)
-    *
-    * @param request DeleteDatabaseRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDatabaseResponse
+   * @summary Deletes a database from an RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * ### [](#)References
+   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Delete a database from an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96106.html)
+   * *   [Delete a database from an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96759.html)
+   * *   [Delete a database from an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95699.html)
+   * *   [Delete a database from an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97137.html)
+   *
+   * @param request DeleteDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDatabaseResponse
    */
   async deleteDatabaseWithOptions(request: DeleteDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabaseResponse> {
     Util.validateModel(request);
@@ -42405,20 +42655,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * ### [](#)References
-    * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Delete a database from an ApsaraDB RDS for MySQL instance](~~96106~~)
-    * *   [Delete a database from an ApsaraDB RDS for PostgreSQL instance](~~96759~~)
-    * *   [Delete a database from an ApsaraDB RDS for SQL Server instance](~~95699~~)
-    * *   [Delete a database from an ApsaraDB RDS for MariaDB instance](~~97137~~)
-    *
-    * @param request DeleteDatabaseRequest
-    * @return DeleteDatabaseResponse
+   * @summary Deletes a database from an RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * ### [](#)References
+   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Delete a database from an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96106.html)
+   * *   [Delete a database from an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96759.html)
+   * *   [Delete a database from an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95699.html)
+   * *   [Delete a database from an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97137.html)
+   *
+   * @param request DeleteDatabaseRequest
+   * @return DeleteDatabaseResponse
    */
   async deleteDatabase(request: DeleteDatabaseRequest): Promise<DeleteDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42426,15 +42678,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [Usage notes](#)
-    * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution.
-    * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](~~26229~~) to release the instances one after another.
-    *
-    * @param request DeleteGadInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteGadInstanceResponse
+   * @summary Deletes a global active database cluster.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [Usage notes](#)
+   * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution.
+   * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](https://help.aliyun.com/document_detail/26229.html) to release the instances one after another.
+   *
+   * @param request DeleteGadInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGadInstanceResponse
    */
   async deleteGadInstanceWithOptions(request: DeleteGadInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGadInstanceResponse> {
     Util.validateModel(request);
@@ -42469,20 +42723,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [Usage notes](#)
-    * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution.
-    * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](~~26229~~) to release the instances one after another.
-    *
-    * @param request DeleteGadInstanceRequest
-    * @return DeleteGadInstanceResponse
+   * @summary Deletes a global active database cluster.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [Usage notes](#)
+   * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution.
+   * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](https://help.aliyun.com/document_detail/26229.html) to release the instances one after another.
+   *
+   * @param request DeleteGadInstanceRequest
+   * @return DeleteGadInstanceResponse
    */
   async deleteGadInstance(request: DeleteGadInstanceRequest): Promise<DeleteGadInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGadInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除全密态规则
+   *
+   * @param request DeleteMaskingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMaskingRulesResponse
+   */
   async deleteMaskingRulesWithOptions(request: DeleteMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMaskingRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42523,23 +42786,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMaskingRulesResponse>(await this.callApi(params, req, runtime), new DeleteMaskingRulesResponse({}));
   }
 
+  /**
+   * @summary 删除全密态规则
+   *
+   * @param request DeleteMaskingRulesRequest
+   * @return DeleteMaskingRulesResponse
+   */
   async deleteMaskingRules(request: DeleteMaskingRulesRequest): Promise<DeleteMaskingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMaskingRulesWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~)
-    *
-    * @param request DeleteParameterGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteParameterGroupResponse
+   * @summary Deletes a parameter template from an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request DeleteParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteParameterGroupResponse
    */
   async deleteParameterGroupWithOptions(request: DeleteParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParameterGroupResponse> {
     Util.validateModel(request);
@@ -42586,16 +42857,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~)
-    *
-    * @param request DeleteParameterGroupRequest
-    * @return DeleteParameterGroupResponse
+   * @summary Deletes a parameter template from an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request DeleteParameterGroupRequest
+   * @return DeleteParameterGroupResponse
    */
   async deleteParameterGroup(request: DeleteParameterGroupRequest): Promise<DeleteParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42603,15 +42876,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS PostgreSQL
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Manage extensions](~~2402409~~)
-    *
-    * @param request DeletePostgresExtensionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeletePostgresExtensionsResponse
+   * @summary Deletes an extension from a database.
+   *
+   * @description ### Supported database engines
+   * RDS PostgreSQL
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+   *
+   * @param request DeletePostgresExtensionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePostgresExtensionsResponse
    */
   async deletePostgresExtensionsWithOptions(request: DeletePostgresExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<DeletePostgresExtensionsResponse> {
     Util.validateModel(request);
@@ -42670,20 +42945,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS PostgreSQL
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Manage extensions](~~2402409~~)
-    *
-    * @param request DeletePostgresExtensionsRequest
-    * @return DeletePostgresExtensionsResponse
+   * @summary Deletes an extension from a database.
+   *
+   * @description ### Supported database engines
+   * RDS PostgreSQL
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+   *
+   * @param request DeletePostgresExtensionsRequest
+   * @return DeletePostgresExtensionsResponse
    */
   async deletePostgresExtensions(request: DeletePostgresExtensionsRequest): Promise<DeletePostgresExtensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePostgresExtensionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the credential of a user who uses the Data API feature.
+   *
+   * @param request DeleteSecretRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSecretResponse
+   */
   async deleteSecretWithOptions(request: DeleteSecretRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecretResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42744,20 +43028,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSecretResponse>(await this.callApi(params, req, runtime), new DeleteSecretResponse({}));
   }
 
+  /**
+   * @summary Deletes the credential of a user who uses the Data API feature.
+   *
+   * @param request DeleteSecretRequest
+   * @return DeleteSecretResponse
+   */
   async deleteSecret(request: DeleteSecretRequest): Promise<DeleteSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSecretWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   PostgreSQL
-    * ### [](#)Precautions
-    * You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
-    *
-    * @param request DeleteSlotRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteSlotResponse
+   * @summary Deletes a replication slot of an instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   PostgreSQL
+   * ### [](#)Precautions
+   * You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
+   *
+   * @param request DeleteSlotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSlotResponse
    */
   async deleteSlotWithOptions(request: DeleteSlotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSlotResponse> {
     Util.validateModel(request);
@@ -42816,13 +43108,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   PostgreSQL
-    * ### [](#)Precautions
-    * You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
-    *
-    * @param request DeleteSlotRequest
-    * @return DeleteSlotResponse
+   * @summary Deletes a replication slot of an instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   PostgreSQL
+   * ### [](#)Precautions
+   * You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
+   *
+   * @param request DeleteSlotRequest
+   * @return DeleteSlotResponse
    */
   async deleteSlot(request: DeleteSlotRequest): Promise<DeleteSlotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42830,15 +43124,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   MySQL
-    * ### [](#)Usage notes
-    * *   A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-    * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the ImportUserBackupFile operation to reimport the full backup file.
-    *
-    * @param request DeleteUserBackupFileRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteUserBackupFileResponse
+   * @summary Deletes the backup files of an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   MySQL
+   * ### [](#)Usage notes
+   * *   A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+   * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the ImportUserBackupFile operation to reimport the full backup file.
+   *
+   * @param request DeleteUserBackupFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserBackupFileResponse
    */
   async deleteUserBackupFileWithOptions(request: DeleteUserBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserBackupFileResponse> {
     Util.validateModel(request);
@@ -42885,14 +43181,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   MySQL
-    * ### [](#)Usage notes
-    * *   A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-    * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the ImportUserBackupFile operation to reimport the full backup file.
-    *
-    * @param request DeleteUserBackupFileRequest
-    * @return DeleteUserBackupFileResponse
+   * @summary Deletes the backup files of an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   MySQL
+   * ### [](#)Usage notes
+   * *   A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+   * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the ImportUserBackupFile operation to reimport the full backup file.
+   *
+   * @param request DeleteUserBackupFileRequest
+   * @return DeleteUserBackupFileResponse
    */
   async deleteUserBackupFile(request: DeleteUserBackupFileRequest): Promise<DeleteUserBackupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42900,12 +43198,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    *
-    * @param request DescibeImportsFromDatabaseRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescibeImportsFromDatabaseResponse
+   * @summary Queries the migration tasks of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   *
+   * @param request DescibeImportsFromDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescibeImportsFromDatabaseResponse
    */
   async descibeImportsFromDatabaseWithOptions(request: DescibeImportsFromDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DescibeImportsFromDatabaseResponse> {
     Util.validateModel(request);
@@ -42980,11 +43280,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    *
-    * @param request DescibeImportsFromDatabaseRequest
-    * @return DescibeImportsFromDatabaseResponse
+   * @summary Queries the migration tasks of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   *
+   * @param request DescibeImportsFromDatabaseRequest
+   * @return DescibeImportsFromDatabaseResponse
    */
   async descibeImportsFromDatabase(request: DescibeImportsFromDatabaseRequest): Promise<DescibeImportsFromDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42992,12 +43294,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    *
-    * @param request DescribeADInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeADInfoResponse
+   * @summary Queries information about the AD domain of an instance. The information includes whether the instance is added to the AD domain, the name of the AD domain, and the account.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   *
+   * @param request DescribeADInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeADInfoResponse
    */
   async describeADInfoWithOptions(request: DescribeADInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeADInfoResponse> {
     Util.validateModel(request);
@@ -43044,17 +43348,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    *
-    * @param request DescribeADInfoRequest
-    * @return DescribeADInfoResponse
+   * @summary Queries information about the AD domain of an instance. The information includes whether the instance is added to the AD domain, the name of the AD domain, and the account.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   *
+   * @param request DescribeADInfoRequest
+   * @return DescribeADInfoResponse
    */
   async describeADInfo(request: DescribeADInfoRequest): Promise<DescribeADInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeADInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询全密态用户权限
+   *
+   * @param request DescribeAccountMaskingPrivilegeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccountMaskingPrivilegeResponse
+   */
   async describeAccountMaskingPrivilegeWithOptions(request: DescribeAccountMaskingPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountMaskingPrivilegeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43095,21 +43408,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountMaskingPrivilegeResponse>(await this.callApi(params, req, runtime), new DescribeAccountMaskingPrivilegeResponse({}));
   }
 
+  /**
+   * @summary 查询全密态用户权限
+   *
+   * @param request DescribeAccountMaskingPrivilegeRequest
+   * @return DescribeAccountMaskingPrivilegeResponse
+   */
   async describeAccountMaskingPrivilege(request: DescribeAccountMaskingPrivilegeRequest): Promise<DescribeAccountMaskingPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountMaskingPrivilegeWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeAccountsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAccountsResponse
+   * @summary Queries the details about the accounts that are created on an ApsaraDB RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccountsResponse
    */
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
@@ -43156,14 +43477,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeAccountsRequest
-    * @return DescribeAccountsResponse
+   * @summary Queries the details about the accounts that are created on an ApsaraDB RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeAccountsRequest
+   * @return DescribeAccountsResponse
    */
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43171,15 +43494,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeActionEventPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeActionEventPolicyResponse
+   * @summary Queries whether the historical events feature is enabled.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeActionEventPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeActionEventPolicyResponse
    */
   async describeActionEventPolicyWithOptions(request: DescribeActionEventPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActionEventPolicyResponse> {
     Util.validateModel(request);
@@ -43222,14 +43547,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeActionEventPolicyRequest
-    * @return DescribeActionEventPolicyResponse
+   * @summary Queries whether the historical events feature is enabled.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeActionEventPolicyRequest
+   * @return DescribeActionEventPolicyResponse
    */
   async describeActionEventPolicy(request: DescribeActionEventPolicyRequest): Promise<DescribeActionEventPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43237,15 +43564,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeActiveOperationTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeActiveOperationTasksResponse
+   * @summary Queries the details about scheduled O\\\\\\&M tasks for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeActiveOperationTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeActiveOperationTasksResponse
    */
   async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
     Util.validateModel(request);
@@ -43332,14 +43661,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeActiveOperationTasksRequest
-    * @return DescribeActiveOperationTasksResponse
+   * @summary Queries the details about scheduled O\\\\\\&M tasks for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeActiveOperationTasksRequest
+   * @return DescribeActiveOperationTasksResponse
    */
   async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43347,14 +43678,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DescribeAllWhitelistTemplateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAllWhitelistTemplateResponse
+   * @summary Queries whitelist templates at a time by using fuzzy search.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DescribeAllWhitelistTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAllWhitelistTemplateResponse
    */
   async describeAllWhitelistTemplateWithOptions(request: DescribeAllWhitelistTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAllWhitelistTemplateResponse> {
     Util.validateModel(request);
@@ -43409,13 +43742,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DescribeAllWhitelistTemplateRequest
-    * @return DescribeAllWhitelistTemplateResponse
+   * @summary Queries whitelist templates at a time by using fuzzy search.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DescribeAllWhitelistTemplateRequest
+   * @return DescribeAllWhitelistTemplateResponse
    */
   async describeAllWhitelistTemplate(request: DescribeAllWhitelistTemplateRequest): Promise<DescribeAllWhitelistTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43423,14 +43758,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * MySQL
-    * ### [](#)References
-    * [Create and view an analytic instance](~~155180~~)
-    *
-    * @param request DescribeAnalyticdbByPrimaryDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAnalyticdbByPrimaryDBInstanceResponse
+   * @summary Queries the number of analytic instances that are associated with an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * MySQL
+   * ### [](#)References
+   * [Create and view an analytic instance](https://help.aliyun.com/document_detail/155180.html)
+   *
+   * @param request DescribeAnalyticdbByPrimaryDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAnalyticdbByPrimaryDBInstanceResponse
    */
   async describeAnalyticdbByPrimaryDBInstanceWithOptions(request: DescribeAnalyticdbByPrimaryDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAnalyticdbByPrimaryDBInstanceResponse> {
     Util.validateModel(request);
@@ -43473,13 +43810,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * MySQL
-    * ### [](#)References
-    * [Create and view an analytic instance](~~155180~~)
-    *
-    * @param request DescribeAnalyticdbByPrimaryDBInstanceRequest
-    * @return DescribeAnalyticdbByPrimaryDBInstanceResponse
+   * @summary Queries the number of analytic instances that are associated with an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * MySQL
+   * ### [](#)References
+   * [Create and view an analytic instance](https://help.aliyun.com/document_detail/155180.html)
+   *
+   * @param request DescribeAnalyticdbByPrimaryDBInstanceRequest
+   * @return DescribeAnalyticdbByPrimaryDBInstanceResponse
    */
   async describeAnalyticdbByPrimaryDBInstance(request: DescribeAnalyticdbByPrimaryDBInstanceRequest): Promise<DescribeAnalyticdbByPrimaryDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43487,15 +43826,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeAvailableClassesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAvailableClassesResponse
+   * @summary Queries the specifications that are supported for an instance. The specifications include the instance type and the storage capacity.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeAvailableClassesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableClassesResponse
    */
   async describeAvailableClassesWithOptions(request: DescribeAvailableClassesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableClassesResponse> {
     Util.validateModel(request);
@@ -43562,14 +43903,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeAvailableClassesRequest
-    * @return DescribeAvailableClassesResponse
+   * @summary Queries the specifications that are supported for an instance. The specifications include the instance type and the storage capacity.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeAvailableClassesRequest
+   * @return DescribeAvailableClassesResponse
    */
   async describeAvailableClasses(request: DescribeAvailableClassesRequest): Promise<DescribeAvailableClassesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43577,19 +43920,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    *
-    * @param request DescribeAvailableCrossRegionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAvailableCrossRegionResponse
+   * @summary Queries the available destination regions to which the cross-region backup files from a specific source region can be replicated.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   *
+   * @param request DescribeAvailableCrossRegionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableCrossRegionResponse
    */
   async describeAvailableCrossRegionWithOptions(request: DescribeAvailableCrossRegionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableCrossRegionResponse> {
     Util.validateModel(request);
@@ -43628,18 +43973,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    *
-    * @param request DescribeAvailableCrossRegionRequest
-    * @return DescribeAvailableCrossRegionResponse
+   * @summary Queries the available destination regions to which the cross-region backup files from a specific source region can be replicated.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   *
+   * @param request DescribeAvailableCrossRegionRequest
+   * @return DescribeAvailableCrossRegionResponse
    */
   async describeAvailableCrossRegion(request: DescribeAvailableCrossRegionRequest): Promise<DescribeAvailableCrossRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43647,15 +43994,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [View the Enhanced Monitoring metrics](~~299200~~)
-    *
-    * @param request DescribeAvailableMetricsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAvailableMetricsResponse
+   * @summary Queries all Enhanced Monitoring metrics that are supported by an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+   *
+   * @param request DescribeAvailableMetricsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableMetricsResponse
    */
   async describeAvailableMetricsWithOptions(request: DescribeAvailableMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableMetricsResponse> {
     Util.validateModel(request);
@@ -43690,14 +44039,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [View the Enhanced Monitoring metrics](~~299200~~)
-    *
-    * @param request DescribeAvailableMetricsRequest
-    * @return DescribeAvailableMetricsResponse
+   * @summary Queries all Enhanced Monitoring metrics that are supported by an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+   *
+   * @param request DescribeAvailableMetricsRequest
+   * @return DescribeAvailableMetricsResponse
    */
   async describeAvailableMetrics(request: DescribeAvailableMetricsRequest): Promise<DescribeAvailableMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43705,16 +44056,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  To view the time range within which you can restore data from a standard backup set, see DescribeBackups.
-    * ### [](#)Supported database engines
-    * ApsaraDB RDS for MySQL instances with local disks
-    * ### [](#)References
-    * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Use the cross-region backup feature](~~120824~~)
-    *
-    * @param request DescribeAvailableRecoveryTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAvailableRecoveryTimeResponse
+   * @summary Queries the time range within which data can be restored from a cross-region backup file.
+   *
+   * @description >  To view the time range within which you can restore data from a standard backup set, see DescribeBackups.
+   * ### [](#)Supported database engines
+   * ApsaraDB RDS for MySQL instances with local disks
+   * ### [](#)References
+   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Use the cross-region backup feature](https://help.aliyun.com/document_detail/120824.html)
+   *
+   * @param request DescribeAvailableRecoveryTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableRecoveryTimeResponse
    */
   async describeAvailableRecoveryTimeWithOptions(request: DescribeAvailableRecoveryTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableRecoveryTimeResponse> {
     Util.validateModel(request);
@@ -43765,15 +44118,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  To view the time range within which you can restore data from a standard backup set, see DescribeBackups.
-    * ### [](#)Supported database engines
-    * ApsaraDB RDS for MySQL instances with local disks
-    * ### [](#)References
-    * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Use the cross-region backup feature](~~120824~~)
-    *
-    * @param request DescribeAvailableRecoveryTimeRequest
-    * @return DescribeAvailableRecoveryTimeResponse
+   * @summary Queries the time range within which data can be restored from a cross-region backup file.
+   *
+   * @description >  To view the time range within which you can restore data from a standard backup set, see DescribeBackups.
+   * ### [](#)Supported database engines
+   * ApsaraDB RDS for MySQL instances with local disks
+   * ### [](#)References
+   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Use the cross-region backup feature](https://help.aliyun.com/document_detail/120824.html)
+   *
+   * @param request DescribeAvailableRecoveryTimeRequest
+   * @return DescribeAvailableRecoveryTimeResponse
    */
   async describeAvailableRecoveryTime(request: DescribeAvailableRecoveryTimeRequest): Promise<DescribeAvailableRecoveryTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43781,16 +44136,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
-    *
-    * @param request DescribeAvailableZonesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAvailableZonesResponse
+   * @summary Queries the available zones for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
+   *
+   * @param request DescribeAvailableZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableZonesResponse
    */
   async describeAvailableZonesWithOptions(request: DescribeAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableZonesResponse> {
     Util.validateModel(request);
@@ -43849,15 +44206,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
-    *
-    * @param request DescribeAvailableZonesRequest
-    * @return DescribeAvailableZonesResponse
+   * @summary Queries the available zones for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
+   *
+   * @param request DescribeAvailableZonesRequest
+   * @return DescribeAvailableZonesResponse
    */
   async describeAvailableZones(request: DescribeAvailableZonesRequest): Promise<DescribeAvailableZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43865,11 +44224,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is phased out.
-    *
-    * @param request DescribeBackupDatabaseRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBackupDatabaseResponse
+   * @summary Queries the databases that are involved in a backup file.
+   *
+   * @description > This operation is phased out.
+   *
+   * @param request DescribeBackupDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupDatabaseResponse
    */
   async describeBackupDatabaseWithOptions(request: DescribeBackupDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupDatabaseResponse> {
     Util.validateModel(request);
@@ -43912,10 +44273,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is phased out.
-    *
-    * @param request DescribeBackupDatabaseRequest
-    * @return DescribeBackupDatabaseResponse
+   * @summary Queries the databases that are involved in a backup file.
+   *
+   * @description > This operation is phased out.
+   *
+   * @param request DescribeBackupDatabaseRequest
+   * @return DescribeBackupDatabaseResponse
    */
   async describeBackupDatabase(request: DescribeBackupDatabaseRequest): Promise<DescribeBackupDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43923,15 +44286,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeBackupPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBackupPolicyResponse
+   * @summary Queries the backup settings of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupPolicyResponse
    */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
@@ -43986,14 +44351,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeBackupPolicyRequest
-    * @return DescribeBackupPolicyResponse
+   * @summary Queries the backup settings of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @return DescribeBackupPolicyResponse
    */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44001,15 +44368,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeBackupTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBackupTasksResponse
+   * @summary Queries the backup tasks of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeBackupTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupTasksResponse
    */
   async describeBackupTasksWithOptions(request: DescribeBackupTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupTasksResponse> {
     Util.validateModel(request);
@@ -44072,14 +44441,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeBackupTasksRequest
-    * @return DescribeBackupTasksResponse
+   * @summary Queries the backup tasks of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeBackupTasksRequest
+   * @return DescribeBackupTasksResponse
    */
   async describeBackupTasks(request: DescribeBackupTasksRequest): Promise<DescribeBackupTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44087,15 +44458,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeBackupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBackupsResponse
+   * @summary Queries the data backup files of an ApsaraDB RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeBackupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupsResponse
    */
   async describeBackupsWithOptions(request: DescribeBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupsResponse> {
     Util.validateModel(request);
@@ -44162,14 +44535,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeBackupsRequest
-    * @return DescribeBackupsResponse
+   * @summary Queries the data backup files of an ApsaraDB RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeBackupsRequest
+   * @return DescribeBackupsResponse
    */
   async describeBackups(request: DescribeBackupsRequest): Promise<DescribeBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44177,19 +44552,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   MariaDB
-    * ### Usage notes
-    * *   If the return value of the **DownloadLink** parameter is NULL, ApsaraDB RDS does not provide a download URL.
-    * *   If the return value of the **DownloadLink** parameter is not NULL, ApsaraDB RDS provides a URL for you to download backup files. The expiration time of the URL is specified by the **LinkExpiredTime** parameter. You must download the backup files before the expiration time.
-    * *   If you use a RAM user to download backup files, you must grant permissions to the RAM user. For more information, see [Grant backup file download permissions to a RAM user with read-only permissions](~~100043~~).
-    * *   Each log file that is returned by this operation contains the log entries that are generated over the time range that is specified by the StartTime and EndTime parameters.
-    *
-    * @param request DescribeBinlogFilesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBinlogFilesResponse
+   * @summary Queries the binary log files of an instance that runs MySQL or MariaDB or the write-ahead logging (WAL) files of an instance that runs PostgreSQL.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   MariaDB
+   * ### Usage notes
+   * *   If the return value of the **DownloadLink** parameter is NULL, ApsaraDB RDS does not provide a download URL.
+   * *   If the return value of the **DownloadLink** parameter is not NULL, ApsaraDB RDS provides a URL for you to download backup files. The expiration time of the URL is specified by the **LinkExpiredTime** parameter. You must download the backup files before the expiration time.
+   * *   If you use a RAM user to download backup files, you must grant permissions to the RAM user. For more information, see [Grant backup file download permissions to a RAM user with read-only permissions](https://help.aliyun.com/document_detail/100043.html).
+   * *   Each log file that is returned by this operation contains the log entries that are generated over the time range that is specified by the StartTime and EndTime parameters.
+   *
+   * @param request DescribeBinlogFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBinlogFilesResponse
    */
   async describeBinlogFilesWithOptions(request: DescribeBinlogFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBinlogFilesResponse> {
     Util.validateModel(request);
@@ -44248,18 +44625,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   MariaDB
-    * ### Usage notes
-    * *   If the return value of the **DownloadLink** parameter is NULL, ApsaraDB RDS does not provide a download URL.
-    * *   If the return value of the **DownloadLink** parameter is not NULL, ApsaraDB RDS provides a URL for you to download backup files. The expiration time of the URL is specified by the **LinkExpiredTime** parameter. You must download the backup files before the expiration time.
-    * *   If you use a RAM user to download backup files, you must grant permissions to the RAM user. For more information, see [Grant backup file download permissions to a RAM user with read-only permissions](~~100043~~).
-    * *   Each log file that is returned by this operation contains the log entries that are generated over the time range that is specified by the StartTime and EndTime parameters.
-    *
-    * @param request DescribeBinlogFilesRequest
-    * @return DescribeBinlogFilesResponse
+   * @summary Queries the binary log files of an instance that runs MySQL or MariaDB or the write-ahead logging (WAL) files of an instance that runs PostgreSQL.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   MariaDB
+   * ### Usage notes
+   * *   If the return value of the **DownloadLink** parameter is NULL, ApsaraDB RDS does not provide a download URL.
+   * *   If the return value of the **DownloadLink** parameter is not NULL, ApsaraDB RDS provides a URL for you to download backup files. The expiration time of the URL is specified by the **LinkExpiredTime** parameter. You must download the backup files before the expiration time.
+   * *   If you use a RAM user to download backup files, you must grant permissions to the RAM user. For more information, see [Grant backup file download permissions to a RAM user with read-only permissions](https://help.aliyun.com/document_detail/100043.html).
+   * *   Each log file that is returned by this operation contains the log entries that are generated over the time range that is specified by the StartTime and EndTime parameters.
+   *
+   * @param request DescribeBinlogFilesRequest
+   * @return DescribeBinlogFilesResponse
    */
   async describeBinlogFiles(request: DescribeBinlogFilesRequest): Promise<DescribeBinlogFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44267,15 +44646,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeCharacterSetNameRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCharacterSetNameResponse
+   * @summary Queries the character sets that are supported by an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeCharacterSetNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCharacterSetNameResponse
    */
   async describeCharacterSetNameWithOptions(request: DescribeCharacterSetNameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCharacterSetNameResponse> {
     Util.validateModel(request);
@@ -44326,14 +44707,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeCharacterSetNameRequest
-    * @return DescribeCharacterSetNameResponse
+   * @summary Queries the character sets that are supported by an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeCharacterSetNameRequest
+   * @return DescribeCharacterSetNameResponse
    */
   async describeCharacterSetName(request: DescribeCharacterSetNameRequest): Promise<DescribeCharacterSetNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44341,15 +44724,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeClassDetailsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClassDetailsResponse
+   * @summary Queries the details about the instance types of an instance by using the code of the instance types.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeClassDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClassDetailsResponse
    */
   async describeClassDetailsWithOptions(request: DescribeClassDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClassDetailsResponse> {
     Util.validateModel(request);
@@ -44412,14 +44797,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeClassDetailsRequest
-    * @return DescribeClassDetailsResponse
+   * @summary Queries the details about the instance types of an instance by using the code of the instance types.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeClassDetailsRequest
+   * @return DescribeClassDetailsResponse
    */
   async describeClassDetails(request: DescribeClassDetailsRequest): Promise<DescribeClassDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44427,12 +44814,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    *
-    * @param request DescribeCloudMigrationPrecheckResultRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCloudMigrationPrecheckResultResponse
+   * @summary Query the details about the assessment report for cloud migration to an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   *
+   * @param request DescribeCloudMigrationPrecheckResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudMigrationPrecheckResultResponse
    */
   async describeCloudMigrationPrecheckResultWithOptions(request: DescribeCloudMigrationPrecheckResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudMigrationPrecheckResultResponse> {
     Util.validateModel(request);
@@ -44487,11 +44876,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    *
-    * @param request DescribeCloudMigrationPrecheckResultRequest
-    * @return DescribeCloudMigrationPrecheckResultResponse
+   * @summary Query the details about the assessment report for cloud migration to an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   *
+   * @param request DescribeCloudMigrationPrecheckResultRequest
+   * @return DescribeCloudMigrationPrecheckResultResponse
    */
   async describeCloudMigrationPrecheckResult(request: DescribeCloudMigrationPrecheckResultRequest): Promise<DescribeCloudMigrationPrecheckResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44499,12 +44890,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    *
-    * @param request DescribeCloudMigrationResultRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCloudMigrationResultResponse
+   * @summary Queries the details about the cloud migration task of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   *
+   * @param request DescribeCloudMigrationResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudMigrationResultResponse
    */
   async describeCloudMigrationResultWithOptions(request: DescribeCloudMigrationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudMigrationResultResponse> {
     Util.validateModel(request);
@@ -44559,11 +44952,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    *
-    * @param request DescribeCloudMigrationResultRequest
-    * @return DescribeCloudMigrationResultResponse
+   * @summary Queries the details about the cloud migration task of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   *
+   * @param request DescribeCloudMigrationResultRequest
+   * @return DescribeCloudMigrationResultResponse
    */
   async describeCloudMigrationResult(request: DescribeCloudMigrationResultRequest): Promise<DescribeCloudMigrationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44571,12 +44966,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * SQL Server
-    *
-    * @param request DescribeCollationTimeZonesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCollationTimeZonesResponse
+   * @summary Queries the character set collations and time zones that are available for use in ApsaraDB RDS for SQL Server.
+   *
+   * @description ### Supported database engine
+   * SQL Server
+   *
+   * @param request DescribeCollationTimeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCollationTimeZonesResponse
    */
   async describeCollationTimeZonesWithOptions(request: DescribeCollationTimeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCollationTimeZonesResponse> {
     Util.validateModel(request);
@@ -44611,11 +45008,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * SQL Server
-    *
-    * @param request DescribeCollationTimeZonesRequest
-    * @return DescribeCollationTimeZonesResponse
+   * @summary Queries the character set collations and time zones that are available for use in ApsaraDB RDS for SQL Server.
+   *
+   * @description ### Supported database engine
+   * SQL Server
+   *
+   * @param request DescribeCollationTimeZonesRequest
+   * @return DescribeCollationTimeZonesResponse
    */
   async describeCollationTimeZones(request: DescribeCollationTimeZonesRequest): Promise<DescribeCollationTimeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44623,15 +45022,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ApsaraDB RDS for MySQL instances support cross-region backup and restoration. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~).
-    * Before you call this operation, make sure that the instance runs one of the following database engines:
-    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
-    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
-    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
-    *
-    * @param request DescribeCrossBackupMetaListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCrossBackupMetaListResponse
+   * @summary Queries the databases and tables whose data is included in a cross-region backup file of an instance.
+   *
+   * @description ApsaraDB RDS for MySQL instances support cross-region backup and restoration. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html).
+   * Before you call this operation, make sure that the instance runs one of the following database engines:
+   * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html).
+   * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](https://help.aliyun.com/document_detail/187923.html).
+   * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html).
+   *
+   * @param request DescribeCrossBackupMetaListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCrossBackupMetaListResponse
    */
   async describeCrossBackupMetaListWithOptions(request: DescribeCrossBackupMetaListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossBackupMetaListResponse> {
     Util.validateModel(request);
@@ -44694,14 +45095,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ApsaraDB RDS for MySQL instances support cross-region backup and restoration. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~).
-    * Before you call this operation, make sure that the instance runs one of the following database engines:
-    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
-    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
-    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
-    *
-    * @param request DescribeCrossBackupMetaListRequest
-    * @return DescribeCrossBackupMetaListResponse
+   * @summary Queries the databases and tables whose data is included in a cross-region backup file of an instance.
+   *
+   * @description ApsaraDB RDS for MySQL instances support cross-region backup and restoration. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html).
+   * Before you call this operation, make sure that the instance runs one of the following database engines:
+   * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html).
+   * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](https://help.aliyun.com/document_detail/187923.html).
+   * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html).
+   *
+   * @param request DescribeCrossBackupMetaListRequest
+   * @return DescribeCrossBackupMetaListResponse
    */
   async describeCrossBackupMetaList(request: DescribeCrossBackupMetaListRequest): Promise<DescribeCrossBackupMetaListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44709,19 +45112,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    *
-    * @param request DescribeCrossRegionBackupDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCrossRegionBackupDBInstanceResponse
+   * @summary Queries the instances for which the cross-region backup feature is enabled in a region and the cross-region backup settings of these instances.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   *
+   * @param request DescribeCrossRegionBackupDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCrossRegionBackupDBInstanceResponse
    */
   async describeCrossRegionBackupDBInstanceWithOptions(request: DescribeCrossRegionBackupDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossRegionBackupDBInstanceResponse> {
     Util.validateModel(request);
@@ -44772,18 +45177,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    *
-    * @param request DescribeCrossRegionBackupDBInstanceRequest
-    * @return DescribeCrossRegionBackupDBInstanceResponse
+   * @summary Queries the instances for which the cross-region backup feature is enabled in a region and the cross-region backup settings of these instances.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   *
+   * @param request DescribeCrossRegionBackupDBInstanceRequest
+   * @return DescribeCrossRegionBackupDBInstanceResponse
    */
   async describeCrossRegionBackupDBInstance(request: DescribeCrossRegionBackupDBInstanceRequest): Promise<DescribeCrossRegionBackupDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44791,20 +45198,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   ApsaraDB RDS for MySQL instances with local disks
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * ### [](#)References
-    * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * >  For more information about how to query cross-region log backup files, see DescribeCrossRegionLogBackupFiles.
-    *
-    * @param request DescribeCrossRegionBackupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCrossRegionBackupsResponse
+   * @summary Queries the cross-region data backup files of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   ApsaraDB RDS for MySQL instances with local disks
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * ### [](#)References
+   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * >  For more information about how to query cross-region log backup files, see DescribeCrossRegionLogBackupFiles.
+   *
+   * @param request DescribeCrossRegionBackupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCrossRegionBackupsResponse
    */
   async describeCrossRegionBackupsWithOptions(request: DescribeCrossRegionBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossRegionBackupsResponse> {
     Util.validateModel(request);
@@ -44879,19 +45288,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   ApsaraDB RDS for MySQL instances with local disks
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * ### [](#)References
-    * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * >  For more information about how to query cross-region log backup files, see DescribeCrossRegionLogBackupFiles.
-    *
-    * @param request DescribeCrossRegionBackupsRequest
-    * @return DescribeCrossRegionBackupsResponse
+   * @summary Queries the cross-region data backup files of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   ApsaraDB RDS for MySQL instances with local disks
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * ### [](#)References
+   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * >  For more information about how to query cross-region log backup files, see DescribeCrossRegionLogBackupFiles.
+   *
+   * @param request DescribeCrossRegionBackupsRequest
+   * @return DescribeCrossRegionBackupsResponse
    */
   async describeCrossRegionBackups(request: DescribeCrossRegionBackupsRequest): Promise<DescribeCrossRegionBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44899,20 +45310,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * >  For more information about how to query cross-region data backup files, see [DescribeCrossRegionBackups](~~121733~~).
-    *
-    * @param request DescribeCrossRegionLogBackupFilesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCrossRegionLogBackupFilesResponse
+   * @summary Queries the cross-region log backup files of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * >  For more information about how to query cross-region data backup files, see [DescribeCrossRegionBackups](https://help.aliyun.com/document_detail/121733.html).
+   *
+   * @param request DescribeCrossRegionLogBackupFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCrossRegionLogBackupFilesResponse
    */
   async describeCrossRegionLogBackupFilesWithOptions(request: DescribeCrossRegionLogBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossRegionLogBackupFilesResponse> {
     Util.validateModel(request);
@@ -44975,25 +45388,34 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * >  For more information about how to query cross-region data backup files, see [DescribeCrossRegionBackups](~~121733~~).
-    *
-    * @param request DescribeCrossRegionLogBackupFilesRequest
-    * @return DescribeCrossRegionLogBackupFilesResponse
+   * @summary Queries the cross-region log backup files of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * >  For more information about how to query cross-region data backup files, see [DescribeCrossRegionBackups](https://help.aliyun.com/document_detail/121733.html).
+   *
+   * @param request DescribeCrossRegionLogBackupFilesRequest
+   * @return DescribeCrossRegionLogBackupFilesResponse
    */
   async describeCrossRegionLogBackupFiles(request: DescribeCrossRegionLogBackupFilesRequest): Promise<DescribeCrossRegionLogBackupFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCrossRegionLogBackupFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询实例最新变配订单
+   *
+   * @param request DescribeCurrentModifyOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCurrentModifyOrderResponse
+   */
   async describeCurrentModifyOrderWithOptions(request: DescribeCurrentModifyOrderRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCurrentModifyOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45042,11 +45464,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCurrentModifyOrderResponse>(await this.callApi(params, req, runtime), new DescribeCurrentModifyOrderResponse({}));
   }
 
+  /**
+   * @summary 查询实例最新变配订单
+   *
+   * @param request DescribeCurrentModifyOrderRequest
+   * @return DescribeCurrentModifyOrderResponse
+   */
   async describeCurrentModifyOrder(request: DescribeCurrentModifyOrderRequest): Promise<DescribeCurrentModifyOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCurrentModifyOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeCustinsResourceInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustinsResourceInfoResponse
+   */
   async describeCustinsResourceInfoWithOptions(request: DescribeCustinsResourceInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustinsResourceInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45087,21 +45520,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustinsResourceInfoResponse>(await this.callApi(params, req, runtime), new DescribeCustinsResourceInfoResponse({}));
   }
 
+  /**
+   * @param request DescribeCustinsResourceInfoRequest
+   * @return DescribeCustinsResourceInfoResponse
+   */
   async describeCustinsResourceInfo(request: DescribeCustinsResourceInfoRequest): Promise<DescribeCustinsResourceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustinsResourceInfoWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeDBInstanceAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceAttributeResponse
+   * @summary Queries the details of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeDBInstanceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceAttributeResponse
    */
   async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
     Util.validateModel(request);
@@ -45136,14 +45575,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeDBInstanceAttributeRequest
-    * @return DescribeDBInstanceAttributeResponse
+   * @summary Queries the details of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeDBInstanceAttributeRequest
+   * @return DescribeDBInstanceAttributeResponse
    */
   async describeDBInstanceAttribute(request: DescribeDBInstanceAttributeRequest): Promise<DescribeDBInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45151,15 +45592,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstanceByTagsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceByTagsResponse
+   * @summary Queries information about the tags that are added to an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstanceByTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceByTagsResponse
    */
   async describeDBInstanceByTagsWithOptions(request: DescribeDBInstanceByTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceByTagsResponse> {
     Util.validateModel(request);
@@ -45222,20 +45665,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstanceByTagsRequest
-    * @return DescribeDBInstanceByTagsResponse
+   * @summary Queries information about the tags that are added to an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstanceByTagsRequest
+   * @return DescribeDBInstanceByTagsResponse
    */
   async describeDBInstanceByTags(request: DescribeDBInstanceByTagsRequest): Promise<DescribeDBInstanceByTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceByTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取实例链路诊断信息
+   *
+   * @param request DescribeDBInstanceConnectivityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceConnectivityResponse
+   */
   async describeDBInstanceConnectivityWithOptions(request: DescribeDBInstanceConnectivityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceConnectivityResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -45256,17 +45708,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceConnectivityResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceConnectivityResponse({}));
   }
 
+  /**
+   * @summary 获取实例链路诊断信息
+   *
+   * @param request DescribeDBInstanceConnectivityRequest
+   * @return DescribeDBInstanceConnectivityResponse
+   */
   async describeDBInstanceConnectivity(request: DescribeDBInstanceConnectivityRequest): Promise<DescribeDBInstanceConnectivityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceConnectivityWithOptions(request, runtime);
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request DescribeDBInstanceDetailRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceDetailResponse
+   * @summary You can call the DescribeDBInstanceDetail operation to query the details of an instance.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request DescribeDBInstanceDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceDetailResponse
    */
   async describeDBInstanceDetailWithOptions(request: DescribeDBInstanceDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDetailResponse> {
     Util.validateModel(request);
@@ -45317,16 +45777,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request DescribeDBInstanceDetailRequest
-    * @return DescribeDBInstanceDetailResponse
+   * @summary You can call the DescribeDBInstanceDetail operation to query the details of an instance.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request DescribeDBInstanceDetailRequest
+   * @return DescribeDBInstanceDetailResponse
    */
   async describeDBInstanceDetail(request: DescribeDBInstanceDetailRequest): Promise<DescribeDBInstanceDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeDBInstanceEncryptionKey operation to check whether disk encryption is enabled for an instance. You can also query details about the keys that are used for disk encryption. This operation is supported for instances that run MySQL, SQL Server, or PostgreSQL.
+   *
+   * @param request DescribeDBInstanceEncryptionKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceEncryptionKeyResponse
+   */
   async describeDBInstanceEncryptionKeyWithOptions(request: DescribeDBInstanceEncryptionKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceEncryptionKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45383,18 +45852,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceEncryptionKeyResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceEncryptionKeyResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeDBInstanceEncryptionKey operation to check whether disk encryption is enabled for an instance. You can also query details about the keys that are used for disk encryption. This operation is supported for instances that run MySQL, SQL Server, or PostgreSQL.
+   *
+   * @param request DescribeDBInstanceEncryptionKeyRequest
+   * @return DescribeDBInstanceEncryptionKeyResponse
+   */
   async describeDBInstanceEncryptionKey(request: DescribeDBInstanceEncryptionKeyRequest): Promise<DescribeDBInstanceEncryptionKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceEncryptionKeyWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    *
-    * @param request DescribeDBInstanceEndpointsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceEndpointsResponse
+   * @summary Queries the information about the endpoints of an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS MySQL
+   *
+   * @param request DescribeDBInstanceEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceEndpointsResponse
    */
   async describeDBInstanceEndpointsWithOptions(request: DescribeDBInstanceEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceEndpointsResponse> {
     Util.validateModel(request);
@@ -45433,11 +45910,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    *
-    * @param request DescribeDBInstanceEndpointsRequest
-    * @return DescribeDBInstanceEndpointsResponse
+   * @summary Queries the information about the endpoints of an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS MySQL
+   *
+   * @param request DescribeDBInstanceEndpointsRequest
+   * @return DescribeDBInstanceEndpointsResponse
    */
   async describeDBInstanceEndpoints(request: DescribeDBInstanceEndpointsRequest): Promise<DescribeDBInstanceEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45445,19 +45924,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Query the data replication mode of an ApsaraDB RDS for MySQL instance](~~96055~~)
-    * *   [Query the data replication mode of an ApsaraDB RDS for PostgreSQL instance](~~151265~~)
-    * *   [Query the data replication mode of an ApsaraDB RDS for SQL Server instance](~~415433~~)
-    *
-    * @param request DescribeDBInstanceHAConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceHAConfigResponse
+   * @summary Queries the high availability mode and data replication mode of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Query the data replication mode of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96055.html)
+   * *   [Query the data replication mode of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/151265.html)
+   * *   [Query the data replication mode of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/415433.html)
+   *
+   * @param request DescribeDBInstanceHAConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceHAConfigResponse
    */
   async describeDBInstanceHAConfigWithOptions(request: DescribeDBInstanceHAConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceHAConfigResponse> {
     Util.validateModel(request);
@@ -45500,18 +45981,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Query the data replication mode of an ApsaraDB RDS for MySQL instance](~~96055~~)
-    * *   [Query the data replication mode of an ApsaraDB RDS for PostgreSQL instance](~~151265~~)
-    * *   [Query the data replication mode of an ApsaraDB RDS for SQL Server instance](~~415433~~)
-    *
-    * @param request DescribeDBInstanceHAConfigRequest
-    * @return DescribeDBInstanceHAConfigResponse
+   * @summary Queries the high availability mode and data replication mode of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Query the data replication mode of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96055.html)
+   * *   [Query the data replication mode of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/151265.html)
+   * *   [Query the data replication mode of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/415433.html)
+   *
+   * @param request DescribeDBInstanceHAConfigRequest
+   * @return DescribeDBInstanceHAConfigResponse
    */
   async describeDBInstanceHAConfig(request: DescribeDBInstanceHAConfigRequest): Promise<DescribeDBInstanceHAConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45519,15 +46002,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeDBInstanceIPArrayListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceIPArrayListResponse
+   * @summary Queries the IP address whitelist of an ApsaraDB RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeDBInstanceIPArrayListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceIPArrayListResponse
    */
   async describeDBInstanceIPArrayListWithOptions(request: DescribeDBInstanceIPArrayListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIPArrayListResponse> {
     Util.validateModel(request);
@@ -45566,14 +46051,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeDBInstanceIPArrayListRequest
-    * @return DescribeDBInstanceIPArrayListResponse
+   * @summary Queries the IP address whitelist of an ApsaraDB RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeDBInstanceIPArrayListRequest
+   * @return DescribeDBInstanceIPArrayListResponse
    */
   async describeDBInstanceIPArrayList(request: DescribeDBInstanceIPArrayListRequest): Promise<DescribeDBInstanceIPArrayListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45581,19 +46068,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS SQL Server
-    * ### [](#)Prerequisites
-    * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
-    * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
-    * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Configure a distributed transaction whitelist](~~124321~~)
-    *
-    * @param request DescribeDBInstanceIpHostnameRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceIpHostnameResponse
+   * @summary Queries the hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS SQL Server
+   * ### [](#)Prerequisites
+   * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
+   * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
+   * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+   *
+   * @param request DescribeDBInstanceIpHostnameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceIpHostnameResponse
    */
   async describeDBInstanceIpHostnameWithOptions(request: DescribeDBInstanceIpHostnameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIpHostnameResponse> {
     Util.validateModel(request);
@@ -45644,18 +46133,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS SQL Server
-    * ### [](#)Prerequisites
-    * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
-    * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
-    * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Configure a distributed transaction whitelist](~~124321~~)
-    *
-    * @param request DescribeDBInstanceIpHostnameRequest
-    * @return DescribeDBInstanceIpHostnameResponse
+   * @summary Queries the hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS SQL Server
+   * ### [](#)Prerequisites
+   * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
+   * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
+   * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+   *
+   * @param request DescribeDBInstanceIpHostnameRequest
+   * @return DescribeDBInstanceIpHostnameResponse
    */
   async describeDBInstanceIpHostname(request: DescribeDBInstanceIpHostnameRequest): Promise<DescribeDBInstanceIpHostnameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45663,15 +46154,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [View the Enhanced Monitoring metrics](~~299200~~)
-    *
-    * @param request DescribeDBInstanceMetricsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceMetricsResponse
+   * @summary Queries the Enhanced Monitoring metrics that are displayed for an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+   *
+   * @param request DescribeDBInstanceMetricsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceMetricsResponse
    */
   async describeDBInstanceMetricsWithOptions(request: DescribeDBInstanceMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceMetricsResponse> {
     Util.validateModel(request);
@@ -45706,14 +46199,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [View the Enhanced Monitoring metrics](~~299200~~)
-    *
-    * @param request DescribeDBInstanceMetricsRequest
-    * @return DescribeDBInstanceMetricsResponse
+   * @summary Queries the Enhanced Monitoring metrics that are displayed for an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+   *
+   * @param request DescribeDBInstanceMetricsRequest
+   * @return DescribeDBInstanceMetricsResponse
    */
   async describeDBInstanceMetrics(request: DescribeDBInstanceMetricsRequest): Promise<DescribeDBInstanceMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45721,14 +46216,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstanceMonitorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceMonitorResponse
+   * @summary Queries the monitoring frequency of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstanceMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceMonitorResponse
    */
   async describeDBInstanceMonitorWithOptions(request: DescribeDBInstanceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceMonitorResponse> {
     Util.validateModel(request);
@@ -45775,13 +46272,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstanceMonitorRequest
-    * @return DescribeDBInstanceMonitorResponse
+   * @summary Queries the monitoring frequency of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstanceMonitorRequest
+   * @return DescribeDBInstanceMonitorResponse
    */
   async describeDBInstanceMonitor(request: DescribeDBInstanceMonitorRequest): Promise<DescribeDBInstanceMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45789,15 +46288,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstanceNetInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceNetInfoResponse
+   * @summary Queries all endpoints of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstanceNetInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceNetInfoResponse
    */
   async describeDBInstanceNetInfoWithOptions(request: DescribeDBInstanceNetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceNetInfoResponse> {
     Util.validateModel(request);
@@ -45856,14 +46357,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstanceNetInfoRequest
-    * @return DescribeDBInstanceNetInfoResponse
+   * @summary Queries all endpoints of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstanceNetInfoRequest
+   * @return DescribeDBInstanceNetInfoResponse
    */
   async describeDBInstanceNetInfo(request: DescribeDBInstanceNetInfoRequest): Promise<DescribeDBInstanceNetInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45871,15 +46374,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstanceNetInfoForChannelRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceNetInfoForChannelResponse
+   * @summary Queries all endpoints of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstanceNetInfoForChannelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceNetInfoForChannelResponse
    */
   async describeDBInstanceNetInfoForChannelWithOptions(request: DescribeDBInstanceNetInfoForChannelRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceNetInfoForChannelResponse> {
     Util.validateModel(request);
@@ -45934,14 +46439,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstanceNetInfoForChannelRequest
-    * @return DescribeDBInstanceNetInfoForChannelResponse
+   * @summary Queries all endpoints of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstanceNetInfoForChannelRequest
+   * @return DescribeDBInstanceNetInfoForChannelResponse
    */
   async describeDBInstanceNetInfoForChannel(request: DescribeDBInstanceNetInfoForChannelRequest): Promise<DescribeDBInstanceNetInfoForChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45949,15 +46456,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstancePerformanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstancePerformanceResponse
+   * @summary Queries the performance metrics of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstancePerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancePerformanceResponse
    */
   async describeDBInstancePerformanceWithOptions(request: DescribeDBInstancePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancePerformanceResponse> {
     Util.validateModel(request);
@@ -46004,14 +46513,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstancePerformanceRequest
-    * @return DescribeDBInstancePerformanceResponse
+   * @summary Queries the performance metrics of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstancePerformanceRequest
+   * @return DescribeDBInstancePerformanceResponse
    */
   async describeDBInstancePerformance(request: DescribeDBInstancePerformanceRequest): Promise<DescribeDBInstancePerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46019,11 +46530,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeDBInstancePromoteActivityRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstancePromoteActivityResponse
+   * @deprecated OpenAPI DescribeDBInstancePromoteActivity is deprecated
+   *
+   * @summary The operation is phased out.
+   *
+   * @param request DescribeDBInstancePromoteActivityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancePromoteActivityResponse
    */
   // Deprecated
   async describeDBInstancePromoteActivityWithOptions(request: DescribeDBInstancePromoteActivityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancePromoteActivityResponse> {
@@ -46071,10 +46584,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeDBInstancePromoteActivityRequest
-    * @return DescribeDBInstancePromoteActivityResponse
+   * @deprecated OpenAPI DescribeDBInstancePromoteActivity is deprecated
+   *
+   * @summary The operation is phased out.
+   *
+   * @param request DescribeDBInstancePromoteActivityRequest
+   * @return DescribeDBInstancePromoteActivityResponse
    */
   // Deprecated
   async describeDBInstancePromoteActivity(request: DescribeDBInstancePromoteActivityRequest): Promise<DescribeDBInstancePromoteActivityResponse> {
@@ -46083,19 +46598,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)Feature description
-    * This operation is used to query the shared proxy settings of an instance that runs MySQL or the read/write splitting settings of an instance that runs SQL Server. For more information about how to query the dedicated proxy settings of an ApsaraDB RDS for MySQL instance, see [DescribeDBProxy](~~610506~~).
-    * ### [](#)Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The shared proxy feature must be enabled for the primary instance.
-    * *   The read/write splitting feature must be enabled for the primary instance.
-    *
-    * @param request DescribeDBInstanceProxyConfigurationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceProxyConfigurationResponse
+   * @summary Queries the settings of shared proxies that are enabled on an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)Feature description
+   * This operation is used to query the shared proxy settings of an instance that runs MySQL or the read/write splitting settings of an instance that runs SQL Server. For more information about how to query the dedicated proxy settings of an ApsaraDB RDS for MySQL instance, see [DescribeDBProxy](https://help.aliyun.com/document_detail/610506.html).
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The shared proxy feature must be enabled for the primary instance.
+   * *   The read/write splitting feature must be enabled for the primary instance.
+   *
+   * @param request DescribeDBInstanceProxyConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceProxyConfigurationResponse
    */
   async describeDBInstanceProxyConfigurationWithOptions(request: DescribeDBInstanceProxyConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceProxyConfigurationResponse> {
     Util.validateModel(request);
@@ -46134,18 +46651,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)Feature description
-    * This operation is used to query the shared proxy settings of an instance that runs MySQL or the read/write splitting settings of an instance that runs SQL Server. For more information about how to query the dedicated proxy settings of an ApsaraDB RDS for MySQL instance, see [DescribeDBProxy](~~610506~~).
-    * ### [](#)Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The shared proxy feature must be enabled for the primary instance.
-    * *   The read/write splitting feature must be enabled for the primary instance.
-    *
-    * @param request DescribeDBInstanceProxyConfigurationRequest
-    * @return DescribeDBInstanceProxyConfigurationResponse
+   * @summary Queries the settings of shared proxies that are enabled on an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)Feature description
+   * This operation is used to query the shared proxy settings of an instance that runs MySQL or the read/write splitting settings of an instance that runs SQL Server. For more information about how to query the dedicated proxy settings of an ApsaraDB RDS for MySQL instance, see [DescribeDBProxy](https://help.aliyun.com/document_detail/610506.html).
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The shared proxy feature must be enabled for the primary instance.
+   * *   The read/write splitting feature must be enabled for the primary instance.
+   *
+   * @param request DescribeDBInstanceProxyConfigurationRequest
+   * @return DescribeDBInstanceProxyConfigurationResponse
    */
   async describeDBInstanceProxyConfiguration(request: DescribeDBInstanceProxyConfigurationRequest): Promise<DescribeDBInstanceProxyConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46153,14 +46672,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DescribeDBInstanceSSLRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceSSLResponse
+   * @summary Queries the SSL configurations of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DescribeDBInstanceSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceSSLResponse
    */
   async describeDBInstanceSSLWithOptions(request: DescribeDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSSLResponse> {
     Util.validateModel(request);
@@ -46203,13 +46724,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DescribeDBInstanceSSLRequest
-    * @return DescribeDBInstanceSSLResponse
+   * @summary Queries the SSL configurations of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DescribeDBInstanceSSLRequest
+   * @return DescribeDBInstanceSSLResponse
    */
   async describeDBInstanceSSL(request: DescribeDBInstanceSSLRequest): Promise<DescribeDBInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46217,14 +46740,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *
-    * @param request DescribeDBInstanceTDERequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceTDEResponse
+   * @summary Queries the status of the Transparent Data Encryption (TDE) feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *
+   * @param request DescribeDBInstanceTDERequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceTDEResponse
    */
   async describeDBInstanceTDEWithOptions(request: DescribeDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceTDEResponse> {
     Util.validateModel(request);
@@ -46267,13 +46792,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *
-    * @param request DescribeDBInstanceTDERequest
-    * @return DescribeDBInstanceTDEResponse
+   * @summary Queries the status of the Transparent Data Encryption (TDE) feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *
+   * @param request DescribeDBInstanceTDERequest
+   * @return DescribeDBInstanceTDEResponse
    */
   async describeDBInstanceTDE(request: DescribeDBInstanceTDERequest): Promise<DescribeDBInstanceTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46281,15 +46808,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstancesResponse
+   * @summary Queries instances.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancesResponse
    */
   async describeDBInstancesWithOptions(request: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
     Util.validateModel(request);
@@ -46444,14 +46973,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDBInstancesRequest
-    * @return DescribeDBInstancesResponse
+   * @summary Queries instances.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDBInstancesRequest
+   * @return DescribeDBInstancesResponse
    */
   async describeDBInstances(request: DescribeDBInstancesRequest): Promise<DescribeDBInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46459,12 +46990,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
-    * >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
-    *
-    * @param request DescribeDBInstancesAsCsvRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstancesAsCsvResponse
+   * @deprecated OpenAPI DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
+   *
+   * @summary Queries the instances.
+   *
+   * @description >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
+   *
+   * @param request DescribeDBInstancesAsCsvRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancesAsCsvResponse
    */
   // Deprecated
   async describeDBInstancesAsCsvWithOptions(request: DescribeDBInstancesAsCsvRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesAsCsvResponse> {
@@ -46520,11 +47054,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
-    * >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
-    *
-    * @param request DescribeDBInstancesAsCsvRequest
-    * @return DescribeDBInstancesAsCsvResponse
+   * @deprecated OpenAPI DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
+   *
+   * @summary Queries the instances.
+   *
+   * @description >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
+   *
+   * @param request DescribeDBInstancesAsCsvRequest
+   * @return DescribeDBInstancesAsCsvResponse
    */
   // Deprecated
   async describeDBInstancesAsCsv(request: DescribeDBInstancesAsCsvRequest): Promise<DescribeDBInstancesAsCsvResponse> {
@@ -46533,15 +47070,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeDBInstancesByExpireTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstancesByExpireTimeResponse
+   * @summary Queries the information about an ApsaraDB RDS instance based on the remaining subscription duration of an instance.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeDBInstancesByExpireTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancesByExpireTimeResponse
    */
   async describeDBInstancesByExpireTimeWithOptions(request: DescribeDBInstancesByExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesByExpireTimeResponse> {
     Util.validateModel(request);
@@ -46612,14 +47151,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeDBInstancesByExpireTimeRequest
-    * @return DescribeDBInstancesByExpireTimeResponse
+   * @summary Queries the information about an ApsaraDB RDS instance based on the remaining subscription duration of an instance.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeDBInstancesByExpireTimeRequest
+   * @return DescribeDBInstancesByExpireTimeResponse
    */
   async describeDBInstancesByExpireTime(request: DescribeDBInstancesByExpireTimeRequest): Promise<DescribeDBInstancesByExpireTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46627,11 +47168,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request DescribeDBInstancesByPerformanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstancesByPerformanceResponse
+   * @summary You can call the DescribeDBInstancePerformance operation to query the performance of instances.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request DescribeDBInstancesByPerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancesByPerformanceResponse
    */
   async describeDBInstancesByPerformanceWithOptions(request: DescribeDBInstancesByPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesByPerformanceResponse> {
     Util.validateModel(request);
@@ -46714,10 +47257,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request DescribeDBInstancesByPerformanceRequest
-    * @return DescribeDBInstancesByPerformanceResponse
+   * @summary You can call the DescribeDBInstancePerformance operation to query the performance of instances.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request DescribeDBInstancesByPerformanceRequest
+   * @return DescribeDBInstancesByPerformanceResponse
    */
   async describeDBInstancesByPerformance(request: DescribeDBInstancesByPerformanceRequest): Promise<DescribeDBInstancesByPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46725,11 +47270,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request DescribeDBInstancesForCloneRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstancesForCloneResponse
+   * @summary Queries a list of instances.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request DescribeDBInstancesForCloneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancesForCloneResponse
    */
   async describeDBInstancesForCloneWithOptions(request: DescribeDBInstancesForCloneRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesForCloneResponse> {
     Util.validateModel(request);
@@ -46856,10 +47403,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request DescribeDBInstancesForCloneRequest
-    * @return DescribeDBInstancesForCloneResponse
+   * @summary Queries a list of instances.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request DescribeDBInstancesForCloneRequest
+   * @return DescribeDBInstancesForCloneResponse
    */
   async describeDBInstancesForClone(request: DescribeDBInstancesForCloneRequest): Promise<DescribeDBInstancesForCloneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46867,15 +47416,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)Usage notes
-    * Before you purchase or upgrade an instance that runs MySQL or PostgreSQL, you can call the DescribeDBMiniEngineVersions operation to query the minor engine versions that are available for the instance.
-    *
-    * @param request DescribeDBMiniEngineVersionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBMiniEngineVersionsResponse
+   * @summary Queries minor engine versions that are available for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)Usage notes
+   * Before you purchase or upgrade an instance that runs MySQL or PostgreSQL, you can call the DescribeDBMiniEngineVersions operation to query the minor engine versions that are available for the instance.
+   *
+   * @param request DescribeDBMiniEngineVersionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBMiniEngineVersionsResponse
    */
   async describeDBMiniEngineVersionsWithOptions(request: DescribeDBMiniEngineVersionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBMiniEngineVersionsResponse> {
     Util.validateModel(request);
@@ -46934,14 +47485,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)Usage notes
-    * Before you purchase or upgrade an instance that runs MySQL or PostgreSQL, you can call the DescribeDBMiniEngineVersions operation to query the minor engine versions that are available for the instance.
-    *
-    * @param request DescribeDBMiniEngineVersionsRequest
-    * @return DescribeDBMiniEngineVersionsResponse
+   * @summary Queries minor engine versions that are available for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)Usage notes
+   * Before you purchase or upgrade an instance that runs MySQL or PostgreSQL, you can call the DescribeDBMiniEngineVersions operation to query the minor engine versions that are available for the instance.
+   *
+   * @param request DescribeDBMiniEngineVersionsRequest
+   * @return DescribeDBMiniEngineVersionsResponse
    */
   async describeDBMiniEngineVersions(request: DescribeDBMiniEngineVersionsRequest): Promise<DescribeDBMiniEngineVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46949,13 +47502,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    *
-    * @param request DescribeDBProxyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBProxyResponse
+   * @summary Queries the settings of the dedicated proxy for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   *
+   * @param request DescribeDBProxyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBProxyResponse
    */
   async describeDBProxyWithOptions(request: DescribeDBProxyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBProxyResponse> {
     Util.validateModel(request);
@@ -47010,12 +47565,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    *
-    * @param request DescribeDBProxyRequest
-    * @return DescribeDBProxyResponse
+   * @summary Queries the settings of the dedicated proxy for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   *
+   * @param request DescribeDBProxyRequest
+   * @return DescribeDBProxyResponse
    */
   async describeDBProxy(request: DescribeDBProxyRequest): Promise<DescribeDBProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47023,13 +47580,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    *
-    * @param request DescribeDBProxyEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBProxyEndpointResponse
+   * @summary Queries the information about the database proxy endpoints of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   *
+   * @param request DescribeDBProxyEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBProxyEndpointResponse
    */
   async describeDBProxyEndpointWithOptions(request: DescribeDBProxyEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBProxyEndpointResponse> {
     Util.validateModel(request);
@@ -47088,12 +47647,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    *
-    * @param request DescribeDBProxyEndpointRequest
-    * @return DescribeDBProxyEndpointResponse
+   * @summary Queries the information about the database proxy endpoints of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   *
+   * @param request DescribeDBProxyEndpointRequest
+   * @return DescribeDBProxyEndpointResponse
    */
   async describeDBProxyEndpoint(request: DescribeDBProxyEndpointRequest): Promise<DescribeDBProxyEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47101,18 +47662,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [View the monitoring data of an ApsaraDB RDS for MySQL instance](~~194241~~)
-    * *   [View the monitoring data of an ApsaraDB RDS for PostgreSQL instance](~~418275~~)
-    *
-    * @param request DescribeDBProxyPerformanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBProxyPerformanceResponse
+   * @summary Queries the performance data of the database proxy for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [View the monitoring data of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/194241.html)
+   * *   [View the monitoring data of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418275.html)
+   *
+   * @param request DescribeDBProxyPerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBProxyPerformanceResponse
    */
   async describeDBProxyPerformanceWithOptions(request: DescribeDBProxyPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBProxyPerformanceResponse> {
     Util.validateModel(request);
@@ -47179,17 +47742,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [View the monitoring data of an ApsaraDB RDS for MySQL instance](~~194241~~)
-    * *   [View the monitoring data of an ApsaraDB RDS for PostgreSQL instance](~~418275~~)
-    *
-    * @param request DescribeDBProxyPerformanceRequest
-    * @return DescribeDBProxyPerformanceResponse
+   * @summary Queries the performance data of the database proxy for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [View the monitoring data of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/194241.html)
+   * *   [View the monitoring data of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418275.html)
+   *
+   * @param request DescribeDBProxyPerformanceRequest
+   * @return DescribeDBProxyPerformanceResponse
    */
   async describeDBProxyPerformance(request: DescribeDBProxyPerformanceRequest): Promise<DescribeDBProxyPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47197,15 +47762,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance](~~124321~~)
-    *
-    * @param request DescribeDTCSecurityIpHostsForSQLServerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDTCSecurityIpHostsForSQLServerResponse
+   * @summary Queries the distributed transaction whitelists of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/124321.html)
+   *
+   * @param request DescribeDTCSecurityIpHostsForSQLServerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDTCSecurityIpHostsForSQLServerResponse
    */
   async describeDTCSecurityIpHostsForSQLServerWithOptions(request: DescribeDTCSecurityIpHostsForSQLServerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDTCSecurityIpHostsForSQLServerResponse> {
     Util.validateModel(request);
@@ -47260,14 +47827,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance](~~124321~~)
-    *
-    * @param request DescribeDTCSecurityIpHostsForSQLServerRequest
-    * @return DescribeDTCSecurityIpHostsForSQLServerResponse
+   * @summary Queries the distributed transaction whitelists of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/124321.html)
+   *
+   * @param request DescribeDTCSecurityIpHostsForSQLServerRequest
+   * @return DescribeDTCSecurityIpHostsForSQLServerResponse
    */
   async describeDTCSecurityIpHostsForSQLServer(request: DescribeDTCSecurityIpHostsForSQLServerRequest): Promise<DescribeDTCSecurityIpHostsForSQLServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47275,15 +47844,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDatabasesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDatabasesResponse
+   * @summary Queries the details about the databases on an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDatabasesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDatabasesResponse
    */
   async describeDatabasesWithOptions(request: DescribeDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatabasesResponse> {
     Util.validateModel(request);
@@ -47346,14 +47917,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeDatabasesRequest
-    * @return DescribeDatabasesResponse
+   * @summary Queries the details about the databases on an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeDatabasesRequest
+   * @return DescribeDatabasesResponse
    */
   async describeDatabases(request: DescribeDatabasesRequest): Promise<DescribeDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47361,11 +47934,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Dedicated clusters allow you to manage a number of instances in a cluster at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-    *
-    * @param request DescribeDedicatedHostGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDedicatedHostGroupsResponse
+   * @summary Queries information about an ApsaraDB MyBase dedicated cluster.
+   *
+   * @description Dedicated clusters allow you to manage a number of instances in a cluster at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   *
+   * @param request DescribeDedicatedHostGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDedicatedHostGroupsResponse
    */
   async describeDedicatedHostGroupsWithOptions(request: DescribeDedicatedHostGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostGroupsResponse> {
     Util.validateModel(request);
@@ -47412,10 +47987,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Dedicated clusters allow you to manage a number of instances in a cluster at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-    *
-    * @param request DescribeDedicatedHostGroupsRequest
-    * @return DescribeDedicatedHostGroupsResponse
+   * @summary Queries information about an ApsaraDB MyBase dedicated cluster.
+   *
+   * @description Dedicated clusters allow you to manage a number of instances in a cluster at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   *
+   * @param request DescribeDedicatedHostGroupsRequest
+   * @return DescribeDedicatedHostGroupsResponse
    */
   async describeDedicatedHostGroups(request: DescribeDedicatedHostGroupsRequest): Promise<DescribeDedicatedHostGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47423,11 +48000,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-    *
-    * @param request DescribeDedicatedHostsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDedicatedHostsResponse
+   * @summary Queries the information about the hosts in a dedicated cluster.
+   *
+   * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   *
+   * @param request DescribeDedicatedHostsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDedicatedHostsResponse
    */
   async describeDedicatedHostsWithOptions(request: DescribeDedicatedHostsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostsResponse> {
     Util.validateModel(request);
@@ -47494,10 +48073,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-    *
-    * @param request DescribeDedicatedHostsRequest
-    * @return DescribeDedicatedHostsResponse
+   * @summary Queries the information about the hosts in a dedicated cluster.
+   *
+   * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   *
+   * @param request DescribeDedicatedHostsRequest
+   * @return DescribeDedicatedHostsResponse
    */
   async describeDedicatedHosts(request: DescribeDedicatedHostsRequest): Promise<DescribeDedicatedHostsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47505,16 +48086,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * > This operation is available only for instances that use local disks.
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * For more information about how to retain the data backup files of an instance after the instance is released, see [Configure automatic backup](~~98818~~).
-    *
-    * @param request DescribeDetachedBackupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDetachedBackupsResponse
+   * @summary Queries the data backup files of an ApsaraDB RDS instance that is released.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * > This operation is available only for instances that use local disks.
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * For more information about how to retain the data backup files of an instance after the instance is released, see [Configure automatic backup](https://help.aliyun.com/document_detail/98818.html).
+   *
+   * @param request DescribeDetachedBackupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDetachedBackupsResponse
    */
   async describeDetachedBackupsWithOptions(request: DescribeDetachedBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDetachedBackupsResponse> {
     Util.validateModel(request);
@@ -47581,15 +48164,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * > This operation is available only for instances that use local disks.
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * For more information about how to retain the data backup files of an instance after the instance is released, see [Configure automatic backup](~~98818~~).
-    *
-    * @param request DescribeDetachedBackupsRequest
-    * @return DescribeDetachedBackupsResponse
+   * @summary Queries the data backup files of an ApsaraDB RDS instance that is released.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * > This operation is available only for instances that use local disks.
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * For more information about how to retain the data backup files of an instance after the instance is released, see [Configure automatic backup](https://help.aliyun.com/document_detail/98818.html).
+   *
+   * @param request DescribeDetachedBackupsRequest
+   * @return DescribeDetachedBackupsResponse
    */
   async describeDetachedBackups(request: DescribeDetachedBackupsRequest): Promise<DescribeDetachedBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47597,12 +48182,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * >  This operation is phased out.
-    *
-    * @param request DescribeDiagnosticReportListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDiagnosticReportListResponse
+   * @deprecated OpenAPI DescribeDiagnosticReportList is deprecated
+   *
+   * @summary Queries the information about diagnostics reports.
+   *
+   * @description >  This operation is phased out.
+   *
+   * @param request DescribeDiagnosticReportListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDiagnosticReportListResponse
    */
   // Deprecated
   async describeDiagnosticReportListWithOptions(request: DescribeDiagnosticReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosticReportListResponse> {
@@ -47634,11 +48222,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * >  This operation is phased out.
-    *
-    * @param request DescribeDiagnosticReportListRequest
-    * @return DescribeDiagnosticReportListResponse
+   * @deprecated OpenAPI DescribeDiagnosticReportList is deprecated
+   *
+   * @summary Queries the information about diagnostics reports.
+   *
+   * @description >  This operation is phased out.
+   *
+   * @param request DescribeDiagnosticReportListRequest
+   * @return DescribeDiagnosticReportListResponse
    */
   // Deprecated
   async describeDiagnosticReportList(request: DescribeDiagnosticReportListRequest): Promise<DescribeDiagnosticReportListResponse> {
@@ -47647,15 +48238,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeErrorLogsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeErrorLogsResponse
+   * @summary Queries the error logs of an instance over a specific time range.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeErrorLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeErrorLogsResponse
    */
   async describeErrorLogsWithOptions(request: DescribeErrorLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeErrorLogsResponse> {
     Util.validateModel(request);
@@ -47714,14 +48307,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeErrorLogsRequest
-    * @return DescribeErrorLogsResponse
+   * @summary Queries the error logs of an instance over a specific time range.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeErrorLogsRequest
+   * @return DescribeErrorLogsResponse
    */
   async describeErrorLogs(request: DescribeErrorLogsRequest): Promise<DescribeErrorLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47729,21 +48324,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Historical events of an ApsaraDB RDS for MySQL instance](~~129759~~)
-    * *   [Historical events of an ApsaraDB RDS for PostgreSQL instance](~~131008~~)
-    * *   [Historical events of an ApsaraDB RDS for SQL Server instance](~~131013~~)
-    * *   [Historical events of an ApsaraDB RDS for MariaDB instance](~~131010~~)
-    *
-    * @param request DescribeEventsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeEventsResponse
+   * @summary Queries historical events of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Historical events of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/129759.html)
+   * *   [Historical events of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/131008.html)
+   * *   [Historical events of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/131013.html)
+   * *   [Historical events of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/131010.html)
+   *
+   * @param request DescribeEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEventsResponse
    */
   async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
     Util.validateModel(request);
@@ -47798,20 +48395,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Historical events of an ApsaraDB RDS for MySQL instance](~~129759~~)
-    * *   [Historical events of an ApsaraDB RDS for PostgreSQL instance](~~131008~~)
-    * *   [Historical events of an ApsaraDB RDS for SQL Server instance](~~131013~~)
-    * *   [Historical events of an ApsaraDB RDS for MariaDB instance](~~131010~~)
-    *
-    * @param request DescribeEventsRequest
-    * @return DescribeEventsResponse
+   * @summary Queries historical events of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Historical events of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/129759.html)
+   * *   [Historical events of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/131008.html)
+   * *   [Historical events of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/131013.html)
+   * *   [Historical events of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/131010.html)
+   *
+   * @param request DescribeEventsRequest
+   * @return DescribeEventsResponse
    */
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47819,12 +48418,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    *
-    * @param request DescribeGadInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeGadInstancesResponse
+   * @summary Queries the information about a global active database cluster or information about all global active database clusters in a region.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   *
+   * @param request DescribeGadInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGadInstancesResponse
    */
   async describeGadInstancesWithOptions(request: DescribeGadInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGadInstancesResponse> {
     Util.validateModel(request);
@@ -47859,11 +48460,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    *
-    * @param request DescribeGadInstancesRequest
-    * @return DescribeGadInstancesResponse
+   * @summary Queries the information about a global active database cluster or information about all global active database clusters in a region.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   *
+   * @param request DescribeGadInstancesRequest
+   * @return DescribeGadInstancesResponse
    */
   async describeGadInstances(request: DescribeGadInstancesRequest): Promise<DescribeGadInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47871,17 +48474,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * [What is availability detection?](~~207467~~)
-    *
-    * @param request DescribeHADiagnoseConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeHADiagnoseConfigResponse
+   * @summary Queries the availability check method of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * [What is availability detection?](https://help.aliyun.com/document_detail/207467.html)
+   *
+   * @param request DescribeHADiagnoseConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHADiagnoseConfigResponse
    */
   async describeHADiagnoseConfigWithOptions(request: DescribeHADiagnoseConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHADiagnoseConfigResponse> {
     Util.validateModel(request);
@@ -47924,16 +48529,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * [What is availability detection?](~~207467~~)
-    *
-    * @param request DescribeHADiagnoseConfigRequest
-    * @return DescribeHADiagnoseConfigResponse
+   * @summary Queries the availability check method of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * [What is availability detection?](https://help.aliyun.com/document_detail/207467.html)
+   *
+   * @param request DescribeHADiagnoseConfigRequest
+   * @return DescribeHADiagnoseConfigResponse
    */
   async describeHADiagnoseConfig(request: DescribeHADiagnoseConfigRequest): Promise<DescribeHADiagnoseConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47941,15 +48548,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeHASwitchConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeHASwitchConfigResponse
+   * @summary Queries the settings of the automatic primary/secondary switchover feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeHASwitchConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHASwitchConfigResponse
    */
   async describeHASwitchConfigWithOptions(request: DescribeHASwitchConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHASwitchConfigResponse> {
     Util.validateModel(request);
@@ -47992,20 +48601,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeHASwitchConfigRequest
-    * @return DescribeHASwitchConfigResponse
+   * @summary Queries the settings of the automatic primary/secondary switchover feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeHASwitchConfigRequest
+   * @return DescribeHASwitchConfigResponse
    */
   async describeHASwitchConfig(request: DescribeHASwitchConfigRequest): Promise<DescribeHASwitchConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHASwitchConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 事件中心事件列表
+   *
+   * @param request DescribeHistoryEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHistoryEventsResponse
+   */
   async describeHistoryEventsWithOptions(request: DescribeHistoryEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48090,11 +48708,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHistoryEventsResponse>(await this.callApi(params, req, runtime), new DescribeHistoryEventsResponse({}));
   }
 
+  /**
+   * @summary 事件中心事件列表
+   *
+   * @param request DescribeHistoryEventsRequest
+   * @return DescribeHistoryEventsResponse
+   */
   async describeHistoryEvents(request: DescribeHistoryEventsRequest): Promise<DescribeHistoryEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHistoryEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 事件中心事件统计
+   *
+   * @param request DescribeHistoryEventsStatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHistoryEventsStatResponse
+   */
   async describeHistoryEventsStatWithOptions(request: DescribeHistoryEventsStatRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryEventsStatResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48135,25 +48766,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHistoryEventsStatResponse>(await this.callApi(params, req, runtime), new DescribeHistoryEventsStatResponse({}));
   }
 
+  /**
+   * @summary 事件中心事件统计
+   *
+   * @param request DescribeHistoryEventsStatRequest
+   * @return DescribeHistoryEventsStatResponse
+   */
   async describeHistoryEventsStat(request: DescribeHistoryEventsStatRequest): Promise<DescribeHistoryEventsStatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHistoryEventsStatWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Tasks of an ApsaraDB RDS for MySQL instance](~~474275~~)
-    * *   [Tasks of an ApsaraDB RDS for PostrgreSQL instance](~~474537~~)
-    * *   [Tasks of an ApsaraDB RDS for SQL Server instance](~~614826~~)
-    *
-    * @param request DescribeHistoryTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeHistoryTasksResponse
+   * @summary Queries the historical tasks that are created within 30 days.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Tasks of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/474275.html)
+   * *   [Tasks of an ApsaraDB RDS for PostrgreSQL instance](https://help.aliyun.com/document_detail/474537.html)
+   * *   [Tasks of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/614826.html)
+   *
+   * @param request DescribeHistoryTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHistoryTasksResponse
    */
   async describeHistoryTasksWithOptions(request: DescribeHistoryTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryTasksResponse> {
     Util.validateModel(request);
@@ -48244,24 +48883,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Tasks of an ApsaraDB RDS for MySQL instance](~~474275~~)
-    * *   [Tasks of an ApsaraDB RDS for PostrgreSQL instance](~~474537~~)
-    * *   [Tasks of an ApsaraDB RDS for SQL Server instance](~~614826~~)
-    *
-    * @param request DescribeHistoryTasksRequest
-    * @return DescribeHistoryTasksResponse
+   * @summary Queries the historical tasks that are created within 30 days.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Tasks of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/474275.html)
+   * *   [Tasks of an ApsaraDB RDS for PostrgreSQL instance](https://help.aliyun.com/document_detail/474537.html)
+   * *   [Tasks of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/614826.html)
+   *
+   * @param request DescribeHistoryTasksRequest
+   * @return DescribeHistoryTasksResponse
    */
   async describeHistoryTasks(request: DescribeHistoryTasksRequest): Promise<DescribeHistoryTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHistoryTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 任务中心任务统计
+   *
+   * @param request DescribeHistoryTasksStatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHistoryTasksStatResponse
+   */
   async describeHistoryTasksStatWithOptions(request: DescribeHistoryTasksStatRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryTasksStatResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48338,11 +48986,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHistoryTasksStatResponse>(await this.callApi(params, req, runtime), new DescribeHistoryTasksStatResponse({}));
   }
 
+  /**
+   * @summary 任务中心任务统计
+   *
+   * @param request DescribeHistoryTasksStatRequest
+   * @return DescribeHistoryTasksStatResponse
+   */
   async describeHistoryTasksStat(request: DescribeHistoryTasksStatRequest): Promise<DescribeHistoryTasksStatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHistoryTasksStatWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeHostGroupElasticStrategyParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHostGroupElasticStrategyParametersResponse
+   */
   async describeHostGroupElasticStrategyParametersWithOptions(request: DescribeHostGroupElasticStrategyParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHostGroupElasticStrategyParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48379,29 +49038,35 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHostGroupElasticStrategyParametersResponse>(await this.callApi(params, req, runtime), new DescribeHostGroupElasticStrategyParametersResponse({}));
   }
 
+  /**
+   * @param request DescribeHostGroupElasticStrategyParametersRequest
+   * @return DescribeHostGroupElasticStrategyParametersResponse
+   */
   async describeHostGroupElasticStrategyParameters(request: DescribeHostGroupElasticStrategyParametersRequest): Promise<DescribeHostGroupElasticStrategyParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHostGroupElasticStrategyParametersWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   SQL Server
-    * ### [](#)Prerequisite
-    * *   The instance meets the following requirements:
-    *     *   The instance resides in a region other than the China (Zhangjiakou) region.
-    *     *   The instance runs RDS Basic Edition, RDS Cluster Edition, or RDS High-availability Edition. If your instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
-    *     *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
-    *     *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an RDS instance, see [Change the network type](~~95707~~).
-    *     *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, the instance is created on or after January 1, 2021. If the instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
-    * *   Your **Alibaba Cloud account** is used for logons.
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Create a host account and use the host account for logons](~~354862~~)
-    *
-    * @param request DescribeHostWebShellRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeHostWebShellResponse
+   * @summary Queries the webshell URL that is used to connect to the host of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   SQL Server
+   * ### [](#)Prerequisite
+   * *   The instance meets the following requirements:
+   *     *   The instance resides in a region other than the China (Zhangjiakou) region.
+   *     *   The instance runs RDS Basic Edition, RDS Cluster Edition, or RDS High-availability Edition. If your instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
+   *     *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
+   *     *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an RDS instance, see [Change the network type](https://help.aliyun.com/document_detail/95707.html).
+   *     *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, the instance is created on or after January 1, 2021. If the instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
+   * *   Your **Alibaba Cloud account** is used for logons.
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Create a host account and use the host account for logons](https://help.aliyun.com/document_detail/354862.html)
+   *
+   * @param request DescribeHostWebShellRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHostWebShellResponse
    */
   async describeHostWebShellWithOptions(request: DescribeHostWebShellRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHostWebShellResponse> {
     Util.validateModel(request);
@@ -48456,22 +49121,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   SQL Server
-    * ### [](#)Prerequisite
-    * *   The instance meets the following requirements:
-    *     *   The instance resides in a region other than the China (Zhangjiakou) region.
-    *     *   The instance runs RDS Basic Edition, RDS Cluster Edition, or RDS High-availability Edition. If your instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
-    *     *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
-    *     *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an RDS instance, see [Change the network type](~~95707~~).
-    *     *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, the instance is created on or after January 1, 2021. If the instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
-    * *   Your **Alibaba Cloud account** is used for logons.
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Create a host account and use the host account for logons](~~354862~~)
-    *
-    * @param request DescribeHostWebShellRequest
-    * @return DescribeHostWebShellResponse
+   * @summary Queries the webshell URL that is used to connect to the host of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   SQL Server
+   * ### [](#)Prerequisite
+   * *   The instance meets the following requirements:
+   *     *   The instance resides in a region other than the China (Zhangjiakou) region.
+   *     *   The instance runs RDS Basic Edition, RDS Cluster Edition, or RDS High-availability Edition. If your instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
+   *     *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
+   *     *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an RDS instance, see [Change the network type](https://help.aliyun.com/document_detail/95707.html).
+   *     *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, the instance is created on or after January 1, 2021. If the instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
+   * *   Your **Alibaba Cloud account** is used for logons.
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Create a host account and use the host account for logons](https://help.aliyun.com/document_detail/354862.html)
+   *
+   * @param request DescribeHostWebShellRequest
+   * @return DescribeHostWebShellResponse
    */
   async describeHostWebShell(request: DescribeHostWebShellRequest): Promise<DescribeHostWebShellResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48479,15 +49146,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeInstanceAutoRenewalAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceAutoRenewalAttributeResponse
+   * @summary Queries the automatic renewal status of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeInstanceAutoRenewalAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceAutoRenewalAttributeResponse
    */
   async describeInstanceAutoRenewalAttributeWithOptions(request: DescribeInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
@@ -48550,14 +49219,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeInstanceAutoRenewalAttributeRequest
-    * @return DescribeInstanceAutoRenewalAttributeResponse
+   * @summary Queries the automatic renewal status of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeInstanceAutoRenewalAttributeRequest
+   * @return DescribeInstanceAutoRenewalAttributeResponse
    */
   async describeInstanceAutoRenewalAttribute(request: DescribeInstanceAutoRenewalAttributeRequest): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48565,19 +49236,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    *
-    * @param request DescribeInstanceCrossBackupPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceCrossBackupPolicyResponse
+   * @summary Queries the cross-region backup settings of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   *
+   * @param request DescribeInstanceCrossBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceCrossBackupPolicyResponse
    */
   async describeInstanceCrossBackupPolicyWithOptions(request: DescribeInstanceCrossBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceCrossBackupPolicyResponse> {
     Util.validateModel(request);
@@ -48620,18 +49293,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    *
-    * @param request DescribeInstanceCrossBackupPolicyRequest
-    * @return DescribeInstanceCrossBackupPolicyResponse
+   * @summary Queries the cross-region backup settings of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   *
+   * @param request DescribeInstanceCrossBackupPolicyRequest
+   * @return DescribeInstanceCrossBackupPolicyResponse
    */
   async describeInstanceCrossBackupPolicy(request: DescribeInstanceCrossBackupPolicyRequest): Promise<DescribeInstanceCrossBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48639,15 +49314,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeInstanceKeywordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceKeywordsResponse
+   * @summary Queries the reserved keywords of an instance. The reserved keywords cannot be used for the usernames of accounts or the names of databases.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeInstanceKeywordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceKeywordsResponse
    */
   async describeInstanceKeywordsWithOptions(request: DescribeInstanceKeywordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceKeywordsResponse> {
     Util.validateModel(request);
@@ -48690,14 +49367,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request DescribeInstanceKeywordsRequest
-    * @return DescribeInstanceKeywordsResponse
+   * @summary Queries the reserved keywords of an instance. The reserved keywords cannot be used for the usernames of accounts or the names of databases.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request DescribeInstanceKeywordsRequest
+   * @return DescribeInstanceKeywordsResponse
    */
   async describeInstanceKeywords(request: DescribeInstanceKeywordsRequest): Promise<DescribeInstanceKeywordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48705,14 +49384,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DescribeInstanceLinkedWhitelistTemplateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceLinkedWhitelistTemplateResponse
+   * @summary Queries associated whitelists by instance name.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DescribeInstanceLinkedWhitelistTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceLinkedWhitelistTemplateResponse
    */
   async describeInstanceLinkedWhitelistTemplateWithOptions(request: DescribeInstanceLinkedWhitelistTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceLinkedWhitelistTemplateResponse> {
     Util.validateModel(request);
@@ -48755,13 +49436,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DescribeInstanceLinkedWhitelistTemplateRequest
-    * @return DescribeInstanceLinkedWhitelistTemplateResponse
+   * @summary Queries associated whitelists by instance name.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DescribeInstanceLinkedWhitelistTemplateRequest
+   * @return DescribeInstanceLinkedWhitelistTemplateResponse
    */
   async describeInstanceLinkedWhitelistTemplate(request: DescribeInstanceLinkedWhitelistTemplateRequest): Promise<DescribeInstanceLinkedWhitelistTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48769,14 +49452,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *
-    * @param request DescribeKmsAssociateResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeKmsAssociateResourcesResponse
+   * @summary Checks whether the specified resource of Key Management Service (KMS) is associated with an ApsaraDB RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *
+   * @param request DescribeKmsAssociateResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeKmsAssociateResourcesResponse
    */
   async describeKmsAssociateResourcesWithOptions(request: DescribeKmsAssociateResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKmsAssociateResourcesResponse> {
     Util.validateModel(request);
@@ -48843,13 +49528,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *
-    * @param request DescribeKmsAssociateResourcesRequest
-    * @return DescribeKmsAssociateResourcesResponse
+   * @summary Checks whether the specified resource of Key Management Service (KMS) is associated with an ApsaraDB RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *
+   * @param request DescribeKmsAssociateResourcesRequest
+   * @return DescribeKmsAssociateResourcesResponse
    */
   async describeKmsAssociateResources(request: DescribeKmsAssociateResourcesRequest): Promise<DescribeKmsAssociateResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48857,14 +49544,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   MariaDB
-    *
-    * @param request DescribeLocalAvailableRecoveryTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLocalAvailableRecoveryTimeResponse
+   * @summary Queries the time range to which an RDS instance can be restored.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   MariaDB
+   *
+   * @param request DescribeLocalAvailableRecoveryTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLocalAvailableRecoveryTimeResponse
    */
   async describeLocalAvailableRecoveryTimeWithOptions(request: DescribeLocalAvailableRecoveryTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLocalAvailableRecoveryTimeResponse> {
     Util.validateModel(request);
@@ -48911,13 +49600,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   MariaDB
-    *
-    * @param request DescribeLocalAvailableRecoveryTimeRequest
-    * @return DescribeLocalAvailableRecoveryTimeResponse
+   * @summary Queries the time range to which an RDS instance can be restored.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   MariaDB
+   *
+   * @param request DescribeLocalAvailableRecoveryTimeRequest
+   * @return DescribeLocalAvailableRecoveryTimeResponse
    */
   async describeLocalAvailableRecoveryTime(request: DescribeLocalAvailableRecoveryTimeRequest): Promise<DescribeLocalAvailableRecoveryTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48925,13 +49616,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * SQL Server
-    * >  You can call the DescribeBinlogFiles operation to query the log files of instances that run different database engines.
-    *
-    * @param request DescribeLogBackupFilesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLogBackupFilesResponse
+   * @summary Queries the log backup files of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * SQL Server
+   * >  You can call the DescribeBinlogFiles operation to query the log files of instances that run different database engines.
+   *
+   * @param request DescribeLogBackupFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogBackupFilesResponse
    */
   async describeLogBackupFilesWithOptions(request: DescribeLogBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogBackupFilesResponse> {
     Util.validateModel(request);
@@ -48990,18 +49683,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * SQL Server
-    * >  You can call the DescribeBinlogFiles operation to query the log files of instances that run different database engines.
-    *
-    * @param request DescribeLogBackupFilesRequest
-    * @return DescribeLogBackupFilesResponse
+   * @summary Queries the log backup files of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * SQL Server
+   * >  You can call the DescribeBinlogFiles operation to query the log files of instances that run different database engines.
+   *
+   * @param request DescribeLogBackupFilesRequest
+   * @return DescribeLogBackupFilesResponse
    */
   async describeLogBackupFiles(request: DescribeLogBackupFilesRequest): Promise<DescribeLogBackupFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogBackupFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取RDS营销项目中待升级实例信息
+   *
+   * @param request DescribeMarketingActivityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMarketingActivityResponse
+   */
   async describeMarketingActivityWithOptions(request: DescribeMarketingActivityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMarketingActivityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49058,11 +49760,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMarketingActivityResponse>(await this.callApi(params, req, runtime), new DescribeMarketingActivityResponse({}));
   }
 
+  /**
+   * @summary 获取RDS营销项目中待升级实例信息
+   *
+   * @param request DescribeMarketingActivityRequest
+   * @return DescribeMarketingActivityResponse
+   */
   async describeMarketingActivity(request: DescribeMarketingActivityRequest): Promise<DescribeMarketingActivityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMarketingActivityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询全密态规则
+   *
+   * @param request DescribeMaskingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMaskingRulesResponse
+   */
   async describeMaskingRulesWithOptions(request: DescribeMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMaskingRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49103,21 +49818,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMaskingRulesResponse>(await this.callApi(params, req, runtime), new DescribeMaskingRulesResponse({}));
   }
 
+  /**
+   * @summary 查询全密态规则
+   *
+   * @param request DescribeMaskingRulesRequest
+   * @return DescribeMaskingRulesResponse
+   */
   async describeMaskingRules(request: DescribeMaskingRulesRequest): Promise<DescribeMaskingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMaskingRulesWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * MySQL
-    * > This operation is available for RDS instances that run MySQL 8.0, MySQL 5.7, and MySQL 5.6 on RDS High-availability Edition with local disks.
-    * ### [](#)Description
-    * Before you call the [RestoreTable](~~131510~~) operation to restore individual databases or tables of an ApsaraDB RDS for MySQL instance, you can call this operation to query the information about the databases and tables that can be restored. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](~~103175~~).
-    *
-    * @param request DescribeMetaListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeMetaListResponse
+   * @summary Queries the information about the databases and tables that can be restored from a specified backup set.
+   *
+   * @description ### [](#)Supported database engines
+   * MySQL
+   * > This operation is available for RDS instances that run MySQL 8.0, MySQL 5.7, and MySQL 5.6 on RDS High-availability Edition with local disks.
+   * ### [](#)Description
+   * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to restore individual databases or tables of an ApsaraDB RDS for MySQL instance, you can call this operation to query the information about the databases and tables that can be restored. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/103175.html).
+   *
+   * @param request DescribeMetaListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMetaListResponse
    */
   async describeMetaListWithOptions(request: DescribeMetaListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMetaListResponse> {
     Util.validateModel(request);
@@ -49192,14 +49915,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * MySQL
-    * > This operation is available for RDS instances that run MySQL 8.0, MySQL 5.7, and MySQL 5.6 on RDS High-availability Edition with local disks.
-    * ### [](#)Description
-    * Before you call the [RestoreTable](~~131510~~) operation to restore individual databases or tables of an ApsaraDB RDS for MySQL instance, you can call this operation to query the information about the databases and tables that can be restored. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](~~103175~~).
-    *
-    * @param request DescribeMetaListRequest
-    * @return DescribeMetaListResponse
+   * @summary Queries the information about the databases and tables that can be restored from a specified backup set.
+   *
+   * @description ### [](#)Supported database engines
+   * MySQL
+   * > This operation is available for RDS instances that run MySQL 8.0, MySQL 5.7, and MySQL 5.6 on RDS High-availability Edition with local disks.
+   * ### [](#)Description
+   * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to restore individual databases or tables of an ApsaraDB RDS for MySQL instance, you can call this operation to query the information about the databases and tables that can be restored. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/103175.html).
+   *
+   * @param request DescribeMetaListRequest
+   * @return DescribeMetaListResponse
    */
   async describeMetaList(request: DescribeMetaListRequest): Promise<DescribeMetaListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49207,12 +49932,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    *
-    * @param request DescribeMigrateTaskByIdRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeMigrateTaskByIdResponse
+   * @summary Queries a task that is used to import the backup data of an ApsaraDB RDS for SQL Server instance to an Object Storage Service (OSS) bucket.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   *
+   * @param request DescribeMigrateTaskByIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMigrateTaskByIdResponse
    */
   async describeMigrateTaskByIdWithOptions(request: DescribeMigrateTaskByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMigrateTaskByIdResponse> {
     Util.validateModel(request);
@@ -49259,11 +49986,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    *
-    * @param request DescribeMigrateTaskByIdRequest
-    * @return DescribeMigrateTaskByIdResponse
+   * @summary Queries a task that is used to import the backup data of an ApsaraDB RDS for SQL Server instance to an Object Storage Service (OSS) bucket.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   *
+   * @param request DescribeMigrateTaskByIdRequest
+   * @return DescribeMigrateTaskByIdResponse
    */
   async describeMigrateTaskById(request: DescribeMigrateTaskByIdRequest): Promise<DescribeMigrateTaskByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49271,17 +50000,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   SQL Server
-    * ### [](#)Usage notes
-    * This operation allows you to query the migration tasks that are created for the instance over the last week.
-    * ### [](#)Precautions
-    * *   This operation is supported only for migration tasks that are created to migrate full backup files.
-    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-    *
-    * @param request DescribeMigrateTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeMigrateTasksResponse
+   * @summary Queries the tasks that are created to migrate the backup data of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   SQL Server
+   * ### [](#)Usage notes
+   * This operation allows you to query the migration tasks that are created for the instance over the last week.
+   * ### [](#)Precautions
+   * *   This operation is supported only for migration tasks that are created to migrate full backup files.
+   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+   *
+   * @param request DescribeMigrateTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMigrateTasksResponse
    */
   async describeMigrateTasksWithOptions(request: DescribeMigrateTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMigrateTasksResponse> {
     Util.validateModel(request);
@@ -49340,16 +50071,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   SQL Server
-    * ### [](#)Usage notes
-    * This operation allows you to query the migration tasks that are created for the instance over the last week.
-    * ### [](#)Precautions
-    * *   This operation is supported only for migration tasks that are created to migrate full backup files.
-    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-    *
-    * @param request DescribeMigrateTasksRequest
-    * @return DescribeMigrateTasksResponse
+   * @summary Queries the tasks that are created to migrate the backup data of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   SQL Server
+   * ### [](#)Usage notes
+   * This operation allows you to query the migration tasks that are created for the instance over the last week.
+   * ### [](#)Precautions
+   * *   This operation is supported only for migration tasks that are created to migrate full backup files.
+   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+   *
+   * @param request DescribeMigrateTasksRequest
+   * @return DescribeMigrateTasksResponse
    */
   async describeMigrateTasks(request: DescribeMigrateTasksRequest): Promise<DescribeMigrateTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49357,12 +50090,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS PostgreSQL
-    *
-    * @param request DescribeModifyPGHbaConfigLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeModifyPGHbaConfigLogResponse
+   * @summary Queries the details about the modifications to the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS PostgreSQL
+   *
+   * @param request DescribeModifyPGHbaConfigLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeModifyPGHbaConfigLogResponse
    */
   async describeModifyPGHbaConfigLogWithOptions(request: DescribeModifyPGHbaConfigLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeModifyPGHbaConfigLogResponse> {
     Util.validateModel(request);
@@ -49421,11 +50156,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS PostgreSQL
-    *
-    * @param request DescribeModifyPGHbaConfigLogRequest
-    * @return DescribeModifyPGHbaConfigLogResponse
+   * @summary Queries the details about the modifications to the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS PostgreSQL
+   *
+   * @param request DescribeModifyPGHbaConfigLogRequest
+   * @return DescribeModifyPGHbaConfigLogResponse
    */
   async describeModifyPGHbaConfigLog(request: DescribeModifyPGHbaConfigLogRequest): Promise<DescribeModifyPGHbaConfigLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49433,15 +50170,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeModifyParameterLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeModifyParameterLogResponse
+   * @summary Queries the parameter modification logs of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeModifyParameterLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeModifyParameterLogResponse
    */
   async describeModifyParameterLogWithOptions(request: DescribeModifyParameterLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeModifyParameterLogResponse> {
     Util.validateModel(request);
@@ -49500,14 +50239,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeModifyParameterLogRequest
-    * @return DescribeModifyParameterLogResponse
+   * @summary Queries the parameter modification logs of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeModifyParameterLogRequest
+   * @return DescribeModifyParameterLogResponse
    */
   async describeModifyParameterLog(request: DescribeModifyParameterLogRequest): Promise<DescribeModifyParameterLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49515,14 +50256,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    * ### [Usage notes](#)
-    * This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
-    *
-    * @param request DescribeOssDownloadsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeOssDownloadsResponse
+   * @summary Queries the backup files that are included in a backup data migration task of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   * ### [Usage notes](#)
+   * This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
+   *
+   * @param request DescribeOssDownloadsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOssDownloadsResponse
    */
   async describeOssDownloadsWithOptions(request: DescribeOssDownloadsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssDownloadsResponse> {
     Util.validateModel(request);
@@ -49569,13 +50312,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    * ### [Usage notes](#)
-    * This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
-    *
-    * @param request DescribeOssDownloadsRequest
-    * @return DescribeOssDownloadsResponse
+   * @summary Queries the backup files that are included in a backup data migration task of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   * ### [Usage notes](#)
+   * This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
+   *
+   * @param request DescribeOssDownloadsRequest
+   * @return DescribeOssDownloadsResponse
    */
   async describeOssDownloads(request: DescribeOssDownloadsRequest): Promise<DescribeOssDownloadsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49583,12 +50328,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS PostgreSQL
-    *
-    * @param request DescribePGHbaConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePGHbaConfigResponse
+   * @summary Queries the configuration of the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS PostgreSQL
+   *
+   * @param request DescribePGHbaConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePGHbaConfigResponse
    */
   async describePGHbaConfigWithOptions(request: DescribePGHbaConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribePGHbaConfigResponse> {
     Util.validateModel(request);
@@ -49639,11 +50386,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS PostgreSQL
-    *
-    * @param request DescribePGHbaConfigRequest
-    * @return DescribePGHbaConfigResponse
+   * @summary Queries the configuration of the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS PostgreSQL
+   *
+   * @param request DescribePGHbaConfigRequest
+   * @return DescribePGHbaConfigResponse
    */
   async describePGHbaConfig(request: DescribePGHbaConfigRequest): Promise<DescribePGHbaConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49651,17 +50400,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template for an ApsaraDB RDS for MySQL instance](~~130565~~)
-    * *   [Use a parameter template for an ApsaraDB RDS for PostgreSQL instance](~~457176~~)
-    *
-    * @param request DescribeParameterGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeParameterGroupResponse
+   * @summary Queries the information about a parameter template.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request DescribeParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterGroupResponse
    */
   async describeParameterGroupWithOptions(request: DescribeParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupResponse> {
     Util.validateModel(request);
@@ -49704,16 +50455,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template for an ApsaraDB RDS for MySQL instance](~~130565~~)
-    * *   [Use a parameter template for an ApsaraDB RDS for PostgreSQL instance](~~457176~~)
-    *
-    * @param request DescribeParameterGroupRequest
-    * @return DescribeParameterGroupResponse
+   * @summary Queries the information about a parameter template.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request DescribeParameterGroupRequest
+   * @return DescribeParameterGroupResponse
    */
   async describeParameterGroup(request: DescribeParameterGroupRequest): Promise<DescribeParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49721,17 +50474,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~)
-    *
-    * @param request DescribeParameterGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeParameterGroupsResponse
+   * @summary Queries the parameter templates that are available in a region.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request DescribeParameterGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterGroupsResponse
    */
   async describeParameterGroupsWithOptions(request: DescribeParameterGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupsResponse> {
     Util.validateModel(request);
@@ -49778,16 +50533,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~)
-    *
-    * @param request DescribeParameterGroupsRequest
-    * @return DescribeParameterGroupsResponse
+   * @summary Queries the parameter templates that are available in a region.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request DescribeParameterGroupsRequest
+   * @return DescribeParameterGroupsResponse
    */
   async describeParameterGroups(request: DescribeParameterGroupsRequest): Promise<DescribeParameterGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49795,15 +50552,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeParameterTemplatesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeParameterTemplatesResponse
+   * @summary Queries parameter templates.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeParameterTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterTemplatesResponse
    */
   async describeParameterTemplatesWithOptions(request: DescribeParameterTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterTemplatesResponse> {
     Util.validateModel(request);
@@ -49866,14 +50625,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeParameterTemplatesRequest
-    * @return DescribeParameterTemplatesResponse
+   * @summary Queries parameter templates.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeParameterTemplatesRequest
+   * @return DescribeParameterTemplatesResponse
    */
   async describeParameterTemplates(request: DescribeParameterTemplatesRequest): Promise<DescribeParameterTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49881,15 +50642,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Applicable engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeParametersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeParametersResponse
+   * @summary Queries the parameter settings of an instance.
+   *
+   * @description ### Applicable engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParametersResponse
    */
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
@@ -49936,14 +50699,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Applicable engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeParametersRequest
-    * @return DescribeParametersResponse
+   * @summary Queries the parameter settings of an instance.
+   *
+   * @description ### Applicable engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeParametersRequest
+   * @return DescribeParametersResponse
    */
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49951,15 +50716,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS PostgreSQL
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Manage extensions](~~2402409~~)
-    *
-    * @param request DescribePostgresExtensionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePostgresExtensionsResponse
+   * @summary Queries extensions that are installed on a database.
+   *
+   * @description ### Supported database engines
+   * RDS PostgreSQL
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+   *
+   * @param request DescribePostgresExtensionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePostgresExtensionsResponse
    */
   async describePostgresExtensionsWithOptions(request: DescribePostgresExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePostgresExtensionsResponse> {
     Util.validateModel(request);
@@ -50014,14 +50781,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS PostgreSQL
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Manage extensions](~~2402409~~)
-    *
-    * @param request DescribePostgresExtensionsRequest
-    * @return DescribePostgresExtensionsResponse
+   * @summary Queries extensions that are installed on a database.
+   *
+   * @description ### Supported database engines
+   * RDS PostgreSQL
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+   *
+   * @param request DescribePostgresExtensionsRequest
+   * @return DescribePostgresExtensionsResponse
    */
   async describePostgresExtensions(request: DescribePostgresExtensionsRequest): Promise<DescribePostgresExtensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50029,15 +50798,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param tmpReq DescribePriceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePriceResponse
+   * @summary Queries the price of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param tmpReq DescribePriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePriceResponse
    */
   async describePriceWithOptions(tmpReq: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
     Util.validateModel(tmpReq);
@@ -50158,20 +50929,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribePriceRequest
-    * @return DescribePriceResponse
+   * @summary Queries the price of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribePriceRequest
+   * @return DescribePriceResponse
    */
   async describePrice(request: DescribePriceRequest): Promise<DescribePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePriceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询RDS快捷售卖配置
+   *
+   * @param request DescribeQuickSaleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeQuickSaleConfigResponse
+   */
   async describeQuickSaleConfigWithOptions(request: DescribeQuickSaleConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQuickSaleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50204,17 +50984,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeQuickSaleConfigResponse>(await this.callApi(params, req, runtime), new DescribeQuickSaleConfigResponse({}));
   }
 
+  /**
+   * @summary 查询RDS快捷售卖配置
+   *
+   * @param request DescribeQuickSaleConfigRequest
+   * @return DescribeQuickSaleConfigResponse
+   */
   async describeQuickSaleConfig(request: DescribeQuickSaleConfigRequest): Promise<DescribeQuickSaleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeQuickSaleConfigWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeRdsResourceSettingsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRdsResourceSettingsResponse
+   * @deprecated OpenAPI DescribeRdsResourceSettings is deprecated
+   *
+   * @summary This operation is deprecated.
+   *
+   * @param request DescribeRdsResourceSettingsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRdsResourceSettingsResponse
    */
   // Deprecated
   async describeRdsResourceSettingsWithOptions(request: DescribeRdsResourceSettingsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdsResourceSettingsResponse> {
@@ -50254,10 +51042,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeRdsResourceSettingsRequest
-    * @return DescribeRdsResourceSettingsResponse
+   * @deprecated OpenAPI DescribeRdsResourceSettings is deprecated
+   *
+   * @summary This operation is deprecated.
+   *
+   * @param request DescribeRdsResourceSettingsRequest
+   * @return DescribeRdsResourceSettingsResponse
    */
   // Deprecated
   async describeRdsResourceSettings(request: DescribeRdsResourceSettingsRequest): Promise<DescribeRdsResourceSettingsResponse> {
@@ -50266,13 +51056,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    *
-    * @param request DescribeReadDBInstanceDelayRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeReadDBInstanceDelayResponse
+   * @summary Queries the latency of data replication between a primary instance and its read-only instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   *
+   * @param request DescribeReadDBInstanceDelayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeReadDBInstanceDelayResponse
    */
   async describeReadDBInstanceDelayWithOptions(request: DescribeReadDBInstanceDelayRequest, runtime: $Util.RuntimeOptions): Promise<DescribeReadDBInstanceDelayResponse> {
     Util.validateModel(request);
@@ -50327,12 +51119,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    *
-    * @param request DescribeReadDBInstanceDelayRequest
-    * @return DescribeReadDBInstanceDelayResponse
+   * @summary Queries the latency of data replication between a primary instance and its read-only instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   *
+   * @param request DescribeReadDBInstanceDelayRequest
+   * @return DescribeReadDBInstanceDelayResponse
    */
   async describeReadDBInstanceDelay(request: DescribeReadDBInstanceDelayRequest): Promise<DescribeReadDBInstanceDelayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50340,15 +51134,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeRegionInfosRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRegionInfosResponse
+   * @summary Queries the regions.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeRegionInfosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionInfosResponse
    */
   async describeRegionInfosWithOptions(request: DescribeRegionInfosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionInfosResponse> {
     Util.validateModel(request);
@@ -50391,14 +51187,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeRegionInfosRequest
-    * @return DescribeRegionInfosResponse
+   * @summary Queries the regions.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeRegionInfosRequest
+   * @return DescribeRegionInfosResponse
    */
   async describeRegionInfos(request: DescribeRegionInfosRequest): Promise<DescribeRegionInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50406,15 +51204,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeRegionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRegionsResponse
+   * @summary Queries the details of the regions that are available for ApsaraDB RDS.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
    */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
@@ -50445,14 +51245,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeRegionsRequest
-    * @return DescribeRegionsResponse
+   * @summary Queries the details of the regions that are available for ApsaraDB RDS.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50460,15 +51262,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeRenewalPriceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRenewalPriceResponse
+   * @summary Queries the renewal fees for a subscription instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeRenewalPriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRenewalPriceResponse
    */
   async describeRenewalPriceWithOptions(request: DescribeRenewalPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRenewalPriceResponse> {
     Util.validateModel(request);
@@ -50551,20 +51355,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeRenewalPriceRequest
-    * @return DescribeRenewalPriceResponse
+   * @summary Queries the renewal fees for a subscription instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeRenewalPriceRequest
+   * @return DescribeRenewalPriceResponse
    */
   async describeRenewalPrice(request: DescribeRenewalPriceRequest): Promise<DescribeRenewalPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRenewalPriceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 概览页资源详情
+   *
+   * @param request DescribeResourceDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourceDetailsResponse
+   */
   async describeResourceDetailsWithOptions(request: DescribeResourceDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50613,21 +51426,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResourceDetailsResponse>(await this.callApi(params, req, runtime), new DescribeResourceDetailsResponse({}));
   }
 
+  /**
+   * @summary 概览页资源详情
+   *
+   * @param request DescribeResourceDetailsRequest
+   * @return DescribeResourceDetailsResponse
+   */
   async describeResourceDetails(request: DescribeResourceDetailsRequest): Promise<DescribeResourceDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResourceDetailsWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeResourceUsageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeResourceUsageResponse
+   * @summary Queries the storage usage of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeResourceUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourceUsageResponse
    */
   async describeResourceUsageWithOptions(request: DescribeResourceUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceUsageResponse> {
     Util.validateModel(request);
@@ -50674,14 +51495,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeResourceUsageRequest
-    * @return DescribeResourceUsageResponse
+   * @summary Queries the storage usage of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeResourceUsageRequest
+   * @return DescribeResourceUsageResponse
    */
   async describeResourceUsage(request: DescribeResourceUsageRequest): Promise<DescribeResourceUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50689,14 +51512,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *
-    * @param request DescribeSQLCollectorPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSQLCollectorPolicyResponse
+   * @summary Queries the status of the SQL Explorer (SQL Audit) feature for an ApsaraDB RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *
+   * @param request DescribeSQLCollectorPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLCollectorPolicyResponse
    */
   async describeSQLCollectorPolicyWithOptions(request: DescribeSQLCollectorPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLCollectorPolicyResponse> {
     Util.validateModel(request);
@@ -50747,13 +51572,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *
-    * @param request DescribeSQLCollectorPolicyRequest
-    * @return DescribeSQLCollectorPolicyResponse
+   * @summary Queries the status of the SQL Explorer (SQL Audit) feature for an ApsaraDB RDS instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *
+   * @param request DescribeSQLCollectorPolicyRequest
+   * @return DescribeSQLCollectorPolicyResponse
    */
   async describeSQLCollectorPolicy(request: DescribeSQLCollectorPolicyRequest): Promise<DescribeSQLCollectorPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50761,14 +51588,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *
-    * @param request DescribeSQLCollectorRetentionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSQLCollectorRetentionResponse
+   * @summary Queries the retention period of the log files that are generated by the SQL Explorer feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *
+   * @param request DescribeSQLCollectorRetentionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLCollectorRetentionResponse
    */
   async describeSQLCollectorRetentionWithOptions(request: DescribeSQLCollectorRetentionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLCollectorRetentionResponse> {
     Util.validateModel(request);
@@ -50819,13 +51648,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *
-    * @param request DescribeSQLCollectorRetentionRequest
-    * @return DescribeSQLCollectorRetentionResponse
+   * @summary Queries the retention period of the log files that are generated by the SQL Explorer feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *
+   * @param request DescribeSQLCollectorRetentionRequest
+   * @return DescribeSQLCollectorRetentionResponse
    */
   async describeSQLCollectorRetention(request: DescribeSQLCollectorRetentionRequest): Promise<DescribeSQLCollectorRetentionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50833,19 +51664,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *     **
-    *     **Note** Only SQL Server 2008 R2 is supported.
-    * ### [](#)Precautions
-    * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
-    * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](~~610533~~) operation with the request parameter **Form** set to **File**.
-    *
-    * @param request DescribeSQLLogFilesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSQLLogFilesResponse
+   * @summary Queries the log files that are generated by the SQL Explorer (SQL Audit) feature for an instance. The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the DescribeSQLLogRecords operation with the request parameter Form set to File.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *     **
+   *     **Note** If your instance runs SQL Server, only SQL Server 2008 R2 is supported.
+   * ### [](#)Precautions
+   * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+   * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the request parameter **Form** set to **File**.
+   * *   The exported files are retained for only two days.
+   *
+   * @param request DescribeSQLLogFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLLogFilesResponse
    */
   async describeSQLLogFilesWithOptions(request: DescribeSQLLogFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogFilesResponse> {
     Util.validateModel(request);
@@ -50900,18 +51734,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    *     **
-    *     **Note** Only SQL Server 2008 R2 is supported.
-    * ### [](#)Precautions
-    * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
-    * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](~~610533~~) operation with the request parameter **Form** set to **File**.
-    *
-    * @param request DescribeSQLLogFilesRequest
-    * @return DescribeSQLLogFilesResponse
+   * @summary Queries the log files that are generated by the SQL Explorer (SQL Audit) feature for an instance. The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the DescribeSQLLogRecords operation with the request parameter Form set to File.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   *     **
+   *     **Note** If your instance runs SQL Server, only SQL Server 2008 R2 is supported.
+   * ### [](#)Precautions
+   * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+   * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the request parameter **Form** set to **File**.
+   * *   The exported files are retained for only two days.
+   *
+   * @param request DescribeSQLLogFilesRequest
+   * @return DescribeSQLLogFilesResponse
    */
   async describeSQLLogFiles(request: DescribeSQLLogFilesRequest): Promise<DescribeSQLLogFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50919,18 +51756,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [Usage notes](#)
-    * *   You can call this operation up to 1,000 times per minute per account. The calls initiated by using both your Alibaba Cloud account and RAM users within your Alibaba Cloud account are counted.
-    * *   This operation cannot be used to query the logs that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
-    * *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, a maximum of 1 million log entries can be recorded in the audit file, and you cannot filter log entries by keyword.
-    *
-    * @param request DescribeSQLLogRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSQLLogRecordsResponse
+   * @summary Queries the logs that are generated by the SQL Explorer (SQL Audit) feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [Usage notes](#)
+   * *   You can call this operation up to 1,000 times per minute per account. The calls initiated by using both your Alibaba Cloud account and RAM users within your Alibaba Cloud account are counted.
+   * *   This operation cannot be used to query the logs that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+   * *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, a maximum of 1 million log entries can be recorded in the audit file, and you cannot filter log entries by keyword.
+   *
+   * @param request DescribeSQLLogRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLLogRecordsResponse
    */
   async describeSQLLogRecordsWithOptions(request: DescribeSQLLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogRecordsResponse> {
     Util.validateModel(request);
@@ -51013,17 +51852,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [Usage notes](#)
-    * *   You can call this operation up to 1,000 times per minute per account. The calls initiated by using both your Alibaba Cloud account and RAM users within your Alibaba Cloud account are counted.
-    * *   This operation cannot be used to query the logs that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
-    * *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, a maximum of 1 million log entries can be recorded in the audit file, and you cannot filter log entries by keyword.
-    *
-    * @param request DescribeSQLLogRecordsRequest
-    * @return DescribeSQLLogRecordsResponse
+   * @summary Queries the logs that are generated by the SQL Explorer (SQL Audit) feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [Usage notes](#)
+   * *   You can call this operation up to 1,000 times per minute per account. The calls initiated by using both your Alibaba Cloud account and RAM users within your Alibaba Cloud account are counted.
+   * *   This operation cannot be used to query the logs that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+   * *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, a maximum of 1 million log entries can be recorded in the audit file, and you cannot filter log entries by keyword.
+   *
+   * @param request DescribeSQLLogRecordsRequest
+   * @return DescribeSQLLogRecordsResponse
    */
   async describeSQLLogRecords(request: DescribeSQLLogRecordsRequest): Promise<DescribeSQLLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51031,15 +51872,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeSQLLogReportListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSQLLogReportListResponse
+   * @summary Queries SQL log reports.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeSQLLogReportListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLLogReportListResponse
    */
   async describeSQLLogReportListWithOptions(request: DescribeSQLLogReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogReportListResponse> {
     Util.validateModel(request);
@@ -51098,14 +51941,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeSQLLogReportListRequest
-    * @return DescribeSQLLogReportListResponse
+   * @summary Queries SQL log reports.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeSQLLogReportListRequest
+   * @return DescribeSQLLogReportListResponse
    */
   async describeSQLLogReportList(request: DescribeSQLLogReportListRequest): Promise<DescribeSQLLogReportListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51113,12 +51958,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   MySQL
-    *
-    * @param request DescribeSecretsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSecretsResponse
+   * @summary Queries the credential of a user who uses the Data API feature.
+   *
+   * @description ### [](#)Supported database engine
+   * *   MySQL
+   *
+   * @param request DescribeSecretsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecretsResponse
    */
   async describeSecretsWithOptions(request: DescribeSecretsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecretsResponse> {
     Util.validateModel(request);
@@ -51189,11 +52036,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   MySQL
-    *
-    * @param request DescribeSecretsRequest
-    * @return DescribeSecretsResponse
+   * @summary Queries the credential of a user who uses the Data API feature.
+   *
+   * @description ### [](#)Supported database engine
+   * *   MySQL
+   *
+   * @param request DescribeSecretsRequest
+   * @return DescribeSecretsResponse
    */
   async describeSecrets(request: DescribeSecretsRequest): Promise<DescribeSecretsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51201,19 +52050,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](~~201042~~)
-    * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](~~206310~~)
-    * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](~~2392322~~)
-    *
-    * @param request DescribeSecurityGroupConfigurationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSecurityGroupConfigurationResponse
+   * @summary Queries ECS security groups to which an instance is added.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
+   * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206310.html)
+   * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
+   *
+   * @param request DescribeSecurityGroupConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityGroupConfigurationResponse
    */
   async describeSecurityGroupConfigurationWithOptions(request: DescribeSecurityGroupConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupConfigurationResponse> {
     Util.validateModel(request);
@@ -51252,18 +52103,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](~~201042~~)
-    * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](~~206310~~)
-    * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](~~2392322~~)
-    *
-    * @param request DescribeSecurityGroupConfigurationRequest
-    * @return DescribeSecurityGroupConfigurationResponse
+   * @summary Queries ECS security groups to which an instance is added.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
+   * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206310.html)
+   * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
+   *
+   * @param request DescribeSecurityGroupConfigurationRequest
+   * @return DescribeSecurityGroupConfigurationResponse
    */
   async describeSecurityGroupConfiguration(request: DescribeSecurityGroupConfigurationRequest): Promise<DescribeSecurityGroupConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51271,12 +52124,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    *
-    * @param request DescribeSlotsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSlotsResponse
+   * @summary Queries all replication slots of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   *
+   * @param request DescribeSlotsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlotsResponse
    */
   async describeSlotsWithOptions(request: DescribeSlotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlotsResponse> {
     Util.validateModel(request);
@@ -51327,11 +52182,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    *
-    * @param request DescribeSlotsRequest
-    * @return DescribeSlotsResponse
+   * @summary Queries all replication slots of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   *
+   * @param request DescribeSlotsRequest
+   * @return DescribeSlotsResponse
    */
   async describeSlots(request: DescribeSlotsRequest): Promise<DescribeSlotsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51339,17 +52196,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### Precautions
-    * The response parameters returned by this operation are updated every minute.
-    *
-    * @param request DescribeSlowLogRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSlowLogRecordsResponse
+   * @summary Queries the slow log details of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### Precautions
+   * The response parameters returned by this operation are updated every minute.
+   *
+   * @param request DescribeSlowLogRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlowLogRecordsResponse
    */
   async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
     Util.validateModel(request);
@@ -51420,16 +52279,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### Precautions
-    * The response parameters returned by this operation are updated every minute.
-    *
-    * @param request DescribeSlowLogRecordsRequest
-    * @return DescribeSlowLogRecordsResponse
+   * @summary Queries the slow log details of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### Precautions
+   * The response parameters returned by this operation are updated every minute.
+   *
+   * @param request DescribeSlowLogRecordsRequest
+   * @return DescribeSlowLogRecordsResponse
    */
   async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51437,21 +52298,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    *     **
-    *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
-    * *   SQL Server
-    *     **
-    *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
-    * *   MariaDB
-    * ### [](#)Precautions
-    * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
-    * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
-    *
-    * @param request DescribeSlowLogsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSlowLogsResponse
+   * @summary Queries the statistics on slow query logs.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   *     **
+   *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
+   * *   SQL Server
+   *     **
+   *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
+   * *   MariaDB
+   * ### [](#)Precautions
+   * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
+   * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
+   *
+   * @param request DescribeSlowLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlowLogsResponse
    */
   async describeSlowLogsWithOptions(request: DescribeSlowLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogsResponse> {
     Util.validateModel(request);
@@ -51518,20 +52381,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    *     **
-    *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
-    * *   SQL Server
-    *     **
-    *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
-    * *   MariaDB
-    * ### [](#)Precautions
-    * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
-    * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
-    *
-    * @param request DescribeSlowLogsRequest
-    * @return DescribeSlowLogsResponse
+   * @summary Queries the statistics on slow query logs.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   *     **
+   *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
+   * *   SQL Server
+   *     **
+   *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
+   * *   MariaDB
+   * ### [](#)Precautions
+   * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
+   * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
+   *
+   * @param request DescribeSlowLogsRequest
+   * @return DescribeSlowLogsResponse
    */
   async describeSlowLogs(request: DescribeSlowLogsRequest): Promise<DescribeSlowLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51539,12 +52404,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * SQL Server
-    *
-    * @param request DescribeSupportOnlineResizeDiskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSupportOnlineResizeDiskResponse
+   * @summary Checks whether the disk of an ApsaraDB RDS for SQL Server instance can be resized online.
+   *
+   * @description ### Supported database engine
+   * SQL Server
+   *
+   * @param request DescribeSupportOnlineResizeDiskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSupportOnlineResizeDiskResponse
    */
   async describeSupportOnlineResizeDiskWithOptions(request: DescribeSupportOnlineResizeDiskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSupportOnlineResizeDiskResponse> {
     Util.validateModel(request);
@@ -51575,11 +52442,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * SQL Server
-    *
-    * @param request DescribeSupportOnlineResizeDiskRequest
-    * @return DescribeSupportOnlineResizeDiskResponse
+   * @summary Checks whether the disk of an ApsaraDB RDS for SQL Server instance can be resized online.
+   *
+   * @description ### Supported database engine
+   * SQL Server
+   *
+   * @param request DescribeSupportOnlineResizeDiskRequest
+   * @return DescribeSupportOnlineResizeDiskResponse
    */
   async describeSupportOnlineResizeDisk(request: DescribeSupportOnlineResizeDiskRequest): Promise<DescribeSupportOnlineResizeDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51587,18 +52456,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [Usage notes](#)
-    * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
-    * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
-    *
-    * @param request DescribeTagsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTagsResponse
+   * @summary Queries tags of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [Usage notes](#)
+   * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
+   * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
+   *
+   * @param request DescribeTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagsResponse
    */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
@@ -51661,17 +52532,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [Usage notes](#)
-    * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
-    * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
-    *
-    * @param request DescribeTagsRequest
-    * @return DescribeTagsResponse
+   * @summary Queries tags of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [Usage notes](#)
+   * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
+   * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
+   *
+   * @param request DescribeTagsRequest
+   * @return DescribeTagsResponse
    */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51679,11 +52552,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request DescribeTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTasksResponse
+   * @summary You can call the DescribeTasks operation to query the tasks that are running on an instance.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request DescribeTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTasksResponse
    */
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
@@ -51750,10 +52625,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request DescribeTasksRequest
-    * @return DescribeTasksResponse
+   * @summary You can call the DescribeTasks operation to query the tasks that are running on an instance.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request DescribeTasksRequest
+   * @return DescribeTasksResponse
    */
   async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51761,16 +52638,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~)
-    * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](~~218391~~)
-    *
-    * @param request DescribeUpgradeMajorVersionPrecheckTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeUpgradeMajorVersionPrecheckTaskResponse
+   * @summary Queries the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+   * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/218391.html)
+   *
+   * @param request DescribeUpgradeMajorVersionPrecheckTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUpgradeMajorVersionPrecheckTaskResponse
    */
   async describeUpgradeMajorVersionPrecheckTaskWithOptions(request: DescribeUpgradeMajorVersionPrecheckTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpgradeMajorVersionPrecheckTaskResponse> {
     Util.validateModel(request);
@@ -51829,15 +52708,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~)
-    * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](~~218391~~)
-    *
-    * @param request DescribeUpgradeMajorVersionPrecheckTaskRequest
-    * @return DescribeUpgradeMajorVersionPrecheckTaskResponse
+   * @summary Queries the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+   * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/218391.html)
+   *
+   * @param request DescribeUpgradeMajorVersionPrecheckTaskRequest
+   * @return DescribeUpgradeMajorVersionPrecheckTaskResponse
    */
   async describeUpgradeMajorVersionPrecheckTask(request: DescribeUpgradeMajorVersionPrecheckTaskRequest): Promise<DescribeUpgradeMajorVersionPrecheckTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51845,12 +52726,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * PostgreSQL
-    *
-    * @param request DescribeUpgradeMajorVersionTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeUpgradeMajorVersionTasksResponse
+   * @summary Queries the historical tasks for major engine version upgrades of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * PostgreSQL
+   *
+   * @param request DescribeUpgradeMajorVersionTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUpgradeMajorVersionTasksResponse
    */
   async describeUpgradeMajorVersionTasksWithOptions(request: DescribeUpgradeMajorVersionTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpgradeMajorVersionTasksResponse> {
     Util.validateModel(request);
@@ -51909,11 +52792,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * PostgreSQL
-    *
-    * @param request DescribeUpgradeMajorVersionTasksRequest
-    * @return DescribeUpgradeMajorVersionTasksResponse
+   * @summary Queries the historical tasks for major engine version upgrades of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * PostgreSQL
+   *
+   * @param request DescribeUpgradeMajorVersionTasksRequest
+   * @return DescribeUpgradeMajorVersionTasksResponse
    */
   async describeUpgradeMajorVersionTasks(request: DescribeUpgradeMajorVersionTasksRequest): Promise<DescribeUpgradeMajorVersionTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51921,15 +52806,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeVSwitchesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeVSwitchesResponse
+   * @summary Queries the details of vSwitches that are available in a virtual private cloud (VPC).
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeVSwitchesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVSwitchesResponse
    */
   async describeVSwitchesWithOptions(request: DescribeVSwitchesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVSwitchesResponse> {
     Util.validateModel(request);
@@ -52000,14 +52887,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request DescribeVSwitchesRequest
-    * @return DescribeVSwitchesResponse
+   * @summary Queries the details of vSwitches that are available in a virtual private cloud (VPC).
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request DescribeVSwitchesRequest
+   * @return DescribeVSwitchesResponse
    */
   async describeVSwitches(request: DescribeVSwitchesRequest): Promise<DescribeVSwitchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52015,14 +52904,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DescribeWhitelistTemplateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeWhitelistTemplateResponse
+   * @summary Queries information about the specified IP whitelist.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DescribeWhitelistTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWhitelistTemplateResponse
    */
   async describeWhitelistTemplateWithOptions(request: DescribeWhitelistTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhitelistTemplateResponse> {
     Util.validateModel(request);
@@ -52065,13 +52956,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DescribeWhitelistTemplateRequest
-    * @return DescribeWhitelistTemplateResponse
+   * @summary Queries information about the specified IP whitelist.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DescribeWhitelistTemplateRequest
+   * @return DescribeWhitelistTemplateResponse
    */
   async describeWhitelistTemplate(request: DescribeWhitelistTemplateRequest): Promise<DescribeWhitelistTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52079,14 +52972,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DescribeWhitelistTemplateLinkedInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeWhitelistTemplateLinkedInstanceResponse
+   * @summary Queries associated instances by whitelist template.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DescribeWhitelistTemplateLinkedInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWhitelistTemplateLinkedInstanceResponse
    */
   async describeWhitelistTemplateLinkedInstanceWithOptions(request: DescribeWhitelistTemplateLinkedInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhitelistTemplateLinkedInstanceResponse> {
     Util.validateModel(request);
@@ -52131,13 +53026,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DescribeWhitelistTemplateLinkedInstanceRequest
-    * @return DescribeWhitelistTemplateLinkedInstanceResponse
+   * @summary Queries associated instances by whitelist template.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DescribeWhitelistTemplateLinkedInstanceRequest
+   * @return DescribeWhitelistTemplateLinkedInstanceResponse
    */
   async describeWhitelistTemplateLinkedInstance(request: DescribeWhitelistTemplateLinkedInstanceRequest): Promise<DescribeWhitelistTemplateLinkedInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52145,11 +53042,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The DestroyDBInstance operation is phased out.
-    *
-    * @param request DestroyDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DestroyDBInstanceResponse
+   * @summary You can call the DestroyDBInstance operation to destroy an instance. The instance is in the Locked state.
+   *
+   * @description The DestroyDBInstance operation is phased out.
+   *
+   * @param request DestroyDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DestroyDBInstanceResponse
    */
   async destroyDBInstanceWithOptions(request: DestroyDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DestroyDBInstanceResponse> {
     Util.validateModel(request);
@@ -52196,10 +53095,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The DestroyDBInstance operation is phased out.
-    *
-    * @param request DestroyDBInstanceRequest
-    * @return DestroyDBInstanceResponse
+   * @summary You can call the DestroyDBInstance operation to destroy an instance. The instance is in the Locked state.
+   *
+   * @description The DestroyDBInstance operation is phased out.
+   *
+   * @param request DestroyDBInstanceRequest
+   * @return DestroyDBInstanceResponse
    */
   async destroyDBInstance(request: DestroyDBInstanceRequest): Promise<DestroyDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52207,14 +53108,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [Usage notes](#)
-    * This operation can be used to remove only unit nodes.
-    *
-    * @param request DetachGadInstanceMemberRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DetachGadInstanceMemberResponse
+   * @summary Removes a unit node from a global active database cluster.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [Usage notes](#)
+   * This operation can be used to remove only unit nodes.
+   *
+   * @param request DetachGadInstanceMemberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachGadInstanceMemberResponse
    */
   async detachGadInstanceMemberWithOptions(request: DetachGadInstanceMemberRequest, runtime: $Util.RuntimeOptions): Promise<DetachGadInstanceMemberResponse> {
     Util.validateModel(request);
@@ -52253,13 +53156,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [Usage notes](#)
-    * This operation can be used to remove only unit nodes.
-    *
-    * @param request DetachGadInstanceMemberRequest
-    * @return DetachGadInstanceMemberResponse
+   * @summary Removes a unit node from a global active database cluster.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [Usage notes](#)
+   * This operation can be used to remove only unit nodes.
+   *
+   * @param request DetachGadInstanceMemberRequest
+   * @return DetachGadInstanceMemberResponse
    */
   async detachGadInstanceMember(request: DetachGadInstanceMemberRequest): Promise<DetachGadInstanceMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52267,14 +53172,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DetachWhitelistTemplateToInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DetachWhitelistTemplateToInstanceResponse
+   * @summary Disassociates a whitelist template from an instance.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DetachWhitelistTemplateToInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachWhitelistTemplateToInstanceResponse
    */
   async detachWhitelistTemplateToInstanceWithOptions(request: DetachWhitelistTemplateToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DetachWhitelistTemplateToInstanceResponse> {
     Util.validateModel(request);
@@ -52321,19 +53228,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request DetachWhitelistTemplateToInstanceRequest
-    * @return DetachWhitelistTemplateToInstanceResponse
+   * @summary Disassociates a whitelist template from an instance.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request DetachWhitelistTemplateToInstanceRequest
+   * @return DetachWhitelistTemplateToInstanceResponse
    */
   async detachWhitelistTemplateToInstance(request: DetachWhitelistTemplateToInstanceRequest): Promise<DetachWhitelistTemplateToInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachWhitelistTemplateToInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 评估紧急本地扩容磁盘解锁可使用的磁盘空间
+   *
+   * @param request EvaluateLocalExtendDiskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EvaluateLocalExtendDiskResponse
+   */
   async evaluateLocalExtendDiskWithOptions(request: EvaluateLocalExtendDiskRequest, runtime: $Util.RuntimeOptions): Promise<EvaluateLocalExtendDiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52382,21 +53298,29 @@ export default class Client extends OpenApi {
     return $tea.cast<EvaluateLocalExtendDiskResponse>(await this.callApi(params, req, runtime), new EvaluateLocalExtendDiskResponse({}));
   }
 
+  /**
+   * @summary 评估紧急本地扩容磁盘解锁可使用的磁盘空间
+   *
+   * @param request EvaluateLocalExtendDiskRequest
+   * @return EvaluateLocalExtendDiskResponse
+   */
   async evaluateLocalExtendDisk(request: EvaluateLocalExtendDiskRequest): Promise<EvaluateLocalExtendDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.evaluateLocalExtendDiskWithOptions(request, runtime);
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request GetDBInstanceTopologyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDBInstanceTopologyResponse
+   * @summary Queries the topology of an instance.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request GetDBInstanceTopologyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDBInstanceTopologyResponse
    */
   async getDBInstanceTopologyWithOptions(request: GetDBInstanceTopologyRequest, runtime: $Util.RuntimeOptions): Promise<GetDBInstanceTopologyResponse> {
     Util.validateModel(request);
@@ -52431,14 +53355,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request GetDBInstanceTopologyRequest
-    * @return GetDBInstanceTopologyResponse
+   * @summary Queries the topology of an instance.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request GetDBInstanceTopologyRequest
+   * @return GetDBInstanceTopologyResponse
    */
   async getDBInstanceTopology(request: GetDBInstanceTopologyRequest): Promise<GetDBInstanceTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52446,12 +53372,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    *
-    * @param request GetDbProxyInstanceSslRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDbProxyInstanceSslResponse
+   * @summary Queries the SSL encryption settings for a dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS MySQL
+   *
+   * @param request GetDbProxyInstanceSslRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDbProxyInstanceSslResponse
    */
   async getDbProxyInstanceSslWithOptions(request: GetDbProxyInstanceSslRequest, runtime: $Util.RuntimeOptions): Promise<GetDbProxyInstanceSslResponse> {
     Util.validateModel(request);
@@ -52490,11 +53418,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    *
-    * @param request GetDbProxyInstanceSslRequest
-    * @return GetDbProxyInstanceSslResponse
+   * @summary Queries the SSL encryption settings for a dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS MySQL
+   *
+   * @param request GetDbProxyInstanceSslRequest
+   * @return GetDbProxyInstanceSslResponse
    */
   async getDbProxyInstanceSsl(request: GetDbProxyInstanceSslRequest): Promise<GetDbProxyInstanceSslResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52502,12 +53432,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Each account can be granted permissions on one or more databases. Before you call this operation, make sure that the instance is in the Running state.
-    * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL with local disks.
-    *
-    * @param request GrantAccountPrivilegeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GrantAccountPrivilegeResponse
+   * @summary Grants an account the permissions on a database of an instance.
+   *
+   * @description Each account can be granted permissions on one or more databases. Before you call this operation, make sure that the instance is in the Running state.
+   * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL with local disks.
+   *
+   * @param request GrantAccountPrivilegeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantAccountPrivilegeResponse
    */
   async grantAccountPrivilegeWithOptions(request: GrantAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<GrantAccountPrivilegeResponse> {
     Util.validateModel(request);
@@ -52550,11 +53482,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Each account can be granted permissions on one or more databases. Before you call this operation, make sure that the instance is in the Running state.
-    * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL with local disks.
-    *
-    * @param request GrantAccountPrivilegeRequest
-    * @return GrantAccountPrivilegeResponse
+   * @summary Grants an account the permissions on a database of an instance.
+   *
+   * @description Each account can be granted permissions on one or more databases. Before you call this operation, make sure that the instance is in the Running state.
+   * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL with local disks.
+   *
+   * @param request GrantAccountPrivilegeRequest
+   * @return GrantAccountPrivilegeResponse
    */
   async grantAccountPrivilege(request: GrantAccountPrivilegeRequest): Promise<GrantAccountPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52562,17 +53496,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](~~96102~~)
-    * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](~~95693~~)
-    *
-    * @param request GrantOperatorPermissionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GrantOperatorPermissionResponse
+   * @summary Grant permissions to a service account.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96102.html)
+   * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95693.html)
+   *
+   * @param request GrantOperatorPermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantOperatorPermissionResponse
    */
   async grantOperatorPermissionWithOptions(request: GrantOperatorPermissionRequest, runtime: $Util.RuntimeOptions): Promise<GrantOperatorPermissionResponse> {
     Util.validateModel(request);
@@ -52623,16 +53559,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](~~96102~~)
-    * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](~~95693~~)
-    *
-    * @param request GrantOperatorPermissionRequest
-    * @return GrantOperatorPermissionResponse
+   * @summary Grant permissions to a service account.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96102.html)
+   * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95693.html)
+   *
+   * @param request GrantOperatorPermissionRequest
+   * @return GrantOperatorPermissionResponse
    */
   async grantOperatorPermission(request: GrantOperatorPermissionRequest): Promise<GrantOperatorPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52640,19 +53578,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [](#)Description
-    * A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance.
-    * ### [](#)Usage notes
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The self-managed MySQL instance runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-    * *   The full backup file of the self-managed MySQL instance is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-    * >  This operation is supported only for MySQL 5.7.
-    *
-    * @param request ImportUserBackupFileRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ImportUserBackupFileResponse
+   * @summary Imports the backup data of a self-managed instance that runs MySQL 5.7 to an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [](#)Description
+   * A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance.
+   * ### [](#)Usage notes
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The self-managed MySQL instance runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+   * *   The full backup file of the self-managed MySQL instance is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+   * >  This operation is supported only for MySQL 5.7.
+   *
+   * @param request ImportUserBackupFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportUserBackupFileResponse
    */
   async importUserBackupFileWithOptions(request: ImportUserBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<ImportUserBackupFileResponse> {
     Util.validateModel(request);
@@ -52723,18 +53663,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [](#)Description
-    * A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance.
-    * ### [](#)Usage notes
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The self-managed MySQL instance runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-    * *   The full backup file of the self-managed MySQL instance is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-    * >  This operation is supported only for MySQL 5.7.
-    *
-    * @param request ImportUserBackupFileRequest
-    * @return ImportUserBackupFileResponse
+   * @summary Imports the backup data of a self-managed instance that runs MySQL 5.7 to an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [](#)Description
+   * A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance.
+   * ### [](#)Usage notes
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The self-managed MySQL instance runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+   * *   The full backup file of the self-managed MySQL instance is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+   * >  This operation is supported only for MySQL 5.7.
+   *
+   * @param request ImportUserBackupFileRequest
+   * @return ImportUserBackupFileResponse
    */
   async importUserBackupFile(request: ImportUserBackupFileRequest): Promise<ImportUserBackupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52742,15 +53684,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request ListClassesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListClassesResponse
+   * @summary Queries the specification details of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request ListClassesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClassesResponse
    */
   async listClassesWithOptions(request: ListClassesRequest, runtime: $Util.RuntimeOptions): Promise<ListClassesResponse> {
     Util.validateModel(request);
@@ -52805,14 +53749,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request ListClassesRequest
-    * @return ListClassesResponse
+   * @summary Queries the specification details of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request ListClassesRequest
+   * @return ListClassesResponse
    */
   async listClasses(request: ListClassesRequest): Promise<ListClassesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52820,15 +53766,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request ListTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTagResourcesResponse
+   * @summary Queries the tags that are added to one or more instances.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -52883,14 +53831,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    *
-    * @param request ListTagResourcesRequest
-    * @return ListTagResourcesResponse
+   * @summary Queries the tags that are added to one or more instances.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52898,16 +53848,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [](#)Feature description
-    * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-    * *   Before you call the [CreateDBInstance](~~26228~~) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
-    * *   You can call the [ImportUserBackupFile](~~260266~~) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
-    *
-    * @param request ListUserBackupFilesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListUserBackupFilesResponse
+   * @summary Queries the details about the full backup files that are imported into an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [](#)Feature description
+   * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+   * *   Before you call the [CreateDBInstance](https://help.aliyun.com/document_detail/26228.html) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
+   * *   You can call the [ImportUserBackupFile](https://help.aliyun.com/document_detail/260266.html) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
+   *
+   * @param request ListUserBackupFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserBackupFilesResponse
    */
   async listUserBackupFilesWithOptions(request: ListUserBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserBackupFilesResponse> {
     Util.validateModel(request);
@@ -52970,15 +53922,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [](#)Feature description
-    * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-    * *   Before you call the [CreateDBInstance](~~26228~~) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
-    * *   You can call the [ImportUserBackupFile](~~260266~~) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
-    *
-    * @param request ListUserBackupFilesRequest
-    * @return ListUserBackupFilesResponse
+   * @summary Queries the details about the full backup files that are imported into an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [](#)Feature description
+   * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+   * *   Before you call the [CreateDBInstance](https://help.aliyun.com/document_detail/26228.html) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
+   * *   You can call the [ImportUserBackupFile](https://help.aliyun.com/document_detail/260266.html) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
+   *
+   * @param request ListUserBackupFilesRequest
+   * @return ListUserBackupFilesResponse
    */
   async listUserBackupFiles(request: ListUserBackupFilesRequest): Promise<ListUserBackupFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52986,15 +53940,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](~~147649~~)
-    *
-    * @param request LockAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return LockAccountResponse
+   * @summary Locks an account of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+   *
+   * @param request LockAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LockAccountResponse
    */
   async lockAccountWithOptions(request: LockAccountRequest, runtime: $Util.RuntimeOptions): Promise<LockAccountResponse> {
     Util.validateModel(request);
@@ -53037,14 +53993,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](~~147649~~)
-    *
-    * @param request LockAccountRequest
-    * @return LockAccountResponse
+   * @summary Locks an account of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+   *
+   * @param request LockAccountRequest
+   * @return LockAccountResponse
    */
   async lockAccount(request: LockAccountRequest): Promise<LockAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53052,19 +54010,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](~~96746~~)
-    * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](~~96746~~)
-    * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](~~95658~~)
-    *
-    * @param request MigrateConnectionToOtherZoneRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return MigrateConnectionToOtherZoneResponse
+   * @summary Migrates an instance to a different zone.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+   * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+   * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](https://help.aliyun.com/document_detail/95658.html)
+   *
+   * @param request MigrateConnectionToOtherZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MigrateConnectionToOtherZoneResponse
    */
   async migrateConnectionToOtherZoneWithOptions(request: MigrateConnectionToOtherZoneRequest, runtime: $Util.RuntimeOptions): Promise<MigrateConnectionToOtherZoneResponse> {
     Util.validateModel(request);
@@ -53107,18 +54067,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](~~96746~~)
-    * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](~~96746~~)
-    * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](~~95658~~)
-    *
-    * @param request MigrateConnectionToOtherZoneRequest
-    * @return MigrateConnectionToOtherZoneResponse
+   * @summary Migrates an instance to a different zone.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+   * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+   * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](https://help.aliyun.com/document_detail/95658.html)
+   *
+   * @param request MigrateConnectionToOtherZoneRequest
+   * @return MigrateConnectionToOtherZoneResponse
    */
   async migrateConnectionToOtherZone(request: MigrateConnectionToOtherZoneRequest): Promise<MigrateConnectionToOtherZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53126,11 +54088,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-    *
-    * @param request MigrateDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return MigrateDBInstanceResponse
+   * @summary Migrates an instance across hosts in a dedicated cluster.
+   *
+   * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   *
+   * @param request MigrateDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MigrateDBInstanceResponse
    */
   async migrateDBInstanceWithOptions(request: MigrateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<MigrateDBInstanceResponse> {
     Util.validateModel(request);
@@ -53201,10 +54165,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-    *
-    * @param request MigrateDBInstanceRequest
-    * @return MigrateDBInstanceResponse
+   * @summary Migrates an instance across hosts in a dedicated cluster.
+   *
+   * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   *
+   * @param request MigrateDBInstanceRequest
+   * @return MigrateDBInstanceResponse
    */
   async migrateDBInstance(request: MigrateDBInstanceRequest): Promise<MigrateDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53212,17 +54178,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Change the whitelist mode of an ApsaraDB RDS for MySQL instance to the enhanced whitelist mode](~~96117~~)
-    * *   [Change the whitelist mode of an ApsaraDB RDS for PostgreSQL instance to the enhanced whitelist mode](~~96767~~)
-    *
-    * @param request MigrateSecurityIPModeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return MigrateSecurityIPModeResponse
+   * @summary Changes the whitelist mode of an instance from the standard whitelist mode to the enhanced whitelist mode.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Change the whitelist mode of an ApsaraDB RDS for MySQL instance to the enhanced whitelist mode](https://help.aliyun.com/document_detail/96117.html)
+   * *   [Change the whitelist mode of an ApsaraDB RDS for PostgreSQL instance to the enhanced whitelist mode](https://help.aliyun.com/document_detail/96767.html)
+   *
+   * @param request MigrateSecurityIPModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MigrateSecurityIPModeResponse
    */
   async migrateSecurityIPModeWithOptions(request: MigrateSecurityIPModeRequest, runtime: $Util.RuntimeOptions): Promise<MigrateSecurityIPModeResponse> {
     Util.validateModel(request);
@@ -53261,16 +54229,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Change the whitelist mode of an ApsaraDB RDS for MySQL instance to the enhanced whitelist mode](~~96117~~)
-    * *   [Change the whitelist mode of an ApsaraDB RDS for PostgreSQL instance to the enhanced whitelist mode](~~96767~~)
-    *
-    * @param request MigrateSecurityIPModeRequest
-    * @return MigrateSecurityIPModeResponse
+   * @summary Changes the whitelist mode of an instance from the standard whitelist mode to the enhanced whitelist mode.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Change the whitelist mode of an ApsaraDB RDS for MySQL instance to the enhanced whitelist mode](https://help.aliyun.com/document_detail/96117.html)
+   * *   [Change the whitelist mode of an ApsaraDB RDS for PostgreSQL instance to the enhanced whitelist mode](https://help.aliyun.com/document_detail/96767.html)
+   *
+   * @param request MigrateSecurityIPModeRequest
+   * @return MigrateSecurityIPModeResponse
    */
   async migrateSecurityIPMode(request: MigrateSecurityIPModeRequest): Promise<MigrateSecurityIPModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53278,19 +54248,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](~~96053~~)
-    * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](~~96746~~)
-    * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](~~95658~~)
-    *
-    * @param request MigrateToOtherZoneRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return MigrateToOtherZoneResponse
+   * @summary Migrates an instance across zones in the same region.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](https://help.aliyun.com/document_detail/96053.html)
+   * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+   * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](https://help.aliyun.com/document_detail/95658.html)
+   *
+   * @param request MigrateToOtherZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MigrateToOtherZoneResponse
    */
   async migrateToOtherZoneWithOptions(request: MigrateToOtherZoneRequest, runtime: $Util.RuntimeOptions): Promise<MigrateToOtherZoneResponse> {
     Util.validateModel(request);
@@ -53381,18 +54353,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](~~96053~~)
-    * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](~~96746~~)
-    * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](~~95658~~)
-    *
-    * @param request MigrateToOtherZoneRequest
-    * @return MigrateToOtherZoneResponse
+   * @summary Migrates an instance across zones in the same region.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](https://help.aliyun.com/document_detail/96053.html)
+   * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+   * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](https://help.aliyun.com/document_detail/95658.html)
+   *
+   * @param request MigrateToOtherZoneRequest
+   * @return MigrateToOtherZoneResponse
    */
   async migrateToOtherZone(request: MigrateToOtherZoneRequest): Promise<MigrateToOtherZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53400,15 +54374,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Connect an RDS instance to a self-managed domain](~~170734~~)
-    *
-    * @param request ModifyADInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyADInfoResponse
+   * @summary Modifies the AD domain information about an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Connect an RDS instance to a self-managed domain](https://help.aliyun.com/document_detail/170734.html)
+   *
+   * @param request ModifyADInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyADInfoResponse
    */
   async modifyADInfoWithOptions(request: ModifyADInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyADInfoResponse> {
     Util.validateModel(request);
@@ -53471,14 +54447,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Connect an RDS instance to a self-managed domain](~~170734~~)
-    *
-    * @param request ModifyADInfoRequest
-    * @return ModifyADInfoResponse
+   * @summary Modifies the AD domain information about an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Connect an RDS instance to a self-managed domain](https://help.aliyun.com/document_detail/170734.html)
+   *
+   * @param request ModifyADInfoRequest
+   * @return ModifyADInfoResponse
    */
   async modifyADInfo(request: ModifyADInfoRequest): Promise<ModifyADInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53486,15 +54464,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request ModifyAccountDescriptionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAccountDescriptionResponse
+   * @summary Modifies the description of a database account.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request ModifyAccountDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccountDescriptionResponse
    */
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
     Util.validateModel(request);
@@ -53545,20 +54525,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request ModifyAccountDescriptionRequest
-    * @return ModifyAccountDescriptionResponse
+   * @summary Modifies the description of a database account.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request ModifyAccountDescriptionRequest
+   * @return ModifyAccountDescriptionResponse
    */
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改全密态用户权限
+   *
+   * @param request ModifyAccountMaskingPrivilegeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccountMaskingPrivilegeResponse
+   */
   async modifyAccountMaskingPrivilegeWithOptions(request: ModifyAccountMaskingPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountMaskingPrivilegeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53607,27 +54596,35 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccountMaskingPrivilegeResponse>(await this.callApi(params, req, runtime), new ModifyAccountMaskingPrivilegeResponse({}));
   }
 
+  /**
+   * @summary 修改全密态用户权限
+   *
+   * @param request ModifyAccountMaskingPrivilegeRequest
+   * @return ModifyAccountMaskingPrivilegeResponse
+   */
   async modifyAccountMaskingPrivilege(request: ModifyAccountMaskingPrivilegeRequest): Promise<ModifyAccountMaskingPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountMaskingPrivilegeWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [View the event history of an ApsaraDB RDS for MySQL instance](~~129759~~)
-    * *   [View the event history of an ApsaraDB RDS for PostgreSQL instance](~~131008~~)
-    * *   [View the event history of an ApsaraDB RDS for SQL Server instance](~~131013~~)
-    * *   [View the event history of an ApsaraDB RDS for MariaDB instance](~~131010~~)
-    *
-    * @param request ModifyActionEventPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyActionEventPolicyResponse
+   * @summary Enables or disables the event history feature of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [View the event history of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/129759.html)
+   * *   [View the event history of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/131008.html)
+   * *   [View the event history of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/131013.html)
+   * *   [View the event history of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/131010.html)
+   *
+   * @param request ModifyActionEventPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyActionEventPolicyResponse
    */
   async modifyActionEventPolicyWithOptions(request: ModifyActionEventPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActionEventPolicyResponse> {
     Util.validateModel(request);
@@ -53670,20 +54667,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [View the event history of an ApsaraDB RDS for MySQL instance](~~129759~~)
-    * *   [View the event history of an ApsaraDB RDS for PostgreSQL instance](~~131008~~)
-    * *   [View the event history of an ApsaraDB RDS for SQL Server instance](~~131013~~)
-    * *   [View the event history of an ApsaraDB RDS for MariaDB instance](~~131010~~)
-    *
-    * @param request ModifyActionEventPolicyRequest
-    * @return ModifyActionEventPolicyResponse
+   * @summary Enables or disables the event history feature of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [View the event history of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/129759.html)
+   * *   [View the event history of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/131008.html)
+   * *   [View the event history of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/131013.html)
+   * *   [View the event history of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/131010.html)
+   *
+   * @param request ModifyActionEventPolicyRequest
+   * @return ModifyActionEventPolicyResponse
    */
   async modifyActionEventPolicy(request: ModifyActionEventPolicyRequest): Promise<ModifyActionEventPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53691,21 +54690,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Scheduled events for ApsaraDB RDS for MySQL instances](~~104183~~)
-    * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](~~104452~~)
-    * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](~~104451~~)
-    * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](~~104454~~)
-    *
-    * @param request ModifyActiveOperationTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyActiveOperationTasksResponse
+   * @summary Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Scheduled events for ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/104183.html)
+   * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/104452.html)
+   * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/104451.html)
+   * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](https://help.aliyun.com/document_detail/104454.html)
+   *
+   * @param request ModifyActiveOperationTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyActiveOperationTasksResponse
    */
   async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
     Util.validateModel(request);
@@ -53760,20 +54761,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Scheduled events for ApsaraDB RDS for MySQL instances](~~104183~~)
-    * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](~~104452~~)
-    * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](~~104451~~)
-    * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](~~104454~~)
-    *
-    * @param request ModifyActiveOperationTasksRequest
-    * @return ModifyActiveOperationTasksResponse
+   * @summary Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Scheduled events for ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/104183.html)
+   * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/104452.html)
+   * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/104451.html)
+   * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](https://help.aliyun.com/document_detail/104454.html)
+   *
+   * @param request ModifyActiveOperationTasksRequest
+   * @return ModifyActiveOperationTasksResponse
    */
   async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53781,21 +54784,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](~~98818~~)
-    * *   [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](~~96772~~)
-    * *   [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](~~95717~~)
-    * *   [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](~~97147~~)
-    *
-    * @param request ModifyBackupPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyBackupPolicyResponse
+   * @summary Modifies the backup policy settings of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
+   * *   [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+   * *   [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+   * *   [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+   *
+   * @param request ModifyBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBackupPolicyResponse
    */
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
@@ -53926,20 +54931,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](~~98818~~)
-    * *   [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](~~96772~~)
-    * *   [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](~~95717~~)
-    * *   [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](~~97147~~)
-    *
-    * @param request ModifyBackupPolicyRequest
-    * @return ModifyBackupPolicyResponse
+   * @summary Modifies the backup policy settings of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
+   * *   [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+   * *   [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+   * *   [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+   *
+   * @param request ModifyBackupPolicyRequest
+   * @return ModifyBackupPolicyResponse
    */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53947,15 +54954,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS SQL Server
-    * ### [](#)References
-    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Change the character set collation and the time zone of system databases](~~95700~~)
-    *
-    * @param request ModifyCollationTimeZoneRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyCollationTimeZoneResponse
+   * @summary Modifies the character set collation and time zone of system databases on an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS SQL Server
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Change the character set collation and the time zone of system databases](https://help.aliyun.com/document_detail/95700.html)
+   *
+   * @param request ModifyCollationTimeZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCollationTimeZoneResponse
    */
   async modifyCollationTimeZoneWithOptions(request: ModifyCollationTimeZoneRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCollationTimeZoneResponse> {
     Util.validateModel(request);
@@ -54002,20 +55011,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS SQL Server
-    * ### [](#)References
-    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Change the character set collation and the time zone of system databases](~~95700~~)
-    *
-    * @param request ModifyCollationTimeZoneRequest
-    * @return ModifyCollationTimeZoneResponse
+   * @summary Modifies the character set collation and time zone of system databases on an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS SQL Server
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Change the character set collation and the time zone of system databases](https://help.aliyun.com/document_detail/95700.html)
+   *
+   * @param request ModifyCollationTimeZoneRequest
+   * @return ModifyCollationTimeZoneResponse
    */
   async modifyCollationTimeZone(request: ModifyCollationTimeZoneRequest): Promise<ModifyCollationTimeZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCollationTimeZoneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改实例资源
+   *
+   * @param request ModifyCustinsResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCustinsResourceResponse
+   */
   async modifyCustinsResourceWithOptions(request: ModifyCustinsResourceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCustinsResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54064,21 +55082,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCustinsResourceResponse>(await this.callApi(params, req, runtime), new ModifyCustinsResourceResponse({}));
   }
 
+  /**
+   * @summary 修改实例资源
+   *
+   * @param request ModifyCustinsResourceRequest
+   * @return ModifyCustinsResourceResponse
+   */
   async modifyCustinsResource(request: ModifyCustinsResourceRequest): Promise<ModifyCustinsResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCustinsResourceWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request ModifyDBDescriptionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBDescriptionResponse
+   * @summary Modifies the description of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request ModifyDBDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBDescriptionResponse
    */
   async modifyDBDescriptionWithOptions(request: ModifyDBDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBDescriptionResponse> {
     Util.validateModel(request);
@@ -54129,14 +55155,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    *
-    * @param request ModifyDBDescriptionRequest
-    * @return ModifyDBDescriptionResponse
+   * @summary Modifies the description of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   *
+   * @param request ModifyDBDescriptionRequest
+   * @return ModifyDBDescriptionResponse
    */
   async modifyDBDescription(request: ModifyDBDescriptionRequest): Promise<ModifyDBDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54144,17 +55172,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Modify automatic update settings for an ApsaraDB RDS for MySQL instance](~~96059~~)
-    * *   [Modify automatic update settings for an ApsaraDB RDS for PostgreSQL instance](~~146895~~)
-    *
-    * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceAutoUpgradeMinorVersionResponse
+   * @summary Changes the method that is used to update the minor engine version of an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Modify automatic update settings for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
+   * *   [Modify automatic update settings for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+   *
+   * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceAutoUpgradeMinorVersionResponse
    */
   async modifyDBInstanceAutoUpgradeMinorVersionWithOptions(request: ModifyDBInstanceAutoUpgradeMinorVersionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceAutoUpgradeMinorVersionResponse> {
     Util.validateModel(request);
@@ -54201,16 +55231,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Modify automatic update settings for an ApsaraDB RDS for MySQL instance](~~96059~~)
-    * *   [Modify automatic update settings for an ApsaraDB RDS for PostgreSQL instance](~~146895~~)
-    *
-    * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
-    * @return ModifyDBInstanceAutoUpgradeMinorVersionResponse
+   * @summary Changes the method that is used to update the minor engine version of an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Modify automatic update settings for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
+   * *   [Modify automatic update settings for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+   *
+   * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
+   * @return ModifyDBInstanceAutoUpgradeMinorVersionResponse
    */
   async modifyDBInstanceAutoUpgradeMinorVersion(request: ModifyDBInstanceAutoUpgradeMinorVersionRequest): Promise<ModifyDBInstanceAutoUpgradeMinorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54218,13 +55250,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * >  The configuration item that is supported is [PgBouncer](~~2398301~~) of ApsaraDB RDS for PostgreSQL instances.
-    *
-    * @param request ModifyDBInstanceConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceConfigResponse
+   * @summary Modifies the configuration item of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * *   SQL Server
+   * >  The configuration items that are supported are pgbouncer and clear_errorlog. For more information, see [PgBouncer of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/2398301.html) and [Error log cleanup of ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95645.html).
+   *
+   * @param request ModifyDBInstanceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceConfigResponse
    */
   async modifyDBInstanceConfigWithOptions(request: ModifyDBInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConfigResponse> {
     Util.validateModel(request);
@@ -54283,12 +55318,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * >  The configuration item that is supported is [PgBouncer](~~2398301~~) of ApsaraDB RDS for PostgreSQL instances.
-    *
-    * @param request ModifyDBInstanceConfigRequest
-    * @return ModifyDBInstanceConfigResponse
+   * @summary Modifies the configuration item of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * *   SQL Server
+   * >  The configuration items that are supported are pgbouncer and clear_errorlog. For more information, see [PgBouncer of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/2398301.html) and [Error log cleanup of ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95645.html).
+   *
+   * @param request ModifyDBInstanceConfigRequest
+   * @return ModifyDBInstanceConfigResponse
    */
   async modifyDBInstanceConfig(request: ModifyDBInstanceConfigRequest): Promise<ModifyDBInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54296,11 +55334,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The API has been taken offline
-    *
-    * @param request ModifyDBInstanceConnectionModeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceConnectionModeResponse
+   * @summary 修改实例访问模式
+   *
+   * @description > The API has been taken offline
+   *
+   * @param request ModifyDBInstanceConnectionModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceConnectionModeResponse
    */
   async modifyDBInstanceConnectionModeWithOptions(request: ModifyDBInstanceConnectionModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionModeResponse> {
     Util.validateModel(request);
@@ -54347,10 +55387,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The API has been taken offline
-    *
-    * @param request ModifyDBInstanceConnectionModeRequest
-    * @return ModifyDBInstanceConnectionModeResponse
+   * @summary 修改实例访问模式
+   *
+   * @description > The API has been taken offline
+   *
+   * @param request ModifyDBInstanceConnectionModeRequest
+   * @return ModifyDBInstanceConnectionModeResponse
    */
   async modifyDBInstanceConnectionMode(request: ModifyDBInstanceConnectionModeRequest): Promise<ModifyDBInstanceConnectionModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54358,21 +55400,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-    * *   [Change the endpoint and port number of an ApsaraDB RDS for MySQL instance](~~96163~~)
-    * *   [Change the endpoint and port number of an ApsaraDB RDS for PostgreSQL instance](~~96788~~)
-    * *   [Change the endpoint and port number of an ApsaraDB RDS for SQL Server instance](~~95740~~)
-    * *   [Change the endpoint and port number of an ApsaraDB RDS for MariaDB instance](~~97157~~)
-    *
-    * @param request ModifyDBInstanceConnectionStringRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceConnectionStringResponse
+   * @summary Modifies the endpoint and port of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+   * *   [Change the endpoint and port number of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96163.html)
+   * *   [Change the endpoint and port number of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96788.html)
+   * *   [Change the endpoint and port number of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95740.html)
+   * *   [Change the endpoint and port number of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97157.html)
+   *
+   * @param request ModifyDBInstanceConnectionStringRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceConnectionStringResponse
    */
   async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
     Util.validateModel(request);
@@ -54439,20 +55483,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-    * *   [Change the endpoint and port number of an ApsaraDB RDS for MySQL instance](~~96163~~)
-    * *   [Change the endpoint and port number of an ApsaraDB RDS for PostgreSQL instance](~~96788~~)
-    * *   [Change the endpoint and port number of an ApsaraDB RDS for SQL Server instance](~~95740~~)
-    * *   [Change the endpoint and port number of an ApsaraDB RDS for MariaDB instance](~~97157~~)
-    *
-    * @param request ModifyDBInstanceConnectionStringRequest
-    * @return ModifyDBInstanceConnectionStringResponse
+   * @summary Modifies the endpoint and port of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+   * *   [Change the endpoint and port number of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96163.html)
+   * *   [Change the endpoint and port number of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96788.html)
+   * *   [Change the endpoint and port number of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95740.html)
+   * *   [Change the endpoint and port number of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97157.html)
+   *
+   * @param request ModifyDBInstanceConnectionStringRequest
+   * @return ModifyDBInstanceConnectionStringResponse
    */
   async modifyDBInstanceConnectionString(request: ModifyDBInstanceConnectionStringRequest): Promise<ModifyDBInstanceConnectionStringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54460,15 +55506,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure a data replication latency for a read-only ApsaraDB RDS for MySQL instance](~~96056~~)
-    *
-    * @param request ModifyDBInstanceDelayedReplicationTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceDelayedReplicationTimeResponse
+   * @summary Configures the replication latency for a read-only ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure a data replication latency for a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96056.html)
+   *
+   * @param request ModifyDBInstanceDelayedReplicationTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceDelayedReplicationTimeResponse
    */
   async modifyDBInstanceDelayedReplicationTimeWithOptions(request: ModifyDBInstanceDelayedReplicationTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDelayedReplicationTimeResponse> {
     Util.validateModel(request);
@@ -54511,14 +55559,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure a data replication latency for a read-only ApsaraDB RDS for MySQL instance](~~96056~~)
-    *
-    * @param request ModifyDBInstanceDelayedReplicationTimeRequest
-    * @return ModifyDBInstanceDelayedReplicationTimeResponse
+   * @summary Configures the replication latency for a read-only ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure a data replication latency for a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96056.html)
+   *
+   * @param request ModifyDBInstanceDelayedReplicationTimeRequest
+   * @return ModifyDBInstanceDelayedReplicationTimeResponse
    */
   async modifyDBInstanceDelayedReplicationTime(request: ModifyDBInstanceDelayedReplicationTimeRequest): Promise<ModifyDBInstanceDelayedReplicationTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54526,21 +55576,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Enable and disable instance release protection for an ApsaraDB RDS for MySQL instance](~~414512~~)
-    * *   [Enable and disable instance release protection for an ApsaraDB RDS for PostgreSQL instance](~~471512~~)
-    * *   [Enable and disable instance release protection for an ApsaraDB RDS for SQL Server instance](~~416209~~)
-    * *   [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](~~414512~~)
-    *
-    * @param request ModifyDBInstanceDeletionProtectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceDeletionProtectionResponse
+   * @summary Enable or disable the release protection feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Enable and disable instance release protection for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/414512.html)
+   * *   [Enable and disable instance release protection for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/471512.html)
+   * *   [Enable and disable instance release protection for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/416209.html)
+   * *   [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/414512.html)
+   *
+   * @param request ModifyDBInstanceDeletionProtectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceDeletionProtectionResponse
    */
   async modifyDBInstanceDeletionProtectionWithOptions(request: ModifyDBInstanceDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDeletionProtectionResponse> {
     Util.validateModel(request);
@@ -54591,26 +55643,35 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Enable and disable instance release protection for an ApsaraDB RDS for MySQL instance](~~414512~~)
-    * *   [Enable and disable instance release protection for an ApsaraDB RDS for PostgreSQL instance](~~471512~~)
-    * *   [Enable and disable instance release protection for an ApsaraDB RDS for SQL Server instance](~~416209~~)
-    * *   [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](~~414512~~)
-    *
-    * @param request ModifyDBInstanceDeletionProtectionRequest
-    * @return ModifyDBInstanceDeletionProtectionResponse
+   * @summary Enable or disable the release protection feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Enable and disable instance release protection for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/414512.html)
+   * *   [Enable and disable instance release protection for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/471512.html)
+   * *   [Enable and disable instance release protection for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/416209.html)
+   * *   [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/414512.html)
+   *
+   * @param request ModifyDBInstanceDeletionProtectionRequest
+   * @return ModifyDBInstanceDeletionProtectionResponse
    */
   async modifyDBInstanceDeletionProtection(request: ModifyDBInstanceDeletionProtectionRequest): Promise<ModifyDBInstanceDeletionProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceDeletionProtectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call the ModifyDBInstanceDescription operation to modify the name of an instance.
+   *
+   * @param request ModifyDBInstanceDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceDescriptionResponse
+   */
   async modifyDBInstanceDescriptionWithOptions(request: ModifyDBInstanceDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54655,18 +55716,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceDescriptionResponse({}));
   }
 
+  /**
+   * @summary You can call the ModifyDBInstanceDescription operation to modify the name of an instance.
+   *
+   * @param request ModifyDBInstanceDescriptionRequest
+   * @return ModifyDBInstanceDescriptionResponse
+   */
   async modifyDBInstanceDescription(request: ModifyDBInstanceDescriptionRequest): Promise<ModifyDBInstanceDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceDescriptionWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    *
-    * @param tmpReq ModifyDBInstanceEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceEndpointResponse
+   * @summary Modifies the weight of an endpoint for an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS MySQL
+   *
+   * @param tmpReq ModifyDBInstanceEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceEndpointResponse
    */
   async modifyDBInstanceEndpointWithOptions(tmpReq: ModifyDBInstanceEndpointRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceEndpointResponse> {
     Util.validateModel(tmpReq);
@@ -54719,11 +55788,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    *
-    * @param request ModifyDBInstanceEndpointRequest
-    * @return ModifyDBInstanceEndpointResponse
+   * @summary Modifies the weight of an endpoint for an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS MySQL
+   *
+   * @param request ModifyDBInstanceEndpointRequest
+   * @return ModifyDBInstanceEndpointResponse
    */
   async modifyDBInstanceEndpoint(request: ModifyDBInstanceEndpointRequest): Promise<ModifyDBInstanceEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54731,15 +55802,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    * ### [](#)Precautions
-    * *   You can modify the following information about the endpoint of an instance: the public and internal endpoints, the public and internal ports, and the virtual private cloud (VPC), vSwitch, and IP address of the internal endpoint.
-    * *   The VPC and vSwitch must be modified at the same time. If you specify the VPC, vSwitch, and IP address of the internal endpoint, you do not need to specify the endpoint and port. If you specify the endpoint and port, you do not need to specify the VPC, vSwitch, and IP address of the internal endpoint.
-    *
-    * @param request ModifyDBInstanceEndpointAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceEndpointAddressResponse
+   * @summary Modifies the information about the endpoint of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### [](#)Supported database engines
+   * MySQL
+   * ### [](#)Precautions
+   * *   You can modify the following information about the endpoint of an instance: the public and internal endpoints, the public and internal ports, and the virtual private cloud (VPC), vSwitch, and IP address of the internal endpoint.
+   * *   The VPC and vSwitch must be modified at the same time. If you specify the VPC, vSwitch, and IP address of the internal endpoint, you do not need to specify the endpoint and port. If you specify the endpoint and port, you do not need to specify the VPC, vSwitch, and IP address of the internal endpoint.
+   *
+   * @param request ModifyDBInstanceEndpointAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceEndpointAddressResponse
    */
   async modifyDBInstanceEndpointAddressWithOptions(request: ModifyDBInstanceEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceEndpointAddressResponse> {
     Util.validateModel(request);
@@ -54802,20 +55875,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    * ### [](#)Precautions
-    * *   You can modify the following information about the endpoint of an instance: the public and internal endpoints, the public and internal ports, and the virtual private cloud (VPC), vSwitch, and IP address of the internal endpoint.
-    * *   The VPC and vSwitch must be modified at the same time. If you specify the VPC, vSwitch, and IP address of the internal endpoint, you do not need to specify the endpoint and port. If you specify the endpoint and port, you do not need to specify the VPC, vSwitch, and IP address of the internal endpoint.
-    *
-    * @param request ModifyDBInstanceEndpointAddressRequest
-    * @return ModifyDBInstanceEndpointAddressResponse
+   * @summary Modifies the information about the endpoint of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   *
+   * @description ### [](#)Supported database engines
+   * MySQL
+   * ### [](#)Precautions
+   * *   You can modify the following information about the endpoint of an instance: the public and internal endpoints, the public and internal ports, and the virtual private cloud (VPC), vSwitch, and IP address of the internal endpoint.
+   * *   The VPC and vSwitch must be modified at the same time. If you specify the VPC, vSwitch, and IP address of the internal endpoint, you do not need to specify the endpoint and port. If you specify the endpoint and port, you do not need to specify the VPC, vSwitch, and IP address of the internal endpoint.
+   *
+   * @param request ModifyDBInstanceEndpointAddressRequest
+   * @return ModifyDBInstanceEndpointAddressResponse
    */
   async modifyDBInstanceEndpointAddress(request: ModifyDBInstanceEndpointAddressRequest): Promise<ModifyDBInstanceEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceEndpointAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the high availability (HA) and data replication mode of an instance.
+   *
+   * @param request ModifyDBInstanceHAConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceHAConfigResponse
+   */
   async modifyDBInstanceHAConfigWithOptions(request: ModifyDBInstanceHAConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceHAConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54864,27 +55946,35 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceHAConfigResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceHAConfigResponse({}));
   }
 
+  /**
+   * @summary Changes the high availability (HA) and data replication mode of an instance.
+   *
+   * @param request ModifyDBInstanceHAConfigRequest
+   * @return ModifyDBInstanceHAConfigResponse
+   */
   async modifyDBInstanceHAConfig(request: ModifyDBInstanceHAConfigRequest): Promise<ModifyDBInstanceHAConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceHAConfigWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Set a maintenance window for an ApsaraDB RDS for MySQL instance](~~96052~~)
-    * *   [Set a maintenance window for an ApsaraDB RDS for PostgreSQL instance](~~96799~~)
-    * *   [Set a maintenance window for an ApsaraDB RDS for SQL Server instance](~~95657~~)
-    * *   [Set a maintenance window for an ApsaraDB RDS for MariaDB instance](~~97473~~)
-    *
-    * @param request ModifyDBInstanceMaintainTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceMaintainTimeResponse
+   * @summary Modifies the maintenance window of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Set a maintenance window for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96052.html)
+   * *   [Set a maintenance window for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96799.html)
+   * *   [Set a maintenance window for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95657.html)
+   * *   [Set a maintenance window for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97473.html)
+   *
+   * @param request ModifyDBInstanceMaintainTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceMaintainTimeResponse
    */
   async modifyDBInstanceMaintainTimeWithOptions(request: ModifyDBInstanceMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceMaintainTimeResponse> {
     Util.validateModel(request);
@@ -54935,20 +56025,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Set a maintenance window for an ApsaraDB RDS for MySQL instance](~~96052~~)
-    * *   [Set a maintenance window for an ApsaraDB RDS for PostgreSQL instance](~~96799~~)
-    * *   [Set a maintenance window for an ApsaraDB RDS for SQL Server instance](~~95657~~)
-    * *   [Set a maintenance window for an ApsaraDB RDS for MariaDB instance](~~97473~~)
-    *
-    * @param request ModifyDBInstanceMaintainTimeRequest
-    * @return ModifyDBInstanceMaintainTimeResponse
+   * @summary Modifies the maintenance window of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Set a maintenance window for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96052.html)
+   * *   [Set a maintenance window for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96799.html)
+   * *   [Set a maintenance window for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95657.html)
+   * *   [Set a maintenance window for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97473.html)
+   *
+   * @param request ModifyDBInstanceMaintainTimeRequest
+   * @return ModifyDBInstanceMaintainTimeResponse
    */
   async modifyDBInstanceMaintainTime(request: ModifyDBInstanceMaintainTimeRequest): Promise<ModifyDBInstanceMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54956,15 +56048,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [View the Enhanced Monitoring metrics](~~299200~~)
-    *
-    * @param request ModifyDBInstanceMetricsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceMetricsResponse
+   * @summary Modifies the Enhanced Monitoring metrics that are displayed for an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+   *
+   * @param request ModifyDBInstanceMetricsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceMetricsResponse
    */
   async modifyDBInstanceMetricsWithOptions(request: ModifyDBInstanceMetricsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceMetricsResponse> {
     Util.validateModel(request);
@@ -55003,14 +56097,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [View the Enhanced Monitoring metrics](~~299200~~)
-    *
-    * @param request ModifyDBInstanceMetricsRequest
-    * @return ModifyDBInstanceMetricsResponse
+   * @summary Modifies the Enhanced Monitoring metrics that are displayed for an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+   *
+   * @param request ModifyDBInstanceMetricsRequest
+   * @return ModifyDBInstanceMetricsResponse
    */
   async modifyDBInstanceMetrics(request: ModifyDBInstanceMetricsRequest): Promise<ModifyDBInstanceMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55018,19 +56114,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)Usage notes
-    * If you use the Every 5 Seconds monitoring frequency, you are charged additional fees. Before you call this operation, make sure that you understand the [billing methods and pricing](~~45020~~) of ApsaraDB RDS.
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure the monitoring frequency for an ApsaraDB RDS for MySQL instance](~~96112~~)
-    * *   [Configure the monitoring frequency for an ApsaraDB RDS for SQL Server instance](~~95710~~)
-    *
-    * @param request ModifyDBInstanceMonitorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceMonitorResponse
+   * @summary Modifies a monitoring frequency.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)Usage notes
+   * If you use the Every 5 Seconds monitoring frequency, you are charged additional fees. Before you call this operation, make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/45020.html) of ApsaraDB RDS.
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure the monitoring frequency for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96112.html)
+   * *   [Configure the monitoring frequency for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95710.html)
+   *
+   * @param request ModifyDBInstanceMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceMonitorResponse
    */
   async modifyDBInstanceMonitorWithOptions(request: ModifyDBInstanceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceMonitorResponse> {
     Util.validateModel(request);
@@ -55081,18 +56179,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)Usage notes
-    * If you use the Every 5 Seconds monitoring frequency, you are charged additional fees. Before you call this operation, make sure that you understand the [billing methods and pricing](~~45020~~) of ApsaraDB RDS.
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure the monitoring frequency for an ApsaraDB RDS for MySQL instance](~~96112~~)
-    * *   [Configure the monitoring frequency for an ApsaraDB RDS for SQL Server instance](~~95710~~)
-    *
-    * @param request ModifyDBInstanceMonitorRequest
-    * @return ModifyDBInstanceMonitorResponse
+   * @summary Modifies a monitoring frequency.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)Usage notes
+   * If you use the Every 5 Seconds monitoring frequency, you are charged additional fees. Before you call this operation, make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/45020.html) of ApsaraDB RDS.
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure the monitoring frequency for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96112.html)
+   * *   [Configure the monitoring frequency for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95710.html)
+   *
+   * @param request ModifyDBInstanceMonitorRequest
+   * @return ModifyDBInstanceMonitorResponse
    */
   async modifyDBInstanceMonitor(request: ModifyDBInstanceMonitorRequest): Promise<ModifyDBInstanceMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55100,16 +56200,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)References
-    * *   [Configure the hybrid access solution for an ApsaraDB RDS for MySQL instance](~~96110~~)
-    * *   [Configure the hybrid access solution for an ApsaraDB RDS for SQL Server instance](~~95708~~)
-    *
-    * @param request ModifyDBInstanceNetworkExpireTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceNetworkExpireTimeResponse
+   * @summary Changes the expiration time of the classic network endpoint of an instance in hybrid access mode.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)References
+   * *   [Configure the hybrid access solution for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96110.html)
+   * *   [Configure the hybrid access solution for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95708.html)
+   *
+   * @param request ModifyDBInstanceNetworkExpireTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceNetworkExpireTimeResponse
    */
   async modifyDBInstanceNetworkExpireTimeWithOptions(request: ModifyDBInstanceNetworkExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceNetworkExpireTimeResponse> {
     Util.validateModel(request);
@@ -55160,15 +56262,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)References
-    * *   [Configure the hybrid access solution for an ApsaraDB RDS for MySQL instance](~~96110~~)
-    * *   [Configure the hybrid access solution for an ApsaraDB RDS for SQL Server instance](~~95708~~)
-    *
-    * @param request ModifyDBInstanceNetworkExpireTimeRequest
-    * @return ModifyDBInstanceNetworkExpireTimeResponse
+   * @summary Changes the expiration time of the classic network endpoint of an instance in hybrid access mode.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)References
+   * *   [Configure the hybrid access solution for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96110.html)
+   * *   [Configure the hybrid access solution for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95708.html)
+   *
+   * @param request ModifyDBInstanceNetworkExpireTimeRequest
+   * @return ModifyDBInstanceNetworkExpireTimeResponse
    */
   async modifyDBInstanceNetworkExpireTime(request: ModifyDBInstanceNetworkExpireTimeRequest): Promise<ModifyDBInstanceNetworkExpireTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55176,19 +56280,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Change the network type of an ApsaraDB RDS for MySQL instance](~~96109~~)
-    * *   [Change the network type of an ApsaraDB RDS for PostgreSQL instance](~~96761~~)
-    * *   [Change the network type of an ApsaraDB RDS for SQL Server instance](~~95707~~)
-    *
-    * @param request ModifyDBInstanceNetworkTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceNetworkTypeResponse
+   * @summary Changes the network type of an ApsaraDB RDS instance from classic network to VPC
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Change the network type of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96109.html)
+   * *   [Change the network type of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96761.html)
+   * *   [Change the network type of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95707.html)
+   *
+   * @param request ModifyDBInstanceNetworkTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceNetworkTypeResponse
    */
   async modifyDBInstanceNetworkTypeWithOptions(request: ModifyDBInstanceNetworkTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceNetworkTypeResponse> {
     Util.validateModel(request);
@@ -55263,18 +56369,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Change the network type of an ApsaraDB RDS for MySQL instance](~~96109~~)
-    * *   [Change the network type of an ApsaraDB RDS for PostgreSQL instance](~~96761~~)
-    * *   [Change the network type of an ApsaraDB RDS for SQL Server instance](~~95707~~)
-    *
-    * @param request ModifyDBInstanceNetworkTypeRequest
-    * @return ModifyDBInstanceNetworkTypeResponse
+   * @summary Changes the network type of an ApsaraDB RDS instance from classic network to VPC
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Change the network type of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96109.html)
+   * *   [Change the network type of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96761.html)
+   * *   [Change the network type of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95707.html)
+   *
+   * @param request ModifyDBInstanceNetworkTypeRequest
+   * @return ModifyDBInstanceNetworkTypeResponse
    */
   async modifyDBInstanceNetworkType(request: ModifyDBInstanceNetworkTypeRequest): Promise<ModifyDBInstanceNetworkTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55282,21 +56390,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
-    * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](~~96048~~)
-    * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](~~96743~~)
-    * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](~~95631~~)
-    * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](~~97120~~)
-    *
-    * @param request ModifyDBInstancePayTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstancePayTypeResponse
+   * @summary Changes the billing method of an instance from pay-as-you-go to subscription.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+   * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96048.html)
+   * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96743.html)
+   * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/95631.html)
+   * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/97120.html)
+   *
+   * @param request ModifyDBInstancePayTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstancePayTypeResponse
    */
   async modifyDBInstancePayTypeWithOptions(request: ModifyDBInstancePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstancePayTypeResponse> {
     Util.validateModel(request);
@@ -55339,20 +56449,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
-    * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](~~96048~~)
-    * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](~~96743~~)
-    * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](~~95631~~)
-    * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](~~97120~~)
-    *
-    * @param request ModifyDBInstancePayTypeRequest
-    * @return ModifyDBInstancePayTypeResponse
+   * @summary Changes the billing method of an instance from pay-as-you-go to subscription.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+   * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96048.html)
+   * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96743.html)
+   * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/95631.html)
+   * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/97120.html)
+   *
+   * @param request ModifyDBInstancePayTypeRequest
+   * @return ModifyDBInstancePayTypeResponse
    */
   async modifyDBInstancePayType(request: ModifyDBInstancePayTypeRequest): Promise<ModifyDBInstancePayTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55360,11 +56472,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is phased out.
-    *
-    * @param request ModifyDBInstanceProxyConfigurationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceProxyConfigurationResponse
+   * @summary You can call the ModifyDBInstanceProxyConfiguration operation to configure the database proxy for an instance.
+   *
+   * @description > This operation is phased out.
+   *
+   * @param request ModifyDBInstanceProxyConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceProxyConfigurationResponse
    */
   async modifyDBInstanceProxyConfigurationWithOptions(request: ModifyDBInstanceProxyConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceProxyConfigurationResponse> {
     Util.validateModel(request);
@@ -55411,10 +56525,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is phased out.
-    *
-    * @param request ModifyDBInstanceProxyConfigurationRequest
-    * @return ModifyDBInstanceProxyConfigurationResponse
+   * @summary You can call the ModifyDBInstanceProxyConfiguration operation to configure the database proxy for an instance.
+   *
+   * @description > This operation is phased out.
+   *
+   * @param request ModifyDBInstanceProxyConfigurationRequest
+   * @return ModifyDBInstanceProxyConfigurationResponse
    */
   async modifyDBInstanceProxyConfiguration(request: ModifyDBInstanceProxyConfigurationRequest): Promise<ModifyDBInstanceProxyConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55422,19 +56538,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Use the SSL encryption feature for an ApsaraDB RDS for MySQL instance](~~96120~~)
-    * *   [Use the SSL encryption feature for an ApsaraDB RDS for PostgreSQL instance](~~229517~~)
-    * *   [Use the SSL encryption feature for an ApsaraDB RDS for SQL Server instance](~~95715~~)
-    *
-    * @param request ModifyDBInstanceSSLRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceSSLResponse
+   * @summary Modifies the SSL encryption settings of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96120.html)
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/229517.html)
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95715.html)
+   *
+   * @param request ModifyDBInstanceSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceSSLResponse
    */
   async modifyDBInstanceSSLWithOptions(request: ModifyDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceSSLResponse> {
     Util.validateModel(request);
@@ -55537,18 +56655,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Use the SSL encryption feature for an ApsaraDB RDS for MySQL instance](~~96120~~)
-    * *   [Use the SSL encryption feature for an ApsaraDB RDS for PostgreSQL instance](~~229517~~)
-    * *   [Use the SSL encryption feature for an ApsaraDB RDS for SQL Server instance](~~95715~~)
-    *
-    * @param request ModifyDBInstanceSSLRequest
-    * @return ModifyDBInstanceSSLResponse
+   * @summary Modifies the SSL encryption settings of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96120.html)
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/229517.html)
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95715.html)
+   *
+   * @param request ModifyDBInstanceSSLRequest
+   * @return ModifyDBInstanceSSLResponse
    */
   async modifyDBInstanceSSL(request: ModifyDBInstanceSSLRequest): Promise<ModifyDBInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55556,21 +56676,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-    * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~)
-    * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](~~96750~~)
-    * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](~~95665~~)
-    * *   [Change the specifications of an ApsaraDB RDS for MariaDB instance](~~97129~~)
-    *
-    * @param tmpReq ModifyDBInstanceSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceSpecResponse
+   * @summary Changes the instance type and storage capacity of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+   * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
+   * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95665.html)
+   * *   [Change the specifications of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97129.html)
+   *
+   * @param tmpReq ModifyDBInstanceSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceSpecResponse
    */
   async modifyDBInstanceSpecWithOptions(tmpReq: ModifyDBInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceSpecResponse> {
     Util.validateModel(tmpReq);
@@ -55699,20 +56821,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-    * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~)
-    * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](~~96750~~)
-    * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](~~95665~~)
-    * *   [Change the specifications of an ApsaraDB RDS for MariaDB instance](~~97129~~)
-    *
-    * @param request ModifyDBInstanceSpecRequest
-    * @return ModifyDBInstanceSpecResponse
+   * @summary Changes the instance type and storage capacity of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+   * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
+   * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95665.html)
+   * *   [Change the specifications of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97129.html)
+   *
+   * @param request ModifyDBInstanceSpecRequest
+   * @return ModifyDBInstanceSpecResponse
    */
   async modifyDBInstanceSpec(request: ModifyDBInstanceSpecRequest): Promise<ModifyDBInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55720,19 +56844,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Configure TDE for an ApsaraDB RDS for MySQL instance](~~96121~~)
-    * *   [Configure TDE for an ApsaraDB RDS for PostgreSQL instance](~~465652~~)
-    * *   [Configure TDE for an ApsaraDB RDS for SQL Server instance](~~95716~~)
-    *
-    * @param request ModifyDBInstanceTDERequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceTDEResponse
+   * @summary Enables the Transparent Data Encryption (TDE) feature for an ApsaraDB RDS instance and modifies the TDE status for the instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure TDE for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96121.html)
+   * *   [Configure TDE for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/465652.html)
+   * *   [Configure TDE for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95716.html)
+   *
+   * @param request ModifyDBInstanceTDERequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceTDEResponse
    */
   async modifyDBInstanceTDEWithOptions(request: ModifyDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceTDEResponse> {
     Util.validateModel(request);
@@ -55807,18 +56933,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Configure TDE for an ApsaraDB RDS for MySQL instance](~~96121~~)
-    * *   [Configure TDE for an ApsaraDB RDS for PostgreSQL instance](~~465652~~)
-    * *   [Configure TDE for an ApsaraDB RDS for SQL Server instance](~~95716~~)
-    *
-    * @param request ModifyDBInstanceTDERequest
-    * @return ModifyDBInstanceTDEResponse
+   * @summary Enables the Transparent Data Encryption (TDE) feature for an ApsaraDB RDS instance and modifies the TDE status for the instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure TDE for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96121.html)
+   * *   [Configure TDE for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/465652.html)
+   * *   [Configure TDE for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95716.html)
+   *
+   * @param request ModifyDBInstanceTDERequest
+   * @return ModifyDBInstanceTDEResponse
    */
   async modifyDBInstanceTDE(request: ModifyDBInstanceTDERequest): Promise<ModifyDBInstanceTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55826,15 +56954,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [](#)References
-    * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
-    * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~)
-    *
-    * @param tmpReq ModifyDBNodeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBNodeResponse
+   * @summary Changes the specifications and storage capacity of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [](#)References
+   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+   *
+   * @param tmpReq ModifyDBNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBNodeResponse
    */
   async modifyDBNodeWithOptions(tmpReq: ModifyDBNodeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBNodeResponse> {
     Util.validateModel(tmpReq);
@@ -55915,14 +57045,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * ### [](#)References
-    * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
-    * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~)
-    *
-    * @param request ModifyDBNodeRequest
-    * @return ModifyDBNodeResponse
+   * @summary Changes the specifications and storage capacity of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * ### [](#)References
+   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+   *
+   * @param request ModifyDBNodeRequest
+   * @return ModifyDBNodeResponse
    */
   async modifyDBNode(request: ModifyDBNodeRequest): Promise<ModifyDBNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55930,18 +57062,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](~~197456~~)
-    * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](~~418272~~)
-    *
-    * @param request ModifyDBProxyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBProxyResponse
+   * @summary Enables or disables the dedicated proxy feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197456.html)
+   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html)
+   *
+   * @param request ModifyDBProxyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBProxyResponse
    */
   async modifyDBProxyWithOptions(request: ModifyDBProxyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyResponse> {
     Util.validateModel(request);
@@ -56024,17 +57158,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](~~197456~~)
-    * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](~~418272~~)
-    *
-    * @param request ModifyDBProxyRequest
-    * @return ModifyDBProxyResponse
+   * @summary Enables or disables the dedicated proxy feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197456.html)
+   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html)
+   *
+   * @param request ModifyDBProxyRequest
+   * @return ModifyDBProxyResponse
    */
   async modifyDBProxy(request: ModifyDBProxyRequest): Promise<ModifyDBProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56042,17 +57178,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * ### [](#)References
-    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](~~2621331~~)
-    * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418273~~)
-    *
-    * @param request ModifyDBProxyEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBProxyEndpointResponse
+   * @summary Modifies the connection settings for a database proxy endpoint.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2621331.html)
+   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418273.html)
+   *
+   * @param request ModifyDBProxyEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBProxyEndpointResponse
    */
   async modifyDBProxyEndpointWithOptions(request: ModifyDBProxyEndpointRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyEndpointResponse> {
     Util.validateModel(request);
@@ -56139,16 +57277,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * ### [](#)References
-    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](~~2621331~~)
-    * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418273~~)
-    *
-    * @param request ModifyDBProxyEndpointRequest
-    * @return ModifyDBProxyEndpointResponse
+   * @summary Modifies the connection settings for a database proxy endpoint.
+   *
+   * @description ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2621331.html)
+   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418273.html)
+   *
+   * @param request ModifyDBProxyEndpointRequest
+   * @return ModifyDBProxyEndpointResponse
    */
   async modifyDBProxyEndpoint(request: ModifyDBProxyEndpointRequest): Promise<ModifyDBProxyEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56156,17 +57296,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~)
-    *
-    * @param request ModifyDBProxyEndpointAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBProxyEndpointAddressResponse
+   * @summary Changes an endpoint that is used to connect to the dedicated proxy of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+   *
+   * @param request ModifyDBProxyEndpointAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBProxyEndpointAddressResponse
    */
   async modifyDBProxyEndpointAddressWithOptions(request: ModifyDBProxyEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyEndpointAddressResponse> {
     Util.validateModel(request);
@@ -56229,16 +57371,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~)
-    *
-    * @param request ModifyDBProxyEndpointAddressRequest
-    * @return ModifyDBProxyEndpointAddressResponse
+   * @summary Changes an endpoint that is used to connect to the dedicated proxy of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+   *
+   * @param request ModifyDBProxyEndpointAddressRequest
+   * @return ModifyDBProxyEndpointAddressResponse
    */
   async modifyDBProxyEndpointAddress(request: ModifyDBProxyEndpointAddressRequest): Promise<ModifyDBProxyEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56246,13 +57390,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call the ModifyDBProxyInstance operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
-    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
-    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
-    *
-    * @param request ModifyDBProxyInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBProxyInstanceResponse
+   * @summary Changes the configuration of a database proxy for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * >  Starting October 17, 2023, ApsaraDB RDS for MySQL instances that run RDS Cluster Edition offer one free-of-charge dedicated database proxy for each unit in phases. For more information, see [[Special offers/Price changes\\] One dedicated proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+   *
+   * @param request ModifyDBProxyInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBProxyInstanceResponse
    */
   async modifyDBProxyInstanceWithOptions(request: ModifyDBProxyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyInstanceResponse> {
     Util.validateModel(request);
@@ -56323,12 +57470,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call the ModifyDBProxyInstance operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
-    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
-    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
-    *
-    * @param request ModifyDBProxyInstanceRequest
-    * @return ModifyDBProxyInstanceResponse
+   * @summary Changes the configuration of a database proxy for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * >  Starting October 17, 2023, ApsaraDB RDS for MySQL instances that run RDS Cluster Edition offer one free-of-charge dedicated database proxy for each unit in phases. For more information, see [[Special offers/Price changes\\] One dedicated proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+   *
+   * @param request ModifyDBProxyInstanceRequest
+   * @return ModifyDBProxyInstanceResponse
    */
   async modifyDBProxyInstance(request: ModifyDBProxyInstanceRequest): Promise<ModifyDBProxyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56336,15 +57486,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Configure a distributed transaction whitelist](~~124321~~)
-    *
-    * @param request ModifyDTCSecurityIpHostsForSQLServerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDTCSecurityIpHostsForSQLServerResponse
+   * @summary Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+   *
+   * @param request ModifyDTCSecurityIpHostsForSQLServerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDTCSecurityIpHostsForSQLServerResponse
    */
   async modifyDTCSecurityIpHostsForSQLServerWithOptions(request: ModifyDTCSecurityIpHostsForSQLServerRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDTCSecurityIpHostsForSQLServerResponse> {
     Util.validateModel(request);
@@ -56403,14 +57555,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Configure a distributed transaction whitelist](~~124321~~)
-    *
-    * @param request ModifyDTCSecurityIpHostsForSQLServerRequest
-    * @return ModifyDTCSecurityIpHostsForSQLServerResponse
+   * @summary Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+   *
+   * @param request ModifyDTCSecurityIpHostsForSQLServerRequest
+   * @return ModifyDTCSecurityIpHostsForSQLServerResponse
    */
   async modifyDTCSecurityIpHostsForSQLServer(request: ModifyDTCSecurityIpHostsForSQLServerRequest): Promise<ModifyDTCSecurityIpHostsForSQLServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56418,17 +57572,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure automatic storage expansion for ApsaraDB RDS for MySQL](~~173826~~)
-    * *   [Configure automatic storage expansion for ApsaraDB RDS for PostgreSQL](~~432496~~)
-    *
-    * @param request ModifyDasInstanceConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDasInstanceConfigResponse
+   * @summary Configures automatic storage expansion for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure automatic storage expansion for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/173826.html)
+   * *   [Configure automatic storage expansion for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/432496.html)
+   *
+   * @param request ModifyDasInstanceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDasInstanceConfigResponse
    */
   async modifyDasInstanceConfigWithOptions(request: ModifyDasInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDasInstanceConfigResponse> {
     Util.validateModel(request);
@@ -56483,16 +57639,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure automatic storage expansion for ApsaraDB RDS for MySQL](~~173826~~)
-    * *   [Configure automatic storage expansion for ApsaraDB RDS for PostgreSQL](~~432496~~)
-    *
-    * @param request ModifyDasInstanceConfigRequest
-    * @return ModifyDasInstanceConfigResponse
+   * @summary Configures automatic storage expansion for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure automatic storage expansion for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/173826.html)
+   * *   [Configure automatic storage expansion for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/432496.html)
+   *
+   * @param request ModifyDasInstanceConfigRequest
+   * @return ModifyDasInstanceConfigResponse
    */
   async modifyDasInstanceConfig(request: ModifyDasInstanceConfigRequest): Promise<ModifyDasInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56500,12 +57658,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   SQL Server
-    *
-    * @param request ModifyDatabaseConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDatabaseConfigResponse
+   * @summary Modifies the property settings of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   SQL Server
+   *
+   * @param request ModifyDatabaseConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDatabaseConfigResponse
    */
   async modifyDatabaseConfigWithOptions(request: ModifyDatabaseConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatabaseConfigResponse> {
     Util.validateModel(request);
@@ -56560,11 +57720,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   SQL Server
-    *
-    * @param request ModifyDatabaseConfigRequest
-    * @return ModifyDatabaseConfigResponse
+   * @summary Modifies the property settings of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engine
+   * *   SQL Server
+   *
+   * @param request ModifyDatabaseConfigRequest
+   * @return ModifyDatabaseConfigResponse
    */
   async modifyDatabaseConfig(request: ModifyDatabaseConfigRequest): Promise<ModifyDatabaseConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56572,15 +57734,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    * ### [](#)References
-    * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-    * [Configure SSL encryption for a proxy endpoint](~~188164~~)
-    *
-    * @param request ModifyDbProxyInstanceSslRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDbProxyInstanceSslResponse
+   * @summary Configures SSL encryption for an dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS MySQL
+   * ### [](#)References
+   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+   * [Configure SSL encryption for a proxy endpoint](https://help.aliyun.com/document_detail/188164.html)
+   *
+   * @param request ModifyDbProxyInstanceSslRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDbProxyInstanceSslResponse
    */
   async modifyDbProxyInstanceSslWithOptions(request: ModifyDbProxyInstanceSslRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDbProxyInstanceSslResponse> {
     Util.validateModel(request);
@@ -56631,20 +57795,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS MySQL
-    * ### [](#)References
-    * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-    * [Configure SSL encryption for a proxy endpoint](~~188164~~)
-    *
-    * @param request ModifyDbProxyInstanceSslRequest
-    * @return ModifyDbProxyInstanceSslResponse
+   * @summary Configures SSL encryption for an dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS MySQL
+   * ### [](#)References
+   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+   * [Configure SSL encryption for a proxy endpoint](https://help.aliyun.com/document_detail/188164.html)
+   *
+   * @param request ModifyDbProxyInstanceSslRequest
+   * @return ModifyDbProxyInstanceSslResponse
    */
   async modifyDbProxyInstanceSsl(request: ModifyDbProxyInstanceSslRequest): Promise<ModifyDbProxyInstanceSslResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDbProxyInstanceSslWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 事件中心修改事件信息
+   *
+   * @param request ModifyEventInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyEventInfoResponse
+   */
   async modifyEventInfoWithOptions(request: ModifyEventInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEventInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56685,24 +57858,32 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyEventInfoResponse>(await this.callApi(params, req, runtime), new ModifyEventInfoResponse({}));
   }
 
+  /**
+   * @summary 事件中心修改事件信息
+   *
+   * @param request ModifyEventInfoRequest
+   * @return ModifyEventInfoResponse
+   */
   async modifyEventInfo(request: ModifyEventInfoRequest): Promise<ModifyEventInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyEventInfoWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [What is availability check?](~~207467~~)
-    *
-    * @param request ModifyHADiagnoseConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyHADiagnoseConfigResponse
+   * @summary Change the availability check method of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [What is availability check?](https://help.aliyun.com/document_detail/207467.html)
+   *
+   * @param request ModifyHADiagnoseConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyHADiagnoseConfigResponse
    */
   async modifyHADiagnoseConfigWithOptions(request: ModifyHADiagnoseConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHADiagnoseConfigResponse> {
     Util.validateModel(request);
@@ -56749,17 +57930,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [What is availability check?](~~207467~~)
-    *
-    * @param request ModifyHADiagnoseConfigRequest
-    * @return ModifyHADiagnoseConfigResponse
+   * @summary Change the availability check method of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [What is availability check?](https://help.aliyun.com/document_detail/207467.html)
+   *
+   * @param request ModifyHADiagnoseConfigRequest
+   * @return ModifyHADiagnoseConfigResponse
    */
   async modifyHADiagnoseConfig(request: ModifyHADiagnoseConfigRequest): Promise<ModifyHADiagnoseConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56767,21 +57950,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MySQL instance](~~96054~~)
-    * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for PostgreSQL instance](~~96747~~)
-    * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for SQL Server instance](~~95659~~)
-    * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MariaDB instance](~~97127~~)
-    *
-    * @param request ModifyHASwitchConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyHASwitchConfigResponse
+   * @summary Enables or disables the automatic primary/secondary switchover feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96054.html)
+   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96747.html)
+   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95659.html)
+   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97127.html)
+   *
+   * @param request ModifyHASwitchConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyHASwitchConfigResponse
    */
   async modifyHASwitchConfigWithOptions(request: ModifyHASwitchConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHASwitchConfigResponse> {
     Util.validateModel(request);
@@ -56832,20 +58017,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MySQL instance](~~96054~~)
-    * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for PostgreSQL instance](~~96747~~)
-    * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for SQL Server instance](~~95659~~)
-    * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MariaDB instance](~~97127~~)
-    *
-    * @param request ModifyHASwitchConfigRequest
-    * @return ModifyHASwitchConfigResponse
+   * @summary Enables or disables the automatic primary/secondary switchover feature for an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96054.html)
+   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96747.html)
+   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95659.html)
+   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97127.html)
+   *
+   * @param request ModifyHASwitchConfigRequest
+   * @return ModifyHASwitchConfigResponse
    */
   async modifyHASwitchConfig(request: ModifyHASwitchConfigRequest): Promise<ModifyHASwitchConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56853,21 +58040,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * ><notice>Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:></notice>
-    * *   [Use the auto-renewal feature for an ApsaraDB RDS for MySQL instance](~~96049~~)
-    * *   [Use the auto-renewal feature for an ApsaraDB RDS for PostgreSQL instance](~~96740~~)
-    * *   [Use the auto-renewal feature for an ApsaraDB RDS for SQL Server instance](~~95635~~)
-    * *   [Use the auto-renewal feature for an ApsaraDB RDS for MariaDB instance](~~97121~~)
-    *
-    * @param request ModifyInstanceAutoRenewalAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceAutoRenewalAttributeResponse
+   * @summary Modifies the auto-renewal settings of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * >Notice: Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+   * *   [Use the auto-renewal feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96049.html)
+   * *   [Use the auto-renewal feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96740.html)
+   * *   [Use the auto-renewal feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95635.html)
+   * *   [Use the auto-renewal feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97121.html)
+   *
+   * @param request ModifyInstanceAutoRenewalAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceAutoRenewalAttributeResponse
    */
   async modifyInstanceAutoRenewalAttributeWithOptions(request: ModifyInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
@@ -56926,20 +58115,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * ><notice>Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:></notice>
-    * *   [Use the auto-renewal feature for an ApsaraDB RDS for MySQL instance](~~96049~~)
-    * *   [Use the auto-renewal feature for an ApsaraDB RDS for PostgreSQL instance](~~96740~~)
-    * *   [Use the auto-renewal feature for an ApsaraDB RDS for SQL Server instance](~~95635~~)
-    * *   [Use the auto-renewal feature for an ApsaraDB RDS for MariaDB instance](~~97121~~)
-    *
-    * @param request ModifyInstanceAutoRenewalAttributeRequest
-    * @return ModifyInstanceAutoRenewalAttributeResponse
+   * @summary Modifies the auto-renewal settings of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * >Notice: Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+   * *   [Use the auto-renewal feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96049.html)
+   * *   [Use the auto-renewal feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96740.html)
+   * *   [Use the auto-renewal feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95635.html)
+   * *   [Use the auto-renewal feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97121.html)
+   *
+   * @param request ModifyInstanceAutoRenewalAttributeRequest
+   * @return ModifyInstanceAutoRenewalAttributeResponse
    */
   async modifyInstanceAutoRenewalAttribute(request: ModifyInstanceAutoRenewalAttributeRequest): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56947,19 +58138,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    *
-    * @param request ModifyInstanceCrossBackupPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceCrossBackupPolicyResponse
+   * @summary Modifies the cross-region backup settings of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   *
+   * @param request ModifyInstanceCrossBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceCrossBackupPolicyResponse
    */
   async modifyInstanceCrossBackupPolicyWithOptions(request: ModifyInstanceCrossBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceCrossBackupPolicyResponse> {
     Util.validateModel(request);
@@ -57026,24 +58219,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-    *
-    * @param request ModifyInstanceCrossBackupPolicyRequest
-    * @return ModifyInstanceCrossBackupPolicyResponse
+   * @summary Modifies the cross-region backup settings of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+   *
+   * @param request ModifyInstanceCrossBackupPolicyRequest
+   * @return ModifyInstanceCrossBackupPolicyResponse
    */
   async modifyInstanceCrossBackupPolicy(request: ModifyInstanceCrossBackupPolicyRequest): Promise<ModifyInstanceCrossBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceCrossBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改全密态规则
+   *
+   * @param tmpReq ModifyMaskingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyMaskingRulesResponse
+   */
   async modifyMaskingRulesWithOptions(tmpReq: ModifyMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMaskingRulesResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyMaskingRulesShrinkRequest({ });
@@ -57106,22 +58308,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyMaskingRulesResponse>(await this.callApi(params, req, runtime), new ModifyMaskingRulesResponse({}));
   }
 
+  /**
+   * @summary 修改全密态规则
+   *
+   * @param request ModifyMaskingRulesRequest
+   * @return ModifyMaskingRulesResponse
+   */
   async modifyMaskingRules(request: ModifyMaskingRulesRequest): Promise<ModifyMaskingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyMaskingRulesWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS PostgreSQL
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Connect an ApsaraDB RDS for PostgreSQL instance to a self-managed AD domain](~~349288~~)
-    * *   [The pg_hba.conf File](https://www.postgresql.org/docs/11/auth-pg-hba-conf.html)
-    *
-    * @param request ModifyPGHbaConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyPGHbaConfigResponse
+   * @summary Modifies the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS PostgreSQL
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Connect an ApsaraDB RDS for PostgreSQL instance to a self-managed AD domain](https://help.aliyun.com/document_detail/349288.html)
+   * *   [The pg_hba.conf File](https://www.postgresql.org/docs/11/auth-pg-hba-conf.html)
+   *
+   * @param request ModifyPGHbaConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPGHbaConfigResponse
    */
   async modifyPGHbaConfigWithOptions(request: ModifyPGHbaConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPGHbaConfigResponse> {
     Util.validateModel(request);
@@ -57176,15 +58386,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * RDS PostgreSQL
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Connect an ApsaraDB RDS for PostgreSQL instance to a self-managed AD domain](~~349288~~)
-    * *   [The pg_hba.conf File](https://www.postgresql.org/docs/11/auth-pg-hba-conf.html)
-    *
-    * @param request ModifyPGHbaConfigRequest
-    * @return ModifyPGHbaConfigResponse
+   * @summary Modifies the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### [](#)Supported database engines
+   * RDS PostgreSQL
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Connect an ApsaraDB RDS for PostgreSQL instance to a self-managed AD domain](https://help.aliyun.com/document_detail/349288.html)
+   * *   [The pg_hba.conf File](https://www.postgresql.org/docs/11/auth-pg-hba-conf.html)
+   *
+   * @param request ModifyPGHbaConfigRequest
+   * @return ModifyPGHbaConfigResponse
    */
   async modifyPGHbaConfig(request: ModifyPGHbaConfigRequest): Promise<ModifyPGHbaConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57192,21 +58404,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Modify the parameters of an ApsaraDB RDS for MySQL instance](~~96063~~)
-    * *   [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](~~96751~~)
-    * *   [Modify the parameters of an ApsaraDB RDS for SQL Server instance](~~95667~~)
-    * *   [Modify the parameters of an ApsaraDB RDS for MariaDB instance](~~97130~~)
-    *
-    * @param request ModifyParameterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyParameterResponse
+   * @summary Modifies the parameter values of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Modify the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
+   * *   [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
+   * *   [Modify the parameters of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95667.html)
+   * *   [Modify the parameters of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97130.html)
+   *
+   * @param request ModifyParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyParameterResponse
    */
   async modifyParameterWithOptions(request: ModifyParameterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParameterResponse> {
     Util.validateModel(request);
@@ -57273,20 +58487,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Modify the parameters of an ApsaraDB RDS for MySQL instance](~~96063~~)
-    * *   [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](~~96751~~)
-    * *   [Modify the parameters of an ApsaraDB RDS for SQL Server instance](~~95667~~)
-    * *   [Modify the parameters of an ApsaraDB RDS for MariaDB instance](~~97130~~)
-    *
-    * @param request ModifyParameterRequest
-    * @return ModifyParameterResponse
+   * @summary Modifies the parameter values of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Modify the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
+   * *   [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
+   * *   [Modify the parameters of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95667.html)
+   * *   [Modify the parameters of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97130.html)
+   *
+   * @param request ModifyParameterRequest
+   * @return ModifyParameterResponse
    */
   async modifyParameter(request: ModifyParameterRequest): Promise<ModifyParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57294,17 +58510,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~)
-    *
-    * @param request ModifyParameterGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyParameterGroupResponse
+   * @summary Modifies the parameter template of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request ModifyParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyParameterGroupResponse
    */
   async modifyParameterGroupWithOptions(request: ModifyParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParameterGroupResponse> {
     Util.validateModel(request);
@@ -57367,16 +58585,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-    * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~)
-    *
-    * @param request ModifyParameterGroupRequest
-    * @return ModifyParameterGroupResponse
+   * @summary Modifies the parameter template of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+   *
+   * @param request ModifyParameterGroupRequest
+   * @return ModifyParameterGroupResponse
    */
   async modifyParameterGroup(request: ModifyParameterGroupRequest): Promise<ModifyParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57384,21 +58604,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-    * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
-    * *   The instance must run one of the following database engine versions and RDS editions:
-    *     *   MySQL 5.7 on RDS High-availability Edition with local disks
-    *     *   MySQL 5.6
-    *     *   SQL Server on RDS Cluster Edition
-    *
-    * @param request ModifyReadWriteSplittingConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyReadWriteSplittingConnectionResponse
+   * @summary Modifies the latency threshold of the read/write splitting link and the read weights of a primary instance and its read-only instances.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+   * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
+   * *   The instance must run one of the following database engine versions and RDS editions:
+   *     *   MySQL 5.7 on RDS High-availability Edition with local disks
+   *     *   MySQL 5.6
+   *     *   SQL Server on RDS Cluster Edition
+   *
+   * @param request ModifyReadWriteSplittingConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyReadWriteSplittingConnectionResponse
    */
   async modifyReadWriteSplittingConnectionWithOptions(request: ModifyReadWriteSplittingConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReadWriteSplittingConnectionResponse> {
     Util.validateModel(request);
@@ -57461,20 +58683,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### [](#)Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-    * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
-    * *   The instance must run one of the following database engine versions and RDS editions:
-    *     *   MySQL 5.7 on RDS High-availability Edition with local disks
-    *     *   MySQL 5.6
-    *     *   SQL Server on RDS Cluster Edition
-    *
-    * @param request ModifyReadWriteSplittingConnectionRequest
-    * @return ModifyReadWriteSplittingConnectionResponse
+   * @summary Modifies the latency threshold of the read/write splitting link and the read weights of a primary instance and its read-only instances.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+   * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
+   * *   The instance must run one of the following database engine versions and RDS editions:
+   *     *   MySQL 5.7 on RDS High-availability Edition with local disks
+   *     *   MySQL 5.6
+   *     *   SQL Server on RDS Cluster Edition
+   *
+   * @param request ModifyReadWriteSplittingConnectionRequest
+   * @return ModifyReadWriteSplittingConnectionResponse
    */
   async modifyReadWriteSplittingConnection(request: ModifyReadWriteSplittingConnectionRequest): Promise<ModifyReadWriteSplittingConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57482,15 +58706,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS MySQL
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Set the data replication latency of a read-only ApsaraDB RDS for MySQL instance](~~96056~~)
-    *
-    * @param request ModifyReadonlyInstanceDelayReplicationTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyReadonlyInstanceDelayReplicationTimeResponse
+   * @summary Modifies the latency at which a read-only ApsaraDB RDS for MySQL instance replicates data from its primary instance.
+   *
+   * @description ### Supported database engines
+   * RDS MySQL
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Set the data replication latency of a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96056.html)
+   *
+   * @param request ModifyReadonlyInstanceDelayReplicationTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyReadonlyInstanceDelayReplicationTimeResponse
    */
   async modifyReadonlyInstanceDelayReplicationTimeWithOptions(request: ModifyReadonlyInstanceDelayReplicationTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReadonlyInstanceDelayReplicationTimeResponse> {
     Util.validateModel(request);
@@ -57537,14 +58763,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS MySQL
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Set the data replication latency of a read-only ApsaraDB RDS for MySQL instance](~~96056~~)
-    *
-    * @param request ModifyReadonlyInstanceDelayReplicationTimeRequest
-    * @return ModifyReadonlyInstanceDelayReplicationTimeResponse
+   * @summary Modifies the latency at which a read-only ApsaraDB RDS for MySQL instance replicates data from its primary instance.
+   *
+   * @description ### Supported database engines
+   * RDS MySQL
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Set the data replication latency of a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96056.html)
+   *
+   * @param request ModifyReadonlyInstanceDelayReplicationTimeRequest
+   * @return ModifyReadonlyInstanceDelayReplicationTimeResponse
    */
   async modifyReadonlyInstanceDelayReplicationTime(request: ModifyReadonlyInstanceDelayReplicationTimeRequest): Promise<ModifyReadonlyInstanceDelayReplicationTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57552,18 +58780,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Transfer resources across resource groups](~~94487~~)
-    *
-    * @param request ModifyResourceGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyResourceGroupResponse
+   * @summary Moves an ApsaraDB RDS instance to a specified resource group.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html)
+   *
+   * @param request ModifyResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyResourceGroupResponse
    */
   async modifyResourceGroupWithOptions(request: ModifyResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyResourceGroupResponse> {
     Util.validateModel(request);
@@ -57614,17 +58844,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Transfer resources across resource groups](~~94487~~)
-    *
-    * @param request ModifyResourceGroupRequest
-    * @return ModifyResourceGroupResponse
+   * @summary Moves an ApsaraDB RDS instance to a specified resource group.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html)
+   *
+   * @param request ModifyResourceGroupRequest
+   * @return ModifyResourceGroupResponse
    */
   async modifyResourceGroup(request: ModifyResourceGroupRequest): Promise<ModifyResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57632,19 +58864,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](~~476574~~)
-    * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](~~96766~~)
-    * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](~~95712~~)
-    *
-    * @param request ModifySQLCollectorPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySQLCollectorPolicyResponse
+   * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/476574.html)
+   * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96766.html)
+   * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95712.html)
+   *
+   * @param request ModifySQLCollectorPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySQLCollectorPolicyResponse
    */
   async modifySQLCollectorPolicyWithOptions(request: ModifySQLCollectorPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifySQLCollectorPolicyResponse> {
     Util.validateModel(request);
@@ -57695,18 +58929,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](~~476574~~)
-    * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](~~96766~~)
-    * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](~~95712~~)
-    *
-    * @param request ModifySQLCollectorPolicyRequest
-    * @return ModifySQLCollectorPolicyResponse
+   * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/476574.html)
+   * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96766.html)
+   * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95712.html)
+   *
+   * @param request ModifySQLCollectorPolicyRequest
+   * @return ModifySQLCollectorPolicyResponse
    */
   async modifySQLCollectorPolicy(request: ModifySQLCollectorPolicyRequest): Promise<ModifySQLCollectorPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57714,17 +58950,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS MySQL
-    * ### Precautions
-    * After you shorten the log backup retention period, log backup files that are stored longer than the specified log backup retention period are immediately deleted.
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Use the SQL Explorer and Audit feature](~~476574~~)
-    *
-    * @param request ModifySQLCollectorRetentionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySQLCollectorRetentionResponse
+   * @summary Changes the retention period of the log files that are generated by the SQL Explorer feature for an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * RDS MySQL
+   * ### Precautions
+   * After you shorten the log backup retention period, log backup files that are stored longer than the specified log backup retention period are immediately deleted.
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Use the SQL Explorer and Audit feature](https://help.aliyun.com/document_detail/476574.html)
+   *
+   * @param request ModifySQLCollectorRetentionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySQLCollectorRetentionResponse
    */
   async modifySQLCollectorRetentionWithOptions(request: ModifySQLCollectorRetentionRequest, runtime: $Util.RuntimeOptions): Promise<ModifySQLCollectorRetentionResponse> {
     Util.validateModel(request);
@@ -57779,16 +59017,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS MySQL
-    * ### Precautions
-    * After you shorten the log backup retention period, log backup files that are stored longer than the specified log backup retention period are immediately deleted.
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Use the SQL Explorer and Audit feature](~~476574~~)
-    *
-    * @param request ModifySQLCollectorRetentionRequest
-    * @return ModifySQLCollectorRetentionResponse
+   * @summary Changes the retention period of the log files that are generated by the SQL Explorer feature for an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * RDS MySQL
+   * ### Precautions
+   * After you shorten the log backup retention period, log backup files that are stored longer than the specified log backup retention period are immediately deleted.
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Use the SQL Explorer and Audit feature](https://help.aliyun.com/document_detail/476574.html)
+   *
+   * @param request ModifySQLCollectorRetentionRequest
+   * @return ModifySQLCollectorRetentionResponse
    */
   async modifySQLCollectorRetention(request: ModifySQLCollectorRetentionRequest): Promise<ModifySQLCollectorRetentionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57796,19 +59036,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](~~201042~~)
-    * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](~~206310~~)
-    * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](~~2392322~~)
-    *
-    * @param request ModifySecurityGroupConfigurationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySecurityGroupConfigurationResponse
+   * @summary Changes the ECS security groups to which an instance is added.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
+   * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206310.html)
+   * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
+   *
+   * @param request ModifySecurityGroupConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityGroupConfigurationResponse
    */
   async modifySecurityGroupConfigurationWithOptions(request: ModifySecurityGroupConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityGroupConfigurationResponse> {
     Util.validateModel(request);
@@ -57851,18 +59093,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](~~201042~~)
-    * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](~~206310~~)
-    * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](~~2392322~~)
-    *
-    * @param request ModifySecurityGroupConfigurationRequest
-    * @return ModifySecurityGroupConfigurationResponse
+   * @summary Changes the ECS security groups to which an instance is added.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
+   * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206310.html)
+   * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
+   *
+   * @param request ModifySecurityGroupConfigurationRequest
+   * @return ModifySecurityGroupConfigurationResponse
    */
   async modifySecurityGroupConfiguration(request: ModifySecurityGroupConfigurationRequest): Promise<ModifySecurityGroupConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57870,21 +59114,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](~~96118~~)
-    * *   [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](~~43187~~)
-    * *   [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](~~43186~~)
-    * *   [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](~~90336~~)
-    *
-    * @param request ModifySecurityIpsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySecurityIpsResponse
+   * @summary Modifies the IP address whitelist of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
+   * *   [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
+   * *   [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
+   * *   [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
+   *
+   * @param request ModifySecurityIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityIpsResponse
    */
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
@@ -57943,26 +59189,35 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](~~96118~~)
-    * *   [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](~~43187~~)
-    * *   [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](~~43186~~)
-    * *   [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](~~90336~~)
-    *
-    * @param request ModifySecurityIpsRequest
-    * @return ModifySecurityIpsResponse
+   * @summary Modifies the IP address whitelist of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
+   * *   [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
+   * *   [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
+   * *   [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
+   *
+   * @param request ModifySecurityIpsRequest
+   * @return ModifySecurityIpsResponse
    */
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 任务中心修改任务信息
+   *
+   * @param request ModifyTaskInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTaskInfoResponse
+   */
   async modifyTaskInfoWithOptions(request: ModifyTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTaskInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58015,20 +59270,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTaskInfoResponse>(await this.callApi(params, req, runtime), new ModifyTaskInfoResponse({}));
   }
 
+  /**
+   * @summary 任务中心修改任务信息
+   *
+   * @param request ModifyTaskInfoRequest
+   * @return ModifyTaskInfoResponse
+   */
   async modifyTaskInfo(request: ModifyTaskInfoRequest): Promise<ModifyTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTaskInfoWithOptions(request, runtime);
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request ModifyWhitelistTemplateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyWhitelistTemplateResponse
+   * @summary Edits a whitelist. You can call this operation to create, modify, or delete a whitelist.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request ModifyWhitelistTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWhitelistTemplateResponse
    */
   async modifyWhitelistTemplateWithOptions(request: ModifyWhitelistTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWhitelistTemplateResponse> {
     Util.validateModel(request);
@@ -58079,19 +59342,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    *
-    * @param request ModifyWhitelistTemplateRequest
-    * @return ModifyWhitelistTemplateResponse
+   * @summary Edits a whitelist. You can call this operation to create, modify, or delete a whitelist.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   *
+   * @param request ModifyWhitelistTemplateRequest
+   * @return ModifyWhitelistTemplateResponse
    */
   async modifyWhitelistTemplate(request: ModifyWhitelistTemplateRequest): Promise<ModifyWhitelistTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWhitelistTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param tmpReq PreCheckCreateOrderForDeleteDBNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PreCheckCreateOrderForDeleteDBNodesResponse
+   */
   async preCheckCreateOrderForDeleteDBNodesWithOptions(tmpReq: PreCheckCreateOrderForDeleteDBNodesRequest, runtime: $Util.RuntimeOptions): Promise<PreCheckCreateOrderForDeleteDBNodesResponse> {
     Util.validateModel(tmpReq);
     let request = new PreCheckCreateOrderForDeleteDBNodesShrinkRequest({ });
@@ -58178,25 +59448,31 @@ export default class Client extends OpenApi {
     return $tea.cast<PreCheckCreateOrderForDeleteDBNodesResponse>(await this.callApi(params, req, runtime), new PreCheckCreateOrderForDeleteDBNodesResponse({}));
   }
 
+  /**
+   * @param request PreCheckCreateOrderForDeleteDBNodesRequest
+   * @return PreCheckCreateOrderForDeleteDBNodesResponse
+   */
   async preCheckCreateOrderForDeleteDBNodes(request: PreCheckCreateOrderForDeleteDBNodesRequest): Promise<PreCheckCreateOrderForDeleteDBNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.preCheckCreateOrderForDeleteDBNodesWithOptions(request, runtime);
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### Description
-    * The system automatically uploads log backup files to Object Storage Service (OSS) buckets. If the remaining storage of an instance is insufficient, you can call this operation to upload the log backup files of the instance to OSS buckets. After the upload is complete, the system deletes these files from the instance to release storage. This operation is called to upload log backup files from an instance to OSS buckets and then delete these files from the instance. If the instance runs SQL Server, transaction log backup files are compressed before they are uploaded.
-    * ### Precautions
-    * *   When you upload log backup files, the data restoration feature is not affected.
-    * *   This operation is called to release storage. The backup storage usage is not reduced.
-    * *   The OSS buckets to which log backup files are uploaded are provided by the system. You do not need to purchase these OSS buckets. In addition, you cannot access these OSS buckets.
-    *
-    * @param request PurgeDBInstanceLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PurgeDBInstanceLogResponse
+   * @summary Clears the on-premises logs of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### Description
+   * The system automatically uploads log backup files to Object Storage Service (OSS) buckets. If the remaining storage of an instance is insufficient, you can call this operation to upload the log backup files of the instance to OSS buckets. After the upload is complete, the system deletes these files from the instance to release storage. This operation is called to upload log backup files from an instance to OSS buckets and then delete these files from the instance. If the instance runs SQL Server, transaction log backup files are compressed before they are uploaded.
+   * ### Precautions
+   * *   When you upload log backup files, the data restoration feature is not affected.
+   * *   This operation is called to release storage. The backup storage usage is not reduced.
+   * *   The OSS buckets to which log backup files are uploaded are provided by the system. You do not need to purchase these OSS buckets. In addition, you cannot access these OSS buckets.
+   *
+   * @param request PurgeDBInstanceLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PurgeDBInstanceLogResponse
    */
   async purgeDBInstanceLogWithOptions(request: PurgeDBInstanceLogRequest, runtime: $Util.RuntimeOptions): Promise<PurgeDBInstanceLogResponse> {
     Util.validateModel(request);
@@ -58243,18 +59519,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### Description
-    * The system automatically uploads log backup files to Object Storage Service (OSS) buckets. If the remaining storage of an instance is insufficient, you can call this operation to upload the log backup files of the instance to OSS buckets. After the upload is complete, the system deletes these files from the instance to release storage. This operation is called to upload log backup files from an instance to OSS buckets and then delete these files from the instance. If the instance runs SQL Server, transaction log backup files are compressed before they are uploaded.
-    * ### Precautions
-    * *   When you upload log backup files, the data restoration feature is not affected.
-    * *   This operation is called to release storage. The backup storage usage is not reduced.
-    * *   The OSS buckets to which log backup files are uploaded are provided by the system. You do not need to purchase these OSS buckets. In addition, you cannot access these OSS buckets.
-    *
-    * @param request PurgeDBInstanceLogRequest
-    * @return PurgeDBInstanceLogResponse
+   * @summary Clears the on-premises logs of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### Description
+   * The system automatically uploads log backup files to Object Storage Service (OSS) buckets. If the remaining storage of an instance is insufficient, you can call this operation to upload the log backup files of the instance to OSS buckets. After the upload is complete, the system deletes these files from the instance to release storage. This operation is called to upload log backup files from an instance to OSS buckets and then delete these files from the instance. If the instance runs SQL Server, transaction log backup files are compressed before they are uploaded.
+   * ### Precautions
+   * *   When you upload log backup files, the data restoration feature is not affected.
+   * *   This operation is called to release storage. The backup storage usage is not reduced.
+   * *   The OSS buckets to which log backup files are uploaded are provided by the system. You do not need to purchase these OSS buckets. In addition, you cannot access these OSS buckets.
+   *
+   * @param request PurgeDBInstanceLogRequest
+   * @return PurgeDBInstanceLogResponse
    */
   async purgeDBInstanceLog(request: PurgeDBInstanceLogRequest): Promise<PurgeDBInstanceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58262,18 +59540,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### Feature description
-    * The notifications are highlighted at the top of the ApsaraDB RDS console. The notifications include renewal reminders and reminders of instance creation failures.
-    * After you call this operation to query notifications, you can call the [ConfirmNotify](~~610444~~) operation to mark the notifications as confirmed, which means that you understand the content of the notifications.
-    *
-    * @param request QueryNotifyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return QueryNotifyResponse
+   * @summary Queries the notifications of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### Feature description
+   * The notifications are highlighted at the top of the ApsaraDB RDS console. The notifications include renewal reminders and reminders of instance creation failures.
+   * After you call this operation to query notifications, you can call the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notifications as confirmed, which means that you understand the content of the notifications.
+   *
+   * @param request QueryNotifyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryNotifyResponse
    */
   async queryNotifyWithOptions(request: QueryNotifyRequest, runtime: $Util.RuntimeOptions): Promise<QueryNotifyResponse> {
     Util.validateModel(request);
@@ -58316,23 +59596,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### Feature description
-    * The notifications are highlighted at the top of the ApsaraDB RDS console. The notifications include renewal reminders and reminders of instance creation failures.
-    * After you call this operation to query notifications, you can call the [ConfirmNotify](~~610444~~) operation to mark the notifications as confirmed, which means that you understand the content of the notifications.
-    *
-    * @param request QueryNotifyRequest
-    * @return QueryNotifyResponse
+   * @summary Queries the notifications of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### Feature description
+   * The notifications are highlighted at the top of the ApsaraDB RDS console. The notifications include renewal reminders and reminders of instance creation failures.
+   * After you call this operation to query notifications, you can call the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notifications as confirmed, which means that you understand the content of the notifications.
+   *
+   * @param request QueryNotifyRequest
+   * @return QueryNotifyResponse
    */
   async queryNotify(request: QueryNotifyRequest): Promise<QueryNotifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryNotifyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary rds机器人热点问题
+   *
+   * @param request QueryRecommendByCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryRecommendByCodeResponse
+   */
   async queryRecommendByCodeWithOptions(request: QueryRecommendByCodeRequest, runtime: $Util.RuntimeOptions): Promise<QueryRecommendByCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58373,17 +59662,25 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRecommendByCodeResponse>(await this.callApi(params, req, runtime), new QueryRecommendByCodeResponse({}));
   }
 
+  /**
+   * @summary rds机器人热点问题
+   *
+   * @param request QueryRecommendByCodeRequest
+   * @return QueryRecommendByCodeResponse
+   */
   async queryRecommendByCode(request: QueryRecommendByCodeRequest): Promise<QueryRecommendByCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRecommendByCodeWithOptions(request, runtime);
   }
 
   /**
-    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-    *
-    * @param request RebuildDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RebuildDBInstanceResponse
+   * @summary Rebuilds the secondary instance of a primary instance in a dedicated cluster.
+   *
+   * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   *
+   * @param request RebuildDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebuildDBInstanceResponse
    */
   async rebuildDBInstanceWithOptions(request: RebuildDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebuildDBInstanceResponse> {
     Util.validateModel(request);
@@ -58438,10 +59735,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-    *
-    * @param request RebuildDBInstanceRequest
-    * @return RebuildDBInstanceResponse
+   * @summary Rebuilds the secondary instance of a primary instance in a dedicated cluster.
+   *
+   * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   *
+   * @param request RebuildDBInstanceRequest
+   * @return RebuildDBInstanceResponse
    */
   async rebuildDBInstance(request: RebuildDBInstanceRequest): Promise<RebuildDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58449,11 +59748,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation is phased out.
-    *
-    * @param request ReceiveDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReceiveDBInstanceResponse
+   * @summary Switches a primary instance to a disaster recovery instance or a disaster recovery instance to a primary instance.
+   *
+   * @description The operation is phased out.
+   *
+   * @param request ReceiveDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReceiveDBInstanceResponse
    */
   async receiveDBInstanceWithOptions(request: ReceiveDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReceiveDBInstanceResponse> {
     Util.validateModel(request);
@@ -58500,10 +59801,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation is phased out.
-    *
-    * @param request ReceiveDBInstanceRequest
-    * @return ReceiveDBInstanceResponse
+   * @summary Switches a primary instance to a disaster recovery instance or a disaster recovery instance to a primary instance.
+   *
+   * @description The operation is phased out.
+   *
+   * @param request ReceiveDBInstanceRequest
+   * @return ReceiveDBInstanceResponse
    */
   async receiveDBInstance(request: ReceiveDBInstanceRequest): Promise<ReceiveDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58511,15 +59814,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * SQL Server 2012 or later
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Restore the data of an ApsaraDB RDS for SQL Server instance](~~95722~~)
-    *
-    * @param request RecoveryDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RecoveryDBInstanceResponse
+   * @summary Restores an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * SQL Server 2012 or later
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Restore the data of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
+   *
+   * @param request RecoveryDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecoveryDBInstanceResponse
    */
   async recoveryDBInstanceWithOptions(request: RecoveryDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RecoveryDBInstanceResponse> {
     Util.validateModel(request);
@@ -58606,14 +59911,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * SQL Server 2012 or later
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Restore the data of an ApsaraDB RDS for SQL Server instance](~~95722~~)
-    *
-    * @param request RecoveryDBInstanceRequest
-    * @return RecoveryDBInstanceResponse
+   * @summary Restores an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * SQL Server 2012 or later
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Restore the data of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
+   *
+   * @param request RecoveryDBInstanceRequest
+   * @return RecoveryDBInstanceResponse
    */
   async recoveryDBInstance(request: RecoveryDBInstanceRequest): Promise<RecoveryDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58621,20 +59928,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](~~26128~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](~~97736~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](~~97740~~)
-    *
-    * @param request ReleaseInstanceConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReleaseInstanceConnectionResponse
+   * @summary Releases the public endpoint of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+   *
+   * @param request ReleaseInstanceConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseInstanceConnectionResponse
    */
   async releaseInstanceConnectionWithOptions(request: ReleaseInstanceConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceConnectionResponse> {
     Util.validateModel(request);
@@ -58685,19 +59994,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](~~26128~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](~~97736~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](~~97740~~)
-    *
-    * @param request ReleaseInstanceConnectionRequest
-    * @return ReleaseInstanceConnectionResponse
+   * @summary Releases the public endpoint of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+   *
+   * @param request ReleaseInstanceConnectionRequest
+   * @return ReleaseInstanceConnectionResponse
    */
   async releaseInstanceConnection(request: ReleaseInstanceConnectionRequest): Promise<ReleaseInstanceConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58705,21 +60016,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](~~26128~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](~~97736~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](~~97740~~)
-    *
-    * @param request ReleaseInstancePublicConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReleaseInstancePublicConnectionResponse
+   * @summary Releases the public endpoint of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+   *
+   * @param request ReleaseInstancePublicConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseInstancePublicConnectionResponse
    */
   async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
     Util.validateModel(request);
@@ -58766,20 +60079,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](~~26128~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](~~97736~~)
-    * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](~~97740~~)
-    *
-    * @param request ReleaseInstancePublicConnectionRequest
-    * @return ReleaseInstancePublicConnectionResponse
+   * @summary Releases the public endpoint of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+   * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+   *
+   * @param request ReleaseInstancePublicConnectionRequest
+   * @return ReleaseInstancePublicConnectionResponse
    */
   async releaseInstancePublicConnection(request: ReleaseInstancePublicConnectionRequest): Promise<ReleaseInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58787,21 +60102,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-    * *   The read/write splitting feature is enabled for the instance.
-    * *   The instance must run one of the following database engine versions and RDS editions:
-    *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-    *     *   MySQL 5.6
-    *     *   SQL Server on RDS Cluster Edition
-    *
-    * @param request ReleaseReadWriteSplittingConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReleaseReadWriteSplittingConnectionResponse
+   * @summary Releases the read/write splitting endpoint of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+   * *   The read/write splitting feature is enabled for the instance.
+   * *   The instance must run one of the following database engine versions and RDS editions:
+   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+   *     *   MySQL 5.6
+   *     *   SQL Server on RDS Cluster Edition
+   *
+   * @param request ReleaseReadWriteSplittingConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseReadWriteSplittingConnectionResponse
    */
   async releaseReadWriteSplittingConnectionWithOptions(request: ReleaseReadWriteSplittingConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseReadWriteSplittingConnectionResponse> {
     Util.validateModel(request);
@@ -58844,20 +60161,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-    * *   The read/write splitting feature is enabled for the instance.
-    * *   The instance must run one of the following database engine versions and RDS editions:
-    *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-    *     *   MySQL 5.6
-    *     *   SQL Server on RDS Cluster Edition
-    *
-    * @param request ReleaseReadWriteSplittingConnectionRequest
-    * @return ReleaseReadWriteSplittingConnectionResponse
+   * @summary Releases the read/write splitting endpoint of an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+   * *   The read/write splitting feature is enabled for the instance.
+   * *   The instance must run one of the following database engine versions and RDS editions:
+   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+   *     *   MySQL 5.6
+   *     *   SQL Server on RDS Cluster Edition
+   *
+   * @param request ReleaseReadWriteSplittingConnectionRequest
+   * @return ReleaseReadWriteSplittingConnectionResponse
    */
   async releaseReadWriteSplittingConnection(request: ReleaseReadWriteSplittingConnectionRequest): Promise<ReleaseReadWriteSplittingConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58865,20 +60184,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Usage notes
-    * *   A maximum of 10 tags can be removed in a single request.
-    * *   If a tag is removed from all instances to which the tag is added, the tag is automatically deleted.
-    * *   If you specify only TagKey, all tags that match the TagKey condition are removed.
-    * *   You must specify at least TagKey or a pair of TagKey and TagValue.
-    *
-    * @param request RemoveTagsFromResourceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveTagsFromResourceResponse
+   * @summary Removes tags from an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Usage notes
+   * *   A maximum of 10 tags can be removed in a single request.
+   * *   If a tag is removed from all instances to which the tag is added, the tag is automatically deleted.
+   * *   If you specify only TagKey, all tags that match the TagKey condition are removed.
+   * *   You must specify at least TagKey or a pair of TagKey and TagValue.
+   *
+   * @param request RemoveTagsFromResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveTagsFromResourceResponse
    */
   async removeTagsFromResourceWithOptions(request: RemoveTagsFromResourceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTagsFromResourceResponse> {
     Util.validateModel(request);
@@ -58945,19 +60266,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Usage notes
-    * *   A maximum of 10 tags can be removed in a single request.
-    * *   If a tag is removed from all instances to which the tag is added, the tag is automatically deleted.
-    * *   If you specify only TagKey, all tags that match the TagKey condition are removed.
-    * *   You must specify at least TagKey or a pair of TagKey and TagValue.
-    *
-    * @param request RemoveTagsFromResourceRequest
-    * @return RemoveTagsFromResourceResponse
+   * @summary Removes tags from an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Usage notes
+   * *   A maximum of 10 tags can be removed in a single request.
+   * *   If a tag is removed from all instances to which the tag is added, the tag is automatically deleted.
+   * *   If you specify only TagKey, all tags that match the TagKey condition are removed.
+   * *   You must specify at least TagKey or a pair of TagKey and TagValue.
+   *
+   * @param request RemoveTagsFromResourceRequest
+   * @return RemoveTagsFromResourceResponse
    */
   async removeTagsFromResource(request: RemoveTagsFromResourceRequest): Promise<RemoveTagsFromResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58965,21 +60288,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
-    * *   [Manually renew an ApsaraDB RDS for MySQL instance](~~96050~~)
-    * *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](~~96741~~)
-    * *   [Manually renew an ApsaraDB RDS for SQL Server instance](~~95637~~)
-    * *   [Manually renew an ApsaraDB RDS for MariaDB instance](~~97122~~)
-    *
-    * @param request RenewInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RenewInstanceResponse
+   * @summary Manually renews an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+   * *   [Manually renew an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96050.html)
+   * *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96741.html)
+   * *   [Manually renew an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95637.html)
+   * *   [Manually renew an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97122.html)
+   *
+   * @param request RenewInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewInstanceResponse
    */
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
@@ -59034,20 +60359,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
-    * *   [Manually renew an ApsaraDB RDS for MySQL instance](~~96050~~)
-    * *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](~~96741~~)
-    * *   [Manually renew an ApsaraDB RDS for SQL Server instance](~~95637~~)
-    * *   [Manually renew an ApsaraDB RDS for MariaDB instance](~~97122~~)
-    *
-    * @param request RenewInstanceRequest
-    * @return RenewInstanceResponse
+   * @summary Manually renews an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+   * *   [Manually renew an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96050.html)
+   * *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96741.html)
+   * *   [Manually renew an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95637.html)
+   * *   [Manually renew an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97122.html)
+   *
+   * @param request RenewInstanceRequest
+   * @return RenewInstanceResponse
    */
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59055,17 +60382,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Reset of the permissions of privileged accounts](~~140724~~)
-    *
-    * @param request ResetAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResetAccountResponse
+   * @summary Resets the permissions of the privileged account.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Reset of the permissions of privileged accounts](https://help.aliyun.com/document_detail/140724.html)
+   *
+   * @param request ResetAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAccountResponse
    */
   async resetAccountWithOptions(request: ResetAccountRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountResponse> {
     Util.validateModel(request);
@@ -59116,16 +60445,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Reset of the permissions of privileged accounts](~~140724~~)
-    *
-    * @param request ResetAccountRequest
-    * @return ResetAccountResponse
+   * @summary Resets the permissions of the privileged account.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Reset of the permissions of privileged accounts](https://help.aliyun.com/document_detail/140724.html)
+   *
+   * @param request ResetAccountRequest
+   * @return ResetAccountResponse
    */
   async resetAccount(request: ResetAccountRequest): Promise<ResetAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59133,21 +60464,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Reset the password of an ApsaraDB RDS for MySQL instance](~~96100~~)
-    * *   [Reset the password of an ApsaraDB RDS for PostgreSQL instance](~~96814~~)
-    * *   [Reset the password of an ApsaraDB RDS for SQL Server instance](~~95691~~)
-    * *   [Reset the password of an ApsaraDB RDS for MariaDB instance](~~97133~~)
-    *
-    * @param request ResetAccountPasswordRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResetAccountPasswordResponse
+   * @summary Resets the password of a database account.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Reset the password of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96100.html)
+   * *   [Reset the password of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96814.html)
+   * *   [Reset the password of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95691.html)
+   * *   [Reset the password of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97133.html)
+   *
+   * @param request ResetAccountPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAccountPasswordResponse
    */
   async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
     Util.validateModel(request);
@@ -59198,20 +60531,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Reset the password of an ApsaraDB RDS for MySQL instance](~~96100~~)
-    * *   [Reset the password of an ApsaraDB RDS for PostgreSQL instance](~~96814~~)
-    * *   [Reset the password of an ApsaraDB RDS for SQL Server instance](~~95691~~)
-    * *   [Reset the password of an ApsaraDB RDS for MariaDB instance](~~97133~~)
-    *
-    * @param request ResetAccountPasswordRequest
-    * @return ResetAccountPasswordResponse
+   * @summary Resets the password of a database account.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Reset the password of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96100.html)
+   * *   [Reset the password of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96814.html)
+   * *   [Reset the password of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95691.html)
+   * *   [Reset the password of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97133.html)
+   *
+   * @param request ResetAccountPasswordRequest
+   * @return ResetAccountPasswordResponse
    */
   async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59219,21 +60554,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Restart an ApsaraDB RDS for MySQL instance](~~96051~~)
-    * *   [Restart an ApsaraDB RDS for PostgreSQL instance](~~96798~~)
-    * *   [Restart an ApsaraDB RDS for SQL Server instance](~~95656~~)
-    * *   [Restart an ApsaraDB RDS for MariaDB instance](~~97472~~)
-    *
-    * @param request RestartDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RestartDBInstanceResponse
+   * @summary Restarts an instance.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Restart an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96051.html)
+   * *   [Restart an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96798.html)
+   * *   [Restart an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95656.html)
+   * *   [Restart an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97472.html)
+   *
+   * @param request RestartDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartDBInstanceResponse
    */
   async restartDBInstanceWithOptions(request: RestartDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBInstanceResponse> {
     Util.validateModel(request);
@@ -59284,20 +60621,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Restart an ApsaraDB RDS for MySQL instance](~~96051~~)
-    * *   [Restart an ApsaraDB RDS for PostgreSQL instance](~~96798~~)
-    * *   [Restart an ApsaraDB RDS for SQL Server instance](~~95656~~)
-    * *   [Restart an ApsaraDB RDS for MariaDB instance](~~97472~~)
-    *
-    * @param request RestartDBInstanceRequest
-    * @return RestartDBInstanceResponse
+   * @summary Restarts an instance.
+   *
+   * @description ### Supported database engines
+   * *   RDS MySQL
+   * *   RDS PostgreSQL
+   * *   RDS SQL Server
+   * *   RDS MariaDB
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Restart an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96051.html)
+   * *   [Restart an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96798.html)
+   * *   [Restart an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95656.html)
+   * *   [Restart an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97472.html)
+   *
+   * @param request RestartDBInstanceRequest
+   * @return RestartDBInstanceResponse
    */
   async restartDBInstance(request: RestartDBInstanceRequest): Promise<RestartDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59305,17 +60644,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before restoration, you can call the [CheckCreateDdrDBInstance](~~121721~~) operation to check whether a cross-region backup set can be used for cross-region restoration.
-    * ### [](#)Supported database engine
-    * MySQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~)
-    * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~)
-    *
-    * @param request RestoreDdrTableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RestoreDdrTableResponse
+   * @summary Restores data to an existing instance across regions.
+   *
+   * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
+   * ### [](#)Supported database engine
+   * MySQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
+   *
+   * @param request RestoreDdrTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestoreDdrTableResponse
    */
   async restoreDdrTableWithOptions(request: RestoreDdrTableRequest, runtime: $Util.RuntimeOptions): Promise<RestoreDdrTableResponse> {
     Util.validateModel(request);
@@ -59390,16 +60731,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before restoration, you can call the [CheckCreateDdrDBInstance](~~121721~~) operation to check whether a cross-region backup set can be used for cross-region restoration.
-    * ### [](#)Supported database engine
-    * MySQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~)
-    * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~)
-    *
-    * @param request RestoreDdrTableRequest
-    * @return RestoreDdrTableResponse
+   * @summary Restores data to an existing instance across regions.
+   *
+   * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
+   * ### [](#)Supported database engine
+   * MySQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html)
+   * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
+   *
+   * @param request RestoreDdrTableRequest
+   * @return RestoreDdrTableResponse
    */
   async restoreDdrTable(request: RestoreDdrTableRequest): Promise<RestoreDdrTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59407,15 +60750,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * MySQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Restore individual databases and tables](~~103175~~)
-    *
-    * @param request RestoreTableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RestoreTableResponse
+   * @summary Restores individual databases or tables of an instance to the original instance.
+   *
+   * @description ### [](#)Supported database engines
+   * MySQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Restore individual databases and tables](https://help.aliyun.com/document_detail/103175.html)
+   *
+   * @param request RestoreTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestoreTableResponse
    */
   async restoreTableWithOptions(request: RestoreTableRequest, runtime: $Util.RuntimeOptions): Promise<RestoreTableResponse> {
     Util.validateModel(request);
@@ -59478,14 +60823,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * MySQL
-    * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Restore individual databases and tables](~~103175~~)
-    *
-    * @param request RestoreTableRequest
-    * @return RestoreTableResponse
+   * @summary Restores individual databases or tables of an instance to the original instance.
+   *
+   * @description ### [](#)Supported database engines
+   * MySQL
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Restore individual databases and tables](https://help.aliyun.com/document_detail/103175.html)
+   *
+   * @param request RestoreTableRequest
+   * @return RestoreTableResponse
    */
   async restoreTable(request: RestoreTableRequest): Promise<RestoreTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59493,20 +60840,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Prerequisites
-    * *   The instance is in the Running state.
-    * *   The database is in the Running state.
-    * ### [](#)Precautions
-    * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
-    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition and run PostgreSQL.
-    *
-    * @param request RevokeAccountPrivilegeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RevokeAccountPrivilegeResponse
+   * @summary Removes the permissions on a database of an ApsaraDB RDS instance from an account.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Prerequisites
+   * *   The instance is in the Running state.
+   * *   The database is in the Running state.
+   * ### [](#)Precautions
+   * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
+   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition and run PostgreSQL.
+   *
+   * @param request RevokeAccountPrivilegeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeAccountPrivilegeResponse
    */
   async revokeAccountPrivilegeWithOptions(request: RevokeAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<RevokeAccountPrivilegeResponse> {
     Util.validateModel(request);
@@ -59557,19 +60906,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Prerequisites
-    * *   The instance is in the Running state.
-    * *   The database is in the Running state.
-    * ### [](#)Precautions
-    * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
-    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition and run PostgreSQL.
-    *
-    * @param request RevokeAccountPrivilegeRequest
-    * @return RevokeAccountPrivilegeResponse
+   * @summary Removes the permissions on a database of an ApsaraDB RDS instance from an account.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Prerequisites
+   * *   The instance is in the Running state.
+   * *   The database is in the Running state.
+   * ### [](#)Precautions
+   * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
+   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition and run PostgreSQL.
+   *
+   * @param request RevokeAccountPrivilegeRequest
+   * @return RevokeAccountPrivilegeResponse
    */
   async revokeAccountPrivilege(request: RevokeAccountPrivilegeRequest): Promise<RevokeAccountPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59577,19 +60928,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](~~96102~~)
-    * *   [Grant permissions to the service account of an ApsaraDB RDS for PostgreSQL instance](~~146887~~)
-    * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](~~95693~~)
-    *
-    * @param request RevokeOperatorPermissionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RevokeOperatorPermissionResponse
+   * @summary Revokes permissions from the service account of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96102.html)
+   * *   [Grant permissions to the service account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146887.html)
+   * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95693.html)
+   *
+   * @param request RevokeOperatorPermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeOperatorPermissionResponse
    */
   async revokeOperatorPermissionWithOptions(request: RevokeOperatorPermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeOperatorPermissionResponse> {
     Util.validateModel(request);
@@ -59632,18 +60985,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](~~96102~~)
-    * *   [Grant permissions to the service account of an ApsaraDB RDS for PostgreSQL instance](~~146887~~)
-    * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](~~95693~~)
-    *
-    * @param request RevokeOperatorPermissionRequest
-    * @return RevokeOperatorPermissionResponse
+   * @summary Revokes permissions from the service account of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96102.html)
+   * *   [Grant permissions to the service account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146887.html)
+   * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95693.html)
+   *
+   * @param request RevokeOperatorPermissionRequest
+   * @return RevokeOperatorPermissionResponse
    */
   async revokeOperatorPermission(request: RevokeOperatorPermissionRequest): Promise<RevokeOperatorPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59651,19 +61006,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-    * *   [Resume an ApsaraDB RDS for MySQL instance](~~427093~~)
-    * *   [Resume an ApsaraDB RDS for PostgreSQL instance](~~452314~~)
-    * *   [Resume an ApsaraDB RDS for SQL Server instance](~~462504~~)
-    *
-    * @param request StartDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartDBInstanceResponse
+   * @summary Resumes an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+   * *   [Resume an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
+   * *   [Resume an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
+   * *   [Resume an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+   *
+   * @param request StartDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartDBInstanceResponse
    */
   async startDBInstanceWithOptions(request: StartDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartDBInstanceResponse> {
     Util.validateModel(request);
@@ -59754,18 +61111,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-    * *   [Resume an ApsaraDB RDS for MySQL instance](~~427093~~)
-    * *   [Resume an ApsaraDB RDS for PostgreSQL instance](~~452314~~)
-    * *   [Resume an ApsaraDB RDS for SQL Server instance](~~462504~~)
-    *
-    * @param request StartDBInstanceRequest
-    * @return StartDBInstanceResponse
+   * @summary Resumes an instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+   * *   [Resume an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
+   * *   [Resume an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
+   * *   [Resume an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+   *
+   * @param request StartDBInstanceRequest
+   * @return StartDBInstanceResponse
    */
   async startDBInstance(request: StartDBInstanceRequest): Promise<StartDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59773,19 +61132,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Suspend an ApsaraDB RDS for MySQL instance](~~427093~~)
-    * *   [Suspend an ApsaraDB RDS for PostgreSQL instance](~~452314~~)
-    * *   [Suspend an ApsaraDB RDS for SQL Server instance](~~462504~~)
-    *
-    * @param request StopDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopDBInstanceResponse
+   * @summary Suspends an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Suspend an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
+   * *   [Suspend an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
+   * *   [Suspend an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+   *
+   * @param request StopDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopDBInstanceResponse
    */
   async stopDBInstanceWithOptions(request: StopDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopDBInstanceResponse> {
     Util.validateModel(request);
@@ -59828,18 +61189,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Suspend an ApsaraDB RDS for MySQL instance](~~427093~~)
-    * *   [Suspend an ApsaraDB RDS for PostgreSQL instance](~~452314~~)
-    * *   [Suspend an ApsaraDB RDS for SQL Server instance](~~462504~~)
-    *
-    * @param request StopDBInstanceRequest
-    * @return StopDBInstanceResponse
+   * @summary Suspends an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Suspend an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
+   * *   [Suspend an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
+   * *   [Suspend an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+   *
+   * @param request StopDBInstanceRequest
+   * @return StopDBInstanceResponse
    */
   async stopDBInstance(request: StopDBInstanceRequest): Promise<StopDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59847,21 +61210,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Switch workloads between primary and secondary ApsaraDB RDS for MySQL instances](~~96054~~)
-    * *   [Switch workloads between primary and secondary ApsaraDB RDS for PostgreSQL instances](~~96747~~)
-    * *   [Switch workloads between primary and secondary ApsaraDB RDS for SQL Server instances](~~95659~~)
-    * *   [Switch workloads between primary and secondary ApsaraDB RDS for MariaDB instances](~~97127~~)
-    *
-    * @param request SwitchDBInstanceHARequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SwitchDBInstanceHAResponse
+   * @summary Switches workloads between primary and secondary ApsaraDB RDS instances.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Switch workloads between primary and secondary ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96054.html)
+   * *   [Switch workloads between primary and secondary ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/96747.html)
+   * *   [Switch workloads between primary and secondary ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95659.html)
+   * *   [Switch workloads between primary and secondary ApsaraDB RDS for MariaDB instances](https://help.aliyun.com/document_detail/97127.html)
+   *
+   * @param request SwitchDBInstanceHARequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchDBInstanceHAResponse
    */
   async switchDBInstanceHAWithOptions(request: SwitchDBInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceHAResponse> {
     Util.validateModel(request);
@@ -59916,20 +61281,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Switch workloads between primary and secondary ApsaraDB RDS for MySQL instances](~~96054~~)
-    * *   [Switch workloads between primary and secondary ApsaraDB RDS for PostgreSQL instances](~~96747~~)
-    * *   [Switch workloads between primary and secondary ApsaraDB RDS for SQL Server instances](~~95659~~)
-    * *   [Switch workloads between primary and secondary ApsaraDB RDS for MariaDB instances](~~97127~~)
-    *
-    * @param request SwitchDBInstanceHARequest
-    * @return SwitchDBInstanceHAResponse
+   * @summary Switches workloads between primary and secondary ApsaraDB RDS instances.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Switch workloads between primary and secondary ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96054.html)
+   * *   [Switch workloads between primary and secondary ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/96747.html)
+   * *   [Switch workloads between primary and secondary ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95659.html)
+   * *   [Switch workloads between primary and secondary ApsaraDB RDS for MariaDB instances](https://help.aliyun.com/document_detail/97127.html)
+   *
+   * @param request SwitchDBInstanceHARequest
+   * @return SwitchDBInstanceHAResponse
    */
   async switchDBInstanceHA(request: SwitchDBInstanceHARequest): Promise<SwitchDBInstanceHAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59937,20 +61304,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### Prerequisites
-    * *   The instance is connected by using its internal or public endpoint.
-    * *   The instance is in the Running state.
-    * *   The number of times that you have switched the instance between its internal and public endpoints within the last 24 hours does not reach 20.
-    * *   The instance resides in the classic network.
-    * ### Usage notes
-    * After the endpoint that is used to connect to the instance is changed, you must update the endpoint information in the code of your application and restart the application.
-    *
-    * @param request SwitchDBInstanceNetTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SwitchDBInstanceNetTypeResponse
+   * @summary Switches between internal and public endpoints of an instance in the classic network.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### Prerequisites
+   * *   The instance is connected by using its internal or public endpoint.
+   * *   The instance is in the Running state.
+   * *   The number of times that you have switched the instance between its internal and public endpoints within the last 24 hours does not reach 20.
+   * *   The instance resides in the classic network.
+   * ### Usage notes
+   * After the endpoint that is used to connect to the instance is changed, you must update the endpoint information in the code of your application and restart the application.
+   *
+   * @param request SwitchDBInstanceNetTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchDBInstanceNetTypeResponse
    */
   async switchDBInstanceNetTypeWithOptions(request: SwitchDBInstanceNetTypeRequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceNetTypeResponse> {
     Util.validateModel(request);
@@ -60009,19 +61378,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   SQL Server
-    * ### Prerequisites
-    * *   The instance is connected by using its internal or public endpoint.
-    * *   The instance is in the Running state.
-    * *   The number of times that you have switched the instance between its internal and public endpoints within the last 24 hours does not reach 20.
-    * *   The instance resides in the classic network.
-    * ### Usage notes
-    * After the endpoint that is used to connect to the instance is changed, you must update the endpoint information in the code of your application and restart the application.
-    *
-    * @param request SwitchDBInstanceNetTypeRequest
-    * @return SwitchDBInstanceNetTypeResponse
+   * @summary Switches between internal and public endpoints of an instance in the classic network.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   SQL Server
+   * ### Prerequisites
+   * *   The instance is connected by using its internal or public endpoint.
+   * *   The instance is in the Running state.
+   * *   The number of times that you have switched the instance between its internal and public endpoints within the last 24 hours does not reach 20.
+   * *   The instance resides in the classic network.
+   * ### Usage notes
+   * After the endpoint that is used to connect to the instance is changed, you must update the endpoint information in the code of your application and restart the application.
+   *
+   * @param request SwitchDBInstanceNetTypeRequest
+   * @return SwitchDBInstanceNetTypeResponse
    */
   async switchDBInstanceNetType(request: SwitchDBInstanceNetTypeRequest): Promise<SwitchDBInstanceNetTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60029,19 +61400,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Change the VPC and vSwitch for an ApsaraDB RDS for MySQL instance](~~137567~~)
-    * *   [Change the vSwitch for an ApsaraDB RDS for PostgreSQL instance](~~146885~~)
-    * *   [Change the VPC and vSwitch for an ApsaraDB RDS for SQL Server instance](~~347675~~)
-    *
-    * @param request SwitchDBInstanceVpcRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SwitchDBInstanceVpcResponse
+   * @summary Changes the virtual private cloud (VPC) and vSwitch for an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Change the VPC and vSwitch for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/137567.html)
+   * *   [Change the vSwitch for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146885.html)
+   * *   [Change the VPC and vSwitch for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/347675.html)
+   *
+   * @param request SwitchDBInstanceVpcRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchDBInstanceVpcResponse
    */
   async switchDBInstanceVpcWithOptions(request: SwitchDBInstanceVpcRequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceVpcResponse> {
     Util.validateModel(request);
@@ -60084,18 +61457,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Change the VPC and vSwitch for an ApsaraDB RDS for MySQL instance](~~137567~~)
-    * *   [Change the vSwitch for an ApsaraDB RDS for PostgreSQL instance](~~146885~~)
-    * *   [Change the VPC and vSwitch for an ApsaraDB RDS for SQL Server instance](~~347675~~)
-    *
-    * @param request SwitchDBInstanceVpcRequest
-    * @return SwitchDBInstanceVpcResponse
+   * @summary Changes the virtual private cloud (VPC) and vSwitch for an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Change the VPC and vSwitch for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/137567.html)
+   * *   [Change the vSwitch for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146885.html)
+   * *   [Change the VPC and vSwitch for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/347675.html)
+   *
+   * @param request SwitchDBInstanceVpcRequest
+   * @return SwitchDBInstanceVpcResponse
    */
   async switchDBInstanceVpc(request: SwitchDBInstanceVpcRequest): Promise<SwitchDBInstanceVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60103,11 +61478,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request SwitchGuardToMasterInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SwitchGuardToMasterInstanceResponse
+   * @summary Switches a disaster recovery instance to a primary instance.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request SwitchGuardToMasterInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchGuardToMasterInstanceResponse
    */
   async switchGuardToMasterInstanceWithOptions(request: SwitchGuardToMasterInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchGuardToMasterInstanceResponse> {
     Util.validateModel(request);
@@ -60154,10 +61531,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is phased out.
-    *
-    * @param request SwitchGuardToMasterInstanceRequest
-    * @return SwitchGuardToMasterInstanceResponse
+   * @summary Switches a disaster recovery instance to a primary instance.
+   *
+   * @description This operation is phased out.
+   *
+   * @param request SwitchGuardToMasterInstanceRequest
+   * @return SwitchGuardToMasterInstanceResponse
    */
   async switchGuardToMasterInstance(request: SwitchGuardToMasterInstanceRequest): Promise<SwitchGuardToMasterInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60165,21 +61544,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Create tags for an ApsaraDB RDS for MySQL instance](~~96149~~)
-    * *   [Create tags for an ApsaraDB RDS for PostgreSQL instance](~~96777~~)
-    * *   [Create tags for an ApsaraDB RDS for SQL Server instance](~~95726~~)
-    * *   [Create tags for an ApsaraDB RDS for MariaDB instance](~~97152~~)
-    *
-    * @param request TagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourcesResponse
+   * @summary Creates and adds tags to one or more instances.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Create tags for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96149.html)
+   * *   [Create tags for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96777.html)
+   * *   [Create tags for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95726.html)
+   * *   [Create tags for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97152.html)
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -60230,20 +61611,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Create tags for an ApsaraDB RDS for MySQL instance](~~96149~~)
-    * *   [Create tags for an ApsaraDB RDS for PostgreSQL instance](~~96777~~)
-    * *   [Create tags for an ApsaraDB RDS for SQL Server instance](~~95726~~)
-    * *   [Create tags for an ApsaraDB RDS for MariaDB instance](~~97152~~)
-    *
-    * @param request TagResourcesRequest
-    * @return TagResourcesResponse
+   * @summary Creates and adds tags to one or more instances.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Create tags for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96149.html)
+   * *   [Create tags for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96777.html)
+   * *   [Create tags for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95726.html)
+   * *   [Create tags for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97152.html)
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60251,12 +61634,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    *
-    * @param request TerminateMigrateTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TerminateMigrateTaskResponse
+   * @summary Terminates an ongoing migration task of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   *
+   * @param request TerminateMigrateTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TerminateMigrateTaskResponse
    */
   async terminateMigrateTaskWithOptions(request: TerminateMigrateTaskRequest, runtime: $Util.RuntimeOptions): Promise<TerminateMigrateTaskResponse> {
     Util.validateModel(request);
@@ -60299,11 +61684,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   SQL Server
-    *
-    * @param request TerminateMigrateTaskRequest
-    * @return TerminateMigrateTaskResponse
+   * @summary Terminates an ongoing migration task of an ApsaraDB RDS for SQL Server instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   SQL Server
+   *
+   * @param request TerminateMigrateTaskRequest
+   * @return TerminateMigrateTaskResponse
    */
   async terminateMigrateTask(request: TerminateMigrateTaskRequest): Promise<TerminateMigrateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60311,21 +61698,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Fees are generated if the call is successful. Before you call this operation, you must read the following documentation.
-    * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](~~96048~~) or [Change the billing method of an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](~~161875~~)
-    * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](~~96743~~) or [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from subscription to pay-as-you-go](~~162756~~)
-    * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](~~95631~~) or [Change the billing method of an ApsaraDB RDS for SQL Server instance from subscription to pay-as-you-go](~~162755~~)
-    * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](~~97120~~) or [Change the billing method of an ApsaraDB RDS for MariaDB instance from subscription to pay-as-you-go](~~169252~~)
-    *
-    * @param request TransformDBInstancePayTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TransformDBInstancePayTypeResponse
+   * @summary Changes the billing method of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Fees are generated if the call is successful. Before you call this operation, you must read the following documentation.
+   * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96048.html) or [Change the billing method of an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/161875.html)
+   * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96743.html) or [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162756.html)
+   * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/95631.html) or [Change the billing method of an ApsaraDB RDS for SQL Server instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162755.html)
+   * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/97120.html) or [Change the billing method of an ApsaraDB RDS for MariaDB instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/169252.html)
+   *
+   * @param request TransformDBInstancePayTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TransformDBInstancePayTypeResponse
    */
   async transformDBInstancePayTypeWithOptions(request: TransformDBInstancePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<TransformDBInstancePayTypeResponse> {
     Util.validateModel(request);
@@ -60392,20 +61781,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### References
-    * > Fees are generated if the call is successful. Before you call this operation, you must read the following documentation.
-    * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](~~96048~~) or [Change the billing method of an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](~~161875~~)
-    * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](~~96743~~) or [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from subscription to pay-as-you-go](~~162756~~)
-    * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](~~95631~~) or [Change the billing method of an ApsaraDB RDS for SQL Server instance from subscription to pay-as-you-go](~~162755~~)
-    * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](~~97120~~) or [Change the billing method of an ApsaraDB RDS for MariaDB instance from subscription to pay-as-you-go](~~169252~~)
-    *
-    * @param request TransformDBInstancePayTypeRequest
-    * @return TransformDBInstancePayTypeResponse
+   * @summary Changes the billing method of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### References
+   * > Fees are generated if the call is successful. Before you call this operation, you must read the following documentation.
+   * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96048.html) or [Change the billing method of an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/161875.html)
+   * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96743.html) or [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162756.html)
+   * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/95631.html) or [Change the billing method of an ApsaraDB RDS for SQL Server instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162755.html)
+   * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/97120.html) or [Change the billing method of an ApsaraDB RDS for MariaDB instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/169252.html)
+   *
+   * @param request TransformDBInstancePayTypeRequest
+   * @return TransformDBInstancePayTypeResponse
    */
   async transformDBInstancePayType(request: TransformDBInstancePayTypeRequest): Promise<TransformDBInstancePayTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60413,15 +61804,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * PostgreSQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](~~147649~~)
-    *
-    * @param request UnlockAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UnlockAccountResponse
+   * @summary Unlocks a database account of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### Supported database engine
+   * PostgreSQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+   *
+   * @param request UnlockAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnlockAccountResponse
    */
   async unlockAccountWithOptions(request: UnlockAccountRequest, runtime: $Util.RuntimeOptions): Promise<UnlockAccountResponse> {
     Util.validateModel(request);
@@ -60464,14 +61857,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * PostgreSQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](~~147649~~)
-    *
-    * @param request UnlockAccountRequest
-    * @return UnlockAccountResponse
+   * @summary Unlocks a database account of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### Supported database engine
+   * PostgreSQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+   *
+   * @param request UnlockAccountRequest
+   * @return UnlockAccountResponse
    */
   async unlockAccount(request: UnlockAccountRequest): Promise<UnlockAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60479,18 +61874,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Usage notes
-    * *   You can remove up to 20 tags at a time.
-    * *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
-    *
-    * @param request UntagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UntagResourcesResponse
+   * @summary Removes tags from one or more instances.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Usage notes
+   * *   You can remove up to 20 tags at a time.
+   * *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -60545,17 +61942,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
-    * ### [](#)Usage notes
-    * *   You can remove up to 20 tags at a time.
-    * *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
-    *
-    * @param request UntagResourcesRequest
-    * @return UntagResourcesResponse
+   * @summary Removes tags from one or more instances.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)Usage notes
+   * *   You can remove up to 20 tags at a time.
+   * *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60563,15 +61962,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS PostgreSQL
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Manage extensions](~~2402409~~)
-    *
-    * @param request UpdatePostgresExtensionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdatePostgresExtensionsResponse
+   * @summary Updates the version of an extension on a database.
+   *
+   * @description ### Supported database engines
+   * RDS PostgreSQL
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+   *
+   * @param request UpdatePostgresExtensionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePostgresExtensionsResponse
    */
   async updatePostgresExtensionsWithOptions(request: UpdatePostgresExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePostgresExtensionsResponse> {
     Util.validateModel(request);
@@ -60630,14 +62031,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS PostgreSQL
-    * ### References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Manage extensions](~~2402409~~)
-    *
-    * @param request UpdatePostgresExtensionsRequest
-    * @return UpdatePostgresExtensionsResponse
+   * @summary Updates the version of an extension on a database.
+   *
+   * @description ### Supported database engines
+   * RDS PostgreSQL
+   * ### References
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+   *
+   * @param request UpdatePostgresExtensionsRequest
+   * @return UpdatePostgresExtensionsResponse
    */
   async updatePostgresExtensions(request: UpdatePostgresExtensionsRequest): Promise<UpdatePostgresExtensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60645,15 +62048,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS MySQL
-    * ### References
-    * A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 or MySQL 8.0 instance to an ApsaraDB RDS for MySQL instance](~~251779~~).
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    *
-    * @param request UpdateUserBackupFileRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateUserBackupFileResponse
+   * @summary Modifies the description and retention period of a full backup file.
+   *
+   * @description ### Supported database engines
+   * RDS MySQL
+   * ### References
+   * A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 or MySQL 8.0 instance to an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/251779.html).
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   *
+   * @param request UpdateUserBackupFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserBackupFileResponse
    */
   async updateUserBackupFileWithOptions(request: UpdateUserBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserBackupFileResponse> {
     Util.validateModel(request);
@@ -60708,14 +62113,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * RDS MySQL
-    * ### References
-    * A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 or MySQL 8.0 instance to an ApsaraDB RDS for MySQL instance](~~251779~~).
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    *
-    * @param request UpdateUserBackupFileRequest
-    * @return UpdateUserBackupFileResponse
+   * @summary Modifies the description and retention period of a full backup file.
+   *
+   * @description ### Supported database engines
+   * RDS MySQL
+   * ### References
+   * A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 or MySQL 8.0 instance to an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/251779.html).
+   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   *
+   * @param request UpdateUserBackupFileRequest
+   * @return UpdateUserBackupFileResponse
    */
   async updateUserBackupFile(request: UpdateUserBackupFileRequest): Promise<UpdateUserBackupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60723,15 +62130,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Upgrade the major engine version of an ApsaraDB RDS for MySQL instance](~~96058~~)
-    *
-    * @param request UpgradeDBInstanceEngineVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeDBInstanceEngineVersionResponse
+   * @summary Upgrades the major engine version of an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Upgrade the major engine version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96058.html)
+   *
+   * @param request UpgradeDBInstanceEngineVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeDBInstanceEngineVersionResponse
    */
   async upgradeDBInstanceEngineVersionWithOptions(request: UpgradeDBInstanceEngineVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceEngineVersionResponse> {
     Util.validateModel(request);
@@ -60786,14 +62195,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * MySQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * [Upgrade the major engine version of an ApsaraDB RDS for MySQL instance](~~96058~~)
-    *
-    * @param request UpgradeDBInstanceEngineVersionRequest
-    * @return UpgradeDBInstanceEngineVersionResponse
+   * @summary Upgrades the major engine version of an ApsaraDB RDS for MySQL instance.
+   *
+   * @description ### Supported database engine
+   * MySQL
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Upgrade the major engine version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96058.html)
+   *
+   * @param request UpgradeDBInstanceEngineVersionRequest
+   * @return UpgradeDBInstanceEngineVersionResponse
    */
   async upgradeDBInstanceEngineVersion(request: UpgradeDBInstanceEngineVersionRequest): Promise<UpgradeDBInstanceEngineVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60801,19 +62212,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Update the minor engine version of an ApsaraDB RDS for MySQL instance](~~96059~~)
-    * *   [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](~~146895~~)
-    * *   [Update the minor engine version of an ApsaraDB RDS for SQL Server instance](~~213582~~)
-    *
-    * @param request UpgradeDBInstanceKernelVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeDBInstanceKernelVersionResponse
+   * @summary Updates the minor engine version of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Update the minor engine version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
+   * *   [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+   * *   [Update the minor engine version of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/213582.html)
+   *
+   * @param request UpgradeDBInstanceKernelVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeDBInstanceKernelVersionResponse
    */
   async upgradeDBInstanceKernelVersionWithOptions(request: UpgradeDBInstanceKernelVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceKernelVersionResponse> {
     Util.validateModel(request);
@@ -60864,18 +62277,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Update the minor engine version of an ApsaraDB RDS for MySQL instance](~~96059~~)
-    * *   [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](~~146895~~)
-    * *   [Update the minor engine version of an ApsaraDB RDS for SQL Server instance](~~213582~~)
-    *
-    * @param request UpgradeDBInstanceKernelVersionRequest
-    * @return UpgradeDBInstanceKernelVersionResponse
+   * @summary Updates the minor engine version of an ApsaraDB RDS instance.
+   *
+   * @description ### Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * ### References
+   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Update the minor engine version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
+   * *   [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+   * *   [Update the minor engine version of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/213582.html)
+   *
+   * @param request UpgradeDBInstanceKernelVersionRequest
+   * @return UpgradeDBInstanceKernelVersionResponse
    */
   async upgradeDBInstanceKernelVersion(request: UpgradeDBInstanceKernelVersionRequest): Promise<UpgradeDBInstanceKernelVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60883,15 +62298,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * PostgreSQL
-    * ### References
-    * Fees are generated if the call is successful. Before you call this operation, read the following documentation and make sure that you fully understand the billing rules, prerequisites, and impacts of this operation.
-    * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~)
-    *
-    * @param request UpgradeDBInstanceMajorVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeDBInstanceMajorVersionResponse
+   * @summary Initiates a task to upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### Supported database engine
+   * PostgreSQL
+   * ### References
+   * Fees are generated if the call is successful. Before you call this operation, read the following documentation and make sure that you fully understand the billing rules, prerequisites, and impacts of this operation.
+   * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+   *
+   * @param request UpgradeDBInstanceMajorVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeDBInstanceMajorVersionResponse
    */
   async upgradeDBInstanceMajorVersionWithOptions(request: UpgradeDBInstanceMajorVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceMajorVersionResponse> {
     Util.validateModel(request);
@@ -60994,14 +62411,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * PostgreSQL
-    * ### References
-    * Fees are generated if the call is successful. Before you call this operation, read the following documentation and make sure that you fully understand the billing rules, prerequisites, and impacts of this operation.
-    * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~)
-    *
-    * @param request UpgradeDBInstanceMajorVersionRequest
-    * @return UpgradeDBInstanceMajorVersionResponse
+   * @summary Initiates a task to upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### Supported database engine
+   * PostgreSQL
+   * ### References
+   * Fees are generated if the call is successful. Before you call this operation, read the following documentation and make sure that you fully understand the billing rules, prerequisites, and impacts of this operation.
+   * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+   *
+   * @param request UpgradeDBInstanceMajorVersionRequest
+   * @return UpgradeDBInstanceMajorVersionResponse
    */
   async upgradeDBInstanceMajorVersion(request: UpgradeDBInstanceMajorVersionRequest): Promise<UpgradeDBInstanceMajorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61009,15 +62428,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * PostgreSQL
-    * ### References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~)
-    *
-    * @param request UpgradeDBInstanceMajorVersionPrecheckRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeDBInstanceMajorVersionPrecheckResponse
+   * @summary Performs a precheck before the upgrade of the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### Supported database engine
+   * PostgreSQL
+   * ### References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+   *
+   * @param request UpgradeDBInstanceMajorVersionPrecheckRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeDBInstanceMajorVersionPrecheckResponse
    */
   async upgradeDBInstanceMajorVersionPrecheckWithOptions(request: UpgradeDBInstanceMajorVersionPrecheckRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceMajorVersionPrecheckResponse> {
     Util.validateModel(request);
@@ -61052,14 +62473,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engine
-    * PostgreSQL
-    * ### References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~)
-    *
-    * @param request UpgradeDBInstanceMajorVersionPrecheckRequest
-    * @return UpgradeDBInstanceMajorVersionPrecheckResponse
+   * @summary Performs a precheck before the upgrade of the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+   *
+   * @description ### Supported database engine
+   * PostgreSQL
+   * ### References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+   *
+   * @param request UpgradeDBInstanceMajorVersionPrecheckRequest
+   * @return UpgradeDBInstanceMajorVersionPrecheckResponse
    */
   async upgradeDBInstanceMajorVersionPrecheck(request: UpgradeDBInstanceMajorVersionPrecheckRequest): Promise<UpgradeDBInstanceMajorVersionPrecheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61067,17 +62490,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Upgrade the dedicated proxy version of an ApsaraDB RDS for MySQL instance](~~197465~~)
-    * *   [Upgrade the dedicated proxy version of an ApsaraDB RDS for PostgreSQL instance](~~418469~~)
-    *
-    * @param request UpgradeDBProxyInstanceKernelVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeDBProxyInstanceKernelVersionResponse
+   * @summary Upgrades the database proxy version of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Upgrade the database proxy version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197465.html)
+   * *   [Upgrade the database proxy version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418469.html)
+   *
+   * @param request UpgradeDBProxyInstanceKernelVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeDBProxyInstanceKernelVersionResponse
    */
   async upgradeDBProxyInstanceKernelVersionWithOptions(request: UpgradeDBProxyInstanceKernelVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBProxyInstanceKernelVersionResponse> {
     Util.validateModel(request);
@@ -61128,16 +62553,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * ### References
-    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-    * *   [Upgrade the dedicated proxy version of an ApsaraDB RDS for MySQL instance](~~197465~~)
-    * *   [Upgrade the dedicated proxy version of an ApsaraDB RDS for PostgreSQL instance](~~418469~~)
-    *
-    * @param request UpgradeDBProxyInstanceKernelVersionRequest
-    * @return UpgradeDBProxyInstanceKernelVersionResponse
+   * @summary Upgrades the database proxy version of an instance.
+   *
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * *   [Upgrade the database proxy version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197465.html)
+   * *   [Upgrade the database proxy version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418469.html)
+   *
+   * @param request UpgradeDBProxyInstanceKernelVersionRequest
+   * @return UpgradeDBProxyInstanceKernelVersionResponse
    */
   async upgradeDBProxyInstanceKernelVersion(request: UpgradeDBProxyInstanceKernelVersionRequest): Promise<UpgradeDBProxyInstanceKernelVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
