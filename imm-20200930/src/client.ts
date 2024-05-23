@@ -6031,6 +6031,7 @@ export class CreateProjectRequest extends $tea.Model {
   projectMaxDatasetCount?: number;
   projectName?: string;
   serviceRole?: string;
+  tag?: CreateProjectRequestTag[];
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6043,6 +6044,7 @@ export class CreateProjectRequest extends $tea.Model {
       projectMaxDatasetCount: 'ProjectMaxDatasetCount',
       projectName: 'ProjectName',
       serviceRole: 'ServiceRole',
+      tag: 'Tag',
       templateId: 'TemplateId',
     };
   }
@@ -6058,6 +6060,56 @@ export class CreateProjectRequest extends $tea.Model {
       projectMaxDatasetCount: 'number',
       projectName: 'string',
       serviceRole: 'string',
+      tag: { 'type': 'array', 'itemType': CreateProjectRequestTag },
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectShrinkRequest extends $tea.Model {
+  datasetMaxBindCount?: number;
+  datasetMaxEntityCount?: number;
+  datasetMaxFileCount?: number;
+  datasetMaxRelationCount?: number;
+  datasetMaxTotalFileSize?: number;
+  description?: string;
+  projectMaxDatasetCount?: number;
+  projectName?: string;
+  serviceRole?: string;
+  tagShrink?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetMaxBindCount: 'DatasetMaxBindCount',
+      datasetMaxEntityCount: 'DatasetMaxEntityCount',
+      datasetMaxFileCount: 'DatasetMaxFileCount',
+      datasetMaxRelationCount: 'DatasetMaxRelationCount',
+      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
+      description: 'Description',
+      projectMaxDatasetCount: 'ProjectMaxDatasetCount',
+      projectName: 'ProjectName',
+      serviceRole: 'ServiceRole',
+      tagShrink: 'Tag',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetMaxBindCount: 'number',
+      datasetMaxEntityCount: 'number',
+      datasetMaxFileCount: 'number',
+      datasetMaxRelationCount: 'number',
+      datasetMaxTotalFileSize: 'number',
+      description: 'string',
+      projectMaxDatasetCount: 'number',
+      projectName: 'string',
+      serviceRole: 'string',
+      tagShrink: 'string',
       templateId: 'string',
     };
   }
@@ -10676,11 +10728,13 @@ export class ListProjectsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   prefix?: string;
+  tag?: ListProjectsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       prefix: 'Prefix',
+      tag: 'Tag',
     };
   }
 
@@ -10689,6 +10743,35 @@ export class ListProjectsRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       prefix: 'string',
+      tag: { 'type': 'array', 'itemType': ListProjectsRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsShrinkRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  prefix?: string;
+  tagShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      prefix: 'Prefix',
+      tagShrink: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      prefix: 'string',
+      tagShrink: 'string',
     };
   }
 
@@ -12990,6 +13073,7 @@ export class UpdateProjectRequest extends $tea.Model {
   projectMaxDatasetCount?: number;
   projectName?: string;
   serviceRole?: string;
+  tag?: UpdateProjectRequestTag[];
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13002,6 +13086,7 @@ export class UpdateProjectRequest extends $tea.Model {
       projectMaxDatasetCount: 'ProjectMaxDatasetCount',
       projectName: 'ProjectName',
       serviceRole: 'ServiceRole',
+      tag: 'Tag',
       templateId: 'TemplateId',
     };
   }
@@ -13017,6 +13102,56 @@ export class UpdateProjectRequest extends $tea.Model {
       projectMaxDatasetCount: 'number',
       projectName: 'string',
       serviceRole: 'string',
+      tag: { 'type': 'array', 'itemType': UpdateProjectRequestTag },
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectShrinkRequest extends $tea.Model {
+  datasetMaxBindCount?: number;
+  datasetMaxEntityCount?: number;
+  datasetMaxFileCount?: number;
+  datasetMaxRelationCount?: number;
+  datasetMaxTotalFileSize?: number;
+  description?: string;
+  projectMaxDatasetCount?: number;
+  projectName?: string;
+  serviceRole?: string;
+  tagShrink?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetMaxBindCount: 'DatasetMaxBindCount',
+      datasetMaxEntityCount: 'DatasetMaxEntityCount',
+      datasetMaxFileCount: 'DatasetMaxFileCount',
+      datasetMaxRelationCount: 'DatasetMaxRelationCount',
+      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
+      description: 'Description',
+      projectMaxDatasetCount: 'ProjectMaxDatasetCount',
+      projectName: 'ProjectName',
+      serviceRole: 'ServiceRole',
+      tagShrink: 'Tag',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetMaxBindCount: 'number',
+      datasetMaxEntityCount: 'number',
+      datasetMaxFileCount: 'number',
+      datasetMaxRelationCount: 'number',
+      datasetMaxTotalFileSize: 'number',
+      description: 'string',
+      projectMaxDatasetCount: 'number',
+      projectName: 'string',
+      serviceRole: 'string',
+      tagShrink: 'string',
       templateId: 'string',
     };
   }
@@ -14417,6 +14552,28 @@ export class CreateMediaConvertTaskRequestTargets extends $tea.Model {
   }
 }
 
+export class CreateProjectRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTriggerRequestActions extends $tea.Model {
   fastFailPolicy?: FastFailPolicy;
   name?: string;
@@ -14776,6 +14933,28 @@ export class GetVideoModerationResultResponseBodyModerationResult extends $tea.M
   }
 }
 
+export class ListProjectsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveStoryFilesRequestFiles extends $tea.Model {
   URI?: string;
   static names(): { [key: string]: string } {
@@ -14906,6 +15085,28 @@ export class UpdateBatchRequestActions extends $tea.Model {
     return {
       name: 'string',
       parameters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -17114,12 +17315,18 @@ export default class Client extends OpenApi {
   /**
    * @summary 创建项目
    *
-   * @param request CreateProjectRequest
+   * @param tmpReq CreateProjectRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return CreateProjectResponse
    */
-  async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
-    Util.validateModel(request);
+  async createProjectWithOptions(tmpReq: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateProjectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.datasetMaxBindCount)) {
       query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
@@ -17155,6 +17362,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serviceRole)) {
       query["ServiceRole"] = request.serviceRole;
+    }
+
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
     }
 
     if (!Util.isUnset(request.templateId)) {
@@ -20040,12 +20251,18 @@ export default class Client extends OpenApi {
   /**
    * @summary 获取项目列表
    *
-   * @param request ListProjectsRequest
+   * @param tmpReq ListProjectsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ListProjectsResponse
    */
-  async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
-    Util.validateModel(request);
+  async listProjectsWithOptions(tmpReq: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListProjectsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
@@ -20057,6 +20274,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.prefix)) {
       query["Prefix"] = request.prefix;
+    }
+
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -21550,12 +21771,18 @@ export default class Client extends OpenApi {
   /**
    * @summary 更新项目
    *
-   * @param request UpdateProjectRequest
+   * @param tmpReq UpdateProjectRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return UpdateProjectResponse
    */
-  async updateProjectWithOptions(request: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
-    Util.validateModel(request);
+  async updateProjectWithOptions(tmpReq: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateProjectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.datasetMaxBindCount)) {
       query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
@@ -21591,6 +21818,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serviceRole)) {
       query["ServiceRole"] = request.serviceRole;
+    }
+
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
     }
 
     if (!Util.isUnset(request.templateId)) {
