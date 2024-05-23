@@ -94,6 +94,78 @@ export class DataExtraInfoSubDbsValue extends $tea.Model {
   }
 }
 
+export class BatchKillProcessListRequest extends $tea.Model {
+  instanceId?: string;
+  sessionList?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      sessionList: 'SessionList',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      sessionList: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchKillProcessListResponseBody extends $tea.Model {
+  data?: BatchKillProcessListResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': BatchKillProcessListResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchKillProcessListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchKillProcessListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchKillProcessListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelProjectModifyRecordRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -344,6 +416,7 @@ export class CreateInstanceRequest extends $tea.Model {
   autoRenew?: boolean;
   autoRenewPeriod?: number;
   chargeType?: string;
+  cpuArch?: string;
   diskSize?: number;
   diskType?: string;
   dryRun?: boolean;
@@ -364,6 +437,7 @@ export class CreateInstanceRequest extends $tea.Model {
       autoRenew: 'AutoRenew',
       autoRenewPeriod: 'AutoRenewPeriod',
       chargeType: 'ChargeType',
+      cpuArch: 'CpuArch',
       diskSize: 'DiskSize',
       diskType: 'DiskType',
       dryRun: 'DryRun',
@@ -387,6 +461,7 @@ export class CreateInstanceRequest extends $tea.Model {
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
       chargeType: 'string',
+      cpuArch: 'string',
       diskSize: 'number',
       diskType: 'string',
       dryRun: 'boolean',
@@ -1434,6 +1509,7 @@ export class CreateSecurityIpGroupResponse extends $tea.Model {
 export class CreateTenantRequest extends $tea.Model {
   charset?: string;
   cpu?: number;
+  createParams?: { [key: string]: string };
   description?: string;
   instanceId?: string;
   logDisk?: number;
@@ -1446,10 +1522,12 @@ export class CreateTenantRequest extends $tea.Model {
   unitNum?: number;
   userVSwitchId?: string;
   userVpcId?: string;
+  userVpcOwnerId?: string;
   static names(): { [key: string]: string } {
     return {
       charset: 'Charset',
       cpu: 'Cpu',
+      createParams: 'CreateParams',
       description: 'Description',
       instanceId: 'InstanceId',
       logDisk: 'LogDisk',
@@ -1462,6 +1540,7 @@ export class CreateTenantRequest extends $tea.Model {
       unitNum: 'UnitNum',
       userVSwitchId: 'UserVSwitchId',
       userVpcId: 'UserVpcId',
+      userVpcOwnerId: 'UserVpcOwnerId',
     };
   }
 
@@ -1469,6 +1548,7 @@ export class CreateTenantRequest extends $tea.Model {
     return {
       charset: 'string',
       cpu: 'number',
+      createParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       description: 'string',
       instanceId: 'string',
       logDisk: 'number',
@@ -1481,6 +1561,71 @@ export class CreateTenantRequest extends $tea.Model {
       unitNum: 'number',
       userVSwitchId: 'string',
       userVpcId: 'string',
+      userVpcOwnerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTenantShrinkRequest extends $tea.Model {
+  charset?: string;
+  cpu?: number;
+  createParamsShrink?: string;
+  description?: string;
+  instanceId?: string;
+  logDisk?: number;
+  memory?: number;
+  primaryZone?: string;
+  readOnlyZoneList?: string;
+  tenantMode?: string;
+  tenantName?: string;
+  timeZone?: string;
+  unitNum?: number;
+  userVSwitchId?: string;
+  userVpcId?: string;
+  userVpcOwnerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      charset: 'Charset',
+      cpu: 'Cpu',
+      createParamsShrink: 'CreateParams',
+      description: 'Description',
+      instanceId: 'InstanceId',
+      logDisk: 'LogDisk',
+      memory: 'Memory',
+      primaryZone: 'PrimaryZone',
+      readOnlyZoneList: 'ReadOnlyZoneList',
+      tenantMode: 'TenantMode',
+      tenantName: 'TenantName',
+      timeZone: 'TimeZone',
+      unitNum: 'UnitNum',
+      userVSwitchId: 'UserVSwitchId',
+      userVpcId: 'UserVpcId',
+      userVpcOwnerId: 'UserVpcOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      charset: 'string',
+      cpu: 'number',
+      createParamsShrink: 'string',
+      description: 'string',
+      instanceId: 'string',
+      logDisk: 'number',
+      memory: 'number',
+      primaryZone: 'string',
+      readOnlyZoneList: 'string',
+      tenantMode: 'string',
+      tenantName: 'string',
+      timeZone: 'string',
+      unitNum: 'number',
+      userVSwitchId: 'string',
+      userVpcId: 'string',
+      userVpcOwnerId: 'string',
     };
   }
 
@@ -2783,6 +2928,7 @@ export class DescribeAvailableSpecResponse extends $tea.Model {
 }
 
 export class DescribeAvailableZoneRequest extends $tea.Model {
+  cpuArch?: string;
   deployType?: string;
   instanceType?: string;
   obVersion?: string;
@@ -2790,6 +2936,7 @@ export class DescribeAvailableZoneRequest extends $tea.Model {
   spec?: string;
   static names(): { [key: string]: string } {
     return {
+      cpuArch: 'CpuArch',
       deployType: 'DeployType',
       instanceType: 'InstanceType',
       obVersion: 'ObVersion',
@@ -2800,6 +2947,7 @@ export class DescribeAvailableZoneRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cpuArch: 'string',
       deployType: 'string',
       instanceType: 'string',
       obVersion: 'string',
@@ -3777,7 +3925,7 @@ export class DescribeMetricsDataRequest extends $tea.Model {
 }
 
 export class DescribeMetricsDataResponseBody extends $tea.Model {
-  data?: string;
+  data?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3788,7 +3936,7 @@ export class DescribeMetricsDataResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -4216,6 +4364,8 @@ export class DescribeOasSQLPlansRequest extends $tea.Model {
   dynamicSql?: boolean;
   endTime?: string;
   instanceId?: string;
+  planUnionHash?: string;
+  returnBriefInfo?: boolean;
   sqlId?: string;
   startTime?: string;
   tenantId?: string;
@@ -4226,6 +4376,8 @@ export class DescribeOasSQLPlansRequest extends $tea.Model {
       dynamicSql: 'DynamicSql',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      planUnionHash: 'PlanUnionHash',
+      returnBriefInfo: 'ReturnBriefInfo',
       sqlId: 'SqlId',
       startTime: 'StartTime',
       tenantId: 'TenantId',
@@ -4239,6 +4391,8 @@ export class DescribeOasSQLPlansRequest extends $tea.Model {
       dynamicSql: 'boolean',
       endTime: 'string',
       instanceId: 'string',
+      planUnionHash: 'string',
+      returnBriefInfo: 'boolean',
       sqlId: 'string',
       startTime: 'string',
       tenantId: 'string',
@@ -4748,6 +4902,93 @@ export class DescribeParametersHistoryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeParametersHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProcessStatsCompositionRequest extends $tea.Model {
+  clientIp?: string;
+  instanceId?: string;
+  serverIp?: string;
+  sqlText?: string;
+  status?: string;
+  tenantId?: string;
+  UId?: string;
+  users?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientIp: 'ClientIp',
+      instanceId: 'InstanceId',
+      serverIp: 'ServerIp',
+      sqlText: 'SqlText',
+      status: 'Status',
+      tenantId: 'TenantId',
+      UId: 'UId',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientIp: 'string',
+      instanceId: 'string',
+      serverIp: 'string',
+      sqlText: 'string',
+      status: 'string',
+      tenantId: 'string',
+      UId: 'string',
+      users: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProcessStatsCompositionResponseBody extends $tea.Model {
+  data?: DescribeProcessStatsCompositionResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeProcessStatsCompositionResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProcessStatsCompositionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProcessStatsCompositionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeProcessStatsCompositionResponseBody,
     };
   }
 
@@ -5534,6 +5775,7 @@ export class DescribeSQLSamplesRequest extends $tea.Model {
   dbName?: string;
   endTime?: string;
   instanceId?: string;
+  returnSqlText?: boolean;
   sqlId?: string;
   startTime?: string;
   tenantId?: string;
@@ -5542,6 +5784,7 @@ export class DescribeSQLSamplesRequest extends $tea.Model {
       dbName: 'DbName',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      returnSqlText: 'ReturnSqlText',
       sqlId: 'SqlId',
       startTime: 'StartTime',
       tenantId: 'TenantId',
@@ -5553,6 +5796,7 @@ export class DescribeSQLSamplesRequest extends $tea.Model {
       dbName: 'string',
       endTime: 'string',
       instanceId: 'string',
+      returnSqlText: 'boolean',
       sqlId: 'string',
       startTime: 'string',
       tenantId: 'string',
@@ -6999,10 +7243,12 @@ export class DescribeTopSQLListResponse extends $tea.Model {
 }
 
 export class DescribeZonesRequest extends $tea.Model {
+  cpuArch?: string;
   deployType?: string;
   series?: string;
   static names(): { [key: string]: string } {
     return {
+      cpuArch: 'CpuArch',
       deployType: 'DeployType',
       series: 'Series',
     };
@@ -7010,6 +7256,7 @@ export class DescribeZonesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cpuArch: 'string',
       deployType: 'string',
       series: 'string',
     };
@@ -8747,6 +8994,7 @@ export class ModifyTenantPrimaryZoneRequest extends $tea.Model {
   tenantId?: string;
   userDirectVSwitchId?: string;
   userVSwitchId?: string;
+  userVpcOwnerId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8758,6 +9006,7 @@ export class ModifyTenantPrimaryZoneRequest extends $tea.Model {
       tenantId: 'TenantId',
       userDirectVSwitchId: 'UserDirectVSwitchId',
       userVSwitchId: 'UserVSwitchId',
+      userVpcOwnerId: 'UserVpcOwnerId',
       vpcId: 'VpcId',
     };
   }
@@ -8772,6 +9021,7 @@ export class ModifyTenantPrimaryZoneRequest extends $tea.Model {
       tenantId: 'string',
       userDirectVSwitchId: 'string',
       userVSwitchId: 'string',
+      userVpcOwnerId: 'string',
       vpcId: 'string',
     };
   }
@@ -10262,6 +10512,136 @@ export class SwitchoverInstanceResponse extends $tea.Model {
   }
 }
 
+export class UpdateProjectConfigRequest extends $tea.Model {
+  fullTransferConfig?: UpdateProjectConfigRequestFullTransferConfig;
+  id?: string;
+  incrTransferConfig?: UpdateProjectConfigRequestIncrTransferConfig;
+  reverseIncrTransferConfig?: UpdateProjectConfigRequestReverseIncrTransferConfig;
+  static names(): { [key: string]: string } {
+    return {
+      fullTransferConfig: 'FullTransferConfig',
+      id: 'Id',
+      incrTransferConfig: 'IncrTransferConfig',
+      reverseIncrTransferConfig: 'ReverseIncrTransferConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fullTransferConfig: UpdateProjectConfigRequestFullTransferConfig,
+      id: 'string',
+      incrTransferConfig: UpdateProjectConfigRequestIncrTransferConfig,
+      reverseIncrTransferConfig: UpdateProjectConfigRequestReverseIncrTransferConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectConfigShrinkRequest extends $tea.Model {
+  fullTransferConfigShrink?: string;
+  id?: string;
+  incrTransferConfigShrink?: string;
+  reverseIncrTransferConfigShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fullTransferConfigShrink: 'FullTransferConfig',
+      id: 'Id',
+      incrTransferConfigShrink: 'IncrTransferConfig',
+      reverseIncrTransferConfigShrink: 'ReverseIncrTransferConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fullTransferConfigShrink: 'string',
+      id: 'string',
+      incrTransferConfigShrink: 'string',
+      reverseIncrTransferConfigShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectConfigResponseBody extends $tea.Model {
+  advice?: string;
+  code?: string;
+  cost?: string;
+  data?: string;
+  errorDetail?: UpdateProjectConfigResponseBodyErrorDetail;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advice: 'Advice',
+      code: 'Code',
+      cost: 'Cost',
+      data: 'Data',
+      errorDetail: 'ErrorDetail',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advice: 'string',
+      code: 'string',
+      cost: 'string',
+      data: 'string',
+      errorDetail: UpdateProjectConfigResponseBodyErrorDetail,
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateProjectConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateProjectConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DataExtraInfoSubDbsValueTablesColumns extends $tea.Model {
   columnName?: string;
   position?: number;
@@ -10346,6 +10726,25 @@ export class DataExtraInfoSubDbsValueTables extends $tea.Model {
       mappingTableName: 'string',
       instance: 'string',
       columns: { 'type': 'array', 'itemType': DataExtraInfoSubDbsValueTablesColumns },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchKillProcessListResponseBodyData extends $tea.Model {
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
     };
   }
 
@@ -12524,6 +12923,7 @@ export class DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecifica
 
 export class DescribeAvailableZoneResponseBodyDataAvailableZones extends $tea.Model {
   channel?: string;
+  cpuArch?: string;
   deployType?: string;
   instanceType?: string;
   region?: string;
@@ -12533,6 +12933,7 @@ export class DescribeAvailableZoneResponseBodyDataAvailableZones extends $tea.Mo
   static names(): { [key: string]: string } {
     return {
       channel: 'Channel',
+      cpuArch: 'CpuArch',
       deployType: 'DeployType',
       instanceType: 'InstanceType',
       region: 'Region',
@@ -12545,6 +12946,7 @@ export class DescribeAvailableZoneResponseBodyDataAvailableZones extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       channel: 'string',
+      cpuArch: 'string',
       deployType: 'string',
       instanceType: 'string',
       region: 'string',
@@ -13386,6 +13788,8 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
   nodeNum?: string;
   obRpmVersion?: string;
   payType?: string;
+  primaryInstance?: string;
+  primaryRegion?: string;
   proxyClusterId?: string;
   proxyServiceStatus?: string;
   readOnlyResource?: DescribeInstanceResponseBodyInstanceReadOnlyResource;
@@ -13430,6 +13834,8 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       nodeNum: 'NodeNum',
       obRpmVersion: 'ObRpmVersion',
       payType: 'PayType',
+      primaryInstance: 'PrimaryInstance',
+      primaryRegion: 'PrimaryRegion',
       proxyClusterId: 'ProxyClusterId',
       proxyServiceStatus: 'ProxyServiceStatus',
       readOnlyResource: 'ReadOnlyResource',
@@ -13477,6 +13883,8 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       nodeNum: 'string',
       obRpmVersion: 'string',
       payType: 'string',
+      primaryInstance: 'string',
+      primaryRegion: 'string',
       proxyClusterId: 'string',
       proxyServiceStatus: 'string',
       readOnlyResource: DescribeInstanceResponseBodyInstanceReadOnlyResource,
@@ -13693,7 +14101,7 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZo
 }
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZones extends $tea.Model {
-  isPrimaryTenantZone?: string;
+  isPrimaryTenantZone?: boolean;
   tenantZoneId?: string;
   tenantZoneRole?: string;
   units?: DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZonesUnits[];
@@ -13708,7 +14116,7 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZo
 
   static types(): { [key: string]: any } {
     return {
-      isPrimaryTenantZone: 'string',
+      isPrimaryTenantZone: 'boolean',
       tenantZoneId: 'string',
       tenantZoneRole: 'string',
       units: { 'type': 'array', 'itemType': DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZonesUnits },
@@ -16021,6 +16429,210 @@ export class DescribeParametersHistoryResponseBodyRespond extends $tea.Model {
       pageNumber: 'number',
       parameters: { 'type': 'array', 'itemType': DescribeParametersHistoryResponseBodyRespondParameters },
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProcessStatsCompositionResponseBodyDataAllProcessList extends $tea.Model {
+  clientIp?: string;
+  command?: string;
+  cpuTime?: number;
+  database?: string;
+  executeTime?: number;
+  planId?: string;
+  proxySessId?: string;
+  serverIp?: string;
+  sessionId?: number;
+  sqlId?: string;
+  sqlText?: string;
+  status?: string;
+  tenantId?: string;
+  traceId?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientIp: 'ClientIp',
+      command: 'Command',
+      cpuTime: 'CpuTime',
+      database: 'Database',
+      executeTime: 'ExecuteTime',
+      planId: 'PlanId',
+      proxySessId: 'ProxySessId',
+      serverIp: 'ServerIp',
+      sessionId: 'SessionId',
+      sqlId: 'SqlId',
+      sqlText: 'SqlText',
+      status: 'Status',
+      tenantId: 'TenantId',
+      traceId: 'TraceId',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientIp: 'string',
+      command: 'string',
+      cpuTime: 'number',
+      database: 'string',
+      executeTime: 'number',
+      planId: 'string',
+      proxySessId: 'string',
+      serverIp: 'string',
+      sessionId: 'number',
+      sqlId: 'string',
+      sqlText: 'string',
+      status: 'string',
+      tenantId: 'string',
+      traceId: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProcessStatsCompositionResponseBodyDataSessionStatisticsDataBaseStatistics extends $tea.Model {
+  activeCount?: number;
+  metricValue?: string;
+  totalCount?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeCount: 'ActiveCount',
+      metricValue: 'MetricValue',
+      totalCount: 'TotalCount',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeCount: 'number',
+      metricValue: 'string',
+      totalCount: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProcessStatsCompositionResponseBodyDataSessionStatisticsSourceStatistics extends $tea.Model {
+  activeCount?: number;
+  metricValue?: string;
+  totalCount?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeCount: 'ActiveCount',
+      metricValue: 'MetricValue',
+      totalCount: 'TotalCount',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeCount: 'number',
+      metricValue: 'string',
+      totalCount: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProcessStatsCompositionResponseBodyDataSessionStatisticsUserStatistics extends $tea.Model {
+  activeCount?: number;
+  metricValue?: string;
+  totalCount?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeCount: 'ActiveCount',
+      metricValue: 'MetricValue',
+      totalCount: 'TotalCount',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeCount: 'number',
+      metricValue: 'string',
+      totalCount: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProcessStatsCompositionResponseBodyDataSessionStatistics extends $tea.Model {
+  dataBaseStatistics?: DescribeProcessStatsCompositionResponseBodyDataSessionStatisticsDataBaseStatistics[];
+  sourceStatistics?: DescribeProcessStatsCompositionResponseBodyDataSessionStatisticsSourceStatistics[];
+  userStatistics?: DescribeProcessStatsCompositionResponseBodyDataSessionStatisticsUserStatistics[];
+  static names(): { [key: string]: string } {
+    return {
+      dataBaseStatistics: 'DataBaseStatistics',
+      sourceStatistics: 'SourceStatistics',
+      userStatistics: 'UserStatistics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataBaseStatistics: { 'type': 'array', 'itemType': DescribeProcessStatsCompositionResponseBodyDataSessionStatisticsDataBaseStatistics },
+      sourceStatistics: { 'type': 'array', 'itemType': DescribeProcessStatsCompositionResponseBodyDataSessionStatisticsSourceStatistics },
+      userStatistics: { 'type': 'array', 'itemType': DescribeProcessStatsCompositionResponseBodyDataSessionStatisticsUserStatistics },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProcessStatsCompositionResponseBodyData extends $tea.Model {
+  activeSessionCount?: number;
+  allProcessList?: DescribeProcessStatsCompositionResponseBodyDataAllProcessList[];
+  idleSessionCount?: number;
+  obVersion?: string;
+  sessionStatistics?: DescribeProcessStatsCompositionResponseBodyDataSessionStatistics;
+  totalSessionCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activeSessionCount: 'ActiveSessionCount',
+      allProcessList: 'AllProcessList',
+      idleSessionCount: 'IdleSessionCount',
+      obVersion: 'ObVersion',
+      sessionStatistics: 'SessionStatistics',
+      totalSessionCount: 'TotalSessionCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeSessionCount: 'number',
+      allProcessList: { 'type': 'array', 'itemType': DescribeProcessStatsCompositionResponseBodyDataAllProcessList },
+      idleSessionCount: 'number',
+      obVersion: 'string',
+      sessionStatistics: DescribeProcessStatsCompositionResponseBodyDataSessionStatistics,
+      totalSessionCount: 'number',
     };
   }
 
@@ -18996,6 +19608,7 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
   rpcCount?: number;
   scheduleTime?: number;
   server?: string;
+  sqlText?: string;
   sqlType?: string;
   ssstoreReadRows?: number;
   statement?: string;
@@ -19050,6 +19663,7 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
       rpcCount: 'RpcCount',
       scheduleTime: 'ScheduleTime',
       server: 'Server',
+      sqlText: 'SqlText',
       sqlType: 'SqlType',
       ssstoreReadRows: 'SsstoreReadRows',
       statement: 'Statement',
@@ -19107,6 +19721,7 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
       rpcCount: 'number',
       scheduleTime: 'number',
       server: 'string',
+      sqlText: 'string',
       sqlType: 'string',
       ssstoreReadRows: 'number',
       statement: 'string',
@@ -19912,6 +20527,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
   enableReadOnlyReplica?: boolean;
   enableReadWriteSplit?: boolean;
   instanceType?: string;
+  lowerCaseTableNames?: Buffer;
   masterIntranetAddressZone?: string;
   maxParallelQueryDegree?: number;
   payType?: string;
@@ -19927,6 +20543,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
   tenantResource?: DescribeTenantResponseBodyTenantTenantResource;
   tenantZones?: DescribeTenantResponseBodyTenantTenantZones[];
   timeZone?: string;
+  version?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19947,6 +20564,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       enableReadOnlyReplica: 'EnableReadOnlyReplica',
       enableReadWriteSplit: 'EnableReadWriteSplit',
       instanceType: 'InstanceType',
+      lowerCaseTableNames: 'LowerCaseTableNames',
       masterIntranetAddressZone: 'MasterIntranetAddressZone',
       maxParallelQueryDegree: 'MaxParallelQueryDegree',
       payType: 'PayType',
@@ -19962,6 +20580,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       tenantResource: 'TenantResource',
       tenantZones: 'TenantZones',
       timeZone: 'TimeZone',
+      version: 'Version',
       vpcId: 'VpcId',
     };
   }
@@ -19985,6 +20604,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       enableReadOnlyReplica: 'boolean',
       enableReadWriteSplit: 'boolean',
       instanceType: 'string',
+      lowerCaseTableNames: 'Buffer',
       masterIntranetAddressZone: 'string',
       maxParallelQueryDegree: 'number',
       payType: 'string',
@@ -20000,6 +20620,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       tenantResource: DescribeTenantResponseBodyTenantTenantResource,
       tenantZones: { 'type': 'array', 'itemType': DescribeTenantResponseBodyTenantTenantZones },
       timeZone: 'string',
+      version: 'string',
       vpcId: 'string',
     };
   }
@@ -23858,6 +24479,151 @@ export class SwitchoverInstanceResponseBodyData extends $tea.Model {
   }
 }
 
+export class UpdateProjectConfigRequestFullTransferConfig extends $tea.Model {
+  readWorkerNum?: number;
+  throttleIOPS?: number;
+  throttleRps?: number;
+  writeWorkerNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      readWorkerNum: 'ReadWorkerNum',
+      throttleIOPS: 'ThrottleIOPS',
+      throttleRps: 'ThrottleRps',
+      writeWorkerNum: 'WriteWorkerNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      readWorkerNum: 'number',
+      throttleIOPS: 'number',
+      throttleRps: 'number',
+      writeWorkerNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectConfigRequestIncrTransferConfig extends $tea.Model {
+  incrSyncThreadCount?: number;
+  recordTypeWhiteList?: string[];
+  supportDDLTypes?: string[];
+  throttleIOPS?: number;
+  throttleRps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      incrSyncThreadCount: 'IncrSyncThreadCount',
+      recordTypeWhiteList: 'RecordTypeWhiteList',
+      supportDDLTypes: 'SupportDDLTypes',
+      throttleIOPS: 'ThrottleIOPS',
+      throttleRps: 'ThrottleRps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      incrSyncThreadCount: 'number',
+      recordTypeWhiteList: { 'type': 'array', 'itemType': 'string' },
+      supportDDLTypes: { 'type': 'array', 'itemType': 'string' },
+      throttleIOPS: 'number',
+      throttleRps: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectConfigRequestReverseIncrTransferConfig extends $tea.Model {
+  incrSyncThreadCount?: number;
+  recordTypeWhiteList?: string[];
+  supportDDLTypes?: string[];
+  throttleIOPS?: number;
+  throttleRps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      incrSyncThreadCount: 'IncrSyncThreadCount',
+      recordTypeWhiteList: 'RecordTypeWhiteList',
+      supportDDLTypes: 'SupportDDLTypes',
+      throttleIOPS: 'ThrottleIOPS',
+      throttleRps: 'ThrottleRps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      incrSyncThreadCount: 'number',
+      recordTypeWhiteList: { 'type': 'array', 'itemType': 'string' },
+      supportDDLTypes: { 'type': 'array', 'itemType': 'string' },
+      throttleIOPS: 'number',
+      throttleRps: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectConfigResponseBodyErrorDetail extends $tea.Model {
+  code?: string;
+  extraContext?: { [key: string]: any };
+  level?: string;
+  message?: string;
+  messageMcmsContext?: { [key: string]: string };
+  messageMcmsKey?: string;
+  proposal?: string;
+  proposalMcmsContext?: { [key: string]: string };
+  proposalMcmsKey?: string;
+  reason?: string;
+  reasonMcmsContext?: { [key: string]: string };
+  reasonMcmsKey?: string;
+  upstreamErrorDetail?: any;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extraContext: 'ExtraContext',
+      level: 'Level',
+      message: 'Message',
+      messageMcmsContext: 'MessageMcmsContext',
+      messageMcmsKey: 'MessageMcmsKey',
+      proposal: 'Proposal',
+      proposalMcmsContext: 'ProposalMcmsContext',
+      proposalMcmsKey: 'ProposalMcmsKey',
+      reason: 'Reason',
+      reasonMcmsContext: 'ReasonMcmsContext',
+      reasonMcmsKey: 'ReasonMcmsKey',
+      upstreamErrorDetail: 'UpstreamErrorDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extraContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      level: 'string',
+      message: 'string',
+      messageMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      messageMcmsKey: 'string',
+      proposal: 'string',
+      proposalMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      proposalMcmsKey: 'string',
+      reason: 'string',
+      reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      reasonMcmsKey: 'string',
+      upstreamErrorDetail: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -23881,6 +24647,63 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary BatchKillProcessList
+   *
+   * @param request BatchKillProcessListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchKillProcessListResponse
+   */
+  async batchKillProcessListWithOptions(request: BatchKillProcessListRequest, runtime: $Util.RuntimeOptions): Promise<BatchKillProcessListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.sessionList)) {
+      body["SessionList"] = request.sessionList;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchKillProcessList",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchKillProcessListResponse>(await this.callApi(params, req, runtime), new BatchKillProcessListResponse({}));
+  }
+
+  /**
+   * @summary BatchKillProcessList
+   *
+   * @param request BatchKillProcessListRequest
+   * @return BatchKillProcessListResponse
+   */
+  async batchKillProcessList(request: BatchKillProcessListRequest): Promise<BatchKillProcessListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchKillProcessListWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 根据记录id取消修改操作 （仅支持处于 PENDING 状态的修改记录）
+   *
+   * @param request CancelProjectModifyRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelProjectModifyRecordResponse
+   */
   async cancelProjectModifyRecordWithOptions(request: CancelProjectModifyRecordRequest, runtime: $Util.RuntimeOptions): Promise<CancelProjectModifyRecordResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23905,11 +24728,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelProjectModifyRecordResponse>(await this.callApi(params, req, runtime), new CancelProjectModifyRecordResponse({}));
   }
 
+  /**
+   * @summary 根据记录id取消修改操作 （仅支持处于 PENDING 状态的修改记录）
+   *
+   * @param request CancelProjectModifyRecordRequest
+   * @return CancelProjectModifyRecordResponse
+   */
   async cancelProjectModifyRecord(request: CancelProjectModifyRecordRequest): Promise<CancelProjectModifyRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelProjectModifyRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建备份任务下载链接
+   *
+   * @param request CreateBackupSetDownloadLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBackupSetDownloadLinkResponse
+   */
   async createBackupSetDownloadLinkWithOptions(request: CreateBackupSetDownloadLinkRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupSetDownloadLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23938,11 +24774,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBackupSetDownloadLinkResponse>(await this.callApi(params, req, runtime), new CreateBackupSetDownloadLinkResponse({}));
   }
 
+  /**
+   * @summary 创建备份任务下载链接
+   *
+   * @param request CreateBackupSetDownloadLinkRequest
+   * @return CreateBackupSetDownloadLinkResponse
+   */
   async createBackupSetDownloadLink(request: CreateBackupSetDownloadLinkRequest): Promise<CreateBackupSetDownloadLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackupSetDownloadLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The request ID.
+   *
+   * @param request CreateDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDatabaseResponse
+   */
   async createDatabaseWithOptions(request: CreateDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatabaseResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23991,11 +24840,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatabaseResponse>(await this.callApi(params, req, runtime), new CreateDatabaseResponse({}));
   }
 
+  /**
+   * @summary The request ID.
+   *
+   * @param request CreateDatabaseRequest
+   * @return CreateDatabaseResponse
+   */
   async createDatabase(request: CreateDatabaseRequest): Promise<CreateDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to create an OceanBase cluster.
+   *
+   * @param request CreateInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
+   */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24009,6 +24871,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.chargeType)) {
       body["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.cpuArch)) {
+      body["CpuArch"] = request.cpuArch;
     }
 
     if (!Util.isUnset(request.diskSize)) {
@@ -24088,11 +24954,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to create an OceanBase cluster.
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
+   */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建标签
+   *
+   * @param request CreateLabelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLabelResponse
+   */
   async createLabelWithOptions(request: CreateLabelRequest, runtime: $Util.RuntimeOptions): Promise<CreateLabelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24117,11 +24996,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLabelResponse>(await this.callApi(params, req, runtime), new CreateLabelResponse({}));
   }
 
+  /**
+   * @summary 创建标签
+   *
+   * @param request CreateLabelRequest
+   * @return CreateLabelResponse
+   */
   async createLabel(request: CreateLabelRequest): Promise<CreateLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLabelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建 MySQL 数据源
+   *
+   * @param request CreateMySqlDataSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMySqlDataSourceResponse
+   */
   async createMySqlDataSourceWithOptions(request: CreateMySqlDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateMySqlDataSourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24186,11 +25078,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMySqlDataSourceResponse>(await this.callApi(params, req, runtime), new CreateMySqlDataSourceResponse({}));
   }
 
+  /**
+   * @summary 创建 MySQL 数据源
+   *
+   * @param request CreateMySqlDataSourceRequest
+   * @return CreateMySqlDataSourceResponse
+   */
   async createMySqlDataSource(request: CreateMySqlDataSourceRequest): Promise<CreateMySqlDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMySqlDataSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建 OceanBase 数据源
+   *
+   * @param request CreateOceanBaseDataSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOceanBaseDataSourceResponse
+   */
   async createOceanBaseDataSourceWithOptions(request: CreateOceanBaseDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateOceanBaseDataSourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24275,17 +25180,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOceanBaseDataSourceResponse>(await this.callApi(params, req, runtime), new CreateOceanBaseDataSourceResponse({}));
   }
 
+  /**
+   * @summary 创建 OceanBase 数据源
+   *
+   * @param request CreateOceanBaseDataSourceRequest
+   * @return CreateOceanBaseDataSourceResponse
+   */
   async createOceanBaseDataSource(request: CreateOceanBaseDataSourceRequest): Promise<CreateOceanBaseDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOceanBaseDataSourceWithOptions(request, runtime);
   }
 
   /**
-    * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
-    *
-    * @param request CreateOmsMysqlDataSourceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateOmsMysqlDataSourceResponse
+   * @summary You can call this operation to create a MySQL data source.
+   *
+   * @description To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
+   *
+   * @param request CreateOmsMysqlDataSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOmsMysqlDataSourceResponse
    */
   async createOmsMysqlDataSourceWithOptions(request: CreateOmsMysqlDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateOmsMysqlDataSourceResponse> {
     Util.validateModel(request);
@@ -24352,16 +25265,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
-    *
-    * @param request CreateOmsMysqlDataSourceRequest
-    * @return CreateOmsMysqlDataSourceResponse
+   * @summary You can call this operation to create a MySQL data source.
+   *
+   * @description To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
+   *
+   * @param request CreateOmsMysqlDataSourceRequest
+   * @return CreateOmsMysqlDataSourceResponse
    */
   async createOmsMysqlDataSource(request: CreateOmsMysqlDataSourceRequest): Promise<CreateOmsMysqlDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOmsMysqlDataSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建项目
+   *
+   * @param tmpReq CreateProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProjectResponse
+   */
   async createProjectWithOptions(tmpReq: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateProjectShrinkRequest({ });
@@ -24492,11 +25414,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
   }
 
+  /**
+   * @summary 创建项目
+   *
+   * @param request CreateProjectRequest
+   * @return CreateProjectResponse
+   */
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改传输对象（加减表）(仅支持处于 RUNNING/FAILED/SUSPEND 状态的项目)
+   *
+   * @param tmpReq CreateProjectModifyRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProjectModifyRecordsResponse
+   */
   async createProjectModifyRecordsWithOptions(tmpReq: CreateProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectModifyRecordsResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateProjectModifyRecordsShrinkRequest({ });
@@ -24531,11 +25466,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProjectModifyRecordsResponse>(await this.callApi(params, req, runtime), new CreateProjectModifyRecordsResponse({}));
   }
 
+  /**
+   * @summary 修改传输对象（加减表）(仅支持处于 RUNNING/FAILED/SUSPEND 状态的项目)
+   *
+   * @param request CreateProjectModifyRecordsRequest
+   * @return CreateProjectModifyRecordsResponse
+   */
   async createProjectModifyRecords(request: CreateProjectModifyRecordsRequest): Promise<CreateProjectModifyRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProjectModifyRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建RDS PG 数据源
+   *
+   * @param request CreateRdsPostgreSQLDataSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRdsPostgreSQLDataSourceResponse
+   */
   async createRdsPostgreSQLDataSourceWithOptions(request: CreateRdsPostgreSQLDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateRdsPostgreSQLDataSourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24580,11 +25528,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRdsPostgreSQLDataSourceResponse>(await this.callApi(params, req, runtime), new CreateRdsPostgreSQLDataSourceResponse({}));
   }
 
+  /**
+   * @summary 创建RDS PG 数据源
+   *
+   * @param request CreateRdsPostgreSQLDataSourceRequest
+   * @return CreateRdsPostgreSQLDataSourceResponse
+   */
   async createRdsPostgreSQLDataSource(request: CreateRdsPostgreSQLDataSourceRequest): Promise<CreateRdsPostgreSQLDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRdsPostgreSQLDataSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The name of the whitelist group.
+   *
+   * @param request CreateSecurityIpGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSecurityIpGroupResponse
+   */
   async createSecurityIpGroupWithOptions(request: CreateSecurityIpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecurityIpGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24617,13 +25578,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSecurityIpGroupResponse>(await this.callApi(params, req, runtime), new CreateSecurityIpGroupResponse({}));
   }
 
+  /**
+   * @summary The name of the whitelist group.
+   *
+   * @param request CreateSecurityIpGroupRequest
+   * @return CreateSecurityIpGroupResponse
+   */
   async createSecurityIpGroup(request: CreateSecurityIpGroupRequest): Promise<CreateSecurityIpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSecurityIpGroupWithOptions(request, runtime);
   }
 
-  async createTenantWithOptions(request: CreateTenantRequest, runtime: $Util.RuntimeOptions): Promise<CreateTenantResponse> {
-    Util.validateModel(request);
+  /**
+   * @summary You can call this operation to create a tenant.
+   *
+   * @param tmpReq CreateTenantRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTenantResponse
+   */
+  async createTenantWithOptions(tmpReq: CreateTenantRequest, runtime: $Util.RuntimeOptions): Promise<CreateTenantResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateTenantShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.createParams)) {
+      request.createParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createParams, "CreateParams", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.charset)) {
       body["Charset"] = request.charset;
@@ -24631,6 +25611,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.cpu)) {
       body["Cpu"] = request.cpu;
+    }
+
+    if (!Util.isUnset(request.createParamsShrink)) {
+      body["CreateParams"] = request.createParamsShrink;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -24681,6 +25665,10 @@ export default class Client extends OpenApi {
       body["UserVpcId"] = request.userVpcId;
     }
 
+    if (!Util.isUnset(request.userVpcOwnerId)) {
+      body["UserVpcOwnerId"] = request.userVpcOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -24698,11 +25686,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTenantResponse>(await this.callApi(params, req, runtime), new CreateTenantResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to create a tenant.
+   *
+   * @param request CreateTenantRequest
+   * @return CreateTenantResponse
+   */
   async createTenant(request: CreateTenantRequest): Promise<CreateTenantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTenantWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The request ID.
+   *
+   * @param request CreateTenantReadOnlyConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTenantReadOnlyConnectionResponse
+   */
   async createTenantReadOnlyConnectionWithOptions(request: CreateTenantReadOnlyConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateTenantReadOnlyConnectionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24743,11 +25744,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTenantReadOnlyConnectionResponse>(await this.callApi(params, req, runtime), new CreateTenantReadOnlyConnectionResponse({}));
   }
 
+  /**
+   * @summary The request ID.
+   *
+   * @param request CreateTenantReadOnlyConnectionRequest
+   * @return CreateTenantReadOnlyConnectionResponse
+   */
   async createTenantReadOnlyConnection(request: CreateTenantReadOnlyConnectionRequest): Promise<CreateTenantReadOnlyConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTenantReadOnlyConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to create the security whitelist for the tenant.
+   *
+   * @param request CreateTenantSecurityIpGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTenantSecurityIpGroupResponse
+   */
   async createTenantSecurityIpGroupWithOptions(request: CreateTenantSecurityIpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateTenantSecurityIpGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24784,11 +25798,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTenantSecurityIpGroupResponse>(await this.callApi(params, req, runtime), new CreateTenantSecurityIpGroupResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to create the security whitelist for the tenant.
+   *
+   * @param request CreateTenantSecurityIpGroupRequest
+   * @return CreateTenantSecurityIpGroupResponse
+   */
   async createTenantSecurityIpGroup(request: CreateTenantSecurityIpGroupRequest): Promise<CreateTenantSecurityIpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTenantSecurityIpGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary CreateTenantUser
+   *
+   * @param request CreateTenantUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTenantUserResponse
+   */
   async createTenantUserWithOptions(request: CreateTenantUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateTenantUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24841,11 +25868,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTenantUserResponse>(await this.callApi(params, req, runtime), new CreateTenantUserResponse({}));
   }
 
+  /**
+   * @summary CreateTenantUser
+   *
+   * @param request CreateTenantUserRequest
+   * @return CreateTenantUserResponse
+   */
   async createTenantUser(request: CreateTenantUserRequest): Promise<CreateTenantUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTenantUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除数据源
+   *
+   * @param request DeleteDataSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataSourceResponse
+   */
   async deleteDataSourceWithOptions(request: DeleteDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24870,11 +25910,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceResponse({}));
   }
 
+  /**
+   * @summary 删除数据源
+   *
+   * @param request DeleteDataSourceRequest
+   * @return DeleteDataSourceResponse
+   */
   async deleteDataSource(request: DeleteDataSourceRequest): Promise<DeleteDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The request ID.
+   *
+   * @param request DeleteDatabasesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDatabasesResponse
+   */
   async deleteDatabasesWithOptions(request: DeleteDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabasesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24907,19 +25960,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatabasesResponse>(await this.callApi(params, req, runtime), new DeleteDatabasesResponse({}));
   }
 
+  /**
+   * @summary The request ID.
+   *
+   * @param request DeleteDatabasesRequest
+   * @return DeleteDatabasesResponse
+   */
   async deleteDatabases(request: DeleteDatabasesRequest): Promise<DeleteDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDatabasesWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, ensure that the following requirements are met:
-    * - The cluster is in the Running state.
-    * - The cluster is a primary cluster and the billing method is pay-as-you-go.
-    *
-    * @param request DeleteInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteInstancesResponse
+   * @summary You can call this operation to release an OceanBase cluster.
+   *
+   * @description Before you call this operation, ensure that the following requirements are met:
+   * - The cluster is in the Running state.
+   * - The cluster is a primary cluster and the billing method is pay-as-you-go.
+   *
+   * @param request DeleteInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstancesResponse
    */
   async deleteInstancesWithOptions(request: DeleteInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstancesResponse> {
     Util.validateModel(request);
@@ -24954,18 +26015,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, ensure that the following requirements are met:
-    * - The cluster is in the Running state.
-    * - The cluster is a primary cluster and the billing method is pay-as-you-go.
-    *
-    * @param request DeleteInstancesRequest
-    * @return DeleteInstancesResponse
+   * @summary You can call this operation to release an OceanBase cluster.
+   *
+   * @description Before you call this operation, ensure that the following requirements are met:
+   * - The cluster is in the Running state.
+   * - The cluster is a primary cluster and the billing method is pay-as-you-go.
+   *
+   * @param request DeleteInstancesRequest
+   * @return DeleteInstancesResponse
    */
   async deleteInstances(request: DeleteInstancesRequest): Promise<DeleteInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除项目
+   *
+   * @param request DeleteProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteProjectResponse
+   */
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24990,11 +26060,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
   }
 
+  /**
+   * @summary 删除项目
+   *
+   * @param request DeleteProjectRequest
+   * @return DeleteProjectResponse
+   */
   async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The name of the deleted IP address whitelist group.
+   *
+   * @param request DeleteSecurityIpGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSecurityIpGroupResponse
+   */
   async deleteSecurityIpGroupWithOptions(request: DeleteSecurityIpGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecurityIpGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25023,11 +26106,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSecurityIpGroupResponse>(await this.callApi(params, req, runtime), new DeleteSecurityIpGroupResponse({}));
   }
 
+  /**
+   * @summary The name of the deleted IP address whitelist group.
+   *
+   * @param request DeleteSecurityIpGroupRequest
+   * @return DeleteSecurityIpGroupResponse
+   */
   async deleteSecurityIpGroup(request: DeleteSecurityIpGroupRequest): Promise<DeleteSecurityIpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSecurityIpGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to delete the information on the whitelist group of the tenant.
+   *
+   * @param request DeleteTenantSecurityIpGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTenantSecurityIpGroupResponse
+   */
   async deleteTenantSecurityIpGroupWithOptions(request: DeleteTenantSecurityIpGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTenantSecurityIpGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25060,11 +26156,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTenantSecurityIpGroupResponse>(await this.callApi(params, req, runtime), new DeleteTenantSecurityIpGroupResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to delete the information on the whitelist group of the tenant.
+   *
+   * @param request DeleteTenantSecurityIpGroupRequest
+   * @return DeleteTenantSecurityIpGroupResponse
+   */
   async deleteTenantSecurityIpGroup(request: DeleteTenantSecurityIpGroupRequest): Promise<DeleteTenantSecurityIpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTenantSecurityIpGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to delete one or more database accounts.
+   *
+   * @param request DeleteTenantUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTenantUsersResponse
+   */
   async deleteTenantUsersWithOptions(request: DeleteTenantUsersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTenantUsersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25097,11 +26206,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTenantUsersResponse>(await this.callApi(params, req, runtime), new DeleteTenantUsersResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to delete one or more database accounts.
+   *
+   * @param request DeleteTenantUsersRequest
+   * @return DeleteTenantUsersResponse
+   */
   async deleteTenantUsers(request: DeleteTenantUsersRequest): Promise<DeleteTenantUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTenantUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The return result of the request.
+   *
+   * @param request DeleteTenantsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTenantsResponse
+   */
   async deleteTenantsWithOptions(request: DeleteTenantsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTenantsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25130,11 +26252,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTenantsResponse>(await this.callApi(params, req, runtime), new DeleteTenantsResponse({}));
   }
 
+  /**
+   * @summary The return result of the request.
+   *
+   * @param request DeleteTenantsRequest
+   * @return DeleteTenantsResponse
+   */
   async deleteTenants(request: DeleteTenantsRequest): Promise<DeleteTenantsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTenantsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to obtain the list of SQL statements that may have performance problems according to the diagnostic system.
+   *
+   * @param tmpReq DescribeAnomalySQLListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAnomalySQLListResponse
+   */
   async describeAnomalySQLListWithOptions(tmpReq: DescribeAnomalySQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAnomalySQLListResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeAnomalySQLListShrinkRequest({ });
@@ -25229,11 +26364,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAnomalySQLListResponse>(await this.callApi(params, req, runtime), new DescribeAnomalySQLListResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to obtain the list of SQL statements that may have performance problems according to the diagnostic system.
+   *
+   * @param request DescribeAnomalySQLListRequest
+   * @return DescribeAnomalySQLListResponse
+   */
   async describeAnomalySQLList(request: DescribeAnomalySQLListRequest): Promise<DescribeAnomalySQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAnomalySQLListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The maximum number of CPU cores per resource unit.
+   *
+   * @param request DescribeAvailableCpuResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableCpuResourceResponse
+   */
   async describeAvailableCpuResourceWithOptions(request: DescribeAvailableCpuResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableCpuResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25266,11 +26414,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableCpuResourceResponse>(await this.callApi(params, req, runtime), new DescribeAvailableCpuResourceResponse({}));
   }
 
+  /**
+   * @summary The maximum number of CPU cores per resource unit.
+   *
+   * @param request DescribeAvailableCpuResourceRequest
+   * @return DescribeAvailableCpuResourceResponse
+   */
   async describeAvailableCpuResource(request: DescribeAvailableCpuResourceRequest): Promise<DescribeAvailableCpuResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableCpuResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the available memory resource of an OceanBase Database tenant.
+   *
+   * @param request DescribeAvailableMemResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableMemResourceResponse
+   */
   async describeAvailableMemResourceWithOptions(request: DescribeAvailableMemResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableMemResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25307,11 +26468,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableMemResourceResponse>(await this.callApi(params, req, runtime), new DescribeAvailableMemResourceResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the available memory resource of an OceanBase Database tenant.
+   *
+   * @param request DescribeAvailableMemResourceRequest
+   * @return DescribeAvailableMemResourceResponse
+   */
   async describeAvailableMemResource(request: DescribeAvailableMemResourceRequest): Promise<DescribeAvailableMemResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableMemResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取集群变配页可选配置
+   *
+   * @param request DescribeAvailableSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableSpecResponse
+   */
   async describeAvailableSpecWithOptions(request: DescribeAvailableSpecRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableSpecResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25344,14 +26518,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableSpecResponse>(await this.callApi(params, req, runtime), new DescribeAvailableSpecResponse({}));
   }
 
+  /**
+   * @summary 获取集群变配页可选配置
+   *
+   * @param request DescribeAvailableSpecRequest
+   * @return DescribeAvailableSpecResponse
+   */
   async describeAvailableSpec(request: DescribeAvailableSpecRequest): Promise<DescribeAvailableSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableSpecWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取集群售卖页可选配置
+   *
+   * @param request DescribeAvailableZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableZoneResponse
+   */
   async describeAvailableZoneWithOptions(request: DescribeAvailableZoneRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableZoneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cpuArch)) {
+      body["CpuArch"] = request.cpuArch;
+    }
+
     if (!Util.isUnset(request.deployType)) {
       body["DeployType"] = request.deployType;
     }
@@ -25389,11 +26580,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableZoneResponse>(await this.callApi(params, req, runtime), new DescribeAvailableZoneResponse({}));
   }
 
+  /**
+   * @summary 获取集群售卖页可选配置
+   *
+   * @param request DescribeAvailableZoneRequest
+   * @return DescribeAvailableZoneResponse
+   */
   async describeAvailableZone(request: DescribeAvailableZoneRequest): Promise<DescribeAvailableZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableZoneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the link for downloading a backup set of OceanBase Database.
+   *
+   * @param request DescribeBackupSetDownloadLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupSetDownloadLinkResponse
+   */
   async describeBackupSetDownloadLinkWithOptions(request: DescribeBackupSetDownloadLinkRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSetDownloadLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25422,11 +26626,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupSetDownloadLinkResponse>(await this.callApi(params, req, runtime), new DescribeBackupSetDownloadLinkResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the link for downloading a backup set of OceanBase Database.
+   *
+   * @param request DescribeBackupSetDownloadLinkRequest
+   * @return DescribeBackupSetDownloadLinkResponse
+   */
   async describeBackupSetDownloadLink(request: DescribeBackupSetDownloadLinkRequest): Promise<DescribeBackupSetDownloadLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupSetDownloadLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the character sets of an OceanBase Database tenant.
+   *
+   * @param request DescribeCharsetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCharsetResponse
+   */
   async describeCharsetWithOptions(request: DescribeCharsetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCharsetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25459,11 +26676,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCharsetResponse>(await this.callApi(params, req, runtime), new DescribeCharsetResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the character sets of an OceanBase Database tenant.
+   *
+   * @param request DescribeCharsetRequest
+   * @return DescribeCharsetResponse
+   */
   async describeCharset(request: DescribeCharsetRequest): Promise<DescribeCharsetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCharsetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询备份集信息
+   *
+   * @param request DescribeDataBackupSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataBackupSetResponse
+   */
   async describeDataBackupSetWithOptions(request: DescribeDataBackupSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataBackupSetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25512,11 +26742,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataBackupSetResponse>(await this.callApi(params, req, runtime), new DescribeDataBackupSetResponse({}));
   }
 
+  /**
+   * @summary 查询备份集信息
+   *
+   * @param request DescribeDataBackupSetRequest
+   * @return DescribeDataBackupSetResponse
+   */
   async describeDataBackupSet(request: DescribeDataBackupSetRequest): Promise<DescribeDataBackupSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataBackupSetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query databases in a tenant.
+   *
+   * @param request DescribeDatabasesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDatabasesResponse
+   */
   async describeDatabasesWithOptions(request: DescribeDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatabasesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25565,11 +26808,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDatabasesResponse>(await this.callApi(params, req, runtime), new DescribeDatabasesResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query databases in a tenant.
+   *
+   * @param request DescribeDatabasesRequest
+   * @return DescribeDatabasesResponse
+   */
   async describeDatabases(request: DescribeDatabasesRequest): Promise<DescribeDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDatabasesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The size of used memory in the cluster, in GB.
+   *
+   * @param request DescribeInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceResponse
+   */
   async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25598,11 +26854,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
   }
 
+  /**
+   * @summary The size of used memory in the cluster, in GB.
+   *
+   * @param request DescribeInstanceRequest
+   * @return DescribeInstanceResponse
+   */
   async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the zone.
+   *
+   * @param request DescribeInstanceCreatableZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceCreatableZoneResponse
+   */
   async describeInstanceCreatableZoneWithOptions(request: DescribeInstanceCreatableZoneRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceCreatableZoneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25627,11 +26896,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceCreatableZoneResponse>(await this.callApi(params, req, runtime), new DescribeInstanceCreatableZoneResponse({}));
   }
 
+  /**
+   * @summary The ID of the zone.
+   *
+   * @param request DescribeInstanceCreatableZoneRequest
+   * @return DescribeInstanceCreatableZoneResponse
+   */
   async describeInstanceCreatableZone(request: DescribeInstanceCreatableZoneRequest): Promise<DescribeInstanceCreatableZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceCreatableZoneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询集群SSL配置
+   *
+   * @param request DescribeInstanceSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceSSLResponse
+   */
   async describeInstanceSSLWithOptions(request: DescribeInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSSLResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25656,11 +26938,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceSSLResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSSLResponse({}));
   }
 
+  /**
+   * @summary 查询集群SSL配置
+   *
+   * @param request DescribeInstanceSSLRequest
+   * @return DescribeInstanceSSLResponse
+   */
   async describeInstanceSSL(request: DescribeInstanceSSLRequest): Promise<DescribeInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query security check items of an OceanBase cluster.
+   *
+   * @param request DescribeInstanceSecurityConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceSecurityConfigsResponse
+   */
   async describeInstanceSecurityConfigsWithOptions(request: DescribeInstanceSecurityConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSecurityConfigsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25689,11 +26984,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceSecurityConfigsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSecurityConfigsResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query security check items of an OceanBase cluster.
+   *
+   * @param request DescribeInstanceSecurityConfigsRequest
+   * @return DescribeInstanceSecurityConfigsResponse
+   */
   async describeInstanceSecurityConfigs(request: DescribeInstanceSecurityConfigsRequest): Promise<DescribeInstanceSecurityConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceSecurityConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The tag of the resource.
+   *
+   * @param request DescribeInstanceTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceTagsResponse
+   */
   async describeInstanceTagsWithOptions(request: DescribeInstanceTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTagsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25722,11 +27030,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceTagsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTagsResponse({}));
   }
 
+  /**
+   * @summary The tag of the resource.
+   *
+   * @param request DescribeInstanceTagsRequest
+   * @return DescribeInstanceTagsResponse
+   */
   async describeInstanceTags(request: DescribeInstanceTagsRequest): Promise<DescribeInstanceTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The return result of the request.
+   *
+   * @param request DescribeInstanceTenantModesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceTenantModesResponse
+   */
   async describeInstanceTenantModesWithOptions(request: DescribeInstanceTenantModesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTenantModesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25751,11 +27072,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceTenantModesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTenantModesResponse({}));
   }
 
+  /**
+   * @summary The return result of the request.
+   *
+   * @param request DescribeInstanceTenantModesRequest
+   * @return DescribeInstanceTenantModesResponse
+   */
   async describeInstanceTenantModes(request: DescribeInstanceTenantModesRequest): Promise<DescribeInstanceTenantModesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTenantModesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the zone.
+   *
+   * @param request DescribeInstanceTopologyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceTopologyResponse
+   */
   async describeInstanceTopologyWithOptions(request: DescribeInstanceTopologyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTopologyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25780,11 +27114,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceTopologyResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTopologyResponse({}));
   }
 
+  /**
+   * @summary The ID of the zone.
+   *
+   * @param request DescribeInstanceTopologyRequest
+   * @return DescribeInstanceTopologyResponse
+   */
   async describeInstanceTopology(request: DescribeInstanceTopologyRequest): Promise<DescribeInstanceTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTopologyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to obtain the list of OceanBase clusters.
+   *
+   * @param request DescribeInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstancesResponse
+   */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25829,11 +27176,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to obtain the list of OceanBase clusters.
+   *
+   * @param request DescribeInstancesRequest
+   * @return DescribeInstancesResponse
+   */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询监控指标数据
+   *
+   * @param request DescribeMetricsDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMetricsDataResponse
+   */
   async describeMetricsDataWithOptions(request: DescribeMetricsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMetricsDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25896,11 +27256,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMetricsDataResponse>(await this.callApi(params, req, runtime), new DescribeMetricsDataResponse({}));
   }
 
+  /**
+   * @summary 查询监控指标数据
+   *
+   * @param request DescribeMetricsDataRequest
+   * @return DescribeMetricsDataResponse
+   */
   async describeMetricsData(request: DescribeMetricsDataRequest): Promise<DescribeMetricsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMetricsDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The list of nodes.
+   *
+   * @param request DescribeNodeMetricsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNodeMetricsResponse
+   */
   async describeNodeMetricsWithOptions(request: DescribeNodeMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNodeMetricsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25957,11 +27330,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNodeMetricsResponse>(await this.callApi(params, req, runtime), new DescribeNodeMetricsResponse({}));
   }
 
+  /**
+   * @summary The list of nodes.
+   *
+   * @param request DescribeNodeMetricsRequest
+   * @return DescribeNodeMetricsResponse
+   */
   async describeNodeMetrics(request: DescribeNodeMetricsRequest): Promise<DescribeNodeMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNodeMetricsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this API to view the list of SQL statements that are identified as having performance issues by the diagnostic system.
+   *
+   * @param request DescribeOasAnomalySQLListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOasAnomalySQLListResponse
+   */
   async describeOasAnomalySQLListWithOptions(request: DescribeOasAnomalySQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasAnomalySQLListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26054,11 +27440,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOasAnomalySQLListResponse>(await this.callApi(params, req, runtime), new DescribeOasAnomalySQLListResponse({}));
   }
 
+  /**
+   * @summary You can call this API to view the list of SQL statements that are identified as having performance issues by the diagnostic system.
+   *
+   * @param request DescribeOasAnomalySQLListRequest
+   * @return DescribeOasAnomalySQLListResponse
+   */
   async describeOasAnomalySQLList(request: DescribeOasAnomalySQLListRequest): Promise<DescribeOasAnomalySQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOasAnomalySQLListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this API to query detailed information about the SQL, including the SQL text, related table names, and so on.
+   *
+   * @param request DescribeOasSQLDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOasSQLDetailsResponse
+   */
   async describeOasSQLDetailsWithOptions(request: DescribeOasSQLDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasSQLDetailsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26107,11 +27506,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOasSQLDetailsResponse>(await this.callApi(params, req, runtime), new DescribeOasSQLDetailsResponse({}));
   }
 
+  /**
+   * @summary You can call this API to query detailed information about the SQL, including the SQL text, related table names, and so on.
+   *
+   * @param request DescribeOasSQLDetailsRequest
+   * @return DescribeOasSQLDetailsResponse
+   */
   async describeOasSQLDetails(request: DescribeOasSQLDetailsRequest): Promise<DescribeOasSQLDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOasSQLDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this API to view the SQL execution history.
+   *
+   * @param request DescribeOasSQLHistoryListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOasSQLHistoryListResponse
+   */
   async describeOasSQLHistoryListWithOptions(request: DescribeOasSQLHistoryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasSQLHistoryListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26168,11 +27580,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOasSQLHistoryListResponse>(await this.callApi(params, req, runtime), new DescribeOasSQLHistoryListResponse({}));
   }
 
+  /**
+   * @summary You can call this API to view the SQL execution history.
+   *
+   * @param request DescribeOasSQLHistoryListRequest
+   * @return DescribeOasSQLHistoryListResponse
+   */
   async describeOasSQLHistoryList(request: DescribeOasSQLHistoryListRequest): Promise<DescribeOasSQLHistoryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOasSQLHistoryListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this API to retrieve information about the SQL execution plan stored in the diagnostic system based on the SQL ID.
+   *
+   * @param request DescribeOasSQLPlansRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOasSQLPlansResponse
+   */
   async describeOasSQLPlansWithOptions(request: DescribeOasSQLPlansRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasSQLPlansResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26194,6 +27619,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.planUnionHash)) {
+      body["PlanUnionHash"] = request.planUnionHash;
+    }
+
+    if (!Util.isUnset(request.returnBriefInfo)) {
+      body["ReturnBriefInfo"] = request.returnBriefInfo;
     }
 
     if (!Util.isUnset(request.sqlId)) {
@@ -26225,11 +27658,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOasSQLPlansResponse>(await this.callApi(params, req, runtime), new DescribeOasSQLPlansResponse({}));
   }
 
+  /**
+   * @summary You can call this API to retrieve information about the SQL execution plan stored in the diagnostic system based on the SQL ID.
+   *
+   * @param request DescribeOasSQLPlansRequest
+   * @return DescribeOasSQLPlansResponse
+   */
   async describeOasSQLPlans(request: DescribeOasSQLPlansRequest): Promise<DescribeOasSQLPlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOasSQLPlansWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this API to view a list of slow queries.
+   *
+   * @param request DescribeOasSlowSQLListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOasSlowSQLListResponse
+   */
   async describeOasSlowSQLListWithOptions(request: DescribeOasSlowSQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasSlowSQLListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26314,11 +27760,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOasSlowSQLListResponse>(await this.callApi(params, req, runtime), new DescribeOasSlowSQLListResponse({}));
   }
 
+  /**
+   * @summary You can call this API to view a list of slow queries.
+   *
+   * @param request DescribeOasSlowSQLListRequest
+   * @return DescribeOasSlowSQLListResponse
+   */
   async describeOasSlowSQLList(request: DescribeOasSlowSQLListRequest): Promise<DescribeOasSlowSQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOasSlowSQLListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this API to retrieve the list of data on the SQL execution performance collected by the diagnostic system.
+   *
+   * @param request DescribeOasTopSQLListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOasTopSQLListResponse
+   */
   async describeOasTopSQLListWithOptions(request: DescribeOasTopSQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasTopSQLListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26403,11 +27862,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOasTopSQLListResponse>(await this.callApi(params, req, runtime), new DescribeOasTopSQLListResponse({}));
   }
 
+  /**
+   * @summary You can call this API to retrieve the list of data on the SQL execution performance collected by the diagnostic system.
+   *
+   * @param request DescribeOasTopSQLListRequest
+   * @return DescribeOasTopSQLListResponse
+   */
   async describeOasTopSQLList(request: DescribeOasTopSQLListRequest): Promise<DescribeOasTopSQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOasTopSQLListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the outline binding information or throttling information of an SQL statement in the database based on an SQLID.
+   *
+   * @param request DescribeOutlineBindingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOutlineBindingResponse
+   */
   async describeOutlineBindingWithOptions(request: DescribeOutlineBindingRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOutlineBindingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26452,11 +27924,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOutlineBindingResponse>(await this.callApi(params, req, runtime), new DescribeOutlineBindingResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the outline binding information or throttling information of an SQL statement in the database based on an SQLID.
+   *
+   * @param request DescribeOutlineBindingRequest
+   * @return DescribeOutlineBindingResponse
+   */
   async describeOutlineBinding(request: DescribeOutlineBindingRequest): Promise<DescribeOutlineBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOutlineBindingWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Indicates whether a restart is required for changes to the parameter to take effect. Valid values: - true: A restart is required. - false: A restart is not required.
+   *
+   * @param request DescribeParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParametersResponse
+   */
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26489,11 +27974,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParametersResponse>(await this.callApi(params, req, runtime), new DescribeParametersResponse({}));
   }
 
+  /**
+   * @summary Indicates whether a restart is required for changes to the parameter to take effect. Valid values: - true: A restart is required. - false: A restart is not required.
+   *
+   * @param request DescribeParametersRequest
+   * @return DescribeParametersResponse
+   */
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the modification history of cluster or tenant parameters.
+   *
+   * @param request DescribeParametersHistoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParametersHistoryResponse
+   */
   async describeParametersHistoryWithOptions(request: DescribeParametersHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersHistoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26542,11 +28040,94 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParametersHistoryResponse>(await this.callApi(params, req, runtime), new DescribeParametersHistoryResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the modification history of cluster or tenant parameters.
+   *
+   * @param request DescribeParametersHistoryRequest
+   * @return DescribeParametersHistoryResponse
+   */
   async describeParametersHistory(request: DescribeParametersHistoryRequest): Promise<DescribeParametersHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParametersHistoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary DescribeProcessStatsComposition
+   *
+   * @param request DescribeProcessStatsCompositionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProcessStatsCompositionResponse
+   */
+  async describeProcessStatsCompositionWithOptions(request: DescribeProcessStatsCompositionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProcessStatsCompositionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientIp)) {
+      body["ClientIp"] = request.clientIp;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.serverIp)) {
+      body["ServerIp"] = request.serverIp;
+    }
+
+    if (!Util.isUnset(request.sqlText)) {
+      body["SqlText"] = request.sqlText;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.UId)) {
+      body["UId"] = request.UId;
+    }
+
+    if (!Util.isUnset(request.users)) {
+      body["Users"] = request.users;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProcessStatsComposition",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProcessStatsCompositionResponse>(await this.callApi(params, req, runtime), new DescribeProcessStatsCompositionResponse({}));
+  }
+
+  /**
+   * @summary DescribeProcessStatsComposition
+   *
+   * @param request DescribeProcessStatsCompositionRequest
+   * @return DescribeProcessStatsCompositionResponse
+   */
+  async describeProcessStatsComposition(request: DescribeProcessStatsCompositionRequest): Promise<DescribeProcessStatsCompositionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProcessStatsCompositionWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询项目详情
+   *
+   * @param request DescribeProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProjectResponse
+   */
   async describeProjectWithOptions(request: DescribeProjectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26571,11 +28152,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProjectResponse>(await this.callApi(params, req, runtime), new DescribeProjectResponse({}));
   }
 
+  /**
+   * @summary 查询项目详情
+   *
+   * @param request DescribeProjectRequest
+   * @return DescribeProjectResponse
+   */
   async describeProject(request: DescribeProjectRequest): Promise<DescribeProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取项目的组件信息
+   *
+   * @param request DescribeProjectComponentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProjectComponentsResponse
+   */
   async describeProjectComponentsWithOptions(request: DescribeProjectComponentsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectComponentsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26600,11 +28194,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProjectComponentsResponse>(await this.callApi(params, req, runtime), new DescribeProjectComponentsResponse({}));
   }
 
+  /**
+   * @summary 获取项目的组件信息
+   *
+   * @param request DescribeProjectComponentsRequest
+   * @return DescribeProjectComponentsResponse
+   */
   async describeProjectComponents(request: DescribeProjectComponentsRequest): Promise<DescribeProjectComponentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProjectComponentsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取迁移/同步项目 Progress 信息
+   *
+   * @param request DescribeProjectProgressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProjectProgressResponse
+   */
   async describeProjectProgressWithOptions(request: DescribeProjectProgressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectProgressResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26629,11 +28236,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProjectProgressResponse>(await this.callApi(params, req, runtime), new DescribeProjectProgressResponse({}));
   }
 
+  /**
+   * @summary 获取迁移/同步项目 Progress 信息
+   *
+   * @param request DescribeProjectProgressRequest
+   * @return DescribeProjectProgressResponse
+   */
   async describeProjectProgress(request: DescribeProjectProgressRequest): Promise<DescribeProjectProgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProjectProgressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询项目步骤指标
+   *
+   * @param request DescribeProjectStepMetricRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProjectStepMetricResponse
+   */
   async describeProjectStepMetricWithOptions(request: DescribeProjectStepMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectStepMetricResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26682,11 +28302,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProjectStepMetricResponse>(await this.callApi(params, req, runtime), new DescribeProjectStepMetricResponse({}));
   }
 
+  /**
+   * @summary 查询项目步骤指标
+   *
+   * @param request DescribeProjectStepMetricRequest
+   * @return DescribeProjectStepMetricResponse
+   */
   async describeProjectStepMetric(request: DescribeProjectStepMetricRequest): Promise<DescribeProjectStepMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProjectStepMetricWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询项目步骤
+   *
+   * @param request DescribeProjectStepsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProjectStepsResponse
+   */
   async describeProjectStepsWithOptions(request: DescribeProjectStepsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectStepsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26711,11 +28344,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProjectStepsResponse>(await this.callApi(params, req, runtime), new DescribeProjectStepsResponse({}));
   }
 
+  /**
+   * @summary 查询项目步骤
+   *
+   * @param request DescribeProjectStepsRequest
+   * @return DescribeProjectStepsResponse
+   */
   async describeProjectSteps(request: DescribeProjectStepsRequest): Promise<DescribeProjectStepsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProjectStepsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The tenant mode.   Valid values:  
+   * Oracle   
+   * MySQL
+   *
+   * @param request DescribeRecommendIndexRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRecommendIndexResponse
+   */
   async describeRecommendIndexWithOptions(request: DescribeRecommendIndexRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecommendIndexResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26748,11 +28396,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRecommendIndexResponse>(await this.callApi(params, req, runtime), new DescribeRecommendIndexResponse({}));
   }
 
+  /**
+   * @summary The tenant mode.   Valid values:  
+   * Oracle   
+   * MySQL
+   *
+   * @param request DescribeRecommendIndexRequest
+   * @return DescribeRecommendIndexResponse
+   */
   async describeRecommendIndex(request: DescribeRecommendIndexRequest): Promise<DescribeRecommendIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecommendIndexWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The username.
+   *
+   * @param request DescribeSQLDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLDetailsResponse
+   */
   async describeSQLDetailsWithOptions(request: DescribeSQLDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLDetailsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26781,11 +28444,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSQLDetailsResponse>(await this.callApi(params, req, runtime), new DescribeSQLDetailsResponse({}));
   }
 
+  /**
+   * @summary The username.
+   *
+   * @param request DescribeSQLDetailsRequest
+   * @return DescribeSQLDetailsResponse
+   */
   async describeSQLDetails(request: DescribeSQLDetailsRequest): Promise<DescribeSQLDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSQLDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the execution history of an SQL statement in a specified period based on an SQL ID.
+   *
+   * @param request DescribeSQLHistoryListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLHistoryListResponse
+   */
   async describeSQLHistoryListWithOptions(request: DescribeSQLHistoryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLHistoryListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26830,11 +28506,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSQLHistoryListResponse>(await this.callApi(params, req, runtime), new DescribeSQLHistoryListResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the execution history of an SQL statement in a specified period based on an SQL ID.
+   *
+   * @param request DescribeSQLHistoryListRequest
+   * @return DescribeSQLHistoryListResponse
+   */
   async describeSQLHistoryList(request: DescribeSQLHistoryListRequest): Promise<DescribeSQLHistoryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSQLHistoryListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the information about the SQL execution plans stored in the diagnostic system based on an SQL ID.
+   *
+   * @param request DescribeSQLPlansRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLPlansResponse
+   */
   async describeSQLPlansWithOptions(request: DescribeSQLPlansRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLPlansResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26863,11 +28552,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSQLPlansResponse>(await this.callApi(params, req, runtime), new DescribeSQLPlansResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the information about the SQL execution plans stored in the diagnostic system based on an SQL ID.
+   *
+   * @param request DescribeSQLPlansRequest
+   * @return DescribeSQLPlansResponse
+   */
   async describeSQLPlans(request: DescribeSQLPlansRequest): Promise<DescribeSQLPlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSQLPlansWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this API to view the sample data of the execution details of the slow queries.
+   *
+   * @param request DescribeSQLSamplesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLSamplesResponse
+   */
   async describeSQLSamplesWithOptions(request: DescribeSQLSamplesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLSamplesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26881,6 +28583,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.returnSqlText)) {
+      body["ReturnSqlText"] = request.returnSqlText;
     }
 
     if (!Util.isUnset(request.sqlId)) {
@@ -26912,11 +28618,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSQLSamplesResponse>(await this.callApi(params, req, runtime), new DescribeSQLSamplesResponse({}));
   }
 
+  /**
+   * @summary You can call this API to view the sample data of the execution details of the slow queries.
+   *
+   * @param request DescribeSQLSamplesRequest
+   * @return DescribeSQLSamplesResponse
+   */
   async describeSQLSamples(request: DescribeSQLSamplesRequest): Promise<DescribeSQLSamplesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSQLSamplesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询采样SQL的原始文本
+   *
+   * @param request DescribeSampleSqlRawTextsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSampleSqlRawTextsResponse
+   */
   async describeSampleSqlRawTextsWithOptions(request: DescribeSampleSqlRawTextsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSampleSqlRawTextsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26969,11 +28688,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSampleSqlRawTextsResponse>(await this.callApi(params, req, runtime), new DescribeSampleSqlRawTextsResponse({}));
   }
 
+  /**
+   * @summary 查询采样SQL的原始文本
+   *
+   * @param request DescribeSampleSqlRawTextsRequest
+   * @return DescribeSampleSqlRawTextsResponse
+   */
   async describeSampleSqlRawTexts(request: DescribeSampleSqlRawTextsRequest): Promise<DescribeSampleSqlRawTextsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSampleSqlRawTextsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The name of the security group.
+   *
+   * @param request DescribeSecurityIpGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityIpGroupsResponse
+   */
   async describeSecurityIpGroupsWithOptions(request: DescribeSecurityIpGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityIpGroupsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26998,11 +28730,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityIpGroupsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityIpGroupsResponse({}));
   }
 
+  /**
+   * @summary The name of the security group.
+   *
+   * @param request DescribeSecurityIpGroupsRequest
+   * @return DescribeSecurityIpGroupsResponse
+   */
   async describeSecurityIpGroups(request: DescribeSecurityIpGroupsRequest): Promise<DescribeSecurityIpGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityIpGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the execution history of an SQL statement by SQL ID that is determined as a slow SQL statement during a specified period of time.
+   *
+   * @param request DescribeSlowSQLHistoryListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlowSQLHistoryListResponse
+   */
   async describeSlowSQLHistoryListWithOptions(request: DescribeSlowSQLHistoryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowSQLHistoryListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27047,11 +28792,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlowSQLHistoryListResponse>(await this.callApi(params, req, runtime), new DescribeSlowSQLHistoryListResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the execution history of an SQL statement by SQL ID that is determined as a slow SQL statement during a specified period of time.
+   *
+   * @param request DescribeSlowSQLHistoryListRequest
+   * @return DescribeSlowSQLHistoryListResponse
+   */
   async describeSlowSQLHistoryList(request: DescribeSlowSQLHistoryListRequest): Promise<DescribeSlowSQLHistoryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlowSQLHistoryListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the list of slow SQL statements
+   *
+   * @param tmpReq DescribeSlowSQLListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlowSQLListResponse
+   */
   async describeSlowSQLListWithOptions(tmpReq: DescribeSlowSQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowSQLListResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeSlowSQLListShrinkRequest({ });
@@ -27138,11 +28896,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlowSQLListResponse>(await this.callApi(params, req, runtime), new DescribeSlowSQLListResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the list of slow SQL statements
+   *
+   * @param request DescribeSlowSQLListRequest
+   * @return DescribeSlowSQLListResponse
+   */
   async describeSlowSQLList(request: DescribeSlowSQLListRequest): Promise<DescribeSlowSQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlowSQLListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the VPC.
+   *
+   * @param request DescribeTenantRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTenantResponse
+   */
   async describeTenantWithOptions(request: DescribeTenantRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27171,11 +28942,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTenantResponse>(await this.callApi(params, req, runtime), new DescribeTenantResponse({}));
   }
 
+  /**
+   * @summary The ID of the VPC.
+   *
+   * @param request DescribeTenantRequest
+   * @return DescribeTenantResponse
+   */
   async describeTenant(request: DescribeTenantRequest): Promise<DescribeTenantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTenantWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询租户加密信息
+   *
+   * @param request DescribeTenantEncryptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTenantEncryptionResponse
+   */
   async describeTenantEncryptionWithOptions(request: DescribeTenantEncryptionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantEncryptionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27216,11 +29000,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTenantEncryptionResponse>(await this.callApi(params, req, runtime), new DescribeTenantEncryptionResponse({}));
   }
 
+  /**
+   * @summary 查询租户加密信息
+   *
+   * @param request DescribeTenantEncryptionRequest
+   * @return DescribeTenantEncryptionResponse
+   */
   async describeTenantEncryption(request: DescribeTenantEncryptionRequest): Promise<DescribeTenantEncryptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTenantEncryptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The list of tenant IDs.
+   *
+   * @param request DescribeTenantMetricsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTenantMetricsResponse
+   */
   async describeTenantMetricsWithOptions(request: DescribeTenantMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantMetricsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27277,11 +29074,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTenantMetricsResponse>(await this.callApi(params, req, runtime), new DescribeTenantMetricsResponse({}));
   }
 
+  /**
+   * @summary The list of tenant IDs.
+   *
+   * @param request DescribeTenantMetricsRequest
+   * @return DescribeTenantMetricsResponse
+   */
   async describeTenantMetrics(request: DescribeTenantMetricsRequest): Promise<DescribeTenantMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTenantMetricsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query security check items of an OceanBase Database tenant.
+   *
+   * @param request DescribeTenantSecurityConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTenantSecurityConfigsResponse
+   */
   async describeTenantSecurityConfigsWithOptions(request: DescribeTenantSecurityConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantSecurityConfigsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27314,11 +29124,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTenantSecurityConfigsResponse>(await this.callApi(params, req, runtime), new DescribeTenantSecurityConfigsResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query security check items of an OceanBase Database tenant.
+   *
+   * @param request DescribeTenantSecurityConfigsRequest
+   * @return DescribeTenantSecurityConfigsResponse
+   */
   async describeTenantSecurityConfigs(request: DescribeTenantSecurityConfigsRequest): Promise<DescribeTenantSecurityConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTenantSecurityConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to view the list of whitelist groups of the tenant.
+   *
+   * @param request DescribeTenantSecurityIpGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTenantSecurityIpGroupsResponse
+   */
   async describeTenantSecurityIpGroupsWithOptions(request: DescribeTenantSecurityIpGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantSecurityIpGroupsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27347,11 +29170,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTenantSecurityIpGroupsResponse>(await this.callApi(params, req, runtime), new DescribeTenantSecurityIpGroupsResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to view the list of whitelist groups of the tenant.
+   *
+   * @param request DescribeTenantSecurityIpGroupsRequest
+   * @return DescribeTenantSecurityIpGroupsResponse
+   */
   async describeTenantSecurityIpGroups(request: DescribeTenantSecurityIpGroupsRequest): Promise<DescribeTenantSecurityIpGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTenantSecurityIpGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to view tenant tags.
+   *
+   * @param request DescribeTenantTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTenantTagsResponse
+   */
   async describeTenantTagsWithOptions(request: DescribeTenantTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantTagsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27384,11 +29220,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTenantTagsResponse>(await this.callApi(params, req, runtime), new DescribeTenantTagsResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to view tenant tags.
+   *
+   * @param request DescribeTenantTagsRequest
+   * @return DescribeTenantTagsResponse
+   */
   async describeTenantTags(request: DescribeTenantTagsRequest): Promise<DescribeTenantTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTenantTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to obtain the account authorization information of the tenant.
+   *
+   * @param request DescribeTenantUserRolesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTenantUserRolesResponse
+   */
   async describeTenantUserRolesWithOptions(request: DescribeTenantUserRolesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantUserRolesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27413,11 +29262,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTenantUserRolesResponse>(await this.callApi(params, req, runtime), new DescribeTenantUserRolesResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to obtain the account authorization information of the tenant.
+   *
+   * @param request DescribeTenantUserRolesRequest
+   * @return DescribeTenantUserRolesResponse
+   */
   async describeTenantUserRoles(request: DescribeTenantUserRolesRequest): Promise<DescribeTenantUserRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTenantUserRolesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The return result of the request.
+   *
+   * @param request DescribeTenantUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTenantUsersResponse
+   */
   async describeTenantUsersWithOptions(request: DescribeTenantUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantUsersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27458,11 +29320,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTenantUsersResponse>(await this.callApi(params, req, runtime), new DescribeTenantUsersResponse({}));
   }
 
+  /**
+   * @summary The return result of the request.
+   *
+   * @param request DescribeTenantUsersRequest
+   * @return DescribeTenantUsersResponse
+   */
   async describeTenantUsers(request: DescribeTenantUsersRequest): Promise<DescribeTenantUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTenantUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Indicates whether a read-only connection has been created.
+   *
+   * @param request DescribeTenantZonesReadRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTenantZonesReadResponse
+   */
   async describeTenantZonesReadWithOptions(request: DescribeTenantZonesReadRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantZonesReadResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27491,11 +29366,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTenantZonesReadResponse>(await this.callApi(params, req, runtime), new DescribeTenantZonesReadResponse({}));
   }
 
+  /**
+   * @summary Indicates whether a read-only connection has been created.
+   *
+   * @param request DescribeTenantZonesReadRequest
+   * @return DescribeTenantZonesReadResponse
+   */
   async describeTenantZonesRead(request: DescribeTenantZonesReadRequest): Promise<DescribeTenantZonesReadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTenantZonesReadWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The total memory size of the tenant, in GB.
+   *
+   * @param request DescribeTenantsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTenantsResponse
+   */
   async describeTenantsWithOptions(request: DescribeTenantsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27540,11 +29428,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTenantsResponse>(await this.callApi(params, req, runtime), new DescribeTenantsResponse({}));
   }
 
+  /**
+   * @summary The total memory size of the tenant, in GB.
+   *
+   * @param request DescribeTenantsRequest
+   * @return DescribeTenantsResponse
+   */
   async describeTenants(request: DescribeTenantsRequest): Promise<DescribeTenantsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTenantsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The time zones supported by the tenant.
+   *
+   * @param request DescribeTimeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTimeZonesResponse
+   */
   async describeTimeZonesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeTimeZonesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -27561,11 +29462,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTimeZonesResponse>(await this.callApi(params, req, runtime), new DescribeTimeZonesResponse({}));
   }
 
+  /**
+   * @summary The time zones supported by the tenant.
+   *
+   * @return DescribeTimeZonesResponse
+   */
   async describeTimeZones(): Promise<DescribeTimeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTimeZonesWithOptions(runtime);
   }
 
+  /**
+   * @summary The name of the database.
+   *
+   * @param tmpReq DescribeTopSQLListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTopSQLListResponse
+   */
   async describeTopSQLListWithOptions(tmpReq: DescribeTopSQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTopSQLListResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeTopSQLListShrinkRequest({ });
@@ -27652,14 +29565,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTopSQLListResponse>(await this.callApi(params, req, runtime), new DescribeTopSQLListResponse({}));
   }
 
+  /**
+   * @summary The name of the database.
+   *
+   * @param request DescribeTopSQLListRequest
+   * @return DescribeTopSQLListResponse
+   */
   async describeTopSQLList(request: DescribeTopSQLListRequest): Promise<DescribeTopSQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTopSQLListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The deployment mode.
+   *
+   * @param request DescribeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cpuArch)) {
+      body["CpuArch"] = request.cpuArch;
+    }
+
     if (!Util.isUnset(request.deployType)) {
       body["DeployType"] = request.deployType;
     }
@@ -27685,11 +29615,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * @summary The deployment mode.
+   *
+   * @param request DescribeZonesRequest
+   * @return DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 公有云上传OSS 获取一个临时上传url
+   *
+   * @param request GetUploadOssUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUploadOssUrlResponse
+   */
   async getUploadOssUrlWithOptions(request: GetUploadOssUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetUploadOssUrlResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27718,11 +29661,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUploadOssUrlResponse>(await this.callApi(params, req, runtime), new GetUploadOssUrlResponse({}));
   }
 
+  /**
+   * @summary 公有云上传OSS 获取一个临时上传url
+   *
+   * @param request GetUploadOssUrlRequest
+   * @return GetUploadOssUrlResponse
+   */
   async getUploadOssUrl(request: GetUploadOssUrlRequest): Promise<GetUploadOssUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUploadOssUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to close a session.
+   *
+   * @param request KillProcessListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return KillProcessListResponse
+   */
   async killProcessListWithOptions(request: KillProcessListRequest, runtime: $Util.RuntimeOptions): Promise<KillProcessListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27755,11 +29711,24 @@ export default class Client extends OpenApi {
     return $tea.cast<KillProcessListResponse>(await this.callApi(params, req, runtime), new KillProcessListResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to close a session.
+   *
+   * @param request KillProcessListRequest
+   * @return KillProcessListResponse
+   */
   async killProcessList(request: KillProcessListRequest): Promise<KillProcessListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.killProcessListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询标签列表
+   *
+   * @param request ListAllLabelsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAllLabelsResponse
+   */
   async listAllLabelsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListAllLabelsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -27776,11 +29745,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAllLabelsResponse>(await this.callApi(params, req, runtime), new ListAllLabelsResponse({}));
   }
 
+  /**
+   * @summary 查询标签列表
+   *
+   * @return ListAllLabelsResponse
+   */
   async listAllLabels(): Promise<ListAllLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAllLabelsWithOptions(runtime);
   }
 
+  /**
+   * @summary 查询数据源列表 (MySql、OB_MYSQL、OB_ORACLE)
+   *
+   * @param tmpReq ListDataSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataSourceResponse
+   */
   async listDataSourceWithOptions(tmpReq: ListDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<ListDataSourceResponse> {
     Util.validateModel(tmpReq);
     let request = new ListDataSourceShrinkRequest({ });
@@ -27831,11 +29812,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataSourceResponse>(await this.callApi(params, req, runtime), new ListDataSourceResponse({}));
   }
 
+  /**
+   * @summary 查询数据源列表 (MySql、OB_MYSQL、OB_ORACLE)
+   *
+   * @param request ListDataSourceRequest
+   * @return ListDataSourceResponse
+   */
   async listDataSource(request: ListDataSourceRequest): Promise<ListDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询项目的全量校验结果
+   *
+   * @param tmpReq ListProjectFullVerifyResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectFullVerifyResultResponse
+   */
   async listProjectFullVerifyResultWithOptions(tmpReq: ListProjectFullVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectFullVerifyResultResponse> {
     Util.validateModel(tmpReq);
     let request = new ListProjectFullVerifyResultShrinkRequest({ });
@@ -27890,11 +29884,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectFullVerifyResultResponse>(await this.callApi(params, req, runtime), new ListProjectFullVerifyResultResponse({}));
   }
 
+  /**
+   * @summary 查询项目的全量校验结果
+   *
+   * @param request ListProjectFullVerifyResultRequest
+   * @return ListProjectFullVerifyResultResponse
+   */
   async listProjectFullVerifyResult(request: ListProjectFullVerifyResultRequest): Promise<ListProjectFullVerifyResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectFullVerifyResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 根据项目 ID 查询项目的修改记录
+   *
+   * @param request ListProjectModifyRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectModifyRecordsResponse
+   */
   async listProjectModifyRecordsWithOptions(request: ListProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectModifyRecordsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27919,11 +29926,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectModifyRecordsResponse>(await this.callApi(params, req, runtime), new ListProjectModifyRecordsResponse({}));
   }
 
+  /**
+   * @summary 根据项目 ID 查询项目的修改记录
+   *
+   * @param request ListProjectModifyRecordsRequest
+   * @return ListProjectModifyRecordsResponse
+   */
   async listProjectModifyRecords(request: ListProjectModifyRecordsRequest): Promise<ListProjectModifyRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectModifyRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询项目列表
+   *
+   * @param tmpReq ListProjectsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectsResponse
+   */
   async listProjectsWithOptions(tmpReq: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListProjectsShrinkRequest({ });
@@ -28010,11 +30030,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
   }
 
+  /**
+   * @summary 查询项目列表
+   *
+   * @param request ListProjectsRequest
+   * @return ListProjectsResponse
+   */
   async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询传输实例列表
+   *
+   * @param tmpReq ListWorkerInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWorkerInstancesResponse
+   */
   async listWorkerInstancesWithOptions(tmpReq: ListWorkerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListWorkerInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListWorkerInstancesShrinkRequest({ });
@@ -28069,11 +30102,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWorkerInstancesResponse>(await this.callApi(params, req, runtime), new ListWorkerInstancesResponse({}));
   }
 
+  /**
+   * @summary 查询传输实例列表
+   *
+   * @param request ListWorkerInstancesRequest
+   * @return ListWorkerInstancesResponse
+   */
   async listWorkerInstances(request: ListWorkerInstancesRequest): Promise<ListWorkerInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listWorkerInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The request ID.
+   *
+   * @param request ModifyDatabaseDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDatabaseDescriptionResponse
+   */
   async modifyDatabaseDescriptionWithOptions(request: ModifyDatabaseDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatabaseDescriptionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28110,11 +30156,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDatabaseDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDatabaseDescriptionResponse({}));
   }
 
+  /**
+   * @summary The request ID.
+   *
+   * @param request ModifyDatabaseDescriptionRequest
+   * @return ModifyDatabaseDescriptionResponse
+   */
   async modifyDatabaseDescription(request: ModifyDatabaseDescriptionRequest): Promise<ModifyDatabaseDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDatabaseDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The accounts that have privileges on the database.
+   *
+   * @param request ModifyDatabaseUserRolesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDatabaseUserRolesResponse
+   */
   async modifyDatabaseUserRolesWithOptions(request: ModifyDatabaseUserRolesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatabaseUserRolesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28151,11 +30210,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDatabaseUserRolesResponse>(await this.callApi(params, req, runtime), new ModifyDatabaseUserRolesResponse({}));
   }
 
+  /**
+   * @summary The accounts that have privileges on the database.
+   *
+   * @param request ModifyDatabaseUserRolesRequest
+   * @return ModifyDatabaseUserRolesResponse
+   */
   async modifyDatabaseUserRoles(request: ModifyDatabaseUserRolesRequest): Promise<ModifyDatabaseUserRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDatabaseUserRolesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The name of the OceanBase cluster.
+   *
+   * @param request ModifyInstanceNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceNameResponse
+   */
   async modifyInstanceNameWithOptions(request: ModifyInstanceNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceNameResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28184,11 +30256,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceNameResponse>(await this.callApi(params, req, runtime), new ModifyInstanceNameResponse({}));
   }
 
+  /**
+   * @summary The name of the OceanBase cluster.
+   *
+   * @param request ModifyInstanceNameRequest
+   * @return ModifyInstanceNameResponse
+   */
   async modifyInstanceName(request: ModifyInstanceNameRequest): Promise<ModifyInstanceNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to modify the number of nodes in a cluster.
+   *
+   * @param request ModifyInstanceNodeNumRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceNodeNumResponse
+   */
   async modifyInstanceNodeNumWithOptions(request: ModifyInstanceNodeNumRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceNodeNumResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28221,11 +30306,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceNodeNumResponse>(await this.callApi(params, req, runtime), new ModifyInstanceNodeNumResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to modify the number of nodes in a cluster.
+   *
+   * @param request ModifyInstanceNodeNumRequest
+   * @return ModifyInstanceNodeNumResponse
+   */
   async modifyInstanceNodeNum(request: ModifyInstanceNodeNumRequest): Promise<ModifyInstanceNodeNumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceNodeNumWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to modify the cluster specifications and storage space.
+   *
+   * @param request ModifyInstanceSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceSpecResponse
+   */
   async modifyInstanceSpecWithOptions(request: ModifyInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSpecResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28266,11 +30364,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyInstanceSpecResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to modify the cluster specifications and storage space.
+   *
+   * @param request ModifyInstanceSpecRequest
+   * @return ModifyInstanceSpecResponse
+   */
   async modifyInstanceSpec(request: ModifyInstanceSpecRequest): Promise<ModifyInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceSpecWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The returned response.
+   *
+   * @param request ModifyInstanceTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceTagsResponse
+   */
   async modifyInstanceTagsWithOptions(request: ModifyInstanceTagsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTagsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28299,11 +30410,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceTagsResponse>(await this.callApi(params, req, runtime), new ModifyInstanceTagsResponse({}));
   }
 
+  /**
+   * @summary The returned response.
+   *
+   * @param request ModifyInstanceTagsRequest
+   * @return ModifyInstanceTagsResponse
+   */
   async modifyInstanceTags(request: ModifyInstanceTagsRequest): Promise<ModifyInstanceTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to modify the temporary capacity of the OceanBase cluster.
+   *
+   * @param request ModifyInstanceTemporaryCapacityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceTemporaryCapacityResponse
+   */
   async modifyInstanceTemporaryCapacityWithOptions(request: ModifyInstanceTemporaryCapacityRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTemporaryCapacityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28340,11 +30464,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceTemporaryCapacityResponse>(await this.callApi(params, req, runtime), new ModifyInstanceTemporaryCapacityResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to modify the temporary capacity of the OceanBase cluster.
+   *
+   * @param request ModifyInstanceTemporaryCapacityRequest
+   * @return ModifyInstanceTemporaryCapacityResponse
+   */
   async modifyInstanceTemporaryCapacity(request: ModifyInstanceTemporaryCapacityRequest): Promise<ModifyInstanceTemporaryCapacityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceTemporaryCapacityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The modification results.
+   *
+   * @param request ModifyParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyParametersResponse
+   */
   async modifyParametersWithOptions(request: ModifyParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParametersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28381,11 +30518,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyParametersResponse>(await this.callApi(params, req, runtime), new ModifyParametersResponse({}));
   }
 
+  /**
+   * @summary The modification results.
+   *
+   * @param request ModifyParametersRequest
+   * @return ModifyParametersResponse
+   */
   async modifyParameters(request: ModifyParametersRequest): Promise<ModifyParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The name of the security group.
+   *
+   * @param request ModifySecurityIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityIpsResponse
+   */
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28418,11 +30568,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySecurityIpsResponse>(await this.callApi(params, req, runtime), new ModifySecurityIpsResponse({}));
   }
 
+  /**
+   * @summary The name of the security group.
+   *
+   * @param request ModifySecurityIpsRequest
+   * @return ModifySecurityIpsResponse
+   */
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 租户加密变更
+   *
+   * @param request ModifyTenantEncryptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTenantEncryptionResponse
+   */
   async modifyTenantEncryptionWithOptions(request: ModifyTenantEncryptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantEncryptionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28459,11 +30622,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTenantEncryptionResponse>(await this.callApi(params, req, runtime), new ModifyTenantEncryptionResponse({}));
   }
 
+  /**
+   * @summary 租户加密变更
+   *
+   * @param request ModifyTenantEncryptionRequest
+   * @return ModifyTenantEncryptionResponse
+   */
   async modifyTenantEncryption(request: ModifyTenantEncryptionRequest): Promise<ModifyTenantEncryptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTenantEncryptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The return result of the request.
+   *
+   * @param request ModifyTenantPrimaryZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTenantPrimaryZoneResponse
+   */
   async modifyTenantPrimaryZoneWithOptions(request: ModifyTenantPrimaryZoneRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantPrimaryZoneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28499,6 +30675,10 @@ export default class Client extends OpenApi {
       body["UserVSwitchId"] = request.userVSwitchId;
     }
 
+    if (!Util.isUnset(request.userVpcOwnerId)) {
+      body["UserVpcOwnerId"] = request.userVpcOwnerId;
+    }
+
     if (!Util.isUnset(request.vpcId)) {
       body["VpcId"] = request.vpcId;
     }
@@ -28520,11 +30700,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTenantPrimaryZoneResponse>(await this.callApi(params, req, runtime), new ModifyTenantPrimaryZoneResponse({}));
   }
 
+  /**
+   * @summary The return result of the request.
+   *
+   * @param request ModifyTenantPrimaryZoneRequest
+   * @return ModifyTenantPrimaryZoneResponse
+   */
   async modifyTenantPrimaryZone(request: ModifyTenantPrimaryZoneRequest): Promise<ModifyTenantPrimaryZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTenantPrimaryZoneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to modify the specifications of a tenant in an OceanBase cluster.
+   *
+   * @param request ModifyTenantResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTenantResourceResponse
+   */
   async modifyTenantResourceWithOptions(request: ModifyTenantResourceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28569,11 +30762,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTenantResourceResponse>(await this.callApi(params, req, runtime), new ModifyTenantResourceResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to modify the specifications of a tenant in an OceanBase cluster.
+   *
+   * @param request ModifyTenantResourceRequest
+   * @return ModifyTenantResourceResponse
+   */
   async modifyTenantResource(request: ModifyTenantResourceRequest): Promise<ModifyTenantResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTenantResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to modify the information on the whitelist group of the tenant.
+   *
+   * @param request ModifyTenantSecurityIpGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTenantSecurityIpGroupResponse
+   */
   async modifyTenantSecurityIpGroupWithOptions(request: ModifyTenantSecurityIpGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantSecurityIpGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28610,11 +30816,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTenantSecurityIpGroupResponse>(await this.callApi(params, req, runtime), new ModifyTenantSecurityIpGroupResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to modify the information on the whitelist group of the tenant.
+   *
+   * @param request ModifyTenantSecurityIpGroupRequest
+   * @return ModifyTenantSecurityIpGroupResponse
+   */
   async modifyTenantSecurityIpGroup(request: ModifyTenantSecurityIpGroupRequest): Promise<ModifyTenantSecurityIpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTenantSecurityIpGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to modify tenant tags.
+   *
+   * @param request ModifyTenantTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTenantTagsResponse
+   */
   async modifyTenantTagsWithOptions(request: ModifyTenantTagsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantTagsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28647,11 +30866,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTenantTagsResponse>(await this.callApi(params, req, runtime), new ModifyTenantTagsResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to modify tenant tags.
+   *
+   * @param request ModifyTenantTagsRequest
+   * @return ModifyTenantTagsResponse
+   */
   async modifyTenantTags(request: ModifyTenantTagsRequest): Promise<ModifyTenantTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTenantTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The description of the database.
+   *
+   * @param request ModifyTenantUserDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTenantUserDescriptionResponse
+   */
   async modifyTenantUserDescriptionWithOptions(request: ModifyTenantUserDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantUserDescriptionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28688,11 +30920,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTenantUserDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyTenantUserDescriptionResponse({}));
   }
 
+  /**
+   * @summary The description of the database.
+   *
+   * @param request ModifyTenantUserDescriptionRequest
+   * @return ModifyTenantUserDescriptionResponse
+   */
   async modifyTenantUserDescription(request: ModifyTenantUserDescriptionRequest): Promise<ModifyTenantUserDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTenantUserDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The request ID.
+   *
+   * @param request ModifyTenantUserPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTenantUserPasswordResponse
+   */
   async modifyTenantUserPasswordWithOptions(request: ModifyTenantUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantUserPasswordResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28733,11 +30978,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTenantUserPasswordResponse>(await this.callApi(params, req, runtime), new ModifyTenantUserPasswordResponse({}));
   }
 
+  /**
+   * @summary The request ID.
+   *
+   * @param request ModifyTenantUserPasswordRequest
+   * @return ModifyTenantUserPasswordResponse
+   */
   async modifyTenantUserPassword(request: ModifyTenantUserPasswordRequest): Promise<ModifyTenantUserPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTenantUserPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Indicates whether the privilege was granted to the role.
+   *
+   * @param request ModifyTenantUserRolesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTenantUserRolesResponse
+   */
   async modifyTenantUserRolesWithOptions(request: ModifyTenantUserRolesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantUserRolesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28778,11 +31036,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTenantUserRolesResponse>(await this.callApi(params, req, runtime), new ModifyTenantUserRolesResponse({}));
   }
 
+  /**
+   * @summary Indicates whether the privilege was granted to the role.
+   *
+   * @param request ModifyTenantUserRolesRequest
+   * @return ModifyTenantUserRolesResponse
+   */
   async modifyTenantUserRoles(request: ModifyTenantUserRolesRequest): Promise<ModifyTenantUserRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTenantUserRolesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the tenant.
+   *
+   * @param request ModifyTenantUserStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTenantUserStatusResponse
+   */
   async modifyTenantUserStatusWithOptions(request: ModifyTenantUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantUserStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28819,11 +31090,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTenantUserStatusResponse>(await this.callApi(params, req, runtime), new ModifyTenantUserStatusResponse({}));
   }
 
+  /**
+   * @summary The ID of the tenant.
+   *
+   * @param request ModifyTenantUserStatusRequest
+   * @return ModifyTenantUserStatusResponse
+   */
   async modifyTenantUserStatus(request: ModifyTenantUserStatusRequest): Promise<ModifyTenantUserStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTenantUserStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 释放项目
+   *
+   * @param request ReleaseProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseProjectResponse
+   */
   async releaseProjectWithOptions(request: ReleaseProjectRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28848,11 +31132,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseProjectResponse>(await this.callApi(params, req, runtime), new ReleaseProjectResponse({}));
   }
 
+  /**
+   * @summary 释放项目
+   *
+   * @param request ReleaseProjectRequest
+   * @return ReleaseProjectResponse
+   */
   async releaseProject(request: ReleaseProjectRequest): Promise<ReleaseProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 释放传输实例 （未绑定项目时才可以释放）
+   *
+   * @param request ReleaseWorkerInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseWorkerInstanceResponse
+   */
   async releaseWorkerInstanceWithOptions(request: ReleaseWorkerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseWorkerInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28877,11 +31174,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseWorkerInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseWorkerInstanceResponse({}));
   }
 
+  /**
+   * @summary 释放传输实例 （未绑定项目时才可以释放）
+   *
+   * @param request ReleaseWorkerInstanceRequest
+   * @return ReleaseWorkerInstanceResponse
+   */
   async releaseWorkerInstance(request: ReleaseWorkerInstanceRequest): Promise<ReleaseWorkerInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseWorkerInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 恢复项目
+   *
+   * @param request ResumeProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeProjectResponse
+   */
   async resumeProjectWithOptions(request: ResumeProjectRequest, runtime: $Util.RuntimeOptions): Promise<ResumeProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28906,11 +31216,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeProjectResponse>(await this.callApi(params, req, runtime), new ResumeProjectResponse({}));
   }
 
+  /**
+   * @summary 恢复项目
+   *
+   * @param request ResumeProjectRequest
+   * @return ResumeProjectResponse
+   */
   async resumeProject(request: ResumeProjectRequest): Promise<ResumeProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 根据修改记录 ID 重试修改操作（仅支持处于 FAILED 状态的修改记录）
+   *
+   * @param request RetryProjectModifyRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RetryProjectModifyRecordsResponse
+   */
   async retryProjectModifyRecordsWithOptions(request: RetryProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<RetryProjectModifyRecordsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28935,11 +31258,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RetryProjectModifyRecordsResponse>(await this.callApi(params, req, runtime), new RetryProjectModifyRecordsResponse({}));
   }
 
+  /**
+   * @summary 根据修改记录 ID 重试修改操作（仅支持处于 FAILED 状态的修改记录）
+   *
+   * @param request RetryProjectModifyRecordsRequest
+   * @return RetryProjectModifyRecordsResponse
+   */
   async retryProjectModifyRecords(request: RetryProjectModifyRecordsRequest): Promise<RetryProjectModifyRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.retryProjectModifyRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 启动项目
+   *
+   * @param request StartProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartProjectResponse
+   */
   async startProjectWithOptions(request: StartProjectRequest, runtime: $Util.RuntimeOptions): Promise<StartProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28964,11 +31300,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartProjectResponse>(await this.callApi(params, req, runtime), new StartProjectResponse({}));
   }
 
+  /**
+   * @summary 启动项目
+   *
+   * @param request StartProjectRequest
+   * @return StartProjectResponse
+   */
   async startProject(request: StartProjectRequest): Promise<StartProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 启动该label下的所有未启动项目
+   *
+   * @param request StartProjectsByLabelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartProjectsByLabelResponse
+   */
   async startProjectsByLabelWithOptions(request: StartProjectsByLabelRequest, runtime: $Util.RuntimeOptions): Promise<StartProjectsByLabelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28993,11 +31342,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartProjectsByLabelResponse>(await this.callApi(params, req, runtime), new StartProjectsByLabelResponse({}));
   }
 
+  /**
+   * @summary 启动该label下的所有未启动项目
+   *
+   * @param request StartProjectsByLabelRequest
+   * @return StartProjectsByLabelResponse
+   */
   async startProjectsByLabel(request: StartProjectsByLabelRequest): Promise<StartProjectsByLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startProjectsByLabelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 暂停项目
+   *
+   * @param request StopProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopProjectResponse
+   */
   async stopProjectWithOptions(request: StopProjectRequest, runtime: $Util.RuntimeOptions): Promise<StopProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -29022,11 +31384,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopProjectResponse>(await this.callApi(params, req, runtime), new StopProjectResponse({}));
   }
 
+  /**
+   * @summary 暂停项目
+   *
+   * @param request StopProjectRequest
+   * @return StopProjectResponse
+   */
   async stopProject(request: StopProjectRequest): Promise<StopProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 根据修改记录 ID 终止修改操作，不可恢复（仅支持处于 RUNNING / FAILED 状态的修改记录）
+   *
+   * @param request StopProjectModifyRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopProjectModifyRecordsResponse
+   */
   async stopProjectModifyRecordsWithOptions(request: StopProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<StopProjectModifyRecordsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -29051,11 +31426,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopProjectModifyRecordsResponse>(await this.callApi(params, req, runtime), new StopProjectModifyRecordsResponse({}));
   }
 
+  /**
+   * @summary 根据修改记录 ID 终止修改操作，不可恢复（仅支持处于 RUNNING / FAILED 状态的修改记录）
+   *
+   * @param request StopProjectModifyRecordsRequest
+   * @return StopProjectModifyRecordsResponse
+   */
   async stopProjectModifyRecords(request: StopProjectModifyRecordsRequest): Promise<StopProjectModifyRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopProjectModifyRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 暂停该label下的所有运行中项目
+   *
+   * @param request StopProjectsByLabelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopProjectsByLabelResponse
+   */
   async stopProjectsByLabelWithOptions(request: StopProjectsByLabelRequest, runtime: $Util.RuntimeOptions): Promise<StopProjectsByLabelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -29080,11 +31468,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopProjectsByLabelResponse>(await this.callApi(params, req, runtime), new StopProjectsByLabelResponse({}));
   }
 
+  /**
+   * @summary 暂停该label下的所有运行中项目
+   *
+   * @param request StopProjectsByLabelRequest
+   * @return StopProjectsByLabelResponse
+   */
   async stopProjectsByLabel(request: StopProjectsByLabelRequest): Promise<StopProjectsByLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopProjectsByLabelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to switch between the primary and standby instances of OceanBase.
+   *
+   * @param request SwitchoverInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchoverInstanceResponse
+   */
   async switchoverInstanceWithOptions(request: SwitchoverInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchoverInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -29117,9 +31518,83 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchoverInstanceResponse>(await this.callApi(params, req, runtime), new SwitchoverInstanceResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to switch between the primary and standby instances of OceanBase.
+   *
+   * @param request SwitchoverInstanceRequest
+   * @return SwitchoverInstanceResponse
+   */
   async switchoverInstance(request: SwitchoverInstanceRequest): Promise<SwitchoverInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchoverInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 更新项目配置 Action=UpdateProjectConfig
+   *
+   * @param tmpReq UpdateProjectConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateProjectConfigResponse
+   */
+  async updateProjectConfigWithOptions(tmpReq: UpdateProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectConfigResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateProjectConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.fullTransferConfig)) {
+      request.fullTransferConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fullTransferConfig, "FullTransferConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.incrTransferConfig)) {
+      request.incrTransferConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.incrTransferConfig, "IncrTransferConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.reverseIncrTransferConfig)) {
+      request.reverseIncrTransferConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.reverseIncrTransferConfig, "ReverseIncrTransferConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fullTransferConfigShrink)) {
+      body["FullTransferConfig"] = request.fullTransferConfigShrink;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.incrTransferConfigShrink)) {
+      body["IncrTransferConfig"] = request.incrTransferConfigShrink;
+    }
+
+    if (!Util.isUnset(request.reverseIncrTransferConfigShrink)) {
+      body["ReverseIncrTransferConfig"] = request.reverseIncrTransferConfigShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateProjectConfig",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateProjectConfigResponse>(await this.callApi(params, req, runtime), new UpdateProjectConfigResponse({}));
+  }
+
+  /**
+   * @summary 更新项目配置 Action=UpdateProjectConfig
+   *
+   * @param request UpdateProjectConfigRequest
+   * @return UpdateProjectConfigResponse
+   */
+  async updateProjectConfig(request: UpdateProjectConfigRequest): Promise<UpdateProjectConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateProjectConfigWithOptions(request, runtime);
   }
 
 }
