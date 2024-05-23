@@ -14198,10 +14198,12 @@ export class ListEnvironmentDashboardsResponse extends $tea.Model {
 }
 
 export class ListEnvironmentFeaturesRequest extends $tea.Model {
+  aliyunLang?: string;
   environmentId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      aliyunLang: 'AliyunLang',
       environmentId: 'EnvironmentId',
       regionId: 'RegionId',
     };
@@ -14209,6 +14211,7 @@ export class ListEnvironmentFeaturesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aliyunLang: 'string',
       environmentId: 'string',
       regionId: 'string',
     };
@@ -25107,6 +25110,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureConta
 export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus extends $tea.Model {
   bindResourceId?: string;
   featureContainers?: DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers[];
+  ips?: string[];
   name?: string;
   namespace?: string;
   securityGroupId?: string;
@@ -25116,6 +25120,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus extends $te
     return {
       bindResourceId: 'BindResourceId',
       featureContainers: 'FeatureContainers',
+      ips: 'Ips',
       name: 'Name',
       namespace: 'Namespace',
       securityGroupId: 'SecurityGroupId',
@@ -25128,6 +25133,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus extends $te
     return {
       bindResourceId: 'string',
       featureContainers: { 'type': 'array', 'itemType': DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers },
+      ips: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       namespace: 'string',
       securityGroupId: 'string',
@@ -43734,6 +43740,10 @@ export default class Client extends OpenApi {
   async listEnvironmentFeaturesWithOptions(request: ListEnvironmentFeaturesRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentFeaturesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
     if (!Util.isUnset(request.environmentId)) {
       query["EnvironmentId"] = request.environmentId;
     }
