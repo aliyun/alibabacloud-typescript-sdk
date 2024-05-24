@@ -17198,6 +17198,7 @@ export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
   instances?: number;
   mem?: number;
   mseEnabled?: boolean;
+  mseNamespaceId?: string;
   namespaceId?: string;
   programmingLanguage?: string;
   regionId?: string;
@@ -17215,6 +17216,7 @@ export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
       instances: 'Instances',
       mem: 'Mem',
       mseEnabled: 'MseEnabled',
+      mseNamespaceId: 'MseNamespaceId',
       namespaceId: 'NamespaceId',
       programmingLanguage: 'ProgrammingLanguage',
       regionId: 'RegionId',
@@ -17235,6 +17237,7 @@ export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
       instances: 'number',
       mem: 'number',
       mseEnabled: 'boolean',
+      mseNamespaceId: 'string',
       namespaceId: 'string',
       programmingLanguage: 'string',
       regionId: 'string',
