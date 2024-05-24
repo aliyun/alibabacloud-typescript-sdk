@@ -753,6 +753,69 @@ export class CheckControlPlaneLogEnableResponse extends $tea.Model {
   }
 }
 
+export class CheckServiceRoleRequest extends $tea.Model {
+  roles?: CheckServiceRoleRequestRoles[];
+  static names(): { [key: string]: string } {
+    return {
+      roles: 'roles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roles: { 'type': 'array', 'itemType': CheckServiceRoleRequestRoles },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceRoleResponseBody extends $tea.Model {
+  roles?: CheckServiceRoleResponseBodyRoles[];
+  static names(): { [key: string]: string } {
+    return {
+      roles: 'roles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roles: { 'type': 'array', 'itemType': CheckServiceRoleResponseBodyRoles },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceRoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckServiceRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckServiceRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAutoscalingConfigRequest extends $tea.Model {
   coolDownDuration?: string;
   daemonsetEvictionForNodes?: boolean;
@@ -8570,6 +8633,50 @@ export class AttachInstancesResponseBodyList extends $tea.Model {
   }
 }
 
+export class CheckServiceRoleRequestRoles extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceRoleResponseBodyRoles extends $tea.Model {
+  granted?: boolean;
+  message?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      granted: 'granted',
+      message: 'message',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      granted: 'boolean',
+      message: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequestWorkerDataDisks extends $tea.Model {
   category?: string;
   encrypted?: string;
@@ -13752,6 +13859,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 检查是否授权指定服务角色
+   *
+   * @param request CheckServiceRoleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckServiceRoleResponse
+   */
+  async checkServiceRoleWithOptions(request: CheckServiceRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckServiceRoleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.roles)) {
+      body["roles"] = request.roles;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckServiceRole",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/ram/check-service-role`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckServiceRoleResponse>(await this.callApi(params, req, runtime), new CheckServiceRoleResponse({}));
+  }
+
+  /**
+   * @summary 检查是否授权指定服务角色
+   *
+   * @param request CheckServiceRoleRequest
+   * @return CheckServiceRoleResponse
+   */
+  async checkServiceRole(request: CheckServiceRoleRequest): Promise<CheckServiceRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.checkServiceRoleWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @summary Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
    *
    * @param request CreateAutoscalingConfigRequest
@@ -14270,7 +14422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call the CreateClusterNodePool operation to create a node pool for a Container Service for Kubernetes (ACK) cluster.
+   * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
    *
    * @param request CreateClusterNodePoolRequest
    * @param headers map
@@ -14343,7 +14495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call the CreateClusterNodePool operation to create a node pool for a Container Service for Kubernetes (ACK) cluster.
+   * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
    *
    * @param request CreateClusterNodePoolRequest
    * @return CreateClusterNodePoolResponse
@@ -19707,9 +19859,8 @@ export default class Client extends OpenApi {
   /**
    * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
    *
-   * @description **
-   * ****
-   * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+   * @description - You can call this operation only with an Alibaba Cloud account. 
+   * - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
    *
    * @param request UpdateK8sClusterUserConfigExpireRequest
    * @param headers map
@@ -19748,9 +19899,8 @@ export default class Client extends OpenApi {
   /**
    * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
    *
-   * @description **
-   * ****
-   * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+   * @description - You can call this operation only with an Alibaba Cloud account. 
+   * - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
    *
    * @param request UpdateK8sClusterUserConfigExpireRequest
    * @return UpdateK8sClusterUserConfigExpireResponse
