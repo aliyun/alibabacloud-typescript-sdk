@@ -65,9 +65,9 @@ export class AddAccessControlListEntryResponseBody extends $tea.Model {
 }
 
 export class AddAccessControlListEntryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddAccessControlListEntryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddAccessControlListEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -152,9 +152,9 @@ export class AddBackendServersResponseBody extends $tea.Model {
 }
 
 export class AddBackendServersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddBackendServersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -239,9 +239,9 @@ export class AddListenerWhiteListItemResponseBody extends $tea.Model {
 }
 
 export class AddListenerWhiteListItemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddListenerWhiteListItemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddListenerWhiteListItemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -320,9 +320,9 @@ export class AddTagsResponseBody extends $tea.Model {
 }
 
 export class AddTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -407,9 +407,9 @@ export class AddVServerGroupBackendServersResponseBody extends $tea.Model {
 }
 
 export class AddVServerGroupBackendServersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddVServerGroupBackendServersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddVServerGroupBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -497,9 +497,9 @@ export class CreateAccessControlListResponseBody extends $tea.Model {
 }
 
 export class CreateAccessControlListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAccessControlListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAccessControlListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -590,9 +590,9 @@ export class CreateDomainExtensionResponseBody extends $tea.Model {
 }
 
 export class CreateDomainExtensionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDomainExtensionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDomainExtensionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -758,9 +758,9 @@ export class CreateLoadBalancerResponseBody extends $tea.Model {
 }
 
 export class CreateLoadBalancerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLoadBalancerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -941,9 +941,9 @@ export class CreateLoadBalancerHTTPListenerResponseBody extends $tea.Model {
 }
 
 export class CreateLoadBalancerHTTPListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLoadBalancerHTTPListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLoadBalancerHTTPListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1130,9 +1130,9 @@ export class CreateLoadBalancerHTTPSListenerResponseBody extends $tea.Model {
 }
 
 export class CreateLoadBalancerHTTPSListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLoadBalancerHTTPSListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLoadBalancerHTTPSListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1286,9 +1286,9 @@ export class CreateLoadBalancerTCPListenerResponseBody extends $tea.Model {
 }
 
 export class CreateLoadBalancerTCPListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLoadBalancerTCPListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLoadBalancerTCPListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1424,9 +1424,9 @@ export class CreateLoadBalancerUDPListenerResponseBody extends $tea.Model {
 }
 
 export class CreateLoadBalancerUDPListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLoadBalancerUDPListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLoadBalancerUDPListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1517,9 +1517,9 @@ export class CreateMasterSlaveServerGroupResponseBody extends $tea.Model {
 }
 
 export class CreateMasterSlaveServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateMasterSlaveServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMasterSlaveServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1607,9 +1607,9 @@ export class CreateRulesResponseBody extends $tea.Model {
 }
 
 export class CreateRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1694,9 +1694,9 @@ export class CreateTLSCipherPolicyResponseBody extends $tea.Model {
 }
 
 export class CreateTLSCipherPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTLSCipherPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTLSCipherPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1787,9 +1787,9 @@ export class CreateVServerGroupResponseBody extends $tea.Model {
 }
 
 export class CreateVServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1865,9 +1865,9 @@ export class DeleteAccessControlListResponseBody extends $tea.Model {
 }
 
 export class DeleteAccessControlListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAccessControlListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccessControlListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1949,9 +1949,9 @@ export class DeleteAccessLogsDownloadAttributeResponseBody extends $tea.Model {
 }
 
 export class DeleteAccessLogsDownloadAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAccessLogsDownloadAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccessLogsDownloadAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2027,9 +2027,9 @@ export class DeleteCACertificateResponseBody extends $tea.Model {
 }
 
 export class DeleteCACertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCACertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCACertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2105,9 +2105,9 @@ export class DeleteDomainExtensionResponseBody extends $tea.Model {
 }
 
 export class DeleteDomainExtensionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDomainExtensionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDomainExtensionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2183,9 +2183,9 @@ export class DeleteLoadBalancerResponseBody extends $tea.Model {
 }
 
 export class DeleteLoadBalancerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLoadBalancerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2267,9 +2267,9 @@ export class DeleteLoadBalancerListenerResponseBody extends $tea.Model {
 }
 
 export class DeleteLoadBalancerListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLoadBalancerListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLoadBalancerListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2345,9 +2345,9 @@ export class DeleteMasterSlaveServerGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteMasterSlaveServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteMasterSlaveServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMasterSlaveServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2423,9 +2423,9 @@ export class DeleteRulesResponseBody extends $tea.Model {
 }
 
 export class DeleteRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2501,9 +2501,9 @@ export class DeleteServerCertificateResponseBody extends $tea.Model {
 }
 
 export class DeleteServerCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteServerCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServerCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2579,9 +2579,9 @@ export class DeleteTLSCipherPolicyResponseBody extends $tea.Model {
 }
 
 export class DeleteTLSCipherPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTLSCipherPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTLSCipherPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2657,9 +2657,9 @@ export class DeleteVServerGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteVServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2771,9 +2771,9 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeAccessControlListAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAccessControlListAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAccessControlListAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2879,9 +2879,9 @@ export class DescribeAccessControlListsResponseBody extends $tea.Model {
 }
 
 export class DescribeAccessControlListsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAccessControlListsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAccessControlListsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2981,9 +2981,9 @@ export class DescribeAccessLogsDownloadAttributeResponseBody extends $tea.Model 
 }
 
 export class DescribeAccessLogsDownloadAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAccessLogsDownloadAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAccessLogsDownloadAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3065,9 +3065,9 @@ export class DescribeAvailableResourceResponseBody extends $tea.Model {
 }
 
 export class DescribeAvailableResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAvailableResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAvailableResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3152,9 +3152,9 @@ export class DescribeCACertificatesResponseBody extends $tea.Model {
 }
 
 export class DescribeCACertificatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCACertificatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCACertificatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3245,9 +3245,9 @@ export class DescribeDomainExtensionAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeDomainExtensionAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainExtensionAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainExtensionAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3332,9 +3332,9 @@ export class DescribeDomainExtensionsResponseBody extends $tea.Model {
 }
 
 export class DescribeDomainExtensionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainExtensionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainExtensionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3419,9 +3419,9 @@ export class DescribeHealthStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeHealthStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeHealthStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeHealthStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3506,9 +3506,9 @@ export class DescribeHighDefinationMonitorResponseBody extends $tea.Model {
 }
 
 export class DescribeHighDefinationMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeHighDefinationMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeHighDefinationMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3596,9 +3596,9 @@ export class DescribeListenerAccessControlAttributeResponseBody extends $tea.Mod
 }
 
 export class DescribeListenerAccessControlAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeListenerAccessControlAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeListenerAccessControlAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3779,9 +3779,9 @@ export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeLoadBalancerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLoadBalancerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLoadBalancerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3977,9 +3977,9 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
 }
 
 export class DescribeLoadBalancerHTTPListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLoadBalancerHTTPListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLoadBalancerHTTPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4196,9 +4196,9 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
 }
 
 export class DescribeLoadBalancerHTTPSListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLoadBalancerHTTPSListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLoadBalancerHTTPSListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4304,9 +4304,9 @@ export class DescribeLoadBalancerListenersResponseBody extends $tea.Model {
 }
 
 export class DescribeLoadBalancerListenersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLoadBalancerListenersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLoadBalancerListenersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4475,9 +4475,9 @@ export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $tea.M
 }
 
 export class DescribeLoadBalancerTCPListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLoadBalancerTCPListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLoadBalancerTCPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4622,9 +4622,9 @@ export class DescribeLoadBalancerUDPListenerAttributeResponseBody extends $tea.M
 }
 
 export class DescribeLoadBalancerUDPListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLoadBalancerUDPListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLoadBalancerUDPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4769,9 +4769,9 @@ export class DescribeLoadBalancersResponseBody extends $tea.Model {
 }
 
 export class DescribeLoadBalancersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLoadBalancersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLoadBalancersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4865,9 +4865,9 @@ export class DescribeMasterSlaveServerGroupAttributeResponseBody extends $tea.Mo
 }
 
 export class DescribeMasterSlaveServerGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMasterSlaveServerGroupAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMasterSlaveServerGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4955,9 +4955,9 @@ export class DescribeMasterSlaveServerGroupsResponseBody extends $tea.Model {
 }
 
 export class DescribeMasterSlaveServerGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMasterSlaveServerGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMasterSlaveServerGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5036,9 +5036,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5180,9 +5180,9 @@ export class DescribeRuleAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeRuleAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRuleAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRuleAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5267,9 +5267,9 @@ export class DescribeRulesResponseBody extends $tea.Model {
 }
 
 export class DescribeRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5354,9 +5354,9 @@ export class DescribeServerCertificatesResponseBody extends $tea.Model {
 }
 
 export class DescribeServerCertificatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeServerCertificatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeServerCertificatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5456,9 +5456,9 @@ export class DescribeTagsResponseBody extends $tea.Model {
 }
 
 export class DescribeTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5552,9 +5552,9 @@ export class DescribeVServerGroupAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeVServerGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVServerGroupAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVServerGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5645,9 +5645,9 @@ export class DescribeVServerGroupsResponseBody extends $tea.Model {
 }
 
 export class DescribeVServerGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVServerGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVServerGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5723,9 +5723,9 @@ export class DescribeZonesResponseBody extends $tea.Model {
 }
 
 export class DescribeZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5810,9 +5810,9 @@ export class EnableHighDefinationMonitorResponseBody extends $tea.Model {
 }
 
 export class EnableHighDefinationMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableHighDefinationMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableHighDefinationMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5912,9 +5912,9 @@ export class ListTLSCipherPoliciesResponseBody extends $tea.Model {
 }
 
 export class ListTLSCipherPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTLSCipherPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTLSCipherPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6005,9 +6005,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6089,9 +6089,9 @@ export class ModifyHighDefinationMonitorResponseBody extends $tea.Model {
 }
 
 export class ModifyHighDefinationMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyHighDefinationMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyHighDefinationMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6179,9 +6179,9 @@ export class ModifyLoadBalancerInstanceChargeTypeResponseBody extends $tea.Model
 }
 
 export class ModifyLoadBalancerInstanceChargeTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyLoadBalancerInstanceChargeTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyLoadBalancerInstanceChargeTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6266,9 +6266,9 @@ export class ModifyLoadBalancerInstanceSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyLoadBalancerInstanceSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyLoadBalancerInstanceSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyLoadBalancerInstanceSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6356,9 +6356,9 @@ export class ModifyLoadBalancerInternetSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyLoadBalancerInternetSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyLoadBalancerInternetSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyLoadBalancerInternetSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6449,9 +6449,9 @@ export class ModifyLoadBalancerPayTypeResponseBody extends $tea.Model {
 }
 
 export class ModifyLoadBalancerPayTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyLoadBalancerPayTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyLoadBalancerPayTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6539,9 +6539,9 @@ export class ModifyVServerGroupBackendServersResponseBody extends $tea.Model {
 }
 
 export class ModifyVServerGroupBackendServersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVServerGroupBackendServersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVServerGroupBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6629,9 +6629,9 @@ export class MoveResourceGroupResponseBody extends $tea.Model {
 }
 
 export class MoveResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MoveResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MoveResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6710,9 +6710,9 @@ export class RemoveAccessControlListEntryResponseBody extends $tea.Model {
 }
 
 export class RemoveAccessControlListEntryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveAccessControlListEntryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveAccessControlListEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6797,9 +6797,9 @@ export class RemoveBackendServersResponseBody extends $tea.Model {
 }
 
 export class RemoveBackendServersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveBackendServersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6884,9 +6884,9 @@ export class RemoveListenerWhiteListItemResponseBody extends $tea.Model {
 }
 
 export class RemoveListenerWhiteListItemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveListenerWhiteListItemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveListenerWhiteListItemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6965,9 +6965,9 @@ export class RemoveTagsResponseBody extends $tea.Model {
 }
 
 export class RemoveTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7052,9 +7052,9 @@ export class RemoveVServerGroupBackendServersResponseBody extends $tea.Model {
 }
 
 export class RemoveVServerGroupBackendServersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveVServerGroupBackendServersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveVServerGroupBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7133,9 +7133,9 @@ export class SetAccessControlListAttributeResponseBody extends $tea.Model {
 }
 
 export class SetAccessControlListAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetAccessControlListAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetAccessControlListAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7217,9 +7217,9 @@ export class SetAccessLogsDownloadAttributeResponseBody extends $tea.Model {
 }
 
 export class SetAccessLogsDownloadAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetAccessLogsDownloadAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetAccessLogsDownloadAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7304,9 +7304,9 @@ export class SetBackendServersResponseBody extends $tea.Model {
 }
 
 export class SetBackendServersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetBackendServersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7385,9 +7385,9 @@ export class SetCACertificateNameResponseBody extends $tea.Model {
 }
 
 export class SetCACertificateNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetCACertificateNameResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetCACertificateNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7466,9 +7466,9 @@ export class SetDomainExtensionAttributeResponseBody extends $tea.Model {
 }
 
 export class SetDomainExtensionAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetDomainExtensionAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDomainExtensionAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7553,9 +7553,9 @@ export class SetListenerAccessControlStatusResponseBody extends $tea.Model {
 }
 
 export class SetListenerAccessControlStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetListenerAccessControlStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetListenerAccessControlStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7634,9 +7634,9 @@ export class SetLoadBalancerDeleteProtectionResponseBody extends $tea.Model {
 }
 
 export class SetLoadBalancerDeleteProtectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetLoadBalancerDeleteProtectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetLoadBalancerDeleteProtectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7808,9 +7808,9 @@ export class SetLoadBalancerHTTPListenerAttributeResponseBody extends $tea.Model
 }
 
 export class SetLoadBalancerHTTPListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetLoadBalancerHTTPListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetLoadBalancerHTTPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7994,9 +7994,9 @@ export class SetLoadBalancerHTTPSListenerAttributeResponseBody extends $tea.Mode
 }
 
 export class SetLoadBalancerHTTPSListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetLoadBalancerHTTPSListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetLoadBalancerHTTPSListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8078,9 +8078,9 @@ export class SetLoadBalancerModificationProtectionResponseBody extends $tea.Mode
 }
 
 export class SetLoadBalancerModificationProtectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetLoadBalancerModificationProtectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetLoadBalancerModificationProtectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8159,9 +8159,9 @@ export class SetLoadBalancerNameResponseBody extends $tea.Model {
 }
 
 export class SetLoadBalancerNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetLoadBalancerNameResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetLoadBalancerNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8240,9 +8240,9 @@ export class SetLoadBalancerStatusResponseBody extends $tea.Model {
 }
 
 export class SetLoadBalancerStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetLoadBalancerStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetLoadBalancerStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8399,9 +8399,9 @@ export class SetLoadBalancerTCPListenerAttributeResponseBody extends $tea.Model 
 }
 
 export class SetLoadBalancerTCPListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetLoadBalancerTCPListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetLoadBalancerTCPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8537,9 +8537,9 @@ export class SetLoadBalancerUDPListenerAttributeResponseBody extends $tea.Model 
 }
 
 export class SetLoadBalancerUDPListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetLoadBalancerUDPListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetLoadBalancerUDPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8666,9 +8666,9 @@ export class SetRuleResponseBody extends $tea.Model {
 }
 
 export class SetRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8747,9 +8747,9 @@ export class SetServerCertificateNameResponseBody extends $tea.Model {
 }
 
 export class SetServerCertificateNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetServerCertificateNameResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetServerCertificateNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8837,9 +8837,9 @@ export class SetTLSCipherPolicyAttributeResponseBody extends $tea.Model {
 }
 
 export class SetTLSCipherPolicyAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetTLSCipherPolicyAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetTLSCipherPolicyAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8930,9 +8930,9 @@ export class SetVServerGroupAttributeResponseBody extends $tea.Model {
 }
 
 export class SetVServerGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetVServerGroupAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetVServerGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9014,9 +9014,9 @@ export class StartLoadBalancerListenerResponseBody extends $tea.Model {
 }
 
 export class StartLoadBalancerListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartLoadBalancerListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartLoadBalancerListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9098,9 +9098,9 @@ export class StopLoadBalancerListenerResponseBody extends $tea.Model {
 }
 
 export class StopLoadBalancerListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopLoadBalancerListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopLoadBalancerListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9182,9 +9182,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9269,9 +9269,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9383,9 +9383,9 @@ export class UploadCACertificateResponseBody extends $tea.Model {
 }
 
 export class UploadCACertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UploadCACertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadCACertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9524,9 +9524,9 @@ export class UploadServerCertificateResponseBody extends $tea.Model {
 }
 
 export class UploadServerCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UploadServerCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadServerCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13243,13 +13243,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
-    * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
-    * *   The maximum number of IP entries that each network ACL can contain: 300
-    *
-    * @param request AddAccessControlListEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddAccessControlListEntryResponse
+   * @summary Adds IP entries to a network access control list (ACL).
+   *
+   * @description Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
+   * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
+   * *   The maximum number of IP entries that each network ACL can contain: 300
+   *
+   * @param request AddAccessControlListEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddAccessControlListEntryResponse
    */
   async addAccessControlListEntryWithOptions(request: AddAccessControlListEntryRequest, runtime: $Util.RuntimeOptions): Promise<AddAccessControlListEntryResponse> {
     Util.validateModel(request);
@@ -13300,12 +13302,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
-    * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
-    * *   The maximum number of IP entries that each network ACL can contain: 300
-    *
-    * @param request AddAccessControlListEntryRequest
-    * @return AddAccessControlListEntryResponse
+   * @summary Adds IP entries to a network access control list (ACL).
+   *
+   * @description Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
+   * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
+   * *   The maximum number of IP entries that each network ACL can contain: 300
+   *
+   * @param request AddAccessControlListEntryRequest
+   * @return AddAccessControlListEntryResponse
    */
   async addAccessControlListEntry(request: AddAccessControlListEntryRequest): Promise<AddAccessControlListEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13313,11 +13317,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
-    *
-    * @param request AddBackendServersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddBackendServersResponse
+   * @summary Adds backend servers.
+   *
+   * @description >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
+   *
+   * @param request AddBackendServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddBackendServersResponse
    */
   async addBackendServersWithOptions(request: AddBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<AddBackendServersResponse> {
     Util.validateModel(request);
@@ -13368,16 +13374,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
-    *
-    * @param request AddBackendServersRequest
-    * @return AddBackendServersResponse
+   * @summary Adds backend servers.
+   *
+   * @description >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
+   *
+   * @param request AddBackendServersRequest
+   * @return AddBackendServersResponse
    */
   async addBackendServers(request: AddBackendServersRequest): Promise<AddBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addBackendServersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds IP addresses to the whitelist of a listener.
+   *
+   * @param request AddListenerWhiteListItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddListenerWhiteListItemResponse
+   */
   async addListenerWhiteListItemWithOptions(request: AddListenerWhiteListItemRequest, runtime: $Util.RuntimeOptions): Promise<AddListenerWhiteListItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13434,22 +13449,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AddListenerWhiteListItemResponse>(await this.callApi(params, req, runtime), new AddListenerWhiteListItemResponse({}));
   }
 
+  /**
+   * @summary Adds IP addresses to the whitelist of a listener.
+   *
+   * @param request AddListenerWhiteListItemRequest
+   * @return AddListenerWhiteListItemResponse
+   */
   async addListenerWhiteListItem(request: AddListenerWhiteListItemRequest): Promise<AddListenerWhiteListItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addListenerWhiteListItemWithOptions(request, runtime);
   }
 
   /**
-    * # Limits
-    * Before you call this API, note the following limits:
-    * *   You can add up to 10 tags to each SLB instance.
-    * *   You can add up to five pairs of tags at a time.
-    * *   All the tags and keys added to an SLB instance must be unique.
-    * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
-    *
-    * @param request AddTagsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddTagsResponse
+   * @description # Limits
+   * Before you call this API, note the following limits:
+   * *   You can add up to 10 tags to each SLB instance.
+   * *   You can add up to five pairs of tags at a time.
+   * *   All the tags and keys added to an SLB instance must be unique.
+   * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
+   *
+   * @param request AddTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddTagsResponse
    */
   async addTagsWithOptions(request: AddTagsRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsResponse> {
     Util.validateModel(request);
@@ -13500,21 +13521,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Limits
-    * Before you call this API, note the following limits:
-    * *   You can add up to 10 tags to each SLB instance.
-    * *   You can add up to five pairs of tags at a time.
-    * *   All the tags and keys added to an SLB instance must be unique.
-    * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
-    *
-    * @param request AddTagsRequest
-    * @return AddTagsResponse
+   * @description # Limits
+   * Before you call this API, note the following limits:
+   * *   You can add up to 10 tags to each SLB instance.
+   * *   You can add up to five pairs of tags at a time.
+   * *   All the tags and keys added to an SLB instance must be unique.
+   * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
+   *
+   * @param request AddTagsRequest
+   * @return AddTagsResponse
    */
   async addTags(request: AddTagsRequest): Promise<AddTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds backend servers to a specified server group.
+   *
+   * @param request AddVServerGroupBackendServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddVServerGroupBackendServersResponse
+   */
   async addVServerGroupBackendServersWithOptions(request: AddVServerGroupBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<AddVServerGroupBackendServersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13563,20 +13591,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AddVServerGroupBackendServersResponse>(await this.callApi(params, req, runtime), new AddVServerGroupBackendServersResponse({}));
   }
 
+  /**
+   * @summary Adds backend servers to a specified server group.
+   *
+   * @param request AddVServerGroupBackendServersRequest
+   * @return AddVServerGroupBackendServersResponse
+   */
   async addVServerGroupBackendServers(request: AddVServerGroupBackendServersRequest): Promise<AddVServerGroupBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addVServerGroupBackendServersWithOptions(request, runtime);
   }
 
   /**
-    * You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
-    * *   An account can have a maximum of 50 ACLs in each region.
-    * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
-    * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
-    *
-    * @param request CreateAccessControlListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAccessControlListResponse
+   * @summary Creates an access control list (ACL).
+   *
+   * @description You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
+   * *   An account can have a maximum of 50 ACLs in each region.
+   * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
+   * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
+   *
+   * @param request CreateAccessControlListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccessControlListResponse
    */
   async createAccessControlListWithOptions(request: CreateAccessControlListRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessControlListResponse> {
     Util.validateModel(request);
@@ -13635,19 +13671,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
-    * *   An account can have a maximum of 50 ACLs in each region.
-    * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
-    * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
-    *
-    * @param request CreateAccessControlListRequest
-    * @return CreateAccessControlListResponse
+   * @summary Creates an access control list (ACL).
+   *
+   * @description You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
+   * *   An account can have a maximum of 50 ACLs in each region.
+   * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
+   * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
+   *
+   * @param request CreateAccessControlListRequest
+   * @return CreateAccessControlListResponse
    */
   async createAccessControlList(request: CreateAccessControlListRequest): Promise<CreateAccessControlListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccessControlListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a domain name extension.
+   *
+   * @param request CreateDomainExtensionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDomainExtensionResponse
+   */
   async createDomainExtensionWithOptions(request: CreateDomainExtensionRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainExtensionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13704,19 +13749,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDomainExtensionResponse>(await this.callApi(params, req, runtime), new CreateDomainExtensionResponse({}));
   }
 
+  /**
+   * @summary Creates a domain name extension.
+   *
+   * @param request CreateDomainExtensionRequest
+   * @return CreateDomainExtensionResponse
+   */
   async createDomainExtension(request: CreateDomainExtensionRequest): Promise<CreateDomainExtensionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDomainExtensionWithOptions(request, runtime);
   }
 
   /**
-    * *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
-    * *   After a CLB instance is created, you are charged for using the CLB instance.
-    * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
-    *
-    * @param request CreateLoadBalancerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerResponse
+   * @summary Creates a Classic Load Balancer (CLB) instance.
+   *
+   * @description *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
+   * *   After a CLB instance is created, you are charged for using the CLB instance.
+   * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
+   *
+   * @param request CreateLoadBalancerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerResponse
    */
   async createLoadBalancerWithOptions(request: CreateLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerResponse> {
     Util.validateModel(request);
@@ -13847,12 +13900,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
-    * *   After a CLB instance is created, you are charged for using the CLB instance.
-    * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
-    *
-    * @param request CreateLoadBalancerRequest
-    * @return CreateLoadBalancerResponse
+   * @summary Creates a Classic Load Balancer (CLB) instance.
+   *
+   * @description *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
+   * *   After a CLB instance is created, you are charged for using the CLB instance.
+   * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
+   *
+   * @param request CreateLoadBalancerRequest
+   * @return CreateLoadBalancerResponse
    */
   async createLoadBalancer(request: CreateLoadBalancerRequest): Promise<CreateLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13860,13 +13915,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
-    * ## Prerequisites
-    * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
-    *
-    * @param request CreateLoadBalancerHTTPListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerHTTPListenerResponse
+   * @summary Creates an HTTP listener for a Classic Load Balancer (CLB) instance.
+   *
+   * @description A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+   * ## Prerequisites
+   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
+   *
+   * @param request CreateLoadBalancerHTTPListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerHTTPListenerResponse
    */
   async createLoadBalancerHTTPListenerWithOptions(request: CreateLoadBalancerHTTPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerHTTPListenerResponse> {
     Util.validateModel(request);
@@ -14053,12 +14110,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
-    * ## Prerequisites
-    * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
-    *
-    * @param request CreateLoadBalancerHTTPListenerRequest
-    * @return CreateLoadBalancerHTTPListenerResponse
+   * @summary Creates an HTTP listener for a Classic Load Balancer (CLB) instance.
+   *
+   * @description A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+   * ## Prerequisites
+   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
+   *
+   * @param request CreateLoadBalancerHTTPListenerRequest
+   * @return CreateLoadBalancerHTTPListenerResponse
    */
   async createLoadBalancerHTTPListener(request: CreateLoadBalancerHTTPListenerRequest): Promise<CreateLoadBalancerHTTPListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14066,13 +14125,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
-    * ## Prerequisites
-    * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
-    *
-    * @param request CreateLoadBalancerHTTPSListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerHTTPSListenerResponse
+   * @summary Creates an HTTPS listener.
+   *
+   * @description A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+   * ## Prerequisites
+   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
+   *
+   * @param request CreateLoadBalancerHTTPSListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerHTTPSListenerResponse
    */
   async createLoadBalancerHTTPSListenerWithOptions(request: CreateLoadBalancerHTTPSListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerHTTPSListenerResponse> {
     Util.validateModel(request);
@@ -14267,12 +14328,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
-    * ## Prerequisites
-    * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
-    *
-    * @param request CreateLoadBalancerHTTPSListenerRequest
-    * @return CreateLoadBalancerHTTPSListenerResponse
+   * @summary Creates an HTTPS listener.
+   *
+   * @description A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+   * ## Prerequisites
+   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
+   *
+   * @param request CreateLoadBalancerHTTPSListenerRequest
+   * @return CreateLoadBalancerHTTPSListenerResponse
    */
   async createLoadBalancerHTTPSListener(request: CreateLoadBalancerHTTPSListenerRequest): Promise<CreateLoadBalancerHTTPSListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14280,11 +14343,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
-    *
-    * @param request CreateLoadBalancerTCPListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerTCPListenerResponse
+   * @summary Creates a TCP listener.
+   *
+   * @description >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to enable the listener to forward traffic to backend servers.
+   *
+   * @param request CreateLoadBalancerTCPListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerTCPListenerResponse
    */
   async createLoadBalancerTCPListenerWithOptions(request: CreateLoadBalancerTCPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerTCPListenerResponse> {
     Util.validateModel(request);
@@ -14435,10 +14500,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
-    *
-    * @param request CreateLoadBalancerTCPListenerRequest
-    * @return CreateLoadBalancerTCPListenerResponse
+   * @summary Creates a TCP listener.
+   *
+   * @description >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to enable the listener to forward traffic to backend servers.
+   *
+   * @param request CreateLoadBalancerTCPListenerRequest
+   * @return CreateLoadBalancerTCPListenerResponse
    */
   async createLoadBalancerTCPListener(request: CreateLoadBalancerTCPListenerRequest): Promise<CreateLoadBalancerTCPListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14446,12 +14513,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
-    * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
-    *
-    * @param request CreateLoadBalancerUDPListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerUDPListenerResponse
+   * @summary Creates a UDP listener.
+   *
+   * @description UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
+   * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to enable the listener to forward traffic to backend servers.
+   *
+   * @param request CreateLoadBalancerUDPListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerUDPListenerResponse
    */
   async createLoadBalancerUDPListenerWithOptions(request: CreateLoadBalancerUDPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerUDPListenerResponse> {
     Util.validateModel(request);
@@ -14578,17 +14647,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
-    * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
-    *
-    * @param request CreateLoadBalancerUDPListenerRequest
-    * @return CreateLoadBalancerUDPListenerResponse
+   * @summary Creates a UDP listener.
+   *
+   * @description UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
+   * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to enable the listener to forward traffic to backend servers.
+   *
+   * @param request CreateLoadBalancerUDPListenerRequest
+   * @return CreateLoadBalancerUDPListenerResponse
    */
   async createLoadBalancerUDPListener(request: CreateLoadBalancerUDPListenerRequest): Promise<CreateLoadBalancerUDPListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLoadBalancerUDPListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a primary/secondary server group. A primary/secondary server group can contain only two Elastic Compute Service (ECS) instances. One of the ECS instances functions as the primary server and the other functions as the secondary server.
+   *
+   * @param request CreateMasterSlaveServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMasterSlaveServerGroupResponse
+   */
   async createMasterSlaveServerGroupWithOptions(request: CreateMasterSlaveServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateMasterSlaveServerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14645,11 +14723,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMasterSlaveServerGroupResponse>(await this.callApi(params, req, runtime), new CreateMasterSlaveServerGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a primary/secondary server group. A primary/secondary server group can contain only two Elastic Compute Service (ECS) instances. One of the ECS instances functions as the primary server and the other functions as the secondary server.
+   *
+   * @param request CreateMasterSlaveServerGroupRequest
+   * @return CreateMasterSlaveServerGroupResponse
+   */
   async createMasterSlaveServerGroup(request: CreateMasterSlaveServerGroupRequest): Promise<CreateMasterSlaveServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMasterSlaveServerGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates forwarding rules for an HTTP or HTTPS listener.
+   *
+   * @param request CreateRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRulesResponse
+   */
   async createRulesWithOptions(request: CreateRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14706,11 +14797,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRulesResponse>(await this.callApi(params, req, runtime), new CreateRulesResponse({}));
   }
 
+  /**
+   * @summary Creates forwarding rules for an HTTP or HTTPS listener.
+   *
+   * @param request CreateRulesRequest
+   * @return CreateRulesResponse
+   */
   async createRules(request: CreateRulesRequest): Promise<CreateRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a Transport Layer Security (TLS) policy.
+   *
+   * @param request CreateTLSCipherPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTLSCipherPolicyResponse
+   */
   async createTLSCipherPolicyWithOptions(request: CreateTLSCipherPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateTLSCipherPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14763,11 +14867,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTLSCipherPolicyResponse>(await this.callApi(params, req, runtime), new CreateTLSCipherPolicyResponse({}));
   }
 
+  /**
+   * @summary Creates a Transport Layer Security (TLS) policy.
+   *
+   * @param request CreateTLSCipherPolicyRequest
+   * @return CreateTLSCipherPolicyResponse
+   */
   async createTLSCipherPolicy(request: CreateTLSCipherPolicyRequest): Promise<CreateTLSCipherPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTLSCipherPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a vServer group and adds backend servers to the vServer group.
+   *
+   * @param request CreateVServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVServerGroupResponse
+   */
   async createVServerGroupWithOptions(request: CreateVServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateVServerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14824,17 +14941,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVServerGroupResponse>(await this.callApi(params, req, runtime), new CreateVServerGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a vServer group and adds backend servers to the vServer group.
+   *
+   * @param request CreateVServerGroupRequest
+   * @return CreateVServerGroupResponse
+   */
   async createVServerGroup(request: CreateVServerGroupRequest): Promise<CreateVServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVServerGroupWithOptions(request, runtime);
   }
 
   /**
-    * You can delete an ACL only if it is not associated with a listener.
-    *
-    * @param request DeleteAccessControlListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAccessControlListResponse
+   * @summary Deletes an access control list (ACL).
+   *
+   * @description You can delete an ACL only if it is not associated with a listener.
+   *
+   * @param request DeleteAccessControlListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccessControlListResponse
    */
   async deleteAccessControlListWithOptions(request: DeleteAccessControlListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessControlListResponse> {
     Util.validateModel(request);
@@ -14881,16 +15006,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can delete an ACL only if it is not associated with a listener.
-    *
-    * @param request DeleteAccessControlListRequest
-    * @return DeleteAccessControlListResponse
+   * @summary Deletes an access control list (ACL).
+   *
+   * @description You can delete an ACL only if it is not associated with a listener.
+   *
+   * @param request DeleteAccessControlListRequest
+   * @return DeleteAccessControlListResponse
    */
   async deleteAccessControlList(request: DeleteAccessControlListRequest): Promise<DeleteAccessControlListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccessControlListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the access log of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request DeleteAccessLogsDownloadAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccessLogsDownloadAttributeResponse
+   */
   async deleteAccessLogsDownloadAttributeWithOptions(request: DeleteAccessLogsDownloadAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessLogsDownloadAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14943,17 +15077,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccessLogsDownloadAttributeResponse>(await this.callApi(params, req, runtime), new DeleteAccessLogsDownloadAttributeResponse({}));
   }
 
+  /**
+   * @summary Deletes the access log of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request DeleteAccessLogsDownloadAttributeRequest
+   * @return DeleteAccessLogsDownloadAttributeResponse
+   */
   async deleteAccessLogsDownloadAttribute(request: DeleteAccessLogsDownloadAttributeRequest): Promise<DeleteAccessLogsDownloadAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccessLogsDownloadAttributeWithOptions(request, runtime);
   }
 
   /**
-    * You cannot delete a CA certificate that is in use.
-    *
-    * @param request DeleteCACertificateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteCACertificateResponse
+   * @summary Deletes a certificate authority (CA) certificate.
+   *
+   * @description You cannot delete a CA certificate that is in use.
+   *
+   * @param request DeleteCACertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCACertificateResponse
    */
   async deleteCACertificateWithOptions(request: DeleteCACertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCACertificateResponse> {
     Util.validateModel(request);
@@ -15000,16 +15142,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot delete a CA certificate that is in use.
-    *
-    * @param request DeleteCACertificateRequest
-    * @return DeleteCACertificateResponse
+   * @summary Deletes a certificate authority (CA) certificate.
+   *
+   * @description You cannot delete a CA certificate that is in use.
+   *
+   * @param request DeleteCACertificateRequest
+   * @return DeleteCACertificateResponse
    */
   async deleteCACertificate(request: DeleteCACertificateRequest): Promise<DeleteCACertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCACertificateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an additional domain name.
+   *
+   * @param request DeleteDomainExtensionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainExtensionResponse
+   */
   async deleteDomainExtensionWithOptions(request: DeleteDomainExtensionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainExtensionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15054,17 +15205,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainExtensionResponse>(await this.callApi(params, req, runtime), new DeleteDomainExtensionResponse({}));
   }
 
+  /**
+   * @summary Deletes an additional domain name.
+   *
+   * @param request DeleteDomainExtensionRequest
+   * @return DeleteDomainExtensionResponse
+   */
   async deleteDomainExtension(request: DeleteDomainExtensionRequest): Promise<DeleteDomainExtensionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainExtensionWithOptions(request, runtime);
   }
 
   /**
-    * > The listeners and tags of the SLB instance are deleted along with the SLB instance.
-    *
-    * @param request DeleteLoadBalancerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteLoadBalancerResponse
+   * @summary Deletes a pay-as-you-go Server Load Balancer (SLB) instance.
+   *
+   * @description > The listeners and tags of the SLB instance are deleted along with the SLB instance.
+   *
+   * @param request DeleteLoadBalancerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLoadBalancerResponse
    */
   async deleteLoadBalancerWithOptions(request: DeleteLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoadBalancerResponse> {
     Util.validateModel(request);
@@ -15111,10 +15270,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The listeners and tags of the SLB instance are deleted along with the SLB instance.
-    *
-    * @param request DeleteLoadBalancerRequest
-    * @return DeleteLoadBalancerResponse
+   * @summary Deletes a pay-as-you-go Server Load Balancer (SLB) instance.
+   *
+   * @description > The listeners and tags of the SLB instance are deleted along with the SLB instance.
+   *
+   * @param request DeleteLoadBalancerRequest
+   * @return DeleteLoadBalancerResponse
    */
   async deleteLoadBalancer(request: DeleteLoadBalancerRequest): Promise<DeleteLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15122,11 +15283,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can delete only listeners that are in the **stopped** or **running** state.
-    *
-    * @param request DeleteLoadBalancerListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteLoadBalancerListenerResponse
+   * @summary Deletes a listener.
+   *
+   * @description >  You can delete only listeners that are in the **stopped** or **running** state.
+   *
+   * @param request DeleteLoadBalancerListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLoadBalancerListenerResponse
    */
   async deleteLoadBalancerListenerWithOptions(request: DeleteLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoadBalancerListenerResponse> {
     Util.validateModel(request);
@@ -15181,16 +15344,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can delete only listeners that are in the **stopped** or **running** state.
-    *
-    * @param request DeleteLoadBalancerListenerRequest
-    * @return DeleteLoadBalancerListenerResponse
+   * @summary Deletes a listener.
+   *
+   * @description >  You can delete only listeners that are in the **stopped** or **running** state.
+   *
+   * @param request DeleteLoadBalancerListenerRequest
+   * @return DeleteLoadBalancerListenerResponse
    */
   async deleteLoadBalancerListener(request: DeleteLoadBalancerListenerRequest): Promise<DeleteLoadBalancerListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLoadBalancerListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an active/standby server group.
+   *
+   * @param request DeleteMasterSlaveServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMasterSlaveServerGroupResponse
+   */
   async deleteMasterSlaveServerGroupWithOptions(request: DeleteMasterSlaveServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMasterSlaveServerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15235,18 +15407,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMasterSlaveServerGroupResponse>(await this.callApi(params, req, runtime), new DeleteMasterSlaveServerGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes an active/standby server group.
+   *
+   * @param request DeleteMasterSlaveServerGroupRequest
+   * @return DeleteMasterSlaveServerGroupResponse
+   */
   async deleteMasterSlaveServerGroup(request: DeleteMasterSlaveServerGroupRequest): Promise<DeleteMasterSlaveServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMasterSlaveServerGroupWithOptions(request, runtime);
   }
 
   /**
-    * ## Limits
-    * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
-    *
-    * @param request DeleteRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteRulesResponse
+   * @summary Deletes forwarding rules.
+   *
+   * @description ## Limits
+   * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
+   *
+   * @param request DeleteRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRulesResponse
    */
   async deleteRulesWithOptions(request: DeleteRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRulesResponse> {
     Util.validateModel(request);
@@ -15293,11 +15473,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Limits
-    * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
-    *
-    * @param request DeleteRulesRequest
-    * @return DeleteRulesResponse
+   * @summary Deletes forwarding rules.
+   *
+   * @description ## Limits
+   * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
+   *
+   * @param request DeleteRulesRequest
+   * @return DeleteRulesResponse
    */
   async deleteRules(request: DeleteRulesRequest): Promise<DeleteRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15305,11 +15487,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You cannot delete server certificates that are in use.
-    *
-    * @param request DeleteServerCertificateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteServerCertificateResponse
+   * @summary Deletes a server certificate.
+   *
+   * @description >  You cannot delete server certificates that are in use.
+   *
+   * @param request DeleteServerCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServerCertificateResponse
    */
   async deleteServerCertificateWithOptions(request: DeleteServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServerCertificateResponse> {
     Util.validateModel(request);
@@ -15356,10 +15540,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You cannot delete server certificates that are in use.
-    *
-    * @param request DeleteServerCertificateRequest
-    * @return DeleteServerCertificateResponse
+   * @summary Deletes a server certificate.
+   *
+   * @description >  You cannot delete server certificates that are in use.
+   *
+   * @param request DeleteServerCertificateRequest
+   * @return DeleteServerCertificateResponse
    */
   async deleteServerCertificate(request: DeleteServerCertificateRequest): Promise<DeleteServerCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15367,12 +15553,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15)
-    *
-    * @param request DeleteTLSCipherPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTLSCipherPolicyResponse
+   * @summary Deletes a TLS policy.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15)
+   *
+   * @param request DeleteTLSCipherPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTLSCipherPolicyResponse
    */
   async deleteTLSCipherPolicyWithOptions(request: DeleteTLSCipherPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTLSCipherPolicyResponse> {
     Util.validateModel(request);
@@ -15419,17 +15607,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15)
-    *
-    * @param request DeleteTLSCipherPolicyRequest
-    * @return DeleteTLSCipherPolicyResponse
+   * @summary Deletes a TLS policy.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15)
+   *
+   * @param request DeleteTLSCipherPolicyRequest
+   * @return DeleteTLSCipherPolicyResponse
    */
   async deleteTLSCipherPolicy(request: DeleteTLSCipherPolicyRequest): Promise<DeleteTLSCipherPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTLSCipherPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a VServer group.
+   *
+   * @param request DeleteVServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVServerGroupResponse
+   */
   async deleteVServerGroupWithOptions(request: DeleteVServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVServerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15474,11 +15671,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVServerGroupResponse>(await this.callApi(params, req, runtime), new DeleteVServerGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes a VServer group.
+   *
+   * @param request DeleteVServerGroupRequest
+   * @return DeleteVServerGroupResponse
+   */
   async deleteVServerGroup(request: DeleteVServerGroupRequest): Promise<DeleteVServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVServerGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configuration of an access control list (ACL).
+   *
+   * @param request DescribeAccessControlListAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccessControlListAttributeResponse
+   */
   async describeAccessControlListAttributeWithOptions(request: DescribeAccessControlListAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessControlListAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15535,11 +15745,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessControlListAttributeResponse>(await this.callApi(params, req, runtime), new DescribeAccessControlListAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the configuration of an access control list (ACL).
+   *
+   * @param request DescribeAccessControlListAttributeRequest
+   * @return DescribeAccessControlListAttributeResponse
+   */
   async describeAccessControlListAttribute(request: DescribeAccessControlListAttributeRequest): Promise<DescribeAccessControlListAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessControlListAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries access control lists (ACLs).
+   *
+   * @param request DescribeAccessControlListsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccessControlListsResponse
+   */
   async describeAccessControlListsWithOptions(request: DescribeAccessControlListsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessControlListsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15604,11 +15827,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessControlListsResponse>(await this.callApi(params, req, runtime), new DescribeAccessControlListsResponse({}));
   }
 
+  /**
+   * @summary Queries access control lists (ACLs).
+   *
+   * @param request DescribeAccessControlListsRequest
+   * @return DescribeAccessControlListsResponse
+   */
   async describeAccessControlLists(request: DescribeAccessControlListsRequest): Promise<DescribeAccessControlListsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessControlListsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the access log of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request DescribeAccessLogsDownloadAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccessLogsDownloadAttributeResponse
+   */
   async describeAccessLogsDownloadAttributeWithOptions(request: DescribeAccessLogsDownloadAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessLogsDownloadAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15669,17 +15905,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessLogsDownloadAttributeResponse>(await this.callApi(params, req, runtime), new DescribeAccessLogsDownloadAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the access log of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request DescribeAccessLogsDownloadAttributeRequest
+   * @return DescribeAccessLogsDownloadAttributeResponse
+   */
   async describeAccessLogsDownloadAttribute(request: DescribeAccessLogsDownloadAttributeRequest): Promise<DescribeAccessLogsDownloadAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessLogsDownloadAttributeWithOptions(request, runtime);
   }
 
   /**
-    * > Only the available resources and zones are returned.
-    *
-    * @param request DescribeAvailableResourceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAvailableResourceResponse
+   * @summary Queries the available resources and resources that are available for purchase in the zones of a region.
+   *
+   * @description > Only the available resources and zones are returned.
+   *
+   * @param request DescribeAvailableResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableResourceResponse
    */
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
@@ -15730,10 +15974,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Only the available resources and zones are returned.
-    *
-    * @param request DescribeAvailableResourceRequest
-    * @return DescribeAvailableResourceResponse
+   * @summary Queries the available resources and resources that are available for purchase in the zones of a region.
+   *
+   * @description > Only the available resources and zones are returned.
+   *
+   * @param request DescribeAvailableResourceRequest
+   * @return DescribeAvailableResourceResponse
    */
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15741,11 +15987,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
-    *
-    * @param request DescribeCACertificatesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCACertificatesResponse
+   * @summary Queries certificate authority (CA) certificates.
+   *
+   * @description > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
+   *
+   * @param request DescribeCACertificatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCACertificatesResponse
    */
   async describeCACertificatesWithOptions(request: DescribeCACertificatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCACertificatesResponse> {
     Util.validateModel(request);
@@ -15800,16 +16048,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
-    *
-    * @param request DescribeCACertificatesRequest
-    * @return DescribeCACertificatesResponse
+   * @summary Queries certificate authority (CA) certificates.
+   *
+   * @description > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
+   *
+   * @param request DescribeCACertificatesRequest
+   * @return DescribeCACertificatesResponse
    */
   async describeCACertificates(request: DescribeCACertificatesRequest): Promise<DescribeCACertificatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCACertificatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the attributes of an additional certificate.
+   *
+   * @param request DescribeDomainExtensionAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainExtensionAttributeResponse
+   */
   async describeDomainExtensionAttributeWithOptions(request: DescribeDomainExtensionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainExtensionAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15854,11 +16111,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainExtensionAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDomainExtensionAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the attributes of an additional certificate.
+   *
+   * @param request DescribeDomainExtensionAttributeRequest
+   * @return DescribeDomainExtensionAttributeResponse
+   */
   async describeDomainExtensionAttribute(request: DescribeDomainExtensionAttributeRequest): Promise<DescribeDomainExtensionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainExtensionAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries additional certificates.
+   *
+   * @param request DescribeDomainExtensionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainExtensionsResponse
+   */
   async describeDomainExtensionsWithOptions(request: DescribeDomainExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainExtensionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15911,11 +16181,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainExtensionsResponse>(await this.callApi(params, req, runtime), new DescribeDomainExtensionsResponse({}));
   }
 
+  /**
+   * @summary Queries additional certificates.
+   *
+   * @param request DescribeDomainExtensionsRequest
+   * @return DescribeDomainExtensionsResponse
+   */
   async describeDomainExtensions(request: DescribeDomainExtensionsRequest): Promise<DescribeDomainExtensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainExtensionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the health status of backend servers.
+   *
+   * @param request DescribeHealthStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHealthStatusResponse
+   */
   async describeHealthStatusWithOptions(request: DescribeHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHealthStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15968,11 +16251,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHealthStatusResponse>(await this.callApi(params, req, runtime), new DescribeHealthStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the health status of backend servers.
+   *
+   * @param request DescribeHealthStatusRequest
+   * @return DescribeHealthStatusResponse
+   */
   async describeHealthStatus(request: DescribeHealthStatusRequest): Promise<DescribeHealthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHealthStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of fine-grained monitoring in a region.
+   *
+   * @param request DescribeHighDefinationMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHighDefinationMonitorResponse
+   */
   async describeHighDefinationMonitorWithOptions(request: DescribeHighDefinationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHighDefinationMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16017,11 +16313,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHighDefinationMonitorResponse>(await this.callApi(params, req, runtime), new DescribeHighDefinationMonitorResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of fine-grained monitoring in a region.
+   *
+   * @param request DescribeHighDefinationMonitorRequest
+   * @return DescribeHighDefinationMonitorResponse
+   */
   async describeHighDefinationMonitor(request: DescribeHighDefinationMonitorRequest): Promise<DescribeHighDefinationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHighDefinationMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the whitelist configurations of a listener.
+   *
+   * @param request DescribeListenerAccessControlAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeListenerAccessControlAttributeResponse
+   */
   async describeListenerAccessControlAttributeWithOptions(request: DescribeListenerAccessControlAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeListenerAccessControlAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16074,17 +16383,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeListenerAccessControlAttributeResponse>(await this.callApi(params, req, runtime), new DescribeListenerAccessControlAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the whitelist configurations of a listener.
+   *
+   * @param request DescribeListenerAccessControlAttributeRequest
+   * @return DescribeListenerAccessControlAttributeResponse
+   */
   async describeListenerAccessControlAttribute(request: DescribeListenerAccessControlAttributeRequest): Promise<DescribeListenerAccessControlAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeListenerAccessControlAttributeWithOptions(request, runtime);
   }
 
   /**
-    * >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](~~35224~~) operation to query the backend servers.
-    *
-    * @param request DescribeLoadBalancerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLoadBalancerAttributeResponse
+   * @summary Queries the detail of a Classic Load Balancer (CLB) instance.
+   *
+   * @description >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](https://help.aliyun.com/document_detail/35224.html) operation to query the backend servers.
+   *
+   * @param request DescribeLoadBalancerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerAttributeResponse
    */
   async describeLoadBalancerAttributeWithOptions(request: DescribeLoadBalancerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerAttributeResponse> {
     Util.validateModel(request);
@@ -16131,10 +16448,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](~~35224~~) operation to query the backend servers.
-    *
-    * @param request DescribeLoadBalancerAttributeRequest
-    * @return DescribeLoadBalancerAttributeResponse
+   * @summary Queries the detail of a Classic Load Balancer (CLB) instance.
+   *
+   * @description >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](https://help.aliyun.com/document_detail/35224.html) operation to query the backend servers.
+   *
+   * @param request DescribeLoadBalancerAttributeRequest
+   * @return DescribeLoadBalancerAttributeResponse
    */
   async describeLoadBalancerAttribute(request: DescribeLoadBalancerAttributeRequest): Promise<DescribeLoadBalancerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16142,12 +16461,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-    * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
-    *
-    * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLoadBalancerHTTPListenerAttributeResponse
+   * @summary Queries the configurations of an HTTP listener.
+   *
+   * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](https://help.aliyun.com/document_detail/27592.html).
+   *
+   * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerHTTPListenerAttributeResponse
    */
   async describeLoadBalancerHTTPListenerAttributeWithOptions(request: DescribeLoadBalancerHTTPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerHTTPListenerAttributeResponse> {
     Util.validateModel(request);
@@ -16198,11 +16519,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-    * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
-    *
-    * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
-    * @return DescribeLoadBalancerHTTPListenerAttributeResponse
+   * @summary Queries the configurations of an HTTP listener.
+   *
+   * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](https://help.aliyun.com/document_detail/27592.html).
+   *
+   * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
+   * @return DescribeLoadBalancerHTTPListenerAttributeResponse
    */
   async describeLoadBalancerHTTPListenerAttribute(request: DescribeLoadBalancerHTTPListenerAttributeRequest): Promise<DescribeLoadBalancerHTTPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16210,12 +16533,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-    * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
-    *
-    * @param request DescribeLoadBalancerHTTPSListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
+   * @summary Queries the configurations of an HTTPS listener.
+   *
+   * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](https://help.aliyun.com/document_detail/27593.html).
+   *
+   * @param request DescribeLoadBalancerHTTPSListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
    */
   async describeLoadBalancerHTTPSListenerAttributeWithOptions(request: DescribeLoadBalancerHTTPSListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerHTTPSListenerAttributeResponse> {
     Util.validateModel(request);
@@ -16266,11 +16591,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-    * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
-    *
-    * @param request DescribeLoadBalancerHTTPSListenerAttributeRequest
-    * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
+   * @summary Queries the configurations of an HTTPS listener.
+   *
+   * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](https://help.aliyun.com/document_detail/27593.html).
+   *
+   * @param request DescribeLoadBalancerHTTPSListenerAttributeRequest
+   * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
    */
   async describeLoadBalancerHTTPSListenerAttribute(request: DescribeLoadBalancerHTTPSListenerAttributeRequest): Promise<DescribeLoadBalancerHTTPSListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16278,16 +16605,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
-    * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
-    *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
-    *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
-    *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
-    *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~)
-    *
-    * @param request DescribeLoadBalancerListenersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLoadBalancerListenersResponse
+   * @summary Queries the listeners of a Classic Load Balancer (CLB) instance.
+   *
+   * @description *   A CLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/2401685.html).
+   * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
+   *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
+   *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
+   *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
+   *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~)
+   *
+   * @param request DescribeLoadBalancerListenersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerListenersResponse
    */
   async describeLoadBalancerListenersWithOptions(request: DescribeLoadBalancerListenersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerListenersResponse> {
     Util.validateModel(request);
@@ -16358,21 +16687,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
-    * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
-    *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
-    *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
-    *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
-    *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~)
-    *
-    * @param request DescribeLoadBalancerListenersRequest
-    * @return DescribeLoadBalancerListenersResponse
+   * @summary Queries the listeners of a Classic Load Balancer (CLB) instance.
+   *
+   * @description *   A CLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/2401685.html).
+   * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
+   *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
+   *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
+   *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
+   *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~)
+   *
+   * @param request DescribeLoadBalancerListenersRequest
+   * @return DescribeLoadBalancerListenersResponse
    */
   async describeLoadBalancerListeners(request: DescribeLoadBalancerListenersRequest): Promise<DescribeLoadBalancerListenersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancerListenersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of a TCP listener of Classic Load Balancer (CLB).
+   *
+   * @param request DescribeLoadBalancerTCPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerTCPListenerAttributeResponse
+   */
   async describeLoadBalancerTCPListenerAttributeWithOptions(request: DescribeLoadBalancerTCPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerTCPListenerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16421,11 +16759,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLoadBalancerTCPListenerAttributeResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerTCPListenerAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of a TCP listener of Classic Load Balancer (CLB).
+   *
+   * @param request DescribeLoadBalancerTCPListenerAttributeRequest
+   * @return DescribeLoadBalancerTCPListenerAttributeResponse
+   */
   async describeLoadBalancerTCPListenerAttribute(request: DescribeLoadBalancerTCPListenerAttributeRequest): Promise<DescribeLoadBalancerTCPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancerTCPListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of a UDP listener.
+   *
+   * @param request DescribeLoadBalancerUDPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerUDPListenerAttributeResponse
+   */
   async describeLoadBalancerUDPListenerAttributeWithOptions(request: DescribeLoadBalancerUDPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerUDPListenerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16474,11 +16825,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLoadBalancerUDPListenerAttributeResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerUDPListenerAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of a UDP listener.
+   *
+   * @param request DescribeLoadBalancerUDPListenerAttributeRequest
+   * @return DescribeLoadBalancerUDPListenerAttributeResponse
+   */
   async describeLoadBalancerUDPListenerAttribute(request: DescribeLoadBalancerUDPListenerAttributeRequest): Promise<DescribeLoadBalancerUDPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancerUDPListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Classic Load Balancer (CLB) instances.
+   *
+   * @param request DescribeLoadBalancersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancersResponse
+   */
   async describeLoadBalancersWithOptions(request: DescribeLoadBalancersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16599,11 +16963,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLoadBalancersResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancersResponse({}));
   }
 
+  /**
+   * @summary Queries Classic Load Balancer (CLB) instances.
+   *
+   * @param request DescribeLoadBalancersRequest
+   * @return DescribeLoadBalancersResponse
+   */
   async describeLoadBalancers(request: DescribeLoadBalancersRequest): Promise<DescribeLoadBalancersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the detailed information about a primary/secondary server group.
+   *
+   * @param request DescribeMasterSlaveServerGroupAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMasterSlaveServerGroupAttributeResponse
+   */
   async describeMasterSlaveServerGroupAttributeWithOptions(request: DescribeMasterSlaveServerGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMasterSlaveServerGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16648,11 +17025,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMasterSlaveServerGroupAttributeResponse>(await this.callApi(params, req, runtime), new DescribeMasterSlaveServerGroupAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the detailed information about a primary/secondary server group.
+   *
+   * @param request DescribeMasterSlaveServerGroupAttributeRequest
+   * @return DescribeMasterSlaveServerGroupAttributeResponse
+   */
   async describeMasterSlaveServerGroupAttribute(request: DescribeMasterSlaveServerGroupAttributeRequest): Promise<DescribeMasterSlaveServerGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMasterSlaveServerGroupAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries primary/secondary server groups.
+   *
+   * @param request DescribeMasterSlaveServerGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMasterSlaveServerGroupsResponse
+   */
   async describeMasterSlaveServerGroupsWithOptions(request: DescribeMasterSlaveServerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMasterSlaveServerGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16709,11 +17099,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMasterSlaveServerGroupsResponse>(await this.callApi(params, req, runtime), new DescribeMasterSlaveServerGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries primary/secondary server groups.
+   *
+   * @param request DescribeMasterSlaveServerGroupsRequest
+   * @return DescribeMasterSlaveServerGroupsResponse
+   */
   async describeMasterSlaveServerGroups(request: DescribeMasterSlaveServerGroupsRequest): Promise<DescribeMasterSlaveServerGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMasterSlaveServerGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries regions.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16758,11 +17161,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries regions.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of a specified forwarding rule.
+   *
+   * @param request DescribeRuleAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRuleAttributeResponse
+   */
   async describeRuleAttributeWithOptions(request: DescribeRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRuleAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16807,11 +17223,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRuleAttributeResponse>(await this.callApi(params, req, runtime), new DescribeRuleAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of a specified forwarding rule.
+   *
+   * @param request DescribeRuleAttributeRequest
+   * @return DescribeRuleAttributeResponse
+   */
   async describeRuleAttribute(request: DescribeRuleAttributeRequest): Promise<DescribeRuleAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRuleAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the forwarding rules that are configured for a specified listener.
+   *
+   * @param request DescribeRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRulesResponse
+   */
   async describeRulesWithOptions(request: DescribeRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16864,17 +17293,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRulesResponse>(await this.callApi(params, req, runtime), new DescribeRulesResponse({}));
   }
 
+  /**
+   * @summary Queries the forwarding rules that are configured for a specified listener.
+   *
+   * @param request DescribeRulesRequest
+   * @return DescribeRulesResponse
+   */
   async describeRules(request: DescribeRulesRequest): Promise<DescribeRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRulesWithOptions(request, runtime);
   }
 
   /**
-    * >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
-    *
-    * @param request DescribeServerCertificatesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeServerCertificatesResponse
+   * @summary Queries server certificates of Classic Load Balancer (CLB) instances in a specified region.
+   *
+   * @description >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
+   *
+   * @param request DescribeServerCertificatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServerCertificatesResponse
    */
   async describeServerCertificatesWithOptions(request: DescribeServerCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServerCertificatesResponse> {
     Util.validateModel(request);
@@ -16929,10 +17366,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
-    *
-    * @param request DescribeServerCertificatesRequest
-    * @return DescribeServerCertificatesResponse
+   * @summary Queries server certificates of Classic Load Balancer (CLB) instances in a specified region.
+   *
+   * @description >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
+   *
+   * @param request DescribeServerCertificatesRequest
+   * @return DescribeServerCertificatesResponse
    */
   async describeServerCertificates(request: DescribeServerCertificatesRequest): Promise<DescribeServerCertificatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16940,16 +17379,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
-    * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
-    * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
-    * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
-    * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
-    *
-    * @param request DescribeTagsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTagsResponse
+   * @summary Queries tags.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
+   * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
+   * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
+   * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
+   * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
+   *
+   * @param request DescribeTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagsResponse
    */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
@@ -17012,21 +17453,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
-    * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
-    * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
-    * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
-    * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
-    *
-    * @param request DescribeTagsRequest
-    * @return DescribeTagsResponse
+   * @summary Queries tags.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
+   * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
+   * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
+   * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
+   * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
+   *
+   * @param request DescribeTagsRequest
+   * @return DescribeTagsResponse
    */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries detailed information about a vServer group.
+   *
+   * @param request DescribeVServerGroupAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVServerGroupAttributeResponse
+   */
   async describeVServerGroupAttributeWithOptions(request: DescribeVServerGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVServerGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17071,11 +17521,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVServerGroupAttributeResponse>(await this.callApi(params, req, runtime), new DescribeVServerGroupAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries detailed information about a vServer group.
+   *
+   * @param request DescribeVServerGroupAttributeRequest
+   * @return DescribeVServerGroupAttributeResponse
+   */
   async describeVServerGroupAttribute(request: DescribeVServerGroupAttributeRequest): Promise<DescribeVServerGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVServerGroupAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries server groups.
+   *
+   * @param request DescribeVServerGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVServerGroupsResponse
+   */
   async describeVServerGroupsWithOptions(request: DescribeVServerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVServerGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17136,11 +17599,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVServerGroupsResponse>(await this.callApi(params, req, runtime), new DescribeVServerGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries server groups.
+   *
+   * @param request DescribeVServerGroupsRequest
+   * @return DescribeVServerGroupsResponse
+   */
   async describeVServerGroups(request: DescribeVServerGroupsRequest): Promise<DescribeVServerGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVServerGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the zones in a region.
+   *
+   * @param request DescribeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17181,11 +17657,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * @summary Queries the zones in a region.
+   *
+   * @param request DescribeZonesRequest
+   * @return DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables fine-grained monitoring for the current region.
+   *
+   * @param request EnableHighDefinationMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableHighDefinationMonitorResponse
+   */
   async enableHighDefinationMonitorWithOptions(request: EnableHighDefinationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<EnableHighDefinationMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17238,11 +17727,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableHighDefinationMonitorResponse>(await this.callApi(params, req, runtime), new EnableHighDefinationMonitorResponse({}));
   }
 
+  /**
+   * @summary Enables fine-grained monitoring for the current region.
+   *
+   * @param request EnableHighDefinationMonitorRequest
+   * @return EnableHighDefinationMonitorResponse
+   */
   async enableHighDefinationMonitor(request: EnableHighDefinationMonitorRequest): Promise<EnableHighDefinationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableHighDefinationMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Transport Layer Security (TLS) policies.
+   *
+   * @param request ListTLSCipherPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTLSCipherPoliciesResponse
+   */
   async listTLSCipherPoliciesWithOptions(request: ListTLSCipherPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListTLSCipherPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17303,20 +17805,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTLSCipherPoliciesResponse>(await this.callApi(params, req, runtime), new ListTLSCipherPoliciesResponse({}));
   }
 
+  /**
+   * @summary Queries Transport Layer Security (TLS) policies.
+   *
+   * @param request ListTLSCipherPoliciesRequest
+   * @return ListTLSCipherPoliciesResponse
+   */
   async listTLSCipherPolicies(request: ListTLSCipherPoliciesRequest): Promise<ListTLSCipherPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTLSCipherPoliciesWithOptions(request, runtime);
   }
 
   /**
-    * *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
-    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
-    * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-    *
-    * @param request ListTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTagResourcesResponse
+   * @summary Queries tags that are added to one or more instances.
+   *
+   * @description *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
+   * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -17375,19 +17885,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
-    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
-    * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-    *
-    * @param request ListTagResourcesRequest
-    * @return ListTagResourcesResponse
+   * @summary Queries tags that are added to one or more instances.
+   *
+   * @description *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
+   * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configuration of fine-grained monitoring in a specified region.
+   *
+   * @param request ModifyHighDefinationMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyHighDefinationMonitorResponse
+   */
   async modifyHighDefinationMonitorWithOptions(request: ModifyHighDefinationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHighDefinationMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17436,18 +17955,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHighDefinationMonitorResponse>(await this.callApi(params, req, runtime), new ModifyHighDefinationMonitorResponse({}));
   }
 
+  /**
+   * @summary Modifies the configuration of fine-grained monitoring in a specified region.
+   *
+   * @param request ModifyHighDefinationMonitorRequest
+   * @return ModifyHighDefinationMonitorResponse
+   */
   async modifyHighDefinationMonitor(request: ModifyHighDefinationMonitorRequest): Promise<ModifyHighDefinationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHighDefinationMonitorWithOptions(request, runtime);
   }
 
   /**
-    * > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
-    * >*   This operation can change the metering method of only one instance at a time.
-    *
-    * @param request ModifyLoadBalancerInstanceChargeTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyLoadBalancerInstanceChargeTypeResponse
+   * @summary Changes the metering method of a pay-as-you-go Classic Load Balancer (CLB) instance.
+   *
+   * @description > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
+   * >*   This operation can change the metering method of only one instance at a time.
+   *
+   * @param request ModifyLoadBalancerInstanceChargeTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLoadBalancerInstanceChargeTypeResponse
    */
   async modifyLoadBalancerInstanceChargeTypeWithOptions(request: ModifyLoadBalancerInstanceChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoadBalancerInstanceChargeTypeResponse> {
     Util.validateModel(request);
@@ -17510,17 +18037,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
-    * >*   This operation can change the metering method of only one instance at a time.
-    *
-    * @param request ModifyLoadBalancerInstanceChargeTypeRequest
-    * @return ModifyLoadBalancerInstanceChargeTypeResponse
+   * @summary Changes the metering method of a pay-as-you-go Classic Load Balancer (CLB) instance.
+   *
+   * @description > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
+   * >*   This operation can change the metering method of only one instance at a time.
+   *
+   * @param request ModifyLoadBalancerInstanceChargeTypeRequest
+   * @return ModifyLoadBalancerInstanceChargeTypeResponse
    */
   async modifyLoadBalancerInstanceChargeType(request: ModifyLoadBalancerInstanceChargeTypeRequest): Promise<ModifyLoadBalancerInstanceChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLoadBalancerInstanceChargeTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the specification of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request ModifyLoadBalancerInstanceSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLoadBalancerInstanceSpecResponse
+   */
   async modifyLoadBalancerInstanceSpecWithOptions(request: ModifyLoadBalancerInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoadBalancerInstanceSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17573,19 +18109,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyLoadBalancerInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyLoadBalancerInstanceSpecResponse({}));
   }
 
+  /**
+   * @summary Modifies the specification of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request ModifyLoadBalancerInstanceSpecRequest
+   * @return ModifyLoadBalancerInstanceSpecResponse
+   */
   async modifyLoadBalancerInstanceSpec(request: ModifyLoadBalancerInstanceSpecRequest): Promise<ModifyLoadBalancerInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLoadBalancerInstanceSpecWithOptions(request, runtime);
   }
 
   /**
-    * ## Description
-    * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
-    * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
-    *
-    * @param request ModifyLoadBalancerInternetSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyLoadBalancerInternetSpecResponse
+   * @summary Modifies the metering method of an Internet-facing Classic Load Balancer (CLB) instance.
+   *
+   * @description ## Description
+   * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
+   * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
+   *
+   * @param request ModifyLoadBalancerInternetSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLoadBalancerInternetSpecResponse
    */
   async modifyLoadBalancerInternetSpecWithOptions(request: ModifyLoadBalancerInternetSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoadBalancerInternetSpecResponse> {
     Util.validateModel(request);
@@ -17644,18 +18188,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
-    * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
-    *
-    * @param request ModifyLoadBalancerInternetSpecRequest
-    * @return ModifyLoadBalancerInternetSpecResponse
+   * @summary Modifies the metering method of an Internet-facing Classic Load Balancer (CLB) instance.
+   *
+   * @description ## Description
+   * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
+   * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
+   *
+   * @param request ModifyLoadBalancerInternetSpecRequest
+   * @return ModifyLoadBalancerInternetSpecResponse
    */
   async modifyLoadBalancerInternetSpec(request: ModifyLoadBalancerInternetSpecRequest): Promise<ModifyLoadBalancerInternetSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLoadBalancerInternetSpecWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the billing method of a Classic Load Balancer (CLB) instance from pay-as-you-go to subscription.
+   *
+   * @param request ModifyLoadBalancerPayTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLoadBalancerPayTypeResponse
+   */
   async modifyLoadBalancerPayTypeWithOptions(request: ModifyLoadBalancerPayTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoadBalancerPayTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17716,17 +18269,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyLoadBalancerPayTypeResponse>(await this.callApi(params, req, runtime), new ModifyLoadBalancerPayTypeResponse({}));
   }
 
+  /**
+   * @summary Changes the billing method of a Classic Load Balancer (CLB) instance from pay-as-you-go to subscription.
+   *
+   * @param request ModifyLoadBalancerPayTypeRequest
+   * @return ModifyLoadBalancerPayTypeResponse
+   */
   async modifyLoadBalancerPayType(request: ModifyLoadBalancerPayTypeRequest): Promise<ModifyLoadBalancerPayTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLoadBalancerPayTypeWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](~~35217~~) operation.
-    *
-    * @param request ModifyVServerGroupBackendServersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVServerGroupBackendServersResponse
+   * @summary Replaces backend servers in a specified vServer group.
+   *
+   * @description You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](https://help.aliyun.com/document_detail/35217.html) operation.
+   *
+   * @param request ModifyVServerGroupBackendServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVServerGroupBackendServersResponse
    */
   async modifyVServerGroupBackendServersWithOptions(request: ModifyVServerGroupBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVServerGroupBackendServersResponse> {
     Util.validateModel(request);
@@ -17781,16 +18342,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](~~35217~~) operation.
-    *
-    * @param request ModifyVServerGroupBackendServersRequest
-    * @return ModifyVServerGroupBackendServersResponse
+   * @summary Replaces backend servers in a specified vServer group.
+   *
+   * @description You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](https://help.aliyun.com/document_detail/35217.html) operation.
+   *
+   * @param request ModifyVServerGroupBackendServersRequest
+   * @return ModifyVServerGroupBackendServersResponse
    */
   async modifyVServerGroupBackendServers(request: ModifyVServerGroupBackendServersRequest): Promise<ModifyVServerGroupBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVServerGroupBackendServersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Moves a resource to another resource group.
+   *
+   * @param request MoveResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17851,11 +18421,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Moves a resource to another resource group.
+   *
+   * @param request MoveResourceGroupRequest
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes IP entries from the network access control list (ACL) of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request RemoveAccessControlListEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveAccessControlListEntryResponse
+   */
   async removeAccessControlListEntryWithOptions(request: RemoveAccessControlListEntryRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAccessControlListEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17904,17 +18487,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveAccessControlListEntryResponse>(await this.callApi(params, req, runtime), new RemoveAccessControlListEntryResponse({}));
   }
 
+  /**
+   * @summary Removes IP entries from the network access control list (ACL) of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request RemoveAccessControlListEntryRequest
+   * @return RemoveAccessControlListEntryResponse
+   */
   async removeAccessControlListEntry(request: RemoveAccessControlListEntryRequest): Promise<RemoveAccessControlListEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeAccessControlListEntryWithOptions(request, runtime);
   }
 
   /**
-    * >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
-    *
-    * @param request RemoveBackendServersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveBackendServersResponse
+   * @summary Removes backend servers.
+   *
+   * @description >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
+   *
+   * @param request RemoveBackendServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveBackendServersResponse
    */
   async removeBackendServersWithOptions(request: RemoveBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveBackendServersResponse> {
     Util.validateModel(request);
@@ -17965,16 +18556,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
-    *
-    * @param request RemoveBackendServersRequest
-    * @return RemoveBackendServersResponse
+   * @summary Removes backend servers.
+   *
+   * @description >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
+   *
+   * @param request RemoveBackendServersRequest
+   * @return RemoveBackendServersResponse
    */
   async removeBackendServers(request: RemoveBackendServersRequest): Promise<RemoveBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeBackendServersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes IP addresses or CIDR blocks from the whitelist of a listener.
+   *
+   * @param request RemoveListenerWhiteListItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveListenerWhiteListItemResponse
+   */
   async removeListenerWhiteListItemWithOptions(request: RemoveListenerWhiteListItemRequest, runtime: $Util.RuntimeOptions): Promise<RemoveListenerWhiteListItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18031,11 +18631,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveListenerWhiteListItemResponse>(await this.callApi(params, req, runtime), new RemoveListenerWhiteListItemResponse({}));
   }
 
+  /**
+   * @summary Removes IP addresses or CIDR blocks from the whitelist of a listener.
+   *
+   * @param request RemoveListenerWhiteListItemRequest
+   * @return RemoveListenerWhiteListItemResponse
+   */
   async removeListenerWhiteListItem(request: RemoveListenerWhiteListItemRequest): Promise<RemoveListenerWhiteListItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeListenerWhiteListItemWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RemoveTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveTagsResponse
+   */
   async removeTagsWithOptions(request: RemoveTagsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18084,17 +18695,23 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveTagsResponse>(await this.callApi(params, req, runtime), new RemoveTagsResponse({}));
   }
 
+  /**
+   * @param request RemoveTagsRequest
+   * @return RemoveTagsResponse
+   */
   async removeTags(request: RemoveTagsRequest): Promise<RemoveTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeTagsWithOptions(request, runtime);
   }
 
   /**
-    * >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
-    *
-    * @param request RemoveVServerGroupBackendServersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveVServerGroupBackendServersResponse
+   * @summary Removes one or more backend servers from a specified vServer group.
+   *
+   * @description >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
+   *
+   * @param request RemoveVServerGroupBackendServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveVServerGroupBackendServersResponse
    */
   async removeVServerGroupBackendServersWithOptions(request: RemoveVServerGroupBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveVServerGroupBackendServersResponse> {
     Util.validateModel(request);
@@ -18145,16 +18762,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
-    *
-    * @param request RemoveVServerGroupBackendServersRequest
-    * @return RemoveVServerGroupBackendServersResponse
+   * @summary Removes one or more backend servers from a specified vServer group.
+   *
+   * @description >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
+   *
+   * @param request RemoveVServerGroupBackendServersRequest
+   * @return RemoveVServerGroupBackendServersResponse
    */
   async removeVServerGroupBackendServers(request: RemoveVServerGroupBackendServersRequest): Promise<RemoveVServerGroupBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeVServerGroupBackendServersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name of a network access control list (ACL).
+   *
+   * @param request SetAccessControlListAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetAccessControlListAttributeResponse
+   */
   async setAccessControlListAttributeWithOptions(request: SetAccessControlListAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetAccessControlListAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18203,11 +18829,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetAccessControlListAttributeResponse>(await this.callApi(params, req, runtime), new SetAccessControlListAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the name of a network access control list (ACL).
+   *
+   * @param request SetAccessControlListAttributeRequest
+   * @return SetAccessControlListAttributeResponse
+   */
   async setAccessControlListAttribute(request: SetAccessControlListAttributeRequest): Promise<SetAccessControlListAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAccessControlListAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds an access log forwarding rule for a Classic Load Balancer (CLB) instance.
+   *
+   * @param request SetAccessLogsDownloadAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetAccessLogsDownloadAttributeResponse
+   */
   async setAccessLogsDownloadAttributeWithOptions(request: SetAccessLogsDownloadAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetAccessLogsDownloadAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18260,11 +18899,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetAccessLogsDownloadAttributeResponse>(await this.callApi(params, req, runtime), new SetAccessLogsDownloadAttributeResponse({}));
   }
 
+  /**
+   * @summary Adds an access log forwarding rule for a Classic Load Balancer (CLB) instance.
+   *
+   * @param request SetAccessLogsDownloadAttributeRequest
+   * @return SetAccessLogsDownloadAttributeResponse
+   */
   async setAccessLogsDownloadAttribute(request: SetAccessLogsDownloadAttributeRequest): Promise<SetAccessLogsDownloadAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAccessLogsDownloadAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sets the weights of backend servers.
+   *
+   * @param request SetBackendServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetBackendServersResponse
+   */
   async setBackendServersWithOptions(request: SetBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<SetBackendServersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18313,11 +18965,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetBackendServersResponse>(await this.callApi(params, req, runtime), new SetBackendServersResponse({}));
   }
 
+  /**
+   * @summary Sets the weights of backend servers.
+   *
+   * @param request SetBackendServersRequest
+   * @return SetBackendServersResponse
+   */
   async setBackendServers(request: SetBackendServersRequest): Promise<SetBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setBackendServersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sets the name of a CA Certificate.
+   *
+   * @param request SetCACertificateNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetCACertificateNameResponse
+   */
   async setCACertificateNameWithOptions(request: SetCACertificateNameRequest, runtime: $Util.RuntimeOptions): Promise<SetCACertificateNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18366,17 +19031,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SetCACertificateNameResponse>(await this.callApi(params, req, runtime), new SetCACertificateNameResponse({}));
   }
 
+  /**
+   * @summary Sets the name of a CA Certificate.
+   *
+   * @param request SetCACertificateNameRequest
+   * @return SetCACertificateNameResponse
+   */
   async setCACertificateName(request: SetCACertificateNameRequest): Promise<SetCACertificateNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setCACertificateNameWithOptions(request, runtime);
   }
 
   /**
-    * >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
-    *
-    * @param request SetDomainExtensionAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetDomainExtensionAttributeResponse
+   * @summary Replaces an additional certificate.
+   *
+   * @description >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
+   *
+   * @param request SetDomainExtensionAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDomainExtensionAttributeResponse
    */
   async setDomainExtensionAttributeWithOptions(request: SetDomainExtensionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainExtensionAttributeResponse> {
     Util.validateModel(request);
@@ -18427,16 +19100,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
-    *
-    * @param request SetDomainExtensionAttributeRequest
-    * @return SetDomainExtensionAttributeResponse
+   * @summary Replaces an additional certificate.
+   *
+   * @description >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
+   *
+   * @param request SetDomainExtensionAttributeRequest
+   * @return SetDomainExtensionAttributeResponse
    */
   async setDomainExtensionAttribute(request: SetDomainExtensionAttributeRequest): Promise<SetDomainExtensionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDomainExtensionAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the whitelist of a specified listener.
+   *
+   * @param request SetListenerAccessControlStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetListenerAccessControlStatusResponse
+   */
   async setListenerAccessControlStatusWithOptions(request: SetListenerAccessControlStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetListenerAccessControlStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18493,11 +19175,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetListenerAccessControlStatusResponse>(await this.callApi(params, req, runtime), new SetListenerAccessControlStatusResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the whitelist of a specified listener.
+   *
+   * @param request SetListenerAccessControlStatusRequest
+   * @return SetListenerAccessControlStatusResponse
+   */
   async setListenerAccessControlStatus(request: SetListenerAccessControlStatusRequest): Promise<SetListenerAccessControlStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setListenerAccessControlStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables deletion protection for an SLB instance.
+   *
+   * @param request SetLoadBalancerDeleteProtectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerDeleteProtectionResponse
+   */
   async setLoadBalancerDeleteProtectionWithOptions(request: SetLoadBalancerDeleteProtectionRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerDeleteProtectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18546,19 +19241,27 @@ export default class Client extends OpenApi {
     return $tea.cast<SetLoadBalancerDeleteProtectionResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerDeleteProtectionResponse({}));
   }
 
+  /**
+   * @summary Enables or disables deletion protection for an SLB instance.
+   *
+   * @param request SetLoadBalancerDeleteProtectionRequest
+   * @return SetLoadBalancerDeleteProtectionResponse
+   */
   async setLoadBalancerDeleteProtection(request: SetLoadBalancerDeleteProtectionRequest): Promise<SetLoadBalancerDeleteProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setLoadBalancerDeleteProtectionWithOptions(request, runtime);
   }
 
   /**
-    * ### Prerequisites
-    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-    * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
-    *
-    * @param request SetLoadBalancerHTTPListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetLoadBalancerHTTPListenerAttributeResponse
+   * @summary Modifies the configurations of an HTTP listener.
+   *
+   * @description ### Prerequisites
+   * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](https://help.aliyun.com/document_detail/27592.html).
+   *
+   * @param request SetLoadBalancerHTTPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerHTTPListenerAttributeResponse
    */
   async setLoadBalancerHTTPListenerAttributeWithOptions(request: SetLoadBalancerHTTPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerHTTPListenerAttributeResponse> {
     Util.validateModel(request);
@@ -18733,12 +19436,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
-    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-    * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
-    *
-    * @param request SetLoadBalancerHTTPListenerAttributeRequest
-    * @return SetLoadBalancerHTTPListenerAttributeResponse
+   * @summary Modifies the configurations of an HTTP listener.
+   *
+   * @description ### Prerequisites
+   * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](https://help.aliyun.com/document_detail/27592.html).
+   *
+   * @param request SetLoadBalancerHTTPListenerAttributeRequest
+   * @return SetLoadBalancerHTTPListenerAttributeResponse
    */
   async setLoadBalancerHTTPListenerAttribute(request: SetLoadBalancerHTTPListenerAttributeRequest): Promise<SetLoadBalancerHTTPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18746,12 +19451,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-    * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
-    *
-    * @param request SetLoadBalancerHTTPSListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetLoadBalancerHTTPSListenerAttributeResponse
+   * @summary Modifies the configurations of an HTTPS listener.
+   *
+   * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](https://help.aliyun.com/document_detail/27593.html).
+   *
+   * @param request SetLoadBalancerHTTPSListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerHTTPSListenerAttributeResponse
    */
   async setLoadBalancerHTTPSListenerAttributeWithOptions(request: SetLoadBalancerHTTPSListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerHTTPSListenerAttributeResponse> {
     Util.validateModel(request);
@@ -18942,17 +19649,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-    * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
-    *
-    * @param request SetLoadBalancerHTTPSListenerAttributeRequest
-    * @return SetLoadBalancerHTTPSListenerAttributeResponse
+   * @summary Modifies the configurations of an HTTPS listener.
+   *
+   * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](https://help.aliyun.com/document_detail/27593.html).
+   *
+   * @param request SetLoadBalancerHTTPSListenerAttributeRequest
+   * @return SetLoadBalancerHTTPSListenerAttributeResponse
    */
   async setLoadBalancerHTTPSListenerAttribute(request: SetLoadBalancerHTTPSListenerAttributeRequest): Promise<SetLoadBalancerHTTPSListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setLoadBalancerHTTPSListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configuration of the configuration read-only mode for a Classic Load Balancer (CLB) instance.
+   *
+   * @param request SetLoadBalancerModificationProtectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerModificationProtectionResponse
+   */
   async setLoadBalancerModificationProtectionWithOptions(request: SetLoadBalancerModificationProtectionRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerModificationProtectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19005,11 +19721,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetLoadBalancerModificationProtectionResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerModificationProtectionResponse({}));
   }
 
+  /**
+   * @summary Modifies the configuration of the configuration read-only mode for a Classic Load Balancer (CLB) instance.
+   *
+   * @param request SetLoadBalancerModificationProtectionRequest
+   * @return SetLoadBalancerModificationProtectionResponse
+   */
   async setLoadBalancerModificationProtection(request: SetLoadBalancerModificationProtectionRequest): Promise<SetLoadBalancerModificationProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setLoadBalancerModificationProtectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request SetLoadBalancerNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerNameResponse
+   */
   async setLoadBalancerNameWithOptions(request: SetLoadBalancerNameRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19058,11 +19787,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetLoadBalancerNameResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerNameResponse({}));
   }
 
+  /**
+   * @summary Modifies the name of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request SetLoadBalancerNameRequest
+   * @return SetLoadBalancerNameResponse
+   */
   async setLoadBalancerName(request: SetLoadBalancerNameRequest): Promise<SetLoadBalancerNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setLoadBalancerNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the state of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request SetLoadBalancerStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerStatusResponse
+   */
   async setLoadBalancerStatusWithOptions(request: SetLoadBalancerStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19111,18 +19853,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SetLoadBalancerStatusResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerStatusResponse({}));
   }
 
+  /**
+   * @summary Modifies the state of a Classic Load Balancer (CLB) instance.
+   *
+   * @param request SetLoadBalancerStatusRequest
+   * @return SetLoadBalancerStatusResponse
+   */
   async setLoadBalancerStatus(request: SetLoadBalancerStatusRequest): Promise<SetLoadBalancerStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setLoadBalancerStatusWithOptions(request, runtime);
   }
 
   /**
-    * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
-    * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
-    *
-    * @param request SetLoadBalancerTCPListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetLoadBalancerTCPListenerAttributeResponse
+   * @summary Modifies the configurations of a TCP listener of Classic Load Balancer (CLB).
+   *
+   * @description *   A CLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/2401685.html).
+   * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
+   *
+   * @param request SetLoadBalancerTCPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerTCPListenerAttributeResponse
    */
   async setLoadBalancerTCPListenerAttributeWithOptions(request: SetLoadBalancerTCPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerTCPListenerAttributeResponse> {
     Util.validateModel(request);
@@ -19277,11 +20027,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
-    * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
-    *
-    * @param request SetLoadBalancerTCPListenerAttributeRequest
-    * @return SetLoadBalancerTCPListenerAttributeResponse
+   * @summary Modifies the configurations of a TCP listener of Classic Load Balancer (CLB).
+   *
+   * @description *   A CLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/2401685.html).
+   * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
+   *
+   * @param request SetLoadBalancerTCPListenerAttributeRequest
+   * @return SetLoadBalancerTCPListenerAttributeResponse
    */
   async setLoadBalancerTCPListenerAttribute(request: SetLoadBalancerTCPListenerAttributeRequest): Promise<SetLoadBalancerTCPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19289,12 +20041,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-    * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](~~27595~~).
-    *
-    * @param request SetLoadBalancerUDPListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetLoadBalancerUDPListenerAttributeResponse
+   * @summary Modifies the configurations of a UDP listener.
+   *
+   * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+   * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](https://help.aliyun.com/document_detail/27595.html).
+   *
+   * @param request SetLoadBalancerUDPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerUDPListenerAttributeResponse
    */
   async setLoadBalancerUDPListenerAttributeWithOptions(request: SetLoadBalancerUDPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerUDPListenerAttributeResponse> {
     Util.validateModel(request);
@@ -19421,17 +20175,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-    * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](~~27595~~).
-    *
-    * @param request SetLoadBalancerUDPListenerAttributeRequest
-    * @return SetLoadBalancerUDPListenerAttributeResponse
+   * @summary Modifies the configurations of a UDP listener.
+   *
+   * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+   * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](https://help.aliyun.com/document_detail/27595.html).
+   *
+   * @param request SetLoadBalancerUDPListenerAttributeRequest
+   * @return SetLoadBalancerUDPListenerAttributeResponse
    */
   async setLoadBalancerUDPListenerAttribute(request: SetLoadBalancerUDPListenerAttributeRequest): Promise<SetLoadBalancerUDPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setLoadBalancerUDPListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a forwarding rule that is associated with a vServer group.
+   *
+   * @param request SetRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetRuleResponse
+   */
   async setRuleWithOptions(request: SetRuleRequest, runtime: $Util.RuntimeOptions): Promise<SetRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19544,11 +20307,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetRuleResponse>(await this.callApi(params, req, runtime), new SetRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies a forwarding rule that is associated with a vServer group.
+   *
+   * @param request SetRuleRequest
+   * @return SetRuleResponse
+   */
   async setRule(request: SetRuleRequest): Promise<SetRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sets a name for a server certificate.
+   *
+   * @param request SetServerCertificateNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetServerCertificateNameResponse
+   */
   async setServerCertificateNameWithOptions(request: SetServerCertificateNameRequest, runtime: $Util.RuntimeOptions): Promise<SetServerCertificateNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19597,11 +20373,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetServerCertificateNameResponse>(await this.callApi(params, req, runtime), new SetServerCertificateNameResponse({}));
   }
 
+  /**
+   * @summary Sets a name for a server certificate.
+   *
+   * @param request SetServerCertificateNameRequest
+   * @return SetServerCertificateNameResponse
+   */
   async setServerCertificateName(request: SetServerCertificateNameRequest): Promise<SetServerCertificateNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setServerCertificateNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures a Transport Layer Security (TLS) policy.
+   *
+   * @param request SetTLSCipherPolicyAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetTLSCipherPolicyAttributeResponse
+   */
   async setTLSCipherPolicyAttributeWithOptions(request: SetTLSCipherPolicyAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetTLSCipherPolicyAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19658,19 +20447,27 @@ export default class Client extends OpenApi {
     return $tea.cast<SetTLSCipherPolicyAttributeResponse>(await this.callApi(params, req, runtime), new SetTLSCipherPolicyAttributeResponse({}));
   }
 
+  /**
+   * @summary Configures a Transport Layer Security (TLS) policy.
+   *
+   * @param request SetTLSCipherPolicyAttributeRequest
+   * @return SetTLSCipherPolicyAttributeResponse
+   */
   async setTLSCipherPolicyAttribute(request: SetTLSCipherPolicyAttributeRequest): Promise<SetTLSCipherPolicyAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setTLSCipherPolicyAttributeWithOptions(request, runtime);
   }
 
   /**
-    * This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
-    * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](~~35220~~) operation.
-    * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](~~35218~~) operation.
-    *
-    * @param request SetVServerGroupAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetVServerGroupAttributeResponse
+   * @summary Modifies the configurations of a vServer group.
+   *
+   * @description This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
+   * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](https://help.aliyun.com/document_detail/35220.html) operation.
+   * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](https://help.aliyun.com/document_detail/35218.html) operation.
+   *
+   * @param request SetVServerGroupAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetVServerGroupAttributeResponse
    */
   async setVServerGroupAttributeWithOptions(request: SetVServerGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetVServerGroupAttributeResponse> {
     Util.validateModel(request);
@@ -19725,12 +20522,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
-    * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](~~35220~~) operation.
-    * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](~~35218~~) operation.
-    *
-    * @param request SetVServerGroupAttributeRequest
-    * @return SetVServerGroupAttributeResponse
+   * @summary Modifies the configurations of a vServer group.
+   *
+   * @description This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
+   * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](https://help.aliyun.com/document_detail/35220.html) operation.
+   * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](https://help.aliyun.com/document_detail/35218.html) operation.
+   *
+   * @param request SetVServerGroupAttributeRequest
+   * @return SetVServerGroupAttributeResponse
    */
   async setVServerGroupAttribute(request: SetVServerGroupAttributeRequest): Promise<SetVServerGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19738,14 +20537,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, note the following items:
-    * *   You can call the operation only when the listener is in the Stopped state.
-    * *   After the operation is called, the status of the listener changes to Starting.
-    * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
-    *
-    * @param request StartLoadBalancerListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartLoadBalancerListenerResponse
+   * @summary You can call this operation to start a listener.
+   *
+   * @description When you call this operation, note the following items:
+   * *   You can call the operation only when the listener is in the Stopped state.
+   * *   After the operation is called, the status of the listener changes to Starting.
+   * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
+   *
+   * @param request StartLoadBalancerListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartLoadBalancerListenerResponse
    */
   async startLoadBalancerListenerWithOptions(request: StartLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<StartLoadBalancerListenerResponse> {
     Util.validateModel(request);
@@ -19800,13 +20601,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, note the following items:
-    * *   You can call the operation only when the listener is in the Stopped state.
-    * *   After the operation is called, the status of the listener changes to Starting.
-    * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
-    *
-    * @param request StartLoadBalancerListenerRequest
-    * @return StartLoadBalancerListenerResponse
+   * @summary You can call this operation to start a listener.
+   *
+   * @description When you call this operation, note the following items:
+   * *   You can call the operation only when the listener is in the Stopped state.
+   * *   After the operation is called, the status of the listener changes to Starting.
+   * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
+   *
+   * @param request StartLoadBalancerListenerRequest
+   * @return StartLoadBalancerListenerResponse
    */
   async startLoadBalancerListener(request: StartLoadBalancerListenerRequest): Promise<StartLoadBalancerListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19814,14 +20617,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you make this API call, note the following:
-    * *   After the API call is successfully made, the listener enters the stopped state.
-    * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
-    * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
-    *
-    * @param request StopLoadBalancerListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopLoadBalancerListenerResponse
+   * @summary Stops a listener.
+   *
+   * @description Before you make this API call, note the following:
+   * *   After the API call is successfully made, the listener enters the stopped state.
+   * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
+   * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
+   *
+   * @param request StopLoadBalancerListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopLoadBalancerListenerResponse
    */
   async stopLoadBalancerListenerWithOptions(request: StopLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<StopLoadBalancerListenerResponse> {
     Util.validateModel(request);
@@ -19876,13 +20681,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you make this API call, note the following:
-    * *   After the API call is successfully made, the listener enters the stopped state.
-    * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
-    * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
-    *
-    * @param request StopLoadBalancerListenerRequest
-    * @return StopLoadBalancerListenerResponse
+   * @summary Stops a listener.
+   *
+   * @description Before you make this API call, note the following:
+   * *   After the API call is successfully made, the listener enters the stopped state.
+   * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
+   * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
+   *
+   * @param request StopLoadBalancerListenerRequest
+   * @return StopLoadBalancerListenerResponse
    */
   async stopLoadBalancerListener(request: StopLoadBalancerListenerRequest): Promise<StopLoadBalancerListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19890,11 +20697,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
-    *
-    * @param request TagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourcesResponse
+   * @summary Creates tags and adds the tags to resources.
+   *
+   * @description >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -19949,16 +20758,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
-    *
-    * @param request TagResourcesRequest
-    * @return TagResourcesResponse
+   * @summary Creates tags and adds the tags to resources.
+   *
+   * @description >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from specified resources.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20015,17 +20833,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from specified resources.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
-    *
-    * @param request UploadCACertificateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UploadCACertificateResponse
+   * @summary Uploads a CA certificate.
+   *
+   * @description You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
+   *
+   * @param request UploadCACertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadCACertificateResponse
    */
   async uploadCACertificateWithOptions(request: UploadCACertificateRequest, runtime: $Util.RuntimeOptions): Promise<UploadCACertificateResponse> {
     Util.validateModel(request);
@@ -20084,10 +20910,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
-    *
-    * @param request UploadCACertificateRequest
-    * @return UploadCACertificateResponse
+   * @summary Uploads a CA certificate.
+   *
+   * @description You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
+   *
+   * @param request UploadCACertificateRequest
+   * @return UploadCACertificateResponse
    */
   async uploadCACertificate(request: UploadCACertificateRequest): Promise<UploadCACertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20095,12 +20923,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can upload only one server certificate and its private key in each call.
-    * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
-    *
-    * @param request UploadServerCertificateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UploadServerCertificateResponse
+   * @summary Uploads a server certificate.
+   *
+   * @description *   You can upload only one server certificate and its private key in each call.
+   * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
+   *
+   * @param request UploadServerCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadServerCertificateResponse
    */
   async uploadServerCertificateWithOptions(request: UploadServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<UploadServerCertificateResponse> {
     Util.validateModel(request);
@@ -20175,11 +21005,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can upload only one server certificate and its private key in each call.
-    * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
-    *
-    * @param request UploadServerCertificateRequest
-    * @return UploadServerCertificateResponse
+   * @summary Uploads a server certificate.
+   *
+   * @description *   You can upload only one server certificate and its private key in each call.
+   * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
+   *
+   * @param request UploadServerCertificateRequest
+   * @return UploadServerCertificateResponse
    */
   async uploadServerCertificate(request: UploadServerCertificateRequest): Promise<UploadServerCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
