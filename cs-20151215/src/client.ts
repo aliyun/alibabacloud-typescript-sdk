@@ -6576,10 +6576,12 @@ export class RemoveWorkflowResponse extends $tea.Model {
 export class RepairClusterNodePoolRequest extends $tea.Model {
   autoRestart?: boolean;
   nodes?: string[];
+  operations?: RepairClusterNodePoolRequestOperations[];
   static names(): { [key: string]: string } {
     return {
       autoRestart: 'auto_restart',
       nodes: 'nodes',
+      operations: 'operations',
     };
   }
 
@@ -6587,6 +6589,7 @@ export class RepairClusterNodePoolRequest extends $tea.Model {
     return {
       autoRestart: 'boolean',
       nodes: { 'type': 'array', 'itemType': 'string' },
+      operations: { 'type': 'array', 'itemType': RepairClusterNodePoolRequestOperations },
     };
   }
 
@@ -13212,6 +13215,28 @@ export class ModifyNodePoolNodeConfigRequestRollingPolicy extends $tea.Model {
   }
 }
 
+export class RepairClusterNodePoolRequestOperations extends $tea.Model {
+  args?: string[];
+  operationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'args',
+      operationId: 'operation_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'array', 'itemType': 'string' },
+      operationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScaleClusterRequestTags extends $tea.Model {
   key?: string;
   static names(): { [key: string]: string } {
@@ -18818,6 +18843,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nodes)) {
       body["nodes"] = request.nodes;
+    }
+
+    if (!Util.isUnset(request.operations)) {
+      body["operations"] = request.operations;
     }
 
     let req = new $OpenApi.OpenApiRequest({
