@@ -9795,12 +9795,41 @@ export class DescribeNatFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
   }
 }
 
+export class DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList extends $tea.Model {
+  destinationCidr?: string;
+  nextHopId?: string;
+  nextHopType?: string;
+  routeTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidr: 'DestinationCidr',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      routeTableId: 'RouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidr: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      routeTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNatFirewallListResponseBodyNatFirewallList extends $tea.Model {
   aliUid?: number;
   errorDetail?: string;
   memberUid?: number;
   natGatewayId?: string;
   natGatewayName?: string;
+  natRouteEntryList?: DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList[];
   proxyId?: string;
   proxyName?: string;
   proxyStatus?: string;
@@ -9815,6 +9844,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $tea.Mod
       memberUid: 'MemberUid',
       natGatewayId: 'NatGatewayId',
       natGatewayName: 'NatGatewayName',
+      natRouteEntryList: 'NatRouteEntryList',
       proxyId: 'ProxyId',
       proxyName: 'ProxyName',
       proxyStatus: 'ProxyStatus',
@@ -9832,6 +9862,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $tea.Mod
       memberUid: 'number',
       natGatewayId: 'string',
       natGatewayName: 'string',
+      natRouteEntryList: { 'type': 'array', 'itemType': DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList },
       proxyId: 'string',
       proxyName: 'string',
       proxyStatus: 'string',
@@ -18602,9 +18633,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Turns off all firewall switches.
    *
-   * @description You can call the PutDisableAllFwSwitch operation to turn off all firewall switches. 
-   * ## Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call the PutDisableAllFwSwitch operation to turn off all firewall switches.
+   * ## [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request PutDisableAllFwSwitchRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -18645,9 +18676,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Turns off all firewall switches.
    *
-   * @description You can call the PutDisableAllFwSwitch operation to turn off all firewall switches. 
-   * ## Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call the PutDisableAllFwSwitch operation to turn off all firewall switches.
+   * ## [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request PutDisableAllFwSwitchRequest
    * @return PutDisableAllFwSwitchResponse
