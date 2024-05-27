@@ -4246,12 +4246,14 @@ export class CreateOrUpdateSilencePolicyRequest extends $tea.Model {
   matchingRules?: string;
   name?: string;
   regionId?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       matchingRules: 'MatchingRules',
       name: 'Name',
       regionId: 'RegionId',
+      state: 'State',
     };
   }
 
@@ -4261,6 +4263,7 @@ export class CreateOrUpdateSilencePolicyRequest extends $tea.Model {
       matchingRules: 'string',
       name: 'string',
       regionId: 'string',
+      state: 'string',
     };
   }
 
@@ -22800,11 +22803,13 @@ export class CreateOrUpdateSilencePolicyResponseBodySilencePolicy extends $tea.M
   id?: number;
   matchingRules?: CreateOrUpdateSilencePolicyResponseBodySilencePolicyMatchingRules[];
   name?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       matchingRules: 'MatchingRules',
       name: 'Name',
+      state: 'State',
     };
   }
 
@@ -22813,6 +22818,7 @@ export class CreateOrUpdateSilencePolicyResponseBodySilencePolicy extends $tea.M
       id: 'number',
       matchingRules: { 'type': 'array', 'itemType': CreateOrUpdateSilencePolicyResponseBodySilencePolicyMatchingRules },
       name: 'string',
+      state: 'string',
     };
   }
 
@@ -26379,6 +26385,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
   paymentType?: string;
   pushGatewayInterUrl?: string;
   pushGatewayIntraUrl?: string;
+  readOnly?: boolean;
   regionId?: string;
   remoteReadInterUrl?: string;
   remoteReadIntraUrl?: string;
@@ -26406,6 +26413,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       paymentType: 'PaymentType',
       pushGatewayInterUrl: 'PushGatewayInterUrl',
       pushGatewayIntraUrl: 'PushGatewayIntraUrl',
+      readOnly: 'ReadOnly',
       regionId: 'RegionId',
       remoteReadInterUrl: 'RemoteReadInterUrl',
       remoteReadIntraUrl: 'RemoteReadIntraUrl',
@@ -26436,6 +26444,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       paymentType: 'string',
       pushGatewayInterUrl: 'string',
       pushGatewayIntraUrl: 'string',
+      readOnly: 'boolean',
       regionId: 'string',
       remoteReadInterUrl: 'string',
       remoteReadIntraUrl: 'string',
@@ -31854,11 +31863,13 @@ export class ListSilencePoliciesResponseBodyPageBeanSilencePolicies extends $tea
   id?: number;
   matchingRules?: ListSilencePoliciesResponseBodyPageBeanSilencePoliciesMatchingRules[];
   name?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       matchingRules: 'MatchingRules',
       name: 'Name',
+      state: 'State',
     };
   }
 
@@ -31867,6 +31878,7 @@ export class ListSilencePoliciesResponseBodyPageBeanSilencePolicies extends $tea
       id: 'number',
       matchingRules: { 'type': 'array', 'itemType': ListSilencePoliciesResponseBodyPageBeanSilencePoliciesMatchingRules },
       name: 'string',
+      state: 'string',
     };
   }
 
@@ -37096,6 +37108,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      body["State"] = request.state;
     }
 
     let req = new $OpenApi.OpenApiRequest({
