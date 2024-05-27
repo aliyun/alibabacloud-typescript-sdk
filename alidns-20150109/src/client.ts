@@ -2522,6 +2522,120 @@ export class DescribeBatchResultDetailResponse extends $tea.Model {
   }
 }
 
+export class DescribeCloudGtmAddressPoolRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolId?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolId: 'AddressPoolId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressPoolResponseBody extends $tea.Model {
+  addressLbStrategy?: string;
+  addressPoolId?: string;
+  addressPoolName?: string;
+  addressPoolType?: string;
+  addresses?: DescribeCloudGtmAddressPoolResponseBodyAddresses;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  remark?: string;
+  requestId?: string;
+  sequenceLbStrategyMode?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addressLbStrategy: 'AddressLbStrategy',
+      addressPoolId: 'AddressPoolId',
+      addressPoolName: 'AddressPoolName',
+      addressPoolType: 'AddressPoolType',
+      addresses: 'Addresses',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      remark: 'Remark',
+      requestId: 'RequestId',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressLbStrategy: 'string',
+      addressPoolId: 'string',
+      addressPoolName: 'string',
+      addressPoolType: 'string',
+      addresses: DescribeCloudGtmAddressPoolResponseBodyAddresses,
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      remark: 'string',
+      requestId: 'string',
+      sequenceLbStrategyMode: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressPoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudGtmAddressPoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudGtmAddressPoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCustomLineRequest extends $tea.Model {
   lang?: string;
   lineId?: number;
@@ -13680,6 +13794,167 @@ export class DescribeBatchResultDetailResponseBodyBatchResultDetails extends $te
   }
 }
 
+export class DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask extends $tea.Model {
+  port?: number;
+  templateId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      templateId: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks extends $tea.Model {
+  healthTask?: DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask[];
+  static names(): { [key: string]: string } {
+    return {
+      healthTask: 'HealthTask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthTask: { 'type': 'array', 'itemType': DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource extends $tea.Model {
+  requestSource?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestSource: 'RequestSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestSource: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressPoolResponseBodyAddressesAddress extends $tea.Model {
+  address?: string;
+  addressId?: string;
+  attributeInfo?: string;
+  availableMode?: string;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  healthTasks?: DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks;
+  manualAvailableStatus?: string;
+  name?: string;
+  remark?: string;
+  requestSource?: DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource;
+  seqNonPreemptiveSchedule?: boolean;
+  serialNumber?: number;
+  type?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  weightValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressId: 'AddressId',
+      attributeInfo: 'AttributeInfo',
+      availableMode: 'AvailableMode',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      healthTasks: 'HealthTasks',
+      manualAvailableStatus: 'ManualAvailableStatus',
+      name: 'Name',
+      remark: 'Remark',
+      requestSource: 'RequestSource',
+      seqNonPreemptiveSchedule: 'SeqNonPreemptiveSchedule',
+      serialNumber: 'SerialNumber',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      weightValue: 'WeightValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressId: 'string',
+      attributeInfo: 'string',
+      availableMode: 'string',
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      healthTasks: DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks,
+      manualAvailableStatus: 'string',
+      name: 'string',
+      remark: 'string',
+      requestSource: DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource,
+      seqNonPreemptiveSchedule: 'boolean',
+      serialNumber: 'number',
+      type: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      weightValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressPoolResponseBodyAddresses extends $tea.Model {
+  address?: DescribeCloudGtmAddressPoolResponseBodyAddressesAddress[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: { 'type': 'array', 'itemType': DescribeCloudGtmAddressPoolResponseBodyAddressesAddress },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCustomLineResponseBodyIpSegmentList extends $tea.Model {
   endIp?: string;
   startIp?: string;
@@ -20622,6 +20897,52 @@ export default class Client extends OpenApi {
   async describeBatchResultDetail(request: DescribeBatchResultDetailRequest): Promise<DescribeBatchResultDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBatchResultDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeCloudGtmAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudGtmAddressPoolResponse
+   */
+  async describeCloudGtmAddressPoolWithOptions(request: DescribeCloudGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmAddressPoolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolId)) {
+      query["AddressPoolId"] = request.addressPoolId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudGtmAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressPoolResponse({}));
+  }
+
+  /**
+   * @param request DescribeCloudGtmAddressPoolRequest
+   * @return DescribeCloudGtmAddressPoolResponse
+   */
+  async describeCloudGtmAddressPool(request: DescribeCloudGtmAddressPoolRequest): Promise<DescribeCloudGtmAddressPoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudGtmAddressPoolWithOptions(request, runtime);
   }
 
   /**
