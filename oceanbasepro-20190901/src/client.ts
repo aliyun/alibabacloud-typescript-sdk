@@ -1506,6 +1506,147 @@ export class CreateSecurityIpGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateTagRequest extends $tea.Model {
+  clientToken?: string;
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTagResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTagResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTagValueRequest extends $tea.Model {
+  clientToken?: string;
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTagValueResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTagValueResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTagValueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTagValueResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTenantRequest extends $tea.Model {
   charset?: string;
   cpu?: number;
@@ -2306,6 +2447,141 @@ export class DeleteSecurityIpGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSecurityIpGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTagRequest extends $tea.Model {
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTagResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTagResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTagValueRequest extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTagValueResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTagValueResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTagValueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTagValueResponseBody,
     };
   }
 
@@ -6264,6 +6540,72 @@ export class DescribeSlowSQLListResponse extends $tea.Model {
   }
 }
 
+export class DescribeTagValuesRequest extends $tea.Model {
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagValuesResponseBody extends $tea.Model {
+  map?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      map: 'Map',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      map: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagValuesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTagValuesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTagValuesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTenantRequest extends $tea.Model {
   instanceId?: string;
   tenantId?: string;
@@ -8902,6 +9244,147 @@ export class ModifySecurityIpsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifySecurityIpsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTagNameRequest extends $tea.Model {
+  key?: string;
+  newKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      newKey: 'NewKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      newKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTagNameResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTagNameResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTagNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTagNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTagValueNameRequest extends $tea.Model {
+  key?: string;
+  newValue?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      newValue: 'NewValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      newValue: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTagValueNameResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTagValueNameResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTagValueNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTagValueNameResponseBody,
     };
   }
 
@@ -24648,7 +25131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary BatchKillProcessList
+   * @summary You can call this operation to close sessions in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeProcessStatsComposition.
    *
    * @param request BatchKillProcessListRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -24687,7 +25170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary BatchKillProcessList
+   * @summary You can call this operation to close sessions in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeProcessStatsComposition.
    *
    * @param request BatchKillProcessListRequest
    * @return BatchKillProcessListResponse
@@ -25590,6 +26073,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary You can call this operation to create a tag group.
+   *
+   * @param request CreateTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTagResponse
+   */
+  async createTagWithOptions(request: CreateTagRequest, runtime: $Util.RuntimeOptions): Promise<CreateTagResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      body["Key"] = request.key;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTag",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTagResponse>(await this.callApi(params, req, runtime), new CreateTagResponse({}));
+  }
+
+  /**
+   * @summary You can call this operation to create a tag group.
+   *
+   * @param request CreateTagRequest
+   * @return CreateTagResponse
+   */
+  async createTag(request: CreateTagRequest): Promise<CreateTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTagWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request CreateTagValueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTagValueResponse
+   */
+  async createTagValueWithOptions(request: CreateTagValueRequest, runtime: $Util.RuntimeOptions): Promise<CreateTagValueResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      body["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      body["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTagValue",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTagValueResponse>(await this.callApi(params, req, runtime), new CreateTagValueResponse({}));
+  }
+
+  /**
+   * @param request CreateTagValueRequest
+   * @return CreateTagValueResponse
+   */
+  async createTagValue(request: CreateTagValueRequest): Promise<CreateTagValueResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTagValueWithOptions(request, runtime);
+  }
+
+  /**
    * @summary You can call this operation to create a tenant.
    *
    * @param tmpReq CreateTenantRequest
@@ -26115,6 +26690,94 @@ export default class Client extends OpenApi {
   async deleteSecurityIpGroup(request: DeleteSecurityIpGroupRequest): Promise<DeleteSecurityIpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSecurityIpGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary You can call this operation to delete a tag group.
+   *
+   * @param request DeleteTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTagResponse
+   */
+  async deleteTagWithOptions(request: DeleteTagRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.key)) {
+      body["Key"] = request.key;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTag",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTagResponse>(await this.callApi(params, req, runtime), new DeleteTagResponse({}));
+  }
+
+  /**
+   * @summary You can call this operation to delete a tag group.
+   *
+   * @param request DeleteTagRequest
+   * @return DeleteTagResponse
+   */
+  async deleteTag(request: DeleteTagRequest): Promise<DeleteTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTagWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary You can call this operation to delete a tag from a tag group.
+   *
+   * @param request DeleteTagValueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTagValueResponse
+   */
+  async deleteTagValueWithOptions(request: DeleteTagValueRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagValueResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.key)) {
+      body["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      body["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTagValue",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTagValueResponse>(await this.callApi(params, req, runtime), new DeleteTagValueResponse({}));
+  }
+
+  /**
+   * @summary You can call this operation to delete a tag from a tag group.
+   *
+   * @param request DeleteTagValueRequest
+   * @return DeleteTagValueResponse
+   */
+  async deleteTagValue(request: DeleteTagValueRequest): Promise<DeleteTagValueResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTagValueWithOptions(request, runtime);
   }
 
   /**
@@ -26996,7 +27659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The tag of the resource.
+   * @summary You can call this operation to query the tags of clusters.
    *
    * @param request DescribeInstanceTagsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -27031,7 +27694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The tag of the resource.
+   * @summary You can call this operation to query the tags of clusters.
    *
    * @param request DescribeInstanceTagsRequest
    * @return DescribeInstanceTagsResponse
@@ -28052,7 +28715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DescribeProcessStatsComposition
+   * @summary You can call this operation to query session information.
    *
    * @param request DescribeProcessStatsCompositionRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -28111,7 +28774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DescribeProcessStatsComposition
+   * @summary You can call this operation to query session information.
    *
    * @param request DescribeProcessStatsCompositionRequest
    * @return DescribeProcessStatsCompositionResponse
@@ -28905,6 +29568,48 @@ export default class Client extends OpenApi {
   async describeSlowSQLList(request: DescribeSlowSQLListRequest): Promise<DescribeSlowSQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlowSQLListWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary You can call this operation to query tags.
+   *
+   * @param request DescribeTagValuesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagValuesResponse
+   */
+  async describeTagValuesWithOptions(request: DescribeTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagValuesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTagValues",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTagValuesResponse>(await this.callApi(params, req, runtime), new DescribeTagValuesResponse({}));
+  }
+
+  /**
+   * @summary You can call this operation to query tags.
+   *
+   * @param request DescribeTagValuesRequest
+   * @return DescribeTagValuesResponse
+   */
+  async describeTagValues(request: DescribeTagValuesRequest): Promise<DescribeTagValuesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTagValuesWithOptions(request, runtime);
   }
 
   /**
@@ -30577,6 +31282,98 @@ export default class Client extends OpenApi {
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityIpsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ModifyTagNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTagNameResponse
+   */
+  async modifyTagNameWithOptions(request: ModifyTagNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTagNameResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.key)) {
+      body["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.newKey)) {
+      body["NewKey"] = request.newKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyTagName",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTagNameResponse>(await this.callApi(params, req, runtime), new ModifyTagNameResponse({}));
+  }
+
+  /**
+   * @param request ModifyTagNameRequest
+   * @return ModifyTagNameResponse
+   */
+  async modifyTagName(request: ModifyTagNameRequest): Promise<ModifyTagNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyTagNameWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary You can call this operation to rename a tag.
+   *
+   * @param request ModifyTagValueNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTagValueNameResponse
+   */
+  async modifyTagValueNameWithOptions(request: ModifyTagValueNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTagValueNameResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.key)) {
+      body["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.newValue)) {
+      body["NewValue"] = request.newValue;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      body["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyTagValueName",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTagValueNameResponse>(await this.callApi(params, req, runtime), new ModifyTagValueNameResponse({}));
+  }
+
+  /**
+   * @summary You can call this operation to rename a tag.
+   *
+   * @param request ModifyTagValueNameRequest
+   * @return ModifyTagValueNameResponse
+   */
+  async modifyTagValueName(request: ModifyTagValueNameRequest): Promise<ModifyTagValueNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyTagValueNameWithOptions(request, runtime);
   }
 
   /**
