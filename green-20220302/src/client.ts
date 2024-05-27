@@ -1919,15 +1919,21 @@ export class TextModerationResponseBodyData extends $tea.Model {
 
 export class TextModerationPlusResponseBodyDataAdvice extends $tea.Model {
   answer?: string;
+  hitLabel?: string;
+  hitLibName?: string;
   static names(): { [key: string]: string } {
     return {
       answer: 'Answer',
+      hitLabel: 'HitLabel',
+      hitLibName: 'HitLibName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       answer: 'string',
+      hitLabel: 'string',
+      hitLibName: 'string',
     };
   }
 
