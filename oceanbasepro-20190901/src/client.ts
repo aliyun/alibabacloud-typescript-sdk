@@ -5227,7 +5227,7 @@ export class DescribeProcessStatsCompositionRequest extends $tea.Model {
 }
 
 export class DescribeProcessStatsCompositionResponseBody extends $tea.Model {
-  data?: DescribeProcessStatsCompositionResponseBodyData[];
+  data?: DescribeProcessStatsCompositionResponseBodyData;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5238,7 +5238,7 @@ export class DescribeProcessStatsCompositionResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': DescribeProcessStatsCompositionResponseBodyData },
+      data: DescribeProcessStatsCompositionResponseBodyData,
       requestId: 'string',
     };
   }
