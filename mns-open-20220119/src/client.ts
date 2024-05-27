@@ -15,6 +15,7 @@ export class CreateQueueRequest extends $tea.Model {
   messageRetentionPeriod?: number;
   pollingWaitSeconds?: number;
   queueName?: string;
+  tag?: CreateQueueRequestTag[];
   visibilityTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24,6 +25,7 @@ export class CreateQueueRequest extends $tea.Model {
       messageRetentionPeriod: 'MessageRetentionPeriod',
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
+      tag: 'Tag',
       visibilityTimeout: 'VisibilityTimeout',
     };
   }
@@ -36,6 +38,7 @@ export class CreateQueueRequest extends $tea.Model {
       messageRetentionPeriod: 'number',
       pollingWaitSeconds: 'number',
       queueName: 'string',
+      tag: { 'type': 'array', 'itemType': CreateQueueRequestTag },
       visibilityTimeout: 'number',
     };
   }
@@ -107,11 +110,13 @@ export class CreateQueueResponse extends $tea.Model {
 export class CreateTopicRequest extends $tea.Model {
   enableLogging?: boolean;
   maxMessageSize?: number;
+  tag?: CreateTopicRequestTag[];
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
       enableLogging: 'EnableLogging',
       maxMessageSize: 'MaxMessageSize',
+      tag: 'Tag',
       topicName: 'TopicName',
     };
   }
@@ -120,6 +125,7 @@ export class CreateTopicRequest extends $tea.Model {
     return {
       enableLogging: 'boolean',
       maxMessageSize: 'number',
+      tag: { 'type': 'array', 'itemType': CreateTopicRequestTag },
       topicName: 'string',
     };
   }
@@ -346,15 +352,18 @@ export class DeleteTopicResponse extends $tea.Model {
 
 export class GetQueueAttributesRequest extends $tea.Model {
   queueName?: string;
+  tag?: GetQueueAttributesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       queueName: 'QueueName',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       queueName: 'string',
+      tag: { 'type': 'array', 'itemType': GetQueueAttributesRequestTag },
     };
   }
 
@@ -504,15 +513,18 @@ export class GetSubscriptionAttributesResponse extends $tea.Model {
 }
 
 export class GetTopicAttributesRequest extends $tea.Model {
+  tag?: GetTopicAttributesRequestTag[];
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
+      tag: 'Tag',
       topicName: 'TopicName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      tag: { 'type': 'array', 'itemType': GetTopicAttributesRequestTag },
       topicName: 'string',
     };
   }
@@ -585,11 +597,13 @@ export class ListQueueRequest extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
   queueName?: string;
+  tag?: ListQueueRequestTag[];
   static names(): { [key: string]: string } {
     return {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       queueName: 'QueueName',
+      tag: 'Tag',
     };
   }
 
@@ -598,6 +612,7 @@ export class ListQueueRequest extends $tea.Model {
       pageNum: 'number',
       pageSize: 'number',
       queueName: 'string',
+      tag: { 'type': 'array', 'itemType': ListQueueRequestTag },
     };
   }
 
@@ -755,11 +770,13 @@ export class ListSubscriptionByTopicResponse extends $tea.Model {
 export class ListTopicRequest extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
+  tag?: ListTopicRequestTag[];
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      tag: 'Tag',
       topicName: 'TopicName',
     };
   }
@@ -768,6 +785,7 @@ export class ListTopicRequest extends $tea.Model {
     return {
       pageNum: 'number',
       pageSize: 'number',
+      tag: { 'type': 'array', 'itemType': ListTopicRequestTag },
       topicName: 'string',
     };
   }
@@ -1277,6 +1295,28 @@ export class UnsubscribeResponse extends $tea.Model {
   }
 }
 
+export class CreateQueueRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateQueueResponseBodyData extends $tea.Model {
   code?: number;
   message?: string;
@@ -1294,6 +1334,28 @@ export class CreateQueueResponseBodyData extends $tea.Model {
       code: 'number',
       message: 'string',
       success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTopicRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -1352,6 +1414,50 @@ export class DeleteQueueResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetQueueAttributesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueAttributesResponseBodyDataTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetQueueAttributesResponseBodyData extends $tea.Model {
   activeMessages?: number;
   createTime?: number;
@@ -1364,6 +1470,7 @@ export class GetQueueAttributesResponseBodyData extends $tea.Model {
   messageRetentionPeriod?: number;
   pollingWaitSeconds?: number;
   queueName?: string;
+  tags?: GetQueueAttributesResponseBodyDataTags[];
   visibilityTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1378,6 +1485,7 @@ export class GetQueueAttributesResponseBodyData extends $tea.Model {
       messageRetentionPeriod: 'MessageRetentionPeriod',
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
+      tags: 'Tags',
       visibilityTimeout: 'VisibilityTimeout',
     };
   }
@@ -1395,6 +1503,7 @@ export class GetQueueAttributesResponseBodyData extends $tea.Model {
       messageRetentionPeriod: 'number',
       pollingWaitSeconds: 'number',
       queueName: 'string',
+      tags: { 'type': 'array', 'itemType': GetQueueAttributesResponseBodyDataTags },
       visibilityTimeout: 'number',
     };
   }
@@ -1447,6 +1556,50 @@ export class GetSubscriptionAttributesResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetTopicAttributesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicAttributesResponseBodyDataTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTopicAttributesResponseBodyData extends $tea.Model {
   createTime?: number;
   lastModifyTime?: number;
@@ -1454,6 +1607,7 @@ export class GetTopicAttributesResponseBodyData extends $tea.Model {
   maxMessageSize?: number;
   messageCount?: number;
   messageRetentionPeriod?: number;
+  tags?: GetTopicAttributesResponseBodyDataTags[];
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1463,6 +1617,7 @@ export class GetTopicAttributesResponseBodyData extends $tea.Model {
       maxMessageSize: 'MaxMessageSize',
       messageCount: 'MessageCount',
       messageRetentionPeriod: 'MessageRetentionPeriod',
+      tags: 'Tags',
       topicName: 'TopicName',
     };
   }
@@ -1475,7 +1630,52 @@ export class GetTopicAttributesResponseBodyData extends $tea.Model {
       maxMessageSize: 'number',
       messageCount: 'number',
       messageRetentionPeriod: 'number',
+      tags: { 'type': 'array', 'itemType': GetTopicAttributesResponseBodyDataTags },
       topicName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQueueRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQueueResponseBodyDataPageDataTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -1496,6 +1696,7 @@ export class ListQueueResponseBodyDataPageData extends $tea.Model {
   messageRetentionPeriod?: number;
   pollingWaitSeconds?: number;
   queueName?: string;
+  tags?: ListQueueResponseBodyDataPageDataTags[];
   visibilityTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1510,6 +1711,7 @@ export class ListQueueResponseBodyDataPageData extends $tea.Model {
       messageRetentionPeriod: 'MessageRetentionPeriod',
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
+      tags: 'Tags',
       visibilityTimeout: 'VisibilityTimeout',
     };
   }
@@ -1527,6 +1729,7 @@ export class ListQueueResponseBodyDataPageData extends $tea.Model {
       messageRetentionPeriod: 'number',
       pollingWaitSeconds: 'number',
       queueName: 'string',
+      tags: { 'type': 'array', 'itemType': ListQueueResponseBodyDataPageDataTags },
       visibilityTimeout: 'number',
     };
   }
@@ -1647,6 +1850,50 @@ export class ListSubscriptionByTopicResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListTopicRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicResponseBodyDataPageDataTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTopicResponseBodyDataPageData extends $tea.Model {
   createTime?: number;
   lastModifyTime?: number;
@@ -1654,6 +1901,7 @@ export class ListTopicResponseBodyDataPageData extends $tea.Model {
   maxMessageSize?: number;
   messageCount?: number;
   messageRetentionPeriod?: number;
+  tags?: ListTopicResponseBodyDataPageDataTags[];
   topicInnerUrl?: string;
   topicName?: string;
   topicUrl?: string;
@@ -1665,6 +1913,7 @@ export class ListTopicResponseBodyDataPageData extends $tea.Model {
       maxMessageSize: 'MaxMessageSize',
       messageCount: 'MessageCount',
       messageRetentionPeriod: 'MessageRetentionPeriod',
+      tags: 'Tags',
       topicInnerUrl: 'TopicInnerUrl',
       topicName: 'TopicName',
       topicUrl: 'TopicUrl',
@@ -1679,6 +1928,7 @@ export class ListTopicResponseBodyDataPageData extends $tea.Model {
       maxMessageSize: 'number',
       messageCount: 'number',
       messageRetentionPeriod: 'number',
+      tags: { 'type': 'array', 'itemType': ListTopicResponseBodyDataPageDataTags },
       topicInnerUrl: 'string',
       topicName: 'string',
       topicUrl: 'string',
@@ -1841,6 +2091,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary CreateQueue
+   *
+   * @param request CreateQueueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQueueResponse
+   */
   async createQueueWithOptions(request: CreateQueueRequest, runtime: $Util.RuntimeOptions): Promise<CreateQueueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1868,6 +2125,10 @@ export default class Client extends OpenApi {
       query["QueueName"] = request.queueName;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.visibilityTimeout)) {
       query["VisibilityTimeout"] = request.visibilityTimeout;
     }
@@ -1889,13 +2150,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQueueResponse>(await this.callApi(params, req, runtime), new CreateQueueResponse({}));
   }
 
+  /**
+   * @summary CreateQueue
+   *
+   * @param request CreateQueueRequest
+   * @return CreateQueueResponse
+   */
   async createQueue(request: CreateQueueRequest): Promise<CreateQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQueueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary CreateTopic
+   *
+   * @param request CreateTopicRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTopicResponse
+   */
   async createTopicWithOptions(request: CreateTopicRequest, runtime: $Util.RuntimeOptions): Promise<CreateTopicResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.enableLogging)) {
       body["EnableLogging"] = request.enableLogging;
@@ -1910,6 +2189,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -1926,11 +2206,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTopicResponse>(await this.callApi(params, req, runtime), new CreateTopicResponse({}));
   }
 
+  /**
+   * @summary CreateTopic
+   *
+   * @param request CreateTopicRequest
+   * @return CreateTopicResponse
+   */
   async createTopic(request: CreateTopicRequest): Promise<CreateTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTopicWithOptions(request, runtime);
   }
 
+  /**
+   * @summary DeleteQueue
+   *
+   * @param request DeleteQueueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteQueueResponse
+   */
   async deleteQueueWithOptions(request: DeleteQueueRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQueueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1955,11 +2248,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteQueueResponse>(await this.callApi(params, req, runtime), new DeleteQueueResponse({}));
   }
 
+  /**
+   * @summary DeleteQueue
+   *
+   * @param request DeleteQueueRequest
+   * @return DeleteQueueResponse
+   */
   async deleteQueue(request: DeleteQueueRequest): Promise<DeleteQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteQueueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除订阅主题
+   *
+   * @param request DeleteTopicRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTopicResponse
+   */
   async deleteTopicWithOptions(request: DeleteTopicRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTopicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1984,16 +2290,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTopicResponse>(await this.callApi(params, req, runtime), new DeleteTopicResponse({}));
   }
 
+  /**
+   * @summary 删除订阅主题
+   *
+   * @param request DeleteTopicRequest
+   * @return DeleteTopicResponse
+   */
   async deleteTopic(request: DeleteTopicRequest): Promise<DeleteTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTopicWithOptions(request, runtime);
   }
 
+  /**
+   * @summary GetQueueAttributes
+   *
+   * @param request GetQueueAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQueueAttributesResponse
+   */
   async getQueueAttributesWithOptions(request: GetQueueAttributesRequest, runtime: $Util.RuntimeOptions): Promise<GetQueueAttributesResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.queueName)) {
       query["QueueName"] = request.queueName;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2013,11 +2336,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQueueAttributesResponse>(await this.callApi(params, req, runtime), new GetQueueAttributesResponse({}));
   }
 
+  /**
+   * @summary GetQueueAttributes
+   *
+   * @param request GetQueueAttributesRequest
+   * @return GetQueueAttributesResponse
+   */
   async getQueueAttributes(request: GetQueueAttributesRequest): Promise<GetQueueAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQueueAttributesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary GetSubscription
+   *
+   * @param request GetSubscriptionAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSubscriptionAttributesResponse
+   */
   async getSubscriptionAttributesWithOptions(request: GetSubscriptionAttributesRequest, runtime: $Util.RuntimeOptions): Promise<GetSubscriptionAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2046,14 +2382,31 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSubscriptionAttributesResponse>(await this.callApi(params, req, runtime), new GetSubscriptionAttributesResponse({}));
   }
 
+  /**
+   * @summary GetSubscription
+   *
+   * @param request GetSubscriptionAttributesRequest
+   * @return GetSubscriptionAttributesResponse
+   */
   async getSubscriptionAttributes(request: GetSubscriptionAttributesRequest): Promise<GetSubscriptionAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSubscriptionAttributesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询主题
+   *
+   * @param request GetTopicAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTopicAttributesResponse
+   */
   async getTopicAttributesWithOptions(request: GetTopicAttributesRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicAttributesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.topicName)) {
       query["TopicName"] = request.topicName;
     }
@@ -2075,11 +2428,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTopicAttributesResponse>(await this.callApi(params, req, runtime), new GetTopicAttributesResponse({}));
   }
 
+  /**
+   * @summary 查询主题
+   *
+   * @param request GetTopicAttributesRequest
+   * @return GetTopicAttributesResponse
+   */
   async getTopicAttributes(request: GetTopicAttributesRequest): Promise<GetTopicAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTopicAttributesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary ListQueue
+   *
+   * @param request ListQueueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQueueResponse
+   */
   async listQueueWithOptions(request: ListQueueRequest, runtime: $Util.RuntimeOptions): Promise<ListQueueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2093,6 +2459,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.queueName)) {
       query["QueueName"] = request.queueName;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2112,11 +2482,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQueueResponse>(await this.callApi(params, req, runtime), new ListQueueResponse({}));
   }
 
+  /**
+   * @summary ListQueue
+   *
+   * @param request ListQueueRequest
+   * @return ListQueueResponse
+   */
   async listQueue(request: ListQueueRequest): Promise<ListQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQueueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary ListSubscription
+   *
+   * @param request ListSubscriptionByTopicRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSubscriptionByTopicResponse
+   */
   async listSubscriptionByTopicWithOptions(request: ListSubscriptionByTopicRequest, runtime: $Util.RuntimeOptions): Promise<ListSubscriptionByTopicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2153,11 +2536,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSubscriptionByTopicResponse>(await this.callApi(params, req, runtime), new ListSubscriptionByTopicResponse({}));
   }
 
+  /**
+   * @summary ListSubscription
+   *
+   * @param request ListSubscriptionByTopicRequest
+   * @return ListSubscriptionByTopicResponse
+   */
   async listSubscriptionByTopic(request: ListSubscriptionByTopicRequest): Promise<ListSubscriptionByTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSubscriptionByTopicWithOptions(request, runtime);
   }
 
+  /**
+   * @summary ListTopic
+   *
+   * @param request ListTopicRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTopicResponse
+   */
   async listTopicWithOptions(request: ListTopicRequest, runtime: $Util.RuntimeOptions): Promise<ListTopicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2167,6 +2563,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.topicName)) {
@@ -2190,11 +2590,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTopicResponse>(await this.callApi(params, req, runtime), new ListTopicResponse({}));
   }
 
+  /**
+   * @summary ListTopic
+   *
+   * @param request ListTopicRequest
+   * @return ListTopicResponse
+   */
   async listTopic(request: ListTopicRequest): Promise<ListTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTopicWithOptions(request, runtime);
   }
 
+  /**
+   * @summary SetQueueAttributes
+   *
+   * @param request SetQueueAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetQueueAttributesResponse
+   */
   async setQueueAttributesWithOptions(request: SetQueueAttributesRequest, runtime: $Util.RuntimeOptions): Promise<SetQueueAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2243,11 +2656,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetQueueAttributesResponse>(await this.callApi(params, req, runtime), new SetQueueAttributesResponse({}));
   }
 
+  /**
+   * @summary SetQueueAttributes
+   *
+   * @param request SetQueueAttributesRequest
+   * @return SetQueueAttributesResponse
+   */
   async setQueueAttributes(request: SetQueueAttributesRequest): Promise<SetQueueAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setQueueAttributesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary ModifySubscription
+   *
+   * @param request SetSubscriptionAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetSubscriptionAttributesResponse
+   */
   async setSubscriptionAttributesWithOptions(request: SetSubscriptionAttributesRequest, runtime: $Util.RuntimeOptions): Promise<SetSubscriptionAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2280,11 +2706,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetSubscriptionAttributesResponse>(await this.callApi(params, req, runtime), new SetSubscriptionAttributesResponse({}));
   }
 
+  /**
+   * @summary ModifySubscription
+   *
+   * @param request SetSubscriptionAttributesRequest
+   * @return SetSubscriptionAttributesResponse
+   */
   async setSubscriptionAttributes(request: SetSubscriptionAttributesRequest): Promise<SetSubscriptionAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setSubscriptionAttributesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 编辑订阅主题
+   *
+   * @param request SetTopicAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetTopicAttributesResponse
+   */
   async setTopicAttributesWithOptions(request: SetTopicAttributesRequest, runtime: $Util.RuntimeOptions): Promise<SetTopicAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2317,11 +2756,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetTopicAttributesResponse>(await this.callApi(params, req, runtime), new SetTopicAttributesResponse({}));
   }
 
+  /**
+   * @summary 编辑订阅主题
+   *
+   * @param request SetTopicAttributesRequest
+   * @return SetTopicAttributesResponse
+   */
   async setTopicAttributes(request: SetTopicAttributesRequest): Promise<SetTopicAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setTopicAttributesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary CreateSubscription
+   *
+   * @param request SubscribeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubscribeResponse
+   */
   async subscribeWithOptions(request: SubscribeRequest, runtime: $Util.RuntimeOptions): Promise<SubscribeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2370,11 +2822,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubscribeResponse>(await this.callApi(params, req, runtime), new SubscribeResponse({}));
   }
 
+  /**
+   * @summary CreateSubscription
+   *
+   * @param request SubscribeRequest
+   * @return SubscribeResponse
+   */
   async subscribe(request: SubscribeRequest): Promise<SubscribeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.subscribeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary DeleteSubscription
+   *
+   * @param request UnsubscribeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnsubscribeResponse
+   */
   async unsubscribeWithOptions(request: UnsubscribeRequest, runtime: $Util.RuntimeOptions): Promise<UnsubscribeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2403,6 +2868,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UnsubscribeResponse>(await this.callApi(params, req, runtime), new UnsubscribeResponse({}));
   }
 
+  /**
+   * @summary DeleteSubscription
+   *
+   * @param request UnsubscribeRequest
+   * @return UnsubscribeResponse
+   */
   async unsubscribe(request: UnsubscribeRequest): Promise<UnsubscribeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unsubscribeWithOptions(request, runtime);
