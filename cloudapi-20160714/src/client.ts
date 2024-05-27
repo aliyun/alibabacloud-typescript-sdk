@@ -17589,6 +17589,7 @@ export class DescribeApiResponseBodyOpenIdConnectConfig extends $tea.Model {
 export class DescribeApiResponseBodyRequestConfig extends $tea.Model {
   bodyFormat?: string;
   bodyModel?: string;
+  escapePathParam?: boolean;
   postBodyDescription?: string;
   requestHttpMethod?: string;
   requestMode?: string;
@@ -17598,6 +17599,7 @@ export class DescribeApiResponseBodyRequestConfig extends $tea.Model {
     return {
       bodyFormat: 'BodyFormat',
       bodyModel: 'BodyModel',
+      escapePathParam: 'EscapePathParam',
       postBodyDescription: 'PostBodyDescription',
       requestHttpMethod: 'RequestHttpMethod',
       requestMode: 'RequestMode',
@@ -17610,6 +17612,7 @@ export class DescribeApiResponseBodyRequestConfig extends $tea.Model {
     return {
       bodyFormat: 'string',
       bodyModel: 'string',
+      escapePathParam: 'boolean',
       postBodyDescription: 'string',
       requestHttpMethod: 'string',
       requestMode: 'string',
@@ -18178,6 +18181,7 @@ export class DescribeApiDocResponseBodyErrorCodeSamples extends $tea.Model {
 
 export class DescribeApiDocResponseBodyRequestConfig extends $tea.Model {
   bodyFormat?: string;
+  escapePathParam?: boolean;
   postBodyDescription?: string;
   requestHttpMethod?: string;
   requestMode?: string;
@@ -18186,6 +18190,7 @@ export class DescribeApiDocResponseBodyRequestConfig extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       bodyFormat: 'BodyFormat',
+      escapePathParam: 'EscapePathParam',
       postBodyDescription: 'PostBodyDescription',
       requestHttpMethod: 'RequestHttpMethod',
       requestMode: 'RequestMode',
@@ -18197,6 +18202,7 @@ export class DescribeApiDocResponseBodyRequestConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       bodyFormat: 'string',
+      escapePathParam: 'boolean',
       postBodyDescription: 'string',
       requestHttpMethod: 'string',
       requestMode: 'string',
@@ -18847,6 +18853,7 @@ export class DescribeApiHistoryResponseBodyOpenIdConnectConfig extends $tea.Mode
 export class DescribeApiHistoryResponseBodyRequestConfig extends $tea.Model {
   bodyFormat?: string;
   bodyModel?: string;
+  escapePathParam?: boolean;
   postBodyDescription?: string;
   requestHttpMethod?: string;
   requestMode?: string;
@@ -18856,6 +18863,7 @@ export class DescribeApiHistoryResponseBodyRequestConfig extends $tea.Model {
     return {
       bodyFormat: 'BodyFormat',
       bodyModel: 'BodyModel',
+      escapePathParam: 'EscapePathParam',
       postBodyDescription: 'PostBodyDescription',
       requestHttpMethod: 'RequestHttpMethod',
       requestMode: 'RequestMode',
@@ -18868,6 +18876,7 @@ export class DescribeApiHistoryResponseBodyRequestConfig extends $tea.Model {
     return {
       bodyFormat: 'string',
       bodyModel: 'string',
+      escapePathParam: 'boolean',
       postBodyDescription: 'string',
       requestHttpMethod: 'string',
       requestMode: 'string',
