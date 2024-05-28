@@ -5235,6 +5235,7 @@ export class DescribeDBClusterVersionResponseBody extends $tea.Model {
   isProxyLatestVersion?: string;
   proxyLatestVersion?: string;
   proxyRevisionVersion?: string;
+  proxyRevisionVersionList?: DescribeDBClusterVersionResponseBodyProxyRevisionVersionList[];
   proxyVersionStatus?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -5250,6 +5251,7 @@ export class DescribeDBClusterVersionResponseBody extends $tea.Model {
       isProxyLatestVersion: 'IsProxyLatestVersion',
       proxyLatestVersion: 'ProxyLatestVersion',
       proxyRevisionVersion: 'ProxyRevisionVersion',
+      proxyRevisionVersionList: 'ProxyRevisionVersionList',
       proxyVersionStatus: 'ProxyVersionStatus',
       requestId: 'RequestId',
     };
@@ -5268,6 +5270,7 @@ export class DescribeDBClusterVersionResponseBody extends $tea.Model {
       isProxyLatestVersion: 'string',
       proxyLatestVersion: 'string',
       proxyRevisionVersion: 'string',
+      proxyRevisionVersionList: { 'type': 'array', 'itemType': DescribeDBClusterVersionResponseBodyProxyRevisionVersionList },
       proxyVersionStatus: 'string',
       requestId: 'string',
     };
@@ -13221,6 +13224,7 @@ export class UpgradeDBClusterVersionRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   targetDBRevisionVersionCode?: string;
+  targetProxyRevisionVersionCode?: string;
   upgradeLabel?: string;
   upgradePolicy?: string;
   upgradeType?: string;
@@ -13235,6 +13239,7 @@ export class UpgradeDBClusterVersionRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       targetDBRevisionVersionCode: 'TargetDBRevisionVersionCode',
+      targetProxyRevisionVersionCode: 'TargetProxyRevisionVersionCode',
       upgradeLabel: 'UpgradeLabel',
       upgradePolicy: 'UpgradePolicy',
       upgradeType: 'UpgradeType',
@@ -13252,6 +13257,7 @@ export class UpgradeDBClusterVersionRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       targetDBRevisionVersionCode: 'string',
+      targetProxyRevisionVersionCode: 'string',
       upgradeLabel: 'string',
       upgradePolicy: 'string',
       upgradeType: 'string',
@@ -14562,6 +14568,34 @@ export class DescribeDBClusterSSLResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeDBClusterVersionResponseBodyDBRevisionVersionList extends $tea.Model {
+  releaseNote?: string;
+  releaseType?: string;
+  revisionVersionCode?: string;
+  revisionVersionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      releaseNote: 'ReleaseNote',
+      releaseType: 'ReleaseType',
+      revisionVersionCode: 'RevisionVersionCode',
+      revisionVersionName: 'RevisionVersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      releaseNote: 'string',
+      releaseType: 'string',
+      revisionVersionCode: 'string',
+      revisionVersionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterVersionResponseBodyProxyRevisionVersionList extends $tea.Model {
   releaseNote?: string;
   releaseType?: string;
   revisionVersionCode?: string;
@@ -27258,6 +27292,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.targetDBRevisionVersionCode)) {
       query["TargetDBRevisionVersionCode"] = request.targetDBRevisionVersionCode;
+    }
+
+    if (!Util.isUnset(request.targetProxyRevisionVersionCode)) {
+      query["TargetProxyRevisionVersionCode"] = request.targetProxyRevisionVersionCode;
     }
 
     if (!Util.isUnset(request.upgradeLabel)) {
