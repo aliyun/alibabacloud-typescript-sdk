@@ -7093,6 +7093,93 @@ export class ImportAdminsResponse extends $tea.Model {
   }
 }
 
+export class ImportCorpNumbersRequest extends $tea.Model {
+  city?: string;
+  corpName?: string;
+  numberList?: string;
+  provider?: string;
+  province?: string;
+  tagList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      city: 'City',
+      corpName: 'CorpName',
+      numberList: 'NumberList',
+      provider: 'Provider',
+      province: 'Province',
+      tagList: 'TagList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      city: 'string',
+      corpName: 'string',
+      numberList: 'string',
+      provider: 'string',
+      province: 'string',
+      tagList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportCorpNumbersResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportCorpNumbersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportCorpNumbersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportCorpNumbersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportCustomCallTaggingRequest extends $tea.Model {
   filePath?: string;
   instanceId?: string;
@@ -35831,6 +35918,64 @@ export default class Client extends OpenApi {
   async importAdmins(request: ImportAdminsRequest): Promise<ImportAdminsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importAdminsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ImportCorpNumbersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportCorpNumbersResponse
+   */
+  async importCorpNumbersWithOptions(request: ImportCorpNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ImportCorpNumbersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.corpName)) {
+      query["CorpName"] = request.corpName;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
+    if (!Util.isUnset(request.provider)) {
+      query["Provider"] = request.provider;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!Util.isUnset(request.tagList)) {
+      query["TagList"] = request.tagList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportCorpNumbers",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportCorpNumbersResponse>(await this.callApi(params, req, runtime), new ImportCorpNumbersResponse({}));
+  }
+
+  /**
+   * @param request ImportCorpNumbersRequest
+   * @return ImportCorpNumbersResponse
+   */
+  async importCorpNumbers(request: ImportCorpNumbersRequest): Promise<ImportCorpNumbersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importCorpNumbersWithOptions(request, runtime);
   }
 
   /**
