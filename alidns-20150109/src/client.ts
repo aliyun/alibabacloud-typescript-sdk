@@ -1454,6 +1454,491 @@ export class CopyGtmConfigResponse extends $tea.Model {
   }
 }
 
+export class CreateCloudGtmAddressRequest extends $tea.Model {
+  acceptLanguage?: string;
+  address?: string;
+  attributeInfo?: string;
+  availableMode?: string;
+  clientToken?: string;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthTasks?: CreateCloudGtmAddressRequestHealthTasks[];
+  manualAvailableStatus?: string;
+  name?: string;
+  remark?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      address: 'Address',
+      attributeInfo: 'AttributeInfo',
+      availableMode: 'AvailableMode',
+      clientToken: 'ClientToken',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthTasks: 'HealthTasks',
+      manualAvailableStatus: 'ManualAvailableStatus',
+      name: 'Name',
+      remark: 'Remark',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      address: 'string',
+      attributeInfo: 'string',
+      availableMode: 'string',
+      clientToken: 'string',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthTasks: { 'type': 'array', 'itemType': CreateCloudGtmAddressRequestHealthTasks },
+      manualAvailableStatus: 'string',
+      name: 'string',
+      remark: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmAddressShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  address?: string;
+  attributeInfo?: string;
+  availableMode?: string;
+  clientToken?: string;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthTasksShrink?: string;
+  manualAvailableStatus?: string;
+  name?: string;
+  remark?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      address: 'Address',
+      attributeInfo: 'AttributeInfo',
+      availableMode: 'AvailableMode',
+      clientToken: 'ClientToken',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthTasksShrink: 'HealthTasks',
+      manualAvailableStatus: 'ManualAvailableStatus',
+      name: 'Name',
+      remark: 'Remark',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      address: 'string',
+      attributeInfo: 'string',
+      availableMode: 'string',
+      clientToken: 'string',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthTasksShrink: 'string',
+      manualAvailableStatus: 'string',
+      name: 'string',
+      remark: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmAddressResponseBody extends $tea.Model {
+  addressId?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addressId: 'AddressId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCloudGtmAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCloudGtmAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmAddressPoolRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolName?: string;
+  addressPoolType?: string;
+  clientToken?: string;
+  enableStatus?: string;
+  healthJudgement?: string;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolName: 'AddressPoolName',
+      addressPoolType: 'AddressPoolType',
+      clientToken: 'ClientToken',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolName: 'string',
+      addressPoolType: 'string',
+      clientToken: 'string',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmAddressPoolResponseBody extends $tea.Model {
+  addressPoolId?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolId: 'AddressPoolId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmAddressPoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCloudGtmAddressPoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCloudGtmAddressPoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmInstanceConfigRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  enableStatus?: string;
+  instanceId?: string;
+  remark?: string;
+  scheduleHostname?: string;
+  scheduleRrType?: string;
+  scheduleZoneMode?: string;
+  scheduleZoneName?: string;
+  ttl?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      enableStatus: 'EnableStatus',
+      instanceId: 'InstanceId',
+      remark: 'Remark',
+      scheduleHostname: 'ScheduleHostname',
+      scheduleRrType: 'ScheduleRrType',
+      scheduleZoneMode: 'ScheduleZoneMode',
+      scheduleZoneName: 'ScheduleZoneName',
+      ttl: 'Ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      enableStatus: 'string',
+      instanceId: 'string',
+      remark: 'string',
+      scheduleHostname: 'string',
+      scheduleRrType: 'string',
+      scheduleZoneMode: 'string',
+      scheduleZoneName: 'string',
+      ttl: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmInstanceConfigResponseBody extends $tea.Model {
+  configId?: boolean;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmInstanceConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCloudGtmInstanceConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCloudGtmInstanceConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmMonitorTemplateRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  evaluationCount?: number;
+  extendInfo?: string;
+  failureRate?: number;
+  interval?: number;
+  ipVersion?: string;
+  ispCityNodes?: CreateCloudGtmMonitorTemplateRequestIspCityNodes[];
+  name?: string;
+  protocol?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      evaluationCount: 'EvaluationCount',
+      extendInfo: 'ExtendInfo',
+      failureRate: 'FailureRate',
+      interval: 'Interval',
+      ipVersion: 'IpVersion',
+      ispCityNodes: 'IspCityNodes',
+      name: 'Name',
+      protocol: 'Protocol',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      evaluationCount: 'number',
+      extendInfo: 'string',
+      failureRate: 'number',
+      interval: 'number',
+      ipVersion: 'string',
+      ispCityNodes: { 'type': 'array', 'itemType': CreateCloudGtmMonitorTemplateRequestIspCityNodes },
+      name: 'string',
+      protocol: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  evaluationCount?: number;
+  extendInfo?: string;
+  failureRate?: number;
+  interval?: number;
+  ipVersion?: string;
+  ispCityNodesShrink?: string;
+  name?: string;
+  protocol?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      evaluationCount: 'EvaluationCount',
+      extendInfo: 'ExtendInfo',
+      failureRate: 'FailureRate',
+      interval: 'Interval',
+      ipVersion: 'IpVersion',
+      ispCityNodesShrink: 'IspCityNodes',
+      name: 'Name',
+      protocol: 'Protocol',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      evaluationCount: 'number',
+      extendInfo: 'string',
+      failureRate: 'number',
+      interval: 'number',
+      ipVersion: 'string',
+      ispCityNodesShrink: 'string',
+      name: 'string',
+      protocol: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmMonitorTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmMonitorTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCloudGtmMonitorTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCloudGtmMonitorTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePdnsAppKeyRequest extends $tea.Model {
   lang?: string;
   static names(): { [key: string]: string } {
@@ -1581,6 +2066,300 @@ export class CreatePdnsUdpIpSegmentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreatePdnsUdpIpSegmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmAddressRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressId?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressId: 'AddressId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmAddressResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCloudGtmAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCloudGtmAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmAddressPoolRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolId?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolId: 'AddressPoolId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmAddressPoolResponseBody extends $tea.Model {
+  addressPoolId?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolId: 'AddressPoolId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmAddressPoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCloudGtmAddressPoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCloudGtmAddressPoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmInstanceConfigRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  configId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      configId: 'ConfigId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      configId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmInstanceConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmInstanceConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCloudGtmInstanceConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCloudGtmInstanceConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmMonitorTemplateRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmMonitorTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudGtmMonitorTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCloudGtmMonitorTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCloudGtmMonitorTemplateResponseBody,
     };
   }
 
@@ -2522,6 +3301,126 @@ export class DescribeBatchResultDetailResponse extends $tea.Model {
   }
 }
 
+export class DescribeCloudGtmAddressRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressId?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressId: 'AddressId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressResponseBody extends $tea.Model {
+  address?: string;
+  addressId?: string;
+  attributeInfo?: string;
+  availableMode?: string;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  healthTasks?: DescribeCloudGtmAddressResponseBodyHealthTasks;
+  manualAvailableStatus?: string;
+  name?: string;
+  remark?: string;
+  requestId?: string;
+  type?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressId: 'AddressId',
+      attributeInfo: 'AttributeInfo',
+      availableMode: 'AvailableMode',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      healthTasks: 'HealthTasks',
+      manualAvailableStatus: 'ManualAvailableStatus',
+      name: 'Name',
+      remark: 'Remark',
+      requestId: 'RequestId',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressId: 'string',
+      attributeInfo: 'string',
+      availableMode: 'string',
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      healthTasks: DescribeCloudGtmAddressResponseBodyHealthTasks,
+      manualAvailableStatus: 'string',
+      name: 'string',
+      remark: 'string',
+      requestId: 'string',
+      type: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudGtmAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudGtmAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCloudGtmAddressPoolRequest extends $tea.Model {
   acceptLanguage?: string;
   addressPoolId?: string;
@@ -2628,6 +3527,701 @@ export class DescribeCloudGtmAddressPoolResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCloudGtmAddressPoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressPoolReferenceRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolId?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolId: 'AddressPoolId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressPoolReferenceResponseBody extends $tea.Model {
+  addressPoolId?: string;
+  addressPoolName?: string;
+  instanceConfigs?: DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigs;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolId: 'AddressPoolId',
+      addressPoolName: 'AddressPoolName',
+      instanceConfigs: 'InstanceConfigs',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolId: 'string',
+      addressPoolName: 'string',
+      instanceConfigs: DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigs,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressPoolReferenceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudGtmAddressPoolReferenceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudGtmAddressPoolReferenceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressReferenceRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressId?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressId: 'AddressId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressReferenceResponseBody extends $tea.Model {
+  address?: string;
+  addressId?: string;
+  addressPools?: DescribeCloudGtmAddressReferenceResponseBodyAddressPools;
+  name?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressId: 'AddressId',
+      addressPools: 'AddressPools',
+      name: 'Name',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressId: 'string',
+      addressPools: DescribeCloudGtmAddressReferenceResponseBodyAddressPools,
+      name: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressReferenceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudGtmAddressReferenceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudGtmAddressReferenceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmGlobalAlertRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmGlobalAlertResponseBody extends $tea.Model {
+  alertConfig?: DescribeCloudGtmGlobalAlertResponseBodyAlertConfig;
+  alertGroup?: DescribeCloudGtmGlobalAlertResponseBodyAlertGroup;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertConfig: 'AlertConfig',
+      alertGroup: 'AlertGroup',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertConfig: DescribeCloudGtmGlobalAlertResponseBodyAlertConfig,
+      alertGroup: DescribeCloudGtmGlobalAlertResponseBodyAlertGroup,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmGlobalAlertResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudGtmGlobalAlertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudGtmGlobalAlertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigAlertRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  configId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      configId: 'ConfigId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      configId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigAlertResponseBody extends $tea.Model {
+  alertConfig?: DescribeCloudGtmInstanceConfigAlertResponseBodyAlertConfig;
+  alertGroup?: DescribeCloudGtmInstanceConfigAlertResponseBodyAlertGroup;
+  alertMode?: string;
+  configId?: string;
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertConfig: 'AlertConfig',
+      alertGroup: 'AlertGroup',
+      alertMode: 'AlertMode',
+      configId: 'ConfigId',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertConfig: DescribeCloudGtmInstanceConfigAlertResponseBodyAlertConfig,
+      alertGroup: DescribeCloudGtmInstanceConfigAlertResponseBodyAlertGroup,
+      alertMode: 'string',
+      configId: 'string',
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigAlertResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudGtmInstanceConfigAlertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudGtmInstanceConfigAlertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigFullInfoRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  configId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      configId: 'ConfigId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      configId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $tea.Model {
+  addressPoolLbStrategy?: string;
+  addressPools?: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPools;
+  alertConfig?: string;
+  alertGroup?: string;
+  availableStatus?: string;
+  commodityCode?: string;
+  configId?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthStatus?: string;
+  instanceId?: string;
+  instanceName?: string;
+  remark?: string;
+  requestId?: string;
+  scheduleDomainName?: string;
+  scheduleHostname?: string;
+  scheduleRrType?: string;
+  scheduleZoneMode?: string;
+  scheduleZoneName?: string;
+  sequenceLbStrategyMode?: string;
+  ttl?: number;
+  updateTime?: string;
+  updateTimestamp?: number;
+  versionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolLbStrategy: 'AddressPoolLbStrategy',
+      addressPools: 'AddressPools',
+      alertConfig: 'AlertConfig',
+      alertGroup: 'AlertGroup',
+      availableStatus: 'AvailableStatus',
+      commodityCode: 'CommodityCode',
+      configId: 'ConfigId',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthStatus: 'HealthStatus',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      remark: 'Remark',
+      requestId: 'RequestId',
+      scheduleDomainName: 'ScheduleDomainName',
+      scheduleHostname: 'ScheduleHostname',
+      scheduleRrType: 'ScheduleRrType',
+      scheduleZoneMode: 'ScheduleZoneMode',
+      scheduleZoneName: 'ScheduleZoneName',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+      ttl: 'Ttl',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      versionCode: 'VersionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolLbStrategy: 'string',
+      addressPools: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPools,
+      alertConfig: 'string',
+      alertGroup: 'string',
+      availableStatus: 'string',
+      commodityCode: 'string',
+      configId: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthStatus: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      remark: 'string',
+      requestId: 'string',
+      scheduleDomainName: 'string',
+      scheduleHostname: 'string',
+      scheduleRrType: 'string',
+      scheduleZoneMode: 'string',
+      scheduleZoneName: 'string',
+      sequenceLbStrategyMode: 'string',
+      ttl: 'number',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      versionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigFullInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudGtmInstanceConfigFullInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudGtmInstanceConfigFullInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmMonitorTemplateRequest extends $tea.Model {
+  acceptLanguage?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmMonitorTemplateResponseBody extends $tea.Model {
+  createTime?: string;
+  createTimestamp?: number;
+  evaluationCount?: number;
+  extendInfo?: string;
+  failureRate?: number;
+  interval?: number;
+  ipVersion?: string;
+  ispCityNodes?: DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodes;
+  name?: string;
+  protocol?: string;
+  remark?: string;
+  requestId?: string;
+  templateId?: string;
+  timeout?: number;
+  updateTime?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      evaluationCount: 'EvaluationCount',
+      extendInfo: 'ExtendInfo',
+      failureRate: 'FailureRate',
+      interval: 'Interval',
+      ipVersion: 'IpVersion',
+      ispCityNodes: 'IspCityNodes',
+      name: 'Name',
+      protocol: 'Protocol',
+      remark: 'Remark',
+      requestId: 'RequestId',
+      templateId: 'TemplateId',
+      timeout: 'Timeout',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      createTimestamp: 'number',
+      evaluationCount: 'number',
+      extendInfo: 'string',
+      failureRate: 'number',
+      interval: 'number',
+      ipVersion: 'string',
+      ispCityNodes: DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodes,
+      name: 'string',
+      protocol: 'string',
+      remark: 'string',
+      requestId: 'string',
+      templateId: 'string',
+      timeout: 'number',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmMonitorTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudGtmMonitorTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudGtmMonitorTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmSummaryRequest extends $tea.Model {
+  acceptLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmSummaryResponseBody extends $tea.Model {
+  instanceTotalCount?: number;
+  monitorTaskTotalCount?: number;
+  monitorTaskTotalQuota?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceTotalCount: 'InstanceTotalCount',
+      monitorTaskTotalCount: 'MonitorTaskTotalCount',
+      monitorTaskTotalQuota: 'MonitorTaskTotalQuota',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceTotalCount: 'number',
+      monitorTaskTotalCount: 'number',
+      monitorTaskTotalQuota: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmSummaryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudGtmSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudGtmSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmSystemLinesResponseBody extends $tea.Model {
+  requestId?: string;
+  systemLines?: DescribeCloudGtmSystemLinesResponseBodySystemLines;
+  systemLinesTree?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      systemLines: 'SystemLines',
+      systemLinesTree: 'SystemLinesTree',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      systemLines: DescribeCloudGtmSystemLinesResponseBodySystemLines,
+      systemLinesTree: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmSystemLinesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudGtmSystemLinesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudGtmSystemLinesResponseBody,
     };
   }
 
@@ -10001,6 +11595,735 @@ export class GetTxtRecordForVerifyResponse extends $tea.Model {
   }
 }
 
+export class ListCloudGtmAddressPoolsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolName?: string;
+  addressPoolType?: string;
+  clientToken?: string;
+  enableStatus?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolName: 'AddressPoolName',
+      addressPoolType: 'AddressPoolType',
+      clientToken: 'ClientToken',
+      enableStatus: 'EnableStatus',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolName: 'string',
+      addressPoolType: 'string',
+      clientToken: 'string',
+      enableStatus: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressPoolsResponseBody extends $tea.Model {
+  addressPools?: ListCloudGtmAddressPoolsResponseBodyAddressPools;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addressPools: 'AddressPools',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPools: ListCloudGtmAddressPoolsResponseBodyAddressPools,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressPoolsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCloudGtmAddressPoolsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCloudGtmAddressPoolsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  address?: string;
+  addressId?: string;
+  clientToken?: string;
+  enableStatus?: string;
+  healthStatus?: string;
+  monitorTemplateId?: string;
+  name?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      address: 'Address',
+      addressId: 'AddressId',
+      clientToken: 'ClientToken',
+      enableStatus: 'EnableStatus',
+      healthStatus: 'HealthStatus',
+      monitorTemplateId: 'MonitorTemplateId',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      address: 'string',
+      addressId: 'string',
+      clientToken: 'string',
+      enableStatus: 'string',
+      healthStatus: 'string',
+      monitorTemplateId: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressesResponseBody extends $tea.Model {
+  addresses?: ListCloudGtmAddressesResponseBodyAddresses;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addresses: 'Addresses',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addresses: ListCloudGtmAddressesResponseBodyAddresses,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCloudGtmAddressesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCloudGtmAddressesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAlertLogsRequest extends $tea.Model {
+  actionType?: string;
+  endTimestamp?: number;
+  entityType?: string;
+  keyword?: string;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actionType: 'ActionType',
+      endTimestamp: 'EndTimestamp',
+      entityType: 'EntityType',
+      keyword: 'Keyword',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTimestamp: 'StartTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionType: 'string',
+      endTimestamp: 'number',
+      entityType: 'string',
+      keyword: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAlertLogsResponseBody extends $tea.Model {
+  logs?: ListCloudGtmAlertLogsResponseBodyLogs;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logs: 'Logs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logs: ListCloudGtmAlertLogsResponseBodyLogs,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAlertLogsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCloudGtmAlertLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCloudGtmAlertLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAvailableAlertGroupsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAvailableAlertGroupsResponseBody extends $tea.Model {
+  alertGroups?: ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroups;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertGroups: 'AlertGroups',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertGroups: ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroups,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAvailableAlertGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCloudGtmAvailableAlertGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCloudGtmAvailableAlertGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstanceConfigsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  enableStatus?: string;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  remark?: string;
+  scheduleDomainName?: string;
+  scheduleZoneName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      enableStatus: 'EnableStatus',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      remark: 'Remark',
+      scheduleDomainName: 'ScheduleDomainName',
+      scheduleZoneName: 'ScheduleZoneName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      enableStatus: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      remark: 'string',
+      scheduleDomainName: 'string',
+      scheduleZoneName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstanceConfigsResponseBody extends $tea.Model {
+  instanceConfigs?: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigs;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceConfigs: 'InstanceConfigs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceConfigs: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigs,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstanceConfigsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCloudGtmInstanceConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCloudGtmInstanceConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstancesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  instanceId?: string;
+  instanceName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstancesResponseBody extends $tea.Model {
+  instances?: ListCloudGtmInstancesResponseBodyInstances;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: ListCloudGtmInstancesResponseBodyInstances,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCloudGtmInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCloudGtmInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorNodesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorNodesResponseBody extends $tea.Model {
+  ipv4IspCityNodes?: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodes;
+  ipv6IspCityNodes?: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodes;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv4IspCityNodes: 'Ipv4IspCityNodes',
+      ipv6IspCityNodes: 'Ipv6IspCityNodes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4IspCityNodes: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodes,
+      ipv6IspCityNodes: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodes,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorNodesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCloudGtmMonitorNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCloudGtmMonitorNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorTemplatesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  ipVersion?: string;
+  name?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      ipVersion: 'IpVersion',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      ipVersion: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorTemplatesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  templates?: ListCloudGtmMonitorTemplatesResponseBodyTemplates;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      templates: 'Templates',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      templates: ListCloudGtmMonitorTemplatesResponseBodyTemplates,
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorTemplatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCloudGtmMonitorTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCloudGtmMonitorTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequest extends $tea.Model {
   lang?: string;
   nextToken?: string;
@@ -10652,6 +12975,221 @@ export class RemovePdnsUdpIpSegmentResponse extends $tea.Model {
   }
 }
 
+export class ReplaceCloudGtmAddressPoolAddressRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolId?: string;
+  addresses?: ReplaceCloudGtmAddressPoolAddressRequestAddresses[];
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolId: 'AddressPoolId',
+      addresses: 'Addresses',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolId: 'string',
+      addresses: { 'type': 'array', 'itemType': ReplaceCloudGtmAddressPoolAddressRequestAddresses },
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReplaceCloudGtmAddressPoolAddressShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolId?: string;
+  addressesShrink?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolId: 'AddressPoolId',
+      addressesShrink: 'Addresses',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolId: 'string',
+      addressesShrink: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReplaceCloudGtmAddressPoolAddressResponseBody extends $tea.Model {
+  addressPoolId?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolId: 'AddressPoolId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReplaceCloudGtmAddressPoolAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReplaceCloudGtmAddressPoolAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReplaceCloudGtmAddressPoolAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReplaceCloudGtmInstanceConfigAddressPoolRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPools?: ReplaceCloudGtmInstanceConfigAddressPoolRequestAddressPools[];
+  clientToken?: string;
+  configId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPools: 'AddressPools',
+      clientToken: 'ClientToken',
+      configId: 'ConfigId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPools: { 'type': 'array', 'itemType': ReplaceCloudGtmInstanceConfigAddressPoolRequestAddressPools },
+      clientToken: 'string',
+      configId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReplaceCloudGtmInstanceConfigAddressPoolShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolsShrink?: string;
+  clientToken?: string;
+  configId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolsShrink: 'AddressPools',
+      clientToken: 'ClientToken',
+      configId: 'ConfigId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolsShrink: 'string',
+      clientToken: 'string',
+      configId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReplaceCloudGtmInstanceConfigAddressPoolResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReplaceCloudGtmInstanceConfigAddressPoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReplaceCloudGtmInstanceConfigAddressPoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReplaceCloudGtmInstanceConfigAddressPoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResumePdnsServiceRequest extends $tea.Model {
   lang?: string;
   serviceType?: string;
@@ -10842,6 +13380,522 @@ export class RollbackGtmRecoveryPlanResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RollbackGtmRecoveryPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressPoolsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolName?: string;
+  addressPoolType?: string;
+  availableStatus?: string;
+  clientToken?: string;
+  enableStatus?: string;
+  healthStatus?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolName: 'AddressPoolName',
+      addressPoolType: 'AddressPoolType',
+      availableStatus: 'AvailableStatus',
+      clientToken: 'ClientToken',
+      enableStatus: 'EnableStatus',
+      healthStatus: 'HealthStatus',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolName: 'string',
+      addressPoolType: 'string',
+      availableStatus: 'string',
+      clientToken: 'string',
+      enableStatus: 'string',
+      healthStatus: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressPoolsResponseBody extends $tea.Model {
+  addressPools?: SearchCloudGtmAddressPoolsResponseBodyAddressPools;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addressPools: 'AddressPools',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPools: SearchCloudGtmAddressPoolsResponseBodyAddressPools,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressPoolsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchCloudGtmAddressPoolsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchCloudGtmAddressPoolsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  address?: string;
+  addressId?: string;
+  availableStatus?: string;
+  enableStatus?: string;
+  healthStatus?: string;
+  monitorTemplateName?: string;
+  nameSearchCondition?: string;
+  names?: string[];
+  pageNumber?: number;
+  pageSize?: number;
+  remarkSearchCondition?: string;
+  remarks?: string[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      address: 'Address',
+      addressId: 'AddressId',
+      availableStatus: 'AvailableStatus',
+      enableStatus: 'EnableStatus',
+      healthStatus: 'HealthStatus',
+      monitorTemplateName: 'MonitorTemplateName',
+      nameSearchCondition: 'NameSearchCondition',
+      names: 'Names',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      remarkSearchCondition: 'RemarkSearchCondition',
+      remarks: 'Remarks',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      address: 'string',
+      addressId: 'string',
+      availableStatus: 'string',
+      enableStatus: 'string',
+      healthStatus: 'string',
+      monitorTemplateName: 'string',
+      nameSearchCondition: 'string',
+      names: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      remarkSearchCondition: 'string',
+      remarks: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressesResponseBody extends $tea.Model {
+  addresses?: SearchCloudGtmAddressesResponseBodyAddresses;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addresses: 'Addresses',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addresses: SearchCloudGtmAddressesResponseBodyAddresses,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchCloudGtmAddressesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchCloudGtmAddressesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstanceConfigsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  availableStatus?: string;
+  clientToken?: string;
+  enableStatus?: string;
+  healthStatus?: string;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  remark?: string;
+  scheduleDomainName?: string;
+  scheduleZoneName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      availableStatus: 'AvailableStatus',
+      clientToken: 'ClientToken',
+      enableStatus: 'EnableStatus',
+      healthStatus: 'HealthStatus',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      remark: 'Remark',
+      scheduleDomainName: 'ScheduleDomainName',
+      scheduleZoneName: 'ScheduleZoneName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      availableStatus: 'string',
+      clientToken: 'string',
+      enableStatus: 'string',
+      healthStatus: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      remark: 'string',
+      scheduleDomainName: 'string',
+      scheduleZoneName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstanceConfigsResponseBody extends $tea.Model {
+  instanceConfigs?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigs;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceConfigs: 'InstanceConfigs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceConfigs: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigs,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstanceConfigsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchCloudGtmInstanceConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchCloudGtmInstanceConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstancesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  instanceId?: string;
+  instanceName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstancesResponseBody extends $tea.Model {
+  instances?: SearchCloudGtmInstancesResponseBodyInstances;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: SearchCloudGtmInstancesResponseBodyInstances,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchCloudGtmInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchCloudGtmInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmMonitorTemplatesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  ipVersion?: string;
+  name?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      ipVersion: 'IpVersion',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      ipVersion: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmMonitorTemplatesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  templates?: SearchCloudGtmMonitorTemplatesResponseBodyTemplates;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      templates: 'Templates',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      templates: SearchCloudGtmMonitorTemplatesResponseBodyTemplates,
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmMonitorTemplatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchCloudGtmMonitorTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchCloudGtmMonitorTemplatesResponseBody,
     };
   }
 
@@ -11859,6 +14913,1513 @@ export class UpdateAppKeyStateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateAppKeyStateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressRequest extends $tea.Model {
+  acceptLanguage?: string;
+  address?: string;
+  addressId?: string;
+  attributeInfo?: string;
+  clientToken?: string;
+  healthJudgement?: string;
+  healthTasks?: UpdateCloudGtmAddressRequestHealthTasks[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      address: 'Address',
+      addressId: 'AddressId',
+      attributeInfo: 'AttributeInfo',
+      clientToken: 'ClientToken',
+      healthJudgement: 'HealthJudgement',
+      healthTasks: 'HealthTasks',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      address: 'string',
+      addressId: 'string',
+      attributeInfo: 'string',
+      clientToken: 'string',
+      healthJudgement: 'string',
+      healthTasks: { 'type': 'array', 'itemType': UpdateCloudGtmAddressRequestHealthTasks },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  address?: string;
+  addressId?: string;
+  attributeInfo?: string;
+  clientToken?: string;
+  healthJudgement?: string;
+  healthTasksShrink?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      address: 'Address',
+      addressId: 'AddressId',
+      attributeInfo: 'AttributeInfo',
+      clientToken: 'ClientToken',
+      healthJudgement: 'HealthJudgement',
+      healthTasksShrink: 'HealthTasks',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      address: 'string',
+      addressId: 'string',
+      attributeInfo: 'string',
+      clientToken: 'string',
+      healthJudgement: 'string',
+      healthTasksShrink: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressEnableStatusRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressId?: string;
+  clientToken?: string;
+  enableStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressId: 'AddressId',
+      clientToken: 'ClientToken',
+      enableStatus: 'EnableStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressId: 'string',
+      clientToken: 'string',
+      enableStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressEnableStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressEnableStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmAddressEnableStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmAddressEnableStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressManualAvailableStatusRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressId?: string;
+  availableMode?: string;
+  clientToken?: string;
+  manualAvailableStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressId: 'AddressId',
+      availableMode: 'AvailableMode',
+      clientToken: 'ClientToken',
+      manualAvailableStatus: 'ManualAvailableStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressId: 'string',
+      availableMode: 'string',
+      clientToken: 'string',
+      manualAvailableStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressManualAvailableStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressManualAvailableStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmAddressManualAvailableStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmAddressManualAvailableStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolBasicConfigRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolId?: string;
+  addressPoolName?: string;
+  clientToken?: string;
+  healthJudgement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolId: 'AddressPoolId',
+      addressPoolName: 'AddressPoolName',
+      clientToken: 'ClientToken',
+      healthJudgement: 'HealthJudgement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolId: 'string',
+      addressPoolName: 'string',
+      clientToken: 'string',
+      healthJudgement: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolBasicConfigResponseBody extends $tea.Model {
+  addressPoolId?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolId: 'AddressPoolId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolBasicConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmAddressPoolBasicConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmAddressPoolBasicConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolEnableStatusRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolId?: string;
+  clientToken?: string;
+  enableStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolId: 'AddressPoolId',
+      clientToken: 'ClientToken',
+      enableStatus: 'EnableStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolId: 'string',
+      clientToken: 'string',
+      enableStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolEnableStatusResponseBody extends $tea.Model {
+  addressPoolId?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolId: 'AddressPoolId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolEnableStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmAddressPoolEnableStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmAddressPoolEnableStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolLbStrategyRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressLbStrategy?: string;
+  addressPoolId?: string;
+  clientToken?: string;
+  sequenceLbStrategyMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressLbStrategy: 'AddressLbStrategy',
+      addressPoolId: 'AddressPoolId',
+      clientToken: 'ClientToken',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressLbStrategy: 'string',
+      addressPoolId: 'string',
+      clientToken: 'string',
+      sequenceLbStrategyMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolLbStrategyResponseBody extends $tea.Model {
+  addressPoolId?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolId: 'AddressPoolId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolLbStrategyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmAddressPoolLbStrategyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmAddressPoolLbStrategyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolRemarkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolId?: string;
+  clientToken?: string;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolId: 'AddressPoolId',
+      clientToken: 'ClientToken',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolId: 'string',
+      clientToken: 'string',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolRemarkResponseBody extends $tea.Model {
+  addressPoolId?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolId: 'AddressPoolId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressPoolRemarkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmAddressPoolRemarkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmAddressPoolRemarkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressRemarkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressId?: string;
+  clientToken?: string;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressId: 'AddressId',
+      clientToken: 'ClientToken',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressId: 'string',
+      clientToken: 'string',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressRemarkResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressRemarkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmAddressRemarkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmAddressRemarkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmGlobalAlertRequest extends $tea.Model {
+  acceptLanguage?: string;
+  alertConfig?: UpdateCloudGtmGlobalAlertRequestAlertConfig[];
+  alertGroup?: string[];
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      alertConfig: 'AlertConfig',
+      alertGroup: 'AlertGroup',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      alertConfig: { 'type': 'array', 'itemType': UpdateCloudGtmGlobalAlertRequestAlertConfig },
+      alertGroup: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmGlobalAlertShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  alertConfigShrink?: string;
+  alertGroupShrink?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      alertConfigShrink: 'AlertConfig',
+      alertGroupShrink: 'AlertGroup',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      alertConfigShrink: 'string',
+      alertGroupShrink: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmGlobalAlertResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmGlobalAlertResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmGlobalAlertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmGlobalAlertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigAlertRequest extends $tea.Model {
+  acceptLanguage?: string;
+  alertConfig?: UpdateCloudGtmInstanceConfigAlertRequestAlertConfig[];
+  alertGroup?: string[];
+  alertMode?: string;
+  clientToken?: string;
+  configId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      alertConfig: 'AlertConfig',
+      alertGroup: 'AlertGroup',
+      alertMode: 'AlertMode',
+      clientToken: 'ClientToken',
+      configId: 'ConfigId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      alertConfig: { 'type': 'array', 'itemType': UpdateCloudGtmInstanceConfigAlertRequestAlertConfig },
+      alertGroup: { 'type': 'array', 'itemType': 'string' },
+      alertMode: 'string',
+      clientToken: 'string',
+      configId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigAlertShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  alertConfigShrink?: string;
+  alertGroupShrink?: string;
+  alertMode?: string;
+  clientToken?: string;
+  configId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      alertConfigShrink: 'AlertConfig',
+      alertGroupShrink: 'AlertGroup',
+      alertMode: 'AlertMode',
+      clientToken: 'ClientToken',
+      configId: 'ConfigId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      alertConfigShrink: 'string',
+      alertGroupShrink: 'string',
+      alertMode: 'string',
+      clientToken: 'string',
+      configId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigAlertResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigAlertResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmInstanceConfigAlertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmInstanceConfigAlertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigBasicRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  configId?: string;
+  instanceId?: string;
+  scheduleHostname?: string;
+  scheduleZoneName?: string;
+  ttl?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      configId: 'ConfigId',
+      instanceId: 'InstanceId',
+      scheduleHostname: 'ScheduleHostname',
+      scheduleZoneName: 'ScheduleZoneName',
+      ttl: 'Ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      configId: 'string',
+      instanceId: 'string',
+      scheduleHostname: 'string',
+      scheduleZoneName: 'string',
+      ttl: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigBasicResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigBasicResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmInstanceConfigBasicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmInstanceConfigBasicResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigEnableStatusRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  configId?: string;
+  enableStatus?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      configId: 'ConfigId',
+      enableStatus: 'EnableStatus',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      configId: 'string',
+      enableStatus: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigEnableStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigEnableStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmInstanceConfigEnableStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmInstanceConfigEnableStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigLbStrategyRequest extends $tea.Model {
+  acceptLanguage?: string;
+  addressPoolLbStrategy?: string;
+  clientToken?: string;
+  configId?: string;
+  instanceId?: string;
+  sequenceLbStrategyMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      addressPoolLbStrategy: 'AddressPoolLbStrategy',
+      clientToken: 'ClientToken',
+      configId: 'ConfigId',
+      instanceId: 'InstanceId',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      addressPoolLbStrategy: 'string',
+      clientToken: 'string',
+      configId: 'string',
+      instanceId: 'string',
+      sequenceLbStrategyMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigLbStrategyResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigLbStrategyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmInstanceConfigLbStrategyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmInstanceConfigLbStrategyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigRemarkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  configId?: string;
+  instanceId?: string;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      configId: 'ConfigId',
+      instanceId: 'InstanceId',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      configId: 'string',
+      instanceId: 'string',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigRemarkResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigRemarkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmInstanceConfigRemarkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmInstanceConfigRemarkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceNameRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  instanceId?: string;
+  instanceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceNameResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceNameResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmInstanceNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmInstanceNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmMonitorTemplateRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  evaluationCount?: number;
+  extendInfo?: string;
+  failureRate?: number;
+  interval?: number;
+  ispCityNodes?: UpdateCloudGtmMonitorTemplateRequestIspCityNodes[];
+  name?: string;
+  templateId?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      evaluationCount: 'EvaluationCount',
+      extendInfo: 'ExtendInfo',
+      failureRate: 'FailureRate',
+      interval: 'Interval',
+      ispCityNodes: 'IspCityNodes',
+      name: 'Name',
+      templateId: 'TemplateId',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      evaluationCount: 'number',
+      extendInfo: 'string',
+      failureRate: 'number',
+      interval: 'number',
+      ispCityNodes: { 'type': 'array', 'itemType': UpdateCloudGtmMonitorTemplateRequestIspCityNodes },
+      name: 'string',
+      templateId: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  evaluationCount?: number;
+  extendInfo?: string;
+  failureRate?: number;
+  interval?: number;
+  ispCityNodesShrink?: string;
+  name?: string;
+  templateId?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      evaluationCount: 'EvaluationCount',
+      extendInfo: 'ExtendInfo',
+      failureRate: 'FailureRate',
+      interval: 'Interval',
+      ispCityNodesShrink: 'IspCityNodes',
+      name: 'Name',
+      templateId: 'TemplateId',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      evaluationCount: 'number',
+      extendInfo: 'string',
+      failureRate: 'number',
+      interval: 'number',
+      ispCityNodesShrink: 'string',
+      name: 'string',
+      templateId: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmMonitorTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmMonitorTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmMonitorTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmMonitorTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmMonitorTemplateRemarkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clientToken?: string;
+  remark?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clientToken: 'ClientToken',
+      remark: 'Remark',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clientToken: 'string',
+      remark: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmMonitorTemplateRemarkResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmMonitorTemplateRemarkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudGtmMonitorTemplateRemarkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudGtmMonitorTemplateRemarkResponseBody,
     };
   }
 
@@ -13711,6 +18272,50 @@ export class AddGtmMonitorRequestIspCityNode extends $tea.Model {
   }
 }
 
+export class CreateCloudGtmAddressRequestHealthTasks extends $tea.Model {
+  port?: number;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudGtmMonitorTemplateRequestIspCityNodes extends $tea.Model {
+  cityCode?: string;
+  ispCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      ispCode: 'IspCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      ispCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBatchResultDetailResponseBodyBatchResultDetailsBatchResultDetail extends $tea.Model {
   batchType?: string;
   domain?: string;
@@ -13786,6 +18391,53 @@ export class DescribeBatchResultDetailResponseBodyBatchResultDetails extends $te
   static types(): { [key: string]: any } {
     return {
       batchResultDetail: { 'type': 'array', 'itemType': DescribeBatchResultDetailResponseBodyBatchResultDetailsBatchResultDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressResponseBodyHealthTasksHealthTask extends $tea.Model {
+  monitorStatus?: string;
+  port?: number;
+  templateId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      monitorStatus: 'MonitorStatus',
+      port: 'Port',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorStatus: 'string',
+      port: 'number',
+      templateId: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressResponseBodyHealthTasks extends $tea.Model {
+  healthTask?: DescribeCloudGtmAddressResponseBodyHealthTasksHealthTask[];
+  static names(): { [key: string]: string } {
+    return {
+      healthTask: 'HealthTask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthTask: { 'type': 'array', 'itemType': DescribeCloudGtmAddressResponseBodyHealthTasksHealthTask },
     };
   }
 
@@ -13947,6 +18599,697 @@ export class DescribeCloudGtmAddressPoolResponseBodyAddresses extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       address: { 'type': 'array', 'itemType': DescribeCloudGtmAddressPoolResponseBodyAddressesAddress },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigsInstanceConfig extends $tea.Model {
+  addressPoolLbStrategy?: string;
+  availableStatus?: string;
+  configId?: string;
+  enableStatus?: string;
+  healthStatus?: string;
+  instanceId?: string;
+  instanceName?: string;
+  remark?: string;
+  scheduleDomainName?: string;
+  scheduleHostname?: string;
+  scheduleRrType?: string;
+  scheduleZoneName?: string;
+  sequenceLbStrategyMode?: string;
+  ttl?: number;
+  versionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolLbStrategy: 'AddressPoolLbStrategy',
+      availableStatus: 'AvailableStatus',
+      configId: 'ConfigId',
+      enableStatus: 'EnableStatus',
+      healthStatus: 'HealthStatus',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      remark: 'Remark',
+      scheduleDomainName: 'ScheduleDomainName',
+      scheduleHostname: 'ScheduleHostname',
+      scheduleRrType: 'ScheduleRrType',
+      scheduleZoneName: 'ScheduleZoneName',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+      ttl: 'Ttl',
+      versionCode: 'VersionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolLbStrategy: 'string',
+      availableStatus: 'string',
+      configId: 'string',
+      enableStatus: 'string',
+      healthStatus: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      remark: 'string',
+      scheduleDomainName: 'string',
+      scheduleHostname: 'string',
+      scheduleRrType: 'string',
+      scheduleZoneName: 'string',
+      sequenceLbStrategyMode: 'string',
+      ttl: 'number',
+      versionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigs extends $tea.Model {
+  instanceConfig?: DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigsInstanceConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceConfig: 'InstanceConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceConfig: { 'type': 'array', 'itemType': DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigsInstanceConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPoolInstanceConfigsInstanceConfig extends $tea.Model {
+  addressPoolLbStrategy?: string;
+  availableStatus?: string;
+  configId?: string;
+  enableStatus?: string;
+  healthStatus?: string;
+  instanceId?: string;
+  instanceName?: string;
+  remark?: string;
+  scheduleDomainName?: string;
+  scheduleHostname?: string;
+  scheduleRrType?: string;
+  scheduleZoneName?: string;
+  sequenceLbStrategyMode?: string;
+  ttl?: number;
+  versionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolLbStrategy: 'AddressPoolLbStrategy',
+      availableStatus: 'AvailableStatus',
+      configId: 'ConfigId',
+      enableStatus: 'EnableStatus',
+      healthStatus: 'HealthStatus',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      remark: 'Remark',
+      scheduleDomainName: 'ScheduleDomainName',
+      scheduleHostname: 'ScheduleHostname',
+      scheduleRrType: 'ScheduleRrType',
+      scheduleZoneName: 'ScheduleZoneName',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+      ttl: 'Ttl',
+      versionCode: 'VersionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolLbStrategy: 'string',
+      availableStatus: 'string',
+      configId: 'string',
+      enableStatus: 'string',
+      healthStatus: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      remark: 'string',
+      scheduleDomainName: 'string',
+      scheduleHostname: 'string',
+      scheduleRrType: 'string',
+      scheduleZoneName: 'string',
+      sequenceLbStrategyMode: 'string',
+      ttl: 'number',
+      versionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPoolInstanceConfigs extends $tea.Model {
+  instanceConfig?: DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPoolInstanceConfigsInstanceConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceConfig: 'InstanceConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceConfig: { 'type': 'array', 'itemType': DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPoolInstanceConfigsInstanceConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPool extends $tea.Model {
+  addressLbStrategy?: string;
+  addressPoolId?: string;
+  addressPoolName?: string;
+  addressPoolType?: string;
+  availableStatus?: string;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  instanceConfigs?: DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPoolInstanceConfigs;
+  remark?: string;
+  sequenceLbStrategyMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressLbStrategy: 'AddressLbStrategy',
+      addressPoolId: 'AddressPoolId',
+      addressPoolName: 'AddressPoolName',
+      addressPoolType: 'AddressPoolType',
+      availableStatus: 'AvailableStatus',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      instanceConfigs: 'InstanceConfigs',
+      remark: 'Remark',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressLbStrategy: 'string',
+      addressPoolId: 'string',
+      addressPoolName: 'string',
+      addressPoolType: 'string',
+      availableStatus: 'string',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      instanceConfigs: DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPoolInstanceConfigs,
+      remark: 'string',
+      sequenceLbStrategyMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmAddressReferenceResponseBodyAddressPools extends $tea.Model {
+  addressPool?: DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPool[];
+  static names(): { [key: string]: string } {
+    return {
+      addressPool: 'AddressPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPool: { 'type': 'array', 'itemType': DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmGlobalAlertResponseBodyAlertConfigAlertConfig extends $tea.Model {
+  dingtalkNotice?: boolean;
+  emailNotice?: boolean;
+  noticeType?: string;
+  smsNotice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dingtalkNotice: 'DingtalkNotice',
+      emailNotice: 'EmailNotice',
+      noticeType: 'NoticeType',
+      smsNotice: 'SmsNotice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingtalkNotice: 'boolean',
+      emailNotice: 'boolean',
+      noticeType: 'string',
+      smsNotice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmGlobalAlertResponseBodyAlertConfig extends $tea.Model {
+  alertConfig?: DescribeCloudGtmGlobalAlertResponseBodyAlertConfigAlertConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      alertConfig: 'AlertConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertConfig: { 'type': 'array', 'itemType': DescribeCloudGtmGlobalAlertResponseBodyAlertConfigAlertConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmGlobalAlertResponseBodyAlertGroup extends $tea.Model {
+  alertGroup?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      alertGroup: 'AlertGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertGroup: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigAlertResponseBodyAlertConfigAlertConfig extends $tea.Model {
+  dingtalkNotice?: boolean;
+  emailNotice?: boolean;
+  noticeType?: string;
+  smsNotice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dingtalkNotice: 'DingtalkNotice',
+      emailNotice: 'EmailNotice',
+      noticeType: 'NoticeType',
+      smsNotice: 'SmsNotice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingtalkNotice: 'boolean',
+      emailNotice: 'boolean',
+      noticeType: 'string',
+      smsNotice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigAlertResponseBodyAlertConfig extends $tea.Model {
+  alertConfig?: DescribeCloudGtmInstanceConfigAlertResponseBodyAlertConfigAlertConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      alertConfig: 'AlertConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertConfig: { 'type': 'array', 'itemType': DescribeCloudGtmInstanceConfigAlertResponseBodyAlertConfigAlertConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigAlertResponseBodyAlertGroup extends $tea.Model {
+  alertGroup?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      alertGroup: 'AlertGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertGroup: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddressesAddressRequestSource extends $tea.Model {
+  requestSource?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestSource: 'RequestSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestSource: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddressesAddress extends $tea.Model {
+  address?: string;
+  addressId?: string;
+  attributeInfo?: string;
+  availableMode?: string;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  manualAvailableStatus?: string;
+  name?: string;
+  remark?: string;
+  requestSource?: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddressesAddressRequestSource;
+  seqNonPreemptiveSchedule?: boolean;
+  serialNumber?: number;
+  type?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  weightValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressId: 'AddressId',
+      attributeInfo: 'AttributeInfo',
+      availableMode: 'AvailableMode',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      manualAvailableStatus: 'ManualAvailableStatus',
+      name: 'Name',
+      remark: 'Remark',
+      requestSource: 'RequestSource',
+      seqNonPreemptiveSchedule: 'SeqNonPreemptiveSchedule',
+      serialNumber: 'SerialNumber',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      weightValue: 'WeightValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressId: 'string',
+      attributeInfo: 'string',
+      availableMode: 'string',
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      manualAvailableStatus: 'string',
+      name: 'string',
+      remark: 'string',
+      requestSource: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddressesAddressRequestSource,
+      seqNonPreemptiveSchedule: 'boolean',
+      serialNumber: 'number',
+      type: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      weightValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddresses extends $tea.Model {
+  address?: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddressesAddress[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: { 'type': 'array', 'itemType': DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddressesAddress },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolRequestSource extends $tea.Model {
+  requestSource?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestSource: 'RequestSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestSource: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPool extends $tea.Model {
+  addressLbStrategy?: string;
+  addressPoolId?: string;
+  addressPoolName?: string;
+  addressPoolType?: string;
+  addresses?: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddresses;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  requestSource?: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolRequestSource;
+  seqNonPreemptiveSchedule?: boolean;
+  sequenceLbStrategyMode?: string;
+  serialNumber?: number;
+  updateTime?: string;
+  updateTimestamp?: number;
+  weightValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addressLbStrategy: 'AddressLbStrategy',
+      addressPoolId: 'AddressPoolId',
+      addressPoolName: 'AddressPoolName',
+      addressPoolType: 'AddressPoolType',
+      addresses: 'Addresses',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      requestSource: 'RequestSource',
+      seqNonPreemptiveSchedule: 'SeqNonPreemptiveSchedule',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+      serialNumber: 'SerialNumber',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      weightValue: 'WeightValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressLbStrategy: 'string',
+      addressPoolId: 'string',
+      addressPoolName: 'string',
+      addressPoolType: 'string',
+      addresses: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddresses,
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      requestSource: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolRequestSource,
+      seqNonPreemptiveSchedule: 'boolean',
+      sequenceLbStrategyMode: 'string',
+      serialNumber: 'number',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      weightValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPools extends $tea.Model {
+  addressPool?: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPool[];
+  static names(): { [key: string]: string } {
+    return {
+      addressPool: 'AddressPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPool: { 'type': 'array', 'itemType': DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodesIspCityNode extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  countryCode?: string;
+  countryName?: string;
+  groupName?: string;
+  groupType?: string;
+  ispCode?: string;
+  ispName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      cityName: 'CityName',
+      countryCode: 'CountryCode',
+      countryName: 'CountryName',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      ispCode: 'IspCode',
+      ispName: 'IspName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      countryCode: 'string',
+      countryName: 'string',
+      groupName: 'string',
+      groupType: 'string',
+      ispCode: 'string',
+      ispName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodes extends $tea.Model {
+  ispCityNode?: DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodesIspCityNode[];
+  static names(): { [key: string]: string } {
+    return {
+      ispCityNode: 'IspCityNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ispCityNode: { 'type': 'array', 'itemType': DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodesIspCityNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmSystemLinesResponseBodySystemLinesSystemLine extends $tea.Model {
+  code?: string;
+  displayName?: string;
+  isAvailable?: boolean;
+  name?: string;
+  parentCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      displayName: 'DisplayName',
+      isAvailable: 'IsAvailable',
+      name: 'Name',
+      parentCode: 'ParentCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      displayName: 'string',
+      isAvailable: 'boolean',
+      name: 'string',
+      parentCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudGtmSystemLinesResponseBodySystemLines extends $tea.Model {
+  systemLine?: DescribeCloudGtmSystemLinesResponseBodySystemLinesSystemLine[];
+  static names(): { [key: string]: string } {
+    return {
+      systemLine: 'SystemLine',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      systemLine: { 'type': 'array', 'itemType': DescribeCloudGtmSystemLinesResponseBodySystemLinesSystemLine },
     };
   }
 
@@ -18590,6 +23933,1064 @@ export class DescribeTransferDomainsResponseBodyDomainTransfers extends $tea.Mod
   }
 }
 
+export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasksHealthTask extends $tea.Model {
+  port?: number;
+  templateId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      templateId: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasks extends $tea.Model {
+  healthTask?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasksHealthTask[];
+  static names(): { [key: string]: string } {
+    return {
+      healthTask: 'HealthTask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthTask: { 'type': 'array', 'itemType': ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasksHealthTask },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressRequestSource extends $tea.Model {
+  requestSource?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestSource: 'RequestSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestSource: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddress extends $tea.Model {
+  address?: string;
+  addressId?: string;
+  attributeInfo?: string;
+  availableMode?: string;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  healthTasks?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasks;
+  manualAvailableStatus?: string;
+  name?: string;
+  remark?: string;
+  requestSource?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressRequestSource;
+  seqNonPreemptiveSchedule?: boolean;
+  serialNumber?: number;
+  type?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  weightValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressId: 'AddressId',
+      attributeInfo: 'AttributeInfo',
+      availableMode: 'AvailableMode',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      healthTasks: 'HealthTasks',
+      manualAvailableStatus: 'ManualAvailableStatus',
+      name: 'Name',
+      remark: 'Remark',
+      requestSource: 'RequestSource',
+      seqNonPreemptiveSchedule: 'SeqNonPreemptiveSchedule',
+      serialNumber: 'SerialNumber',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      weightValue: 'WeightValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressId: 'string',
+      attributeInfo: 'string',
+      availableMode: 'string',
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      healthTasks: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasks,
+      manualAvailableStatus: 'string',
+      name: 'string',
+      remark: 'string',
+      requestSource: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressRequestSource,
+      seqNonPreemptiveSchedule: 'boolean',
+      serialNumber: 'number',
+      type: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      weightValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresses extends $tea.Model {
+  address?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddress[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: { 'type': 'array', 'itemType': ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddress },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPool extends $tea.Model {
+  addressLbStrategy?: string;
+  addressPoolId?: string;
+  addressPoolName?: string;
+  addressPoolType?: string;
+  addresses?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresses;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  remark?: string;
+  sequenceLbStrategyMode?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addressLbStrategy: 'AddressLbStrategy',
+      addressPoolId: 'AddressPoolId',
+      addressPoolName: 'AddressPoolName',
+      addressPoolType: 'AddressPoolType',
+      addresses: 'Addresses',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      remark: 'Remark',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressLbStrategy: 'string',
+      addressPoolId: 'string',
+      addressPoolName: 'string',
+      addressPoolType: 'string',
+      addresses: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresses,
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      remark: 'string',
+      sequenceLbStrategyMode: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressPoolsResponseBodyAddressPools extends $tea.Model {
+  addressPool?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPool[];
+  static names(): { [key: string]: string } {
+    return {
+      addressPool: 'AddressPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPool: { 'type': 'array', 'itemType': ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasksHealthTask extends $tea.Model {
+  monitorStatus?: string;
+  port?: number;
+  templateId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      monitorStatus: 'MonitorStatus',
+      port: 'Port',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorStatus: 'string',
+      port: 'number',
+      templateId: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasks extends $tea.Model {
+  healthTask?: ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasksHealthTask[];
+  static names(): { [key: string]: string } {
+    return {
+      healthTask: 'HealthTask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthTask: { 'type': 'array', 'itemType': ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasksHealthTask },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressesResponseBodyAddressesAddress extends $tea.Model {
+  address?: string;
+  addressId?: string;
+  attributeInfo?: string;
+  availableMode?: string;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  healthTasks?: ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasks;
+  manualAvailableStatus?: string;
+  name?: string;
+  remark?: string;
+  type?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressId: 'AddressId',
+      attributeInfo: 'AttributeInfo',
+      availableMode: 'AvailableMode',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      healthTasks: 'HealthTasks',
+      manualAvailableStatus: 'ManualAvailableStatus',
+      name: 'Name',
+      remark: 'Remark',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressId: 'string',
+      attributeInfo: 'string',
+      availableMode: 'string',
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      healthTasks: ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasks,
+      manualAvailableStatus: 'string',
+      name: 'string',
+      remark: 'string',
+      type: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAddressesResponseBodyAddresses extends $tea.Model {
+  address?: ListCloudGtmAddressesResponseBodyAddressesAddress[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: { 'type': 'array', 'itemType': ListCloudGtmAddressesResponseBodyAddressesAddress },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAlertLogsResponseBodyLogsLog extends $tea.Model {
+  actionType?: string;
+  content?: string;
+  entityType?: string;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actionType: 'ActionType',
+      content: 'Content',
+      entityType: 'EntityType',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionType: 'string',
+      content: 'string',
+      entityType: 'string',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAlertLogsResponseBodyLogs extends $tea.Model {
+  log?: ListCloudGtmAlertLogsResponseBodyLogsLog[];
+  static names(): { [key: string]: string } {
+    return {
+      log: 'Log',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      log: { 'type': 'array', 'itemType': ListCloudGtmAlertLogsResponseBodyLogsLog },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroupsAlertGroup extends $tea.Model {
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroups extends $tea.Model {
+  alertGroup?: ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroupsAlertGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      alertGroup: 'AlertGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertGroup: { 'type': 'array', 'itemType': ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroupsAlertGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPoolRequestSource extends $tea.Model {
+  requestSource?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestSource: 'RequestSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestSource: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPool extends $tea.Model {
+  addressLbStrategy?: string;
+  addressPoolId?: string;
+  addressPoolName?: string;
+  addressPoolType?: string;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  requestSource?: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPoolRequestSource;
+  seqNonPreemptiveSchedule?: boolean;
+  sequenceLbStrategyMode?: string;
+  serialNumber?: number;
+  updateTime?: string;
+  updateTimestamp?: number;
+  weightValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addressLbStrategy: 'AddressLbStrategy',
+      addressPoolId: 'AddressPoolId',
+      addressPoolName: 'AddressPoolName',
+      addressPoolType: 'AddressPoolType',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      requestSource: 'RequestSource',
+      seqNonPreemptiveSchedule: 'SeqNonPreemptiveSchedule',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+      serialNumber: 'SerialNumber',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      weightValue: 'WeightValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressLbStrategy: 'string',
+      addressPoolId: 'string',
+      addressPoolName: 'string',
+      addressPoolType: 'string',
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      requestSource: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPoolRequestSource,
+      seqNonPreemptiveSchedule: 'boolean',
+      sequenceLbStrategyMode: 'string',
+      serialNumber: 'number',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      weightValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPools extends $tea.Model {
+  addressPool?: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPool[];
+  static names(): { [key: string]: string } {
+    return {
+      addressPool: 'AddressPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPool: { 'type': 'array', 'itemType': ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfig extends $tea.Model {
+  addressPoolLbStrategy?: string;
+  addressPools?: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPools;
+  availableStatus?: string;
+  commodityCode?: string;
+  configId?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthStatus?: string;
+  instanceId?: string;
+  remark?: string;
+  scheduleDomainName?: string;
+  scheduleHostname?: string;
+  scheduleRrType?: string;
+  scheduleZoneMode?: string;
+  scheduleZoneName?: string;
+  sequenceLbStrategyMode?: string;
+  ttl?: number;
+  updateTime?: string;
+  updateTimestamp?: number;
+  versionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolLbStrategy: 'AddressPoolLbStrategy',
+      addressPools: 'AddressPools',
+      availableStatus: 'AvailableStatus',
+      commodityCode: 'CommodityCode',
+      configId: 'ConfigId',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthStatus: 'HealthStatus',
+      instanceId: 'InstanceId',
+      remark: 'Remark',
+      scheduleDomainName: 'ScheduleDomainName',
+      scheduleHostname: 'ScheduleHostname',
+      scheduleRrType: 'ScheduleRrType',
+      scheduleZoneMode: 'ScheduleZoneMode',
+      scheduleZoneName: 'ScheduleZoneName',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+      ttl: 'Ttl',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      versionCode: 'VersionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolLbStrategy: 'string',
+      addressPools: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPools,
+      availableStatus: 'string',
+      commodityCode: 'string',
+      configId: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthStatus: 'string',
+      instanceId: 'string',
+      remark: 'string',
+      scheduleDomainName: 'string',
+      scheduleHostname: 'string',
+      scheduleRrType: 'string',
+      scheduleZoneMode: 'string',
+      scheduleZoneName: 'string',
+      sequenceLbStrategyMode: 'string',
+      ttl: 'number',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      versionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigs extends $tea.Model {
+  instanceConfig?: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceConfig: 'InstanceConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceConfig: { 'type': 'array', 'itemType': ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstancesResponseBodyInstancesInstance extends $tea.Model {
+  commodityCode?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  expireTime?: string;
+  expireTimestamp?: number;
+  instanceId?: string;
+  instanceName?: string;
+  monitorTaskQuota?: number;
+  monthlyEmailUsed?: number;
+  monthlySmsQuota?: number;
+  monthlySmsUsed?: number;
+  monthlyWebhookUsed?: number;
+  scheduleDomainName?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  versionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      expireTime: 'ExpireTime',
+      expireTimestamp: 'ExpireTimestamp',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      monitorTaskQuota: 'MonitorTaskQuota',
+      monthlyEmailUsed: 'MonthlyEmailUsed',
+      monthlySmsQuota: 'MonthlySmsQuota',
+      monthlySmsUsed: 'MonthlySmsUsed',
+      monthlyWebhookUsed: 'MonthlyWebhookUsed',
+      scheduleDomainName: 'ScheduleDomainName',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      versionCode: 'VersionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      expireTime: 'string',
+      expireTimestamp: 'number',
+      instanceId: 'string',
+      instanceName: 'string',
+      monitorTaskQuota: 'number',
+      monthlyEmailUsed: 'number',
+      monthlySmsQuota: 'number',
+      monthlySmsUsed: 'number',
+      monthlyWebhookUsed: 'number',
+      scheduleDomainName: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      versionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmInstancesResponseBodyInstances extends $tea.Model {
+  instance?: ListCloudGtmInstancesResponseBodyInstancesInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      instance: 'Instance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instance: { 'type': 'array', 'itemType': ListCloudGtmInstancesResponseBodyInstancesInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps extends $tea.Model {
+  ip?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNode extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  countryCode?: string;
+  countryName?: string;
+  defaultSelected?: boolean;
+  groupName?: string;
+  groupType?: string;
+  ips?: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps;
+  ispCode?: string;
+  ispName?: string;
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      cityName: 'CityName',
+      countryCode: 'CountryCode',
+      countryName: 'CountryName',
+      defaultSelected: 'DefaultSelected',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      ips: 'Ips',
+      ispCode: 'IspCode',
+      ispName: 'IspName',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      countryCode: 'string',
+      countryName: 'string',
+      defaultSelected: 'boolean',
+      groupName: 'string',
+      groupType: 'string',
+      ips: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps,
+      ispCode: 'string',
+      ispName: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodes extends $tea.Model {
+  ipv4IspCityNode?: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNode[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv4IspCityNode: 'Ipv4IspCityNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4IspCityNode: { 'type': 'array', 'itemType': ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps extends $tea.Model {
+  ip?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNode extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  countryCode?: string;
+  countryName?: string;
+  defaultSelected?: boolean;
+  groupName?: string;
+  groupType?: string;
+  ips?: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps;
+  ispCode?: string;
+  ispName?: string;
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      cityName: 'CityName',
+      countryCode: 'CountryCode',
+      countryName: 'CountryName',
+      defaultSelected: 'DefaultSelected',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      ips: 'Ips',
+      ispCode: 'IspCode',
+      ispName: 'IspName',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      countryCode: 'string',
+      countryName: 'string',
+      defaultSelected: 'boolean',
+      groupName: 'string',
+      groupType: 'string',
+      ips: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps,
+      ispCode: 'string',
+      ispName: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodes extends $tea.Model {
+  ipv6IspCityNode?: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNode[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6IspCityNode: 'Ipv6IspCityNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6IspCityNode: { 'type': 'array', 'itemType': ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodesIspCityNode extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  countryCode?: string;
+  countryName?: string;
+  groupName?: string;
+  groupType?: string;
+  ispCode?: string;
+  ispName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      cityName: 'CityName',
+      countryCode: 'CountryCode',
+      countryName: 'CountryName',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      ispCode: 'IspCode',
+      ispName: 'IspName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      countryCode: 'string',
+      countryName: 'string',
+      groupName: 'string',
+      groupType: 'string',
+      ispCode: 'string',
+      ispName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodes extends $tea.Model {
+  ispCityNode?: ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodesIspCityNode[];
+  static names(): { [key: string]: string } {
+    return {
+      ispCityNode: 'IspCityNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ispCityNode: { 'type': 'array', 'itemType': ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodesIspCityNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate extends $tea.Model {
+  createTime?: string;
+  createTimestamp?: number;
+  evaluationCount?: number;
+  extendInfo?: string;
+  failureRate?: number;
+  interval?: number;
+  ipVersion?: string;
+  ispCityNodes?: ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodes;
+  name?: string;
+  protocol?: string;
+  remark?: string;
+  templateId?: string;
+  timeout?: number;
+  updateTime?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      evaluationCount: 'EvaluationCount',
+      extendInfo: 'ExtendInfo',
+      failureRate: 'FailureRate',
+      interval: 'Interval',
+      ipVersion: 'IpVersion',
+      ispCityNodes: 'IspCityNodes',
+      name: 'Name',
+      protocol: 'Protocol',
+      remark: 'Remark',
+      templateId: 'TemplateId',
+      timeout: 'Timeout',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      createTimestamp: 'number',
+      evaluationCount: 'number',
+      extendInfo: 'string',
+      failureRate: 'number',
+      interval: 'number',
+      ipVersion: 'string',
+      ispCityNodes: ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodes,
+      name: 'string',
+      protocol: 'string',
+      remark: 'string',
+      templateId: 'string',
+      timeout: 'number',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmMonitorTemplatesResponseBodyTemplates extends $tea.Model {
+  template?: ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate[];
+  static names(): { [key: string]: string } {
+    return {
+      template: 'Template',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      template: { 'type': 'array', 'itemType': ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -18812,6 +25213,839 @@ export class PreviewGtmRecoveryPlanResponseBodyPreviews extends $tea.Model {
   }
 }
 
+export class ReplaceCloudGtmAddressPoolAddressRequestAddresses extends $tea.Model {
+  addressId?: string;
+  requestSource?: string[];
+  serialNumber?: number;
+  weightValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addressId: 'AddressId',
+      requestSource: 'RequestSource',
+      serialNumber: 'SerialNumber',
+      weightValue: 'WeightValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressId: 'string',
+      requestSource: { 'type': 'array', 'itemType': 'string' },
+      serialNumber: 'number',
+      weightValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReplaceCloudGtmInstanceConfigAddressPoolRequestAddressPools extends $tea.Model {
+  addressPoolId?: string;
+  requestSource?: string[];
+  serialNumber?: number;
+  weightValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolId: 'AddressPoolId',
+      requestSource: 'RequestSource',
+      serialNumber: 'SerialNumber',
+      weightValue: 'WeightValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolId: 'string',
+      requestSource: { 'type': 'array', 'itemType': 'string' },
+      serialNumber: 'number',
+      weightValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasksHealthTask extends $tea.Model {
+  port?: number;
+  templateId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      templateId: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasks extends $tea.Model {
+  healthTask?: SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasksHealthTask[];
+  static names(): { [key: string]: string } {
+    return {
+      healthTask: 'HealthTask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthTask: { 'type': 'array', 'itemType': SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasksHealthTask },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddress extends $tea.Model {
+  address?: string;
+  addressId?: string;
+  attributeInfo?: string;
+  availableMode?: string;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  healthTasks?: SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasks;
+  manualAvailableStatus?: string;
+  name?: string;
+  remark?: string;
+  requestSource?: string;
+  serialNumber?: number;
+  type?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  weightValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressId: 'AddressId',
+      attributeInfo: 'AttributeInfo',
+      availableMode: 'AvailableMode',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      healthTasks: 'HealthTasks',
+      manualAvailableStatus: 'ManualAvailableStatus',
+      name: 'Name',
+      remark: 'Remark',
+      requestSource: 'RequestSource',
+      serialNumber: 'SerialNumber',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      weightValue: 'WeightValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressId: 'string',
+      attributeInfo: 'string',
+      availableMode: 'string',
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      healthTasks: SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasks,
+      manualAvailableStatus: 'string',
+      name: 'string',
+      remark: 'string',
+      requestSource: 'string',
+      serialNumber: 'number',
+      type: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      weightValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresses extends $tea.Model {
+  address?: SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddress[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: { 'type': 'array', 'itemType': SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddress },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPool extends $tea.Model {
+  addressLbStrategy?: string;
+  addressPoolId?: string;
+  addressPoolName?: string;
+  addressPoolType?: string;
+  addresses?: SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresses;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  remark?: string;
+  sequenceLbStrategyMode?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addressLbStrategy: 'AddressLbStrategy',
+      addressPoolId: 'AddressPoolId',
+      addressPoolName: 'AddressPoolName',
+      addressPoolType: 'AddressPoolType',
+      addresses: 'Addresses',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      remark: 'Remark',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressLbStrategy: 'string',
+      addressPoolId: 'string',
+      addressPoolName: 'string',
+      addressPoolType: 'string',
+      addresses: SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresses,
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      remark: 'string',
+      sequenceLbStrategyMode: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressPoolsResponseBodyAddressPools extends $tea.Model {
+  addressPool?: SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPool[];
+  static names(): { [key: string]: string } {
+    return {
+      addressPool: 'AddressPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPool: { 'type': 'array', 'itemType': SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasksHealthTask extends $tea.Model {
+  monitorStatus?: string;
+  port?: number;
+  templateId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      monitorStatus: 'MonitorStatus',
+      port: 'Port',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorStatus: 'string',
+      port: 'number',
+      templateId: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasks extends $tea.Model {
+  healthTask?: SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasksHealthTask[];
+  static names(): { [key: string]: string } {
+    return {
+      healthTask: 'HealthTask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthTask: { 'type': 'array', 'itemType': SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasksHealthTask },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressesResponseBodyAddressesAddress extends $tea.Model {
+  address?: string;
+  addressId?: string;
+  attributeInfo?: string;
+  availableMode?: string;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  healthTasks?: SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasks;
+  manualAvailableStatus?: string;
+  name?: string;
+  remark?: string;
+  type?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressId: 'AddressId',
+      attributeInfo: 'AttributeInfo',
+      availableMode: 'AvailableMode',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      healthTasks: 'HealthTasks',
+      manualAvailableStatus: 'ManualAvailableStatus',
+      name: 'Name',
+      remark: 'Remark',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressId: 'string',
+      attributeInfo: 'string',
+      availableMode: 'string',
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      healthTasks: SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasks,
+      manualAvailableStatus: 'string',
+      name: 'string',
+      remark: 'string',
+      type: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmAddressesResponseBodyAddresses extends $tea.Model {
+  address?: SearchCloudGtmAddressesResponseBodyAddressesAddress[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: { 'type': 'array', 'itemType': SearchCloudGtmAddressesResponseBodyAddressesAddress },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPoolRequestSource extends $tea.Model {
+  requestSource?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestSource: 'RequestSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestSource: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPool extends $tea.Model {
+  addressLbStrategy?: string;
+  addressPoolId?: string;
+  addressPoolName?: string;
+  addressPoolType?: string;
+  availableStatus?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthJudgement?: string;
+  healthStatus?: string;
+  requestSource?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPoolRequestSource;
+  seqNonPreemptiveSchedule?: boolean;
+  sequenceLbStrategyMode?: string;
+  serialNumber?: number;
+  updateTime?: string;
+  updateTimestamp?: number;
+  weightValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addressLbStrategy: 'AddressLbStrategy',
+      addressPoolId: 'AddressPoolId',
+      addressPoolName: 'AddressPoolName',
+      addressPoolType: 'AddressPoolType',
+      availableStatus: 'AvailableStatus',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthJudgement: 'HealthJudgement',
+      healthStatus: 'HealthStatus',
+      requestSource: 'RequestSource',
+      seqNonPreemptiveSchedule: 'SeqNonPreemptiveSchedule',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+      serialNumber: 'SerialNumber',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      weightValue: 'WeightValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressLbStrategy: 'string',
+      addressPoolId: 'string',
+      addressPoolName: 'string',
+      addressPoolType: 'string',
+      availableStatus: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthJudgement: 'string',
+      healthStatus: 'string',
+      requestSource: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPoolRequestSource,
+      seqNonPreemptiveSchedule: 'boolean',
+      sequenceLbStrategyMode: 'string',
+      serialNumber: 'number',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      weightValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPools extends $tea.Model {
+  addressPool?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPool[];
+  static names(): { [key: string]: string } {
+    return {
+      addressPool: 'AddressPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPool: { 'type': 'array', 'itemType': SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfig extends $tea.Model {
+  addressPoolLbStrategy?: string;
+  addressPools?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPools;
+  availableStatus?: string;
+  commodityCode?: string;
+  configId?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  enableStatus?: string;
+  healthStatus?: string;
+  instanceId?: string;
+  remark?: string;
+  scheduleDomainName?: string;
+  scheduleHostname?: string;
+  scheduleRrType?: string;
+  scheduleZoneMode?: string;
+  scheduleZoneName?: string;
+  sequenceLbStrategyMode?: string;
+  ttl?: number;
+  updateTime?: string;
+  updateTimestamp?: number;
+  versionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressPoolLbStrategy: 'AddressPoolLbStrategy',
+      addressPools: 'AddressPools',
+      availableStatus: 'AvailableStatus',
+      commodityCode: 'CommodityCode',
+      configId: 'ConfigId',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      enableStatus: 'EnableStatus',
+      healthStatus: 'HealthStatus',
+      instanceId: 'InstanceId',
+      remark: 'Remark',
+      scheduleDomainName: 'ScheduleDomainName',
+      scheduleHostname: 'ScheduleHostname',
+      scheduleRrType: 'ScheduleRrType',
+      scheduleZoneMode: 'ScheduleZoneMode',
+      scheduleZoneName: 'ScheduleZoneName',
+      sequenceLbStrategyMode: 'SequenceLbStrategyMode',
+      ttl: 'Ttl',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      versionCode: 'VersionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressPoolLbStrategy: 'string',
+      addressPools: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPools,
+      availableStatus: 'string',
+      commodityCode: 'string',
+      configId: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      enableStatus: 'string',
+      healthStatus: 'string',
+      instanceId: 'string',
+      remark: 'string',
+      scheduleDomainName: 'string',
+      scheduleHostname: 'string',
+      scheduleRrType: 'string',
+      scheduleZoneMode: 'string',
+      scheduleZoneName: 'string',
+      sequenceLbStrategyMode: 'string',
+      ttl: 'number',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      versionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigs extends $tea.Model {
+  instanceConfig?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceConfig: 'InstanceConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceConfig: { 'type': 'array', 'itemType': SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstancesResponseBodyInstancesInstance extends $tea.Model {
+  commodityCode?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  expireTime?: number;
+  expireTimestamp?: string;
+  instanceId?: string;
+  instanceName?: string;
+  monitorTaskQuota?: number;
+  monthlyEmailUsed?: number;
+  monthlySmsQuota?: number;
+  monthlySmsUsed?: number;
+  monthlyWebhookUsed?: number;
+  scheduleDomainName?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  versionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      expireTime: 'ExpireTime',
+      expireTimestamp: 'ExpireTimestamp',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      monitorTaskQuota: 'MonitorTaskQuota',
+      monthlyEmailUsed: 'MonthlyEmailUsed',
+      monthlySmsQuota: 'MonthlySmsQuota',
+      monthlySmsUsed: 'MonthlySmsUsed',
+      monthlyWebhookUsed: 'MonthlyWebhookUsed',
+      scheduleDomainName: 'ScheduleDomainName',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      versionCode: 'VersionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      expireTime: 'number',
+      expireTimestamp: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      monitorTaskQuota: 'number',
+      monthlyEmailUsed: 'number',
+      monthlySmsQuota: 'number',
+      monthlySmsUsed: 'number',
+      monthlyWebhookUsed: 'number',
+      scheduleDomainName: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      versionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmInstancesResponseBodyInstances extends $tea.Model {
+  instance?: SearchCloudGtmInstancesResponseBodyInstancesInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      instance: 'Instance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instance: { 'type': 'array', 'itemType': SearchCloudGtmInstancesResponseBodyInstancesInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodesIspCityNode extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  countryCode?: string;
+  countryName?: string;
+  groupName?: string;
+  groupType?: string;
+  ispCode?: string;
+  ispName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      cityName: 'CityName',
+      countryCode: 'CountryCode',
+      countryName: 'CountryName',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      ispCode: 'IspCode',
+      ispName: 'IspName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      countryCode: 'string',
+      countryName: 'string',
+      groupName: 'string',
+      groupType: 'string',
+      ispCode: 'string',
+      ispName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodes extends $tea.Model {
+  ispCityNode?: SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodesIspCityNode[];
+  static names(): { [key: string]: string } {
+    return {
+      ispCityNode: 'IspCityNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ispCityNode: { 'type': 'array', 'itemType': SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodesIspCityNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate extends $tea.Model {
+  createTime?: string;
+  createTimestamp?: number;
+  evaluationCount?: number;
+  extendInfo?: string;
+  failureRate?: number;
+  interval?: number;
+  ipVersion?: string;
+  ispCityNodes?: SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodes;
+  name?: string;
+  protocol?: string;
+  remark?: string;
+  templateId?: string;
+  timeout?: number;
+  updateTime?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      evaluationCount: 'EvaluationCount',
+      extendInfo: 'ExtendInfo',
+      failureRate: 'FailureRate',
+      interval: 'Interval',
+      ipVersion: 'IpVersion',
+      ispCityNodes: 'IspCityNodes',
+      name: 'Name',
+      protocol: 'Protocol',
+      remark: 'Remark',
+      templateId: 'TemplateId',
+      timeout: 'Timeout',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      createTimestamp: 'number',
+      evaluationCount: 'number',
+      extendInfo: 'string',
+      failureRate: 'number',
+      interval: 'number',
+      ipVersion: 'string',
+      ispCityNodes: SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodes,
+      name: 'string',
+      protocol: 'string',
+      remark: 'string',
+      templateId: 'string',
+      timeout: 'number',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchCloudGtmMonitorTemplatesResponseBodyTemplates extends $tea.Model {
+  template?: SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate[];
+  static names(): { [key: string]: string } {
+    return {
+      template: 'Template',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      template: { 'type': 'array', 'itemType': SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -18826,6 +26060,106 @@ export class TagResourcesRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmAddressRequestHealthTasks extends $tea.Model {
+  port?: number;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmGlobalAlertRequestAlertConfig extends $tea.Model {
+  dingtalkNotice?: boolean;
+  emailNotice?: boolean;
+  noticeType?: string;
+  smsNotice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dingtalkNotice: 'DingtalkNotice',
+      emailNotice: 'EmailNotice',
+      noticeType: 'NoticeType',
+      smsNotice: 'SmsNotice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingtalkNotice: 'boolean',
+      emailNotice: 'boolean',
+      noticeType: 'string',
+      smsNotice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmInstanceConfigAlertRequestAlertConfig extends $tea.Model {
+  dingtalkNotice?: boolean;
+  emailNotice?: boolean;
+  noticeType?: string;
+  smsNotice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dingtalkNotice: 'DingtalkNotice',
+      emailNotice: 'EmailNotice',
+      noticeType: 'NoticeType',
+      smsNotice: 'SmsNotice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingtalkNotice: 'boolean',
+      emailNotice: 'boolean',
+      noticeType: 'string',
+      smsNotice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudGtmMonitorTemplateRequestIspCityNodes extends $tea.Model {
+  cityCode?: string;
+  ispCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      ispCode: 'IspCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      ispCode: 'string',
     };
   }
 
@@ -20194,6 +27528,314 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq CreateCloudGtmAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCloudGtmAddressResponse
+   */
+  async createCloudGtmAddressWithOptions(tmpReq: CreateCloudGtmAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudGtmAddressResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateCloudGtmAddressShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.healthTasks)) {
+      request.healthTasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.healthTasks, "HealthTasks", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.attributeInfo)) {
+      query["AttributeInfo"] = request.attributeInfo;
+    }
+
+    if (!Util.isUnset(request.availableMode)) {
+      query["AvailableMode"] = request.availableMode;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!Util.isUnset(request.healthJudgement)) {
+      query["HealthJudgement"] = request.healthJudgement;
+    }
+
+    if (!Util.isUnset(request.healthTasksShrink)) {
+      query["HealthTasks"] = request.healthTasksShrink;
+    }
+
+    if (!Util.isUnset(request.manualAvailableStatus)) {
+      query["ManualAvailableStatus"] = request.manualAvailableStatus;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCloudGtmAddress",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmAddressResponse({}));
+  }
+
+  /**
+   * @param request CreateCloudGtmAddressRequest
+   * @return CreateCloudGtmAddressResponse
+   */
+  async createCloudGtmAddress(request: CreateCloudGtmAddressRequest): Promise<CreateCloudGtmAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCloudGtmAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request CreateCloudGtmAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCloudGtmAddressPoolResponse
+   */
+  async createCloudGtmAddressPoolWithOptions(request: CreateCloudGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudGtmAddressPoolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolName)) {
+      query["AddressPoolName"] = request.addressPoolName;
+    }
+
+    if (!Util.isUnset(request.addressPoolType)) {
+      query["AddressPoolType"] = request.addressPoolType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!Util.isUnset(request.healthJudgement)) {
+      query["HealthJudgement"] = request.healthJudgement;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCloudGtmAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCloudGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmAddressPoolResponse({}));
+  }
+
+  /**
+   * @param request CreateCloudGtmAddressPoolRequest
+   * @return CreateCloudGtmAddressPoolResponse
+   */
+  async createCloudGtmAddressPool(request: CreateCloudGtmAddressPoolRequest): Promise<CreateCloudGtmAddressPoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCloudGtmAddressPoolWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request CreateCloudGtmInstanceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCloudGtmInstanceConfigResponse
+   */
+  async createCloudGtmInstanceConfigWithOptions(request: CreateCloudGtmInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudGtmInstanceConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.scheduleHostname)) {
+      query["ScheduleHostname"] = request.scheduleHostname;
+    }
+
+    if (!Util.isUnset(request.scheduleRrType)) {
+      query["ScheduleRrType"] = request.scheduleRrType;
+    }
+
+    if (!Util.isUnset(request.scheduleZoneMode)) {
+      query["ScheduleZoneMode"] = request.scheduleZoneMode;
+    }
+
+    if (!Util.isUnset(request.scheduleZoneName)) {
+      query["ScheduleZoneName"] = request.scheduleZoneName;
+    }
+
+    if (!Util.isUnset(request.ttl)) {
+      query["Ttl"] = request.ttl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCloudGtmInstanceConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCloudGtmInstanceConfigResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmInstanceConfigResponse({}));
+  }
+
+  /**
+   * @param request CreateCloudGtmInstanceConfigRequest
+   * @return CreateCloudGtmInstanceConfigResponse
+   */
+  async createCloudGtmInstanceConfig(request: CreateCloudGtmInstanceConfigRequest): Promise<CreateCloudGtmInstanceConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCloudGtmInstanceConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq CreateCloudGtmMonitorTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCloudGtmMonitorTemplateResponse
+   */
+  async createCloudGtmMonitorTemplateWithOptions(tmpReq: CreateCloudGtmMonitorTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudGtmMonitorTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateCloudGtmMonitorTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ispCityNodes)) {
+      request.ispCityNodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ispCityNodes, "IspCityNodes", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.evaluationCount)) {
+      query["EvaluationCount"] = request.evaluationCount;
+    }
+
+    if (!Util.isUnset(request.extendInfo)) {
+      query["ExtendInfo"] = request.extendInfo;
+    }
+
+    if (!Util.isUnset(request.failureRate)) {
+      query["FailureRate"] = request.failureRate;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!Util.isUnset(request.ispCityNodesShrink)) {
+      query["IspCityNodes"] = request.ispCityNodesShrink;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCloudGtmMonitorTemplate",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmMonitorTemplateResponse({}));
+  }
+
+  /**
+   * @param request CreateCloudGtmMonitorTemplateRequest
+   * @return CreateCloudGtmMonitorTemplateResponse
+   */
+  async createCloudGtmMonitorTemplate(request: CreateCloudGtmMonitorTemplateRequest): Promise<CreateCloudGtmMonitorTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCloudGtmMonitorTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 创建公共DNS AppKey
    *
    * @param request CreatePdnsAppKeyRequest
@@ -20283,6 +27925,194 @@ export default class Client extends OpenApi {
   async createPdnsUdpIpSegment(request: CreatePdnsUdpIpSegmentRequest): Promise<CreatePdnsUdpIpSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPdnsUdpIpSegmentWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DeleteCloudGtmAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCloudGtmAddressResponse
+   */
+  async deleteCloudGtmAddressWithOptions(request: DeleteCloudGtmAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCloudGtmAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressId)) {
+      query["AddressId"] = request.addressId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCloudGtmAddress",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmAddressResponse({}));
+  }
+
+  /**
+   * @param request DeleteCloudGtmAddressRequest
+   * @return DeleteCloudGtmAddressResponse
+   */
+  async deleteCloudGtmAddress(request: DeleteCloudGtmAddressRequest): Promise<DeleteCloudGtmAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCloudGtmAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DeleteCloudGtmAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCloudGtmAddressPoolResponse
+   */
+  async deleteCloudGtmAddressPoolWithOptions(request: DeleteCloudGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCloudGtmAddressPoolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolId)) {
+      query["AddressPoolId"] = request.addressPoolId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCloudGtmAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCloudGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmAddressPoolResponse({}));
+  }
+
+  /**
+   * @param request DeleteCloudGtmAddressPoolRequest
+   * @return DeleteCloudGtmAddressPoolResponse
+   */
+  async deleteCloudGtmAddressPool(request: DeleteCloudGtmAddressPoolRequest): Promise<DeleteCloudGtmAddressPoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCloudGtmAddressPoolWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DeleteCloudGtmInstanceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCloudGtmInstanceConfigResponse
+   */
+  async deleteCloudGtmInstanceConfigWithOptions(request: DeleteCloudGtmInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCloudGtmInstanceConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCloudGtmInstanceConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCloudGtmInstanceConfigResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmInstanceConfigResponse({}));
+  }
+
+  /**
+   * @param request DeleteCloudGtmInstanceConfigRequest
+   * @return DeleteCloudGtmInstanceConfigResponse
+   */
+  async deleteCloudGtmInstanceConfig(request: DeleteCloudGtmInstanceConfigRequest): Promise<DeleteCloudGtmInstanceConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCloudGtmInstanceConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DeleteCloudGtmMonitorTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCloudGtmMonitorTemplateResponse
+   */
+  async deleteCloudGtmMonitorTemplateWithOptions(request: DeleteCloudGtmMonitorTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCloudGtmMonitorTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCloudGtmMonitorTemplate",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmMonitorTemplateResponse({}));
+  }
+
+  /**
+   * @param request DeleteCloudGtmMonitorTemplateRequest
+   * @return DeleteCloudGtmMonitorTemplateResponse
+   */
+  async deleteCloudGtmMonitorTemplate(request: DeleteCloudGtmMonitorTemplateRequest): Promise<DeleteCloudGtmMonitorTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCloudGtmMonitorTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -20900,6 +28730,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request DescribeCloudGtmAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudGtmAddressResponse
+   */
+  async describeCloudGtmAddressWithOptions(request: DescribeCloudGtmAddressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressId)) {
+      query["AddressId"] = request.addressId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudGtmAddress",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressResponse({}));
+  }
+
+  /**
+   * @param request DescribeCloudGtmAddressRequest
+   * @return DescribeCloudGtmAddressResponse
+   */
+  async describeCloudGtmAddress(request: DescribeCloudGtmAddressRequest): Promise<DescribeCloudGtmAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudGtmAddressWithOptions(request, runtime);
+  }
+
+  /**
    * @param request DescribeCloudGtmAddressPoolRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeCloudGtmAddressPoolResponse
@@ -20943,6 +28819,349 @@ export default class Client extends OpenApi {
   async describeCloudGtmAddressPool(request: DescribeCloudGtmAddressPoolRequest): Promise<DescribeCloudGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudGtmAddressPoolWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeCloudGtmAddressPoolReferenceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudGtmAddressPoolReferenceResponse
+   */
+  async describeCloudGtmAddressPoolReferenceWithOptions(request: DescribeCloudGtmAddressPoolReferenceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmAddressPoolReferenceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolId)) {
+      query["AddressPoolId"] = request.addressPoolId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudGtmAddressPoolReference",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudGtmAddressPoolReferenceResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressPoolReferenceResponse({}));
+  }
+
+  /**
+   * @param request DescribeCloudGtmAddressPoolReferenceRequest
+   * @return DescribeCloudGtmAddressPoolReferenceResponse
+   */
+  async describeCloudGtmAddressPoolReference(request: DescribeCloudGtmAddressPoolReferenceRequest): Promise<DescribeCloudGtmAddressPoolReferenceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudGtmAddressPoolReferenceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeCloudGtmAddressReferenceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudGtmAddressReferenceResponse
+   */
+  async describeCloudGtmAddressReferenceWithOptions(request: DescribeCloudGtmAddressReferenceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmAddressReferenceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressId)) {
+      query["AddressId"] = request.addressId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudGtmAddressReference",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudGtmAddressReferenceResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressReferenceResponse({}));
+  }
+
+  /**
+   * @param request DescribeCloudGtmAddressReferenceRequest
+   * @return DescribeCloudGtmAddressReferenceResponse
+   */
+  async describeCloudGtmAddressReference(request: DescribeCloudGtmAddressReferenceRequest): Promise<DescribeCloudGtmAddressReferenceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudGtmAddressReferenceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeCloudGtmGlobalAlertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudGtmGlobalAlertResponse
+   */
+  async describeCloudGtmGlobalAlertWithOptions(request: DescribeCloudGtmGlobalAlertRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmGlobalAlertResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudGtmGlobalAlert",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudGtmGlobalAlertResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmGlobalAlertResponse({}));
+  }
+
+  /**
+   * @param request DescribeCloudGtmGlobalAlertRequest
+   * @return DescribeCloudGtmGlobalAlertResponse
+   */
+  async describeCloudGtmGlobalAlert(request: DescribeCloudGtmGlobalAlertRequest): Promise<DescribeCloudGtmGlobalAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudGtmGlobalAlertWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeCloudGtmInstanceConfigAlertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudGtmInstanceConfigAlertResponse
+   */
+  async describeCloudGtmInstanceConfigAlertWithOptions(request: DescribeCloudGtmInstanceConfigAlertRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmInstanceConfigAlertResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudGtmInstanceConfigAlert",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudGtmInstanceConfigAlertResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmInstanceConfigAlertResponse({}));
+  }
+
+  /**
+   * @param request DescribeCloudGtmInstanceConfigAlertRequest
+   * @return DescribeCloudGtmInstanceConfigAlertResponse
+   */
+  async describeCloudGtmInstanceConfigAlert(request: DescribeCloudGtmInstanceConfigAlertRequest): Promise<DescribeCloudGtmInstanceConfigAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudGtmInstanceConfigAlertWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeCloudGtmInstanceConfigFullInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudGtmInstanceConfigFullInfoResponse
+   */
+  async describeCloudGtmInstanceConfigFullInfoWithOptions(request: DescribeCloudGtmInstanceConfigFullInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmInstanceConfigFullInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudGtmInstanceConfigFullInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudGtmInstanceConfigFullInfoResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmInstanceConfigFullInfoResponse({}));
+  }
+
+  /**
+   * @param request DescribeCloudGtmInstanceConfigFullInfoRequest
+   * @return DescribeCloudGtmInstanceConfigFullInfoResponse
+   */
+  async describeCloudGtmInstanceConfigFullInfo(request: DescribeCloudGtmInstanceConfigFullInfoRequest): Promise<DescribeCloudGtmInstanceConfigFullInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudGtmInstanceConfigFullInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeCloudGtmMonitorTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudGtmMonitorTemplateResponse
+   */
+  async describeCloudGtmMonitorTemplateWithOptions(request: DescribeCloudGtmMonitorTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmMonitorTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudGtmMonitorTemplate",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmMonitorTemplateResponse({}));
+  }
+
+  /**
+   * @param request DescribeCloudGtmMonitorTemplateRequest
+   * @return DescribeCloudGtmMonitorTemplateResponse
+   */
+  async describeCloudGtmMonitorTemplate(request: DescribeCloudGtmMonitorTemplateRequest): Promise<DescribeCloudGtmMonitorTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudGtmMonitorTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeCloudGtmSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudGtmSummaryResponse
+   */
+  async describeCloudGtmSummaryWithOptions(request: DescribeCloudGtmSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmSummaryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudGtmSummary",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudGtmSummaryResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmSummaryResponse({}));
+  }
+
+  /**
+   * @param request DescribeCloudGtmSummaryRequest
+   * @return DescribeCloudGtmSummaryResponse
+   */
+  async describeCloudGtmSummary(request: DescribeCloudGtmSummaryRequest): Promise<DescribeCloudGtmSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudGtmSummaryWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeCloudGtmSystemLinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudGtmSystemLinesResponse
+   */
+  async describeCloudGtmSystemLinesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmSystemLinesResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudGtmSystemLines",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudGtmSystemLinesResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmSystemLinesResponse({}));
+  }
+
+  /**
+   * @return DescribeCloudGtmSystemLinesResponse
+   */
+  async describeCloudGtmSystemLines(): Promise<DescribeCloudGtmSystemLinesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudGtmSystemLinesWithOptions(runtime);
   }
 
   /**
@@ -25510,6 +33729,478 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request ListCloudGtmAddressPoolsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCloudGtmAddressPoolsResponse
+   */
+  async listCloudGtmAddressPoolsWithOptions(request: ListCloudGtmAddressPoolsRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmAddressPoolsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolName)) {
+      query["AddressPoolName"] = request.addressPoolName;
+    }
+
+    if (!Util.isUnset(request.addressPoolType)) {
+      query["AddressPoolType"] = request.addressPoolType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCloudGtmAddressPools",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCloudGtmAddressPoolsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAddressPoolsResponse({}));
+  }
+
+  /**
+   * @param request ListCloudGtmAddressPoolsRequest
+   * @return ListCloudGtmAddressPoolsResponse
+   */
+  async listCloudGtmAddressPools(request: ListCloudGtmAddressPoolsRequest): Promise<ListCloudGtmAddressPoolsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCloudGtmAddressPoolsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListCloudGtmAddressesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCloudGtmAddressesResponse
+   */
+  async listCloudGtmAddressesWithOptions(request: ListCloudGtmAddressesRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmAddressesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.addressId)) {
+      query["AddressId"] = request.addressId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!Util.isUnset(request.healthStatus)) {
+      query["HealthStatus"] = request.healthStatus;
+    }
+
+    if (!Util.isUnset(request.monitorTemplateId)) {
+      query["MonitorTemplateId"] = request.monitorTemplateId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCloudGtmAddresses",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCloudGtmAddressesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAddressesResponse({}));
+  }
+
+  /**
+   * @param request ListCloudGtmAddressesRequest
+   * @return ListCloudGtmAddressesResponse
+   */
+  async listCloudGtmAddresses(request: ListCloudGtmAddressesRequest): Promise<ListCloudGtmAddressesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCloudGtmAddressesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListCloudGtmAlertLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCloudGtmAlertLogsResponse
+   */
+  async listCloudGtmAlertLogsWithOptions(request: ListCloudGtmAlertLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmAlertLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.actionType)) {
+      query["ActionType"] = request.actionType;
+    }
+
+    if (!Util.isUnset(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCloudGtmAlertLogs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCloudGtmAlertLogsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAlertLogsResponse({}));
+  }
+
+  /**
+   * @param request ListCloudGtmAlertLogsRequest
+   * @return ListCloudGtmAlertLogsResponse
+   */
+  async listCloudGtmAlertLogs(request: ListCloudGtmAlertLogsRequest): Promise<ListCloudGtmAlertLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCloudGtmAlertLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListCloudGtmAvailableAlertGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCloudGtmAvailableAlertGroupsResponse
+   */
+  async listCloudGtmAvailableAlertGroupsWithOptions(request: ListCloudGtmAvailableAlertGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmAvailableAlertGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCloudGtmAvailableAlertGroups",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCloudGtmAvailableAlertGroupsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAvailableAlertGroupsResponse({}));
+  }
+
+  /**
+   * @param request ListCloudGtmAvailableAlertGroupsRequest
+   * @return ListCloudGtmAvailableAlertGroupsResponse
+   */
+  async listCloudGtmAvailableAlertGroups(request: ListCloudGtmAvailableAlertGroupsRequest): Promise<ListCloudGtmAvailableAlertGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCloudGtmAvailableAlertGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListCloudGtmInstanceConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCloudGtmInstanceConfigsResponse
+   */
+  async listCloudGtmInstanceConfigsWithOptions(request: ListCloudGtmInstanceConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmInstanceConfigsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.scheduleDomainName)) {
+      query["ScheduleDomainName"] = request.scheduleDomainName;
+    }
+
+    if (!Util.isUnset(request.scheduleZoneName)) {
+      query["ScheduleZoneName"] = request.scheduleZoneName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCloudGtmInstanceConfigs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCloudGtmInstanceConfigsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmInstanceConfigsResponse({}));
+  }
+
+  /**
+   * @param request ListCloudGtmInstanceConfigsRequest
+   * @return ListCloudGtmInstanceConfigsResponse
+   */
+  async listCloudGtmInstanceConfigs(request: ListCloudGtmInstanceConfigsRequest): Promise<ListCloudGtmInstanceConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCloudGtmInstanceConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListCloudGtmInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCloudGtmInstancesResponse
+   */
+  async listCloudGtmInstancesWithOptions(request: ListCloudGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCloudGtmInstances",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCloudGtmInstancesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmInstancesResponse({}));
+  }
+
+  /**
+   * @param request ListCloudGtmInstancesRequest
+   * @return ListCloudGtmInstancesResponse
+   */
+  async listCloudGtmInstances(request: ListCloudGtmInstancesRequest): Promise<ListCloudGtmInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCloudGtmInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListCloudGtmMonitorNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCloudGtmMonitorNodesResponse
+   */
+  async listCloudGtmMonitorNodesWithOptions(request: ListCloudGtmMonitorNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmMonitorNodesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCloudGtmMonitorNodes",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCloudGtmMonitorNodesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmMonitorNodesResponse({}));
+  }
+
+  /**
+   * @param request ListCloudGtmMonitorNodesRequest
+   * @return ListCloudGtmMonitorNodesResponse
+   */
+  async listCloudGtmMonitorNodes(request: ListCloudGtmMonitorNodesRequest): Promise<ListCloudGtmMonitorNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCloudGtmMonitorNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListCloudGtmMonitorTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCloudGtmMonitorTemplatesResponse
+   */
+  async listCloudGtmMonitorTemplatesWithOptions(request: ListCloudGtmMonitorTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmMonitorTemplatesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCloudGtmMonitorTemplates",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCloudGtmMonitorTemplatesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmMonitorTemplatesResponse({}));
+  }
+
+  /**
+   * @param request ListCloudGtmMonitorTemplatesRequest
+   * @return ListCloudGtmMonitorTemplatesResponse
+   */
+  async listCloudGtmMonitorTemplates(request: ListCloudGtmMonitorTemplatesRequest): Promise<ListCloudGtmMonitorTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCloudGtmMonitorTemplatesWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Queries the tags that are added to a specified resource.
    *
    * @description *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
@@ -25976,6 +34667,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq ReplaceCloudGtmAddressPoolAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReplaceCloudGtmAddressPoolAddressResponse
+   */
+  async replaceCloudGtmAddressPoolAddressWithOptions(tmpReq: ReplaceCloudGtmAddressPoolAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceCloudGtmAddressPoolAddressResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ReplaceCloudGtmAddressPoolAddressShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.addresses)) {
+      request.addressesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addresses, "Addresses", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolId)) {
+      query["AddressPoolId"] = request.addressPoolId;
+    }
+
+    if (!Util.isUnset(request.addressesShrink)) {
+      query["Addresses"] = request.addressesShrink;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReplaceCloudGtmAddressPoolAddress",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReplaceCloudGtmAddressPoolAddressResponse>(await this.callApi(params, req, runtime), new ReplaceCloudGtmAddressPoolAddressResponse({}));
+  }
+
+  /**
+   * @param request ReplaceCloudGtmAddressPoolAddressRequest
+   * @return ReplaceCloudGtmAddressPoolAddressResponse
+   */
+  async replaceCloudGtmAddressPoolAddress(request: ReplaceCloudGtmAddressPoolAddressRequest): Promise<ReplaceCloudGtmAddressPoolAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.replaceCloudGtmAddressPoolAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq ReplaceCloudGtmInstanceConfigAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse
+   */
+  async replaceCloudGtmInstanceConfigAddressPoolWithOptions(tmpReq: ReplaceCloudGtmInstanceConfigAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceCloudGtmInstanceConfigAddressPoolResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ReplaceCloudGtmInstanceConfigAddressPoolShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.addressPools)) {
+      request.addressPoolsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addressPools, "AddressPools", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolsShrink)) {
+      query["AddressPools"] = request.addressPoolsShrink;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReplaceCloudGtmInstanceConfigAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReplaceCloudGtmInstanceConfigAddressPoolResponse>(await this.callApi(params, req, runtime), new ReplaceCloudGtmInstanceConfigAddressPoolResponse({}));
+  }
+
+  /**
+   * @param request ReplaceCloudGtmInstanceConfigAddressPoolRequest
+   * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse
+   */
+  async replaceCloudGtmInstanceConfigAddressPool(request: ReplaceCloudGtmInstanceConfigAddressPoolRequest): Promise<ReplaceCloudGtmInstanceConfigAddressPoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.replaceCloudGtmInstanceConfigAddressPoolWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 恢复公共DNS服务
    *
    * @param request ResumePdnsServiceRequest
@@ -26111,6 +34918,364 @@ export default class Client extends OpenApi {
   async rollbackGtmRecoveryPlan(request: RollbackGtmRecoveryPlanRequest): Promise<RollbackGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rollbackGtmRecoveryPlanWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request SearchCloudGtmAddressPoolsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchCloudGtmAddressPoolsResponse
+   */
+  async searchCloudGtmAddressPoolsWithOptions(request: SearchCloudGtmAddressPoolsRequest, runtime: $Util.RuntimeOptions): Promise<SearchCloudGtmAddressPoolsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolName)) {
+      query["AddressPoolName"] = request.addressPoolName;
+    }
+
+    if (!Util.isUnset(request.addressPoolType)) {
+      query["AddressPoolType"] = request.addressPoolType;
+    }
+
+    if (!Util.isUnset(request.availableStatus)) {
+      query["AvailableStatus"] = request.availableStatus;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!Util.isUnset(request.healthStatus)) {
+      query["HealthStatus"] = request.healthStatus;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchCloudGtmAddressPools",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchCloudGtmAddressPoolsResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmAddressPoolsResponse({}));
+  }
+
+  /**
+   * @param request SearchCloudGtmAddressPoolsRequest
+   * @return SearchCloudGtmAddressPoolsResponse
+   */
+  async searchCloudGtmAddressPools(request: SearchCloudGtmAddressPoolsRequest): Promise<SearchCloudGtmAddressPoolsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchCloudGtmAddressPoolsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request SearchCloudGtmAddressesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchCloudGtmAddressesResponse
+   */
+  async searchCloudGtmAddressesWithOptions(request: SearchCloudGtmAddressesRequest, runtime: $Util.RuntimeOptions): Promise<SearchCloudGtmAddressesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.addressId)) {
+      query["AddressId"] = request.addressId;
+    }
+
+    if (!Util.isUnset(request.availableStatus)) {
+      query["AvailableStatus"] = request.availableStatus;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!Util.isUnset(request.healthStatus)) {
+      query["HealthStatus"] = request.healthStatus;
+    }
+
+    if (!Util.isUnset(request.monitorTemplateName)) {
+      query["MonitorTemplateName"] = request.monitorTemplateName;
+    }
+
+    if (!Util.isUnset(request.nameSearchCondition)) {
+      query["NameSearchCondition"] = request.nameSearchCondition;
+    }
+
+    if (!Util.isUnset(request.names)) {
+      query["Names"] = request.names;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remarkSearchCondition)) {
+      query["RemarkSearchCondition"] = request.remarkSearchCondition;
+    }
+
+    if (!Util.isUnset(request.remarks)) {
+      query["Remarks"] = request.remarks;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchCloudGtmAddresses",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchCloudGtmAddressesResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmAddressesResponse({}));
+  }
+
+  /**
+   * @param request SearchCloudGtmAddressesRequest
+   * @return SearchCloudGtmAddressesResponse
+   */
+  async searchCloudGtmAddresses(request: SearchCloudGtmAddressesRequest): Promise<SearchCloudGtmAddressesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchCloudGtmAddressesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request SearchCloudGtmInstanceConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchCloudGtmInstanceConfigsResponse
+   */
+  async searchCloudGtmInstanceConfigsWithOptions(request: SearchCloudGtmInstanceConfigsRequest, runtime: $Util.RuntimeOptions): Promise<SearchCloudGtmInstanceConfigsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.availableStatus)) {
+      query["AvailableStatus"] = request.availableStatus;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!Util.isUnset(request.healthStatus)) {
+      query["HealthStatus"] = request.healthStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.scheduleDomainName)) {
+      query["ScheduleDomainName"] = request.scheduleDomainName;
+    }
+
+    if (!Util.isUnset(request.scheduleZoneName)) {
+      query["ScheduleZoneName"] = request.scheduleZoneName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchCloudGtmInstanceConfigs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchCloudGtmInstanceConfigsResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmInstanceConfigsResponse({}));
+  }
+
+  /**
+   * @param request SearchCloudGtmInstanceConfigsRequest
+   * @return SearchCloudGtmInstanceConfigsResponse
+   */
+  async searchCloudGtmInstanceConfigs(request: SearchCloudGtmInstanceConfigsRequest): Promise<SearchCloudGtmInstanceConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchCloudGtmInstanceConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request SearchCloudGtmInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchCloudGtmInstancesResponse
+   */
+  async searchCloudGtmInstancesWithOptions(request: SearchCloudGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<SearchCloudGtmInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchCloudGtmInstances",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchCloudGtmInstancesResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmInstancesResponse({}));
+  }
+
+  /**
+   * @param request SearchCloudGtmInstancesRequest
+   * @return SearchCloudGtmInstancesResponse
+   */
+  async searchCloudGtmInstances(request: SearchCloudGtmInstancesRequest): Promise<SearchCloudGtmInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchCloudGtmInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request SearchCloudGtmMonitorTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchCloudGtmMonitorTemplatesResponse
+   */
+  async searchCloudGtmMonitorTemplatesWithOptions(request: SearchCloudGtmMonitorTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<SearchCloudGtmMonitorTemplatesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchCloudGtmMonitorTemplates",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchCloudGtmMonitorTemplatesResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmMonitorTemplatesResponse({}));
+  }
+
+  /**
+   * @param request SearchCloudGtmMonitorTemplatesRequest
+   * @return SearchCloudGtmMonitorTemplatesResponse
+   */
+  async searchCloudGtmMonitorTemplates(request: SearchCloudGtmMonitorTemplatesRequest): Promise<SearchCloudGtmMonitorTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchCloudGtmMonitorTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -26849,6 +36014,980 @@ export default class Client extends OpenApi {
   async updateAppKeyState(request: UpdateAppKeyStateRequest): Promise<UpdateAppKeyStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAppKeyStateWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq UpdateCloudGtmAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmAddressResponse
+   */
+  async updateCloudGtmAddressWithOptions(tmpReq: UpdateCloudGtmAddressRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateCloudGtmAddressShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.healthTasks)) {
+      request.healthTasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.healthTasks, "HealthTasks", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.addressId)) {
+      query["AddressId"] = request.addressId;
+    }
+
+    if (!Util.isUnset(request.attributeInfo)) {
+      query["AttributeInfo"] = request.attributeInfo;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.healthJudgement)) {
+      query["HealthJudgement"] = request.healthJudgement;
+    }
+
+    if (!Util.isUnset(request.healthTasksShrink)) {
+      query["HealthTasks"] = request.healthTasksShrink;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmAddress",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressRequest
+   * @return UpdateCloudGtmAddressResponse
+   */
+  async updateCloudGtmAddress(request: UpdateCloudGtmAddressRequest): Promise<UpdateCloudGtmAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressEnableStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmAddressEnableStatusResponse
+   */
+  async updateCloudGtmAddressEnableStatusWithOptions(request: UpdateCloudGtmAddressEnableStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressEnableStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressId)) {
+      query["AddressId"] = request.addressId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmAddressEnableStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmAddressEnableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressEnableStatusResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressEnableStatusRequest
+   * @return UpdateCloudGtmAddressEnableStatusResponse
+   */
+  async updateCloudGtmAddressEnableStatus(request: UpdateCloudGtmAddressEnableStatusRequest): Promise<UpdateCloudGtmAddressEnableStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmAddressEnableStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressManualAvailableStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmAddressManualAvailableStatusResponse
+   */
+  async updateCloudGtmAddressManualAvailableStatusWithOptions(request: UpdateCloudGtmAddressManualAvailableStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressManualAvailableStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressId)) {
+      query["AddressId"] = request.addressId;
+    }
+
+    if (!Util.isUnset(request.availableMode)) {
+      query["AvailableMode"] = request.availableMode;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.manualAvailableStatus)) {
+      query["ManualAvailableStatus"] = request.manualAvailableStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmAddressManualAvailableStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmAddressManualAvailableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressManualAvailableStatusResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressManualAvailableStatusRequest
+   * @return UpdateCloudGtmAddressManualAvailableStatusResponse
+   */
+  async updateCloudGtmAddressManualAvailableStatus(request: UpdateCloudGtmAddressManualAvailableStatusRequest): Promise<UpdateCloudGtmAddressManualAvailableStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmAddressManualAvailableStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressPoolBasicConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmAddressPoolBasicConfigResponse
+   */
+  async updateCloudGtmAddressPoolBasicConfigWithOptions(request: UpdateCloudGtmAddressPoolBasicConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressPoolBasicConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolId)) {
+      query["AddressPoolId"] = request.addressPoolId;
+    }
+
+    if (!Util.isUnset(request.addressPoolName)) {
+      query["AddressPoolName"] = request.addressPoolName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.healthJudgement)) {
+      query["HealthJudgement"] = request.healthJudgement;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmAddressPoolBasicConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmAddressPoolBasicConfigResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolBasicConfigResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressPoolBasicConfigRequest
+   * @return UpdateCloudGtmAddressPoolBasicConfigResponse
+   */
+  async updateCloudGtmAddressPoolBasicConfig(request: UpdateCloudGtmAddressPoolBasicConfigRequest): Promise<UpdateCloudGtmAddressPoolBasicConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmAddressPoolBasicConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressPoolEnableStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmAddressPoolEnableStatusResponse
+   */
+  async updateCloudGtmAddressPoolEnableStatusWithOptions(request: UpdateCloudGtmAddressPoolEnableStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressPoolEnableStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolId)) {
+      query["AddressPoolId"] = request.addressPoolId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmAddressPoolEnableStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmAddressPoolEnableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolEnableStatusResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressPoolEnableStatusRequest
+   * @return UpdateCloudGtmAddressPoolEnableStatusResponse
+   */
+  async updateCloudGtmAddressPoolEnableStatus(request: UpdateCloudGtmAddressPoolEnableStatusRequest): Promise<UpdateCloudGtmAddressPoolEnableStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmAddressPoolEnableStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressPoolLbStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmAddressPoolLbStrategyResponse
+   */
+  async updateCloudGtmAddressPoolLbStrategyWithOptions(request: UpdateCloudGtmAddressPoolLbStrategyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressPoolLbStrategyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressLbStrategy)) {
+      query["AddressLbStrategy"] = request.addressLbStrategy;
+    }
+
+    if (!Util.isUnset(request.addressPoolId)) {
+      query["AddressPoolId"] = request.addressPoolId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.sequenceLbStrategyMode)) {
+      query["SequenceLbStrategyMode"] = request.sequenceLbStrategyMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmAddressPoolLbStrategy",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmAddressPoolLbStrategyResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolLbStrategyResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressPoolLbStrategyRequest
+   * @return UpdateCloudGtmAddressPoolLbStrategyResponse
+   */
+  async updateCloudGtmAddressPoolLbStrategy(request: UpdateCloudGtmAddressPoolLbStrategyRequest): Promise<UpdateCloudGtmAddressPoolLbStrategyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmAddressPoolLbStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressPoolRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmAddressPoolRemarkResponse
+   */
+  async updateCloudGtmAddressPoolRemarkWithOptions(request: UpdateCloudGtmAddressPoolRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressPoolRemarkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolId)) {
+      query["AddressPoolId"] = request.addressPoolId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmAddressPoolRemark",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmAddressPoolRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolRemarkResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressPoolRemarkRequest
+   * @return UpdateCloudGtmAddressPoolRemarkResponse
+   */
+  async updateCloudGtmAddressPoolRemark(request: UpdateCloudGtmAddressPoolRemarkRequest): Promise<UpdateCloudGtmAddressPoolRemarkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmAddressPoolRemarkWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmAddressRemarkResponse
+   */
+  async updateCloudGtmAddressRemarkWithOptions(request: UpdateCloudGtmAddressRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressRemarkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressId)) {
+      query["AddressId"] = request.addressId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmAddressRemark",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmAddressRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressRemarkResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmAddressRemarkRequest
+   * @return UpdateCloudGtmAddressRemarkResponse
+   */
+  async updateCloudGtmAddressRemark(request: UpdateCloudGtmAddressRemarkRequest): Promise<UpdateCloudGtmAddressRemarkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmAddressRemarkWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq UpdateCloudGtmGlobalAlertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmGlobalAlertResponse
+   */
+  async updateCloudGtmGlobalAlertWithOptions(tmpReq: UpdateCloudGtmGlobalAlertRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmGlobalAlertResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateCloudGtmGlobalAlertShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.alertConfig)) {
+      request.alertConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alertConfig, "AlertConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.alertGroup)) {
+      request.alertGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alertGroup, "AlertGroup", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.alertConfigShrink)) {
+      query["AlertConfig"] = request.alertConfigShrink;
+    }
+
+    if (!Util.isUnset(request.alertGroupShrink)) {
+      query["AlertGroup"] = request.alertGroupShrink;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmGlobalAlert",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmGlobalAlertResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmGlobalAlertResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmGlobalAlertRequest
+   * @return UpdateCloudGtmGlobalAlertResponse
+   */
+  async updateCloudGtmGlobalAlert(request: UpdateCloudGtmGlobalAlertRequest): Promise<UpdateCloudGtmGlobalAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmGlobalAlertWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq UpdateCloudGtmInstanceConfigAlertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmInstanceConfigAlertResponse
+   */
+  async updateCloudGtmInstanceConfigAlertWithOptions(tmpReq: UpdateCloudGtmInstanceConfigAlertRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceConfigAlertResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateCloudGtmInstanceConfigAlertShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.alertConfig)) {
+      request.alertConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alertConfig, "AlertConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.alertGroup)) {
+      request.alertGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alertGroup, "AlertGroup", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.alertConfigShrink)) {
+      query["AlertConfig"] = request.alertConfigShrink;
+    }
+
+    if (!Util.isUnset(request.alertGroupShrink)) {
+      query["AlertGroup"] = request.alertGroupShrink;
+    }
+
+    if (!Util.isUnset(request.alertMode)) {
+      query["AlertMode"] = request.alertMode;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmInstanceConfigAlert",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmInstanceConfigAlertResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigAlertResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmInstanceConfigAlertRequest
+   * @return UpdateCloudGtmInstanceConfigAlertResponse
+   */
+  async updateCloudGtmInstanceConfigAlert(request: UpdateCloudGtmInstanceConfigAlertRequest): Promise<UpdateCloudGtmInstanceConfigAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmInstanceConfigAlertWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmInstanceConfigBasicRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmInstanceConfigBasicResponse
+   */
+  async updateCloudGtmInstanceConfigBasicWithOptions(request: UpdateCloudGtmInstanceConfigBasicRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceConfigBasicResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.scheduleHostname)) {
+      query["ScheduleHostname"] = request.scheduleHostname;
+    }
+
+    if (!Util.isUnset(request.scheduleZoneName)) {
+      query["ScheduleZoneName"] = request.scheduleZoneName;
+    }
+
+    if (!Util.isUnset(request.ttl)) {
+      query["Ttl"] = request.ttl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmInstanceConfigBasic",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmInstanceConfigBasicResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigBasicResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmInstanceConfigBasicRequest
+   * @return UpdateCloudGtmInstanceConfigBasicResponse
+   */
+  async updateCloudGtmInstanceConfigBasic(request: UpdateCloudGtmInstanceConfigBasicRequest): Promise<UpdateCloudGtmInstanceConfigBasicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmInstanceConfigBasicWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmInstanceConfigEnableStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmInstanceConfigEnableStatusResponse
+   */
+  async updateCloudGtmInstanceConfigEnableStatusWithOptions(request: UpdateCloudGtmInstanceConfigEnableStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceConfigEnableStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmInstanceConfigEnableStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmInstanceConfigEnableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigEnableStatusResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmInstanceConfigEnableStatusRequest
+   * @return UpdateCloudGtmInstanceConfigEnableStatusResponse
+   */
+  async updateCloudGtmInstanceConfigEnableStatus(request: UpdateCloudGtmInstanceConfigEnableStatusRequest): Promise<UpdateCloudGtmInstanceConfigEnableStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmInstanceConfigEnableStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmInstanceConfigLbStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmInstanceConfigLbStrategyResponse
+   */
+  async updateCloudGtmInstanceConfigLbStrategyWithOptions(request: UpdateCloudGtmInstanceConfigLbStrategyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceConfigLbStrategyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.addressPoolLbStrategy)) {
+      query["AddressPoolLbStrategy"] = request.addressPoolLbStrategy;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.sequenceLbStrategyMode)) {
+      query["SequenceLbStrategyMode"] = request.sequenceLbStrategyMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmInstanceConfigLbStrategy",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmInstanceConfigLbStrategyResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigLbStrategyResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmInstanceConfigLbStrategyRequest
+   * @return UpdateCloudGtmInstanceConfigLbStrategyResponse
+   */
+  async updateCloudGtmInstanceConfigLbStrategy(request: UpdateCloudGtmInstanceConfigLbStrategyRequest): Promise<UpdateCloudGtmInstanceConfigLbStrategyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmInstanceConfigLbStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmInstanceConfigRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmInstanceConfigRemarkResponse
+   */
+  async updateCloudGtmInstanceConfigRemarkWithOptions(request: UpdateCloudGtmInstanceConfigRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceConfigRemarkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmInstanceConfigRemark",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmInstanceConfigRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigRemarkResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmInstanceConfigRemarkRequest
+   * @return UpdateCloudGtmInstanceConfigRemarkResponse
+   */
+  async updateCloudGtmInstanceConfigRemark(request: UpdateCloudGtmInstanceConfigRemarkRequest): Promise<UpdateCloudGtmInstanceConfigRemarkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmInstanceConfigRemarkWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmInstanceNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmInstanceNameResponse
+   */
+  async updateCloudGtmInstanceNameWithOptions(request: UpdateCloudGtmInstanceNameRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceNameResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmInstanceName",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmInstanceNameResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceNameResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmInstanceNameRequest
+   * @return UpdateCloudGtmInstanceNameResponse
+   */
+  async updateCloudGtmInstanceName(request: UpdateCloudGtmInstanceNameRequest): Promise<UpdateCloudGtmInstanceNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmInstanceNameWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq UpdateCloudGtmMonitorTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmMonitorTemplateResponse
+   */
+  async updateCloudGtmMonitorTemplateWithOptions(tmpReq: UpdateCloudGtmMonitorTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmMonitorTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateCloudGtmMonitorTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ispCityNodes)) {
+      request.ispCityNodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ispCityNodes, "IspCityNodes", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.evaluationCount)) {
+      query["EvaluationCount"] = request.evaluationCount;
+    }
+
+    if (!Util.isUnset(request.extendInfo)) {
+      query["ExtendInfo"] = request.extendInfo;
+    }
+
+    if (!Util.isUnset(request.failureRate)) {
+      query["FailureRate"] = request.failureRate;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispCityNodesShrink)) {
+      query["IspCityNodes"] = request.ispCityNodesShrink;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmMonitorTemplate",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmMonitorTemplateResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmMonitorTemplateRequest
+   * @return UpdateCloudGtmMonitorTemplateResponse
+   */
+  async updateCloudGtmMonitorTemplate(request: UpdateCloudGtmMonitorTemplateRequest): Promise<UpdateCloudGtmMonitorTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmMonitorTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateCloudGtmMonitorTemplateRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudGtmMonitorTemplateRemarkResponse
+   */
+  async updateCloudGtmMonitorTemplateRemarkWithOptions(request: UpdateCloudGtmMonitorTemplateRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmMonitorTemplateRemarkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudGtmMonitorTemplateRemark",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudGtmMonitorTemplateRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmMonitorTemplateRemarkResponse({}));
+  }
+
+  /**
+   * @param request UpdateCloudGtmMonitorTemplateRemarkRequest
+   * @return UpdateCloudGtmMonitorTemplateRemarkResponse
+   */
+  async updateCloudGtmMonitorTemplateRemark(request: UpdateCloudGtmMonitorTemplateRemarkRequest): Promise<UpdateCloudGtmMonitorTemplateRemarkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudGtmMonitorTemplateRemarkWithOptions(request, runtime);
   }
 
   /**
