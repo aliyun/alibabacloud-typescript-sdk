@@ -2150,14 +2150,38 @@ export class GetInstanceResponseBodyDataNetworkInfoInternetInfo extends $tea.Mod
   }
 }
 
+export class GetInstanceResponseBodyDataNetworkInfoVpcInfoVSwitches extends $tea.Model {
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'vSwitchId',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $tea.Model {
   securityGroupIds?: string;
   vSwitchId?: string;
+  vSwitches?: GetInstanceResponseBodyDataNetworkInfoVpcInfoVSwitches[];
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       securityGroupIds: 'securityGroupIds',
       vSwitchId: 'vSwitchId',
+      vSwitches: 'vSwitches',
       vpcId: 'vpcId',
     };
   }
@@ -2166,6 +2190,7 @@ export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $tea.Model {
     return {
       securityGroupIds: 'string',
       vSwitchId: 'string',
+      vSwitches: { 'type': 'array', 'itemType': GetInstanceResponseBodyDataNetworkInfoVpcInfoVSwitches },
       vpcId: 'string',
     };
   }
@@ -2512,6 +2537,7 @@ export class ListConsumerConnectionsResponseBodyData extends $tea.Model {
 }
 
 export class ListConsumerGroupSubscriptionsResponseBodyData extends $tea.Model {
+  consistency?: boolean;
   consumerGroupId?: string;
   filterExpression?: string;
   filterExpressionType?: string;
@@ -2521,6 +2547,7 @@ export class ListConsumerGroupSubscriptionsResponseBodyData extends $tea.Model {
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
+      consistency: 'consistency',
       consumerGroupId: 'consumerGroupId',
       filterExpression: 'filterExpression',
       filterExpressionType: 'filterExpressionType',
@@ -2533,6 +2560,7 @@ export class ListConsumerGroupSubscriptionsResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      consistency: 'boolean',
       consumerGroupId: 'string',
       filterExpression: 'string',
       filterExpressionType: 'string',
@@ -2821,6 +2849,7 @@ export class ListRegionsResponseBodyData extends $tea.Model {
 }
 
 export class ListTopicSubscriptionsResponseBodyData extends $tea.Model {
+  consistency?: string;
   consumerGroupId?: string;
   filterExpression?: string;
   filterExpressionType?: string;
@@ -2829,6 +2858,7 @@ export class ListTopicSubscriptionsResponseBodyData extends $tea.Model {
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
+      consistency: 'consistency',
       consumerGroupId: 'consumerGroupId',
       filterExpression: 'filterExpression',
       filterExpressionType: 'filterExpressionType',
@@ -2840,6 +2870,7 @@ export class ListTopicSubscriptionsResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      consistency: 'string',
       consumerGroupId: 'string',
       filterExpression: 'string',
       filterExpressionType: 'string',
@@ -3058,6 +3089,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3095,6 +3134,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3102,12 +3147,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request CreateConsumerGroupRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateConsumerGroupResponse
+   * @summary Creates a consumer group.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request CreateConsumerGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateConsumerGroupResponse
    */
   async createConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, request: CreateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
     Util.validateModel(request);
@@ -3143,10 +3190,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request CreateConsumerGroupRequest
-    * @return CreateConsumerGroupResponse
+   * @summary Creates a consumer group.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request CreateConsumerGroupRequest
+   * @return CreateConsumerGroupResponse
    */
   async createConsumerGroup(instanceId: string, consumerGroupId: string, request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3155,12 +3204,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request CreateInstanceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateInstanceResponse
+   * @summary Creates an ApsaraMQ for RocketMQ 5.x instance.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request CreateInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -3246,10 +3297,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request CreateInstanceRequest
-    * @return CreateInstanceResponse
+   * @summary Creates an ApsaraMQ for RocketMQ 5.x instance.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3257,6 +3310,14 @@ export default class Client extends OpenApi {
     return await this.createInstanceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a topic.
+   *
+   * @param request CreateTopicRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTopicResponse
+   */
   async createTopicWithOptions(instanceId: string, topicName: string, request: CreateTopicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTopicResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3286,6 +3347,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTopicResponse>(await this.callApi(params, req, runtime), new CreateTopicResponse({}));
   }
 
+  /**
+   * @summary Creates a topic.
+   *
+   * @param request CreateTopicRequest
+   * @return CreateTopicResponse
+   */
   async createTopic(instanceId: string, topicName: string, request: CreateTopicRequest): Promise<CreateTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3293,12 +3360,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteConsumerGroupResponse
+   * @summary Deletes a specified consumer group.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteConsumerGroupResponse
    */
   async deleteConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3319,10 +3388,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
-    *
-    * @return DeleteConsumerGroupResponse
+   * @summary Deletes a specified consumer group.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
+   *
+   * @return DeleteConsumerGroupResponse
    */
   async deleteConsumerGroup(instanceId: string, consumerGroupId: string): Promise<DeleteConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3331,13 +3402,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
-    * *   This operation is used to delete a pay-as-you-go instance. A subscription instance is automatically released after it expires. You do not need to manually delete a subscription instance.
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteInstanceResponse
+   * @summary Deletes a ApsaraMQ for RocketMQ instance.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
+   * *   This operation is used to delete a pay-as-you-go instance. A subscription instance is automatically released after it expires. You do not need to manually delete a subscription instance.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
    */
   async deleteInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3358,11 +3431,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
-    * *   This operation is used to delete a pay-as-you-go instance. A subscription instance is automatically released after it expires. You do not need to manually delete a subscription instance.
-    *
-    * @return DeleteInstanceResponse
+   * @summary Deletes a ApsaraMQ for RocketMQ instance.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
+   * *   This operation is used to delete a pay-as-you-go instance. A subscription instance is automatically released after it expires. You do not need to manually delete a subscription instance.
+   *
+   * @return DeleteInstanceResponse
    */
   async deleteInstance(instanceId: string): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3371,11 +3446,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTopicResponse
+   * @summary Deletes a specified topic.
+   *
+   * @description If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTopicResponse
    */
   async deleteTopicWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTopicResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3396,9 +3473,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
-    *
-    * @return DeleteTopicResponse
+   * @summary Deletes a specified topic.
+   *
+   * @description If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
+   *
+   * @return DeleteTopicResponse
    */
   async deleteTopic(instanceId: string, topicName: string): Promise<DeleteTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3407,11 +3486,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetConsumerGroupResponse
+   * @summary Queries the details of a specified consumer group.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetConsumerGroupResponse
    */
   async getConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConsumerGroupResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3432,9 +3513,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @return GetConsumerGroupResponse
+   * @summary Queries the details of a specified consumer group.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @return GetConsumerGroupResponse
    */
   async getConsumerGroup(instanceId: string, consumerGroupId: string): Promise<GetConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3443,11 +3526,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetInstanceResponse
+   * @summary Queries the detailed information about an instance.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceResponse
    */
   async getInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3468,9 +3553,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @return GetInstanceResponse
+   * @summary Queries the detailed information about an instance.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @return GetInstanceResponse
    */
   async getInstance(instanceId: string): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3478,6 +3565,13 @@ export default class Client extends OpenApi {
     return await this.getInstanceWithOptions(instanceId, headers, runtime);
   }
 
+  /**
+   * @summary Queries the details of a specified topic.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTopicResponse
+   */
   async getTopicWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTopicResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3496,12 +3590,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTopicResponse>(await this.callApi(params, req, runtime), new GetTopicResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a specified topic.
+   *
+   * @return GetTopicResponse
+   */
   async getTopic(instanceId: string, topicName: string): Promise<GetTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTopicWithOptions(instanceId, topicName, headers, runtime);
   }
 
+  /**
+   * @summary 查询支持的可用区
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAvailableZonesResponse
+   */
   async listAvailableZonesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAvailableZonesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3520,12 +3626,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAvailableZonesResponse>(await this.callApi(params, req, runtime), new ListAvailableZonesResponse({}));
   }
 
+  /**
+   * @summary 查询支持的可用区
+   *
+   * @return ListAvailableZonesResponse
+   */
   async listAvailableZones(): Promise<ListAvailableZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAvailableZonesWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary 查询消费者客户端连接信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConsumerConnectionsResponse
+   */
   async listConsumerConnectionsWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerConnectionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3544,12 +3662,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConsumerConnectionsResponse>(await this.callApi(params, req, runtime), new ListConsumerConnectionsResponse({}));
   }
 
+  /**
+   * @summary 查询消费者客户端连接信息
+   *
+   * @return ListConsumerConnectionsResponse
+   */
   async listConsumerConnections(instanceId: string, consumerGroupId: string): Promise<ListConsumerConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConsumerConnectionsWithOptions(instanceId, consumerGroupId, headers, runtime);
   }
 
+  /**
+   * @summary Queries the subscriptions of a consumer group.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConsumerGroupSubscriptionsResponse
+   */
   async listConsumerGroupSubscriptionsWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupSubscriptionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3568,6 +3698,11 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConsumerGroupSubscriptionsResponse>(await this.callApi(params, req, runtime), new ListConsumerGroupSubscriptionsResponse({}));
   }
 
+  /**
+   * @summary Queries the subscriptions of a consumer group.
+   *
+   * @return ListConsumerGroupSubscriptionsResponse
+   */
   async listConsumerGroupSubscriptions(instanceId: string, consumerGroupId: string): Promise<ListConsumerGroupSubscriptionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3575,12 +3710,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request ListConsumerGroupsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListConsumerGroupsResponse
+   * @summary Queries the consumer groups in a specified instance.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request ListConsumerGroupsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConsumerGroupsResponse
    */
   async listConsumerGroupsWithOptions(instanceId: string, request: ListConsumerGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupsResponse> {
     Util.validateModel(request);
@@ -3616,10 +3753,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request ListConsumerGroupsRequest
-    * @return ListConsumerGroupsResponse
+   * @summary Queries the consumer groups in a specified instance.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request ListConsumerGroupsRequest
+   * @return ListConsumerGroupsResponse
    */
   async listConsumerGroups(instanceId: string, request: ListConsumerGroupsRequest): Promise<ListConsumerGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3628,12 +3767,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request ListInstancesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListInstancesResponse
+   * @summary Queries instances.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request ListInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
    */
   async listInstancesWithOptions(request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
@@ -3677,10 +3818,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request ListInstancesRequest
-    * @return ListInstancesResponse
+   * @summary Queries instances.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
    */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3688,6 +3831,13 @@ export default class Client extends OpenApi {
     return await this.listInstancesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询region列表
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRegionsResponse
+   */
   async listRegionsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3706,12 +3856,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
   }
 
+  /**
+   * @summary 查询region列表
+   *
+   * @return ListRegionsResponse
+   */
   async listRegions(): Promise<ListRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRegionsWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary 查询主题订阅关系列表
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTopicSubscriptionsResponse
+   */
   async listTopicSubscriptionsWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTopicSubscriptionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3730,12 +3892,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTopicSubscriptionsResponse>(await this.callApi(params, req, runtime), new ListTopicSubscriptionsResponse({}));
   }
 
+  /**
+   * @summary 查询主题订阅关系列表
+   *
+   * @return ListTopicSubscriptionsResponse
+   */
   async listTopicSubscriptions(instanceId: string, topicName: string): Promise<ListTopicSubscriptionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTopicSubscriptionsWithOptions(instanceId, topicName, headers, runtime);
   }
 
+  /**
+   * @summary Queries the topics in a specified instance.
+   *
+   * @param tmpReq ListTopicsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTopicsResponse
+   */
   async listTopicsWithOptions(instanceId: string, tmpReq: ListTopicsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTopicsShrinkRequest({ });
@@ -3779,12 +3954,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTopicsResponse>(await this.callApi(params, req, runtime), new ListTopicsResponse({}));
   }
 
+  /**
+   * @summary Queries the topics in a specified instance.
+   *
+   * @param request ListTopicsRequest
+   * @return ListTopicsResponse
+   */
   async listTopics(instanceId: string, request: ListTopicsRequest): Promise<ListTopicsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTopicsWithOptions(instanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Resets the consumer offset of a consumer group.
+   *
+   * @param request ResetConsumeOffsetRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetConsumeOffsetResponse
+   */
   async resetConsumeOffsetWithOptions(instanceId: string, consumerGroupId: string, topicName: string, request: ResetConsumeOffsetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResetConsumeOffsetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3814,6 +4003,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetConsumeOffsetResponse>(await this.callApi(params, req, runtime), new ResetConsumeOffsetResponse({}));
   }
 
+  /**
+   * @summary Resets the consumer offset of a consumer group.
+   *
+   * @param request ResetConsumeOffsetRequest
+   * @return ResetConsumeOffsetResponse
+   */
   async resetConsumeOffset(instanceId: string, consumerGroupId: string, topicName: string, request: ResetConsumeOffsetRequest): Promise<ResetConsumeOffsetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3821,12 +4016,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request UpdateConsumerGroupRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateConsumerGroupResponse
+   * @summary Updates the basic information about and the consumption retry policy of a consumer group.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request UpdateConsumerGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateConsumerGroupResponse
    */
   async updateConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, request: UpdateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConsumerGroupResponse> {
     Util.validateModel(request);
@@ -3862,10 +4059,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request UpdateConsumerGroupRequest
-    * @return UpdateConsumerGroupResponse
+   * @summary Updates the basic information about and the consumption retry policy of a consumer group.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request UpdateConsumerGroupRequest
+   * @return UpdateConsumerGroupResponse
    */
   async updateConsumerGroup(instanceId: string, consumerGroupId: string, request: UpdateConsumerGroupRequest): Promise<UpdateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3874,12 +4073,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request UpdateInstanceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateInstanceResponse
+   * @summary Updates the basic information and specifications of an ApsaraMQ for RocketMQ instance.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request UpdateInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceResponse
    */
   async updateInstanceWithOptions(instanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
@@ -3923,10 +4124,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-    *
-    * @param request UpdateInstanceRequest
-    * @return UpdateInstanceResponse
+   * @summary Updates the basic information and specifications of an ApsaraMQ for RocketMQ instance.
+   *
+   * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   *
+   * @param request UpdateInstanceRequest
+   * @return UpdateInstanceResponse
    */
   async updateInstance(instanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3934,6 +4137,14 @@ export default class Client extends OpenApi {
     return await this.updateInstanceWithOptions(instanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the basic information about a topic.
+   *
+   * @param request UpdateTopicRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTopicResponse
+   */
   async updateTopicWithOptions(instanceId: string, topicName: string, request: UpdateTopicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTopicResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3959,6 +4170,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTopicResponse>(await this.callApi(params, req, runtime), new UpdateTopicResponse({}));
   }
 
+  /**
+   * @summary Updates the basic information about a topic.
+   *
+   * @param request UpdateTopicRequest
+   * @return UpdateTopicResponse
+   */
   async updateTopic(instanceId: string, topicName: string, request: UpdateTopicRequest): Promise<UpdateTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
