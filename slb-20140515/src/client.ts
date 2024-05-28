@@ -3842,6 +3842,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeRequest extends $tea.Model
 
 export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.Model {
   aclId?: string;
+  aclIds?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds;
   aclStatus?: string;
   aclType?: string;
   backendServerPort?: number;
@@ -3884,6 +3885,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
+      aclIds: 'AclIds',
       aclStatus: 'AclStatus',
       aclType: 'AclType',
       backendServerPort: 'BackendServerPort',
@@ -3929,6 +3931,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
   static types(): { [key: string]: any } {
     return {
       aclId: 'string',
+      aclIds: DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds,
       aclStatus: 'string',
       aclType: 'string',
       backendServerPort: 'number',
@@ -4040,6 +4043,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeRequest extends $tea.Mode
 
 export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea.Model {
   aclId?: string;
+  aclIds?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds;
   aclStatus?: string;
   aclType?: string;
   backendServerPort?: number;
@@ -4089,6 +4093,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
+      aclIds: 'AclIds',
       aclStatus: 'AclStatus',
       aclType: 'AclType',
       backendServerPort: 'BackendServerPort',
@@ -4141,6 +4146,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
   static types(): { [key: string]: any } {
     return {
       aclId: 'string',
+      aclIds: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds,
       aclStatus: 'string',
       aclType: 'string',
       backendServerPort: 'number',
@@ -4367,6 +4373,7 @@ export class DescribeLoadBalancerTCPListenerAttributeRequest extends $tea.Model 
 
 export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $tea.Model {
   aclId?: string;
+  aclIds?: DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds;
   aclStatus?: string;
   aclType?: string;
   backendServerPort?: number;
@@ -4400,6 +4407,7 @@ export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $tea.M
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
+      aclIds: 'AclIds',
       aclStatus: 'AclStatus',
       aclType: 'AclType',
       backendServerPort: 'BackendServerPort',
@@ -4436,6 +4444,7 @@ export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $tea.M
   static types(): { [key: string]: any } {
     return {
       aclId: 'string',
+      aclIds: DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds,
       aclStatus: 'string',
       aclType: 'string',
       backendServerPort: 'number',
@@ -4538,6 +4547,7 @@ export class DescribeLoadBalancerUDPListenerAttributeRequest extends $tea.Model 
 
 export class DescribeLoadBalancerUDPListenerAttributeResponseBody extends $tea.Model {
   aclId?: string;
+  aclIds?: DescribeLoadBalancerUDPListenerAttributeResponseBodyAclIds;
   aclStatus?: string;
   aclType?: string;
   backendServerPort?: number;
@@ -4563,6 +4573,7 @@ export class DescribeLoadBalancerUDPListenerAttributeResponseBody extends $tea.M
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
+      aclIds: 'AclIds',
       aclStatus: 'AclStatus',
       aclType: 'AclType',
       backendServerPort: 'BackendServerPort',
@@ -4591,6 +4602,7 @@ export class DescribeLoadBalancerUDPListenerAttributeResponseBody extends $tea.M
   static types(): { [key: string]: any } {
     return {
       aclId: 'string',
+      aclIds: DescribeLoadBalancerUDPListenerAttributeResponseBodyAclIds,
       aclStatus: 'string',
       aclType: 'string',
       backendServerPort: 'number',
@@ -10774,6 +10786,25 @@ export class DescribeLoadBalancerAttributeResponseBodyTags extends $tea.Model {
   }
 }
 
+export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds extends $tea.Model {
+  aclId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      aclId: 'AclId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRulesRule extends $tea.Model {
   domain?: string;
   ruleId?: string;
@@ -10857,6 +10888,25 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyTags extends $
   static types(): { [key: string]: any } {
     return {
       tag: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPListenerAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds extends $tea.Model {
+  aclId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      aclId: 'AclId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclId: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -11377,6 +11427,7 @@ export class DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig
 
 export class DescribeLoadBalancerListenersResponseBodyListeners extends $tea.Model {
   aclId?: string;
+  aclIds?: string[];
   aclStatus?: string;
   aclType?: string;
   backendServerPort?: number;
@@ -11396,6 +11447,7 @@ export class DescribeLoadBalancerListenersResponseBodyListeners extends $tea.Mod
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
+      aclIds: 'AclIds',
       aclStatus: 'AclStatus',
       aclType: 'AclType',
       backendServerPort: 'BackendServerPort',
@@ -11418,6 +11470,7 @@ export class DescribeLoadBalancerListenersResponseBodyListeners extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       aclId: 'string',
+      aclIds: { 'type': 'array', 'itemType': 'string' },
       aclStatus: 'string',
       aclType: 'string',
       backendServerPort: 'number',
@@ -11434,6 +11487,25 @@ export class DescribeLoadBalancerListenersResponseBodyListeners extends $tea.Mod
       tags: { 'type': 'array', 'itemType': DescribeLoadBalancerListenersResponseBodyListenersTags },
       UDPListenerConfig: DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig,
       VServerGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds extends $tea.Model {
+  aclId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      aclId: 'AclId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclId: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -11475,6 +11547,25 @@ export class DescribeLoadBalancerTCPListenerAttributeResponseBodyTags extends $t
   static types(): { [key: string]: any } {
     return {
       tag: { 'type': 'array', 'itemType': DescribeLoadBalancerTCPListenerAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerUDPListenerAttributeResponseBodyAclIds extends $tea.Model {
+  aclId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      aclId: 'AclId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclId: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
