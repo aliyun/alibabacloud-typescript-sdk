@@ -28448,6 +28448,9 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
   callsBlindTransferOut?: number;
   callsHandled?: number;
   callsOffered?: number;
+  callsQueuingCanceled?: string;
+  callsQueuingFailure?: string;
+  callsQueuingRerouted?: string;
   callsQueuingTimeout?: number;
   callsServiceLevel10?: number;
   callsServiceLevel20?: number;
@@ -28482,6 +28485,9 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       callsBlindTransferOut: 'CallsBlindTransferOut',
       callsHandled: 'CallsHandled',
       callsOffered: 'CallsOffered',
+      callsQueuingCanceled: 'CallsQueuingCanceled',
+      callsQueuingFailure: 'CallsQueuingFailure',
+      callsQueuingRerouted: 'CallsQueuingRerouted',
       callsQueuingTimeout: 'CallsQueuingTimeout',
       callsServiceLevel10: 'CallsServiceLevel10',
       callsServiceLevel20: 'CallsServiceLevel20',
@@ -28519,6 +28525,9 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       callsBlindTransferOut: 'number',
       callsHandled: 'number',
       callsOffered: 'number',
+      callsQueuingCanceled: 'string',
+      callsQueuingFailure: 'string',
+      callsQueuingRerouted: 'string',
       callsQueuingTimeout: 'number',
       callsServiceLevel10: 'number',
       callsServiceLevel20: 'number',
