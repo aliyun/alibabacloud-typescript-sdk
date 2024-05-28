@@ -1422,6 +1422,7 @@ export class GetDomainRequest extends $tea.Model {
 
 export class GetDomainResponseBody extends $tea.Model {
   bucketType?: string;
+  buckets?: string;
   condition?: string;
   crowdIds?: string;
   debugUsers?: string;
@@ -1441,6 +1442,7 @@ export class GetDomainResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       bucketType: 'BucketType',
+      buckets: 'Buckets',
       condition: 'Condition',
       crowdIds: 'CrowdIds',
       debugUsers: 'DebugUsers',
@@ -1463,6 +1465,7 @@ export class GetDomainResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       bucketType: 'string',
+      buckets: 'string',
       condition: 'string',
       crowdIds: 'string',
       debugUsers: 'string',
@@ -4146,6 +4149,7 @@ export class ListCrowdsResponseBodyCrowds extends $tea.Model {
 
 export class ListDomainsResponseBodyDomains extends $tea.Model {
   bucketType?: string;
+  buckets?: string;
   condition?: string;
   crowdIds?: string;
   debugUsers?: string;
@@ -4164,6 +4168,7 @@ export class ListDomainsResponseBodyDomains extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       bucketType: 'BucketType',
+      buckets: 'Buckets',
       condition: 'Condition',
       crowdIds: 'CrowdIds',
       debugUsers: 'DebugUsers',
@@ -4185,6 +4190,7 @@ export class ListDomainsResponseBodyDomains extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       bucketType: 'string',
+      buckets: 'string',
       condition: 'string',
       crowdIds: 'string',
       debugUsers: 'string',
