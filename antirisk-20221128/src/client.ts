@@ -65,9 +65,9 @@ export class GetRealTimeRiskInfoResponseBody extends $tea.Model {
 }
 
 export class GetRealTimeRiskInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRealTimeRiskInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRealTimeRiskInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -143,9 +143,9 @@ export class GetZidTagByAtokenResponseBody extends $tea.Model {
 }
 
 export class GetZidTagByAtokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetZidTagByAtokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetZidTagByAtokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -221,9 +221,9 @@ export class GetZidTagScoreByAtokenResponseBody extends $tea.Model {
 }
 
 export class GetZidTagScoreByAtokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetZidTagScoreByAtokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetZidTagScoreByAtokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -308,9 +308,9 @@ export class ListChannelRiskDetailsResponseBody extends $tea.Model {
 }
 
 export class ListChannelRiskDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListChannelRiskDetailsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListChannelRiskDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -389,9 +389,9 @@ export class ListUninstallDetailResponseBody extends $tea.Model {
 }
 
 export class ListUninstallDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUninstallDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUninstallDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -756,6 +756,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 获取实时反作弊信息
+   *
+   * @param request GetRealTimeRiskInfoRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRealTimeRiskInfoResponse
+   */
   async getRealTimeRiskInfoWithOptions(request: GetRealTimeRiskInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRealTimeRiskInfoResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -789,12 +797,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRealTimeRiskInfoResponse>(await this.callApi(params, req, runtime), new GetRealTimeRiskInfoResponse({}));
   }
 
+  /**
+   * @summary 获取实时反作弊信息
+   *
+   * @param request GetRealTimeRiskInfoRequest
+   * @return GetRealTimeRiskInfoResponse
+   */
   async getRealTimeRiskInfo(request: GetRealTimeRiskInfoRequest): Promise<GetRealTimeRiskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRealTimeRiskInfoWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary atoken换zid+tags
+   *
+   * @param request GetZidTagByAtokenRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetZidTagByAtokenResponse
+   */
   async getZidTagByAtokenWithOptions(request: GetZidTagByAtokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetZidTagByAtokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -824,12 +846,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetZidTagByAtokenResponse>(await this.callApi(params, req, runtime), new GetZidTagByAtokenResponse({}));
   }
 
+  /**
+   * @summary atoken换zid+tags
+   *
+   * @param request GetZidTagByAtokenRequest
+   * @return GetZidTagByAtokenResponse
+   */
   async getZidTagByAtoken(request: GetZidTagByAtokenRequest): Promise<GetZidTagByAtokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getZidTagByAtokenWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary atoken换zid+tags+风险分
+   *
+   * @param request GetZidTagScoreByAtokenRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetZidTagScoreByAtokenResponse
+   */
   async getZidTagScoreByAtokenWithOptions(request: GetZidTagScoreByAtokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetZidTagScoreByAtokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -859,12 +895,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetZidTagScoreByAtokenResponse>(await this.callApi(params, req, runtime), new GetZidTagScoreByAtokenResponse({}));
   }
 
+  /**
+   * @summary atoken换zid+tags+风险分
+   *
+   * @param request GetZidTagScoreByAtokenRequest
+   * @return GetZidTagScoreByAtokenResponse
+   */
   async getZidTagScoreByAtoken(request: GetZidTagScoreByAtokenRequest): Promise<GetZidTagScoreByAtokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getZidTagScoreByAtokenWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary  渠道风险明细
+   *
+   * @param request ListChannelRiskDetailsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListChannelRiskDetailsResponse
+   */
   async listChannelRiskDetailsWithOptions(request: ListChannelRiskDetailsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListChannelRiskDetailsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -906,12 +956,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListChannelRiskDetailsResponse>(await this.callApi(params, req, runtime), new ListChannelRiskDetailsResponse({}));
   }
 
+  /**
+   * @summary  渠道风险明细
+   *
+   * @param request ListChannelRiskDetailsRequest
+   * @return ListChannelRiskDetailsResponse
+   */
   async listChannelRiskDetails(request: ListChannelRiskDetailsRequest): Promise<ListChannelRiskDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listChannelRiskDetailsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 卸载明细列表
+   *
+   * @param request ListUninstallDetailRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUninstallDetailResponse
+   */
   async listUninstallDetailWithOptions(request: ListUninstallDetailRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUninstallDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -945,6 +1009,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUninstallDetailResponse>(await this.callApi(params, req, runtime), new ListUninstallDetailResponse({}));
   }
 
+  /**
+   * @summary 卸载明细列表
+   *
+   * @param request ListUninstallDetailRequest
+   * @return ListUninstallDetailResponse
+   */
   async listUninstallDetail(request: ListUninstallDetailRequest): Promise<ListUninstallDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
