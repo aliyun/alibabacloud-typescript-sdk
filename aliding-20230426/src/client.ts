@@ -20088,6 +20088,171 @@ export class QueryOrgTodoTasksResponse extends $tea.Model {
   }
 }
 
+export class QueryReportDetailHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: QueryReportDetailHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: QueryReportDetailHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryReportDetailShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryReportDetailRequest extends $tea.Model {
+  reportId?: string;
+  tenantContext?: QueryReportDetailRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      reportId: 'ReportId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reportId: 'string',
+      tenantContext: QueryReportDetailRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryReportDetailShrinkRequest extends $tea.Model {
+  reportId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reportId: 'ReportId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reportId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryReportDetailResponseBody extends $tea.Model {
+  content?: QueryReportDetailResponseBodyContent[];
+  createTime?: number;
+  creatorId?: string;
+  creatorName?: string;
+  deptName?: string;
+  modifiedTime?: number;
+  remark?: string;
+  reportId?: string;
+  requestId?: string;
+  templateName?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      createTime: 'createTime',
+      creatorId: 'creatorId',
+      creatorName: 'creatorName',
+      deptName: 'deptName',
+      modifiedTime: 'modifiedTime',
+      remark: 'remark',
+      reportId: 'reportId',
+      requestId: 'requestId',
+      templateName: 'templateName',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'array', 'itemType': QueryReportDetailResponseBodyContent },
+      createTime: 'number',
+      creatorId: 'string',
+      creatorName: 'string',
+      deptName: 'string',
+      modifiedTime: 'number',
+      remark: 'string',
+      reportId: 'string',
+      requestId: 'string',
+      templateName: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryReportDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryReportDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryReportDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryScheduleConferenceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: QueryScheduleConferenceHeadersAccountContext;
@@ -39214,6 +39379,75 @@ export class QueryOrgTodoTasksResponseBodyTodoCards extends $tea.Model {
   }
 }
 
+export class QueryReportDetailHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryReportDetailRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryReportDetailResponseBodyContent extends $tea.Model {
+  images?: string[];
+  key?: string;
+  sort?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      key: 'Key',
+      sort: 'Sort',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': 'string' },
+      key: 'string',
+      sort: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryScheduleConferenceHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -41142,30 +41376,45 @@ export class UpdateScheduleConfSettingsHeadersAccountContext extends $tea.Model 
 }
 
 export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting extends $tea.Model {
+  cloudRecordOwnerUserId?: string;
   enableChat?: number;
   enableWebAnonymousJoin?: boolean;
   joinBeforeHost?: number;
   lockMediaStatusMicMute?: number;
   lockNick?: number;
+  minutesOwnerUserId?: string;
+  pushAllMeetingRecords?: boolean;
+  pushCloudRecordCard?: boolean;
+  pushMinutesCard?: boolean;
   waitingRoom?: number;
   static names(): { [key: string]: string } {
     return {
+      cloudRecordOwnerUserId: 'CloudRecordOwnerUserId',
       enableChat: 'EnableChat',
       enableWebAnonymousJoin: 'EnableWebAnonymousJoin',
       joinBeforeHost: 'JoinBeforeHost',
       lockMediaStatusMicMute: 'LockMediaStatusMicMute',
       lockNick: 'LockNick',
+      minutesOwnerUserId: 'MinutesOwnerUserId',
+      pushAllMeetingRecords: 'PushAllMeetingRecords',
+      pushCloudRecordCard: 'PushCloudRecordCard',
+      pushMinutesCard: 'PushMinutesCard',
       waitingRoom: 'WaitingRoom',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cloudRecordOwnerUserId: 'string',
       enableChat: 'number',
       enableWebAnonymousJoin: 'boolean',
       joinBeforeHost: 'number',
       lockMediaStatusMicMute: 'number',
       lockNick: 'number',
+      minutesOwnerUserId: 'string',
+      pushAllMeetingRecords: 'boolean',
+      pushCloudRecordCard: 'boolean',
+      pushMinutesCard: 'boolean',
       waitingRoom: 'number',
     };
   }
@@ -52505,6 +52754,76 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new QueryOrgTodoTasksHeaders({ });
     return await this.queryOrgTodoTasksWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取日志详情
+   *
+   * @param tmpReq QueryReportDetailRequest
+   * @param tmpHeader QueryReportDetailHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryReportDetailResponse
+   */
+  async queryReportDetailWithOptions(tmpReq: QueryReportDetailRequest, tmpHeader: QueryReportDetailHeaders, runtime: $Util.RuntimeOptions): Promise<QueryReportDetailResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryReportDetailShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new QueryReportDetailShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.reportId)) {
+      body["ReportId"] = request.reportId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryReportDetail",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/log/queryReportDetail`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryReportDetailResponse>(await this.callApi(params, req, runtime), new QueryReportDetailResponse({}));
+  }
+
+  /**
+   * @summary 获取日志详情
+   *
+   * @param request QueryReportDetailRequest
+   * @return QueryReportDetailResponse
+   */
+  async queryReportDetail(request: QueryReportDetailRequest): Promise<QueryReportDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryReportDetailHeaders({ });
+    return await this.queryReportDetailWithOptions(request, headers, runtime);
   }
 
   /**
