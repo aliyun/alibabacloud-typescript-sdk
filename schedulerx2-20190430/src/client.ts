@@ -356,6 +356,7 @@ export class CreateAppGroupRequest extends $tea.Model {
   namespaceSource?: string;
   regionId?: string;
   scheduleBusyWorkers?: boolean;
+  version?: number;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
@@ -372,6 +373,7 @@ export class CreateAppGroupRequest extends $tea.Model {
       namespaceSource: 'NamespaceSource',
       regionId: 'RegionId',
       scheduleBusyWorkers: 'ScheduleBusyWorkers',
+      version: 'Version',
     };
   }
 
@@ -391,6 +393,7 @@ export class CreateAppGroupRequest extends $tea.Model {
       namespaceSource: 'string',
       regionId: 'string',
       scheduleBusyWorkers: 'boolean',
+      version: 'number',
     };
   }
 
@@ -3718,6 +3721,7 @@ export class UpdateAppGroupRequest extends $tea.Model {
   maxConcurrency?: number;
   namespace?: string;
   regionId?: string;
+  version?: number;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -3725,6 +3729,7 @@ export class UpdateAppGroupRequest extends $tea.Model {
       maxConcurrency: 'MaxConcurrency',
       namespace: 'Namespace',
       regionId: 'RegionId',
+      version: 'Version',
     };
   }
 
@@ -3735,6 +3740,7 @@ export class UpdateAppGroupRequest extends $tea.Model {
       maxConcurrency: 'number',
       namespace: 'string',
       regionId: 'string',
+      version: 'number',
     };
   }
 
@@ -5120,6 +5126,7 @@ export class ListGroupsResponseBodyDataAppGroups extends $tea.Model {
   appName?: string;
   description?: string;
   groupId?: string;
+  version?: number;
   static names(): { [key: string]: string } {
     return {
       appGroupId: 'AppGroupId',
@@ -5127,6 +5134,7 @@ export class ListGroupsResponseBodyDataAppGroups extends $tea.Model {
       appName: 'AppName',
       description: 'Description',
       groupId: 'GroupId',
+      version: 'Version',
     };
   }
 
@@ -5137,6 +5145,7 @@ export class ListGroupsResponseBodyDataAppGroups extends $tea.Model {
       appName: 'string',
       description: 'string',
       groupId: 'string',
+      version: 'number',
     };
   }
 
@@ -7812,6 +7821,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.version)) {
+      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
