@@ -2333,6 +2333,75 @@ export class DeleteWebCCRuleResponse extends $tea.Model {
   }
 }
 
+export class DeleteWebCCRuleV2Request extends $tea.Model {
+  domain?: string;
+  owner?: string;
+  ruleNames?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      owner: 'Owner',
+      ruleNames: 'RuleNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      owner: 'string',
+      ruleNames: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebCCRuleV2ResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebCCRuleV2Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteWebCCRuleV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteWebCCRuleV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteWebCacheCustomRuleRequest extends $tea.Model {
   domain?: string;
   resourceGroupId?: string;
@@ -11945,6 +12014,72 @@ export class ModifyWebAreaBlockSwitchResponse extends $tea.Model {
   }
 }
 
+export class ModifyWebCCGlobalSwitchRequest extends $tea.Model {
+  ccGlobalSwitch?: string;
+  domain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ccGlobalSwitch: 'CcGlobalSwitch',
+      domain: 'Domain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ccGlobalSwitch: 'string',
+      domain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyWebCCGlobalSwitchResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyWebCCGlobalSwitchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyWebCCGlobalSwitchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyWebCCGlobalSwitchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyWebCCRuleRequest extends $tea.Model {
   act?: string;
   count?: number;
@@ -17515,6 +17650,56 @@ export default class Client extends OpenApi {
   async deleteWebCCRule(request: DeleteWebCCRuleRequest): Promise<DeleteWebCCRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWebCCRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 删除新版cc规则
+   *
+   * @param request DeleteWebCCRuleV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWebCCRuleV2Response
+   */
+  async deleteWebCCRuleV2WithOptions(request: DeleteWebCCRuleV2Request, runtime: $Util.RuntimeOptions): Promise<DeleteWebCCRuleV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.ruleNames)) {
+      query["RuleNames"] = request.ruleNames;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWebCCRuleV2",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWebCCRuleV2Response>(await this.callApi(params, req, runtime), new DeleteWebCCRuleV2Response({}));
+  }
+
+  /**
+   * @summary 删除新版cc规则
+   *
+   * @param request DeleteWebCCRuleV2Request
+   * @return DeleteWebCCRuleV2Response
+   */
+  async deleteWebCCRuleV2(request: DeleteWebCCRuleV2Request): Promise<DeleteWebCCRuleV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteWebCCRuleV2WithOptions(request, runtime);
   }
 
   /**
@@ -24373,6 +24558,52 @@ export default class Client extends OpenApi {
   async modifyWebAreaBlockSwitch(request: ModifyWebAreaBlockSwitchRequest): Promise<ModifyWebAreaBlockSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebAreaBlockSwitchWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 统一全局CC开关
+   *
+   * @param request ModifyWebCCGlobalSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebCCGlobalSwitchResponse
+   */
+  async modifyWebCCGlobalSwitchWithOptions(request: ModifyWebCCGlobalSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCCGlobalSwitchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ccGlobalSwitch)) {
+      query["CcGlobalSwitch"] = request.ccGlobalSwitch;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyWebCCGlobalSwitch",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyWebCCGlobalSwitchResponse>(await this.callApi(params, req, runtime), new ModifyWebCCGlobalSwitchResponse({}));
+  }
+
+  /**
+   * @summary 统一全局CC开关
+   *
+   * @param request ModifyWebCCGlobalSwitchRequest
+   * @return ModifyWebCCGlobalSwitchResponse
+   */
+  async modifyWebCCGlobalSwitch(request: ModifyWebCCGlobalSwitchRequest): Promise<ModifyWebCCGlobalSwitchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyWebCCGlobalSwitchWithOptions(request, runtime);
   }
 
   /**
