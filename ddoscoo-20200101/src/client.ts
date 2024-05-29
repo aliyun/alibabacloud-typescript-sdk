@@ -15777,6 +15777,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AddAutoCcBlacklistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddAutoCcBlacklistResponse
+   */
   async addAutoCcBlacklistWithOptions(request: AddAutoCcBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<AddAutoCcBlacklistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15809,20 +15814,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddAutoCcBlacklistResponse>(await this.callApi(params, req, runtime), new AddAutoCcBlacklistResponse({}));
   }
 
+  /**
+   * @param request AddAutoCcBlacklistRequest
+   * @return AddAutoCcBlacklistResponse
+   */
   async addAutoCcBlacklist(request: AddAutoCcBlacklistRequest): Promise<AddAutoCcBlacklistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addAutoCcBlacklistWithOptions(request, runtime);
   }
 
   /**
-    * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
-    * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](~~157505~~) operation to remove the IP addresses from the whitelist.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request AddAutoCcWhitelistRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddAutoCcWhitelistResponse
+   * @summary Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @description You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
+   * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request AddAutoCcWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddAutoCcWhitelistResponse
    */
   async addAutoCcWhitelistWithOptions(request: AddAutoCcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<AddAutoCcWhitelistResponse> {
     Util.validateModel(request);
@@ -15857,56 +15868,67 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
-    * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](~~157505~~) operation to remove the IP addresses from the whitelist.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request AddAutoCcWhitelistRequest
-    * @return AddAutoCcWhitelistResponse
+   * @summary Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @description You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
+   * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request AddAutoCcWhitelistRequest
+   * @return AddAutoCcWhitelistResponse
    */
   async addAutoCcWhitelist(request: AddAutoCcWhitelistRequest): Promise<AddAutoCcWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addAutoCcWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates an SSL certificate with the forwarding rule of a website.
+   *
+   * @param request AssociateWebCertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateWebCertResponse
+   */
   async associateWebCertWithOptions(request: AssociateWebCertRequest, runtime: $Util.RuntimeOptions): Promise<AssociateWebCertResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.cert)) {
-      query["Cert"] = request.cert;
-    }
-
-    if (!Util.isUnset(request.certId)) {
-      query["CertId"] = request.certId;
-    }
-
-    if (!Util.isUnset(request.certIdentifier)) {
-      query["CertIdentifier"] = request.certIdentifier;
-    }
-
-    if (!Util.isUnset(request.certName)) {
-      query["CertName"] = request.certName;
-    }
-
-    if (!Util.isUnset(request.certRegion)) {
-      query["CertRegion"] = request.certRegion;
-    }
-
-    if (!Util.isUnset(request.domain)) {
-      query["Domain"] = request.domain;
-    }
-
-    if (!Util.isUnset(request.key)) {
-      query["Key"] = request.key;
-    }
-
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cert)) {
+      body["Cert"] = request.cert;
+    }
+
+    if (!Util.isUnset(request.certId)) {
+      body["CertId"] = request.certId;
+    }
+
+    if (!Util.isUnset(request.certIdentifier)) {
+      body["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!Util.isUnset(request.certName)) {
+      body["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.certRegion)) {
+      body["CertRegion"] = request.certRegion;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      body["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      body["Key"] = request.key;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "AssociateWebCert",
@@ -15922,11 +15944,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateWebCertResponse>(await this.callApi(params, req, runtime), new AssociateWebCertResponse({}));
   }
 
+  /**
+   * @summary Associates an SSL certificate with the forwarding rule of a website.
+   *
+   * @param request AssociateWebCertRequest
+   * @return AssociateWebCertResponse
+   */
   async associateWebCert(request: AssociateWebCertRequest): Promise<AssociateWebCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateWebCertWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds an object to a scenario-specific custom policy for protection.
+   *
+   * @param request AttachSceneDefenseObjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachSceneDefenseObjectResponse
+   */
   async attachSceneDefenseObjectWithOptions(request: AttachSceneDefenseObjectRequest, runtime: $Util.RuntimeOptions): Promise<AttachSceneDefenseObjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15959,17 +15994,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachSceneDefenseObjectResponse>(await this.callApi(params, req, runtime), new AttachSceneDefenseObjectResponse({}));
   }
 
+  /**
+   * @summary Adds an object to a scenario-specific custom policy for protection.
+   *
+   * @param request AttachSceneDefenseObjectRequest
+   * @return AttachSceneDefenseObjectResponse
+   */
   async attachSceneDefenseObject(request: AttachSceneDefenseObjectRequest): Promise<AttachSceneDefenseObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachSceneDefenseObjectWithOptions(request, runtime);
   }
 
   /**
-    * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
-    *
-    * @param request ConfigL7RsPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ConfigL7RsPolicyResponse
+   * @summary Configures a back-to-origin policy for the forwarding rule of a website.
+   *
+   * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+   *
+   * @param request ConfigL7RsPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigL7RsPolicyResponse
    */
   async configL7RsPolicyWithOptions(request: ConfigL7RsPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ConfigL7RsPolicyResponse> {
     Util.validateModel(request);
@@ -16008,16 +16051,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
-    *
-    * @param request ConfigL7RsPolicyRequest
-    * @return ConfigL7RsPolicyResponse
+   * @summary Configures a back-to-origin policy for the forwarding rule of a website.
+   *
+   * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+   *
+   * @param request ConfigL7RsPolicyRequest
+   * @return ConfigL7RsPolicyResponse
    */
   async configL7RsPolicy(request: ConfigL7RsPolicyRequest): Promise<ConfigL7RsPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configL7RsPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
+   *
+   * @param request ConfigLayer4RealLimitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigLayer4RealLimitResponse
+   */
   async configLayer4RealLimitWithOptions(request: ConfigLayer4RealLimitRequest, runtime: $Util.RuntimeOptions): Promise<ConfigLayer4RealLimitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16046,11 +16098,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigLayer4RealLimitResponse>(await this.callApi(params, req, runtime), new ConfigLayer4RealLimitResponse({}));
   }
 
+  /**
+   * @summary Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
+   *
+   * @param request ConfigLayer4RealLimitRequest
+   * @return ConfigLayer4RealLimitResponse
+   */
   async configLayer4RealLimit(request: ConfigLayer4RealLimitRequest): Promise<ConfigLayer4RealLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configLayer4RealLimitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a description to a port forwarding rule.
+   *
+   * @param request ConfigLayer4RemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigLayer4RemarkResponse
+   */
   async configLayer4RemarkWithOptions(request: ConfigLayer4RemarkRequest, runtime: $Util.RuntimeOptions): Promise<ConfigLayer4RemarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16075,11 +16140,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigLayer4RemarkResponse>(await this.callApi(params, req, runtime), new ConfigLayer4RemarkResponse({}));
   }
 
+  /**
+   * @summary Adds a description to a port forwarding rule.
+   *
+   * @param request ConfigLayer4RemarkRequest
+   * @return ConfigLayer4RemarkResponse
+   */
   async configLayer4Remark(request: ConfigLayer4RemarkRequest): Promise<ConfigLayer4RemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configLayer4RemarkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the origin redundancy mode for a port forwarding rule.
+   *
+   * @param request ConfigLayer4RuleBakModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigLayer4RuleBakModeResponse
+   */
   async configLayer4RuleBakModeWithOptions(request: ConfigLayer4RuleBakModeRequest, runtime: $Util.RuntimeOptions): Promise<ConfigLayer4RuleBakModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16108,11 +16186,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigLayer4RuleBakModeResponse>(await this.callApi(params, req, runtime), new ConfigLayer4RuleBakModeResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the origin redundancy mode for a port forwarding rule.
+   *
+   * @param request ConfigLayer4RuleBakModeRequest
+   * @return ConfigLayer4RuleBakModeResponse
+   */
   async configLayer4RuleBakMode(request: ConfigLayer4RuleBakModeRequest): Promise<ConfigLayer4RuleBakModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configLayer4RuleBakModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
+   *
+   * @param request ConfigLayer4RulePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigLayer4RulePolicyResponse
+   */
   async configLayer4RulePolicyWithOptions(request: ConfigLayer4RulePolicyRequest, runtime: $Util.RuntimeOptions): Promise<ConfigLayer4RulePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16137,11 +16228,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigLayer4RulePolicyResponse>(await this.callApi(params, req, runtime), new ConfigLayer4RulePolicyResponse({}));
   }
 
+  /**
+   * @summary Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
+   *
+   * @param request ConfigLayer4RulePolicyRequest
+   * @return ConfigLayer4RulePolicyResponse
+   */
   async configLayer4RulePolicy(request: ConfigLayer4RulePolicyRequest): Promise<ConfigLayer4RulePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configLayer4RulePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures blocked locations for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request ConfigNetworkRegionBlockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigNetworkRegionBlockResponse
+   */
   async configNetworkRegionBlockWithOptions(request: ConfigNetworkRegionBlockRequest, runtime: $Util.RuntimeOptions): Promise<ConfigNetworkRegionBlockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16170,11 +16274,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigNetworkRegionBlockResponse>(await this.callApi(params, req, runtime), new ConfigNetworkRegionBlockResponse({}));
   }
 
+  /**
+   * @summary Configures blocked locations for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request ConfigNetworkRegionBlockRequest
+   * @return ConfigNetworkRegionBlockResponse
+   */
   async configNetworkRegionBlock(request: ConfigNetworkRegionBlockRequest): Promise<ConfigNetworkRegionBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configNetworkRegionBlockWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
+   *
+   * @param request ConfigNetworkRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigNetworkRulesResponse
+   */
   async configNetworkRulesWithOptions(request: ConfigNetworkRulesRequest, runtime: $Util.RuntimeOptions): Promise<ConfigNetworkRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16199,19 +16316,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigNetworkRulesResponse>(await this.callApi(params, req, runtime), new ConfigNetworkRulesResponse({}));
   }
 
+  /**
+   * @summary Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
+   *
+   * @param request ConfigNetworkRulesRequest
+   * @return ConfigNetworkRulesResponse
+   */
   async configNetworkRules(request: ConfigNetworkRulesRequest): Promise<ConfigNetworkRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configNetworkRulesWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ConfigUdpReflectRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ConfigUdpReflectResponse
+   * @summary Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
+   *
+   * @description You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ConfigUdpReflectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigUdpReflectResponse
    */
   async configUdpReflectWithOptions(request: ConfigUdpReflectRequest, runtime: $Util.RuntimeOptions): Promise<ConfigUdpReflectResponse> {
     Util.validateModel(request);
@@ -16246,18 +16371,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ConfigUdpReflectRequest
-    * @return ConfigUdpReflectResponse
+   * @summary Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
+   *
+   * @description You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ConfigUdpReflectRequest
+   * @return ConfigUdpReflectResponse
    */
   async configUdpReflect(request: ConfigUdpReflectRequest): Promise<ConfigUdpReflectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configUdpReflectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures the mode of the Frequency Control policy for a website.
+   *
+   * @param request ConfigWebCCTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigWebCCTemplateResponse
+   */
   async configWebCCTemplateWithOptions(request: ConfigWebCCTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ConfigWebCCTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16290,11 +16424,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigWebCCTemplateResponse>(await this.callApi(params, req, runtime), new ConfigWebCCTemplateResponse({}));
   }
 
+  /**
+   * @summary Configures the mode of the Frequency Control policy for a website.
+   *
+   * @param request ConfigWebCCTemplateRequest
+   * @return ConfigWebCCTemplateResponse
+   */
   async configWebCCTemplate(request: ConfigWebCCTemplateRequest): Promise<ConfigWebCCTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configWebCCTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures the IP address whitelist and blacklist for a website.
+   *
+   * @param request ConfigWebIpSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigWebIpSetResponse
+   */
   async configWebIpSetWithOptions(request: ConfigWebIpSetRequest, runtime: $Util.RuntimeOptions): Promise<ConfigWebIpSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16331,11 +16478,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigWebIpSetResponse>(await this.callApi(params, req, runtime), new ConfigWebIpSetResponse({}));
   }
 
+  /**
+   * @summary Configures the IP address whitelist and blacklist for a website.
+   *
+   * @param request ConfigWebIpSetRequest
+   * @return ConfigWebIpSetResponse
+   */
   async configWebIpSet(request: ConfigWebIpSetRequest): Promise<ConfigWebIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configWebIpSetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
+   *
+   * @param request CreateAsyncTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAsyncTaskResponse
+   */
   async createAsyncTaskWithOptions(request: CreateAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateAsyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16368,11 +16528,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAsyncTaskResponse>(await this.callApi(params, req, runtime), new CreateAsyncTaskResponse({}));
   }
 
+  /**
+   * @summary Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
+   *
+   * @param request CreateAsyncTaskRequest
+   * @return CreateAsyncTaskResponse
+   */
   async createAsyncTask(request: CreateAsyncTaskRequest): Promise<CreateAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAsyncTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a forwarding rule for a website.
+   *
+   * @param request CreateDomainResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDomainResourceResponse
+   */
   async createDomainResourceWithOptions(request: CreateDomainResourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16417,11 +16590,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDomainResourceResponse>(await this.callApi(params, req, runtime), new CreateDomainResourceResponse({}));
   }
 
+  /**
+   * @summary Creates a forwarding rule for a website.
+   *
+   * @param request CreateDomainResourceRequest
+   * @return CreateDomainResourceResponse
+   */
   async createDomainResource(request: CreateDomainResourceRequest): Promise<CreateDomainResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDomainResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a port forwarding rule.
+   *
+   * @param request CreateNetworkRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNetworkRulesResponse
+   */
   async createNetworkRulesWithOptions(request: CreateNetworkRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16446,17 +16632,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNetworkRulesResponse>(await this.callApi(params, req, runtime), new CreateNetworkRulesResponse({}));
   }
 
+  /**
+   * @summary Creates a port forwarding rule.
+   *
+   * @param request CreateNetworkRulesRequest
+   * @return CreateNetworkRulesResponse
+   */
   async createNetworkRules(request: CreateNetworkRulesRequest): Promise<CreateNetworkRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkRulesWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
-    *
-    * @param request CreatePortRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreatePortResponse
+   * @summary Creates a port forwarding rule.
+   *
+   * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   *
+   * @param request CreatePortRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePortResponse
    */
   async createPortWithOptions(request: CreatePortRequest, runtime: $Util.RuntimeOptions): Promise<CreatePortResponse> {
     Util.validateModel(request);
@@ -16499,16 +16693,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
-    *
-    * @param request CreatePortRequest
-    * @return CreatePortResponse
+   * @summary Creates a port forwarding rule.
+   *
+   * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   *
+   * @param request CreatePortRequest
+   * @return CreatePortResponse
    */
   async createPort(request: CreatePortRequest): Promise<CreatePortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPortWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a scenario-specific custom policy.
+   *
+   * @param request CreateSceneDefensePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSceneDefensePolicyResponse
+   */
   async createSceneDefensePolicyWithOptions(request: CreateSceneDefensePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateSceneDefensePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16545,11 +16748,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSceneDefensePolicyResponse>(await this.callApi(params, req, runtime), new CreateSceneDefensePolicyResponse({}));
   }
 
+  /**
+   * @summary Creates a scenario-specific custom policy.
+   *
+   * @param request CreateSceneDefensePolicyRequest
+   * @return CreateSceneDefensePolicyResponse
+   */
   async createSceneDefensePolicy(request: CreateSceneDefensePolicyRequest): Promise<CreateSceneDefensePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSceneDefensePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a scheduling rule for Sec-Traffic Manager.
+   *
+   * @param request CreateSchedulerRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSchedulerRuleResponse
+   */
   async createSchedulerRuleWithOptions(request: CreateSchedulerRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateSchedulerRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16590,20 +16806,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSchedulerRuleResponse>(await this.callApi(params, req, runtime), new CreateSchedulerRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a scheduling rule for Sec-Traffic Manager.
+   *
+   * @param request CreateSchedulerRuleRequest
+   * @return CreateSchedulerRuleResponse
+   */
   async createSchedulerRule(request: CreateSchedulerRuleRequest): Promise<CreateSchedulerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSchedulerRuleWithOptions(request, runtime);
   }
 
   /**
-    * You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Pro instances at a time.
-    * > Anti-DDoS Premium does not support the tag feature.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateTagResourcesResponse
+   * @summary Adds tags to multiple Anti-DDoS Pro instances at a time.
+   *
+   * @description You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Pro instances at a time.
+   * > Anti-DDoS Premium does not support the tag feature.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTagResourcesResponse
    */
   async createTagResourcesWithOptions(request: CreateTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<CreateTagResourcesResponse> {
     Util.validateModel(request);
@@ -16646,19 +16870,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Pro instances at a time.
-    * > Anti-DDoS Premium does not support the tag feature.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateTagResourcesRequest
-    * @return CreateTagResourcesResponse
+   * @summary Adds tags to multiple Anti-DDoS Pro instances at a time.
+   *
+   * @description You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Pro instances at a time.
+   * > Anti-DDoS Premium does not support the tag feature.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateTagResourcesRequest
+   * @return CreateTagResourcesResponse
    */
   async createTagResources(request: CreateTagResourcesRequest): Promise<CreateTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateWebCCRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWebCCRuleResponse
+   */
   async createWebCCRuleWithOptions(request: CreateWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateWebCCRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16715,11 +16946,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWebCCRuleResponse>(await this.callApi(params, req, runtime), new CreateWebCCRuleResponse({}));
   }
 
+  /**
+   * @param request CreateWebCCRuleRequest
+   * @return CreateWebCCRuleResponse
+   */
   async createWebCCRule(request: CreateWebCCRuleRequest): Promise<CreateWebCCRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createWebCCRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a forwarding rule for a website.
+   *
+   * @param request CreateWebRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWebRuleResponse
+   */
   async createWebRuleWithOptions(request: CreateWebRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateWebRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16768,11 +17010,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWebRuleResponse>(await this.callApi(params, req, runtime), new CreateWebRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a forwarding rule for a website.
+   *
+   * @param request CreateWebRuleRequest
+   * @return CreateWebRuleResponse
+   */
   async createWebRule(request: CreateWebRuleRequest): Promise<CreateWebRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createWebRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an asynchronous export task.
+   *
+   * @param request DeleteAsyncTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAsyncTaskResponse
+   */
   async deleteAsyncTaskWithOptions(request: DeleteAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAsyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16801,11 +17056,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAsyncTaskResponse>(await this.callApi(params, req, runtime), new DeleteAsyncTaskResponse({}));
   }
 
+  /**
+   * @summary Deletes an asynchronous export task.
+   *
+   * @param request DeleteAsyncTaskRequest
+   * @return DeleteAsyncTaskResponse
+   */
   async deleteAsyncTask(request: DeleteAsyncTaskRequest): Promise<DeleteAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAsyncTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DeleteAutoCcBlacklistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAutoCcBlacklistResponse
+   */
   async deleteAutoCcBlacklistWithOptions(request: DeleteAutoCcBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoCcBlacklistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16834,11 +17102,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAutoCcBlacklistResponse>(await this.callApi(params, req, runtime), new DeleteAutoCcBlacklistResponse({}));
   }
 
+  /**
+   * @summary Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DeleteAutoCcBlacklistRequest
+   * @return DeleteAutoCcBlacklistResponse
+   */
   async deleteAutoCcBlacklist(request: DeleteAutoCcBlacklistRequest): Promise<DeleteAutoCcBlacklistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAutoCcBlacklistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DeleteAutoCcWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAutoCcWhitelistResponse
+   */
   async deleteAutoCcWhitelistWithOptions(request: DeleteAutoCcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoCcWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16867,11 +17148,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAutoCcWhitelistResponse>(await this.callApi(params, req, runtime), new DeleteAutoCcWhitelistResponse({}));
   }
 
+  /**
+   * @summary Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DeleteAutoCcWhitelistRequest
+   * @return DeleteAutoCcWhitelistResponse
+   */
   async deleteAutoCcWhitelist(request: DeleteAutoCcWhitelistRequest): Promise<DeleteAutoCcWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAutoCcWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a specified forwarding rule of a website.
+   *
+   * @param request DeleteDomainResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainResourceResponse
+   */
   async deleteDomainResourceWithOptions(request: DeleteDomainResourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16896,11 +17190,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainResourceResponse>(await this.callApi(params, req, runtime), new DeleteDomainResourceResponse({}));
   }
 
+  /**
+   * @summary Deletes a specified forwarding rule of a website.
+   *
+   * @param request DeleteDomainResourceRequest
+   * @return DeleteDomainResourceResponse
+   */
   async deleteDomainResource(request: DeleteDomainResourceRequest): Promise<DeleteDomainResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
+   *
+   * @param request DeleteNetworkRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNetworkRuleResponse
+   */
   async deleteNetworkRuleWithOptions(request: DeleteNetworkRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16925,18 +17232,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkRuleResponse>(await this.callApi(params, req, runtime), new DeleteNetworkRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
+   *
+   * @param request DeleteNetworkRuleRequest
+   * @return DeleteNetworkRuleResponse
+   */
   async deleteNetworkRule(request: DeleteNetworkRuleRequest): Promise<DeleteNetworkRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkRuleWithOptions(request, runtime);
   }
 
   /**
-    * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
-    * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
-    *
-    * @param request DeletePortRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeletePortResponse
+   * @summary Deletes the specified port forwarding rule.
+   *
+   * @description After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
+   * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   *
+   * @param request DeletePortRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePortResponse
    */
   async deletePortWithOptions(request: DeletePortRequest, runtime: $Util.RuntimeOptions): Promise<DeletePortResponse> {
     Util.validateModel(request);
@@ -16979,17 +17294,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
-    * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
-    *
-    * @param request DeletePortRequest
-    * @return DeletePortResponse
+   * @summary Deletes the specified port forwarding rule.
+   *
+   * @description After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
+   * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   *
+   * @param request DeletePortRequest
+   * @return DeletePortResponse
    */
   async deletePort(request: DeletePortRequest): Promise<DeletePortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePortWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a scenario-specific custom policy.
+   *
+   * @param request DeleteSceneDefensePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSceneDefensePolicyResponse
+   */
   async deleteSceneDefensePolicyWithOptions(request: DeleteSceneDefensePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSceneDefensePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17014,11 +17338,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSceneDefensePolicyResponse>(await this.callApi(params, req, runtime), new DeleteSceneDefensePolicyResponse({}));
   }
 
+  /**
+   * @summary Deletes a scenario-specific custom policy.
+   *
+   * @param request DeleteSceneDefensePolicyRequest
+   * @return DeleteSceneDefensePolicyResponse
+   */
   async deleteSceneDefensePolicy(request: DeleteSceneDefensePolicyRequest): Promise<DeleteSceneDefensePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSceneDefensePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a scheduling rule of Sec-Traffic Manager.
+   *
+   * @param request DeleteSchedulerRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSchedulerRuleResponse
+   */
   async deleteSchedulerRuleWithOptions(request: DeleteSchedulerRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchedulerRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17047,20 +17384,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSchedulerRuleResponse>(await this.callApi(params, req, runtime), new DeleteSchedulerRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a scheduling rule of Sec-Traffic Manager.
+   *
+   * @param request DeleteSchedulerRuleRequest
+   * @return DeleteSchedulerRuleResponse
+   */
   async deleteSchedulerRule(request: DeleteSchedulerRuleRequest): Promise<DeleteSchedulerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSchedulerRuleWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Pro instances.
-    * > Only Anti-DDoS Pro supports tags.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTagResourcesResponse
+   * @summary Removes tags from Anti-DDoS Pro instances.
+   *
+   * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Pro instances.
+   * > Only Anti-DDoS Pro supports tags.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTagResourcesResponse
    */
   async deleteTagResourcesWithOptions(request: DeleteTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagResourcesResponse> {
     Util.validateModel(request);
@@ -17107,19 +17452,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Pro instances.
-    * > Only Anti-DDoS Pro supports tags.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteTagResourcesRequest
-    * @return DeleteTagResourcesResponse
+   * @summary Removes tags from Anti-DDoS Pro instances.
+   *
+   * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Pro instances.
+   * > Only Anti-DDoS Pro supports tags.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteTagResourcesRequest
+   * @return DeleteTagResourcesResponse
    */
   async deleteTagResources(request: DeleteTagResourcesRequest): Promise<DeleteTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a custom frequency control rule of a website.
+   *
+   * @param request DeleteWebCCRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWebCCRuleResponse
+   */
   async deleteWebCCRuleWithOptions(request: DeleteWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebCCRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17152,19 +17506,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWebCCRuleResponse>(await this.callApi(params, req, runtime), new DeleteWebCCRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a custom frequency control rule of a website.
+   *
+   * @param request DeleteWebCCRuleRequest
+   * @return DeleteWebCCRuleResponse
+   */
   async deleteWebCCRule(request: DeleteWebCCRuleRequest): Promise<DeleteWebCCRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWebCCRuleWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteWebCacheCustomRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteWebCacheCustomRuleResponse
+   * @summary Deletes the custom rules of the Static Page Caching policy for a website.
+   *
+   * @description You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteWebCacheCustomRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWebCacheCustomRuleResponse
    */
   async deleteWebCacheCustomRuleWithOptions(request: DeleteWebCacheCustomRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebCacheCustomRuleResponse> {
     Util.validateModel(request);
@@ -17199,18 +17561,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteWebCacheCustomRuleRequest
-    * @return DeleteWebCacheCustomRuleResponse
+   * @summary Deletes the custom rules of the Static Page Caching policy for a website.
+   *
+   * @description You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteWebCacheCustomRuleRequest
+   * @return DeleteWebCacheCustomRuleResponse
    */
   async deleteWebCacheCustomRule(request: DeleteWebCacheCustomRuleRequest): Promise<DeleteWebCacheCustomRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWebCacheCustomRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the accurate access control rules that are created for a website.
+   *
+   * @param request DeleteWebPreciseAccessRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWebPreciseAccessRuleResponse
+   */
   async deleteWebPreciseAccessRuleWithOptions(request: DeleteWebPreciseAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebPreciseAccessRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17243,11 +17614,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWebPreciseAccessRuleResponse>(await this.callApi(params, req, runtime), new DeleteWebPreciseAccessRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes the accurate access control rules that are created for a website.
+   *
+   * @param request DeleteWebPreciseAccessRuleRequest
+   * @return DeleteWebPreciseAccessRuleResponse
+   */
   async deleteWebPreciseAccessRule(request: DeleteWebPreciseAccessRuleRequest): Promise<DeleteWebPreciseAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWebPreciseAccessRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a forwarding rule of a website.
+   *
+   * @param request DeleteWebRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWebRuleResponse
+   */
   async deleteWebRuleWithOptions(request: DeleteWebRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17276,19 +17660,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWebRuleResponse>(await this.callApi(params, req, runtime), new DeleteWebRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a forwarding rule of a website.
+   *
+   * @param request DeleteWebRuleRequest
+   * @return DeleteWebRuleResponse
+   */
   async deleteWebRule(request: DeleteWebRuleRequest): Promise<DeleteWebRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWebRuleWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeAsyncTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAsyncTasksResponse
+   * @summary Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+   *
+   * @description You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeAsyncTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAsyncTasksResponse
    */
   async describeAsyncTasksWithOptions(request: DescribeAsyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAsyncTasksResponse> {
     Util.validateModel(request);
@@ -17323,18 +17715,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeAsyncTasksRequest
-    * @return DescribeAsyncTasksResponse
+   * @summary Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+   *
+   * @description You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeAsyncTasksRequest
+   * @return DescribeAsyncTasksResponse
    */
   async describeAsyncTasks(request: DescribeAsyncTasksRequest): Promise<DescribeAsyncTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAsyncTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the peak QPS of DDoS attacks within the specific period of time.
+   *
+   * @param request DescribeAttackAnalysisMaxQpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAttackAnalysisMaxQpsResponse
+   */
   async describeAttackAnalysisMaxQpsWithOptions(request: DescribeAttackAnalysisMaxQpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAttackAnalysisMaxQpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17363,11 +17764,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAttackAnalysisMaxQpsResponse>(await this.callApi(params, req, runtime), new DescribeAttackAnalysisMaxQpsResponse({}));
   }
 
+  /**
+   * @summary Queries the peak QPS of DDoS attacks within the specific period of time.
+   *
+   * @param request DescribeAttackAnalysisMaxQpsRequest
+   * @return DescribeAttackAnalysisMaxQpsResponse
+   */
   async describeAttackAnalysisMaxQps(request: DescribeAttackAnalysisMaxQpsRequest): Promise<DescribeAttackAnalysisMaxQpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAttackAnalysisMaxQpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeAutoCcBlacklistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAutoCcBlacklistResponse
+   */
   async describeAutoCcBlacklistWithOptions(request: DescribeAutoCcBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoCcBlacklistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17404,11 +17818,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAutoCcBlacklistResponse>(await this.callApi(params, req, runtime), new DescribeAutoCcBlacklistResponse({}));
   }
 
+  /**
+   * @summary Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeAutoCcBlacklistRequest
+   * @return DescribeAutoCcBlacklistResponse
+   */
   async describeAutoCcBlacklist(request: DescribeAutoCcBlacklistRequest): Promise<DescribeAutoCcBlacklistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAutoCcBlacklistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeAutoCcListCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAutoCcListCountResponse
+   */
   async describeAutoCcListCountWithOptions(request: DescribeAutoCcListCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoCcListCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17437,11 +17864,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAutoCcListCountResponse>(await this.callApi(params, req, runtime), new DescribeAutoCcListCountResponse({}));
   }
 
+  /**
+   * @summary Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeAutoCcListCountRequest
+   * @return DescribeAutoCcListCountResponse
+   */
   async describeAutoCcListCount(request: DescribeAutoCcListCountRequest): Promise<DescribeAutoCcListCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAutoCcListCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeAutoCcWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAutoCcWhitelistResponse
+   */
   async describeAutoCcWhitelistWithOptions(request: DescribeAutoCcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoCcWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17478,11 +17918,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAutoCcWhitelistResponse>(await this.callApi(params, req, runtime), new DescribeAutoCcWhitelistResponse({}));
   }
 
+  /**
+   * @summary Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeAutoCcWhitelistRequest
+   * @return DescribeAutoCcWhitelistResponse
+   */
   async describeAutoCcWhitelist(request: DescribeAutoCcWhitelistRequest): Promise<DescribeAutoCcWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAutoCcWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the back-to-origin CIDR blocks of Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request DescribeBackSourceCidrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackSourceCidrResponse
+   */
   async describeBackSourceCidrWithOptions(request: DescribeBackSourceCidrRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackSourceCidrResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17515,11 +17968,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackSourceCidrResponse>(await this.callApi(params, req, runtime), new DescribeBackSourceCidrResponse({}));
   }
 
+  /**
+   * @summary Queries the back-to-origin CIDR blocks of Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request DescribeBackSourceCidrRequest
+   * @return DescribeBackSourceCidrResponse
+   */
   async describeBackSourceCidr(request: DescribeBackSourceCidrRequest): Promise<DescribeBackSourceCidrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackSourceCidrWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @param request DescribeBlackholeStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBlackholeStatusResponse
+   */
   async describeBlackholeStatusWithOptions(request: DescribeBlackholeStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBlackholeStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17544,20 +18010,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBlackholeStatusResponse>(await this.callApi(params, req, runtime), new DescribeBlackholeStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @param request DescribeBlackholeStatusRequest
+   * @return DescribeBlackholeStatusResponse
+   */
   async describeBlackholeStatus(request: DescribeBlackholeStatusRequest): Promise<DescribeBlackholeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBlackholeStatusWithOptions(request, runtime);
   }
 
   /**
-    * This operation is used to query the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
-    * > This operation is suitable only for Anti-DDoS Pro.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeBlockStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBlockStatusResponse
+   * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
+   *
+   * @description This operation is used to query the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
+   * > This operation is suitable only for Anti-DDoS Pro.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeBlockStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBlockStatusResponse
    */
   async describeBlockStatusWithOptions(request: DescribeBlockStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBlockStatusResponse> {
     Util.validateModel(request);
@@ -17588,19 +18062,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is used to query the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
-    * > This operation is suitable only for Anti-DDoS Pro.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeBlockStatusRequest
-    * @return DescribeBlockStatusResponse
+   * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
+   *
+   * @description This operation is used to query the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
+   * > This operation is suitable only for Anti-DDoS Pro.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeBlockStatusRequest
+   * @return DescribeBlockStatusResponse
    */
   async describeBlockStatus(request: DescribeBlockStatusRequest): Promise<DescribeBlockStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBlockStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the certificate information about a website.
+   *
+   * @param request DescribeCertsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCertsResponse
+   */
   async describeCertsWithOptions(request: DescribeCertsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17629,11 +18112,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCertsResponse>(await this.callApi(params, req, runtime), new DescribeCertsResponse({}));
   }
 
+  /**
+   * @summary Queries the certificate information about a website.
+   *
+   * @param request DescribeCertsRequest
+   * @return DescribeCertsResponse
+   */
   async describeCerts(request: DescribeCertsRequest): Promise<DescribeCertsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCertsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeCnameReusesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCnameReusesResponse
+   */
   async describeCnameReusesWithOptions(request: DescribeCnameReusesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCnameReusesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17662,11 +18156,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCnameReusesResponse>(await this.callApi(params, req, runtime), new DescribeCnameReusesResponse({}));
   }
 
+  /**
+   * @param request DescribeCnameReusesRequest
+   * @return DescribeCnameReusesResponse
+   */
   async describeCnameReuses(request: DescribeCnameReusesRequest): Promise<DescribeCnameReusesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCnameReusesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the attack events launched against one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @param request DescribeDDoSEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDDoSEventsResponse
+   */
   async describeDDoSEventsWithOptions(request: DescribeDDoSEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDoSEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17711,19 +18216,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDDoSEventsResponse>(await this.callApi(params, req, runtime), new DescribeDDoSEventsResponse({}));
   }
 
+  /**
+   * @summary Queries the attack events launched against one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @param request DescribeDDoSEventsRequest
+   * @return DescribeDDoSEventsResponse
+   */
   async describeDDoSEvents(request: DescribeDDoSEventsRequest): Promise<DescribeDDoSEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDDoSEventsWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDDosAllEventListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDDosAllEventListResponse
+   * @summary Query DDoS attacks by IP address.
+   *
+   * @description You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDDosAllEventListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDDosAllEventListResponse
    */
   async describeDDosAllEventListWithOptions(request: DescribeDDosAllEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosAllEventListResponse> {
     Util.validateModel(request);
@@ -17766,12 +18279,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDDosAllEventListRequest
-    * @return DescribeDDosAllEventListResponse
+   * @summary Query DDoS attacks by IP address.
+   *
+   * @description You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDDosAllEventListRequest
+   * @return DescribeDDosAllEventListResponse
    */
   async describeDDosAllEventList(request: DescribeDDosAllEventListRequest): Promise<DescribeDDosAllEventListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17779,11 +18294,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for volumetric attacks.
-    *
-    * @param request DescribeDDosEventAreaRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDDosEventAreaResponse
+   * @summary Queries the source region from which a volumetric attack is initiated.
+   *
+   * @description > This operation is suitable only for volumetric attacks.
+   *
+   * @param request DescribeDDosEventAreaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDDosEventAreaResponse
    */
   async describeDDosEventAreaWithOptions(request: DescribeDDosEventAreaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventAreaResponse> {
     Util.validateModel(request);
@@ -17818,10 +18335,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for volumetric attacks.
-    *
-    * @param request DescribeDDosEventAreaRequest
-    * @return DescribeDDosEventAreaResponse
+   * @summary Queries the source region from which a volumetric attack is initiated.
+   *
+   * @description > This operation is suitable only for volumetric attacks.
+   *
+   * @param request DescribeDDosEventAreaRequest
+   * @return DescribeDDosEventAreaResponse
    */
   async describeDDosEventArea(request: DescribeDDosEventAreaRequest): Promise<DescribeDDosEventAreaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17829,11 +18348,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for volumetric attacks.
-    *
-    * @param request DescribeDDosEventAttackTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDDosEventAttackTypeResponse
+   * @summary Queries the attack type details of a volumetric attack.
+   *
+   * @description > This operation is suitable only for volumetric attacks.
+   *
+   * @param request DescribeDDosEventAttackTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDDosEventAttackTypeResponse
    */
   async describeDDosEventAttackTypeWithOptions(request: DescribeDDosEventAttackTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventAttackTypeResponse> {
     Util.validateModel(request);
@@ -17868,10 +18389,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for volumetric attacks.
-    *
-    * @param request DescribeDDosEventAttackTypeRequest
-    * @return DescribeDDosEventAttackTypeResponse
+   * @summary Queries the attack type details of a volumetric attack.
+   *
+   * @description > This operation is suitable only for volumetric attacks.
+   *
+   * @param request DescribeDDosEventAttackTypeRequest
+   * @return DescribeDDosEventAttackTypeResponse
    */
   async describeDDosEventAttackType(request: DescribeDDosEventAttackTypeRequest): Promise<DescribeDDosEventAttackTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17879,11 +18402,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for volumetric attacks.
-    *
-    * @param request DescribeDDosEventIspRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDDosEventIspResponse
+   * @summary Queries the Internet service provider (ISP) information about a volumetric attack.
+   *
+   * @description > This operation is suitable only for volumetric attacks.
+   *
+   * @param request DescribeDDosEventIspRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDDosEventIspResponse
    */
   async describeDDosEventIspWithOptions(request: DescribeDDosEventIspRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventIspResponse> {
     Util.validateModel(request);
@@ -17918,16 +18443,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for volumetric attacks.
-    *
-    * @param request DescribeDDosEventIspRequest
-    * @return DescribeDDosEventIspResponse
+   * @summary Queries the Internet service provider (ISP) information about a volumetric attack.
+   *
+   * @description > This operation is suitable only for volumetric attacks.
+   *
+   * @param request DescribeDDosEventIspRequest
+   * @return DescribeDDosEventIspResponse
    */
   async describeDDosEventIsp(request: DescribeDDosEventIspRequest): Promise<DescribeDDosEventIspResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDDosEventIspWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
+   *
+   * @param request DescribeDDosEventMaxRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDDosEventMaxResponse
+   */
   async describeDDosEventMaxWithOptions(request: DescribeDDosEventMaxRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventMaxResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17956,17 +18490,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDDosEventMaxResponse>(await this.callApi(params, req, runtime), new DescribeDDosEventMaxResponse({}));
   }
 
+  /**
+   * @summary Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
+   *
+   * @param request DescribeDDosEventMaxRequest
+   * @return DescribeDDosEventMaxResponse
+   */
   async describeDDosEventMax(request: DescribeDDosEventMaxRequest): Promise<DescribeDDosEventMaxResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDDosEventMaxWithOptions(request, runtime);
   }
 
   /**
-    * > This operation is suitable only for volumetric attacks.
-    *
-    * @param request DescribeDDosEventSrcIpRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDDosEventSrcIpResponse
+   * @summary Queries the source IP address from which a volumetric attack is initiated.
+   *
+   * @description > This operation is suitable only for volumetric attacks.
+   *
+   * @param request DescribeDDosEventSrcIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDDosEventSrcIpResponse
    */
   async describeDDosEventSrcIpWithOptions(request: DescribeDDosEventSrcIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventSrcIpResponse> {
     Util.validateModel(request);
@@ -18005,10 +18547,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for volumetric attacks.
-    *
-    * @param request DescribeDDosEventSrcIpRequest
-    * @return DescribeDDosEventSrcIpResponse
+   * @summary Queries the source IP address from which a volumetric attack is initiated.
+   *
+   * @description > This operation is suitable only for volumetric attacks.
+   *
+   * @param request DescribeDDosEventSrcIpRequest
+   * @return DescribeDDosEventSrcIpResponse
    */
   async describeDDosEventSrcIp(request: DescribeDDosEventSrcIpRequest): Promise<DescribeDDosEventSrcIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18016,14 +18560,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Premium instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of available global advanced mitigation sessions.
-    * > This operation is suitable only for Anti-DDoS Premium.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDefenseCountStatisticsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDefenseCountStatisticsResponse
+   * @summary Queries the statistics on advanced mitigation sessions of an Anti-DDoS Premium instance.
+   *
+   * @description You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Premium instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of available global advanced mitigation sessions.
+   * > This operation is suitable only for Anti-DDoS Premium.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDefenseCountStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseCountStatisticsResponse
    */
   async describeDefenseCountStatisticsWithOptions(request: DescribeDefenseCountStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseCountStatisticsResponse> {
     Util.validateModel(request);
@@ -18050,13 +18596,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Premium instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of available global advanced mitigation sessions.
-    * > This operation is suitable only for Anti-DDoS Premium.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDefenseCountStatisticsRequest
-    * @return DescribeDefenseCountStatisticsResponse
+   * @summary Queries the statistics on advanced mitigation sessions of an Anti-DDoS Premium instance.
+   *
+   * @description You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Premium instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of available global advanced mitigation sessions.
+   * > This operation is suitable only for Anti-DDoS Premium.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDefenseCountStatisticsRequest
+   * @return DescribeDefenseCountStatisticsResponse
    */
   async describeDefenseCountStatistics(request: DescribeDefenseCountStatisticsRequest): Promise<DescribeDefenseCountStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18064,11 +18612,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Premium.
-    *
-    * @param request DescribeDefenseRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDefenseRecordsResponse
+   * @summary Queries the advanced mitigation logs of Anti-DDoS Premium.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Premium.
+   *
+   * @param request DescribeDefenseRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseRecordsResponse
    */
   async describeDefenseRecordsWithOptions(request: DescribeDefenseRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseRecordsResponse> {
     Util.validateModel(request);
@@ -18115,16 +18665,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Premium.
-    *
-    * @param request DescribeDefenseRecordsRequest
-    * @return DescribeDefenseRecordsResponse
+   * @summary Queries the advanced mitigation logs of Anti-DDoS Premium.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Premium.
+   *
+   * @param request DescribeDefenseRecordsRequest
+   * @return DescribeDefenseRecordsResponse
    */
   async describeDefenseRecords(request: DescribeDefenseRecordsRequest): Promise<DescribeDefenseRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the attack events launched against a website.
+   *
+   * @param request DescribeDomainAttackEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainAttackEventsResponse
+   */
   async describeDomainAttackEventsWithOptions(request: DescribeDomainAttackEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainAttackEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18169,11 +18728,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainAttackEventsResponse>(await this.callApi(params, req, runtime), new DescribeDomainAttackEventsResponse({}));
   }
 
+  /**
+   * @summary Queries the attack events launched against a website.
+   *
+   * @param request DescribeDomainAttackEventsRequest
+   * @return DescribeDomainAttackEventsResponse
+   */
   async describeDomainAttackEvents(request: DescribeDomainAttackEventsRequest): Promise<DescribeDomainAttackEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainAttackEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
+   *
+   * @param request DescribeDomainOverviewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainOverviewResponse
+   */
   async describeDomainOverviewWithOptions(request: DescribeDomainOverviewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainOverviewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18210,11 +18782,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainOverviewResponse>(await this.callApi(params, req, runtime), new DescribeDomainOverviewResponse({}));
   }
 
+  /**
+   * @summary Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
+   *
+   * @param request DescribeDomainOverviewRequest
+   * @return DescribeDomainOverviewResponse
+   */
   async describeDomainOverview(request: DescribeDomainOverviewRequest): Promise<DescribeDomainOverviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainOverviewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics on the queries per second (QPS) of a website.
+   *
+   * @param request DescribeDomainQPSListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainQPSListResponse
+   */
   async describeDomainQPSListWithOptions(request: DescribeDomainQPSListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainQPSListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18255,20 +18840,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainQPSListResponse>(await this.callApi(params, req, runtime), new DescribeDomainQPSListResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on the queries per second (QPS) of a website.
+   *
+   * @param request DescribeDomainQPSListRequest
+   * @return DescribeDomainQPSListResponse
+   */
   async describeDomainQPSList(request: DescribeDomainQPSListRequest): Promise<DescribeDomainQPSListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainQPSListWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
-    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
-    * ### Limits
-    * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDomainResourceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDomainResourceResponse
+   * @summary Queries the configurations of a forwarding rule.
+   *
+   * @description You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
+   * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   * ### Limits
+   * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDomainResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainResourceResponse
    */
   async describeDomainResourceWithOptions(request: DescribeDomainResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResourceResponse> {
     Util.validateModel(request);
@@ -18311,19 +18904,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
-    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
-    * ### Limits
-    * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDomainResourceRequest
-    * @return DescribeDomainResourceResponse
+   * @summary Queries the configurations of a forwarding rule.
+   *
+   * @description You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
+   * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   * ### Limits
+   * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDomainResourceRequest
+   * @return DescribeDomainResourceResponse
    */
   async describeDomainResource(request: DescribeDomainResourceRequest): Promise<DescribeDomainResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the global mitigation policy for a domain name.
+   *
+   * @param request DescribeDomainSecurityProfileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainSecurityProfileResponse
+   */
   async describeDomainSecurityProfileWithOptions(request: DescribeDomainSecurityProfileRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSecurityProfileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18348,11 +18950,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainSecurityProfileResponse>(await this.callApi(params, req, runtime), new DescribeDomainSecurityProfileResponse({}));
   }
 
+  /**
+   * @summary Queries the global mitigation policy for a domain name.
+   *
+   * @param request DescribeDomainSecurityProfileRequest
+   * @return DescribeDomainSecurityProfileResponse
+   */
   async describeDomainSecurityProfile(request: DescribeDomainSecurityProfileRequest): Promise<DescribeDomainSecurityProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainSecurityProfileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics on HTTP status codes of a website within a specified period of time.
+   *
+   * @param request DescribeDomainStatusCodeCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainStatusCodeCountResponse
+   */
   async describeDomainStatusCodeCountWithOptions(request: DescribeDomainStatusCodeCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainStatusCodeCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18389,11 +19004,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainStatusCodeCountResponse>(await this.callApi(params, req, runtime), new DescribeDomainStatusCodeCountResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on HTTP status codes of a website within a specified period of time.
+   *
+   * @param request DescribeDomainStatusCodeCountRequest
+   * @return DescribeDomainStatusCodeCountResponse
+   */
   async describeDomainStatusCodeCount(request: DescribeDomainStatusCodeCountRequest): Promise<DescribeDomainStatusCodeCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainStatusCodeCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics on HTTP status codes of a website.
+   *
+   * @param request DescribeDomainStatusCodeListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainStatusCodeListResponse
+   */
   async describeDomainStatusCodeListWithOptions(request: DescribeDomainStatusCodeListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainStatusCodeListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18438,11 +19066,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainStatusCodeListResponse>(await this.callApi(params, req, runtime), new DescribeDomainStatusCodeListResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on HTTP status codes of a website.
+   *
+   * @param request DescribeDomainStatusCodeListRequest
+   * @return DescribeDomainStatusCodeListResponse
+   */
   async describeDomainStatusCodeList(request: DescribeDomainStatusCodeListRequest): Promise<DescribeDomainStatusCodeListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainStatusCodeListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
+   *
+   * @param request DescribeDomainTopAttackListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainTopAttackListResponse
+   */
   async describeDomainTopAttackListWithOptions(request: DescribeDomainTopAttackListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopAttackListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18475,11 +19116,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainTopAttackListResponse>(await this.callApi(params, req, runtime), new DescribeDomainTopAttackListResponse({}));
   }
 
+  /**
+   * @summary Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
+   *
+   * @param request DescribeDomainTopAttackListRequest
+   * @return DescribeDomainTopAttackListResponse
+   */
   async describeDomainTopAttackList(request: DescribeDomainTopAttackListRequest): Promise<DescribeDomainTopAttackListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainTopAttackListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the areas and countries from which requests are sent to a website within a specified period of time.
+   *
+   * @param request DescribeDomainViewSourceCountriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainViewSourceCountriesResponse
+   */
   async describeDomainViewSourceCountriesWithOptions(request: DescribeDomainViewSourceCountriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainViewSourceCountriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18516,11 +19170,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainViewSourceCountriesResponse>(await this.callApi(params, req, runtime), new DescribeDomainViewSourceCountriesResponse({}));
   }
 
+  /**
+   * @summary Queries the areas and countries from which requests are sent to a website within a specified period of time.
+   *
+   * @param request DescribeDomainViewSourceCountriesRequest
+   * @return DescribeDomainViewSourceCountriesResponse
+   */
   async describeDomainViewSourceCountries(request: DescribeDomainViewSourceCountriesRequest): Promise<DescribeDomainViewSourceCountriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainViewSourceCountriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
+   *
+   * @param request DescribeDomainViewSourceProvincesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainViewSourceProvincesResponse
+   */
   async describeDomainViewSourceProvincesWithOptions(request: DescribeDomainViewSourceProvincesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainViewSourceProvincesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18557,11 +19224,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainViewSourceProvincesResponse>(await this.callApi(params, req, runtime), new DescribeDomainViewSourceProvincesResponse({}));
   }
 
+  /**
+   * @summary Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
+   *
+   * @param request DescribeDomainViewSourceProvincesRequest
+   * @return DescribeDomainViewSourceProvincesResponse
+   */
   async describeDomainViewSourceProvinces(request: DescribeDomainViewSourceProvincesRequest): Promise<DescribeDomainViewSourceProvincesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainViewSourceProvincesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
+   *
+   * @param request DescribeDomainViewTopCostTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainViewTopCostTimeResponse
+   */
   async describeDomainViewTopCostTimeWithOptions(request: DescribeDomainViewTopCostTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainViewTopCostTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18602,11 +19282,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainViewTopCostTimeResponse>(await this.callApi(params, req, runtime), new DescribeDomainViewTopCostTimeResponse({}));
   }
 
+  /**
+   * @summary Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
+   *
+   * @param request DescribeDomainViewTopCostTimeRequest
+   * @return DescribeDomainViewTopCostTimeResponse
+   */
   async describeDomainViewTopCostTime(request: DescribeDomainViewTopCostTimeRequest): Promise<DescribeDomainViewTopCostTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainViewTopCostTimeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top N URLs that receive the most requests within a specified period of time.
+   *
+   * @param request DescribeDomainViewTopUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainViewTopUrlResponse
+   */
   async describeDomainViewTopUrlWithOptions(request: DescribeDomainViewTopUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainViewTopUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18647,11 +19340,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainViewTopUrlResponse>(await this.callApi(params, req, runtime), new DescribeDomainViewTopUrlResponse({}));
   }
 
+  /**
+   * @summary Queries the top N URLs that receive the most requests within a specified period of time.
+   *
+   * @param request DescribeDomainViewTopUrlRequest
+   * @return DescribeDomainViewTopUrlResponse
+   */
   async describeDomainViewTopUrl(request: DescribeDomainViewTopUrlRequest): Promise<DescribeDomainViewTopUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainViewTopUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries domain names for which forwarding rules are created.
+   *
+   * @param request DescribeDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainsResponse
+   */
   async describeDomainsWithOptions(request: DescribeDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18680,17 +19386,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDomainsResponse({}));
   }
 
+  /**
+   * @summary Queries domain names for which forwarding rules are created.
+   *
+   * @param request DescribeDomainsRequest
+   * @return DescribeDomainsResponse
+   */
   async describeDomains(request: DescribeDomainsRequest): Promise<DescribeDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainsWithOptions(request, runtime);
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    *
-    * @param request DescribeElasticBandwidthSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeElasticBandwidthSpecResponse
+   * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Pro instance.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   *
+   * @param request DescribeElasticBandwidthSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeElasticBandwidthSpecResponse
    */
   async describeElasticBandwidthSpecWithOptions(request: DescribeElasticBandwidthSpecRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticBandwidthSpecResponse> {
     Util.validateModel(request);
@@ -18717,16 +19431,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    *
-    * @param request DescribeElasticBandwidthSpecRequest
-    * @return DescribeElasticBandwidthSpecResponse
+   * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Pro instance.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   *
+   * @param request DescribeElasticBandwidthSpecRequest
+   * @return DescribeElasticBandwidthSpecResponse
    */
   async describeElasticBandwidthSpec(request: DescribeElasticBandwidthSpecRequest): Promise<DescribeElasticBandwidthSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeElasticBandwidthSpecWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 高防弹性qps曲线图
+   *
+   * @param request DescribeElasticQpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeElasticQpsResponse
+   */
   async describeElasticQpsWithOptions(request: DescribeElasticQpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticQpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18767,11 +19490,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeElasticQpsResponse>(await this.callApi(params, req, runtime), new DescribeElasticQpsResponse({}));
   }
 
+  /**
+   * @summary 高防弹性qps曲线图
+   *
+   * @param request DescribeElasticQpsRequest
+   * @return DescribeElasticQpsResponse
+   */
   async describeElasticQps(request: DescribeElasticQpsRequest): Promise<DescribeElasticQpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeElasticQpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询qps日95流量图
+   *
+   * @param request DescribeElasticQpsRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeElasticQpsRecordResponse
+   */
   async describeElasticQpsRecordWithOptions(request: DescribeElasticQpsRecordRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticQpsRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18804,11 +19540,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeElasticQpsRecordResponse>(await this.callApi(params, req, runtime), new DescribeElasticQpsRecordResponse({}));
   }
 
+  /**
+   * @summary 查询qps日95流量图
+   *
+   * @param request DescribeElasticQpsRecordRequest
+   * @return DescribeElasticQpsRecordResponse
+   */
   async describeElasticQpsRecord(request: DescribeElasticQpsRecordRequest): Promise<DescribeElasticQpsRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeElasticQpsRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the custom header that is specified for a domain name.
+   *
+   * @param request DescribeHeadersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHeadersResponse
+   */
   async describeHeadersWithOptions(request: DescribeHeadersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHeadersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18837,11 +19586,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHeadersResponse>(await this.callApi(params, req, runtime), new DescribeHeadersResponse({}));
   }
 
+  /**
+   * @summary Queries the custom header that is specified for a domain name.
+   *
+   * @param request DescribeHeadersRequest
+   * @return DescribeHeadersResponse
+   */
   async describeHeaders(request: DescribeHeadersRequest): Promise<DescribeHeadersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHeadersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
+   *
+   * @param request DescribeHealthCheckListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHealthCheckListResponse
+   */
   async describeHealthCheckListWithOptions(request: DescribeHealthCheckListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHealthCheckListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18866,11 +19628,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHealthCheckListResponse>(await this.callApi(params, req, runtime), new DescribeHealthCheckListResponse({}));
   }
 
+  /**
+   * @summary Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
+   *
+   * @param request DescribeHealthCheckListRequest
+   * @return DescribeHealthCheckListResponse
+   */
   async describeHealthCheckList(request: DescribeHealthCheckListRequest): Promise<DescribeHealthCheckListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHealthCheckListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the health status of an origin server.
+   *
+   * @param request DescribeHealthCheckStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHealthCheckStatusResponse
+   */
   async describeHealthCheckStatusWithOptions(request: DescribeHealthCheckStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHealthCheckStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18895,19 +19670,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHealthCheckStatusResponse>(await this.callApi(params, req, runtime), new DescribeHealthCheckStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the health status of an origin server.
+   *
+   * @param request DescribeHealthCheckStatusRequest
+   * @return DescribeHealthCheckStatusResponse
+   */
   async describeHealthCheckStatus(request: DescribeHealthCheckStatusRequest): Promise<DescribeHealthCheckStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHealthCheckStatusWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeInstanceDetailsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceDetailsResponse
+   * @summary Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @description You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeInstanceDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceDetailsResponse
    */
   async describeInstanceDetailsWithOptions(request: DescribeInstanceDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceDetailsResponse> {
     Util.validateModel(request);
@@ -18934,18 +19717,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeInstanceDetailsRequest
-    * @return DescribeInstanceDetailsResponse
+   * @summary Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @description You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeInstanceDetailsRequest
+   * @return DescribeInstanceDetailsResponse
    */
   async describeInstanceDetails(request: DescribeInstanceDetailsRequest): Promise<DescribeInstanceDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
+   *
+   * @param request DescribeInstanceExtRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceExtResponse
+   */
   async describeInstanceExtWithOptions(request: DescribeInstanceExtRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceExtResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18978,11 +19770,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceExtResponse>(await this.callApi(params, req, runtime), new DescribeInstanceExtResponse({}));
   }
 
+  /**
+   * @summary Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
+   *
+   * @param request DescribeInstanceExtRequest
+   * @return DescribeInstanceExtResponse
+   */
   async describeInstanceExt(request: DescribeInstanceExtRequest): Promise<DescribeInstanceExtResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceExtWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The description of the instance.
+   *
+   * @param request DescribeInstanceIdsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceIdsResponse
+   */
   async describeInstanceIdsWithOptions(request: DescribeInstanceIdsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceIdsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19015,19 +19820,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceIdsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceIdsResponse({}));
   }
 
+  /**
+   * @summary The description of the instance.
+   *
+   * @param request DescribeInstanceIdsRequest
+   * @return DescribeInstanceIdsResponse
+   */
   async describeInstanceIds(request: DescribeInstanceIdsRequest): Promise<DescribeInstanceIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceIdsWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeInstanceSpecsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceSpecsResponse
+   * @summary Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @description You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeInstanceSpecsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceSpecsResponse
    */
   async describeInstanceSpecsWithOptions(request: DescribeInstanceSpecsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecsResponse> {
     Util.validateModel(request);
@@ -19054,18 +19867,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeInstanceSpecsRequest
-    * @return DescribeInstanceSpecsResponse
+   * @summary Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @description You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeInstanceSpecsRequest
+   * @return DescribeInstanceSpecsResponse
    */
   async describeInstanceSpecs(request: DescribeInstanceSpecsRequest): Promise<DescribeInstanceSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceSpecsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics on one or more Anti-DDoS Pro or Anti-DDoS Premium instances, such as the numbers of protected domain names and ports.
+   *
+   * @param request DescribeInstanceStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceStatisticsResponse
+   */
   async describeInstanceStatisticsWithOptions(request: DescribeInstanceStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19090,11 +19912,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on one or more Anti-DDoS Pro or Anti-DDoS Premium instances, such as the numbers of protected domain names and ports.
+   *
+   * @param request DescribeInstanceStatisticsRequest
+   * @return DescribeInstanceStatisticsResponse
+   */
   async describeInstanceStatistics(request: DescribeInstanceStatisticsRequest): Promise<DescribeInstanceStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of a specified Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeInstanceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceStatusResponse
+   */
   async describeInstanceStatusWithOptions(request: DescribeInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19123,17 +19958,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeInstanceStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a specified Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeInstanceStatusRequest
+   * @return DescribeInstanceStatusResponse
+   */
   async describeInstanceStatus(request: DescribeInstanceStatusRequest): Promise<DescribeInstanceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceStatusWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
-    *
-    * @param request DescribeInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstancesResponse
+   * @description You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+   *
+   * @param request DescribeInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstancesResponse
    */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
@@ -19204,16 +20045,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
-    *
-    * @param request DescribeInstancesRequest
-    * @return DescribeInstancesResponse
+   * @description You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+   *
+   * @param request DescribeInstancesRequest
+   * @return DescribeInstancesResponse
    */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the back-to-origin policies for the forwarding rule of a website.
+   *
+   * @param request DescribeL7RsPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeL7RsPolicyResponse
+   */
   async describeL7RsPolicyWithOptions(request: DescribeL7RsPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeL7RsPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19246,11 +20094,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeL7RsPolicyResponse>(await this.callApi(params, req, runtime), new DescribeL7RsPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries the back-to-origin policies for the forwarding rule of a website.
+   *
+   * @param request DescribeL7RsPolicyRequest
+   * @return DescribeL7RsPolicyResponse
+   */
   async describeL7RsPolicy(request: DescribeL7RsPolicyRequest): Promise<DescribeL7RsPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeL7RsPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the back-to-origin settings of a port forwarding rule.
+   *
+   * @param request DescribeLayer4RulePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLayer4RulePolicyResponse
+   */
   async describeLayer4RulePolicyWithOptions(request: DescribeLayer4RulePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLayer4RulePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19275,11 +20136,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLayer4RulePolicyResponse>(await this.callApi(params, req, runtime), new DescribeLayer4RulePolicyResponse({}));
   }
 
+  /**
+   * @summary Queries the back-to-origin settings of a port forwarding rule.
+   *
+   * @param request DescribeLayer4RulePolicyRequest
+   * @return DescribeLayer4RulePolicyResponse
+   */
   async describeLayer4RulePolicy(request: DescribeLayer4RulePolicyRequest): Promise<DescribeLayer4RulePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLayer4RulePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request DescribeLogStoreExistStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogStoreExistStatusResponse
+   */
   async describeLogStoreExistStatusWithOptions(request: DescribeLogStoreExistStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogStoreExistStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19304,11 +20178,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogStoreExistStatusResponse>(await this.callApi(params, req, runtime), new DescribeLogStoreExistStatusResponse({}));
   }
 
+  /**
+   * @summary Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request DescribeLogStoreExistStatusRequest
+   * @return DescribeLogStoreExistStatusResponse
+   */
   async describeLogStoreExistStatus(request: DescribeLogStoreExistStatusRequest): Promise<DescribeLogStoreExistStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogStoreExistStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeNetworkRegionBlockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNetworkRegionBlockResponse
+   */
   async describeNetworkRegionBlockWithOptions(request: DescribeNetworkRegionBlockRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkRegionBlockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19333,11 +20220,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNetworkRegionBlockResponse>(await this.callApi(params, req, runtime), new DescribeNetworkRegionBlockResponse({}));
   }
 
+  /**
+   * @summary Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeNetworkRegionBlockRequest
+   * @return DescribeNetworkRegionBlockResponse
+   */
   async describeNetworkRegionBlock(request: DescribeNetworkRegionBlockRequest): Promise<DescribeNetworkRegionBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworkRegionBlockWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
+   *
+   * @param request DescribeNetworkRuleAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNetworkRuleAttributesResponse
+   */
   async describeNetworkRuleAttributesWithOptions(request: DescribeNetworkRuleAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkRuleAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19362,11 +20262,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNetworkRuleAttributesResponse>(await this.callApi(params, req, runtime), new DescribeNetworkRuleAttributesResponse({}));
   }
 
+  /**
+   * @summary Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
+   *
+   * @param request DescribeNetworkRuleAttributesRequest
+   * @return DescribeNetworkRuleAttributesResponse
+   */
   async describeNetworkRuleAttributes(request: DescribeNetworkRuleAttributesRequest): Promise<DescribeNetworkRuleAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworkRuleAttributesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries port forwarding rules.
+   *
+   * @param request DescribeNetworkRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNetworkRulesResponse
+   */
   async describeNetworkRulesWithOptions(request: DescribeNetworkRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19407,18 +20320,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNetworkRulesResponse>(await this.callApi(params, req, runtime), new DescribeNetworkRulesResponse({}));
   }
 
+  /**
+   * @summary Queries port forwarding rules.
+   *
+   * @param request DescribeNetworkRulesRequest
+   * @return DescribeNetworkRulesResponse
+   */
   async describeNetworkRules(request: DescribeNetworkRulesRequest): Promise<DescribeNetworkRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworkRulesWithOptions(request, runtime);
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
-    *
-    * @param request DescribeOpEntitiesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeOpEntitiesResponse
+   * @summary Queries the operation logs of Anti-DDoS Pro.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+   *
+   * @param request DescribeOpEntitiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOpEntitiesResponse
    */
   async describeOpEntitiesWithOptions(request: DescribeOpEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOpEntitiesResponse> {
     Util.validateModel(request);
@@ -19469,11 +20390,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
-    *
-    * @param request DescribeOpEntitiesRequest
-    * @return DescribeOpEntitiesResponse
+   * @summary Queries the operation logs of Anti-DDoS Pro.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+   *
+   * @param request DescribeOpEntitiesRequest
+   * @return DescribeOpEntitiesResponse
    */
   async describeOpEntities(request: DescribeOpEntitiesRequest): Promise<DescribeOpEntitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19481,11 +20404,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
-    *
-    * @param request DescribePortRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePortResponse
+   * @summary Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   *
+   * @param request DescribePortRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePortResponse
    */
   async describePortWithOptions(request: DescribePortRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortResponse> {
     Util.validateModel(request);
@@ -19528,10 +20453,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
-    *
-    * @param request DescribePortRequest
-    * @return DescribePortResponse
+   * @summary Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   *
+   * @param request DescribePortRequest
+   * @return DescribePortResponse
    */
   async describePort(request: DescribePortRequest): Promise<DescribePortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19539,13 +20466,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribePortAttackMaxFlowRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePortAttackMaxFlowResponse
+   * @summary Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
+   *
+   * @description You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribePortAttackMaxFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePortAttackMaxFlowResponse
    */
   async describePortAttackMaxFlowWithOptions(request: DescribePortAttackMaxFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortAttackMaxFlowResponse> {
     Util.validateModel(request);
@@ -19584,18 +20513,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribePortAttackMaxFlowRequest
-    * @return DescribePortAttackMaxFlowResponse
+   * @summary Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
+   *
+   * @description You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribePortAttackMaxFlowRequest
+   * @return DescribePortAttackMaxFlowResponse
    */
   async describePortAttackMaxFlow(request: DescribePortAttackMaxFlowRequest): Promise<DescribePortAttackMaxFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortAttackMaxFlowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of the Intelligent Protection policy for non-website services.
+   *
+   * @param request DescribePortAutoCcStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePortAutoCcStatusResponse
+   */
   async describePortAutoCcStatusWithOptions(request: DescribePortAutoCcStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortAutoCcStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19620,11 +20558,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePortAutoCcStatusResponse>(await this.callApi(params, req, runtime), new DescribePortAutoCcStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of the Intelligent Protection policy for non-website services.
+   *
+   * @param request DescribePortAutoCcStatusRequest
+   * @return DescribePortAutoCcStatusResponse
+   */
   async describePortAutoCcStatus(request: DescribePortAutoCcStatusRequest): Promise<DescribePortAutoCcStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortAutoCcStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribePortCcAttackTopIPRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePortCcAttackTopIPResponse
+   */
   async describePortCcAttackTopIPWithOptions(request: DescribePortCcAttackTopIPRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortCcAttackTopIPResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19661,11 +20610,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePortCcAttackTopIPResponse>(await this.callApi(params, req, runtime), new DescribePortCcAttackTopIPResponse({}));
   }
 
+  /**
+   * @param request DescribePortCcAttackTopIPRequest
+   * @return DescribePortCcAttackTopIPResponse
+   */
   async describePortCcAttackTopIP(request: DescribePortCcAttackTopIPRequest): Promise<DescribePortCcAttackTopIPResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortCcAttackTopIPWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
+   *
+   * @param request DescribePortConnsCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePortConnsCountResponse
+   */
   async describePortConnsCountWithOptions(request: DescribePortConnsCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortConnsCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19706,11 +20666,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePortConnsCountResponse>(await this.callApi(params, req, runtime), new DescribePortConnsCountResponse({}));
   }
 
+  /**
+   * @summary The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
+   *
+   * @param request DescribePortConnsCountRequest
+   * @return DescribePortConnsCountResponse
+   */
   async describePortConnsCount(request: DescribePortConnsCountRequest): Promise<DescribePortConnsCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortConnsCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @param request DescribePortConnsListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePortConnsListResponse
+   */
   async describePortConnsListWithOptions(request: DescribePortConnsListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortConnsListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19755,11 +20728,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePortConnsListResponse>(await this.callApi(params, req, runtime), new DescribePortConnsListResponse({}));
   }
 
+  /**
+   * @summary Queries the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @param request DescribePortConnsListRequest
+   * @return DescribePortConnsListResponse
+   */
   async describePortConnsList(request: DescribePortConnsListRequest): Promise<DescribePortConnsListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortConnsListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @param request DescribePortFlowListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePortFlowListResponse
+   */
   async describePortFlowListWithOptions(request: DescribePortFlowListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortFlowListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19800,11 +20786,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePortFlowListResponse>(await this.callApi(params, req, runtime), new DescribePortFlowListResponse({}));
   }
 
+  /**
+   * @summary Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @param request DescribePortFlowListRequest
+   * @return DescribePortFlowListResponse
+   */
   async describePortFlowList(request: DescribePortFlowListRequest): Promise<DescribePortFlowListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortFlowListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @param request DescribePortMaxConnsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePortMaxConnsResponse
+   */
   async describePortMaxConnsWithOptions(request: DescribePortMaxConnsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortMaxConnsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19841,11 +20840,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePortMaxConnsResponse>(await this.callApi(params, req, runtime), new DescribePortMaxConnsResponse({}));
   }
 
+  /**
+   * @summary Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   *
+   * @param request DescribePortMaxConnsRequest
+   * @return DescribePortMaxConnsResponse
+   */
   async describePortMaxConns(request: DescribePortMaxConnsRequest): Promise<DescribePortMaxConnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortMaxConnsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+   *
+   * @param request DescribePortViewSourceCountriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePortViewSourceCountriesResponse
+   */
   async describePortViewSourceCountriesWithOptions(request: DescribePortViewSourceCountriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortViewSourceCountriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19882,20 +20894,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePortViewSourceCountriesResponse>(await this.callApi(params, req, runtime), new DescribePortViewSourceCountriesResponse({}));
   }
 
+  /**
+   * @summary Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+   *
+   * @param request DescribePortViewSourceCountriesRequest
+   * @return DescribePortViewSourceCountriesResponse
+   */
   async describePortViewSourceCountries(request: DescribePortViewSourceCountriesRequest): Promise<DescribePortViewSourceCountriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortViewSourceCountriesWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-    * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](~~157460~~) operation.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribePortViewSourceIspsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePortViewSourceIspsResponse
+   * @summary Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+   *
+   * @description You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribePortViewSourceIspsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePortViewSourceIspsResponse
    */
   async describePortViewSourceIspsWithOptions(request: DescribePortViewSourceIspsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortViewSourceIspsResponse> {
     Util.validateModel(request);
@@ -19934,19 +20954,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-    * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](~~157460~~) operation.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribePortViewSourceIspsRequest
-    * @return DescribePortViewSourceIspsResponse
+   * @summary Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+   *
+   * @description You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribePortViewSourceIspsRequest
+   * @return DescribePortViewSourceIspsResponse
    */
   async describePortViewSourceIsps(request: DescribePortViewSourceIspsRequest): Promise<DescribePortViewSourceIspsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortViewSourceIspsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
+   *
+   * @param request DescribePortViewSourceProvincesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePortViewSourceProvincesResponse
+   */
   async describePortViewSourceProvincesWithOptions(request: DescribePortViewSourceProvincesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortViewSourceProvincesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19983,20 +21012,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePortViewSourceProvincesResponse>(await this.callApi(params, req, runtime), new DescribePortViewSourceProvincesResponse({}));
   }
 
+  /**
+   * @summary Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
+   *
+   * @param request DescribePortViewSourceProvincesRequest
+   * @return DescribePortViewSourceProvincesResponse
+   */
   async describePortViewSourceProvinces(request: DescribePortViewSourceProvincesRequest): Promise<DescribePortViewSourceProvincesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortViewSourceProvincesWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
-    * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](~~159779~~) operation.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeSceneDefenseObjectsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSceneDefenseObjectsResponse
+   * @summary Queries the protected objects of a scenario-specific custom policy.
+   *
+   * @description You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
+   * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](https://help.aliyun.com/document_detail/159779.html) operation.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeSceneDefenseObjectsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSceneDefenseObjectsResponse
    */
   async describeSceneDefenseObjectsWithOptions(request: DescribeSceneDefenseObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSceneDefenseObjectsResponse> {
     Util.validateModel(request);
@@ -20027,13 +21064,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
-    * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](~~159779~~) operation.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeSceneDefenseObjectsRequest
-    * @return DescribeSceneDefenseObjectsResponse
+   * @summary Queries the protected objects of a scenario-specific custom policy.
+   *
+   * @description You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
+   * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](https://help.aliyun.com/document_detail/159779.html) operation.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeSceneDefenseObjectsRequest
+   * @return DescribeSceneDefenseObjectsResponse
    */
   async describeSceneDefenseObjects(request: DescribeSceneDefenseObjectsRequest): Promise<DescribeSceneDefenseObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20041,13 +21080,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeSceneDefensePoliciesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSceneDefensePoliciesResponse
+   * @summary Queries the configurations of a scenario-specific custom policy.
+   *
+   * @description You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeSceneDefensePoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSceneDefensePoliciesResponse
    */
   async describeSceneDefensePoliciesWithOptions(request: DescribeSceneDefensePoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSceneDefensePoliciesResponse> {
     Util.validateModel(request);
@@ -20082,18 +21123,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeSceneDefensePoliciesRequest
-    * @return DescribeSceneDefensePoliciesResponse
+   * @summary Queries the configurations of a scenario-specific custom policy.
+   *
+   * @description You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeSceneDefensePoliciesRequest
+   * @return DescribeSceneDefensePoliciesResponse
    */
   async describeSceneDefensePolicies(request: DescribeSceneDefensePoliciesRequest): Promise<DescribeSceneDefensePoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSceneDefensePoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeSchedulerRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSchedulerRulesResponse
+   */
   async describeSchedulerRulesWithOptions(request: DescribeSchedulerRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSchedulerRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20130,11 +21178,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSchedulerRulesResponse>(await this.callApi(params, req, runtime), new DescribeSchedulerRulesResponse({}));
   }
 
+  /**
+   * @param request DescribeSchedulerRulesRequest
+   * @return DescribeSchedulerRulesResponse
+   */
   async describeSchedulerRules(request: DescribeSchedulerRulesRequest): Promise<DescribeSchedulerRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSchedulerRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the destination rate limit events.
+   *
+   * @param request DescribeSlaEventListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlaEventListResponse
+   */
   async describeSlaEventListWithOptions(request: DescribeSlaEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlaEventListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20179,11 +21238,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlaEventListResponse>(await this.callApi(params, req, runtime), new DescribeSlaEventListResponse({}));
   }
 
+  /**
+   * @summary Queries the destination rate limit events.
+   *
+   * @param request DescribeSlaEventListRequest
+   * @return DescribeSlaEventListResponse
+   */
   async describeSlaEventList(request: DescribeSlaEventListRequest): Promise<DescribeSlaEventListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlaEventListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
+   *
+   * @param request DescribeSlsAuthStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlsAuthStatusResponse
+   */
   async describeSlsAuthStatusWithOptions(request: DescribeSlsAuthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlsAuthStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20208,11 +21280,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlsAuthStatusResponse>(await this.callApi(params, req, runtime), new DescribeSlsAuthStatusResponse({}));
   }
 
+  /**
+   * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
+   *
+   * @param request DescribeSlsAuthStatusRequest
+   * @return DescribeSlsAuthStatusResponse
+   */
   async describeSlsAuthStatus(request: DescribeSlsAuthStatusRequest): Promise<DescribeSlsAuthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlsAuthStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
+   *
+   * @param request DescribeSlsLogstoreInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlsLogstoreInfoResponse
+   */
   async describeSlsLogstoreInfoWithOptions(request: DescribeSlsLogstoreInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlsLogstoreInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20237,11 +21322,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlsLogstoreInfoResponse>(await this.callApi(params, req, runtime), new DescribeSlsLogstoreInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
+   *
+   * @param request DescribeSlsLogstoreInfoRequest
+   * @return DescribeSlsLogstoreInfoResponse
+   */
   async describeSlsLogstoreInfo(request: DescribeSlsLogstoreInfoRequest): Promise<DescribeSlsLogstoreInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlsLogstoreInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether Log Service is activated.
+   *
+   * @param request DescribeSlsOpenStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlsOpenStatusResponse
+   */
   async describeSlsOpenStatusWithOptions(request: DescribeSlsOpenStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlsOpenStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20266,19 +21364,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlsOpenStatusResponse>(await this.callApi(params, req, runtime), new DescribeSlsOpenStatusResponse({}));
   }
 
+  /**
+   * @summary Checks whether Log Service is activated.
+   *
+   * @param request DescribeSlsOpenStatusRequest
+   * @return DescribeSlsOpenStatusResponse
+   */
   async describeSlsOpenStatus(request: DescribeSlsOpenStatusRequest): Promise<DescribeSlsOpenStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlsOpenStatusWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeStsGrantStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeStsGrantStatusResponse
+   * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+   *
+   * @description You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeStsGrantStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeStsGrantStatusResponse
    */
   async describeStsGrantStatusWithOptions(request: DescribeStsGrantStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStsGrantStatusResponse> {
     Util.validateModel(request);
@@ -20309,12 +21415,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeStsGrantStatusRequest
-    * @return DescribeStsGrantStatusResponse
+   * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+   *
+   * @description You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeStsGrantStatusRequest
+   * @return DescribeStsGrantStatusResponse
    */
   async describeStsGrantStatus(request: DescribeStsGrantStatusRequest): Promise<DescribeStsGrantStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20322,14 +21430,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
-    * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeSystemLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSystemLogResponse
+   * @summary Queries the details of the bills for the burstable clean bandwidth.
+   *
+   * @description You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
+   * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeSystemLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSystemLogResponse
    */
   async describeSystemLogWithOptions(request: DescribeSystemLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSystemLogResponse> {
     Util.validateModel(request);
@@ -20376,13 +21486,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
-    * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeSystemLogRequest
-    * @return DescribeSystemLogResponse
+   * @summary Queries the details of the bills for the burstable clean bandwidth.
+   *
+   * @description You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
+   * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeSystemLogRequest
+   * @return DescribeSystemLogResponse
    */
   async describeSystemLog(request: DescribeSystemLogRequest): Promise<DescribeSystemLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20390,14 +21502,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query all tag keys and the Anti-DDoS Pro instances to which the tag keys are added by page.
-    * > The tag feature is suitable only for Anti-DDoS Pro.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeTagKeysRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTagKeysResponse
+   * @summary Queries all tag keys and the Anti-DDoS Pro instances to which the tag keys are added.
+   *
+   * @description You can call this operation to query all tag keys and the Anti-DDoS Pro instances to which the tag keys are added by page.
+   * > The tag feature is suitable only for Anti-DDoS Pro.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeTagKeysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagKeysResponse
    */
   async describeTagKeysWithOptions(request: DescribeTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagKeysResponse> {
     Util.validateModel(request);
@@ -20440,13 +21554,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query all tag keys and the Anti-DDoS Pro instances to which the tag keys are added by page.
-    * > The tag feature is suitable only for Anti-DDoS Pro.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeTagKeysRequest
-    * @return DescribeTagKeysResponse
+   * @summary Queries all tag keys and the Anti-DDoS Pro instances to which the tag keys are added.
+   *
+   * @description You can call this operation to query all tag keys and the Anti-DDoS Pro instances to which the tag keys are added by page.
+   * > The tag feature is suitable only for Anti-DDoS Pro.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeTagKeysRequest
+   * @return DescribeTagKeysResponse
    */
   async describeTagKeys(request: DescribeTagKeysRequest): Promise<DescribeTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20454,14 +21570,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Pro instance.
-    * > Only Anti-DDoS Pro supports tags.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTagResourcesResponse
+   * @summary Queries the information about the tags that are added to an Anti-DDoS Pro instance.
+   *
+   * @description You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Pro instance.
+   * > Only Anti-DDoS Pro supports tags.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagResourcesResponse
    */
   async describeTagResourcesWithOptions(request: DescribeTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagResourcesResponse> {
     Util.validateModel(request);
@@ -20508,19 +21626,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Pro instance.
-    * > Only Anti-DDoS Pro supports tags.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeTagResourcesRequest
-    * @return DescribeTagResourcesResponse
+   * @summary Queries the information about the tags that are added to an Anti-DDoS Pro instance.
+   *
+   * @description You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Pro instance.
+   * > Only Anti-DDoS Pro supports tags.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeTagResourcesRequest
+   * @return DescribeTagResourcesResponse
    */
   async describeTagResources(request: DescribeTagResourcesRequest): Promise<DescribeTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   *
+   * @param request DescribeTotalAttackMaxFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTotalAttackMaxFlowResponse
+   */
   async describeTotalAttackMaxFlowWithOptions(request: DescribeTotalAttackMaxFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTotalAttackMaxFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20557,11 +21684,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTotalAttackMaxFlowResponse>(await this.callApi(params, req, runtime), new DescribeTotalAttackMaxFlowResponse({}));
   }
 
+  /**
+   * @summary Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   *
+   * @param request DescribeTotalAttackMaxFlowRequest
+   * @return DescribeTotalAttackMaxFlowResponse
+   */
   async describeTotalAttackMaxFlow(request: DescribeTotalAttackMaxFlowRequest): Promise<DescribeTotalAttackMaxFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTotalAttackMaxFlowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeUdpReflectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUdpReflectResponse
+   */
   async describeUdpReflectWithOptions(request: DescribeUdpReflectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUdpReflectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20590,11 +21730,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUdpReflectResponse>(await this.callApi(params, req, runtime), new DescribeUdpReflectResponse({}));
   }
 
+  /**
+   * @summary Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request DescribeUdpReflectRequest
+   * @return DescribeUdpReflectResponse
+   */
   async describeUdpReflect(request: DescribeUdpReflectRequest): Promise<DescribeUdpReflectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUdpReflectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
+   *
+   * @param request DescribeUnBlackholeCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUnBlackholeCountResponse
+   */
   async describeUnBlackholeCountWithOptions(request: DescribeUnBlackholeCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUnBlackholeCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20619,17 +21772,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUnBlackholeCountResponse>(await this.callApi(params, req, runtime), new DescribeUnBlackholeCountResponse({}));
   }
 
+  /**
+   * @summary Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
+   *
+   * @param request DescribeUnBlackholeCountRequest
+   * @return DescribeUnBlackholeCountResponse
+   */
   async describeUnBlackholeCount(request: DescribeUnBlackholeCountRequest): Promise<DescribeUnBlackholeCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUnBlackholeCountWithOptions(request, runtime);
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    *
-    * @param request DescribeUnBlockCountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeUnBlockCountResponse
+   * @summary Queries the remaining quota that allows you to use the Diversion from Origin Server policy.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   *
+   * @param request DescribeUnBlockCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUnBlockCountResponse
    */
   async describeUnBlockCountWithOptions(request: DescribeUnBlockCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUnBlockCountResponse> {
     Util.validateModel(request);
@@ -20656,10 +21817,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    *
-    * @param request DescribeUnBlockCountRequest
-    * @return DescribeUnBlockCountResponse
+   * @summary Queries the remaining quota that allows you to use the Diversion from Origin Server policy.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   *
+   * @param request DescribeUnBlockCountRequest
+   * @return DescribeUnBlockCountResponse
    */
   async describeUnBlockCount(request: DescribeUnBlockCountRequest): Promise<DescribeUnBlockCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20667,13 +21830,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeWebAccessLogDispatchStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeWebAccessLogDispatchStatusResponse
+   * @summary Checks whether the log analysis feature is enabled for all domain names.
+   *
+   * @description You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeWebAccessLogDispatchStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebAccessLogDispatchStatusResponse
    */
   async describeWebAccessLogDispatchStatusWithOptions(request: DescribeWebAccessLogDispatchStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebAccessLogDispatchStatusResponse> {
     Util.validateModel(request);
@@ -20708,18 +21873,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeWebAccessLogDispatchStatusRequest
-    * @return DescribeWebAccessLogDispatchStatusResponse
+   * @summary Checks whether the log analysis feature is enabled for all domain names.
+   *
+   * @description You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeWebAccessLogDispatchStatusRequest
+   * @return DescribeWebAccessLogDispatchStatusResponse
    */
   async describeWebAccessLogDispatchStatus(request: DescribeWebAccessLogDispatchStatusRequest): Promise<DescribeWebAccessLogDispatchStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebAccessLogDispatchStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the remaining quota that allows you to clear the Logstore.
+   *
+   * @param request DescribeWebAccessLogEmptyCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebAccessLogEmptyCountResponse
+   */
   async describeWebAccessLogEmptyCountWithOptions(request: DescribeWebAccessLogEmptyCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebAccessLogEmptyCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20744,11 +21918,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebAccessLogEmptyCountResponse>(await this.callApi(params, req, runtime), new DescribeWebAccessLogEmptyCountResponse({}));
   }
 
+  /**
+   * @summary Queries the remaining quota that allows you to clear the Logstore.
+   *
+   * @param request DescribeWebAccessLogEmptyCountRequest
+   * @return DescribeWebAccessLogEmptyCountResponse
+   */
   async describeWebAccessLogEmptyCount(request: DescribeWebAccessLogEmptyCountRequest): Promise<DescribeWebAccessLogEmptyCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebAccessLogEmptyCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
+   *
+   * @param request DescribeWebAccessLogStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebAccessLogStatusResponse
+   */
   async describeWebAccessLogStatusWithOptions(request: DescribeWebAccessLogStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebAccessLogStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20777,11 +21964,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebAccessLogStatusResponse>(await this.callApi(params, req, runtime), new DescribeWebAccessLogStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
+   *
+   * @param request DescribeWebAccessLogStatusRequest
+   * @return DescribeWebAccessLogStatusResponse
+   */
   async describeWebAccessLogStatus(request: DescribeWebAccessLogStatusRequest): Promise<DescribeWebAccessLogStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebAccessLogStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request DescribeWebAccessModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebAccessModeResponse
+   */
   async describeWebAccessModeWithOptions(request: DescribeWebAccessModeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebAccessModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20806,11 +22006,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebAccessModeResponse>(await this.callApi(params, req, runtime), new DescribeWebAccessModeResponse({}));
   }
 
+  /**
+   * @summary Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request DescribeWebAccessModeRequest
+   * @return DescribeWebAccessModeResponse
+   */
   async describeWebAccessMode(request: DescribeWebAccessModeRequest): Promise<DescribeWebAccessModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebAccessModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Location Blacklist (Domain Names) configurations for websites.
+   *
+   * @param request DescribeWebAreaBlockConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebAreaBlockConfigsResponse
+   */
   async describeWebAreaBlockConfigsWithOptions(request: DescribeWebAreaBlockConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebAreaBlockConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20839,11 +22052,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebAreaBlockConfigsResponse>(await this.callApi(params, req, runtime), new DescribeWebAreaBlockConfigsResponse({}));
   }
 
+  /**
+   * @summary Queries the Location Blacklist (Domain Names) configurations for websites.
+   *
+   * @param request DescribeWebAreaBlockConfigsRequest
+   * @return DescribeWebAreaBlockConfigsResponse
+   */
   async describeWebAreaBlockConfigs(request: DescribeWebAreaBlockConfigsRequest): Promise<DescribeWebAreaBlockConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebAreaBlockConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the custom frequency control rules that are created for a website.
+   *
+   * @param request DescribeWebCCRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebCCRulesResponse
+   */
   async describeWebCCRulesWithOptions(request: DescribeWebCCRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebCCRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20880,19 +22106,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebCCRulesResponse>(await this.callApi(params, req, runtime), new DescribeWebCCRulesResponse({}));
   }
 
+  /**
+   * @summary Queries the custom frequency control rules that are created for a website.
+   *
+   * @param request DescribeWebCCRulesRequest
+   * @return DescribeWebCCRulesResponse
+   */
   async describeWebCCRules(request: DescribeWebCCRulesRequest): Promise<DescribeWebCCRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebCCRulesWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeWebCacheConfigsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeWebCacheConfigsResponse
+   * @summary Queries the Static Page Caching configuration of websites.
+   *
+   * @description You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeWebCacheConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebCacheConfigsResponse
    */
   async describeWebCacheConfigsWithOptions(request: DescribeWebCacheConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebCacheConfigsResponse> {
     Util.validateModel(request);
@@ -20923,18 +22157,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeWebCacheConfigsRequest
-    * @return DescribeWebCacheConfigsResponse
+   * @summary Queries the Static Page Caching configuration of websites.
+   *
+   * @description You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeWebCacheConfigsRequest
+   * @return DescribeWebCacheConfigsResponse
    */
   async describeWebCacheConfigs(request: DescribeWebCacheConfigsRequest): Promise<DescribeWebCacheConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebCacheConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of each mitigation policy for a website.
+   *
+   * @param request DescribeWebCcProtectSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebCcProtectSwitchResponse
+   */
   async describeWebCcProtectSwitchWithOptions(request: DescribeWebCcProtectSwitchRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebCcProtectSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20963,11 +22206,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebCcProtectSwitchResponse>(await this.callApi(params, req, runtime), new DescribeWebCcProtectSwitchResponse({}));
   }
 
+  /**
+   * @summary Queries the status of each mitigation policy for a website.
+   *
+   * @param request DescribeWebCcProtectSwitchRequest
+   * @return DescribeWebCcProtectSwitchResponse
+   */
   async describeWebCcProtectSwitch(request: DescribeWebCcProtectSwitchRequest): Promise<DescribeWebCcProtectSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebCcProtectSwitchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the supported custom ports of a website.
+   *
+   * @param request DescribeWebCustomPortsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebCustomPortsResponse
+   */
   async describeWebCustomPortsWithOptions(request: DescribeWebCustomPortsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebCustomPortsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20992,11 +22248,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebCustomPortsResponse>(await this.callApi(params, req, runtime), new DescribeWebCustomPortsResponse({}));
   }
 
+  /**
+   * @summary Queries the supported custom ports of a website.
+   *
+   * @param request DescribeWebCustomPortsRequest
+   * @return DescribeWebCustomPortsResponse
+   */
   async describeWebCustomPorts(request: DescribeWebCustomPortsRequest): Promise<DescribeWebCustomPortsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebCustomPortsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
+   *
+   * @param request DescribeWebInstanceRelationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebInstanceRelationsResponse
+   */
   async describeWebInstanceRelationsWithOptions(request: DescribeWebInstanceRelationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebInstanceRelationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21025,11 +22294,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebInstanceRelationsResponse>(await this.callApi(params, req, runtime), new DescribeWebInstanceRelationsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
+   *
+   * @param request DescribeWebInstanceRelationsRequest
+   * @return DescribeWebInstanceRelationsResponse
+   */
   async describeWebInstanceRelations(request: DescribeWebInstanceRelationsRequest): Promise<DescribeWebInstanceRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebInstanceRelationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the accurate access control rules that are created for websites.
+   *
+   * @param request DescribeWebPreciseAccessRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebPreciseAccessRuleResponse
+   */
   async describeWebPreciseAccessRuleWithOptions(request: DescribeWebPreciseAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebPreciseAccessRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21058,11 +22340,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebPreciseAccessRuleResponse>(await this.callApi(params, req, runtime), new DescribeWebPreciseAccessRuleResponse({}));
   }
 
+  /**
+   * @summary Queries the accurate access control rules that are created for websites.
+   *
+   * @param request DescribeWebPreciseAccessRuleRequest
+   * @return DescribeWebPreciseAccessRuleResponse
+   */
   async describeWebPreciseAccessRule(request: DescribeWebPreciseAccessRuleRequest): Promise<DescribeWebPreciseAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebPreciseAccessRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeWebReportTopIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebReportTopIpResponse
+   */
   async describeWebReportTopIpWithOptions(request: DescribeWebReportTopIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebReportTopIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21107,11 +22400,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebReportTopIpResponse>(await this.callApi(params, req, runtime), new DescribeWebReportTopIpResponse({}));
   }
 
+  /**
+   * @param request DescribeWebReportTopIpRequest
+   * @return DescribeWebReportTopIpResponse
+   */
   async describeWebReportTopIp(request: DescribeWebReportTopIpRequest): Promise<DescribeWebReportTopIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebReportTopIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
+   * *   0: no
+   * *   1: yes
+   *
+   * @param request DescribeWebRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebRulesResponse
+   */
   async describeWebRulesWithOptions(request: DescribeWebRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21160,11 +22466,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebRulesResponse>(await this.callApi(params, req, runtime), new DescribeWebRulesResponse({}));
   }
 
+  /**
+   * @summary Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
+   * *   0: no
+   * *   1: yes
+   *
+   * @param request DescribeWebRulesRequest
+   * @return DescribeWebRulesResponse
+   */
   async describeWebRules(request: DescribeWebRulesRequest): Promise<DescribeWebRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes a protected object from a scenario-specific custom policy.
+   *
+   * @param request DetachSceneDefenseObjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachSceneDefenseObjectResponse
+   */
   async detachSceneDefenseObjectWithOptions(request: DetachSceneDefenseObjectRequest, runtime: $Util.RuntimeOptions): Promise<DetachSceneDefenseObjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21197,11 +22518,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachSceneDefenseObjectResponse>(await this.callApi(params, req, runtime), new DetachSceneDefenseObjectResponse({}));
   }
 
+  /**
+   * @summary Removes a protected object from a scenario-specific custom policy.
+   *
+   * @param request DetachSceneDefenseObjectRequest
+   * @return DetachSceneDefenseObjectResponse
+   */
   async detachSceneDefenseObject(request: DetachSceneDefenseObjectRequest): Promise<DetachSceneDefenseObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachSceneDefenseObjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables a scenario-specific custom policy.
+   *
+   * @param request DisableSceneDefensePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableSceneDefensePolicyResponse
+   */
   async disableSceneDefensePolicyWithOptions(request: DisableSceneDefensePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DisableSceneDefensePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21226,11 +22560,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableSceneDefensePolicyResponse>(await this.callApi(params, req, runtime), new DisableSceneDefensePolicyResponse({}));
   }
 
+  /**
+   * @summary Disables a scenario-specific custom policy.
+   *
+   * @param request DisableSceneDefensePolicyRequest
+   * @return DisableSceneDefensePolicyResponse
+   */
   async disableSceneDefensePolicy(request: DisableSceneDefensePolicyRequest): Promise<DisableSceneDefensePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableSceneDefensePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables the log analysis feature for a website.
+   *
+   * @param request DisableWebAccessLogConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableWebAccessLogConfigResponse
+   */
   async disableWebAccessLogConfigWithOptions(request: DisableWebAccessLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DisableWebAccessLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21259,11 +22606,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableWebAccessLogConfigResponse>(await this.callApi(params, req, runtime), new DisableWebAccessLogConfigResponse({}));
   }
 
+  /**
+   * @summary Disables the log analysis feature for a website.
+   *
+   * @param request DisableWebAccessLogConfigRequest
+   * @return DisableWebAccessLogConfigResponse
+   */
   async disableWebAccessLogConfig(request: DisableWebAccessLogConfigRequest): Promise<DisableWebAccessLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableWebAccessLogConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables the Frequency Control policy for a website.
+   *
+   * @param request DisableWebCCRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableWebCCResponse
+   */
   async disableWebCCWithOptions(request: DisableWebCCRequest, runtime: $Util.RuntimeOptions): Promise<DisableWebCCResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21292,11 +22652,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableWebCCResponse>(await this.callApi(params, req, runtime), new DisableWebCCResponse({}));
   }
 
+  /**
+   * @summary Disables the Frequency Control policy for a website.
+   *
+   * @param request DisableWebCCRequest
+   * @return DisableWebCCResponse
+   */
   async disableWebCC(request: DisableWebCCRequest): Promise<DisableWebCCResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableWebCCWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Turns off the Custom Rule switch of the Frequency Control policy for a website.
+   *
+   * @param request DisableWebCCRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableWebCCRuleResponse
+   */
   async disableWebCCRuleWithOptions(request: DisableWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<DisableWebCCRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21325,11 +22698,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableWebCCRuleResponse>(await this.callApi(params, req, runtime), new DisableWebCCRuleResponse({}));
   }
 
+  /**
+   * @summary Turns off the Custom Rule switch of the Frequency Control policy for a website.
+   *
+   * @param request DisableWebCCRuleRequest
+   * @return DisableWebCCRuleResponse
+   */
   async disableWebCCRule(request: DisableWebCCRuleRequest): Promise<DisableWebCCRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableWebCCRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request EmptyAutoCcBlacklistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EmptyAutoCcBlacklistResponse
+   */
   async emptyAutoCcBlacklistWithOptions(request: EmptyAutoCcBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<EmptyAutoCcBlacklistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21354,11 +22740,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EmptyAutoCcBlacklistResponse>(await this.callApi(params, req, runtime), new EmptyAutoCcBlacklistResponse({}));
   }
 
+  /**
+   * @summary Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request EmptyAutoCcBlacklistRequest
+   * @return EmptyAutoCcBlacklistResponse
+   */
   async emptyAutoCcBlacklist(request: EmptyAutoCcBlacklistRequest): Promise<EmptyAutoCcBlacklistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.emptyAutoCcBlacklistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request EmptyAutoCcWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EmptyAutoCcWhitelistResponse
+   */
   async emptyAutoCcWhitelistWithOptions(request: EmptyAutoCcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<EmptyAutoCcWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21383,11 +22782,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EmptyAutoCcWhitelistResponse>(await this.callApi(params, req, runtime), new EmptyAutoCcWhitelistResponse({}));
   }
 
+  /**
+   * @summary Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request EmptyAutoCcWhitelistRequest
+   * @return EmptyAutoCcWhitelistResponse
+   */
   async emptyAutoCcWhitelist(request: EmptyAutoCcWhitelistRequest): Promise<EmptyAutoCcWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.emptyAutoCcWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request EmptySlsLogstoreRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EmptySlsLogstoreResponse
+   */
   async emptySlsLogstoreWithOptions(request: EmptySlsLogstoreRequest, runtime: $Util.RuntimeOptions): Promise<EmptySlsLogstoreResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21412,11 +22824,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EmptySlsLogstoreResponse>(await this.callApi(params, req, runtime), new EmptySlsLogstoreResponse({}));
   }
 
+  /**
+   * @summary Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request EmptySlsLogstoreRequest
+   * @return EmptySlsLogstoreResponse
+   */
   async emptySlsLogstore(request: EmptySlsLogstoreRequest): Promise<EmptySlsLogstoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.emptySlsLogstoreWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables a scenario-specific custom policy.
+   *
+   * @param request EnableSceneDefensePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableSceneDefensePolicyResponse
+   */
   async enableSceneDefensePolicyWithOptions(request: EnableSceneDefensePolicyRequest, runtime: $Util.RuntimeOptions): Promise<EnableSceneDefensePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21441,11 +22866,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableSceneDefensePolicyResponse>(await this.callApi(params, req, runtime), new EnableSceneDefensePolicyResponse({}));
   }
 
+  /**
+   * @summary Enables a scenario-specific custom policy.
+   *
+   * @param request EnableSceneDefensePolicyRequest
+   * @return EnableSceneDefensePolicyResponse
+   */
   async enableSceneDefensePolicy(request: EnableSceneDefensePolicyRequest): Promise<EnableSceneDefensePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableSceneDefensePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the log analysis feature for a website.
+   *
+   * @param request EnableWebAccessLogConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableWebAccessLogConfigResponse
+   */
   async enableWebAccessLogConfigWithOptions(request: EnableWebAccessLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<EnableWebAccessLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21474,11 +22912,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableWebAccessLogConfigResponse>(await this.callApi(params, req, runtime), new EnableWebAccessLogConfigResponse({}));
   }
 
+  /**
+   * @summary Enables the log analysis feature for a website.
+   *
+   * @param request EnableWebAccessLogConfigRequest
+   * @return EnableWebAccessLogConfigResponse
+   */
   async enableWebAccessLogConfig(request: EnableWebAccessLogConfigRequest): Promise<EnableWebAccessLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableWebAccessLogConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the Frequency Control policy for a website.
+   *
+   * @param request EnableWebCCRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableWebCCResponse
+   */
   async enableWebCCWithOptions(request: EnableWebCCRequest, runtime: $Util.RuntimeOptions): Promise<EnableWebCCResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21507,11 +22958,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableWebCCResponse>(await this.callApi(params, req, runtime), new EnableWebCCResponse({}));
   }
 
+  /**
+   * @summary Enables the Frequency Control policy for a website.
+   *
+   * @param request EnableWebCCRequest
+   * @return EnableWebCCResponse
+   */
   async enableWebCC(request: EnableWebCCRequest): Promise<EnableWebCCResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableWebCCWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Turns on the Custom Rule switch of the Frequency Control policy for a website.
+   *
+   * @param request EnableWebCCRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableWebCCRuleResponse
+   */
   async enableWebCCRuleWithOptions(request: EnableWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<EnableWebCCRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21540,17 +23004,25 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableWebCCRuleResponse>(await this.callApi(params, req, runtime), new EnableWebCCRuleResponse({}));
   }
 
+  /**
+   * @summary Turns on the Custom Rule switch of the Frequency Control policy for a website.
+   *
+   * @param request EnableWebCCRuleRequest
+   * @return EnableWebCCRuleResponse
+   */
   async enableWebCCRule(request: EnableWebCCRuleRequest): Promise<EnableWebCCRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableWebCCRuleWithOptions(request, runtime);
   }
 
   /**
-    * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
-    *
-    * @param request ModifyBizBandWidthModeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyBizBandWidthModeResponse
+   * @summary Switches between the metering methods of the burstable clean bandwidth feature.
+   *
+   * @description You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+   *
+   * @param request ModifyBizBandWidthModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBizBandWidthModeResponse
    */
   async modifyBizBandWidthModeWithOptions(request: ModifyBizBandWidthModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBizBandWidthModeResponse> {
     Util.validateModel(request);
@@ -21581,16 +23053,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
-    *
-    * @param request ModifyBizBandWidthModeRequest
-    * @return ModifyBizBandWidthModeResponse
+   * @summary Switches between the metering methods of the burstable clean bandwidth feature.
+   *
+   * @description You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+   *
+   * @param request ModifyBizBandWidthModeRequest
+   * @return ModifyBizBandWidthModeResponse
    */
   async modifyBizBandWidthMode(request: ModifyBizBandWidthModeRequest): Promise<ModifyBizBandWidthModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBizBandWidthModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deactivates blackhole filtering that is triggered on an instance.
+   *
+   * @param request ModifyBlackholeStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBlackholeStatusResponse
+   */
   async modifyBlackholeStatusWithOptions(request: ModifyBlackholeStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBlackholeStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21619,17 +23100,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBlackholeStatusResponse>(await this.callApi(params, req, runtime), new ModifyBlackholeStatusResponse({}));
   }
 
+  /**
+   * @summary Deactivates blackhole filtering that is triggered on an instance.
+   *
+   * @param request ModifyBlackholeStatusRequest
+   * @return ModifyBlackholeStatusResponse
+   */
   async modifyBlackholeStatus(request: ModifyBlackholeStatusRequest): Promise<ModifyBlackholeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBlackholeStatusWithOptions(request, runtime);
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    *
-    * @param request ModifyBlockStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyBlockStatusResponse
+   * @summary Modifies the Diversion from Origin Server configuration of an Anti-DDoS Pro instance.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   *
+   * @param request ModifyBlockStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBlockStatusResponse
    */
   async modifyBlockStatusWithOptions(request: ModifyBlockStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBlockStatusResponse> {
     Util.validateModel(request);
@@ -21668,10 +23157,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    *
-    * @param request ModifyBlockStatusRequest
-    * @return ModifyBlockStatusResponse
+   * @summary Modifies the Diversion from Origin Server configuration of an Anti-DDoS Pro instance.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   *
+   * @param request ModifyBlockStatusRequest
+   * @return ModifyBlockStatusResponse
    */
   async modifyBlockStatus(request: ModifyBlockStatusRequest): Promise<ModifyBlockStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21679,11 +23170,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Premium.
-    *
-    * @param request ModifyCnameReuseRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyCnameReuseResponse
+   * @summary Enables or disables CNAME reuse for a website.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Premium.
+   *
+   * @param request ModifyCnameReuseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCnameReuseResponse
    */
   async modifyCnameReuseWithOptions(request: ModifyCnameReuseRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCnameReuseResponse> {
     Util.validateModel(request);
@@ -21722,16 +23215,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Premium.
-    *
-    * @param request ModifyCnameReuseRequest
-    * @return ModifyCnameReuseResponse
+   * @summary Enables or disables CNAME reuse for a website.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Premium.
+   *
+   * @param request ModifyCnameReuseRequest
+   * @return ModifyCnameReuseResponse
    */
   async modifyCnameReuse(request: ModifyCnameReuseRequest): Promise<ModifyCnameReuseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCnameReuseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the forwarding rule of a website.
+   *
+   * @param request ModifyDomainResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDomainResourceResponse
+   */
   async modifyDomainResourceWithOptions(request: ModifyDomainResourceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21776,17 +23278,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDomainResourceResponse>(await this.callApi(params, req, runtime), new ModifyDomainResourceResponse({}));
   }
 
+  /**
+   * @summary Modifies the forwarding rule of a website.
+   *
+   * @param request ModifyDomainResourceRequest
+   * @return ModifyDomainResourceResponse
+   */
   async modifyDomainResource(request: ModifyDomainResourceRequest): Promise<ModifyDomainResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDomainResourceWithOptions(request, runtime);
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    *
-    * @param request ModifyElasticBandWidthRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyElasticBandWidthResponse
+   * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Pro instance.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   *
+   * @param request ModifyElasticBandWidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyElasticBandWidthResponse
    */
   async modifyElasticBandWidthWithOptions(request: ModifyElasticBandWidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyElasticBandWidthResponse> {
     Util.validateModel(request);
@@ -21817,10 +23327,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    *
-    * @param request ModifyElasticBandWidthRequest
-    * @return ModifyElasticBandWidthResponse
+   * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Pro instance.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   *
+   * @param request ModifyElasticBandWidthRequest
+   * @return ModifyElasticBandWidthResponse
    */
   async modifyElasticBandWidth(request: ModifyElasticBandWidthRequest): Promise<ModifyElasticBandWidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21828,11 +23340,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
-    *
-    * @param request ModifyElasticBizBandWidthRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyElasticBizBandWidthResponse
+   * @summary Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @description Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+   *
+   * @param request ModifyElasticBizBandWidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyElasticBizBandWidthResponse
    */
   async modifyElasticBizBandWidthWithOptions(request: ModifyElasticBizBandWidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyElasticBizBandWidthResponse> {
     Util.validateModel(request);
@@ -21867,16 +23381,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
-    *
-    * @param request ModifyElasticBizBandWidthRequest
-    * @return ModifyElasticBizBandWidthResponse
+   * @summary Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @description Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+   *
+   * @param request ModifyElasticBizBandWidthRequest
+   * @return ModifyElasticBizBandWidthResponse
    */
   async modifyElasticBizBandWidth(request: ModifyElasticBizBandWidthRequest): Promise<ModifyElasticBizBandWidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyElasticBizBandWidthWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开启/关闭弹性QPS 首次模式直接生效
+   *
+   * @param request ModifyElasticBizQpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyElasticBizQpsResponse
+   */
   async modifyElasticBizQpsWithOptions(request: ModifyElasticBizQpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyElasticBizQpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21909,11 +23432,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyElasticBizQpsResponse>(await this.callApi(params, req, runtime), new ModifyElasticBizQpsResponse({}));
   }
 
+  /**
+   * @summary 开启/关闭弹性QPS 首次模式直接生效
+   *
+   * @param request ModifyElasticBizQpsRequest
+   * @return ModifyElasticBizQpsResponse
+   */
   async modifyElasticBizQps(request: ModifyElasticBizQpsRequest): Promise<ModifyElasticBizQpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyElasticBizQpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the log storage duration for Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request ModifyFullLogTtlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyFullLogTtlResponse
+   */
   async modifyFullLogTtlWithOptions(request: ModifyFullLogTtlRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFullLogTtlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21942,11 +23478,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyFullLogTtlResponse>(await this.callApi(params, req, runtime), new ModifyFullLogTtlResponse({}));
   }
 
+  /**
+   * @summary Modifies the log storage duration for Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request ModifyFullLogTtlRequest
+   * @return ModifyFullLogTtlResponse
+   */
   async modifyFullLogTtl(request: ModifyFullLogTtlRequest): Promise<ModifyFullLogTtlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyFullLogTtlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request ModifyHeadersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyHeadersResponse
+   */
   async modifyHeadersWithOptions(request: ModifyHeadersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHeadersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21979,11 +23528,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHeadersResponse>(await this.callApi(params, req, runtime), new ModifyHeadersResponse({}));
   }
 
+  /**
+   * @summary Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request ModifyHeadersRequest
+   * @return ModifyHeadersResponse
+   */
   async modifyHeaders(request: ModifyHeadersRequest): Promise<ModifyHeadersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHeadersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
+   *
+   * @param request ModifyHealthCheckConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyHealthCheckConfigResponse
+   */
   async modifyHealthCheckConfigWithOptions(request: ModifyHealthCheckConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHealthCheckConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22020,17 +23582,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHealthCheckConfigResponse>(await this.callApi(params, req, runtime), new ModifyHealthCheckConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
+   *
+   * @param request ModifyHealthCheckConfigRequest
+   * @return ModifyHealthCheckConfigResponse
+   */
   async modifyHealthCheckConfig(request: ModifyHealthCheckConfigRequest): Promise<ModifyHealthCheckConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHealthCheckConfigWithOptions(request, runtime);
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    *
-    * @param request ModifyHttp2EnableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyHttp2EnableResponse
+   * @summary Enables or disables HTTP/2 for the forwarding rule of a website.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   *
+   * @param request ModifyHttp2EnableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyHttp2EnableResponse
    */
   async modifyHttp2EnableWithOptions(request: ModifyHttp2EnableRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHttp2EnableResponse> {
     Util.validateModel(request);
@@ -22065,16 +23635,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is suitable only for Anti-DDoS Pro.
-    *
-    * @param request ModifyHttp2EnableRequest
-    * @return ModifyHttp2EnableResponse
+   * @summary Enables or disables HTTP/2 for the forwarding rule of a website.
+   *
+   * @description > This operation is suitable only for Anti-DDoS Pro.
+   *
+   * @param request ModifyHttp2EnableRequest
+   * @return ModifyHttp2EnableResponse
    */
   async modifyHttp2Enable(request: ModifyHttp2EnableRequest): Promise<ModifyHttp2EnableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHttp2EnableWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request ModifyInstanceRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceRemarkResponse
+   */
   async modifyInstanceRemarkWithOptions(request: ModifyInstanceRemarkRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceRemarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22103,11 +23682,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceRemarkResponse>(await this.callApi(params, req, runtime), new ModifyInstanceRemarkResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @param request ModifyInstanceRemarkRequest
+   * @return ModifyInstanceRemarkResponse
+   */
   async modifyInstanceRemark(request: ModifyInstanceRemarkRequest): Promise<ModifyInstanceRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceRemarkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the session persistence settings of a port forwarding rule.
+   *
+   * @param request ModifyNetworkRuleAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNetworkRuleAttributeResponse
+   */
   async modifyNetworkRuleAttributeWithOptions(request: ModifyNetworkRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNetworkRuleAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22144,17 +23736,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNetworkRuleAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNetworkRuleAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the session persistence settings of a port forwarding rule.
+   *
+   * @param request ModifyNetworkRuleAttributeRequest
+   * @return ModifyNetworkRuleAttributeResponse
+   */
   async modifyNetworkRuleAttribute(request: ModifyNetworkRuleAttributeRequest): Promise<ModifyNetworkRuleAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNetworkRuleAttributeWithOptions(request, runtime);
   }
 
   /**
-    * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
-    *
-    * @param request ModifyOcspStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyOcspStatusResponse
+   * @summary Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
+   *
+   * @description This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
+   *
+   * @param request ModifyOcspStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyOcspStatusResponse
    */
   async modifyOcspStatusWithOptions(request: ModifyOcspStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyOcspStatusResponse> {
     Util.validateModel(request);
@@ -22185,10 +23785,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
-    *
-    * @param request ModifyOcspStatusRequest
-    * @return ModifyOcspStatusResponse
+   * @summary Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
+   *
+   * @description This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
+   *
+   * @param request ModifyOcspStatusRequest
+   * @return ModifyOcspStatusResponse
    */
   async modifyOcspStatus(request: ModifyOcspStatusRequest): Promise<ModifyOcspStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22196,11 +23798,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
-    *
-    * @param request ModifyPortRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyPortResponse
+   * @summary Modifies a port forwarding rule.
+   *
+   * @description You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   *
+   * @param request ModifyPortRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPortResponse
    */
   async modifyPortWithOptions(request: ModifyPortRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPortResponse> {
     Util.validateModel(request);
@@ -22243,16 +23847,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
-    *
-    * @param request ModifyPortRequest
-    * @return ModifyPortResponse
+   * @summary Modifies a port forwarding rule.
+   *
+   * @description You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   *
+   * @param request ModifyPortRequest
+   * @return ModifyPortResponse
    */
   async modifyPort(request: ModifyPortRequest): Promise<ModifyPortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPortWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the Intelligent Protection configuration of a non-website service.
+   *
+   * @param request ModifyPortAutoCcStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPortAutoCcStatusResponse
+   */
   async modifyPortAutoCcStatusWithOptions(request: ModifyPortAutoCcStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPortAutoCcStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22285,11 +23898,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPortAutoCcStatusResponse>(await this.callApi(params, req, runtime), new ModifyPortAutoCcStatusResponse({}));
   }
 
+  /**
+   * @summary Modifies the Intelligent Protection configuration of a non-website service.
+   *
+   * @param request ModifyPortAutoCcStatusRequest
+   * @return ModifyPortAutoCcStatusResponse
+   */
   async modifyPortAutoCcStatus(request: ModifyPortAutoCcStatusRequest): Promise<ModifyPortAutoCcStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPortAutoCcStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改弹性qps模式
+   *
+   * @param request ModifyQpsModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyQpsModeResponse
+   */
   async modifyQpsModeWithOptions(request: ModifyQpsModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyQpsModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22318,11 +23944,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyQpsModeResponse>(await this.callApi(params, req, runtime), new ModifyQpsModeResponse({}));
   }
 
+  /**
+   * @summary 修改弹性qps模式
+   *
+   * @param request ModifyQpsModeRequest
+   * @return ModifyQpsModeResponse
+   */
   async modifyQpsMode(request: ModifyQpsModeRequest): Promise<ModifyQpsModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyQpsModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a scenario-specific custom policy.
+   *
+   * @param request ModifySceneDefensePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySceneDefensePolicyResponse
+   */
   async modifySceneDefensePolicyWithOptions(request: ModifySceneDefensePolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifySceneDefensePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22363,11 +24002,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySceneDefensePolicyResponse>(await this.callApi(params, req, runtime), new ModifySceneDefensePolicyResponse({}));
   }
 
+  /**
+   * @summary Modifies a scenario-specific custom policy.
+   *
+   * @param request ModifySceneDefensePolicyRequest
+   * @return ModifySceneDefensePolicyResponse
+   */
   async modifySceneDefensePolicy(request: ModifySceneDefensePolicyRequest): Promise<ModifySceneDefensePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySceneDefensePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the scheduling rule of Sec-Traffic Manager.
+   *
+   * @param request ModifySchedulerRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySchedulerRuleResponse
+   */
   async modifySchedulerRuleWithOptions(request: ModifySchedulerRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifySchedulerRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22408,11 +24060,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySchedulerRuleResponse>(await this.callApi(params, req, runtime), new ModifySchedulerRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies the scheduling rule of Sec-Traffic Manager.
+   *
+   * @param request ModifySchedulerRuleRequest
+   * @return ModifySchedulerRuleResponse
+   */
   async modifySchedulerRule(request: ModifySchedulerRuleRequest): Promise<ModifySchedulerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySchedulerRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
+   *
+   * @param request ModifyTlsConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTlsConfigResponse
+   */
   async modifyTlsConfigWithOptions(request: ModifyTlsConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTlsConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22445,11 +24110,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTlsConfigResponse>(await this.callApi(params, req, runtime), new ModifyTlsConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
+   *
+   * @param request ModifyTlsConfigRequest
+   * @return ModifyTlsConfigResponse
+   */
   async modifyTlsConfig(request: ModifyTlsConfigRequest): Promise<ModifyTlsConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTlsConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the mode of the Intelligent Protection policy for a website.
+   *
+   * @param request ModifyWebAIProtectModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebAIProtectModeResponse
+   */
   async modifyWebAIProtectModeWithOptions(request: ModifyWebAIProtectModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebAIProtectModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22482,11 +24160,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebAIProtectModeResponse>(await this.callApi(params, req, runtime), new ModifyWebAIProtectModeResponse({}));
   }
 
+  /**
+   * @summary Changes the mode of the Intelligent Protection policy for a website.
+   *
+   * @param request ModifyWebAIProtectModeRequest
+   * @return ModifyWebAIProtectModeResponse
+   */
   async modifyWebAIProtectMode(request: ModifyWebAIProtectModeRequest): Promise<ModifyWebAIProtectModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebAIProtectModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the Intelligent Protection policy for a website.
+   *
+   * @param request ModifyWebAIProtectSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebAIProtectSwitchResponse
+   */
   async modifyWebAIProtectSwitchWithOptions(request: ModifyWebAIProtectSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebAIProtectSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22519,11 +24210,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebAIProtectSwitchResponse>(await this.callApi(params, req, runtime), new ModifyWebAIProtectSwitchResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the Intelligent Protection policy for a website.
+   *
+   * @param request ModifyWebAIProtectSwitchRequest
+   * @return ModifyWebAIProtectSwitchResponse
+   */
   async modifyWebAIProtectSwitch(request: ModifyWebAIProtectSwitchRequest): Promise<ModifyWebAIProtectSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebAIProtectSwitchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request ModifyWebAccessModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebAccessModeResponse
+   */
   async modifyWebAccessModeWithOptions(request: ModifyWebAccessModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebAccessModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22552,11 +24256,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebAccessModeResponse>(await this.callApi(params, req, runtime), new ModifyWebAccessModeResponse({}));
   }
 
+  /**
+   * @summary Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+   *
+   * @param request ModifyWebAccessModeRequest
+   * @return ModifyWebAccessModeResponse
+   */
   async modifyWebAccessMode(request: ModifyWebAccessModeRequest): Promise<ModifyWebAccessModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebAccessModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
+   *
+   * @param request ModifyWebAreaBlockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebAreaBlockResponse
+   */
   async modifyWebAreaBlockWithOptions(request: ModifyWebAreaBlockRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebAreaBlockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22589,19 +24306,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebAreaBlockResponse>(await this.callApi(params, req, runtime), new ModifyWebAreaBlockResponse({}));
   }
 
+  /**
+   * @summary Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
+   *
+   * @param request ModifyWebAreaBlockRequest
+   * @return ModifyWebAreaBlockResponse
+   */
   async modifyWebAreaBlock(request: ModifyWebAreaBlockRequest): Promise<ModifyWebAreaBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebAreaBlockWithOptions(request, runtime);
   }
 
   /**
-    * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyWebAreaBlockSwitchRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyWebAreaBlockSwitchResponse
+   * @summary Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
+   *
+   * @description You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyWebAreaBlockSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebAreaBlockSwitchResponse
    */
   async modifyWebAreaBlockSwitchWithOptions(request: ModifyWebAreaBlockSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebAreaBlockSwitchResponse> {
     Util.validateModel(request);
@@ -22636,18 +24361,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyWebAreaBlockSwitchRequest
-    * @return ModifyWebAreaBlockSwitchResponse
+   * @summary Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
+   *
+   * @description You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyWebAreaBlockSwitchRequest
+   * @return ModifyWebAreaBlockSwitchResponse
    */
   async modifyWebAreaBlockSwitch(request: ModifyWebAreaBlockSwitchRequest): Promise<ModifyWebAreaBlockSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebAreaBlockSwitchWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyWebCCRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebCCRuleResponse
+   */
   async modifyWebCCRuleWithOptions(request: ModifyWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCCRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22704,11 +24436,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebCCRuleResponse>(await this.callApi(params, req, runtime), new ModifyWebCCRuleResponse({}));
   }
 
+  /**
+   * @param request ModifyWebCCRuleRequest
+   * @return ModifyWebCCRuleResponse
+   */
   async modifyWebCCRule(request: ModifyWebCCRuleRequest): Promise<ModifyWebCCRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebCCRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the custom rule of the Static Page Caching policy for a website.
+   *
+   * @param request ModifyWebCacheCustomRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebCacheCustomRuleResponse
+   */
   async modifyWebCacheCustomRuleWithOptions(request: ModifyWebCacheCustomRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCacheCustomRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22741,11 +24484,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebCacheCustomRuleResponse>(await this.callApi(params, req, runtime), new ModifyWebCacheCustomRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies the custom rule of the Static Page Caching policy for a website.
+   *
+   * @param request ModifyWebCacheCustomRuleRequest
+   * @return ModifyWebCacheCustomRuleResponse
+   */
   async modifyWebCacheCustomRule(request: ModifyWebCacheCustomRuleRequest): Promise<ModifyWebCacheCustomRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebCacheCustomRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the cache mode of the Static Page Caching policy for a website.
+   *
+   * @param request ModifyWebCacheModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebCacheModeResponse
+   */
   async modifyWebCacheModeWithOptions(request: ModifyWebCacheModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCacheModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22778,19 +24534,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebCacheModeResponse>(await this.callApi(params, req, runtime), new ModifyWebCacheModeResponse({}));
   }
 
+  /**
+   * @summary Changes the cache mode of the Static Page Caching policy for a website.
+   *
+   * @param request ModifyWebCacheModeRequest
+   * @return ModifyWebCacheModeResponse
+   */
   async modifyWebCacheMode(request: ModifyWebCacheModeRequest): Promise<ModifyWebCacheModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebCacheModeWithOptions(request, runtime);
   }
 
   /**
-    * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyWebCacheSwitchRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyWebCacheSwitchResponse
+   * @summary Enables or disables the Static Page Caching policy for a website.
+   *
+   * @description You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyWebCacheSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebCacheSwitchResponse
    */
   async modifyWebCacheSwitchWithOptions(request: ModifyWebCacheSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCacheSwitchResponse> {
     Util.validateModel(request);
@@ -22825,18 +24589,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyWebCacheSwitchRequest
-    * @return ModifyWebCacheSwitchResponse
+   * @summary Enables or disables the Static Page Caching policy for a website.
+   *
+   * @description You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyWebCacheSwitchRequest
+   * @return ModifyWebCacheSwitchResponse
    */
   async modifyWebCacheSwitch(request: ModifyWebCacheSwitchRequest): Promise<ModifyWebCacheSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebCacheSwitchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
+   *
+   * @param request ModifyWebIpSetSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebIpSetSwitchResponse
+   */
   async modifyWebIpSetSwitchWithOptions(request: ModifyWebIpSetSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebIpSetSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22869,11 +24642,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebIpSetSwitchResponse>(await this.callApi(params, req, runtime), new ModifyWebIpSetSwitchResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
+   *
+   * @param request ModifyWebIpSetSwitchRequest
+   * @return ModifyWebIpSetSwitchResponse
+   */
   async modifyWebIpSetSwitch(request: ModifyWebIpSetSwitchRequest): Promise<ModifyWebIpSetSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebIpSetSwitchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the accurate access control rule of a website.
+   *
+   * @param request ModifyWebPreciseAccessRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebPreciseAccessRuleResponse
+   */
   async modifyWebPreciseAccessRuleWithOptions(request: ModifyWebPreciseAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebPreciseAccessRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22910,11 +24696,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebPreciseAccessRuleResponse>(await this.callApi(params, req, runtime), new ModifyWebPreciseAccessRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies the accurate access control rule of a website.
+   *
+   * @param request ModifyWebPreciseAccessRuleRequest
+   * @return ModifyWebPreciseAccessRuleResponse
+   */
   async modifyWebPreciseAccessRule(request: ModifyWebPreciseAccessRuleRequest): Promise<ModifyWebPreciseAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebPreciseAccessRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the Accurate Access Control policy for a website.
+   *
+   * @param request ModifyWebPreciseAccessSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebPreciseAccessSwitchResponse
+   */
   async modifyWebPreciseAccessSwitchWithOptions(request: ModifyWebPreciseAccessSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebPreciseAccessSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22947,11 +24746,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebPreciseAccessSwitchResponse>(await this.callApi(params, req, runtime), new ModifyWebPreciseAccessSwitchResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the Accurate Access Control policy for a website.
+   *
+   * @param request ModifyWebPreciseAccessSwitchRequest
+   * @return ModifyWebPreciseAccessSwitchResponse
+   */
   async modifyWebPreciseAccessSwitch(request: ModifyWebPreciseAccessSwitchRequest): Promise<ModifyWebPreciseAccessSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebPreciseAccessSwitchWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyWebRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebRuleResponse
+   */
   async modifyWebRuleWithOptions(request: ModifyWebRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23000,17 +24810,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebRuleResponse>(await this.callApi(params, req, runtime), new ModifyWebRuleResponse({}));
   }
 
+  /**
+   * @param request ModifyWebRuleRequest
+   * @return ModifyWebRuleResponse
+   */
   async modifyWebRule(request: ModifyWebRuleRequest): Promise<ModifyWebRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebRuleWithOptions(request, runtime);
   }
 
   /**
-    * The ID of the request, which is used to locate and troubleshoot issues.
-    *
-    * @param request ReleaseInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReleaseInstanceResponse
+   * @summary The ID of the instance that you want to release.
+   * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
+   *
+   * @description The ID of the request, which is used to locate and troubleshoot issues.
+   *
+   * @param request ReleaseInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseInstanceResponse
    */
   async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
     Util.validateModel(request);
@@ -23037,10 +24854,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request, which is used to locate and troubleshoot issues.
-    *
-    * @param request ReleaseInstanceRequest
-    * @return ReleaseInstanceResponse
+   * @summary The ID of the instance that you want to release.
+   * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
+   *
+   * @description The ID of the request, which is used to locate and troubleshoot issues.
+   *
+   * @param request ReleaseInstanceRequest
+   * @return ReleaseInstanceResponse
    */
   async releaseInstance(request: ReleaseInstanceRequest): Promise<ReleaseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23048,14 +24868,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
-    * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](~~157479~~) operation.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request SwitchSchedulerRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SwitchSchedulerRuleResponse
+   * @summary Switches service traffic to your Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
+   *
+   * @description You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
+   * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](https://help.aliyun.com/document_detail/157479.html) operation.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request SwitchSchedulerRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchSchedulerRuleResponse
    */
   async switchSchedulerRuleWithOptions(request: SwitchSchedulerRuleRequest, runtime: $Util.RuntimeOptions): Promise<SwitchSchedulerRuleResponse> {
     Util.validateModel(request);
@@ -23090,13 +24912,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
-    * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](~~157479~~) operation.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request SwitchSchedulerRuleRequest
-    * @return SwitchSchedulerRuleResponse
+   * @summary Switches service traffic to your Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
+   *
+   * @description You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
+   * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](https://help.aliyun.com/document_detail/157479.html) operation.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request SwitchSchedulerRuleRequest
+   * @return SwitchSchedulerRuleResponse
    */
   async switchSchedulerRule(request: SwitchSchedulerRuleRequest): Promise<SwitchSchedulerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
