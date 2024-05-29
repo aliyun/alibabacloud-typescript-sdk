@@ -8648,6 +8648,192 @@ export class DescribeImportOASTaskResponse extends $tea.Model {
   }
 }
 
+export class DescribeInstanceClusterInfoRequest extends $tea.Model {
+  instanceClusterName?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceClusterName: 'InstanceClusterName',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceClusterName: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceClusterInfoResponseBody extends $tea.Model {
+  createdTime?: string;
+  description?: string;
+  instanceClusterAttribute?: DescribeInstanceClusterInfoResponseBodyInstanceClusterAttribute;
+  instanceClusterId?: string;
+  instanceClusterName?: string;
+  instanceClusterStatus?: string;
+  instanceClusterType?: string;
+  instanceClusterVersion?: string;
+  instanceList?: DescribeInstanceClusterInfoResponseBodyInstanceList;
+  modifiedTime?: string;
+  regionId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      description: 'Description',
+      instanceClusterAttribute: 'InstanceClusterAttribute',
+      instanceClusterId: 'InstanceClusterId',
+      instanceClusterName: 'InstanceClusterName',
+      instanceClusterStatus: 'InstanceClusterStatus',
+      instanceClusterType: 'InstanceClusterType',
+      instanceClusterVersion: 'InstanceClusterVersion',
+      instanceList: 'InstanceList',
+      modifiedTime: 'ModifiedTime',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      description: 'string',
+      instanceClusterAttribute: DescribeInstanceClusterInfoResponseBodyInstanceClusterAttribute,
+      instanceClusterId: 'string',
+      instanceClusterName: 'string',
+      instanceClusterStatus: 'string',
+      instanceClusterType: 'string',
+      instanceClusterVersion: 'string',
+      instanceList: DescribeInstanceClusterInfoResponseBodyInstanceList,
+      modifiedTime: 'string',
+      regionId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceClusterInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceClusterInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceClusterInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceClusterListRequest extends $tea.Model {
+  instanceClusterId?: string;
+  instanceClusterName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceClusterId: 'InstanceClusterId',
+      instanceClusterName: 'InstanceClusterName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceClusterId: 'string',
+      instanceClusterName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceClusterListResponseBody extends $tea.Model {
+  instanceClusters?: DescribeInstanceClusterListResponseBodyInstanceClusters;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceClusters: 'InstanceClusters',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceClusters: DescribeInstanceClusterListResponseBodyInstanceClusters,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceClusterListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceClusterListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceClusterListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceDropConnectionsRequest extends $tea.Model {
   endTime?: string;
   instanceId?: string;
@@ -22743,6 +22929,194 @@ export class DescribeImportOASTaskResponseBodyModelResults extends $tea.Model {
   }
 }
 
+export class DescribeInstanceClusterInfoResponseBodyInstanceClusterAttribute extends $tea.Model {
+  connectCidrBlocks?: string;
+  connectVpcId?: string;
+  egressIpv6Enable?: boolean;
+  httpsPolicies?: string;
+  IPV4AclId?: string;
+  IPV4AclName?: string;
+  IPV4AclStatus?: string;
+  IPV4AclType?: string;
+  IPV6AclId?: string;
+  IPV6AclName?: string;
+  IPV6AclStatus?: string;
+  IPV6AclType?: string;
+  internetEgressAddress?: string;
+  intranetEgressAddress?: string;
+  intranetSegments?: string;
+  supportIpv6?: boolean;
+  userVpcId?: string;
+  userVswitchId?: string;
+  vipTypeList?: string;
+  vpcIntranetEnable?: boolean;
+  vpcOwnerId?: number;
+  vpcSlbIntranetEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      connectCidrBlocks: 'ConnectCidrBlocks',
+      connectVpcId: 'ConnectVpcId',
+      egressIpv6Enable: 'EgressIpv6Enable',
+      httpsPolicies: 'HttpsPolicies',
+      IPV4AclId: 'IPV4AclId',
+      IPV4AclName: 'IPV4AclName',
+      IPV4AclStatus: 'IPV4AclStatus',
+      IPV4AclType: 'IPV4AclType',
+      IPV6AclId: 'IPV6AclId',
+      IPV6AclName: 'IPV6AclName',
+      IPV6AclStatus: 'IPV6AclStatus',
+      IPV6AclType: 'IPV6AclType',
+      internetEgressAddress: 'InternetEgressAddress',
+      intranetEgressAddress: 'IntranetEgressAddress',
+      intranetSegments: 'IntranetSegments',
+      supportIpv6: 'SupportIpv6',
+      userVpcId: 'UserVpcId',
+      userVswitchId: 'UserVswitchId',
+      vipTypeList: 'VipTypeList',
+      vpcIntranetEnable: 'VpcIntranetEnable',
+      vpcOwnerId: 'VpcOwnerId',
+      vpcSlbIntranetEnable: 'VpcSlbIntranetEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectCidrBlocks: 'string',
+      connectVpcId: 'string',
+      egressIpv6Enable: 'boolean',
+      httpsPolicies: 'string',
+      IPV4AclId: 'string',
+      IPV4AclName: 'string',
+      IPV4AclStatus: 'string',
+      IPV4AclType: 'string',
+      IPV6AclId: 'string',
+      IPV6AclName: 'string',
+      IPV6AclStatus: 'string',
+      IPV6AclType: 'string',
+      internetEgressAddress: 'string',
+      intranetEgressAddress: 'string',
+      intranetSegments: 'string',
+      supportIpv6: 'boolean',
+      userVpcId: 'string',
+      userVswitchId: 'string',
+      vipTypeList: 'string',
+      vpcIntranetEnable: 'boolean',
+      vpcOwnerId: 'number',
+      vpcSlbIntranetEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceClusterInfoResponseBodyInstanceListInstance extends $tea.Model {
+  errorMessage?: string;
+  instanceId?: string;
+  instanceName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceClusterInfoResponseBodyInstanceList extends $tea.Model {
+  instance?: DescribeInstanceClusterInfoResponseBodyInstanceListInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      instance: 'Instance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instance: { 'type': 'array', 'itemType': DescribeInstanceClusterInfoResponseBodyInstanceListInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceClusterListResponseBodyInstanceClustersInstanceCluster extends $tea.Model {
+  createdTime?: string;
+  description?: string;
+  instanceClusterId?: string;
+  instanceClusterName?: string;
+  instanceClusterStatus?: string;
+  instanceClusterType?: string;
+  modifiedTime?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      description: 'Description',
+      instanceClusterId: 'InstanceClusterId',
+      instanceClusterName: 'InstanceClusterName',
+      instanceClusterStatus: 'InstanceClusterStatus',
+      instanceClusterType: 'InstanceClusterType',
+      modifiedTime: 'ModifiedTime',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      description: 'string',
+      instanceClusterId: 'string',
+      instanceClusterName: 'string',
+      instanceClusterStatus: 'string',
+      instanceClusterType: 'string',
+      modifiedTime: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceClusterListResponseBodyInstanceClusters extends $tea.Model {
+  instanceCluster?: DescribeInstanceClusterListResponseBodyInstanceClustersInstanceCluster[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceCluster: 'InstanceCluster',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceCluster: { 'type': 'array', 'itemType': DescribeInstanceClusterListResponseBodyInstanceClustersInstanceCluster },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceDropConnectionsResponseBodyInstanceDropConnectionsMonitorItem extends $tea.Model {
   itemTime?: string;
   itemValue?: string;
@@ -32207,6 +32581,110 @@ export default class Client extends OpenApi {
   async describeImportOASTask(request: DescribeImportOASTaskRequest): Promise<DescribeImportOASTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImportOASTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询专享实例集群的详情
+   *
+   * @param request DescribeInstanceClusterInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceClusterInfoResponse
+   */
+  async describeInstanceClusterInfoWithOptions(request: DescribeInstanceClusterInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceClusterInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceClusterName)) {
+      query["InstanceClusterName"] = request.instanceClusterName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceClusterInfo",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceClusterInfoResponse>(await this.callApi(params, req, runtime), new DescribeInstanceClusterInfoResponse({}));
+  }
+
+  /**
+   * @summary 查询专享实例集群的详情
+   *
+   * @param request DescribeInstanceClusterInfoRequest
+   * @return DescribeInstanceClusterInfoResponse
+   */
+  async describeInstanceClusterInfo(request: DescribeInstanceClusterInfoRequest): Promise<DescribeInstanceClusterInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceClusterInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询专享实例集群列表
+   *
+   * @param request DescribeInstanceClusterListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceClusterListResponse
+   */
+  async describeInstanceClusterListWithOptions(request: DescribeInstanceClusterListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceClusterListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceClusterId)) {
+      query["InstanceClusterId"] = request.instanceClusterId;
+    }
+
+    if (!Util.isUnset(request.instanceClusterName)) {
+      query["InstanceClusterName"] = request.instanceClusterName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceClusterList",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceClusterListResponse>(await this.callApi(params, req, runtime), new DescribeInstanceClusterListResponse({}));
+  }
+
+  /**
+   * @summary 查询专享实例集群列表
+   *
+   * @param request DescribeInstanceClusterListRequest
+   * @return DescribeInstanceClusterListResponse
+   */
+  async describeInstanceClusterList(request: DescribeInstanceClusterListRequest): Promise<DescribeInstanceClusterListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceClusterListWithOptions(request, runtime);
   }
 
   /**
