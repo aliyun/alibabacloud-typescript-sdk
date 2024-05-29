@@ -194,12 +194,15 @@ export class Text extends $tea.Model {
   gmtCreate?: string;
   gmtModified?: string;
   illustrationTaskIdList?: number[];
+  publishStatus?: string;
   textContent?: string;
   textId?: number;
   textIllustrationTag?: boolean;
   textModeType?: string;
   textStatus?: string;
+  textStyleType?: string;
   textTaskId?: number;
+  textThemes?: string[];
   title?: string;
   userNameCreate?: string;
   userNameModified?: string;
@@ -209,12 +212,15 @@ export class Text extends $tea.Model {
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
       illustrationTaskIdList: 'illustrationTaskIdList',
+      publishStatus: 'publishStatus',
       textContent: 'textContent',
       textId: 'textId',
       textIllustrationTag: 'textIllustrationTag',
       textModeType: 'textModeType',
       textStatus: 'textStatus',
+      textStyleType: 'textStyleType',
       textTaskId: 'textTaskId',
+      textThemes: 'textThemes',
       title: 'title',
       userNameCreate: 'userNameCreate',
       userNameModified: 'userNameModified',
@@ -227,15 +233,43 @@ export class Text extends $tea.Model {
       gmtCreate: 'string',
       gmtModified: 'string',
       illustrationTaskIdList: { 'type': 'array', 'itemType': 'number' },
+      publishStatus: 'string',
       textContent: 'string',
       textId: 'number',
       textIllustrationTag: 'boolean',
       textModeType: 'string',
       textStatus: 'string',
+      textStyleType: 'string',
       textTaskId: 'number',
+      textThemes: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       userNameCreate: 'string',
       userNameModified: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextQueryResult extends $tea.Model {
+  requestId?: string;
+  texts?: Text[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      texts: 'texts',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      texts: { 'type': 'array', 'itemType': Text },
+      total: 'number',
     };
   }
 
@@ -333,6 +367,7 @@ export class TextTask extends $tea.Model {
 export class TextTaskCreateCmd extends $tea.Model {
   contentRequirement?: string;
   idempotentId?: string;
+  industry?: string;
   introduction?: string;
   number?: number;
   point?: string;
@@ -342,10 +377,12 @@ export class TextTaskCreateCmd extends $tea.Model {
   target?: string;
   textModeType?: string;
   theme?: string;
+  themes?: string[];
   static names(): { [key: string]: string } {
     return {
       contentRequirement: 'contentRequirement',
       idempotentId: 'idempotentId',
+      industry: 'industry',
       introduction: 'introduction',
       number: 'number',
       point: 'point',
@@ -355,6 +392,7 @@ export class TextTaskCreateCmd extends $tea.Model {
       target: 'target',
       textModeType: 'textModeType',
       theme: 'theme',
+      themes: 'themes',
     };
   }
 
@@ -362,6 +400,7 @@ export class TextTaskCreateCmd extends $tea.Model {
     return {
       contentRequirement: 'string',
       idempotentId: 'string',
+      industry: 'string',
       introduction: 'string',
       number: 'number',
       point: 'string',
@@ -371,6 +410,7 @@ export class TextTaskCreateCmd extends $tea.Model {
       target: 'string',
       textModeType: 'string',
       theme: 'string',
+      themes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -711,6 +751,25 @@ export class GetTextTaskResponse extends $tea.Model {
   }
 }
 
+export class ListTextThemesRequest extends $tea.Model {
+  industry?: string;
+  static names(): { [key: string]: string } {
+    return {
+      industry: 'industry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      industry: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTextThemesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
@@ -728,6 +787,68 @@ export class ListTextThemesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TextThemeListResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextsRequest extends $tea.Model {
+  generationSource?: string;
+  industry?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  publishStatus?: string;
+  textStyleType?: string;
+  textTheme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      generationSource: 'generationSource',
+      industry: 'industry',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      publishStatus: 'publishStatus',
+      textStyleType: 'textStyleType',
+      textTheme: 'textTheme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generationSource: 'string',
+      industry: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      publishStatus: 'string',
+      textStyleType: 'string',
+      textTheme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TextQueryResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TextQueryResult,
     };
   }
 
@@ -1035,13 +1156,21 @@ export default class Client extends OpenApi {
   /**
    * @summary 查询文案主题列表
    *
+   * @param request ListTextThemesRequest
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
    * @return ListTextThemesResponse
    */
-  async listTextThemesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTextThemesResponse> {
+  async listTextThemesWithOptions(request: ListTextThemesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTextThemesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.industry)) {
+      query["industry"] = request.industry;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "ListTextThemes",
@@ -1060,12 +1189,82 @@ export default class Client extends OpenApi {
   /**
    * @summary 查询文案主题列表
    *
+   * @param request ListTextThemesRequest
    * @return ListTextThemesResponse
    */
-  async listTextThemes(): Promise<ListTextThemesResponse> {
+  async listTextThemes(request: ListTextThemesRequest): Promise<ListTextThemesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTextThemesWithOptions(headers, runtime);
+    return await this.listTextThemesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 列举文案
+   *
+   * @param request ListTextsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTextsResponse
+   */
+  async listTextsWithOptions(request: ListTextsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTextsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.generationSource)) {
+      query["generationSource"] = request.generationSource;
+    }
+
+    if (!Util.isUnset(request.industry)) {
+      query["industry"] = request.industry;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.publishStatus)) {
+      query["publishStatus"] = request.publishStatus;
+    }
+
+    if (!Util.isUnset(request.textStyleType)) {
+      query["textStyleType"] = request.textStyleType;
+    }
+
+    if (!Util.isUnset(request.textTheme)) {
+      query["textTheme"] = request.textTheme;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTexts",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/texts`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTextsResponse>(await this.callApi(params, req, runtime), new ListTextsResponse({}));
+  }
+
+  /**
+   * @summary 列举文案
+   *
+   * @param request ListTextsRequest
+   * @return ListTextsResponse
+   */
+  async listTexts(request: ListTextsRequest): Promise<ListTextsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTextsWithOptions(request, headers, runtime);
   }
 
 }
