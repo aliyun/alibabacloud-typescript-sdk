@@ -4109,6 +4109,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
   id?: number;
   name?: string;
   namespace?: string;
+  pathIndependentPercentageEnable?: boolean;
   regionId?: string;
   tag?: string;
   static names(): { [key: string]: string } {
@@ -4123,6 +4124,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
       id: 'Id',
       name: 'Name',
       namespace: 'Namespace',
+      pathIndependentPercentageEnable: 'PathIndependentPercentageEnable',
       regionId: 'RegionId',
       tag: 'Tag',
     };
@@ -4140,6 +4142,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
       id: 'number',
       name: 'string',
       namespace: 'string',
+      pathIndependentPercentageEnable: 'boolean',
       regionId: 'string',
       tag: 'string',
     };
@@ -4161,6 +4164,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $tea.Model {
   id?: number;
   name?: string;
   namespace?: string;
+  pathIndependentPercentageEnable?: boolean;
   regionId?: string;
   tag?: string;
   static names(): { [key: string]: string } {
@@ -4175,6 +4179,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $tea.Model {
       id: 'Id',
       name: 'Name',
       namespace: 'Namespace',
+      pathIndependentPercentageEnable: 'PathIndependentPercentageEnable',
       regionId: 'RegionId',
       tag: 'Tag',
     };
@@ -4192,6 +4197,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $tea.Model {
       id: 'number',
       name: 'string',
       namespace: 'string',
+      pathIndependentPercentageEnable: 'boolean',
       regionId: 'string',
       tag: 'string',
     };
@@ -23895,6 +23901,28 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonCondit
   }
 }
 
+export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList extends $tea.Model {
+  percentage?: number;
+  routeId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+      routeId: 'RouteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'number',
+      routeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson extends $tea.Model {
   canaryModel?: number;
   conditions?: CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonConditions[];
@@ -23902,6 +23930,8 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson exten
   gatewayUniqueId?: string;
   percentage?: number;
   routeIdList?: number[];
+  routeIndependentPercentageEnable?: boolean;
+  routeIndependentPercentageList?: CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList[];
   static names(): { [key: string]: string } {
     return {
       canaryModel: 'CanaryModel',
@@ -23910,6 +23940,8 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson exten
       gatewayUniqueId: 'GatewayUniqueId',
       percentage: 'Percentage',
       routeIdList: 'RouteIdList',
+      routeIndependentPercentageEnable: 'RouteIndependentPercentageEnable',
+      routeIndependentPercentageList: 'RouteIndependentPercentageList',
     };
   }
 
@@ -23921,6 +23953,8 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson exten
       gatewayUniqueId: 'string',
       percentage: 'number',
       routeIdList: { 'type': 'array', 'itemType': 'number' },
+      routeIndependentPercentageEnable: 'boolean',
+      routeIndependentPercentageList: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList },
     };
   }
 
@@ -24088,6 +24122,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $tea.Model {
   groupId?: number;
   id?: number;
   name?: string;
+  pathIndependentPercentageEnable?: boolean;
   regionId?: string;
   status?: number;
   tag?: string;
@@ -24103,6 +24138,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $tea.Model {
       groupId: 'groupId',
       id: 'id',
       name: 'name',
+      pathIndependentPercentageEnable: 'pathIndependentPercentageEnable',
       regionId: 'regionId',
       status: 'status',
       tag: 'tag',
@@ -24121,6 +24157,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $tea.Model {
       groupId: 'number',
       id: 'number',
       name: 'string',
+      pathIndependentPercentageEnable: 'boolean',
       regionId: 'string',
       status: 'number',
       tag: 'string',
@@ -31764,6 +31801,28 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditi
   }
 }
 
+export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList extends $tea.Model {
+  percentage?: string;
+  routeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+      routeId: 'RouteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'string',
+      routeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extends $tea.Model {
   canaryModel?: number;
   conditions?: QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditions[];
@@ -31771,6 +31830,8 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extend
   gatewayUniqueId?: string;
   percentage?: number;
   routeIdList?: number[];
+  routeIndependentPercentageEnable?: string;
+  routeIndependentPercentageList?: QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList[];
   static names(): { [key: string]: string } {
     return {
       canaryModel: 'CanaryModel',
@@ -31779,6 +31840,8 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extend
       gatewayUniqueId: 'GatewayUniqueId',
       percentage: 'Percentage',
       routeIdList: 'RouteIdList',
+      routeIndependentPercentageEnable: 'RouteIndependentPercentageEnable',
+      routeIndependentPercentageList: 'RouteIndependentPercentageList',
     };
   }
 
@@ -31790,6 +31853,8 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extend
       gatewayUniqueId: 'string',
       percentage: 'number',
       routeIdList: { 'type': 'array', 'itemType': 'number' },
+      routeIndependentPercentageEnable: 'string',
+      routeIndependentPercentageList: { 'type': 'array', 'itemType': QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList },
     };
   }
 
@@ -31807,6 +31872,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $tea.Model {
   messageQueueGrayEnable?: boolean;
   name?: string;
   namespace?: string;
+  pathIndependentPercentageEnable?: boolean;
   recordCanaryDetail?: boolean;
   regionId?: string;
   tag?: string;
@@ -31824,6 +31890,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $tea.Model {
       messageQueueGrayEnable: 'MessageQueueGrayEnable',
       name: 'Name',
       namespace: 'Namespace',
+      pathIndependentPercentageEnable: 'PathIndependentPercentageEnable',
       recordCanaryDetail: 'RecordCanaryDetail',
       regionId: 'RegionId',
       tag: 'Tag',
@@ -31844,6 +31911,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $tea.Model {
       messageQueueGrayEnable: 'boolean',
       name: 'string',
       namespace: 'string',
+      pathIndependentPercentageEnable: 'boolean',
       recordCanaryDetail: 'boolean',
       regionId: 'string',
       tag: 'string',
@@ -32782,6 +32850,7 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRules extends $tea.Model 
 }
 
 export class QuerySwimmingLaneByIdResponseBodyData extends $tea.Model {
+  pathIndependentPercentageEnable?: boolean;
   enable?: boolean;
   enableRules?: boolean;
   entryRule?: string;
@@ -32797,6 +32866,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $tea.Model {
   tag?: string;
   static names(): { [key: string]: string } {
     return {
+      pathIndependentPercentageEnable: 'PathIndependentPercentageEnable',
       enable: 'enable',
       enableRules: 'enableRules',
       entryRule: 'entryRule',
@@ -32815,6 +32885,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      pathIndependentPercentageEnable: 'boolean',
       enable: 'boolean',
       enableRules: 'boolean',
       entryRule: 'string',
@@ -34309,6 +34380,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 新增服务鉴权规则
+   *
+   * @param request AddAuthPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddAuthPolicyResponse
+   */
   async addAuthPolicyWithOptions(request: AddAuthPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AddAuthPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34373,11 +34451,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddAuthPolicyResponse>(await this.callApi(params, req, runtime), new AddAuthPolicyResponse({}));
   }
 
+  /**
+   * @summary 新增服务鉴权规则
+   *
+   * @param request AddAuthPolicyRequest
+   * @return AddAuthPolicyResponse
+   */
   async addAuthPolicy(request: AddAuthPolicyRequest): Promise<AddAuthPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addAuthPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates authorization information for a gateway.
+   *
+   * @param tmpReq AddAuthResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddAuthResourceResponse
+   */
   async addAuthResourceWithOptions(tmpReq: AddAuthResourceRequest, runtime: $Util.RuntimeOptions): Promise<AddAuthResourceResponse> {
     Util.validateModel(tmpReq);
     let request = new AddAuthResourceShrinkRequest({ });
@@ -34436,11 +34527,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddAuthResourceResponse>(await this.callApi(params, req, runtime), new AddAuthResourceResponse({}));
   }
 
+  /**
+   * @summary Creates authorization information for a gateway.
+   *
+   * @param request AddAuthResourceRequest
+   * @return AddAuthResourceResponse
+   */
   async addAuthResource(request: AddAuthResourceRequest): Promise<AddAuthResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addAuthResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a blacklist or a whitelist.
+   *
+   * @param request AddBlackWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddBlackWhiteListResponse
+   */
   async addBlackWhiteListWithOptions(request: AddBlackWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<AddBlackWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34501,11 +34605,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddBlackWhiteListResponse>(await this.callApi(params, req, runtime), new AddBlackWhiteListResponse({}));
   }
 
+  /**
+   * @summary Creates a blacklist or a whitelist.
+   *
+   * @param request AddBlackWhiteListRequest
+   * @return AddBlackWhiteListResponse
+   */
   async addBlackWhiteList(request: AddBlackWhiteListRequest): Promise<AddBlackWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addBlackWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a gateway.
+   *
+   * @param tmpReq AddGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGatewayResponse
+   */
   async addGatewayWithOptions(tmpReq: AddGatewayRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewayResponse> {
     Util.validateModel(tmpReq);
     let request = new AddGatewayShrinkRequest({ });
@@ -34620,11 +34737,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGatewayResponse>(await this.callApi(params, req, runtime), new AddGatewayResponse({}));
   }
 
+  /**
+   * @summary Adds a gateway.
+   *
+   * @param request AddGatewayRequest
+   * @return AddGatewayResponse
+   */
   async addGateway(request: AddGatewayRequest): Promise<AddGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGatewayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds an authentication configuration for a gateway.
+   *
+   * @param tmpReq AddGatewayAuthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGatewayAuthResponse
+   */
   async addGatewayAuthWithOptions(tmpReq: AddGatewayAuthRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewayAuthResponse> {
     Util.validateModel(tmpReq);
     let request = new AddGatewayAuthShrinkRequest({ });
@@ -34751,11 +34881,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGatewayAuthResponse>(await this.callApi(params, req, runtime), new AddGatewayAuthResponse({}));
   }
 
+  /**
+   * @summary Adds an authentication configuration for a gateway.
+   *
+   * @param request AddGatewayAuthRequest
+   * @return AddGatewayAuthResponse
+   */
   async addGatewayAuth(request: AddGatewayAuthRequest): Promise<AddGatewayAuthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGatewayAuthWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a consumer on which a gateway performs authentication operations.
+   *
+   * @param request AddGatewayAuthConsumerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGatewayAuthConsumerResponse
+   */
   async addGatewayAuthConsumerWithOptions(request: AddGatewayAuthConsumerRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewayAuthConsumerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34828,11 +34971,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new AddGatewayAuthConsumerResponse({}));
   }
 
+  /**
+   * @summary Adds a consumer on which a gateway performs authentication operations.
+   *
+   * @param request AddGatewayAuthConsumerRequest
+   * @return AddGatewayAuthConsumerResponse
+   */
   async addGatewayAuthConsumer(request: AddGatewayAuthConsumerRequest): Promise<AddGatewayAuthConsumerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGatewayAuthConsumerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates a domain name with a gateway.
+   *
+   * @param request AddGatewayDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGatewayDomainResponse
+   */
   async addGatewayDomainWithOptions(request: AddGatewayDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewayDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34889,11 +35045,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGatewayDomainResponse>(await this.callApi(params, req, runtime), new AddGatewayDomainResponse({}));
   }
 
+  /**
+   * @summary Associates a domain name with a gateway.
+   *
+   * @param request AddGatewayDomainRequest
+   * @return AddGatewayDomainResponse
+   */
   async addGatewayDomain(request: AddGatewayDomainRequest): Promise<AddGatewayDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGatewayDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a gateway route.
+   *
+   * @param tmpReq AddGatewayRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGatewayRouteResponse
+   */
   async addGatewayRouteWithOptions(tmpReq: AddGatewayRouteRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewayRouteResponse> {
     Util.validateModel(tmpReq);
     let request = new AddGatewayRouteShrinkRequest({ });
@@ -35008,11 +35177,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGatewayRouteResponse>(await this.callApi(params, req, runtime), new AddGatewayRouteResponse({}));
   }
 
+  /**
+   * @summary Adds a gateway route.
+   *
+   * @param request AddGatewayRouteRequest
+   * @return AddGatewayRouteResponse
+   */
   async addGatewayRoute(request: AddGatewayRouteRequest): Promise<AddGatewayRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGatewayRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a service version.
+   *
+   * @param request AddGatewayServiceVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGatewayServiceVersionResponse
+   */
   async addGatewayServiceVersionWithOptions(request: AddGatewayServiceVersionRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewayServiceVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35049,11 +35231,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new AddGatewayServiceVersionResponse({}));
   }
 
+  /**
+   * @summary Adds a service version.
+   *
+   * @param request AddGatewayServiceVersionRequest
+   * @return AddGatewayServiceVersionResponse
+   */
   async addGatewayServiceVersion(request: AddGatewayServiceVersionRequest): Promise<AddGatewayServiceVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGatewayServiceVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates a Server Load Balancer (SLB) instance with a gateway.
+   *
+   * @param tmpReq AddGatewaySlbRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGatewaySlbResponse
+   */
   async addGatewaySlbWithOptions(tmpReq: AddGatewaySlbRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewaySlbResponse> {
     Util.validateModel(tmpReq);
     let request = new AddGatewaySlbShrinkRequest({ });
@@ -35120,11 +35315,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGatewaySlbResponse>(await this.callApi(params, req, runtime), new AddGatewaySlbResponse({}));
   }
 
+  /**
+   * @summary Associates a Server Load Balancer (SLB) instance with a gateway.
+   *
+   * @param request AddGatewaySlbRequest
+   * @return AddGatewaySlbResponse
+   */
   async addGatewaySlb(request: AddGatewaySlbRequest): Promise<AddGatewaySlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGatewaySlbWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a migration task.
+   *
+   * @param request AddMigrationTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddMigrationTaskResponse
+   */
   async addMigrationTaskWithOptions(request: AddMigrationTaskRequest, runtime: $Util.RuntimeOptions): Promise<AddMigrationTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35185,11 +35393,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddMigrationTaskResponse>(await this.callApi(params, req, runtime), new AddMigrationTaskResponse({}));
   }
 
+  /**
+   * @summary Adds a migration task.
+   *
+   * @param request AddMigrationTaskRequest
+   * @return AddMigrationTaskResponse
+   */
   async addMigrationTask(request: AddMigrationTaskRequest): Promise<AddMigrationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addMigrationTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a mock rule.
+   *
+   * @param request AddMockRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddMockRuleResponse
+   */
   async addMockRuleWithOptions(request: AddMockRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddMockRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35258,11 +35479,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddMockRuleResponse>(await this.callApi(params, req, runtime), new AddMockRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a mock rule.
+   *
+   * @param request AddMockRuleRequest
+   * @return AddMockRuleResponse
+   */
   async addMockRule(request: AddMockRuleRequest): Promise<AddMockRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addMockRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates a certificate with a domain name of a gateway. You can specify a certificate that is hosted in Alibaba Cloud Security.
+   *
+   * @param request AddSSLCertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddSSLCertResponse
+   */
   async addSSLCertWithOptions(request: AddSSLCertRequest, runtime: $Util.RuntimeOptions): Promise<AddSSLCertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35299,11 +35533,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSSLCertResponse>(await this.callApi(params, req, runtime), new AddSSLCertResponse({}));
   }
 
+  /**
+   * @summary Associates a certificate with a domain name of a gateway. You can specify a certificate that is hosted in Alibaba Cloud Security.
+   *
+   * @param request AddSSLCertRequest
+   * @return AddSSLCertResponse
+   */
   async addSSLCert(request: AddSSLCertRequest): Promise<AddSSLCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addSSLCertWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a security group rule for a gateway.
+   *
+   * @param request AddSecurityGroupRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddSecurityGroupRuleResponse
+   */
   async addSecurityGroupRuleWithOptions(request: AddSecurityGroupRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddSecurityGroupRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35344,11 +35591,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new AddSecurityGroupRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a security group rule for a gateway.
+   *
+   * @param request AddSecurityGroupRuleRequest
+   * @return AddSecurityGroupRuleResponse
+   */
   async addSecurityGroupRule(request: AddSecurityGroupRuleRequest): Promise<AddSecurityGroupRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addSecurityGroupRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a Nacos service source.
+   *
+   * @param tmpReq AddServiceSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddServiceSourceResponse
+   */
   async addServiceSourceWithOptions(tmpReq: AddServiceSourceRequest, runtime: $Util.RuntimeOptions): Promise<AddServiceSourceResponse> {
     Util.validateModel(tmpReq);
     let request = new AddServiceSourceShrinkRequest({ });
@@ -35427,11 +35687,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddServiceSourceResponse>(await this.callApi(params, req, runtime), new AddServiceSourceResponse({}));
   }
 
+  /**
+   * @summary Adds a Nacos service source.
+   *
+   * @param request AddServiceSourceRequest
+   * @return AddServiceSourceResponse
+   */
   async addServiceSource(request: AddServiceSourceRequest): Promise<AddServiceSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addServiceSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Publishes a route for a gateway.
+   *
+   * @param request ApplyGatewayRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyGatewayRouteResponse
+   */
   async applyGatewayRouteWithOptions(request: ApplyGatewayRouteRequest, runtime: $Util.RuntimeOptions): Promise<ApplyGatewayRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35464,11 +35737,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyGatewayRouteResponse>(await this.callApi(params, req, runtime), new ApplyGatewayRouteResponse({}));
   }
 
+  /**
+   * @summary Publishes a route for a gateway.
+   *
+   * @param request ApplyGatewayRouteRequest
+   * @return ApplyGatewayRouteResponse
+   */
   async applyGatewayRoute(request: ApplyGatewayRouteRequest): Promise<ApplyGatewayRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyGatewayRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a tag-based routing rule.
+   *
+   * @param tmpReq ApplyTagPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyTagPoliciesResponse
+   */
   async applyTagPoliciesWithOptions(tmpReq: ApplyTagPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ApplyTagPoliciesResponse> {
     Util.validateModel(tmpReq);
     let request = new ApplyTagPoliciesShrinkRequest({ });
@@ -35527,11 +35813,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyTagPoliciesResponse>(await this.callApi(params, req, runtime), new ApplyTagPoliciesResponse({}));
   }
 
+  /**
+   * @summary Modifies a tag-based routing rule.
+   *
+   * @param request ApplyTagPoliciesRequest
+   * @return ApplyTagPoliciesResponse
+   */
   async applyTagPolicies(request: ApplyTagPoliciesRequest): Promise<ApplyTagPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyTagPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 绑定流量防护行为
+   *
+   * @param request BindSentinelBlockFallbackDefinitionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindSentinelBlockFallbackDefinitionResponse
+   */
   async bindSentinelBlockFallbackDefinitionWithOptions(request: BindSentinelBlockFallbackDefinitionRequest, runtime: $Util.RuntimeOptions): Promise<BindSentinelBlockFallbackDefinitionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35576,17 +35875,25 @@ export default class Client extends OpenApi {
     return $tea.cast<BindSentinelBlockFallbackDefinitionResponse>(await this.callApi(params, req, runtime), new BindSentinelBlockFallbackDefinitionResponse({}));
   }
 
+  /**
+   * @summary 绑定流量防护行为
+   *
+   * @param request BindSentinelBlockFallbackDefinitionRequest
+   * @return BindSentinelBlockFallbackDefinitionResponse
+   */
   async bindSentinelBlockFallbackDefinition(request: BindSentinelBlockFallbackDefinitionRequest): Promise<BindSentinelBlockFallbackDefinitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindSentinelBlockFallbackDefinitionWithOptions(request, runtime);
   }
 
   /**
-    * mse-200-105
-    *
-    * @param request CloneNacosConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CloneNacosConfigResponse
+   * @summary Clones an existing Nacos configuration from a namespace to another namespace.
+   *
+   * @description mse-200-105
+   *
+   * @param request CloneNacosConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneNacosConfigResponse
    */
   async cloneNacosConfigWithOptions(request: CloneNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<CloneNacosConfigResponse> {
     Util.validateModel(request);
@@ -35633,16 +35940,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * mse-200-105
-    *
-    * @param request CloneNacosConfigRequest
-    * @return CloneNacosConfigResponse
+   * @summary Clones an existing Nacos configuration from a namespace to another namespace.
+   *
+   * @description mse-200-105
+   *
+   * @param request CloneNacosConfigRequest
+   * @return CloneNacosConfigResponse
    */
   async cloneNacosConfig(request: CloneNacosConfigRequest): Promise<CloneNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cloneNacosConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 从AHAS侧复制规则
+   *
+   * @param request CloneSentinelRuleFromAhasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneSentinelRuleFromAhasResponse
+   */
   async cloneSentinelRuleFromAhasWithOptions(request: CloneSentinelRuleFromAhasRequest, runtime: $Util.RuntimeOptions): Promise<CloneSentinelRuleFromAhasResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35683,11 +35999,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CloneSentinelRuleFromAhasResponse>(await this.callApi(params, req, runtime), new CloneSentinelRuleFromAhasResponse({}));
   }
 
+  /**
+   * @summary 从AHAS侧复制规则
+   *
+   * @param request CloneSentinelRuleFromAhasRequest
+   * @return CloneSentinelRuleFromAhasResponse
+   */
   async cloneSentinelRuleFromAhas(request: CloneSentinelRuleFromAhasRequest): Promise<CloneSentinelRuleFromAhasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cloneSentinelRuleFromAhasWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an application.
+   *
+   * @param request CreateApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApplicationResponse
+   */
   async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35740,11 +36069,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
   }
 
+  /**
+   * @summary Creates an application.
+   *
+   * @param request CreateApplicationRequest
+   * @return CreateApplicationResponse
+   */
   async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a circuit breaking rule.
+   *
+   * @param request CreateCircuitBreakerRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCircuitBreakerRuleResponse
+   */
   async createCircuitBreakerRuleWithOptions(request: CreateCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateCircuitBreakerRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35829,17 +36171,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new CreateCircuitBreakerRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a circuit breaking rule.
+   *
+   * @param request CreateCircuitBreakerRuleRequest
+   * @return CreateCircuitBreakerRuleResponse
+   */
   async createCircuitBreakerRule(request: CreateCircuitBreakerRuleRequest): Promise<CreateCircuitBreakerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCircuitBreakerRuleWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
-    *
-    * @param request CreateClusterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateClusterResponse
+   * @summary Creates a Microservices Engine (MSE) instance, such as an MSE ZooKeeper instance or an MSE Nacos instance.
+   *
+   * @description Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
+   *
+   * @param request CreateClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateClusterResponse
    */
   async createClusterWithOptions(request: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
@@ -35950,16 +36300,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
-    *
-    * @param request CreateClusterRequest
-    * @return CreateClusterResponse
+   * @summary Creates a Microservices Engine (MSE) instance, such as an MSE ZooKeeper instance or an MSE Nacos instance.
+   *
+   * @description Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
+   *
+   * @param request CreateClusterRequest
+   * @return CreateClusterResponse
    */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a namespace in a Nacos instance.
+   *
+   * @param request CreateEngineNamespaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEngineNamespaceResponse
+   */
   async createEngineNamespaceWithOptions(request: CreateEngineNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateEngineNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36008,11 +36367,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEngineNamespaceResponse>(await this.callApi(params, req, runtime), new CreateEngineNamespaceResponse({}));
   }
 
+  /**
+   * @summary Creates a namespace in a Nacos instance.
+   *
+   * @param request CreateEngineNamespaceRequest
+   * @return CreateEngineNamespaceResponse
+   */
   async createEngineNamespace(request: CreateEngineNamespaceRequest): Promise<CreateEngineNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEngineNamespaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a throttling rule.
+   *
+   * @param request CreateFlowRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFlowRuleResponse
+   */
   async createFlowRuleWithOptions(request: CreateFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36077,11 +36449,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFlowRuleResponse>(await this.callApi(params, req, runtime), new CreateFlowRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a throttling rule.
+   *
+   * @param request CreateFlowRuleRequest
+   * @return CreateFlowRuleResponse
+   */
   async createFlowRule(request: CreateFlowRuleRequest): Promise<CreateFlowRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFlowRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建网关路由熔断规则
+   *
+   * @param request CreateGatewayCircuitBreakerRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGatewayCircuitBreakerRuleResponse
+   */
   async createGatewayCircuitBreakerRuleWithOptions(request: CreateGatewayCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGatewayCircuitBreakerRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36170,11 +36555,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayCircuitBreakerRuleResponse({}));
   }
 
+  /**
+   * @summary 创建网关路由熔断规则
+   *
+   * @param request CreateGatewayCircuitBreakerRuleRequest
+   * @return CreateGatewayCircuitBreakerRuleResponse
+   */
   async createGatewayCircuitBreakerRule(request: CreateGatewayCircuitBreakerRuleRequest): Promise<CreateGatewayCircuitBreakerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGatewayCircuitBreakerRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建网关路由流控规则
+   *
+   * @param request CreateGatewayFlowRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGatewayFlowRuleResponse
+   */
   async createGatewayFlowRuleWithOptions(request: CreateGatewayFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGatewayFlowRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36243,11 +36641,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayFlowRuleResponse({}));
   }
 
+  /**
+   * @summary 创建网关路由流控规则
+   *
+   * @param request CreateGatewayFlowRuleRequest
+   * @return CreateGatewayFlowRuleResponse
+   */
   async createGatewayFlowRule(request: CreateGatewayFlowRuleRequest): Promise<CreateGatewayFlowRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGatewayFlowRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建网关路由隔离规则
+   *
+   * @param request CreateGatewayIsolationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGatewayIsolationRuleResponse
+   */
   async createGatewayIsolationRuleWithOptions(request: CreateGatewayIsolationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGatewayIsolationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36316,11 +36727,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayIsolationRuleResponse({}));
   }
 
+  /**
+   * @summary 创建网关路由隔离规则
+   *
+   * @param request CreateGatewayIsolationRuleRequest
+   * @return CreateGatewayIsolationRuleResponse
+   */
   async createGatewayIsolationRule(request: CreateGatewayIsolationRuleRequest): Promise<CreateGatewayIsolationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGatewayIsolationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建隔离规则
+   *
+   * @param request CreateIsolationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIsolationRuleResponse
+   */
   async createIsolationRuleWithOptions(request: CreateIsolationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateIsolationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36373,17 +36797,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIsolationRuleResponse>(await this.callApi(params, req, runtime), new CreateIsolationRuleResponse({}));
   }
 
+  /**
+   * @summary 创建隔离规则
+   *
+   * @param request CreateIsolationRuleRequest
+   * @return CreateIsolationRuleResponse
+   */
   async createIsolationRule(request: CreateIsolationRuleRequest): Promise<CreateIsolationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIsolationRuleWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead.
-    *
-    * @param request CreateMseServiceApplicationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateMseServiceApplicationResponse
+   * @deprecated OpenAPI CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead.
+   *
+   * @summary Creates an application.
+   *
+   * @param request CreateMseServiceApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMseServiceApplicationResponse
    */
   // Deprecated
   async createMseServiceApplicationWithOptions(request: CreateMseServiceApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateMseServiceApplicationResponse> {
@@ -36443,10 +36875,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead.
-    *
-    * @param request CreateMseServiceApplicationRequest
-    * @return CreateMseServiceApplicationResponse
+   * @deprecated OpenAPI CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead.
+   *
+   * @summary Creates an application.
+   *
+   * @param request CreateMseServiceApplicationRequest
+   * @return CreateMseServiceApplicationResponse
    */
   // Deprecated
   async createMseServiceApplication(request: CreateMseServiceApplicationRequest): Promise<CreateMseServiceApplicationResponse> {
@@ -36455,11 +36889,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request CreateNacosConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateNacosConfigResponse
+   * @summary Creates a Nacos configuration.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request CreateNacosConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNacosConfigResponse
    */
   async createNacosConfigWithOptions(request: CreateNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateNacosConfigResponse> {
     Util.validateModel(request);
@@ -36526,10 +36962,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request CreateNacosConfigRequest
-    * @return CreateNacosConfigResponse
+   * @summary Creates a Nacos configuration.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request CreateNacosConfigRequest
+   * @return CreateNacosConfigResponse
    */
   async createNacosConfig(request: CreateNacosConfigRequest): Promise<CreateNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36537,11 +36975,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request CreateNacosInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateNacosInstanceResponse
+   * @summary Creates a Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request CreateNacosInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNacosInstanceResponse
    */
   async createNacosInstanceWithOptions(request: CreateNacosInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNacosInstanceResponse> {
     Util.validateModel(request);
@@ -36614,10 +37054,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request CreateNacosInstanceRequest
-    * @return CreateNacosInstanceResponse
+   * @summary Creates a Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request CreateNacosInstanceRequest
+   * @return CreateNacosInstanceResponse
    */
   async createNacosInstance(request: CreateNacosInstanceRequest): Promise<CreateNacosInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36625,11 +37067,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request CreateNacosServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateNacosServiceResponse
+   * @summary Creates a Nacos service.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request CreateNacosServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNacosServiceResponse
    */
   async createNacosServiceWithOptions(request: CreateNacosServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNacosServiceResponse> {
     Util.validateModel(request);
@@ -36684,16 +37128,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request CreateNacosServiceRequest
-    * @return CreateNacosServiceResponse
+   * @summary Creates a Nacos service.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request CreateNacosServiceRequest
+   * @return CreateNacosServiceResponse
    */
   async createNacosService(request: CreateNacosServiceRequest): Promise<CreateNacosServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNacosServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or updates a lane for end-to-end canary release.
+   *
+   * @param tmpReq CreateOrUpdateSwimmingLaneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateSwimmingLaneResponse
+   */
   async createOrUpdateSwimmingLaneWithOptions(tmpReq: CreateOrUpdateSwimmingLaneRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateSwimmingLaneResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateOrUpdateSwimmingLaneShrinkRequest({ });
@@ -36739,6 +37192,10 @@ export default class Client extends OpenApi {
       query["Namespace"] = request.namespace;
     }
 
+    if (!Util.isUnset(request.pathIndependentPercentageEnable)) {
+      query["PathIndependentPercentageEnable"] = request.pathIndependentPercentageEnable;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -36770,11 +37227,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateSwimmingLaneResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateSwimmingLaneResponse({}));
   }
 
+  /**
+   * @summary Creates or updates a lane for end-to-end canary release.
+   *
+   * @param request CreateOrUpdateSwimmingLaneRequest
+   * @return CreateOrUpdateSwimmingLaneResponse
+   */
   async createOrUpdateSwimmingLane(request: CreateOrUpdateSwimmingLaneRequest): Promise<CreateOrUpdateSwimmingLaneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateSwimmingLaneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or updates a lane group for end-to-end canary release.
+   *
+   * @param tmpReq CreateOrUpdateSwimmingLaneGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateSwimmingLaneGroupResponse
+   */
   async createOrUpdateSwimmingLaneGroupWithOptions(tmpReq: CreateOrUpdateSwimmingLaneGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateSwimmingLaneGroupResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateOrUpdateSwimmingLaneGroupShrinkRequest({ });
@@ -36865,11 +37335,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateSwimmingLaneGroupResponse({}));
   }
 
+  /**
+   * @summary Creates or updates a lane group for end-to-end canary release.
+   *
+   * @param request CreateOrUpdateSwimmingLaneGroupRequest
+   * @return CreateOrUpdateSwimmingLaneGroupResponse
+   */
   async createOrUpdateSwimmingLaneGroup(request: CreateOrUpdateSwimmingLaneGroupRequest): Promise<CreateOrUpdateSwimmingLaneGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateSwimmingLaneGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a znode.
+   *
+   * @param request CreateZnodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateZnodeResponse
+   */
   async createZnodeWithOptions(request: CreateZnodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateZnodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36906,11 +37389,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateZnodeResponse>(await this.callApi(params, req, runtime), new CreateZnodeResponse({}));
   }
 
+  /**
+   * @summary Creates a znode.
+   *
+   * @param request CreateZnodeRequest
+   * @return CreateZnodeResponse
+   */
   async createZnode(request: CreateZnodeRequest): Promise<CreateZnodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createZnodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an authorized resource.
+   *
+   * @param request DeleteAuthResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAuthResourceResponse
+   */
   async deleteAuthResourceWithOptions(request: DeleteAuthResourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAuthResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36943,11 +37439,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAuthResourceResponse>(await this.callApi(params, req, runtime), new DeleteAuthResourceResponse({}));
   }
 
+  /**
+   * @summary Deletes an authorized resource.
+   *
+   * @param request DeleteAuthResourceRequest
+   * @return DeleteAuthResourceResponse
+   */
   async deleteAuthResource(request: DeleteAuthResourceRequest): Promise<DeleteAuthResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAuthResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes circuit breaking rules.
+   *
+   * @param tmpReq DeleteCircuitBreakerRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCircuitBreakerRulesResponse
+   */
   async deleteCircuitBreakerRulesWithOptions(tmpReq: DeleteCircuitBreakerRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCircuitBreakerRulesResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteCircuitBreakerRulesShrinkRequest({ });
@@ -36990,11 +37499,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCircuitBreakerRulesResponse>(await this.callApi(params, req, runtime), new DeleteCircuitBreakerRulesResponse({}));
   }
 
+  /**
+   * @summary Deletes circuit breaking rules.
+   *
+   * @param request DeleteCircuitBreakerRulesRequest
+   * @return DeleteCircuitBreakerRulesResponse
+   */
   async deleteCircuitBreakerRules(request: DeleteCircuitBreakerRulesRequest): Promise<DeleteCircuitBreakerRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCircuitBreakerRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a Microservices Engine (MSE) instance.
+   *
+   * @param request DeleteClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteClusterResponse
+   */
   async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37023,11 +37545,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
   }
 
+  /**
+   * @summary Deletes a Microservices Engine (MSE) instance.
+   *
+   * @param request DeleteClusterRequest
+   * @return DeleteClusterResponse
+   */
   async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a namespace from a Nacos instance.
+   *
+   * @param request DeleteEngineNamespaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEngineNamespaceResponse
+   */
   async deleteEngineNamespaceWithOptions(request: DeleteEngineNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEngineNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37064,11 +37599,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEngineNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteEngineNamespaceResponse({}));
   }
 
+  /**
+   * @summary Deletes a namespace from a Nacos instance.
+   *
+   * @param request DeleteEngineNamespaceRequest
+   * @return DeleteEngineNamespaceResponse
+   */
   async deleteEngineNamespace(request: DeleteEngineNamespaceRequest): Promise<DeleteEngineNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEngineNamespaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes throttling rules.
+   *
+   * @param tmpReq DeleteFlowRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFlowRulesResponse
+   */
   async deleteFlowRulesWithOptions(tmpReq: DeleteFlowRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowRulesResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteFlowRulesShrinkRequest({ });
@@ -37111,11 +37659,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFlowRulesResponse>(await this.callApi(params, req, runtime), new DeleteFlowRulesResponse({}));
   }
 
+  /**
+   * @summary Deletes throttling rules.
+   *
+   * @param request DeleteFlowRulesRequest
+   * @return DeleteFlowRulesResponse
+   */
   async deleteFlowRules(request: DeleteFlowRulesRequest): Promise<DeleteFlowRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFlowRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a gateway.
+   *
+   * @param request DeleteGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayResponse
+   */
   async deleteGatewayWithOptions(request: DeleteGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37148,11 +37709,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayResponse>(await this.callApi(params, req, runtime), new DeleteGatewayResponse({}));
   }
 
+  /**
+   * @summary Deletes a gateway.
+   *
+   * @param request DeleteGatewayRequest
+   * @return DeleteGatewayResponse
+   */
   async deleteGateway(request: DeleteGatewayRequest): Promise<DeleteGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a consumer on which a gateway performs authentication operations.
+   *
+   * @param request DeleteGatewayAuthConsumerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayAuthConsumerResponse
+   */
   async deleteGatewayAuthConsumerWithOptions(request: DeleteGatewayAuthConsumerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayAuthConsumerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37185,11 +37759,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new DeleteGatewayAuthConsumerResponse({}));
   }
 
+  /**
+   * @summary Deletes a consumer on which a gateway performs authentication operations.
+   *
+   * @param request DeleteGatewayAuthConsumerRequest
+   * @return DeleteGatewayAuthConsumerResponse
+   */
   async deleteGatewayAuthConsumer(request: DeleteGatewayAuthConsumerRequest): Promise<DeleteGatewayAuthConsumerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewayAuthConsumerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes resource permissions from the consumer on which a gateway performs authentication operations.
+   *
+   * @param request DeleteGatewayAuthConsumerResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayAuthConsumerResourceResponse
+   */
   async deleteGatewayAuthConsumerResourceWithOptions(request: DeleteGatewayAuthConsumerResourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayAuthConsumerResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37226,11 +37813,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayAuthConsumerResourceResponse>(await this.callApi(params, req, runtime), new DeleteGatewayAuthConsumerResourceResponse({}));
   }
 
+  /**
+   * @summary Deletes resource permissions from the consumer on which a gateway performs authentication operations.
+   *
+   * @param request DeleteGatewayAuthConsumerResourceRequest
+   * @return DeleteGatewayAuthConsumerResourceResponse
+   */
   async deleteGatewayAuthConsumerResource(request: DeleteGatewayAuthConsumerResourceRequest): Promise<DeleteGatewayAuthConsumerResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewayAuthConsumerResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除网关路由熔断规则
+   *
+   * @param request DeleteGatewayCircuitBreakerRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayCircuitBreakerRuleResponse
+   */
   async deleteGatewayCircuitBreakerRuleWithOptions(request: DeleteGatewayCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayCircuitBreakerRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37267,11 +37867,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayCircuitBreakerRuleResponse({}));
   }
 
+  /**
+   * @summary 删除网关路由熔断规则
+   *
+   * @param request DeleteGatewayCircuitBreakerRuleRequest
+   * @return DeleteGatewayCircuitBreakerRuleResponse
+   */
   async deleteGatewayCircuitBreakerRule(request: DeleteGatewayCircuitBreakerRuleRequest): Promise<DeleteGatewayCircuitBreakerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewayCircuitBreakerRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disassociates a domain name from a gateway.
+   *
+   * @param request DeleteGatewayDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayDomainResponse
+   */
   async deleteGatewayDomainWithOptions(request: DeleteGatewayDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37304,11 +37917,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayDomainResponse>(await this.callApi(params, req, runtime), new DeleteGatewayDomainResponse({}));
   }
 
+  /**
+   * @summary Disassociates a domain name from a gateway.
+   *
+   * @param request DeleteGatewayDomainRequest
+   * @return DeleteGatewayDomainResponse
+   */
   async deleteGatewayDomain(request: DeleteGatewayDomainRequest): Promise<DeleteGatewayDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewayDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除网关路由流控规则
+   *
+   * @param request DeleteGatewayFlowRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayFlowRuleResponse
+   */
   async deleteGatewayFlowRuleWithOptions(request: DeleteGatewayFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayFlowRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37345,11 +37971,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayFlowRuleResponse({}));
   }
 
+  /**
+   * @summary 删除网关路由流控规则
+   *
+   * @param request DeleteGatewayFlowRuleRequest
+   * @return DeleteGatewayFlowRuleResponse
+   */
   async deleteGatewayFlowRule(request: DeleteGatewayFlowRuleRequest): Promise<DeleteGatewayFlowRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewayFlowRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除网关路由隔离规则
+   *
+   * @param request DeleteGatewayIsolationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayIsolationRuleResponse
+   */
   async deleteGatewayIsolationRuleWithOptions(request: DeleteGatewayIsolationRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayIsolationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37386,11 +38025,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayIsolationRuleResponse({}));
   }
 
+  /**
+   * @summary 删除网关路由隔离规则
+   *
+   * @param request DeleteGatewayIsolationRuleRequest
+   * @return DeleteGatewayIsolationRuleResponse
+   */
   async deleteGatewayIsolationRule(request: DeleteGatewayIsolationRuleRequest): Promise<DeleteGatewayIsolationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewayIsolationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a route from a gateway.
+   *
+   * @param request DeleteGatewayRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayRouteResponse
+   */
   async deleteGatewayRouteWithOptions(request: DeleteGatewayRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37423,11 +38075,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayRouteResponse>(await this.callApi(params, req, runtime), new DeleteGatewayRouteResponse({}));
   }
 
+  /**
+   * @summary Deletes a route from a gateway.
+   *
+   * @param request DeleteGatewayRouteRequest
+   * @return DeleteGatewayRouteResponse
+   */
   async deleteGatewayRoute(request: DeleteGatewayRouteRequest): Promise<DeleteGatewayRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewayRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a service from a gateway.
+   *
+   * @param request DeleteGatewayServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayServiceResponse
+   */
   async deleteGatewayServiceWithOptions(request: DeleteGatewayServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37464,11 +38129,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayServiceResponse>(await this.callApi(params, req, runtime), new DeleteGatewayServiceResponse({}));
   }
 
+  /**
+   * @summary Deletes a service from a gateway.
+   *
+   * @param request DeleteGatewayServiceRequest
+   * @return DeleteGatewayServiceResponse
+   */
   async deleteGatewayService(request: DeleteGatewayServiceRequest): Promise<DeleteGatewayServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewayServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a service version from a gateway.
+   *
+   * @param request DeleteGatewayServiceVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayServiceVersionResponse
+   */
   async deleteGatewayServiceVersionWithOptions(request: DeleteGatewayServiceVersionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayServiceVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37505,11 +38183,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new DeleteGatewayServiceVersionResponse({}));
   }
 
+  /**
+   * @summary Deletes a service version from a gateway.
+   *
+   * @param request DeleteGatewayServiceVersionRequest
+   * @return DeleteGatewayServiceVersionResponse
+   */
   async deleteGatewayServiceVersion(request: DeleteGatewayServiceVersionRequest): Promise<DeleteGatewayServiceVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewayServiceVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the Server Load Balancer (SLB) instance that is associated with a gateway.
+   *
+   * @param request DeleteGatewaySlbRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewaySlbResponse
+   */
   async deleteGatewaySlbWithOptions(request: DeleteGatewaySlbRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewaySlbResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37550,11 +38241,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewaySlbResponse>(await this.callApi(params, req, runtime), new DeleteGatewaySlbResponse({}));
   }
 
+  /**
+   * @summary Deletes the Server Load Balancer (SLB) instance that is associated with a gateway.
+   *
+   * @param request DeleteGatewaySlbRequest
+   * @return DeleteGatewaySlbResponse
+   */
   async deleteGatewaySlb(request: DeleteGatewaySlbRequest): Promise<DeleteGatewaySlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewaySlbWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除隔离规则
+   *
+   * @param tmpReq DeleteIsolationRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIsolationRulesResponse
+   */
   async deleteIsolationRulesWithOptions(tmpReq: DeleteIsolationRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIsolationRulesResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteIsolationRulesShrinkRequest({ });
@@ -37597,11 +38301,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIsolationRulesResponse>(await this.callApi(params, req, runtime), new DeleteIsolationRulesResponse({}));
   }
 
+  /**
+   * @summary 删除隔离规则
+   *
+   * @param request DeleteIsolationRulesRequest
+   * @return DeleteIsolationRulesResponse
+   */
   async deleteIsolationRules(request: DeleteIsolationRulesRequest): Promise<DeleteIsolationRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIsolationRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a migration task.
+   *
+   * @param request DeleteMigrationTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMigrationTaskResponse
+   */
   async deleteMigrationTaskWithOptions(request: DeleteMigrationTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMigrationTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37634,11 +38351,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMigrationTaskResponse>(await this.callApi(params, req, runtime), new DeleteMigrationTaskResponse({}));
   }
 
+  /**
+   * @summary Deletes a migration task.
+   *
+   * @param request DeleteMigrationTaskRequest
+   * @return DeleteMigrationTaskResponse
+   */
   async deleteMigrationTask(request: DeleteMigrationTaskRequest): Promise<DeleteMigrationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMigrationTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除nacos指定配置
+   *
+   * @param request DeleteNacosConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNacosConfigResponse
+   */
   async deleteNacosConfigWithOptions(request: DeleteNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNacosConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37683,17 +38413,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNacosConfigResponse>(await this.callApi(params, req, runtime), new DeleteNacosConfigResponse({}));
   }
 
+  /**
+   * @summary 删除nacos指定配置
+   *
+   * @param request DeleteNacosConfigRequest
+   * @return DeleteNacosConfigResponse
+   */
   async deleteNacosConfig(request: DeleteNacosConfigRequest): Promise<DeleteNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNacosConfigWithOptions(request, runtime);
   }
 
   /**
-    * >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request DeleteNacosConfigsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteNacosConfigsResponse
+   * @summary Deletes multiple Nacos configurations at a time.
+   *
+   * @description >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request DeleteNacosConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNacosConfigsResponse
    */
   async deleteNacosConfigsWithOptions(request: DeleteNacosConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNacosConfigsResponse> {
     Util.validateModel(request);
@@ -37732,10 +38470,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request DeleteNacosConfigsRequest
-    * @return DeleteNacosConfigsResponse
+   * @summary Deletes multiple Nacos configurations at a time.
+   *
+   * @description >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request DeleteNacosConfigsRequest
+   * @return DeleteNacosConfigsResponse
    */
   async deleteNacosConfigs(request: DeleteNacosConfigsRequest): Promise<DeleteNacosConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37743,11 +38483,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request DeleteNacosInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteNacosInstanceResponse
+   * @summary Deletes a persistent application instance from a Microservices Engine (MSE) Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request DeleteNacosInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNacosInstanceResponse
    */
   async deleteNacosInstanceWithOptions(request: DeleteNacosInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNacosInstanceResponse> {
     Util.validateModel(request);
@@ -37806,10 +38548,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request DeleteNacosInstanceRequest
-    * @return DeleteNacosInstanceResponse
+   * @summary Deletes a persistent application instance from a Microservices Engine (MSE) Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request DeleteNacosInstanceRequest
+   * @return DeleteNacosInstanceResponse
    */
   async deleteNacosInstance(request: DeleteNacosInstanceRequest): Promise<DeleteNacosInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37817,11 +38561,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request DeleteNacosServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteNacosServiceResponse
+   * @summary Deletes a Nacos service.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request DeleteNacosServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNacosServiceResponse
    */
   async deleteNacosServiceWithOptions(request: DeleteNacosServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNacosServiceResponse> {
     Util.validateModel(request);
@@ -37864,16 +38610,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request DeleteNacosServiceRequest
-    * @return DeleteNacosServiceResponse
+   * @summary Deletes a Nacos service.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request DeleteNacosServiceRequest
+   * @return DeleteNacosServiceResponse
    */
   async deleteNacosService(request: DeleteNacosServiceRequest): Promise<DeleteNacosServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNacosServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除MSE命名空间
+   *
+   * @param request DeleteNamespaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNamespaceResponse
+   */
   async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37906,11 +38661,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
   }
 
+  /**
+   * @summary 删除MSE命名空间
+   *
+   * @param request DeleteNamespaceRequest
+   * @return DeleteNamespaceResponse
+   */
   async deleteNamespace(request: DeleteNamespaceRequest): Promise<DeleteNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNamespaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a security group rule from a gateway.
+   *
+   * @param request DeleteSecurityGroupRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSecurityGroupRuleResponse
+   */
   async deleteSecurityGroupRuleWithOptions(request: DeleteSecurityGroupRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecurityGroupRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37947,11 +38715,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new DeleteSecurityGroupRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a security group rule from a gateway.
+   *
+   * @param request DeleteSecurityGroupRuleRequest
+   * @return DeleteSecurityGroupRuleResponse
+   */
   async deleteSecurityGroupRule(request: DeleteSecurityGroupRuleRequest): Promise<DeleteSecurityGroupRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSecurityGroupRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a gateway service source.
+   *
+   * @param request DeleteServiceSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServiceSourceResponse
+   */
   async deleteServiceSourceWithOptions(request: DeleteServiceSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceSourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37984,11 +38765,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceSourceResponse>(await this.callApi(params, req, runtime), new DeleteServiceSourceResponse({}));
   }
 
+  /**
+   * @summary Deletes a gateway service source.
+   *
+   * @param request DeleteServiceSourceRequest
+   * @return DeleteServiceSourceResponse
+   */
   async deleteServiceSource(request: DeleteServiceSourceRequest): Promise<DeleteServiceSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServiceSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a lane.
+   *
+   * @param request DeleteSwimmingLaneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSwimmingLaneResponse
+   */
   async deleteSwimmingLaneWithOptions(request: DeleteSwimmingLaneRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSwimmingLaneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38021,11 +38815,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSwimmingLaneResponse>(await this.callApi(params, req, runtime), new DeleteSwimmingLaneResponse({}));
   }
 
+  /**
+   * @summary Deletes a lane.
+   *
+   * @param request DeleteSwimmingLaneRequest
+   * @return DeleteSwimmingLaneResponse
+   */
   async deleteSwimmingLane(request: DeleteSwimmingLaneRequest): Promise<DeleteSwimmingLaneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSwimmingLaneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a lane group.
+   *
+   * @param request DeleteSwimmingLaneGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSwimmingLaneGroupResponse
+   */
   async deleteSwimmingLaneGroupWithOptions(request: DeleteSwimmingLaneGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSwimmingLaneGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38062,11 +38869,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new DeleteSwimmingLaneGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes a lane group.
+   *
+   * @param request DeleteSwimmingLaneGroupRequest
+   * @return DeleteSwimmingLaneGroupResponse
+   */
   async deleteSwimmingLaneGroup(request: DeleteSwimmingLaneGroupRequest): Promise<DeleteSwimmingLaneGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSwimmingLaneGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a ZooKeeper node.
+   *
+   * @param request DeleteZnodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteZnodeResponse
+   */
   async deleteZnodeWithOptions(request: DeleteZnodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteZnodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38103,17 +38923,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteZnodeResponse>(await this.callApi(params, req, runtime), new DeleteZnodeResponse({}));
   }
 
+  /**
+   * @summary Deletes a ZooKeeper node.
+   *
+   * @param request DeleteZnodeRequest
+   * @return DeleteZnodeResponse
+   */
   async deleteZnode(request: DeleteZnodeRequest): Promise<DeleteZnodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteZnodeWithOptions(request, runtime);
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ExportNacosConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ExportNacosConfigResponse
+   * @summary Exports specified Nacos configurations.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ExportNacosConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportNacosConfigResponse
    */
   async exportNacosConfigWithOptions(request: ExportNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<ExportNacosConfigResponse> {
     Util.validateModel(request);
@@ -38168,10 +38996,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ExportNacosConfigRequest
-    * @return ExportNacosConfigResponse
+   * @summary Exports specified Nacos configurations.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ExportNacosConfigRequest
+   * @return ExportNacosConfigResponse
    */
   async exportNacosConfig(request: ExportNacosConfigRequest): Promise<ExportNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38179,11 +39009,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only one task can run at a time.
-    *
-    * @param request ExportZookeeperDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ExportZookeeperDataResponse
+   * @summary Initiates a task to export ZooKeeper data.
+   *
+   * @description Only one task can run at a time.
+   *
+   * @param request ExportZookeeperDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportZookeeperDataResponse
    */
   async exportZookeeperDataWithOptions(request: ExportZookeeperDataRequest, runtime: $Util.RuntimeOptions): Promise<ExportZookeeperDataResponse> {
     Util.validateModel(request);
@@ -38226,10 +39058,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only one task can run at a time.
-    *
-    * @param request ExportZookeeperDataRequest
-    * @return ExportZookeeperDataResponse
+   * @summary Initiates a task to export ZooKeeper data.
+   *
+   * @description Only one task can run at a time.
+   *
+   * @param request ExportZookeeperDataRequest
+   * @return ExportZookeeperDataResponse
    */
   async exportZookeeperData(request: ExportZookeeperDataRequest): Promise<ExportZookeeperDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38237,11 +39071,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the rules for graceful start and shutdown.
-    *
-    * @param request FetchLosslessRuleListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return FetchLosslessRuleListResponse
+   * @summary Obtains the rules for graceful start and shutdown.
+   *
+   * @description You can call this operation to query the rules for graceful start and shutdown.
+   *
+   * @param request FetchLosslessRuleListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FetchLosslessRuleListResponse
    */
   async fetchLosslessRuleListWithOptions(request: FetchLosslessRuleListRequest, runtime: $Util.RuntimeOptions): Promise<FetchLosslessRuleListResponse> {
     Util.validateModel(request);
@@ -38292,16 +39128,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the rules for graceful start and shutdown.
-    *
-    * @param request FetchLosslessRuleListRequest
-    * @return FetchLosslessRuleListResponse
+   * @summary Obtains the rules for graceful start and shutdown.
+   *
+   * @description You can call this operation to query the rules for graceful start and shutdown.
+   *
+   * @param request FetchLosslessRuleListRequest
+   * @return FetchLosslessRuleListResponse
    */
   async fetchLosslessRuleList(request: FetchLosslessRuleListRequest): Promise<FetchLosslessRuleListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fetchLosslessRuleListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about canary release for messaging of an application.
+   *
+   * @param request GetAppMessageQueueRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppMessageQueueRouteResponse
+   */
   async getAppMessageQueueRouteWithOptions(request: GetAppMessageQueueRouteRequest, runtime: $Util.RuntimeOptions): Promise<GetAppMessageQueueRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38342,11 +39187,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppMessageQueueRouteResponse>(await this.callApi(params, req, runtime), new GetAppMessageQueueRouteResponse({}));
   }
 
+  /**
+   * @summary Queries information about canary release for messaging of an application.
+   *
+   * @param request GetAppMessageQueueRouteRequest
+   * @return GetAppMessageQueueRouteResponse
+   */
   async getAppMessageQueueRoute(request: GetAppMessageQueueRouteRequest): Promise<GetAppMessageQueueRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppMessageQueueRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of microservice application instances.
+   *
+   * @param request GetApplicationInstanceListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApplicationInstanceListResponse
+   */
   async getApplicationInstanceListWithOptions(request: GetApplicationInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationInstanceListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38399,11 +39257,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationInstanceListResponse>(await this.callApi(params, req, runtime), new GetApplicationInstanceListResponse({}));
   }
 
+  /**
+   * @summary Queries the list of microservice application instances.
+   *
+   * @param request GetApplicationInstanceListRequest
+   * @return GetApplicationInstanceListResponse
+   */
   async getApplicationInstanceList(request: GetApplicationInstanceListRequest): Promise<GetApplicationInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationInstanceListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the list of applications.
+   *
+   * @param request GetApplicationListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApplicationListResponse
+   */
   async getApplicationListWithOptions(request: GetApplicationListRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38468,11 +39339,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationListResponse>(await this.callApi(params, req, runtime), new GetApplicationListResponse({}));
   }
 
+  /**
+   * @summary Obtains the list of applications.
+   *
+   * @param request GetApplicationListRequest
+   * @return GetApplicationListResponse
+   */
   async getApplicationList(request: GetApplicationListRequest): Promise<GetApplicationListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the blacklist or whitelist of a gateway.
+   *
+   * @param request GetBlackWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBlackWhiteListResponse
+   */
   async getBlackWhiteListWithOptions(request: GetBlackWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<GetBlackWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38513,11 +39397,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBlackWhiteListResponse>(await this.callApi(params, req, runtime), new GetBlackWhiteListResponse({}));
   }
 
+  /**
+   * @summary Queries the blacklist or whitelist of a gateway.
+   *
+   * @param request GetBlackWhiteListRequest
+   * @return GetBlackWhiteListResponse
+   */
   async getBlackWhiteList(request: GetBlackWhiteListRequest): Promise<GetBlackWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBlackWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the namespaces of a Nacos instance.
+   *
+   * @param request GetEngineNamepaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEngineNamepaceResponse
+   */
   async getEngineNamepaceWithOptions(request: GetEngineNamepaceRequest, runtime: $Util.RuntimeOptions): Promise<GetEngineNamepaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38554,11 +39451,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEngineNamepaceResponse>(await this.callApi(params, req, runtime), new GetEngineNamepaceResponse({}));
   }
 
+  /**
+   * @summary Queries the namespaces of a Nacos instance.
+   *
+   * @param request GetEngineNamepaceRequest
+   * @return GetEngineNamepaceResponse
+   */
   async getEngineNamepace(request: GetEngineNamepaceRequest): Promise<GetEngineNamepaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getEngineNamepaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the basic information about a gateway, such as the virtual private cloud (VPC) and vSwitch to which the gateway belongs.
+   *
+   * @param request GetGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGatewayResponse
+   */
   async getGatewayWithOptions(request: GetGatewayRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38587,11 +39497,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGatewayResponse>(await this.callApi(params, req, runtime), new GetGatewayResponse({}));
   }
 
+  /**
+   * @summary Obtains the basic information about a gateway, such as the virtual private cloud (VPC) and vSwitch to which the gateway belongs.
+   *
+   * @param request GetGatewayRequest
+   * @return GetGatewayResponse
+   */
   async getGateway(request: GetGatewayRequest): Promise<GetGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGatewayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of the consumer on which a gateway performs authentication operations.
+   *
+   * @param request GetGatewayAuthConsumerDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGatewayAuthConsumerDetailResponse
+   */
   async getGatewayAuthConsumerDetailWithOptions(request: GetGatewayAuthConsumerDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayAuthConsumerDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38624,11 +39547,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGatewayAuthConsumerDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayAuthConsumerDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of the consumer on which a gateway performs authentication operations.
+   *
+   * @param request GetGatewayAuthConsumerDetailRequest
+   * @return GetGatewayAuthConsumerDetailResponse
+   */
   async getGatewayAuthConsumerDetail(request: GetGatewayAuthConsumerDetailRequest): Promise<GetGatewayAuthConsumerDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGatewayAuthConsumerDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询网关认证详情
+   *
+   * @param request GetGatewayAuthDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGatewayAuthDetailResponse
+   */
   async getGatewayAuthDetailWithOptions(request: GetGatewayAuthDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayAuthDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38665,11 +39601,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGatewayAuthDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayAuthDetailResponse({}));
   }
 
+  /**
+   * @summary 查询网关认证详情
+   *
+   * @param request GetGatewayAuthDetailRequest
+   * @return GetGatewayAuthDetailResponse
+   */
   async getGatewayAuthDetail(request: GetGatewayAuthDetailRequest): Promise<GetGatewayAuthDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGatewayAuthDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a domain name associated with a gateway.
+   *
+   * @param request GetGatewayDomainDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGatewayDomainDetailResponse
+   */
   async getGatewayDomainDetailWithOptions(request: GetGatewayDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayDomainDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38702,11 +39651,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGatewayDomainDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayDomainDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a domain name associated with a gateway.
+   *
+   * @param request GetGatewayDomainDetailRequest
+   * @return GetGatewayDomainDetailResponse
+   */
   async getGatewayDomainDetail(request: GetGatewayDomainDetailRequest): Promise<GetGatewayDomainDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGatewayDomainDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the global parameters of a gateway.
+   *
+   * @param request GetGatewayOptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGatewayOptionResponse
+   */
   async getGatewayOptionWithOptions(request: GetGatewayOptionRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayOptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38739,11 +39701,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGatewayOptionResponse>(await this.callApi(params, req, runtime), new GetGatewayOptionResponse({}));
   }
 
+  /**
+   * @summary Obtains the global parameters of a gateway.
+   *
+   * @param request GetGatewayOptionRequest
+   * @return GetGatewayOptionResponse
+   */
   async getGatewayOption(request: GetGatewayOptionRequest): Promise<GetGatewayOptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGatewayOptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a route for a gateway.
+   *
+   * @param request GetGatewayRouteDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGatewayRouteDetailResponse
+   */
   async getGatewayRouteDetailWithOptions(request: GetGatewayRouteDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayRouteDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38776,11 +39751,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGatewayRouteDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayRouteDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a route for a gateway.
+   *
+   * @param request GetGatewayRouteDetailRequest
+   * @return GetGatewayRouteDetailResponse
+   */
   async getGatewayRouteDetail(request: GetGatewayRouteDetailRequest): Promise<GetGatewayRouteDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGatewayRouteDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a service.
+   *
+   * @param request GetGatewayServiceDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGatewayServiceDetailResponse
+   */
   async getGatewayServiceDetailWithOptions(request: GetGatewayServiceDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayServiceDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38813,11 +39801,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGatewayServiceDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayServiceDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a service.
+   *
+   * @param request GetGatewayServiceDetailRequest
+   * @return GetGatewayServiceDetailResponse
+   */
   async getGatewayServiceDetail(request: GetGatewayServiceDetailRequest): Promise<GetGatewayServiceDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGatewayServiceDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a Container Service for Kubernetes (ACK) cluster for which Microservices Governance is enabled.
+   *
+   * @param request GetGovernanceKubernetesClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGovernanceKubernetesClusterResponse
+   */
   async getGovernanceKubernetesClusterWithOptions(request: GetGovernanceKubernetesClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetGovernanceKubernetesClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38850,11 +39851,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGovernanceKubernetesClusterResponse>(await this.callApi(params, req, runtime), new GetGovernanceKubernetesClusterResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a Container Service for Kubernetes (ACK) cluster for which Microservices Governance is enabled.
+   *
+   * @param request GetGovernanceKubernetesClusterRequest
+   * @return GetGovernanceKubernetesClusterResponse
+   */
   async getGovernanceKubernetesCluster(request: GetGovernanceKubernetesClusterRequest): Promise<GetGovernanceKubernetesClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGovernanceKubernetesClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the maximum version number to which the current version can be upgraded.
+   *
+   * @param request GetImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetImageResponse
+   */
   async getImageWithOptions(request: GetImageRequest, runtime: $Util.RuntimeOptions): Promise<GetImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38883,17 +39897,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetImageResponse>(await this.callApi(params, req, runtime), new GetImageResponse({}));
   }
 
+  /**
+   * @summary Queries the maximum version number to which the current version can be upgraded.
+   *
+   * @param request GetImageRequest
+   * @return GetImageResponse
+   */
   async getImage(request: GetImageRequest): Promise<GetImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getImageWithOptions(request, runtime);
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n
-    *
-    * @param request GetImportFileUrlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetImportFileUrlResponse
+   * @summary Obtains the URL that is used to upload a configuration file when you import the configuration file into a Microservices Engine (MSE) Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n
+   *
+   * @param request GetImportFileUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetImportFileUrlResponse
    */
   async getImportFileUrlWithOptions(request: GetImportFileUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetImportFileUrlResponse> {
     Util.validateModel(request);
@@ -38932,16 +39954,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n
-    *
-    * @param request GetImportFileUrlRequest
-    * @return GetImportFileUrlResponse
+   * @summary Obtains the URL that is used to upload a configuration file when you import the configuration file into a Microservices Engine (MSE) Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n
+   *
+   * @param request GetImportFileUrlRequest
+   * @return GetImportFileUrlResponse
    */
   async getImportFileUrl(request: GetImportFileUrlRequest): Promise<GetImportFileUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getImportFileUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains sources of all Container Service for Kubernetes (ACK) services in a gateway.
+   *
+   * @param request GetKubernetesSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetKubernetesSourceResponse
+   */
   async getKubernetesSourceWithOptions(request: GetKubernetesSourceRequest, runtime: $Util.RuntimeOptions): Promise<GetKubernetesSourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38978,19 +40009,27 @@ export default class Client extends OpenApi {
     return $tea.cast<GetKubernetesSourceResponse>(await this.callApi(params, req, runtime), new GetKubernetesSourceResponse({}));
   }
 
+  /**
+   * @summary Obtains sources of all Container Service for Kubernetes (ACK) services in a gateway.
+   *
+   * @param request GetKubernetesSourceRequest
+   * @return GetKubernetesSourceResponse
+   */
   async getKubernetesSource(request: GetKubernetesSourceRequest): Promise<GetKubernetesSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getKubernetesSourceWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query the rules for graceful start and shutdown of an application.
-    * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
-    * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
-    *
-    * @param request GetLosslessRuleByAppRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetLosslessRuleByAppResponse
+   * @summary Queries the rules for graceful start and shutdown of an application.
+   *
+   * @description You can call this operation to query the rules for graceful start and shutdown of an application.
+   * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
+   * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+   *
+   * @param request GetLosslessRuleByAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLosslessRuleByAppResponse
    */
   async getLosslessRuleByAppWithOptions(request: GetLosslessRuleByAppRequest, runtime: $Util.RuntimeOptions): Promise<GetLosslessRuleByAppResponse> {
     Util.validateModel(request);
@@ -39033,18 +40072,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the rules for graceful start and shutdown of an application.
-    * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
-    * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
-    *
-    * @param request GetLosslessRuleByAppRequest
-    * @return GetLosslessRuleByAppResponse
+   * @summary Queries the rules for graceful start and shutdown of an application.
+   *
+   * @description You can call this operation to query the rules for graceful start and shutdown of an application.
+   * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
+   * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+   *
+   * @param request GetLosslessRuleByAppRequest
+   * @return GetLosslessRuleByAppResponse
    */
   async getLosslessRuleByApp(request: GetLosslessRuleByAppRequest): Promise<GetLosslessRuleByAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLosslessRuleByAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the MSE feature switch.
+   *
+   * @param request GetMseFeatureSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMseFeatureSwitchResponse
+   */
   async getMseFeatureSwitchWithOptions(request: GetMseFeatureSwitchRequest, runtime: $Util.RuntimeOptions): Promise<GetMseFeatureSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39069,11 +40117,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMseFeatureSwitchResponse>(await this.callApi(params, req, runtime), new GetMseFeatureSwitchResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the MSE feature switch.
+   *
+   * @param request GetMseFeatureSwitchRequest
+   * @return GetMseFeatureSwitchResponse
+   */
   async getMseFeatureSwitch(request: GetMseFeatureSwitchRequest): Promise<GetMseFeatureSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMseFeatureSwitchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the existing Microservices Engine (MSE) Nacos instances that are service sources of a gateway.
+   *
+   * @param request GetMseSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMseSourceResponse
+   */
   async getMseSourceWithOptions(request: GetMseSourceRequest, runtime: $Util.RuntimeOptions): Promise<GetMseSourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39110,17 +40171,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMseSourceResponse>(await this.callApi(params, req, runtime), new GetMseSourceResponse({}));
   }
 
+  /**
+   * @summary Queries the existing Microservices Engine (MSE) Nacos instances that are service sources of a gateway.
+   *
+   * @param request GetMseSourceRequest
+   * @return GetMseSourceResponse
+   */
   async getMseSource(request: GetMseSourceRequest): Promise<GetMseSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMseSourceWithOptions(request, runtime);
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request GetNacosConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetNacosConfigResponse
+   * @summary Queries Nacos configurations.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request GetNacosConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNacosConfigResponse
    */
   async getNacosConfigWithOptions(request: GetNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetNacosConfigResponse> {
     Util.validateModel(request);
@@ -39167,10 +40236,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request GetNacosConfigRequest
-    * @return GetNacosConfigResponse
+   * @summary Queries Nacos configurations.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request GetNacosConfigRequest
+   * @return GetNacosConfigResponse
    */
   async getNacosConfig(request: GetNacosConfigRequest): Promise<GetNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39178,11 +40249,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request GetNacosHistoryConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetNacosHistoryConfigResponse
+   * @summary Queries the historical details of Nacos configuration changes.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request GetNacosHistoryConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNacosHistoryConfigResponse
    */
   async getNacosHistoryConfigWithOptions(request: GetNacosHistoryConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetNacosHistoryConfigResponse> {
     Util.validateModel(request);
@@ -39229,10 +40302,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request GetNacosHistoryConfigRequest
-    * @return GetNacosHistoryConfigResponse
+   * @summary Queries the historical details of Nacos configuration changes.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request GetNacosHistoryConfigRequest
+   * @return GetNacosHistoryConfigResponse
    */
   async getNacosHistoryConfig(request: GetNacosHistoryConfigRequest): Promise<GetNacosHistoryConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39240,11 +40315,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query overview information about service governance.
-    *
-    * @param request GetOverviewRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetOverviewResponse
+   * @summary Queries information about service governance.
+   *
+   * @description You can call this operation to query overview information about service governance.
+   *
+   * @param request GetOverviewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOverviewResponse
    */
   async getOverviewWithOptions(request: GetOverviewRequest, runtime: $Util.RuntimeOptions): Promise<GetOverviewResponse> {
     Util.validateModel(request);
@@ -39279,16 +40356,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query overview information about service governance.
-    *
-    * @param request GetOverviewRequest
-    * @return GetOverviewResponse
+   * @summary Queries information about service governance.
+   *
+   * @description You can call this operation to query overview information about service governance.
+   *
+   * @param request GetOverviewRequest
+   * @return GetOverviewResponse
    */
   async getOverview(request: GetOverviewRequest): Promise<GetOverviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOverviewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains plug-in configurations.
+   *
+   * @param request GetPluginConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPluginConfigResponse
+   */
   async getPluginConfigWithOptions(request: GetPluginConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetPluginConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39321,11 +40407,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPluginConfigResponse>(await this.callApi(params, req, runtime), new GetPluginConfigResponse({}));
   }
 
+  /**
+   * @summary Obtains plug-in configurations.
+   *
+   * @param request GetPluginConfigRequest
+   * @return GetPluginConfigResponse
+   */
   async getPluginConfig(request: GetPluginConfigRequest): Promise<GetPluginConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPluginConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains plug-ins.
+   *
+   * @param request GetPluginsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPluginsResponse
+   */
   async getPluginsWithOptions(request: GetPluginsRequest, runtime: $Util.RuntimeOptions): Promise<GetPluginsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39366,11 +40465,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPluginsResponse>(await this.callApi(params, req, runtime), new GetPluginsResponse({}));
   }
 
+  /**
+   * @summary Obtains plug-ins.
+   *
+   * @param request GetPluginsRequest
+   * @return GetPluginsResponse
+   */
   async getPlugins(request: GetPluginsRequest): Promise<GetPluginsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPluginsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the services of an application.
+   *
+   * @param request GetServiceListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceListResponse
+   */
   async getServiceListWithOptions(request: GetServiceListRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39415,11 +40527,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceListResponse>(await this.callApi(params, req, runtime), new GetServiceListResponse({}));
   }
 
+  /**
+   * @summary Queries the services of an application.
+   *
+   * @param request GetServiceListRequest
+   * @return GetServiceListResponse
+   */
   async getServiceList(request: GetServiceListRequest): Promise<GetServiceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the version of a microservices application.
+   *
+   * @param request GetServiceListPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceListPageResponse
+   */
   async getServiceListPageWithOptions(request: GetServiceListPageRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceListPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39480,11 +40605,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceListPageResponse>(await this.callApi(params, req, runtime), new GetServiceListPageResponse({}));
   }
 
+  /**
+   * @summary Queries the version of a microservices application.
+   *
+   * @param request GetServiceListPageRequest
+   * @return GetServiceListPageResponse
+   */
   async getServiceListPage(request: GetServiceListPageRequest): Promise<GetServiceListPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceListPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of listeners for the destination service.
+   *
+   * @param request GetServiceListenersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceListenersResponse
+   */
   async getServiceListenersWithOptions(request: GetServiceListenersRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceListenersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39553,11 +40691,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceListenersResponse>(await this.callApi(params, req, runtime), new GetServiceListenersResponse({}));
   }
 
+  /**
+   * @summary Queries the list of listeners for the destination service.
+   *
+   * @param request GetServiceListenersRequest
+   * @return GetServiceListenersResponse
+   */
   async getServiceListeners(request: GetServiceListenersRequest): Promise<GetServiceListenersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceListenersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取服务接口列表
+   *
+   * @param request GetServiceMethodPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceMethodPageResponse
+   */
   async getServiceMethodPageWithOptions(request: GetServiceMethodPageRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceMethodPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39638,11 +40789,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceMethodPageResponse>(await this.callApi(params, req, runtime), new GetServiceMethodPageResponse({}));
   }
 
+  /**
+   * @summary 获取服务接口列表
+   *
+   * @param request GetServiceMethodPageRequest
+   * @return GetServiceMethodPageResponse
+   */
   async getServiceMethodPage(request: GetServiceMethodPageRequest): Promise<GetServiceMethodPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceMethodPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains all tags in the current lane group.
+   *
+   * @param request GetTagsBySwimmingLaneGroupIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTagsBySwimmingLaneGroupIdResponse
+   */
   async getTagsBySwimmingLaneGroupIdWithOptions(request: GetTagsBySwimmingLaneGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<GetTagsBySwimmingLaneGroupIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39675,11 +40839,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTagsBySwimmingLaneGroupIdResponse>(await this.callApi(params, req, runtime), new GetTagsBySwimmingLaneGroupIdResponse({}));
   }
 
+  /**
+   * @summary Obtains all tags in the current lane group.
+   *
+   * @param request GetTagsBySwimmingLaneGroupIdRequest
+   * @return GetTagsBySwimmingLaneGroupIdResponse
+   */
   async getTagsBySwimmingLaneGroupId(request: GetTagsBySwimmingLaneGroupIdRequest): Promise<GetTagsBySwimmingLaneGroupIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTagsBySwimmingLaneGroupIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary mse-200-105
+   *
+   * @param request GetZookeeperDataImportUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetZookeeperDataImportUrlResponse
+   */
   async getZookeeperDataImportUrlWithOptions(request: GetZookeeperDataImportUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetZookeeperDataImportUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39712,17 +40889,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetZookeeperDataImportUrlResponse>(await this.callApi(params, req, runtime), new GetZookeeperDataImportUrlResponse({}));
   }
 
+  /**
+   * @summary mse-200-105
+   *
+   * @param request GetZookeeperDataImportUrlRequest
+   * @return GetZookeeperDataImportUrlResponse
+   */
   async getZookeeperDataImportUrl(request: GetZookeeperDataImportUrlRequest): Promise<GetZookeeperDataImportUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getZookeeperDataImportUrlWithOptions(request, runtime);
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ImportNacosConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ImportNacosConfigResponse
+   * @summary Imports Nacos configurations as a file.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ImportNacosConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportNacosConfigResponse
    */
   async importNacosConfigWithOptions(request: ImportNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<ImportNacosConfigResponse> {
     Util.validateModel(request);
@@ -39765,16 +40950,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ImportNacosConfigRequest
-    * @return ImportNacosConfigResponse
+   * @summary Imports Nacos configurations as a file.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ImportNacosConfigRequest
+   * @return ImportNacosConfigResponse
    */
   async importNacosConfig(request: ImportNacosConfigRequest): Promise<ImportNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importNacosConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Imports services to a gateway.
+   *
+   * @param tmpReq ImportServicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportServicesResponse
+   */
   async importServicesWithOptions(tmpReq: ImportServicesRequest, runtime: $Util.RuntimeOptions): Promise<ImportServicesResponse> {
     Util.validateModel(tmpReq);
     let request = new ImportServicesShrinkRequest({ });
@@ -39833,17 +41027,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportServicesResponse>(await this.callApi(params, req, runtime), new ImportServicesResponse({}));
   }
 
+  /**
+   * @summary Imports services to a gateway.
+   *
+   * @param request ImportServicesRequest
+   * @return ImportServicesResponse
+   */
   async importServices(request: ImportServicesRequest): Promise<ImportServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importServicesWithOptions(request, runtime);
   }
 
   /**
-    * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
-    *
-    * @param request ImportZookeeperDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ImportZookeeperDataResponse
+   * @summary Initiates a task to import data from a destination URL to a Microservices Engine (MSE) ZooKeeper instance.
+   *
+   * @description **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+   *
+   * @param request ImportZookeeperDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportZookeeperDataResponse
    */
   async importZookeeperDataWithOptions(request: ImportZookeeperDataRequest, runtime: $Util.RuntimeOptions): Promise<ImportZookeeperDataResponse> {
     Util.validateModel(request);
@@ -39890,10 +41092,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
-    *
-    * @param request ImportZookeeperDataRequest
-    * @return ImportZookeeperDataResponse
+   * @summary Initiates a task to import data from a destination URL to a Microservices Engine (MSE) ZooKeeper instance.
+   *
+   * @description **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+   *
+   * @param request ImportZookeeperDataRequest
+   * @return ImportZookeeperDataResponse
    */
   async importZookeeperData(request: ImportZookeeperDataRequest): Promise<ImportZookeeperDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39901,11 +41105,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListAnsInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListAnsInstancesResponse
+   * @summary Queries application instances that are registered with a Microservices Engine (MSE) Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListAnsInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAnsInstancesResponse
    */
   async listAnsInstancesWithOptions(request: ListAnsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListAnsInstancesResponse> {
     Util.validateModel(request);
@@ -39928,10 +41134,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListAnsInstancesRequest
-    * @return ListAnsInstancesResponse
+   * @summary Queries application instances that are registered with a Microservices Engine (MSE) Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListAnsInstancesRequest
+   * @return ListAnsInstancesResponse
    */
   async listAnsInstances(request: ListAnsInstancesRequest): Promise<ListAnsInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39939,11 +41147,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListAnsServiceClustersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListAnsServiceClustersResponse
+   * @summary Queries the clusters of a Nacos service.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListAnsServiceClustersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAnsServiceClustersResponse
    */
   async listAnsServiceClustersWithOptions(request: ListAnsServiceClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListAnsServiceClustersResponse> {
     Util.validateModel(request);
@@ -40002,10 +41212,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListAnsServiceClustersRequest
-    * @return ListAnsServiceClustersResponse
+   * @summary Queries the clusters of a Nacos service.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListAnsServiceClustersRequest
+   * @return ListAnsServiceClustersResponse
    */
   async listAnsServiceClusters(request: ListAnsServiceClustersRequest): Promise<ListAnsServiceClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40013,11 +41225,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListAnsServicesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListAnsServicesResponse
+   * @summary Queries Nacos services.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListAnsServicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAnsServicesResponse
    */
   async listAnsServicesWithOptions(request: ListAnsServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListAnsServicesResponse> {
     Util.validateModel(request);
@@ -40088,10 +41302,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListAnsServicesRequest
-    * @return ListAnsServicesResponse
+   * @summary Queries Nacos services.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListAnsServicesRequest
+   * @return ListAnsServicesResponse
    */
   async listAnsServices(request: ListAnsServicesRequest): Promise<ListAnsServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40099,11 +41315,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead.
-    *
-    * @param request ListAppBySwimmingLaneGroupTagRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListAppBySwimmingLaneGroupTagResponse
+   * @deprecated OpenAPI ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead.
+   *
+   * @summary Queries the applications in a lane group by tag.
+   *
+   * @param request ListAppBySwimmingLaneGroupTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAppBySwimmingLaneGroupTagResponse
    */
   // Deprecated
   async listAppBySwimmingLaneGroupTagWithOptions(request: ListAppBySwimmingLaneGroupTagRequest, runtime: $Util.RuntimeOptions): Promise<ListAppBySwimmingLaneGroupTagResponse> {
@@ -40143,10 +41361,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead.
-    *
-    * @param request ListAppBySwimmingLaneGroupTagRequest
-    * @return ListAppBySwimmingLaneGroupTagResponse
+   * @deprecated OpenAPI ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead.
+   *
+   * @summary Queries the applications in a lane group by tag.
+   *
+   * @param request ListAppBySwimmingLaneGroupTagRequest
+   * @return ListAppBySwimmingLaneGroupTagResponse
    */
   // Deprecated
   async listAppBySwimmingLaneGroupTag(request: ListAppBySwimmingLaneGroupTagRequest): Promise<ListAppBySwimmingLaneGroupTagResponse> {
@@ -40154,6 +41374,13 @@ export default class Client extends OpenApi {
     return await this.listAppBySwimmingLaneGroupTagWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Lists applications by tag in a specified lane group.
+   *
+   * @param tmpReq ListAppBySwimmingLaneGroupTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAppBySwimmingLaneGroupTagsResponse
+   */
   async listAppBySwimmingLaneGroupTagsWithOptions(tmpReq: ListAppBySwimmingLaneGroupTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppBySwimmingLaneGroupTagsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListAppBySwimmingLaneGroupTagsShrinkRequest({ });
@@ -40196,11 +41423,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAppBySwimmingLaneGroupTagsResponse>(await this.callApi(params, req, runtime), new ListAppBySwimmingLaneGroupTagsResponse({}));
   }
 
+  /**
+   * @summary Lists applications by tag in a specified lane group.
+   *
+   * @param request ListAppBySwimmingLaneGroupTagsRequest
+   * @return ListAppBySwimmingLaneGroupTagsResponse
+   */
   async listAppBySwimmingLaneGroupTags(request: ListAppBySwimmingLaneGroupTagsRequest): Promise<ListAppBySwimmingLaneGroupTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAppBySwimmingLaneGroupTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the routing rules of an application.
+   *
+   * @param request ListApplicationsWithTagRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationsWithTagRulesResponse
+   */
   async listApplicationsWithTagRulesWithOptions(request: ListApplicationsWithTagRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsWithTagRulesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -40221,11 +41461,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationsWithTagRulesResponse>(await this.callApi(params, req, runtime), new ListApplicationsWithTagRulesResponse({}));
   }
 
+  /**
+   * @summary Queries the routing rules of an application.
+   *
+   * @param request ListApplicationsWithTagRulesRequest
+   * @return ListApplicationsWithTagRulesResponse
+   */
   async listApplicationsWithTagRules(request: ListApplicationsWithTagRulesRequest): Promise<ListApplicationsWithTagRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsWithTagRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of service authentication rules.
+   *
+   * @param request ListAuthPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAuthPolicyResponse
+   */
   async listAuthPolicyWithOptions(request: ListAuthPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40282,11 +41535,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAuthPolicyResponse>(await this.callApi(params, req, runtime), new ListAuthPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries a list of service authentication rules.
+   *
+   * @param request ListAuthPolicyRequest
+   * @return ListAuthPolicyResponse
+   */
   async listAuthPolicy(request: ListAuthPolicyRequest): Promise<ListAuthPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAuthPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of circuit breaking rules.
+   *
+   * @param request ListCircuitBreakerRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCircuitBreakerRulesResponse
+   */
   async listCircuitBreakerRulesWithOptions(request: ListCircuitBreakerRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListCircuitBreakerRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40339,11 +41605,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCircuitBreakerRulesResponse>(await this.callApi(params, req, runtime), new ListCircuitBreakerRulesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of circuit breaking rules.
+   *
+   * @param request ListCircuitBreakerRulesRequest
+   * @return ListCircuitBreakerRulesResponse
+   */
   async listCircuitBreakerRules(request: ListCircuitBreakerRulesRequest): Promise<ListCircuitBreakerRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCircuitBreakerRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available cluster connection types.
+   *
+   * @param request ListClusterConnectionTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterConnectionTypesResponse
+   */
   async listClusterConnectionTypesWithOptions(request: ListClusterConnectionTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterConnectionTypesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40368,11 +41647,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterConnectionTypesResponse>(await this.callApi(params, req, runtime), new ListClusterConnectionTypesResponse({}));
   }
 
+  /**
+   * @summary Queries available cluster connection types.
+   *
+   * @param request ListClusterConnectionTypesRequest
+   * @return ListClusterConnectionTypesResponse
+   */
   async listClusterConnectionTypes(request: ListClusterConnectionTypesRequest): Promise<ListClusterConnectionTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterConnectionTypesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains information about historical health check tasks.
+   *
+   * @param request ListClusterHealthCheckTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterHealthCheckTaskResponse
+   */
   async listClusterHealthCheckTaskWithOptions(request: ListClusterHealthCheckTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterHealthCheckTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40417,11 +41709,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterHealthCheckTaskResponse>(await this.callApi(params, req, runtime), new ListClusterHealthCheckTaskResponse({}));
   }
 
+  /**
+   * @summary Obtains information about historical health check tasks.
+   *
+   * @param request ListClusterHealthCheckTaskRequest
+   * @return ListClusterHealthCheckTaskResponse
+   */
   async listClusterHealthCheckTask(request: ListClusterHealthCheckTaskRequest): Promise<ListClusterHealthCheckTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterHealthCheckTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the engine types that can be activated.
+   *
+   * @param request ListClusterTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterTypesResponse
+   */
   async listClusterTypesWithOptions(request: ListClusterTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterTypesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40458,11 +41763,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterTypesResponse>(await this.callApi(params, req, runtime), new ListClusterTypesResponse({}));
   }
 
+  /**
+   * @summary Queries the engine types that can be activated.
+   *
+   * @param request ListClusterTypesRequest
+   * @return ListClusterTypesResponse
+   */
   async listClusterTypes(request: ListClusterTypesRequest): Promise<ListClusterTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterTypesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about supported instance versions.
+   *
+   * @param request ListClusterVersionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterVersionsResponse
+   */
   async listClusterVersionsWithOptions(request: ListClusterVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterVersionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40495,11 +41813,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterVersionsResponse>(await this.callApi(params, req, runtime), new ListClusterVersionsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about supported instance versions.
+   *
+   * @param request ListClusterVersionsRequest
+   * @return ListClusterVersionsResponse
+   */
   async listClusterVersions(request: ListClusterVersionsRequest): Promise<ListClusterVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterVersionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Microservices Engine (MSE) instances.
+   *
+   * @param request ListClustersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClustersResponse
+   */
   async listClustersWithOptions(request: ListClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListClustersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40556,11 +41887,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
   }
 
+  /**
+   * @summary Queries Microservices Engine (MSE) instances.
+   *
+   * @param request ListClustersRequest
+   * @return ListClustersResponse
+   */
   async listClusters(request: ListClustersRequest): Promise<ListClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClustersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the track data of a Nacos configuration center.
+   *
+   * @param request ListConfigTrackRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConfigTrackResponse
+   */
   async listConfigTrackWithOptions(request: ListConfigTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigTrackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40629,11 +41973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConfigTrackResponse>(await this.callApi(params, req, runtime), new ListConfigTrackResponse({}));
   }
 
+  /**
+   * @summary Obtains the track data of a Nacos configuration center.
+   *
+   * @param request ListConfigTrackRequest
+   * @return ListConfigTrackResponse
+   */
   async listConfigTrack(request: ListConfigTrackRequest): Promise<ListConfigTrackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConfigTrackWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the namespaces of a Nacos instance.
+   *
+   * @param request ListEngineNamespacesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEngineNamespacesResponse
+   */
   async listEngineNamespacesWithOptions(request: ListEngineNamespacesRequest, runtime: $Util.RuntimeOptions): Promise<ListEngineNamespacesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40662,11 +42019,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEngineNamespacesResponse>(await this.callApi(params, req, runtime), new ListEngineNamespacesResponse({}));
   }
 
+  /**
+   * @summary Queries the namespaces of a Nacos instance.
+   *
+   * @param request ListEngineNamespacesRequest
+   * @return ListEngineNamespacesResponse
+   */
   async listEngineNamespaces(request: ListEngineNamespacesRequest): Promise<ListEngineNamespacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEngineNamespacesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Eureka instances.
+   *
+   * @param request ListEurekaInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEurekaInstancesResponse
+   */
   async listEurekaInstancesWithOptions(request: ListEurekaInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListEurekaInstancesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -40687,11 +42057,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEurekaInstancesResponse>(await this.callApi(params, req, runtime), new ListEurekaInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries Eureka instances.
+   *
+   * @param request ListEurekaInstancesRequest
+   * @return ListEurekaInstancesResponse
+   */
   async listEurekaInstances(request: ListEurekaInstancesRequest): Promise<ListEurekaInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEurekaInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Eureka services.
+   *
+   * @param request ListEurekaServicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEurekaServicesResponse
+   */
   async listEurekaServicesWithOptions(request: ListEurekaServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListEurekaServicesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -40712,11 +42095,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEurekaServicesResponse>(await this.callApi(params, req, runtime), new ListEurekaServicesResponse({}));
   }
 
+  /**
+   * @summary Queries Eureka services.
+   *
+   * @param request ListEurekaServicesRequest
+   * @return ListEurekaServicesResponse
+   */
   async listEurekaServices(request: ListEurekaServicesRequest): Promise<ListEurekaServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEurekaServicesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Lists historical data export tasks of a Microservices Engine (MSE) Zookeeper instance.
+   *
+   * @param request ListExportZookeeperDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExportZookeeperDataResponse
+   */
   async listExportZookeeperDataWithOptions(request: ListExportZookeeperDataRequest, runtime: $Util.RuntimeOptions): Promise<ListExportZookeeperDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40753,11 +42149,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ListExportZookeeperDataResponse({}));
   }
 
+  /**
+   * @summary Lists historical data export tasks of a Microservices Engine (MSE) Zookeeper instance.
+   *
+   * @param request ListExportZookeeperDataRequest
+   * @return ListExportZookeeperDataResponse
+   */
   async listExportZookeeperData(request: ListExportZookeeperDataRequest): Promise<ListExportZookeeperDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExportZookeeperDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains a list of throttling rules.
+   *
+   * @param request ListFlowRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFlowRulesResponse
+   */
   async listFlowRulesWithOptions(request: ListFlowRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40810,11 +42219,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFlowRulesResponse>(await this.callApi(params, req, runtime), new ListFlowRulesResponse({}));
   }
 
+  /**
+   * @summary Obtains a list of throttling rules.
+   *
+   * @param request ListFlowRulesRequest
+   * @return ListFlowRulesResponse
+   */
   async listFlowRules(request: ListFlowRulesRequest): Promise<ListFlowRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFlowRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of gateways.
+   *
+   * @param tmpReq ListGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayResponse
+   */
   async listGatewayWithOptions(tmpReq: ListGatewayRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayResponse> {
     Util.validateModel(tmpReq);
     let request = new ListGatewayShrinkRequest({ });
@@ -40865,11 +42287,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayResponse>(await this.callApi(params, req, runtime), new ListGatewayResponse({}));
   }
 
+  /**
+   * @summary Queries a list of gateways.
+   *
+   * @param request ListGatewayRequest
+   * @return ListGatewayResponse
+   */
   async listGateway(request: ListGatewayRequest): Promise<ListGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of consumers on which a gateway performs authentication operations.
+   *
+   * @param request ListGatewayAuthConsumerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayAuthConsumerResponse
+   */
   async listGatewayAuthConsumerWithOptions(request: ListGatewayAuthConsumerRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayAuthConsumerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40918,11 +42353,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new ListGatewayAuthConsumerResponse({}));
   }
 
+  /**
+   * @summary Queries the list of consumers on which a gateway performs authentication operations.
+   *
+   * @param request ListGatewayAuthConsumerRequest
+   * @return ListGatewayAuthConsumerResponse
+   */
   async listGatewayAuthConsumer(request: ListGatewayAuthConsumerRequest): Promise<ListGatewayAuthConsumerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayAuthConsumerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of authorized resources for the consumer on which a gateway performs authentication operations.
+   *
+   * @param request ListGatewayAuthConsumerResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayAuthConsumerResourceResponse
+   */
   async listGatewayAuthConsumerResourceWithOptions(request: ListGatewayAuthConsumerResourceRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayAuthConsumerResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40971,11 +42419,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayAuthConsumerResourceResponse>(await this.callApi(params, req, runtime), new ListGatewayAuthConsumerResourceResponse({}));
   }
 
+  /**
+   * @summary Queries the list of authorized resources for the consumer on which a gateway performs authentication operations.
+   *
+   * @param request ListGatewayAuthConsumerResourceRequest
+   * @return ListGatewayAuthConsumerResourceResponse
+   */
   async listGatewayAuthConsumerResource(request: ListGatewayAuthConsumerResourceRequest): Promise<ListGatewayAuthConsumerResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayAuthConsumerResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看网关路由熔断规则
+   *
+   * @param request ListGatewayCircuitBreakerRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayCircuitBreakerRuleResponse
+   */
   async listGatewayCircuitBreakerRuleWithOptions(request: ListGatewayCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayCircuitBreakerRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41004,11 +42465,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayCircuitBreakerRuleResponse({}));
   }
 
+  /**
+   * @summary 查看网关路由熔断规则
+   *
+   * @param request ListGatewayCircuitBreakerRuleRequest
+   * @return ListGatewayCircuitBreakerRuleResponse
+   */
   async listGatewayCircuitBreakerRule(request: ListGatewayCircuitBreakerRuleRequest): Promise<ListGatewayCircuitBreakerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayCircuitBreakerRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the domain names that are associated with a gateway.
+   *
+   * @param request ListGatewayDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayDomainResponse
+   */
   async listGatewayDomainWithOptions(request: ListGatewayDomainRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41045,11 +42519,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayDomainResponse>(await this.callApi(params, req, runtime), new ListGatewayDomainResponse({}));
   }
 
+  /**
+   * @summary Queries the domain names that are associated with a gateway.
+   *
+   * @param request ListGatewayDomainRequest
+   * @return ListGatewayDomainResponse
+   */
   async listGatewayDomain(request: ListGatewayDomainRequest): Promise<ListGatewayDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看网关路由流控规则
+   *
+   * @param request ListGatewayFlowRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayFlowRuleResponse
+   */
   async listGatewayFlowRuleWithOptions(request: ListGatewayFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayFlowRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41078,11 +42565,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayFlowRuleResponse({}));
   }
 
+  /**
+   * @summary 查看网关路由流控规则
+   *
+   * @param request ListGatewayFlowRuleRequest
+   * @return ListGatewayFlowRuleResponse
+   */
   async listGatewayFlowRule(request: ListGatewayFlowRuleRequest): Promise<ListGatewayFlowRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayFlowRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看网关路由隔离规则
+   *
+   * @param request ListGatewayIsolationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayIsolationRuleResponse
+   */
   async listGatewayIsolationRuleWithOptions(request: ListGatewayIsolationRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayIsolationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41111,11 +42611,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayIsolationRuleResponse({}));
   }
 
+  /**
+   * @summary 查看网关路由隔离规则
+   *
+   * @param request ListGatewayIsolationRuleRequest
+   * @return ListGatewayIsolationRuleResponse
+   */
   async listGatewayIsolationRule(request: ListGatewayIsolationRuleRequest): Promise<ListGatewayIsolationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayIsolationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the routes of a gateway.
+   *
+   * @param tmpReq ListGatewayRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayRouteResponse
+   */
   async listGatewayRouteWithOptions(tmpReq: ListGatewayRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayRouteResponse> {
     Util.validateModel(tmpReq);
     let request = new ListGatewayRouteShrinkRequest({ });
@@ -41166,11 +42679,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayRouteResponse>(await this.callApi(params, req, runtime), new ListGatewayRouteResponse({}));
   }
 
+  /**
+   * @summary Queries the routes of a gateway.
+   *
+   * @param request ListGatewayRouteRequest
+   * @return ListGatewayRouteResponse
+   */
   async listGatewayRoute(request: ListGatewayRouteRequest): Promise<ListGatewayRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of routes for which authentication is enabled.
+   *
+   * @param request ListGatewayRouteOnAuthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayRouteOnAuthResponse
+   */
   async listGatewayRouteOnAuthWithOptions(request: ListGatewayRouteOnAuthRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayRouteOnAuthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41203,11 +42729,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayRouteOnAuthResponse>(await this.callApi(params, req, runtime), new ListGatewayRouteOnAuthResponse({}));
   }
 
+  /**
+   * @summary Queries a list of routes for which authentication is enabled.
+   *
+   * @param request ListGatewayRouteOnAuthRequest
+   * @return ListGatewayRouteOnAuthResponse
+   */
   async listGatewayRouteOnAuth(request: ListGatewayRouteOnAuthRequest): Promise<ListGatewayRouteOnAuthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayRouteOnAuthWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of services that are subscribed with a gateway.
+   *
+   * @param tmpReq ListGatewayServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayServiceResponse
+   */
   async listGatewayServiceWithOptions(tmpReq: ListGatewayServiceRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayServiceResponse> {
     Util.validateModel(tmpReq);
     let request = new ListGatewayServiceShrinkRequest({ });
@@ -41258,11 +42797,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayServiceResponse>(await this.callApi(params, req, runtime), new ListGatewayServiceResponse({}));
   }
 
+  /**
+   * @summary Queries a list of services that are subscribed with a gateway.
+   *
+   * @param request ListGatewayServiceRequest
+   * @return ListGatewayServiceResponse
+   */
   async listGatewayService(request: ListGatewayServiceRequest): Promise<ListGatewayServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Server Load Balancer (SLB) instances that are associated with a gateway.
+   *
+   * @param request ListGatewaySlbRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewaySlbResponse
+   */
   async listGatewaySlbWithOptions(request: ListGatewaySlbRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewaySlbResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41291,11 +42843,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewaySlbResponse>(await this.callApi(params, req, runtime), new ListGatewaySlbResponse({}));
   }
 
+  /**
+   * @summary Queries the Server Load Balancer (SLB) instances that are associated with a gateway.
+   *
+   * @param request ListGatewaySlbRequest
+   * @return ListGatewaySlbResponse
+   */
   async listGatewaySlb(request: ListGatewaySlbRequest): Promise<ListGatewaySlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewaySlbWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Displays the number of nodes that can be deployed for an instance.
+   *
+   * @param request ListInstanceCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceCountResponse
+   */
   async listInstanceCountWithOptions(request: ListInstanceCountRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41336,11 +42901,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceCountResponse>(await this.callApi(params, req, runtime), new ListInstanceCountResponse({}));
   }
 
+  /**
+   * @summary Displays the number of nodes that can be deployed for an instance.
+   *
+   * @param request ListInstanceCountRequest
+   * @return ListInstanceCountResponse
+   */
   async listInstanceCount(request: ListInstanceCountRequest): Promise<ListInstanceCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询隔离规则
+   *
+   * @param request ListIsolationRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIsolationRulesResponse
+   */
   async listIsolationRulesWithOptions(request: ListIsolationRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListIsolationRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41393,17 +42971,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIsolationRulesResponse>(await this.callApi(params, req, runtime), new ListIsolationRulesResponse({}));
   }
 
+  /**
+   * @summary 查询隔离规则
+   *
+   * @param request ListIsolationRulesRequest
+   * @return ListIsolationRulesResponse
+   */
   async listIsolationRules(request: ListIsolationRulesRequest): Promise<ListIsolationRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIsolationRulesWithOptions(request, runtime);
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListListenersByConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListListenersByConfigResponse
+   * @summary Queries listeners based on configuration information.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListListenersByConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListListenersByConfigResponse
    */
   async listListenersByConfigWithOptions(request: ListListenersByConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersByConfigResponse> {
     Util.validateModel(request);
@@ -41450,10 +43036,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListListenersByConfigRequest
-    * @return ListListenersByConfigResponse
+   * @summary Queries listeners based on configuration information.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListListenersByConfigRequest
+   * @return ListListenersByConfigResponse
    */
   async listListenersByConfig(request: ListListenersByConfigRequest): Promise<ListListenersByConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41461,11 +43049,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListListenersByIpRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListListenersByIpResponse
+   * @summary Queries the information about listeners based on IP addresses.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListListenersByIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListListenersByIpResponse
    */
   async listListenersByIpWithOptions(request: ListListenersByIpRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersByIpResponse> {
     Util.validateModel(request);
@@ -41508,16 +43098,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListListenersByIpRequest
-    * @return ListListenersByIpResponse
+   * @summary Queries the information about listeners based on IP addresses.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListListenersByIpRequest
+   * @return ListListenersByIpResponse
    */
   async listListenersByIp(request: ListListenersByIpRequest): Promise<ListListenersByIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listListenersByIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about a migration task.
+   *
+   * @param request ListMigrationTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMigrationTaskResponse
+   */
   async listMigrationTaskWithOptions(request: ListMigrationTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListMigrationTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41558,17 +43157,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMigrationTaskResponse>(await this.callApi(params, req, runtime), new ListMigrationTaskResponse({}));
   }
 
+  /**
+   * @summary Queries information about a migration task.
+   *
+   * @param request ListMigrationTaskRequest
+   * @return ListMigrationTaskResponse
+   */
   async listMigrationTask(request: ListMigrationTaskRequest): Promise<ListMigrationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMigrationTaskWithOptions(request, runtime);
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListNacosConfigsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListNacosConfigsResponse
+   * @summary Queries Nacos configurations.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListNacosConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNacosConfigsResponse
    */
   async listNacosConfigsWithOptions(request: ListNacosConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListNacosConfigsResponse> {
     Util.validateModel(request);
@@ -41635,10 +43242,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListNacosConfigsRequest
-    * @return ListNacosConfigsResponse
+   * @summary Queries Nacos configurations.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListNacosConfigsRequest
+   * @return ListNacosConfigsResponse
    */
   async listNacosConfigs(request: ListNacosConfigsRequest): Promise<ListNacosConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41646,11 +43255,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListNacosHistoryConfigsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListNacosHistoryConfigsResponse
+   * @summary Queries the configuration history of a Microservices Engine (MSE) Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListNacosHistoryConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNacosHistoryConfigsResponse
    */
   async listNacosHistoryConfigsWithOptions(request: ListNacosHistoryConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListNacosHistoryConfigsResponse> {
     Util.validateModel(request);
@@ -41709,16 +43320,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request ListNacosHistoryConfigsRequest
-    * @return ListNacosHistoryConfigsResponse
+   * @summary Queries the configuration history of a Microservices Engine (MSE) Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request ListNacosHistoryConfigsRequest
+   * @return ListNacosHistoryConfigsResponse
    */
   async listNacosHistoryConfigs(request: ListNacosHistoryConfigsRequest): Promise<ListNacosHistoryConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNacosHistoryConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the trajectory data of a Nacos registry.
+   *
+   * @param request ListNamingTrackRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNamingTrackResponse
+   */
   async listNamingTrackWithOptions(request: ListNamingTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListNamingTrackResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -41739,11 +43359,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNamingTrackResponse>(await this.callApi(params, req, runtime), new ListNamingTrackResponse({}));
   }
 
+  /**
+   * @summary Obtains the trajectory data of a Nacos registry.
+   *
+   * @param request ListNamingTrackRequest
+   * @return ListNamingTrackResponse
+   */
   async listNamingTrack(request: ListNamingTrackRequest): Promise<ListNamingTrackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNamingTrackWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains a list of gateway certificates.
+   *
+   * @param request ListSSLCertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSSLCertResponse
+   */
   async listSSLCertWithOptions(request: ListSSLCertRequest, runtime: $Util.RuntimeOptions): Promise<ListSSLCertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41776,11 +43409,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSSLCertResponse>(await this.callApi(params, req, runtime), new ListSSLCertResponse({}));
   }
 
+  /**
+   * @summary Obtains a list of gateway certificates.
+   *
+   * @param request ListSSLCertRequest
+   * @return ListSSLCertResponse
+   */
   async listSSLCert(request: ListSSLCertRequest): Promise<ListSSLCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSSLCertWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the information about security groups.
+   *
+   * @param request ListSecurityGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSecurityGroupResponse
+   */
   async listSecurityGroupWithOptions(request: ListSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListSecurityGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41809,11 +43455,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSecurityGroupResponse>(await this.callApi(params, req, runtime), new ListSecurityGroupResponse({}));
   }
 
+  /**
+   * @summary Obtains the information about security groups.
+   *
+   * @param request ListSecurityGroupRequest
+   * @return ListSecurityGroupResponse
+   */
   async listSecurityGroup(request: ListSecurityGroupRequest): Promise<ListSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSecurityGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the security group rules of a gateway.
+   *
+   * @param request ListSecurityGroupRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSecurityGroupRuleResponse
+   */
   async listSecurityGroupRuleWithOptions(request: ListSecurityGroupRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListSecurityGroupRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41842,11 +43501,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new ListSecurityGroupRuleResponse({}));
   }
 
+  /**
+   * @summary Queries the security group rules of a gateway.
+   *
+   * @param request ListSecurityGroupRuleRequest
+   * @return ListSecurityGroupRuleResponse
+   */
   async listSecurityGroupRule(request: ListSecurityGroupRuleRequest): Promise<ListSecurityGroupRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSecurityGroupRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询流量防护行为
+   *
+   * @param tmpReq ListSentinelBlockFallbackDefinitionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSentinelBlockFallbackDefinitionsResponse
+   */
   async listSentinelBlockFallbackDefinitionsWithOptions(tmpReq: ListSentinelBlockFallbackDefinitionsRequest, runtime: $Util.RuntimeOptions): Promise<ListSentinelBlockFallbackDefinitionsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListSentinelBlockFallbackDefinitionsShrinkRequest({ });
@@ -41889,11 +43561,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSentinelBlockFallbackDefinitionsResponse>(await this.callApi(params, req, runtime), new ListSentinelBlockFallbackDefinitionsResponse({}));
   }
 
+  /**
+   * @summary 查询流量防护行为
+   *
+   * @param request ListSentinelBlockFallbackDefinitionsRequest
+   * @return ListSentinelBlockFallbackDefinitionsResponse
+   */
   async listSentinelBlockFallbackDefinitions(request: ListSentinelBlockFallbackDefinitionsRequest): Promise<ListSentinelBlockFallbackDefinitionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSentinelBlockFallbackDefinitionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of associated sources.
+   *
+   * @param request ListServiceSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServiceSourceResponse
+   */
   async listServiceSourceWithOptions(request: ListServiceSourceRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceSourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41926,11 +43611,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceSourceResponse>(await this.callApi(params, req, runtime), new ListServiceSourceResponse({}));
   }
 
+  /**
+   * @summary Queries a list of associated sources.
+   *
+   * @param request ListServiceSourceRequest
+   * @return ListServiceSourceResponse
+   */
   async listServiceSource(request: ListServiceSourceRequest): Promise<ListServiceSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries tagged resources.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41975,11 +43673,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries tagged resources.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the track data of a ZooKeeper instance.
+   *
+   * @param request ListZkTrackRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListZkTrackResponse
+   */
   async listZkTrackWithOptions(request: ListZkTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListZkTrackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42040,11 +43751,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListZkTrackResponse>(await this.callApi(params, req, runtime), new ListZkTrackResponse({}));
   }
 
+  /**
+   * @summary Obtains the track data of a ZooKeeper instance.
+   *
+   * @param request ListZkTrackRequest
+   * @return ListZkTrackResponse
+   */
   async listZkTrack(request: ListZkTrackRequest): Promise<ListZkTrackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listZkTrackWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the child nodes of a ZooKeeper node.
+   *
+   * @param request ListZnodeChildrenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListZnodeChildrenResponse
+   */
   async listZnodeChildrenWithOptions(request: ListZnodeChildrenRequest, runtime: $Util.RuntimeOptions): Promise<ListZnodeChildrenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42077,11 +43801,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListZnodeChildrenResponse>(await this.callApi(params, req, runtime), new ListZnodeChildrenResponse({}));
   }
 
+  /**
+   * @summary Queries the child nodes of a ZooKeeper node.
+   *
+   * @param request ListZnodeChildrenRequest
+   * @return ListZnodeChildrenResponse
+   */
   async listZnodeChildren(request: ListZnodeChildrenRequest): Promise<ListZnodeChildrenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listZnodeChildrenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the information about a cluster for which Microservice Governance is enabled.
+   *
+   * @param tmpReq ModifyGovernanceKubernetesClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGovernanceKubernetesClusterResponse
+   */
   async modifyGovernanceKubernetesClusterWithOptions(tmpReq: ModifyGovernanceKubernetesClusterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGovernanceKubernetesClusterResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyGovernanceKubernetesClusterShrinkRequest({ });
@@ -42126,11 +43863,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGovernanceKubernetesClusterResponse>(await this.callApi(params, req, runtime), new ModifyGovernanceKubernetesClusterResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about a cluster for which Microservice Governance is enabled.
+   *
+   * @param request ModifyGovernanceKubernetesClusterRequest
+   * @return ModifyGovernanceKubernetesClusterResponse
+   */
   async modifyGovernanceKubernetesCluster(request: ModifyGovernanceKubernetesClusterRequest): Promise<ModifyGovernanceKubernetesClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGovernanceKubernetesClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies configurations of the lossless online and offline feature.
+   *
+   * @param request ModifyLosslessRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLosslessRuleResponse
+   */
   async modifyLosslessRuleWithOptions(request: ModifyLosslessRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLosslessRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42203,11 +43953,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyLosslessRuleResponse>(await this.callApi(params, req, runtime), new ModifyLosslessRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies configurations of the lossless online and offline feature.
+   *
+   * @param request ModifyLosslessRuleRequest
+   * @return ModifyLosslessRuleResponse
+   */
   async modifyLosslessRule(request: ModifyLosslessRuleRequest): Promise<ModifyLosslessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLosslessRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unpublishes a route for a gateway.
+   *
+   * @param request OfflineGatewayRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OfflineGatewayRouteResponse
+   */
   async offlineGatewayRouteWithOptions(request: OfflineGatewayRouteRequest, runtime: $Util.RuntimeOptions): Promise<OfflineGatewayRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42240,11 +44003,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OfflineGatewayRouteResponse>(await this.callApi(params, req, runtime), new OfflineGatewayRouteResponse({}));
   }
 
+  /**
+   * @summary Unpublishes a route for a gateway.
+   *
+   * @param request OfflineGatewayRouteRequest
+   * @return OfflineGatewayRouteResponse
+   */
   async offlineGatewayRoute(request: OfflineGatewayRouteRequest): Promise<OfflineGatewayRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.offlineGatewayRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Subscribes to the notification feature if a risk is detected during a health check.
+   *
+   * @param request OrderClusterHealthCheckRiskNoticeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OrderClusterHealthCheckRiskNoticeResponse
+   */
   async orderClusterHealthCheckRiskNoticeWithOptions(request: OrderClusterHealthCheckRiskNoticeRequest, runtime: $Util.RuntimeOptions): Promise<OrderClusterHealthCheckRiskNoticeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42293,11 +44069,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OrderClusterHealthCheckRiskNoticeResponse>(await this.callApi(params, req, runtime), new OrderClusterHealthCheckRiskNoticeResponse({}));
   }
 
+  /**
+   * @summary Subscribes to the notification feature if a risk is detected during a health check.
+   *
+   * @param request OrderClusterHealthCheckRiskNoticeRequest
+   * @return OrderClusterHealthCheckRiskNoticeResponse
+   */
   async orderClusterHealthCheckRiskNotice(request: OrderClusterHealthCheckRiskNoticeRequest): Promise<OrderClusterHealthCheckRiskNoticeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.orderClusterHealthCheckRiskNoticeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all the microservices of a service source.
+   *
+   * @param request PullServicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PullServicesResponse
+   */
   async pullServicesWithOptions(request: PullServicesRequest, runtime: $Util.RuntimeOptions): Promise<PullServicesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42334,11 +44123,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PullServicesResponse>(await this.callApi(params, req, runtime), new PullServicesResponse({}));
   }
 
+  /**
+   * @summary Queries all the microservices of a service source.
+   *
+   * @param request PullServicesRequest
+   * @return PullServicesResponse
+   */
   async pullServices(request: PullServicesRequest): Promise<PullServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pullServicesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Initiates a task to check risk evaluation for an instance.
+   *
+   * @param request PutClusterHealthCheckTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PutClusterHealthCheckTaskResponse
+   */
   async putClusterHealthCheckTaskWithOptions(request: PutClusterHealthCheckTaskRequest, runtime: $Util.RuntimeOptions): Promise<PutClusterHealthCheckTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42367,11 +44169,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PutClusterHealthCheckTaskResponse>(await this.callApi(params, req, runtime), new PutClusterHealthCheckTaskResponse({}));
   }
 
+  /**
+   * @summary Initiates a task to check risk evaluation for an instance.
+   *
+   * @param request PutClusterHealthCheckTaskRequest
+   * @return PutClusterHealthCheckTaskResponse
+   */
   async putClusterHealthCheckTask(request: PutClusterHealthCheckTaskRequest): Promise<PutClusterHealthCheckTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putClusterHealthCheckTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all the lanes in a lane group.
+   *
+   * @param request QueryAllSwimmingLaneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryAllSwimmingLaneResponse
+   */
   async queryAllSwimmingLaneWithOptions(request: QueryAllSwimmingLaneRequest, runtime: $Util.RuntimeOptions): Promise<QueryAllSwimmingLaneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42404,11 +44219,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryAllSwimmingLaneResponse>(await this.callApi(params, req, runtime), new QueryAllSwimmingLaneResponse({}));
   }
 
+  /**
+   * @summary Queries all the lanes in a lane group.
+   *
+   * @param request QueryAllSwimmingLaneRequest
+   * @return QueryAllSwimmingLaneResponse
+   */
   async queryAllSwimmingLane(request: QueryAllSwimmingLaneRequest): Promise<QueryAllSwimmingLaneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAllSwimmingLaneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all lane groups.
+   *
+   * @param request QueryAllSwimmingLaneGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryAllSwimmingLaneGroupResponse
+   */
   async queryAllSwimmingLaneGroupWithOptions(request: QueryAllSwimmingLaneGroupRequest, runtime: $Util.RuntimeOptions): Promise<QueryAllSwimmingLaneGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42437,11 +44265,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryAllSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new QueryAllSwimmingLaneGroupResponse({}));
   }
 
+  /**
+   * @summary Queries all lane groups.
+   *
+   * @param request QueryAllSwimmingLaneGroupRequest
+   * @return QueryAllSwimmingLaneGroupResponse
+   */
   async queryAllSwimmingLaneGroup(request: QueryAllSwimmingLaneGroupRequest): Promise<QueryAllSwimmingLaneGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAllSwimmingLaneGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about regions.
+   *
+   * @param request QueryBusinessLocationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryBusinessLocationsResponse
+   */
   async queryBusinessLocationsWithOptions(request: QueryBusinessLocationsRequest, runtime: $Util.RuntimeOptions): Promise<QueryBusinessLocationsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -42462,11 +44303,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryBusinessLocationsResponse>(await this.callApi(params, req, runtime), new QueryBusinessLocationsResponse({}));
   }
 
+  /**
+   * @summary Queries information about regions.
+   *
+   * @param request QueryBusinessLocationsRequest
+   * @return QueryBusinessLocationsResponse
+   */
   async queryBusinessLocations(request: QueryBusinessLocationsRequest): Promise<QueryBusinessLocationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryBusinessLocationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an instance.
+   *
+   * @param request QueryClusterDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryClusterDetailResponse
+   */
   async queryClusterDetailWithOptions(request: QueryClusterDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryClusterDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42503,11 +44357,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryClusterDetailResponse>(await this.callApi(params, req, runtime), new QueryClusterDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an instance.
+   *
+   * @param request QueryClusterDetailRequest
+   * @return QueryClusterDetailResponse
+   */
   async queryClusterDetail(request: QueryClusterDetailRequest): Promise<QueryClusterDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryClusterDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries disk specifications that are supported by an instance.
+   *
+   * @param request QueryClusterDiskSpecificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryClusterDiskSpecificationResponse
+   */
   async queryClusterDiskSpecificationWithOptions(request: QueryClusterDiskSpecificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryClusterDiskSpecificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42536,11 +44403,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryClusterDiskSpecificationResponse>(await this.callApi(params, req, runtime), new QueryClusterDiskSpecificationResponse({}));
   }
 
+  /**
+   * @summary Queries disk specifications that are supported by an instance.
+   *
+   * @param request QueryClusterDiskSpecificationRequest
+   * @return QueryClusterDiskSpecificationResponse
+   */
   async queryClusterDiskSpecification(request: QueryClusterDiskSpecificationRequest): Promise<QueryClusterDiskSpecificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryClusterDiskSpecificationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the static information of an instance.
+   *
+   * @param request QueryClusterInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryClusterInfoResponse
+   */
   async queryClusterInfoWithOptions(request: QueryClusterInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryClusterInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42589,11 +44469,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryClusterInfoResponse>(await this.callApi(params, req, runtime), new QueryClusterInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the static information of an instance.
+   *
+   * @param request QueryClusterInfoRequest
+   * @return QueryClusterInfoResponse
+   */
   async queryClusterInfo(request: QueryClusterInfoRequest): Promise<QueryClusterInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryClusterInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of supported instance specifications.
+   *
+   * @param request QueryClusterSpecificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryClusterSpecificationResponse
+   */
   async queryClusterSpecificationWithOptions(request: QueryClusterSpecificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryClusterSpecificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42626,11 +44519,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryClusterSpecificationResponse>(await this.callApi(params, req, runtime), new QueryClusterSpecificationResponse({}));
   }
 
+  /**
+   * @summary Queries the information of supported instance specifications.
+   *
+   * @param request QueryClusterSpecificationRequest
+   * @return QueryClusterSpecificationResponse
+   */
   async queryClusterSpecification(request: QueryClusterSpecificationRequest): Promise<QueryClusterSpecificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryClusterSpecificationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries configuration information of an instance.
+   *
+   * @param request QueryConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryConfigResponse
+   */
   async queryConfigWithOptions(request: QueryConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42675,11 +44581,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryConfigResponse>(await this.callApi(params, req, runtime), new QueryConfigResponse({}));
   }
 
+  /**
+   * @summary Queries configuration information of an instance.
+   *
+   * @param request QueryConfigRequest
+   * @return QueryConfigResponse
+   */
   async queryConfig(request: QueryConfigRequest): Promise<QueryConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the regions supported by a gateway.
+   *
+   * @param request QueryGatewayRegionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryGatewayRegionResponse
+   */
   async queryGatewayRegionWithOptions(request: QueryGatewayRegionRequest, runtime: $Util.RuntimeOptions): Promise<QueryGatewayRegionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42704,11 +44623,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryGatewayRegionResponse>(await this.callApi(params, req, runtime), new QueryGatewayRegionResponse({}));
   }
 
+  /**
+   * @summary Queries the regions supported by a gateway.
+   *
+   * @param request QueryGatewayRegionRequest
+   * @return QueryGatewayRegionResponse
+   */
   async queryGatewayRegion(request: QueryGatewayRegionRequest): Promise<QueryGatewayRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGatewayRegionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available gateway types.
+   *
+   * @param request QueryGatewayTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryGatewayTypeResponse
+   */
   async queryGatewayTypeWithOptions(request: QueryGatewayTypeRequest, runtime: $Util.RuntimeOptions): Promise<QueryGatewayTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42733,11 +44665,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryGatewayTypeResponse>(await this.callApi(params, req, runtime), new QueryGatewayTypeResponse({}));
   }
 
+  /**
+   * @summary Queries available gateway types.
+   *
+   * @param request QueryGatewayTypeRequest
+   * @return QueryGatewayTypeResponse
+   */
   async queryGatewayType(request: QueryGatewayTypeRequest): Promise<QueryGatewayTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGatewayTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Kubernetes clusters for which Microservices Governance is activated.
+   *
+   * @param request QueryGovernanceKubernetesClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryGovernanceKubernetesClusterResponse
+   */
   async queryGovernanceKubernetesClusterWithOptions(request: QueryGovernanceKubernetesClusterRequest, runtime: $Util.RuntimeOptions): Promise<QueryGovernanceKubernetesClusterResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -42758,11 +44703,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryGovernanceKubernetesClusterResponse>(await this.callApi(params, req, runtime), new QueryGovernanceKubernetesClusterResponse({}));
   }
 
+  /**
+   * @summary Queries the Kubernetes clusters for which Microservices Governance is activated.
+   *
+   * @param request QueryGovernanceKubernetesClusterRequest
+   * @return QueryGovernanceKubernetesClusterResponse
+   */
   async queryGovernanceKubernetesCluster(request: QueryGovernanceKubernetesClusterRequest): Promise<QueryGovernanceKubernetesClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGovernanceKubernetesClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the runtime data of a specified cluster.
+   *
+   * @param request QueryInstancesInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryInstancesInfoResponse
+   */
   async queryInstancesInfoWithOptions(request: QueryInstancesInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstancesInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42807,11 +44765,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryInstancesInfoResponse>(await this.callApi(params, req, runtime), new QueryInstancesInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the runtime data of a specified cluster.
+   *
+   * @param request QueryInstancesInfoRequest
+   * @return QueryInstancesInfoResponse
+   */
   async queryInstancesInfo(request: QueryInstancesInfoRequest): Promise<QueryInstancesInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryInstancesInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries monitoring information.
+   *
+   * @param request QueryMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMonitorResponse
+   */
   async queryMonitorWithOptions(request: QueryMonitorRequest, runtime: $Util.RuntimeOptions): Promise<QueryMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42860,11 +44831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMonitorResponse>(await this.callApi(params, req, runtime), new QueryMonitorResponse({}));
   }
 
+  /**
+   * @summary Queries monitoring information.
+   *
+   * @param request QueryMonitorRequest
+   * @return QueryMonitorResponse
+   */
   async queryMonitor(request: QueryMonitorRequest): Promise<QueryMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询MSE命名空间
+   *
+   * @param request QueryNamespaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryNamespaceResponse
+   */
   async queryNamespaceWithOptions(request: QueryNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<QueryNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42897,11 +44881,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryNamespaceResponse>(await this.callApi(params, req, runtime), new QueryNamespaceResponse({}));
   }
 
+  /**
+   * @summary 查询MSE命名空间
+   *
+   * @param request QueryNamespaceRequest
+   * @return QueryNamespaceResponse
+   */
   async queryNamespace(request: QueryNamespaceRequest): Promise<QueryNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryNamespaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the type of a Server Load Balancer (SLB) instance.
+   *
+   * @param request QuerySlbSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySlbSpecResponse
+   */
   async querySlbSpecWithOptions(request: QuerySlbSpecRequest, runtime: $Util.RuntimeOptions): Promise<QuerySlbSpecResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -42922,11 +44919,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySlbSpecResponse>(await this.callApi(params, req, runtime), new QuerySlbSpecResponse({}));
   }
 
+  /**
+   * @summary Queries the type of a Server Load Balancer (SLB) instance.
+   *
+   * @param request QuerySlbSpecRequest
+   * @return QuerySlbSpecResponse
+   */
   async querySlbSpec(request: QuerySlbSpecRequest): Promise<QuerySlbSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySlbSpecWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a lane based on the lane ID.
+   *
+   * @param request QuerySwimmingLaneByIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySwimmingLaneByIdResponse
+   */
   async querySwimmingLaneByIdWithOptions(request: QuerySwimmingLaneByIdRequest, runtime: $Util.RuntimeOptions): Promise<QuerySwimmingLaneByIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42959,11 +44969,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySwimmingLaneByIdResponse>(await this.callApi(params, req, runtime), new QuerySwimmingLaneByIdResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a lane based on the lane ID.
+   *
+   * @param request QuerySwimmingLaneByIdRequest
+   * @return QuerySwimmingLaneByIdResponse
+   */
   async querySwimmingLaneById(request: QuerySwimmingLaneByIdRequest): Promise<QuerySwimmingLaneByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySwimmingLaneByIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a ZooKeeper node.
+   *
+   * @param request QueryZnodeDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryZnodeDetailResponse
+   */
   async queryZnodeDetailWithOptions(request: QueryZnodeDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryZnodeDetailResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -42984,11 +45007,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryZnodeDetailResponse>(await this.callApi(params, req, runtime), new QueryZnodeDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a ZooKeeper node.
+   *
+   * @param request QueryZnodeDetailRequest
+   * @return QueryZnodeDetailResponse
+   */
   async queryZnodeDetail(request: QueryZnodeDetailRequest): Promise<QueryZnodeDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryZnodeDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除单个应用
+   *
+   * @param request RemoveApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveApplicationResponse
+   */
   async removeApplicationWithOptions(request: RemoveApplicationRequest, runtime: $Util.RuntimeOptions): Promise<RemoveApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43029,11 +45065,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveApplicationResponse>(await this.callApi(params, req, runtime), new RemoveApplicationResponse({}));
   }
 
+  /**
+   * @summary 删除单个应用
+   *
+   * @param request RemoveApplicationRequest
+   * @return RemoveApplicationResponse
+   */
   async removeApplication(request: RemoveApplicationRequest): Promise<RemoveApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RemoveAuthPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveAuthPolicyResponse
+   */
   async removeAuthPolicyWithOptions(request: RemoveAuthPolicyRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAuthPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43062,11 +45109,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveAuthPolicyResponse>(await this.callApi(params, req, runtime), new RemoveAuthPolicyResponse({}));
   }
 
+  /**
+   * @param request RemoveAuthPolicyRequest
+   * @return RemoveAuthPolicyResponse
+   */
   async removeAuthPolicy(request: RemoveAuthPolicyRequest): Promise<RemoveAuthPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeAuthPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Restarts a registry.
+   *
+   * @param request RestartClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartClusterResponse
+   */
   async restartClusterWithOptions(request: RestartClusterRequest, runtime: $Util.RuntimeOptions): Promise<RestartClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43107,11 +45165,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartClusterResponse>(await this.callApi(params, req, runtime), new RestartClusterResponse({}));
   }
 
+  /**
+   * @summary Restarts a registry.
+   *
+   * @param request RestartClusterRequest
+   * @return RestartClusterResponse
+   */
   async restartCluster(request: RestartClusterRequest): Promise<RestartClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Retries a cluster.
+   *
+   * @param request RetryClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RetryClusterResponse
+   */
   async retryClusterWithOptions(request: RetryClusterRequest, runtime: $Util.RuntimeOptions): Promise<RetryClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43144,11 +45215,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RetryClusterResponse>(await this.callApi(params, req, runtime), new RetryClusterResponse({}));
   }
 
+  /**
+   * @summary Retries a cluster.
+   *
+   * @param request RetryClusterRequest
+   * @return RetryClusterResponse
+   */
   async retryCluster(request: RetryClusterRequest): Promise<RetryClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.retryClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries an idle Server Load Balancer (SLB) instance that is associated with a gateway.
+   *
+   * @param request SelectGatewaySlbRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SelectGatewaySlbResponse
+   */
   async selectGatewaySlbWithOptions(request: SelectGatewaySlbRequest, runtime: $Util.RuntimeOptions): Promise<SelectGatewaySlbResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43185,11 +45269,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SelectGatewaySlbResponse>(await this.callApi(params, req, runtime), new SelectGatewaySlbResponse({}));
   }
 
+  /**
+   * @summary Queries an idle Server Load Balancer (SLB) instance that is associated with a gateway.
+   *
+   * @param request SelectGatewaySlbRequest
+   * @return SelectGatewaySlbResponse
+   */
   async selectGatewaySlb(request: SelectGatewaySlbRequest): Promise<SelectGatewaySlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.selectGatewaySlbWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Tags a specified resource.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43230,11 +45327,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Tags a specified resource.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Untags resources.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43279,11 +45389,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Untags resources.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an IP address whitelist.
+   *
+   * @param request UpdateAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAclResponse
+   */
   async updateAclWithOptions(request: UpdateAclRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43316,11 +45439,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAclResponse>(await this.callApi(params, req, runtime), new UpdateAclResponse({}));
   }
 
+  /**
+   * @summary Modifies an IP address whitelist.
+   *
+   * @param request UpdateAclRequest
+   * @return UpdateAclResponse
+   */
   async updateAcl(request: UpdateAclRequest): Promise<UpdateAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a service authentication rule.
+   *
+   * @param request UpdateAuthPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAuthPolicyResponse
+   */
   async updateAuthPolicyWithOptions(request: UpdateAuthPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAuthPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43381,11 +45517,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAuthPolicyResponse>(await this.callApi(params, req, runtime), new UpdateAuthPolicyResponse({}));
   }
 
+  /**
+   * @summary Updates a service authentication rule.
+   *
+   * @param request UpdateAuthPolicyRequest
+   * @return UpdateAuthPolicyResponse
+   */
   async updateAuthPolicy(request: UpdateAuthPolicyRequest): Promise<UpdateAuthPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAuthPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the blacklist or whitelist of a gateway.
+   *
+   * @param request UpdateBlackWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBlackWhiteListResponse
+   */
   async updateBlackWhiteListWithOptions(request: UpdateBlackWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBlackWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43450,11 +45599,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBlackWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateBlackWhiteListResponse({}));
   }
 
+  /**
+   * @summary Modifies the blacklist or whitelist of a gateway.
+   *
+   * @param request UpdateBlackWhiteListRequest
+   * @return UpdateBlackWhiteListResponse
+   */
   async updateBlackWhiteList(request: UpdateBlackWhiteListRequest): Promise<UpdateBlackWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBlackWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a circuit breaking rule.
+   *
+   * @param request UpdateCircuitBreakerRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCircuitBreakerRuleResponse
+   */
   async updateCircuitBreakerRuleWithOptions(request: UpdateCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCircuitBreakerRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43531,11 +45693,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new UpdateCircuitBreakerRuleResponse({}));
   }
 
+  /**
+   * @summary Updates a circuit breaking rule.
+   *
+   * @param request UpdateCircuitBreakerRuleRequest
+   * @return UpdateCircuitBreakerRuleResponse
+   */
   async updateCircuitBreakerRule(request: UpdateCircuitBreakerRuleRequest): Promise<UpdateCircuitBreakerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCircuitBreakerRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the information about an instance.
+   *
+   * @param request UpdateClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateClusterResponse
+   */
   async updateClusterWithOptions(request: UpdateClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43580,17 +45755,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateClusterResponse>(await this.callApi(params, req, runtime), new UpdateClusterResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about an instance.
+   *
+   * @param request UpdateClusterRequest
+   * @return UpdateClusterResponse
+   */
   async updateCluster(request: UpdateClusterRequest): Promise<UpdateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateClusterWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
-    *
-    * @param request UpdateClusterSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateClusterSpecResponse
+   * @summary Updates the number or specifications of nodes in a pay-as-you-go Microservices Engine (MSE) instance.
+   *
+   * @description You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing] (`~~1806469~~`).
+   *
+   * @param request UpdateClusterSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateClusterSpecResponse
    */
   async updateClusterSpecWithOptions(request: UpdateClusterSpecRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClusterSpecResponse> {
     Util.validateModel(request);
@@ -43645,16 +45828,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
-    *
-    * @param request UpdateClusterSpecRequest
-    * @return UpdateClusterSpecResponse
+   * @summary Updates the number or specifications of nodes in a pay-as-you-go Microservices Engine (MSE) instance.
+   *
+   * @description You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing] (`~~1806469~~`).
+   *
+   * @param request UpdateClusterSpecRequest
+   * @return UpdateClusterSpecResponse
    */
   async updateClusterSpec(request: UpdateClusterSpecRequest): Promise<UpdateClusterSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateClusterSpecWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the configurations of an instance.
+   *
+   * @param request UpdateConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateConfigResponse
+   */
   async updateConfigWithOptions(request: UpdateConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43781,11 +45973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConfigResponse>(await this.callApi(params, req, runtime), new UpdateConfigResponse({}));
   }
 
+  /**
+   * @summary Updates the configurations of an instance.
+   *
+   * @param request UpdateConfigRequest
+   * @return UpdateConfigResponse
+   */
   async updateConfig(request: UpdateConfigRequest): Promise<UpdateConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a namespace for the Nacos engine.
+   *
+   * @param request UpdateEngineNamespaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEngineNamespaceResponse
+   */
   async updateEngineNamespaceWithOptions(request: UpdateEngineNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEngineNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43834,11 +46039,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEngineNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateEngineNamespaceResponse({}));
   }
 
+  /**
+   * @summary Updates a namespace for the Nacos engine.
+   *
+   * @param request UpdateEngineNamespaceRequest
+   * @return UpdateEngineNamespaceResponse
+   */
   async updateEngineNamespace(request: UpdateEngineNamespaceRequest): Promise<UpdateEngineNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEngineNamespaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a throttling rule.
+   *
+   * @param request UpdateFlowRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFlowRuleResponse
+   */
   async updateFlowRuleWithOptions(request: UpdateFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFlowRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43895,11 +46113,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFlowRuleResponse>(await this.callApi(params, req, runtime), new UpdateFlowRuleResponse({}));
   }
 
+  /**
+   * @summary Updates a throttling rule.
+   *
+   * @param request UpdateFlowRuleRequest
+   * @return UpdateFlowRuleResponse
+   */
   async updateFlowRule(request: UpdateFlowRuleRequest): Promise<UpdateFlowRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFlowRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the consumer on which a gateway performs authentication operations.
+   *
+   * @param request UpdateGatewayAuthConsumerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayAuthConsumerResponse
+   */
   async updateGatewayAuthConsumerWithOptions(request: UpdateGatewayAuthConsumerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayAuthConsumerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43968,11 +46199,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerResponse({}));
   }
 
+  /**
+   * @summary Updates the consumer on which a gateway performs authentication operations.
+   *
+   * @param request UpdateGatewayAuthConsumerRequest
+   * @return UpdateGatewayAuthConsumerResponse
+   */
   async updateGatewayAuthConsumer(request: UpdateGatewayAuthConsumerRequest): Promise<UpdateGatewayAuthConsumerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayAuthConsumerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a list of resources on which permissions are granted to a gateway authentication consumer.
+   *
+   * @param tmpReq UpdateGatewayAuthConsumerResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayAuthConsumerResourceResponse
+   */
   async updateGatewayAuthConsumerResourceWithOptions(tmpReq: UpdateGatewayAuthConsumerResourceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayAuthConsumerResourceResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayAuthConsumerResourceShrinkRequest({ });
@@ -44015,11 +46259,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayAuthConsumerResourceResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerResourceResponse({}));
   }
 
+  /**
+   * @summary Updates a list of resources on which permissions are granted to a gateway authentication consumer.
+   *
+   * @param request UpdateGatewayAuthConsumerResourceRequest
+   * @return UpdateGatewayAuthConsumerResourceResponse
+   */
   async updateGatewayAuthConsumerResource(request: UpdateGatewayAuthConsumerResourceRequest): Promise<UpdateGatewayAuthConsumerResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayAuthConsumerResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the resource authorization status for the consumer on which a gateway performs authentication operations.
+   *
+   * @param request UpdateGatewayAuthConsumerResourceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayAuthConsumerResourceStatusResponse
+   */
   async updateGatewayAuthConsumerResourceStatusWithOptions(request: UpdateGatewayAuthConsumerResourceStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayAuthConsumerResourceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44060,11 +46317,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayAuthConsumerResourceStatusResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerResourceStatusResponse({}));
   }
 
+  /**
+   * @summary Updates the resource authorization status for the consumer on which a gateway performs authentication operations.
+   *
+   * @param request UpdateGatewayAuthConsumerResourceStatusRequest
+   * @return UpdateGatewayAuthConsumerResourceStatusResponse
+   */
   async updateGatewayAuthConsumerResourceStatus(request: UpdateGatewayAuthConsumerResourceStatusRequest): Promise<UpdateGatewayAuthConsumerResourceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayAuthConsumerResourceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the status of the consumer on which a gateway performs authentication operations.
+   *
+   * @param request UpdateGatewayAuthConsumerStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayAuthConsumerStatusResponse
+   */
   async updateGatewayAuthConsumerStatusWithOptions(request: UpdateGatewayAuthConsumerStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayAuthConsumerStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44101,11 +46371,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayAuthConsumerStatusResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerStatusResponse({}));
   }
 
+  /**
+   * @summary Updates the status of the consumer on which a gateway performs authentication operations.
+   *
+   * @param request UpdateGatewayAuthConsumerStatusRequest
+   * @return UpdateGatewayAuthConsumerStatusResponse
+   */
   async updateGatewayAuthConsumerStatus(request: UpdateGatewayAuthConsumerStatusRequest): Promise<UpdateGatewayAuthConsumerStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayAuthConsumerStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新网关路由熔断规则
+   *
+   * @param request UpdateGatewayCircuitBreakerRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayCircuitBreakerRuleResponse
+   */
   async updateGatewayCircuitBreakerRuleWithOptions(request: UpdateGatewayCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayCircuitBreakerRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44198,11 +46481,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayCircuitBreakerRuleResponse({}));
   }
 
+  /**
+   * @summary 更新网关路由熔断规则
+   *
+   * @param request UpdateGatewayCircuitBreakerRuleRequest
+   * @return UpdateGatewayCircuitBreakerRuleResponse
+   */
   async updateGatewayCircuitBreakerRule(request: UpdateGatewayCircuitBreakerRuleRequest): Promise<UpdateGatewayCircuitBreakerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayCircuitBreakerRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the information about the domain name associated with a gateway.
+   *
+   * @param request UpdateGatewayDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayDomainResponse
+   */
   async updateGatewayDomainWithOptions(request: UpdateGatewayDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44259,11 +46555,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayDomainResponse>(await this.callApi(params, req, runtime), new UpdateGatewayDomainResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about the domain name associated with a gateway.
+   *
+   * @param request UpdateGatewayDomainRequest
+   * @return UpdateGatewayDomainResponse
+   */
   async updateGatewayDomain(request: UpdateGatewayDomainRequest): Promise<UpdateGatewayDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新网关路由流控规则
+   *
+   * @param request UpdateGatewayFlowRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayFlowRuleResponse
+   */
   async updateGatewayFlowRuleWithOptions(request: UpdateGatewayFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayFlowRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44336,11 +46645,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayFlowRuleResponse({}));
   }
 
+  /**
+   * @summary 更新网关路由流控规则
+   *
+   * @param request UpdateGatewayFlowRuleRequest
+   * @return UpdateGatewayFlowRuleResponse
+   */
   async updateGatewayFlowRule(request: UpdateGatewayFlowRuleRequest): Promise<UpdateGatewayFlowRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayFlowRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新网关路由隔离规则
+   *
+   * @param request UpdateGatewayIsolationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayIsolationRuleResponse
+   */
   async updateGatewayIsolationRuleWithOptions(request: UpdateGatewayIsolationRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayIsolationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44413,11 +46735,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayIsolationRuleResponse({}));
   }
 
+  /**
+   * @summary 更新网关路由隔离规则
+   *
+   * @param request UpdateGatewayIsolationRuleRequest
+   * @return UpdateGatewayIsolationRuleResponse
+   */
   async updateGatewayIsolationRule(request: UpdateGatewayIsolationRuleRequest): Promise<UpdateGatewayIsolationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayIsolationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Renames a gateway.
+   *
+   * @param request UpdateGatewayNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayNameResponse
+   */
   async updateGatewayNameWithOptions(request: UpdateGatewayNameRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44450,11 +46785,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayNameResponse>(await this.callApi(params, req, runtime), new UpdateGatewayNameResponse({}));
   }
 
+  /**
+   * @summary Renames a gateway.
+   *
+   * @param request UpdateGatewayNameRequest
+   * @return UpdateGatewayNameResponse
+   */
   async updateGatewayName(request: UpdateGatewayNameRequest): Promise<UpdateGatewayNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the configurations of a gateway.
+   *
+   * @param tmpReq UpdateGatewayOptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayOptionResponse
+   */
   async updateGatewayOptionWithOptions(tmpReq: UpdateGatewayOptionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayOptionResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayOptionShrinkRequest({ });
@@ -44497,11 +46845,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayOptionResponse>(await this.callApi(params, req, runtime), new UpdateGatewayOptionResponse({}));
   }
 
+  /**
+   * @summary Updates the configurations of a gateway.
+   *
+   * @param request UpdateGatewayOptionRequest
+   * @return UpdateGatewayOptionResponse
+   */
   async updateGatewayOption(request: UpdateGatewayOptionRequest): Promise<UpdateGatewayOptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayOptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a route for a gateway.
+   *
+   * @param tmpReq UpdateGatewayRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayRouteResponse
+   */
   async updateGatewayRouteWithOptions(tmpReq: UpdateGatewayRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayRouteResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteShrinkRequest({ });
@@ -44608,11 +46969,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayRouteResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteResponse({}));
   }
 
+  /**
+   * @summary Updates a route for a gateway.
+   *
+   * @param request UpdateGatewayRouteRequest
+   * @return UpdateGatewayRouteResponse
+   */
   async updateGatewayRoute(request: UpdateGatewayRouteRequest): Promise<UpdateGatewayRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the authentication configurations of a route.
+   *
+   * @param tmpReq UpdateGatewayRouteAuthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayRouteAuthResponse
+   */
   async updateGatewayRouteAuthWithOptions(tmpReq: UpdateGatewayRouteAuthRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayRouteAuthResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteAuthShrinkRequest({ });
@@ -44659,11 +47033,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayRouteAuthResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteAuthResponse({}));
   }
 
+  /**
+   * @summary Updates the authentication configurations of a route.
+   *
+   * @param request UpdateGatewayRouteAuthRequest
+   * @return UpdateGatewayRouteAuthResponse
+   */
   async updateGatewayRouteAuth(request: UpdateGatewayRouteAuthRequest): Promise<UpdateGatewayRouteAuthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayRouteAuthWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the cross-origin resource sharing (CORS) policy of a route.
+   *
+   * @param tmpReq UpdateGatewayRouteCORSRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayRouteCORSResponse
+   */
   async updateGatewayRouteCORSWithOptions(tmpReq: UpdateGatewayRouteCORSRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayRouteCORSResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteCORSShrinkRequest({ });
@@ -44710,11 +47097,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayRouteCORSResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteCORSResponse({}));
   }
 
+  /**
+   * @summary Modifies the cross-origin resource sharing (CORS) policy of a route.
+   *
+   * @param request UpdateGatewayRouteCORSRequest
+   * @return UpdateGatewayRouteCORSResponse
+   */
   async updateGatewayRouteCORS(request: UpdateGatewayRouteCORSRequest): Promise<UpdateGatewayRouteCORSResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayRouteCORSWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the rewrite policy of a route for a gateway.
+   *
+   * @param request UpdateGatewayRouteHTTPRewriteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayRouteHTTPRewriteResponse
+   */
   async updateGatewayRouteHTTPRewriteWithOptions(request: UpdateGatewayRouteHTTPRewriteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayRouteHTTPRewriteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44755,11 +47155,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayRouteHTTPRewriteResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteHTTPRewriteResponse({}));
   }
 
+  /**
+   * @summary Updates the rewrite policy of a route for a gateway.
+   *
+   * @param request UpdateGatewayRouteHTTPRewriteRequest
+   * @return UpdateGatewayRouteHTTPRewriteResponse
+   */
   async updateGatewayRouteHTTPRewrite(request: UpdateGatewayRouteHTTPRewriteRequest): Promise<UpdateGatewayRouteHTTPRewriteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayRouteHTTPRewriteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the header configuration policy of a route.
+   *
+   * @param request UpdateGatewayRouteHeaderOpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayRouteHeaderOpResponse
+   */
   async updateGatewayRouteHeaderOpWithOptions(request: UpdateGatewayRouteHeaderOpRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayRouteHeaderOpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44800,11 +47213,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayRouteHeaderOpResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteHeaderOpResponse({}));
   }
 
+  /**
+   * @summary Modifies the header configuration policy of a route.
+   *
+   * @param request UpdateGatewayRouteHeaderOpRequest
+   * @return UpdateGatewayRouteHeaderOpResponse
+   */
   async updateGatewayRouteHeaderOp(request: UpdateGatewayRouteHeaderOpRequest): Promise<UpdateGatewayRouteHeaderOpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayRouteHeaderOpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the retry policy of a route.
+   *
+   * @param tmpReq UpdateGatewayRouteRetryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayRouteRetryResponse
+   */
   async updateGatewayRouteRetryWithOptions(tmpReq: UpdateGatewayRouteRetryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayRouteRetryResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteRetryShrinkRequest({ });
@@ -44851,11 +47277,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayRouteRetryResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteRetryResponse({}));
   }
 
+  /**
+   * @summary Modifies the retry policy of a route.
+   *
+   * @param request UpdateGatewayRouteRetryRequest
+   * @return UpdateGatewayRouteRetryResponse
+   */
   async updateGatewayRouteRetry(request: UpdateGatewayRouteRetryRequest): Promise<UpdateGatewayRouteRetryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayRouteRetryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the timeout policy of a route.
+   *
+   * @param tmpReq UpdateGatewayRouteTimeoutRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayRouteTimeoutResponse
+   */
   async updateGatewayRouteTimeoutWithOptions(tmpReq: UpdateGatewayRouteTimeoutRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayRouteTimeoutResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteTimeoutShrinkRequest({ });
@@ -44902,11 +47341,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayRouteTimeoutResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteTimeoutResponse({}));
   }
 
+  /**
+   * @summary Modifies the timeout policy of a route.
+   *
+   * @param request UpdateGatewayRouteTimeoutRequest
+   * @return UpdateGatewayRouteTimeoutResponse
+   */
   async updateGatewayRouteTimeout(request: UpdateGatewayRouteTimeoutRequest): Promise<UpdateGatewayRouteTimeoutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayRouteTimeoutWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新路由waf状态
+   *
+   * @param request UpdateGatewayRouteWafStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayRouteWafStatusResponse
+   */
   async updateGatewayRouteWafStatusWithOptions(request: UpdateGatewayRouteWafStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayRouteWafStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44943,11 +47395,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayRouteWafStatusResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteWafStatusResponse({}));
   }
 
+  /**
+   * @summary 更新路由waf状态
+   *
+   * @param request UpdateGatewayRouteWafStatusRequest
+   * @return UpdateGatewayRouteWafStatusResponse
+   */
   async updateGatewayRouteWafStatus(request: UpdateGatewayRouteWafStatusRequest): Promise<UpdateGatewayRouteWafStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayRouteWafStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the health check policy of a specified service in a cloud-native gateway.
+   *
+   * @param tmpReq UpdateGatewayServiceCheckRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayServiceCheckResponse
+   */
   async updateGatewayServiceCheckWithOptions(tmpReq: UpdateGatewayServiceCheckRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayServiceCheckResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayServiceCheckShrinkRequest({ });
@@ -45022,11 +47487,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayServiceCheckResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceCheckResponse({}));
   }
 
+  /**
+   * @summary Updates the health check policy of a specified service in a cloud-native gateway.
+   *
+   * @param request UpdateGatewayServiceCheckRequest
+   * @return UpdateGatewayServiceCheckResponse
+   */
   async updateGatewayServiceCheck(request: UpdateGatewayServiceCheckRequest): Promise<UpdateGatewayServiceCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayServiceCheckWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the traffic policy of a service.
+   *
+   * @param tmpReq UpdateGatewayServiceTrafficPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayServiceTrafficPolicyResponse
+   */
   async updateGatewayServiceTrafficPolicyWithOptions(tmpReq: UpdateGatewayServiceTrafficPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayServiceTrafficPolicyResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayServiceTrafficPolicyShrinkRequest({ });
@@ -45073,11 +47551,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayServiceTrafficPolicyResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceTrafficPolicyResponse({}));
   }
 
+  /**
+   * @summary Updates the traffic policy of a service.
+   *
+   * @param request UpdateGatewayServiceTrafficPolicyRequest
+   * @return UpdateGatewayServiceTrafficPolicyResponse
+   */
   async updateGatewayServiceTrafficPolicy(request: UpdateGatewayServiceTrafficPolicyRequest): Promise<UpdateGatewayServiceTrafficPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayServiceTrafficPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the version of a service.
+   *
+   * @param request UpdateGatewayServiceVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayServiceVersionResponse
+   */
   async updateGatewayServiceVersionWithOptions(request: UpdateGatewayServiceVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayServiceVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45114,17 +47605,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceVersionResponse({}));
   }
 
+  /**
+   * @summary Modifies the version of a service.
+   *
+   * @param request UpdateGatewayServiceVersionRequest
+   * @return UpdateGatewayServiceVersionResponse
+   */
   async updateGatewayServiceVersion(request: UpdateGatewayServiceVersionRequest): Promise<UpdateGatewayServiceVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayServiceVersionWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](~~250950~~).
-    *
-    * @param request UpdateGatewaySpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateGatewaySpecResponse
+   * @summary Updates the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway.
+   *
+   * @description You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](https://help.aliyun.com/document_detail/250950.html).
+   *
+   * @param request UpdateGatewaySpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewaySpecResponse
    */
   async updateGatewaySpecWithOptions(request: UpdateGatewaySpecRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewaySpecResponse> {
     Util.validateModel(request);
@@ -45163,16 +47662,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](~~250950~~).
-    *
-    * @param request UpdateGatewaySpecRequest
-    * @return UpdateGatewaySpecResponse
+   * @summary Updates the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway.
+   *
+   * @description You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](https://help.aliyun.com/document_detail/250950.html).
+   *
+   * @param request UpdateGatewaySpecRequest
+   * @return UpdateGatewaySpecResponse
    */
   async updateGatewaySpec(request: UpdateGatewaySpecRequest): Promise<UpdateGatewaySpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewaySpecWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the version number of the destination cluster.
+   *
+   * @param request UpdateImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateImageResponse
+   */
   async updateImageWithOptions(request: UpdateImageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45205,11 +47713,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateImageResponse>(await this.callApi(params, req, runtime), new UpdateImageResponse({}));
   }
 
+  /**
+   * @summary Updates the version number of the destination cluster.
+   *
+   * @param request UpdateImageRequest
+   * @return UpdateImageResponse
+   */
   async updateImage(request: UpdateImageRequest): Promise<UpdateImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateImageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新隔离规则
+   *
+   * @param request UpdateIsolationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIsolationRuleResponse
+   */
   async updateIsolationRuleWithOptions(request: UpdateIsolationRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIsolationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45258,11 +47779,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIsolationRuleResponse>(await this.callApi(params, req, runtime), new UpdateIsolationRuleResponse({}));
   }
 
+  /**
+   * @summary 更新隔离规则
+   *
+   * @param request UpdateIsolationRuleRequest
+   * @return UpdateIsolationRuleResponse
+   */
   async updateIsolationRule(request: UpdateIsolationRuleRequest): Promise<UpdateIsolationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIsolationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the configuration of a canary release for messaging of an application.
+   *
+   * @param tmpReq UpdateMessageQueueRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMessageQueueRouteResponse
+   */
   async updateMessageQueueRouteWithOptions(tmpReq: UpdateMessageQueueRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMessageQueueRouteResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateMessageQueueRouteShrinkRequest({ });
@@ -45321,11 +47855,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMessageQueueRouteResponse>(await this.callApi(params, req, runtime), new UpdateMessageQueueRouteResponse({}));
   }
 
+  /**
+   * @summary Updates the configuration of a canary release for messaging of an application.
+   *
+   * @param request UpdateMessageQueueRouteRequest
+   * @return UpdateMessageQueueRouteResponse
+   */
   async updateMessageQueueRoute(request: UpdateMessageQueueRouteRequest): Promise<UpdateMessageQueueRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMessageQueueRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a migration task.
+   *
+   * @param request UpdateMigrationTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMigrationTaskResponse
+   */
   async updateMigrationTaskWithOptions(request: UpdateMigrationTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMigrationTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45390,11 +47937,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMigrationTaskResponse>(await this.callApi(params, req, runtime), new UpdateMigrationTaskResponse({}));
   }
 
+  /**
+   * @summary Updates a migration task.
+   *
+   * @param request UpdateMigrationTaskRequest
+   * @return UpdateMigrationTaskResponse
+   */
   async updateMigrationTask(request: UpdateMigrationTaskRequest): Promise<UpdateMigrationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMigrationTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the information about a Nacos cluster.
+   *
+   * @param request UpdateNacosClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateNacosClusterResponse
+   */
   async updateNacosClusterWithOptions(request: UpdateNacosClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacosClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45451,17 +48011,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateNacosClusterResponse>(await this.callApi(params, req, runtime), new UpdateNacosClusterResponse({}));
   }
 
+  /**
+   * @summary Updates the information about a Nacos cluster.
+   *
+   * @param request UpdateNacosClusterRequest
+   * @return UpdateNacosClusterResponse
+   */
   async updateNacosCluster(request: UpdateNacosClusterRequest): Promise<UpdateNacosClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNacosClusterWithOptions(request, runtime);
   }
 
   /**
-    * >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request UpdateNacosConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateNacosConfigResponse
+   * @summary Updates a Nacos configuration.
+   *
+   * @description >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request UpdateNacosConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateNacosConfigResponse
    */
   async updateNacosConfigWithOptions(request: UpdateNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacosConfigResponse> {
     Util.validateModel(request);
@@ -45536,10 +48104,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request UpdateNacosConfigRequest
-    * @return UpdateNacosConfigResponse
+   * @summary Updates a Nacos configuration.
+   *
+   * @description >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request UpdateNacosConfigRequest
+   * @return UpdateNacosConfigResponse
    */
   async updateNacosConfig(request: UpdateNacosConfigRequest): Promise<UpdateNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45547,11 +48117,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request UpdateNacosInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateNacosInstanceResponse
+   * @summary Updates the information about application instances that are registered with a Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request UpdateNacosInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateNacosInstanceResponse
    */
   async updateNacosInstanceWithOptions(request: UpdateNacosInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacosInstanceResponse> {
     Util.validateModel(request);
@@ -45624,10 +48196,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request UpdateNacosInstanceRequest
-    * @return UpdateNacosInstanceResponse
+   * @summary Updates the information about application instances that are registered with a Nacos instance.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request UpdateNacosInstanceRequest
+   * @return UpdateNacosInstanceResponse
    */
   async updateNacosInstance(request: UpdateNacosInstanceRequest): Promise<UpdateNacosInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45635,11 +48209,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request UpdateNacosServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateNacosServiceResponse
+   * @summary Updates the information about a Nacos service.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request UpdateNacosServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateNacosServiceResponse
    */
   async updateNacosServiceWithOptions(request: UpdateNacosServiceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacosServiceResponse> {
     Util.validateModel(request);
@@ -45690,16 +48266,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request UpdateNacosServiceRequest
-    * @return UpdateNacosServiceResponse
+   * @summary Updates the information about a Nacos service.
+   *
+   * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   *
+   * @param request UpdateNacosServiceRequest
+   * @return UpdateNacosServiceResponse
    */
   async updateNacosService(request: UpdateNacosServiceRequest): Promise<UpdateNacosServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNacosServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the configuration of a plug-in.
+   *
+   * @param request UpdatePluginConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePluginConfigResponse
+   */
   async updatePluginConfigWithOptions(request: UpdatePluginConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePluginConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45760,11 +48345,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePluginConfigResponse>(await this.callApi(params, req, runtime), new UpdatePluginConfigResponse({}));
   }
 
+  /**
+   * @summary Updates the configuration of a plug-in.
+   *
+   * @param request UpdatePluginConfigRequest
+   * @return UpdatePluginConfigResponse
+   */
   async updatePluginConfig(request: UpdatePluginConfigRequest): Promise<UpdatePluginConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePluginConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a certificate.
+   *
+   * @param request UpdateSSLCertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSSLCertResponse
+   */
   async updateSSLCertWithOptions(request: UpdateSSLCertRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSSLCertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45801,11 +48399,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSSLCertResponse>(await this.callApi(params, req, runtime), new UpdateSSLCertResponse({}));
   }
 
+  /**
+   * @summary Updates a certificate.
+   *
+   * @param request UpdateSSLCertRequest
+   * @return UpdateSSLCertResponse
+   */
   async updateSSLCert(request: UpdateSSLCertRequest): Promise<UpdateSSLCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSSLCertWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies service sources of a cloud-native gateway. You can modify only Container Service for Kubernetes (ACK) service sources that contain configurations related to Ingress resource monitoring.
+   *
+   * @param tmpReq UpdateServiceSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceSourceResponse
+   */
   async updateServiceSourceWithOptions(tmpReq: UpdateServiceSourceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceSourceResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateServiceSourceShrinkRequest({ });
@@ -45876,11 +48487,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceSourceResponse>(await this.callApi(params, req, runtime), new UpdateServiceSourceResponse({}));
   }
 
+  /**
+   * @summary Modifies service sources of a cloud-native gateway. You can modify only Container Service for Kubernetes (ACK) service sources that contain configurations related to Ingress resource monitoring.
+   *
+   * @param request UpdateServiceSourceRequest
+   * @return UpdateServiceSourceResponse
+   */
   async updateServiceSource(request: UpdateServiceSourceRequest): Promise<UpdateServiceSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateServiceSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the information about a ZooKeeper node.
+   *
+   * @param request UpdateZnodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateZnodeResponse
+   */
   async updateZnodeWithOptions(request: UpdateZnodeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateZnodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45921,11 +48545,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateZnodeResponse>(await this.callApi(params, req, runtime), new UpdateZnodeResponse({}));
   }
 
+  /**
+   * @summary Updates the information about a ZooKeeper node.
+   *
+   * @param request UpdateZnodeRequest
+   * @return UpdateZnodeResponse
+   */
   async updateZnode(request: UpdateZnodeRequest): Promise<UpdateZnodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateZnodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Upgrades the version of a cluster.
+   *
+   * @param request UpgradeClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeClusterResponse
+   */
   async upgradeClusterWithOptions(request: UpgradeClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45962,6 +48599,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeClusterResponse>(await this.callApi(params, req, runtime), new UpgradeClusterResponse({}));
   }
 
+  /**
+   * @summary Upgrades the version of a cluster.
+   *
+   * @param request UpgradeClusterRequest
+   * @return UpgradeClusterResponse
+   */
   async upgradeCluster(request: UpgradeClusterRequest): Promise<UpgradeClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeClusterWithOptions(request, runtime);
