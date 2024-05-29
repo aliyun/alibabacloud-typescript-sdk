@@ -6298,11 +6298,13 @@ export class SetApplicationProvisioningConfigResponse extends $tea.Model {
 
 export class SetApplicationProvisioningScopeRequest extends $tea.Model {
   applicationId?: string;
+  groupIds?: string[];
   instanceId?: string;
   organizationalUnitIds?: string[];
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      groupIds: 'GroupIds',
       instanceId: 'InstanceId',
       organizationalUnitIds: 'OrganizationalUnitIds',
     };
@@ -6311,6 +6313,7 @@ export class SetApplicationProvisioningScopeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      groupIds: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       organizationalUnitIds: { 'type': 'array', 'itemType': 'string' },
     };
@@ -8201,16 +8204,25 @@ export class GetApplicationProvisioningConfigResponseBodyApplicationProvisioning
 }
 
 export class GetApplicationProvisioningScopeResponseBodyApplicationProvisioningScope extends $tea.Model {
+  groupIds?: string[];
+  maxQuota?: number;
   organizationalUnitIds?: string[];
+  usedQuota?: number;
   static names(): { [key: string]: string } {
     return {
+      groupIds: 'GroupIds',
+      maxQuota: 'MaxQuota',
       organizationalUnitIds: 'OrganizationalUnitIds',
+      usedQuota: 'UsedQuota',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      groupIds: { 'type': 'array', 'itemType': 'string' },
+      maxQuota: 'number',
       organizationalUnitIds: { 'type': 'array', 'itemType': 'string' },
+      usedQuota: 'number',
     };
   }
 
@@ -9500,15 +9512,21 @@ export class ListGroupsForApplicationResponseBodyGroups extends $tea.Model {
 
 export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
   groupId?: string;
+  groupMemberRelationSourceId?: string;
+  groupMemberRelationSourceType?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
+      groupMemberRelationSourceId: 'GroupMemberRelationSourceId',
+      groupMemberRelationSourceType: 'GroupMemberRelationSourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       groupId: 'string',
+      groupMemberRelationSourceId: 'string',
+      groupMemberRelationSourceType: 'string',
     };
   }
 
@@ -9920,15 +9938,21 @@ export class ListUsersForApplicationResponseBodyUsers extends $tea.Model {
 }
 
 export class ListUsersForGroupResponseBodyUsers extends $tea.Model {
+  groupMemberRelationSourceId?: string;
+  groupMemberRelationSourceType?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      groupMemberRelationSourceId: 'GroupMemberRelationSourceId',
+      groupMemberRelationSourceType: 'GroupMemberRelationSourceType',
       userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      groupMemberRelationSourceId: 'string',
+      groupMemberRelationSourceType: 'string',
       userId: 'string',
     };
   }
@@ -10342,6 +10366,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
+   *
+   * @param request AddUserToOrganizationalUnitsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserToOrganizationalUnitsResponse
+   */
   async addUserToOrganizationalUnitsWithOptions(request: AddUserToOrganizationalUnitsRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToOrganizationalUnitsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10374,11 +10405,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserToOrganizationalUnitsResponse>(await this.callApi(params, req, runtime), new AddUserToOrganizationalUnitsResponse({}));
   }
 
+  /**
+   * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
+   *
+   * @param request AddUserToOrganizationalUnitsRequest
+   * @return AddUserToOrganizationalUnitsResponse
+   */
   async addUserToOrganizationalUnits(request: AddUserToOrganizationalUnitsRequest): Promise<AddUserToOrganizationalUnitsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserToOrganizationalUnitsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds Employee Identity and Access Management (EIAM) accounts to an EIAM group of Identity as a Service (IDaaS).
+   *
+   * @param request AddUsersToGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUsersToGroupResponse
+   */
   async addUsersToGroupWithOptions(request: AddUsersToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUsersToGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10411,11 +10455,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUsersToGroupResponse>(await this.callApi(params, req, runtime), new AddUsersToGroupResponse({}));
   }
 
+  /**
+   * @summary Adds Employee Identity and Access Management (EIAM) accounts to an EIAM group of Identity as a Service (IDaaS).
+   *
+   * @param request AddUsersToGroupRequest
+   * @return AddUsersToGroupResponse
+   */
   async addUsersToGroup(request: AddUsersToGroupRequest): Promise<AddUsersToGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUsersToGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request AuthorizeApplicationToGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AuthorizeApplicationToGroupsResponse
+   */
   async authorizeApplicationToGroupsWithOptions(request: AuthorizeApplicationToGroupsRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeApplicationToGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10448,11 +10505,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeApplicationToGroupsResponse>(await this.callApi(params, req, runtime), new AuthorizeApplicationToGroupsResponse({}));
   }
 
+  /**
+   * @summary Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request AuthorizeApplicationToGroupsRequest
+   * @return AuthorizeApplicationToGroupsResponse
+   */
   async authorizeApplicationToGroups(request: AuthorizeApplicationToGroupsRequest): Promise<AuthorizeApplicationToGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.authorizeApplicationToGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
+   *
+   * @param request AuthorizeApplicationToOrganizationalUnitsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AuthorizeApplicationToOrganizationalUnitsResponse
+   */
   async authorizeApplicationToOrganizationalUnitsWithOptions(request: AuthorizeApplicationToOrganizationalUnitsRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeApplicationToOrganizationalUnitsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10485,11 +10555,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeApplicationToOrganizationalUnitsResponse>(await this.callApi(params, req, runtime), new AuthorizeApplicationToOrganizationalUnitsResponse({}));
   }
 
+  /**
+   * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
+   *
+   * @param request AuthorizeApplicationToOrganizationalUnitsRequest
+   * @return AuthorizeApplicationToOrganizationalUnitsResponse
+   */
   async authorizeApplicationToOrganizationalUnits(request: AuthorizeApplicationToOrganizationalUnitsRequest): Promise<AuthorizeApplicationToOrganizationalUnitsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.authorizeApplicationToOrganizationalUnitsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
+   *
+   * @param request AuthorizeApplicationToUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AuthorizeApplicationToUsersResponse
+   */
   async authorizeApplicationToUsersWithOptions(request: AuthorizeApplicationToUsersRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeApplicationToUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10522,17 +10605,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeApplicationToUsersResponse>(await this.callApi(params, req, runtime), new AuthorizeApplicationToUsersResponse({}));
   }
 
+  /**
+   * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
+   *
+   * @param request AuthorizeApplicationToUsersRequest
+   * @return AuthorizeApplicationToUsersResponse
+   */
   async authorizeApplicationToUsers(request: AuthorizeApplicationToUsersRequest): Promise<AuthorizeApplicationToUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.authorizeApplicationToUsersWithOptions(request, runtime);
   }
 
   /**
-    * IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
-    *
-    * @param request CreateApplicationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateApplicationResponse
+   * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+   *
+   * @param request CreateApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApplicationResponse
    */
   async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(request);
@@ -10583,16 +10674,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
-    *
-    * @param request CreateApplicationRequest
-    * @return CreateApplicationResponse
+   * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+   *
+   * @param request CreateApplicationRequest
+   * @return CreateApplicationResponse
    */
   async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
+   *
+   * @param request CreateApplicationClientSecretRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApplicationClientSecretResponse
+   */
   async createApplicationClientSecretWithOptions(request: CreateApplicationClientSecretRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationClientSecretResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10621,11 +10721,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApplicationClientSecretResponse>(await this.callApi(params, req, runtime), new CreateApplicationClientSecretResponse({}));
   }
 
+  /**
+   * @summary Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
+   *
+   * @param request CreateApplicationClientSecretRequest
+   * @return CreateApplicationClientSecretResponse
+   */
   async createApplicationClientSecret(request: CreateApplicationClientSecretRequest): Promise<CreateApplicationClientSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApplicationClientSecretWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建域名。
+   *
+   * @param request CreateDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDomainResponse
+   */
   async createDomainWithOptions(request: CreateDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10658,11 +10771,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDomainResponse>(await this.callApi(params, req, runtime), new CreateDomainResponse({}));
   }
 
+  /**
+   * @summary 创建域名。
+   *
+   * @param request CreateDomainRequest
+   * @return CreateDomainResponse
+   */
   async createDomain(request: CreateDomainRequest): Promise<CreateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建域名代理Token。
+   *
+   * @param request CreateDomainProxyTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDomainProxyTokenResponse
+   */
   async createDomainProxyTokenWithOptions(request: CreateDomainProxyTokenRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainProxyTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10691,11 +10817,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDomainProxyTokenResponse>(await this.callApi(params, req, runtime), new CreateDomainProxyTokenResponse({}));
   }
 
+  /**
+   * @summary 创建域名代理Token。
+   *
+   * @param request CreateDomainProxyTokenRequest
+   * @return CreateDomainProxyTokenResponse
+   */
   async createDomainProxyToken(request: CreateDomainProxyTokenRequest): Promise<CreateDomainProxyTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDomainProxyTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request CreateGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGroupResponse
+   */
   async createGroupWithOptions(request: CreateGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10732,11 +10871,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGroupResponse>(await this.callApi(params, req, runtime), new CreateGroupResponse({}));
   }
 
+  /**
+   * @summary Creates an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request CreateGroupRequest
+   * @return CreateGroupResponse
+   */
   async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+   *
+   * @param request CreateInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
+   */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10761,11 +10913,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
+  /**
+   * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
+   */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建一个专属网络端点。
+   *
+   * @param request CreateNetworkAccessEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNetworkAccessEndpointResponse
+   */
   async createNetworkAccessEndpointWithOptions(request: CreateNetworkAccessEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkAccessEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10810,11 +10975,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNetworkAccessEndpointResponse>(await this.callApi(params, req, runtime), new CreateNetworkAccessEndpointResponse({}));
   }
 
+  /**
+   * @summary 创建一个专属网络端点。
+   *
+   * @param request CreateNetworkAccessEndpointRequest
+   * @return CreateNetworkAccessEndpointResponse
+   */
   async createNetworkAccessEndpoint(request: CreateNetworkAccessEndpointRequest): Promise<CreateNetworkAccessEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkAccessEndpointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request CreateOrganizationalUnitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrganizationalUnitResponse
+   */
   async createOrganizationalUnitWithOptions(request: CreateOrganizationalUnitRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrganizationalUnitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10855,11 +11033,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new CreateOrganizationalUnitResponse({}));
   }
 
+  /**
+   * @summary Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request CreateOrganizationalUnitRequest
+   * @return CreateOrganizationalUnitResponse
+   */
   async createOrganizationalUnit(request: CreateOrganizationalUnitRequest): Promise<CreateOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrganizationalUnitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
+   *
+   * @param request CreateUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUserResponse
+   */
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10940,17 +11131,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
   }
 
+  /**
+   * @summary Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
+   *
+   * @param request CreateUserRequest
+   * @return CreateUserResponse
+   */
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUserWithOptions(request, runtime);
   }
 
   /**
-    * Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
-    *
-    * @param request DeleteApplicationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteApplicationResponse
+   * @summary Deletes an Employee Identity and Access Management (EIAM) application.
+   *
+   * @description Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
+   *
+   * @param request DeleteApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApplicationResponse
    */
   async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
     Util.validateModel(request);
@@ -10981,16 +11180,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
-    *
-    * @param request DeleteApplicationRequest
-    * @return DeleteApplicationResponse
+   * @summary Deletes an Employee Identity and Access Management (EIAM) application.
+   *
+   * @description Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
+   *
+   * @param request DeleteApplicationRequest
+   * @return DeleteApplicationResponse
    */
   async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a client key for an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request DeleteApplicationClientSecretRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApplicationClientSecretResponse
+   */
   async deleteApplicationClientSecretWithOptions(request: DeleteApplicationClientSecretRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationClientSecretResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11023,11 +11231,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApplicationClientSecretResponse>(await this.callApi(params, req, runtime), new DeleteApplicationClientSecretResponse({}));
   }
 
+  /**
+   * @summary Deletes a client key for an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request DeleteApplicationClientSecretRequest
+   * @return DeleteApplicationClientSecretResponse
+   */
   async deleteApplicationClientSecret(request: DeleteApplicationClientSecretRequest): Promise<DeleteApplicationClientSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApplicationClientSecretWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除域名。
+   *
+   * @param request DeleteDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainResponse
+   */
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11056,11 +11277,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
   }
 
+  /**
+   * @summary 删除域名。
+   *
+   * @param request DeleteDomainRequest
+   * @return DeleteDomainResponse
+   */
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除指定域名代理Token，删除之前请保证代理Token处于禁用状态。
+   *
+   * @param request DeleteDomainProxyTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainProxyTokenResponse
+   */
   async deleteDomainProxyTokenWithOptions(request: DeleteDomainProxyTokenRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainProxyTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11093,11 +11327,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainProxyTokenResponse>(await this.callApi(params, req, runtime), new DeleteDomainProxyTokenResponse({}));
   }
 
+  /**
+   * @summary 删除指定域名代理Token，删除之前请保证代理Token处于禁用状态。
+   *
+   * @param request DeleteDomainProxyTokenRequest
+   * @return DeleteDomainProxyTokenResponse
+   */
   async deleteDomainProxyToken(request: DeleteDomainProxyTokenRequest): Promise<DeleteDomainProxyTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainProxyTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request DeleteGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGroupResponse
+   */
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11126,17 +11373,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request DeleteGroupRequest
+   * @return DeleteGroupResponse
+   */
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGroupWithOptions(request, runtime);
   }
 
   /**
-    * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
-    *
-    * @param request DeleteInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteInstanceResponse
+   * @summary Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+   *
+   * @description Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
+   *
+   * @param request DeleteInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
    */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
@@ -11163,16 +11418,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
-    *
-    * @param request DeleteInstanceRequest
-    * @return DeleteInstanceResponse
+   * @summary Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+   *
+   * @description Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
+   *
+   * @param request DeleteInstanceRequest
+   * @return DeleteInstanceResponse
    */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除一个专属网络端点。
+   *
+   * @param request DeleteNetworkAccessEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNetworkAccessEndpointResponse
+   */
   async deleteNetworkAccessEndpointWithOptions(request: DeleteNetworkAccessEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkAccessEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11201,11 +11465,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkAccessEndpointResponse>(await this.callApi(params, req, runtime), new DeleteNetworkAccessEndpointResponse({}));
   }
 
+  /**
+   * @summary 删除一个专属网络端点。
+   *
+   * @param request DeleteNetworkAccessEndpointRequest
+   * @return DeleteNetworkAccessEndpointResponse
+   */
   async deleteNetworkAccessEndpoint(request: DeleteNetworkAccessEndpointRequest): Promise<DeleteNetworkAccessEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkAccessEndpointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the organization has EIAM accounts or child organizations, the delete operation fails.
+   *
+   * @param request DeleteOrganizationalUnitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteOrganizationalUnitResponse
+   */
   async deleteOrganizationalUnitWithOptions(request: DeleteOrganizationalUnitRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOrganizationalUnitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11234,11 +11511,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new DeleteOrganizationalUnitResponse({}));
   }
 
+  /**
+   * @summary Deletes an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the organization has EIAM accounts or child organizations, the delete operation fails.
+   *
+   * @param request DeleteOrganizationalUnitRequest
+   * @return DeleteOrganizationalUnitResponse
+   */
   async deleteOrganizationalUnit(request: DeleteOrganizationalUnitRequest): Promise<DeleteOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteOrganizationalUnitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
+   *
+   * @param request DeleteUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserResponse
+   */
   async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11267,17 +11557,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
   }
 
+  /**
+   * @summary Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
+   *
+   * @param request DeleteUserRequest
+   * @return DeleteUserResponse
+   */
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserWithOptions(request, runtime);
   }
 
   /**
-    * All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
-    *
-    * @param request DisableApplicationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DisableApplicationResponse
+   * @summary Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
+   *
+   * @description All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
+   *
+   * @param request DisableApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableApplicationResponse
    */
   async disableApplicationWithOptions(request: DisableApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DisableApplicationResponse> {
     Util.validateModel(request);
@@ -11308,16 +11606,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
-    *
-    * @param request DisableApplicationRequest
-    * @return DisableApplicationResponse
+   * @summary Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
+   *
+   * @description All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
+   *
+   * @param request DisableApplicationRequest
+   * @return DisableApplicationResponse
    */
   async disableApplication(request: DisableApplicationRequest): Promise<DisableApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request DisableApplicationApiInvokeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableApplicationApiInvokeResponse
+   */
   async disableApplicationApiInvokeWithOptions(request: DisableApplicationApiInvokeRequest, runtime: $Util.RuntimeOptions): Promise<DisableApplicationApiInvokeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11346,11 +11653,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableApplicationApiInvokeResponse>(await this.callApi(params, req, runtime), new DisableApplicationApiInvokeResponse({}));
   }
 
+  /**
+   * @summary Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request DisableApplicationApiInvokeRequest
+   * @return DisableApplicationApiInvokeResponse
+   */
   async disableApplicationApiInvoke(request: DisableApplicationApiInvokeRequest): Promise<DisableApplicationApiInvokeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableApplicationApiInvokeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables a client key of an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request DisableApplicationClientSecretRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableApplicationClientSecretResponse
+   */
   async disableApplicationClientSecretWithOptions(request: DisableApplicationClientSecretRequest, runtime: $Util.RuntimeOptions): Promise<DisableApplicationClientSecretResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11383,11 +11703,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableApplicationClientSecretResponse>(await this.callApi(params, req, runtime), new DisableApplicationClientSecretResponse({}));
   }
 
+  /**
+   * @summary Disables a client key of an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request DisableApplicationClientSecretRequest
+   * @return DisableApplicationClientSecretResponse
+   */
   async disableApplicationClientSecret(request: DisableApplicationClientSecretRequest): Promise<DisableApplicationClientSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableApplicationClientSecretWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request DisableApplicationProvisioningRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableApplicationProvisioningResponse
+   */
   async disableApplicationProvisioningWithOptions(request: DisableApplicationProvisioningRequest, runtime: $Util.RuntimeOptions): Promise<DisableApplicationProvisioningResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11416,11 +11749,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableApplicationProvisioningResponse>(await this.callApi(params, req, runtime), new DisableApplicationProvisioningResponse({}));
   }
 
+  /**
+   * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request DisableApplicationProvisioningRequest
+   * @return DisableApplicationProvisioningResponse
+   */
   async disableApplicationProvisioning(request: DisableApplicationProvisioningRequest): Promise<DisableApplicationProvisioningResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableApplicationProvisioningWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 禁用应用SSO能力
+   *
+   * @param request DisableApplicationSsoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableApplicationSsoResponse
+   */
   async disableApplicationSsoWithOptions(request: DisableApplicationSsoRequest, runtime: $Util.RuntimeOptions): Promise<DisableApplicationSsoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11449,11 +11795,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableApplicationSsoResponse>(await this.callApi(params, req, runtime), new DisableApplicationSsoResponse({}));
   }
 
+  /**
+   * @summary 禁用应用SSO能力
+   *
+   * @param request DisableApplicationSsoRequest
+   * @return DisableApplicationSsoResponse
+   */
   async disableApplicationSso(request: DisableApplicationSsoRequest): Promise<DisableApplicationSsoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableApplicationSsoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 禁用指定域名代理Token。
+   *
+   * @param request DisableDomainProxyTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableDomainProxyTokenResponse
+   */
   async disableDomainProxyTokenWithOptions(request: DisableDomainProxyTokenRequest, runtime: $Util.RuntimeOptions): Promise<DisableDomainProxyTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11486,11 +11845,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableDomainProxyTokenResponse>(await this.callApi(params, req, runtime), new DisableDomainProxyTokenResponse({}));
   }
 
+  /**
+   * @summary 禁用指定域名代理Token。
+   *
+   * @param request DisableDomainProxyTokenRequest
+   * @return DisableDomainProxyTokenResponse
+   */
   async disableDomainProxyToken(request: DisableDomainProxyTokenRequest): Promise<DisableDomainProxyTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableDomainProxyTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 关闭初始化域名自动跳转。
+   *
+   * @param request DisableInitDomainAutoRedirectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableInitDomainAutoRedirectResponse
+   */
   async disableInitDomainAutoRedirectWithOptions(request: DisableInitDomainAutoRedirectRequest, runtime: $Util.RuntimeOptions): Promise<DisableInitDomainAutoRedirectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11515,11 +11887,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableInitDomainAutoRedirectResponse>(await this.callApi(params, req, runtime), new DisableInitDomainAutoRedirectResponse({}));
   }
 
+  /**
+   * @summary 关闭初始化域名自动跳转。
+   *
+   * @param request DisableInitDomainAutoRedirectRequest
+   * @return DisableInitDomainAutoRedirectResponse
+   */
   async disableInitDomainAutoRedirect(request: DisableInitDomainAutoRedirectRequest): Promise<DisableInitDomainAutoRedirectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableInitDomainAutoRedirectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
+   *
+   * @param request DisableUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableUserResponse
+   */
   async disableUserWithOptions(request: DisableUserRequest, runtime: $Util.RuntimeOptions): Promise<DisableUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11548,11 +11933,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableUserResponse>(await this.callApi(params, req, runtime), new DisableUserResponse({}));
   }
 
+  /**
+   * @summary Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
+   *
+   * @param request DisableUserRequest
+   * @return DisableUserResponse
+   */
   async disableUser(request: DisableUserRequest): Promise<DisableUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables a disabled Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request EnableApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableApplicationResponse
+   */
   async enableApplicationWithOptions(request: EnableApplicationRequest, runtime: $Util.RuntimeOptions): Promise<EnableApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11581,11 +11979,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableApplicationResponse>(await this.callApi(params, req, runtime), new EnableApplicationResponse({}));
   }
 
+  /**
+   * @summary Enables a disabled Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request EnableApplicationRequest
+   * @return EnableApplicationResponse
+   */
   async enableApplication(request: EnableApplicationRequest): Promise<EnableApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request EnableApplicationApiInvokeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableApplicationApiInvokeResponse
+   */
   async enableApplicationApiInvokeWithOptions(request: EnableApplicationApiInvokeRequest, runtime: $Util.RuntimeOptions): Promise<EnableApplicationApiInvokeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11614,11 +12025,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableApplicationApiInvokeResponse>(await this.callApi(params, req, runtime), new EnableApplicationApiInvokeResponse({}));
   }
 
+  /**
+   * @summary Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request EnableApplicationApiInvokeRequest
+   * @return EnableApplicationApiInvokeResponse
+   */
   async enableApplicationApiInvoke(request: EnableApplicationApiInvokeRequest): Promise<EnableApplicationApiInvokeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableApplicationApiInvokeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request EnableApplicationClientSecretRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableApplicationClientSecretResponse
+   */
   async enableApplicationClientSecretWithOptions(request: EnableApplicationClientSecretRequest, runtime: $Util.RuntimeOptions): Promise<EnableApplicationClientSecretResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11651,11 +12075,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableApplicationClientSecretResponse>(await this.callApi(params, req, runtime), new EnableApplicationClientSecretResponse({}));
   }
 
+  /**
+   * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request EnableApplicationClientSecretRequest
+   * @return EnableApplicationClientSecretResponse
+   */
   async enableApplicationClientSecret(request: EnableApplicationClientSecretRequest): Promise<EnableApplicationClientSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableApplicationClientSecretWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request EnableApplicationProvisioningRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableApplicationProvisioningResponse
+   */
   async enableApplicationProvisioningWithOptions(request: EnableApplicationProvisioningRequest, runtime: $Util.RuntimeOptions): Promise<EnableApplicationProvisioningResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11684,11 +12121,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableApplicationProvisioningResponse>(await this.callApi(params, req, runtime), new EnableApplicationProvisioningResponse({}));
   }
 
+  /**
+   * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request EnableApplicationProvisioningRequest
+   * @return EnableApplicationProvisioningResponse
+   */
   async enableApplicationProvisioning(request: EnableApplicationProvisioningRequest): Promise<EnableApplicationProvisioningResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableApplicationProvisioningWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 启用应用SSO能力
+   *
+   * @param request EnableApplicationSsoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableApplicationSsoResponse
+   */
   async enableApplicationSsoWithOptions(request: EnableApplicationSsoRequest, runtime: $Util.RuntimeOptions): Promise<EnableApplicationSsoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11717,11 +12167,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableApplicationSsoResponse>(await this.callApi(params, req, runtime), new EnableApplicationSsoResponse({}));
   }
 
+  /**
+   * @summary 启用应用SSO能力
+   *
+   * @param request EnableApplicationSsoRequest
+   * @return EnableApplicationSsoResponse
+   */
   async enableApplicationSso(request: EnableApplicationSsoRequest): Promise<EnableApplicationSsoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableApplicationSsoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 启用指定域名代理Token。
+   *
+   * @param request EnableDomainProxyTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableDomainProxyTokenResponse
+   */
   async enableDomainProxyTokenWithOptions(request: EnableDomainProxyTokenRequest, runtime: $Util.RuntimeOptions): Promise<EnableDomainProxyTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11754,11 +12217,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableDomainProxyTokenResponse>(await this.callApi(params, req, runtime), new EnableDomainProxyTokenResponse({}));
   }
 
+  /**
+   * @summary 启用指定域名代理Token。
+   *
+   * @param request EnableDomainProxyTokenRequest
+   * @return EnableDomainProxyTokenResponse
+   */
   async enableDomainProxyToken(request: EnableDomainProxyTokenRequest): Promise<EnableDomainProxyTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableDomainProxyTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开启初始化域名自动跳转。开启后，访问初始化域名将会自动跳转至默认域名。
+   *
+   * @param request EnableInitDomainAutoRedirectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableInitDomainAutoRedirectResponse
+   */
   async enableInitDomainAutoRedirectWithOptions(request: EnableInitDomainAutoRedirectRequest, runtime: $Util.RuntimeOptions): Promise<EnableInitDomainAutoRedirectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11783,11 +12259,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableInitDomainAutoRedirectResponse>(await this.callApi(params, req, runtime), new EnableInitDomainAutoRedirectResponse({}));
   }
 
+  /**
+   * @summary 开启初始化域名自动跳转。开启后，访问初始化域名将会自动跳转至默认域名。
+   *
+   * @param request EnableInitDomainAutoRedirectRequest
+   * @return EnableInitDomainAutoRedirectResponse
+   */
   async enableInitDomainAutoRedirect(request: EnableInitDomainAutoRedirectRequest): Promise<EnableInitDomainAutoRedirectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableInitDomainAutoRedirectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+   *
+   * @param request EnableUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableUserResponse
+   */
   async enableUserWithOptions(request: EnableUserRequest, runtime: $Util.RuntimeOptions): Promise<EnableUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11816,11 +12305,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableUserResponse>(await this.callApi(params, req, runtime), new EnableUserResponse({}));
   }
 
+  /**
+   * @summary Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+   *
+   * @param request EnableUserRequest
+   * @return EnableUserResponse
+   */
   async enableUser(request: EnableUserRequest): Promise<EnableUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request GetApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApplicationResponse
+   */
   async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11849,11 +12351,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request GetApplicationRequest
+   * @return GetApplicationResponse
+   */
   async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the permissions of the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request GetApplicationGrantScopeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApplicationGrantScopeResponse
+   */
   async getApplicationGrantScopeWithOptions(request: GetApplicationGrantScopeRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationGrantScopeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11882,11 +12397,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationGrantScopeResponse>(await this.callApi(params, req, runtime), new GetApplicationGrantScopeResponse({}));
   }
 
+  /**
+   * @summary Queries the permissions of the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request GetApplicationGrantScopeRequest
+   * @return GetApplicationGrantScopeResponse
+   */
   async getApplicationGrantScope(request: GetApplicationGrantScopeRequest): Promise<GetApplicationGrantScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationGrantScopeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request GetApplicationProvisioningConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApplicationProvisioningConfigResponse
+   */
   async getApplicationProvisioningConfigWithOptions(request: GetApplicationProvisioningConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationProvisioningConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11915,11 +12443,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationProvisioningConfigResponse>(await this.callApi(params, req, runtime), new GetApplicationProvisioningConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request GetApplicationProvisioningConfigRequest
+   * @return GetApplicationProvisioningConfigResponse
+   */
   async getApplicationProvisioningConfig(request: GetApplicationProvisioningConfigRequest): Promise<GetApplicationProvisioningConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationProvisioningConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+   *
+   * @param request GetApplicationProvisioningScopeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApplicationProvisioningScopeResponse
+   */
   async getApplicationProvisioningScopeWithOptions(request: GetApplicationProvisioningScopeRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationProvisioningScopeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11948,11 +12489,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationProvisioningScopeResponse>(await this.callApi(params, req, runtime), new GetApplicationProvisioningScopeResponse({}));
   }
 
+  /**
+   * @summary Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+   *
+   * @param request GetApplicationProvisioningScopeRequest
+   * @return GetApplicationProvisioningScopeResponse
+   */
   async getApplicationProvisioningScope(request: GetApplicationProvisioningScopeRequest): Promise<GetApplicationProvisioningScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationProvisioningScopeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request GetApplicationSsoConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApplicationSsoConfigResponse
+   */
   async getApplicationSsoConfigWithOptions(request: GetApplicationSsoConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationSsoConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11981,11 +12535,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationSsoConfigResponse>(await this.callApi(params, req, runtime), new GetApplicationSsoConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request GetApplicationSsoConfigRequest
+   * @return GetApplicationSsoConfigResponse
+   */
   async getApplicationSsoConfig(request: GetApplicationSsoConfigRequest): Promise<GetApplicationSsoConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationSsoConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询一个域名的详细信息。
+   *
+   * @param request GetDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDomainResponse
+   */
   async getDomainWithOptions(request: GetDomainRequest, runtime: $Util.RuntimeOptions): Promise<GetDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12014,11 +12581,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDomainResponse>(await this.callApi(params, req, runtime), new GetDomainResponse({}));
   }
 
+  /**
+   * @summary 查询一个域名的详细信息。
+   *
+   * @param request GetDomainRequest
+   * @return GetDomainResponse
+   */
   async getDomain(request: GetDomainRequest): Promise<GetDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看域名的DNS Challenge记录。
+   *
+   * @param request GetDomainDnsChallengeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDomainDnsChallengeResponse
+   */
   async getDomainDnsChallengeWithOptions(request: GetDomainDnsChallengeRequest, runtime: $Util.RuntimeOptions): Promise<GetDomainDnsChallengeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12047,11 +12627,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDomainDnsChallengeResponse>(await this.callApi(params, req, runtime), new GetDomainDnsChallengeResponse({}));
   }
 
+  /**
+   * @summary 查看域名的DNS Challenge记录。
+   *
+   * @param request GetDomainDnsChallengeRequest
+   * @return GetDomainDnsChallengeResponse
+   */
   async getDomainDnsChallenge(request: GetDomainDnsChallengeRequest): Promise<GetDomainDnsChallengeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDomainDnsChallengeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetForgetPasswordConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetForgetPasswordConfigurationResponse
+   */
   async getForgetPasswordConfigurationWithOptions(request: GetForgetPasswordConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<GetForgetPasswordConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12076,11 +12669,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetForgetPasswordConfigurationResponse>(await this.callApi(params, req, runtime), new GetForgetPasswordConfigurationResponse({}));
   }
 
+  /**
+   * @summary Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetForgetPasswordConfigurationRequest
+   * @return GetForgetPasswordConfigurationResponse
+   */
   async getForgetPasswordConfiguration(request: GetForgetPasswordConfigurationRequest): Promise<GetForgetPasswordConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getForgetPasswordConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request GetGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGroupResponse
+   */
   async getGroupWithOptions(request: GetGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12109,11 +12715,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGroupResponse>(await this.callApi(params, req, runtime), new GetGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request GetGroupRequest
+   * @return GetGroupResponse
+   */
   async getGroup(request: GetGroupRequest): Promise<GetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceResponse
+   */
   async getInstanceWithOptions(request: GetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12138,11 +12757,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetInstanceRequest
+   * @return GetInstanceResponse
+   */
   async getInstance(request: GetInstanceRequest): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询一个专属网络端点的详细信息。
+   *
+   * @param request GetNetworkAccessEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNetworkAccessEndpointResponse
+   */
   async getNetworkAccessEndpointWithOptions(request: GetNetworkAccessEndpointRequest, runtime: $Util.RuntimeOptions): Promise<GetNetworkAccessEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12171,11 +12803,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNetworkAccessEndpointResponse>(await this.callApi(params, req, runtime), new GetNetworkAccessEndpointResponse({}));
   }
 
+  /**
+   * @summary 查询一个专属网络端点的详细信息。
+   *
+   * @param request GetNetworkAccessEndpointRequest
+   * @return GetNetworkAccessEndpointResponse
+   */
   async getNetworkAccessEndpoint(request: GetNetworkAccessEndpointRequest): Promise<GetNetworkAccessEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNetworkAccessEndpointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about an organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request GetOrganizationalUnitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOrganizationalUnitResponse
+   */
   async getOrganizationalUnitWithOptions(request: GetOrganizationalUnitRequest, runtime: $Util.RuntimeOptions): Promise<GetOrganizationalUnitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12204,11 +12849,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new GetOrganizationalUnitResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request GetOrganizationalUnitRequest
+   * @return GetOrganizationalUnitResponse
+   */
   async getOrganizationalUnit(request: GetOrganizationalUnitRequest): Promise<GetOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOrganizationalUnitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetPasswordComplexityConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPasswordComplexityConfigurationResponse
+   */
   async getPasswordComplexityConfigurationWithOptions(request: GetPasswordComplexityConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<GetPasswordComplexityConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12233,11 +12891,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPasswordComplexityConfigurationResponse>(await this.callApi(params, req, runtime), new GetPasswordComplexityConfigurationResponse({}));
   }
 
+  /**
+   * @summary Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetPasswordComplexityConfigurationRequest
+   * @return GetPasswordComplexityConfigurationResponse
+   */
   async getPasswordComplexityConfiguration(request: GetPasswordComplexityConfigurationRequest): Promise<GetPasswordComplexityConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPasswordComplexityConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the password expiration configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetPasswordExpirationConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPasswordExpirationConfigurationResponse
+   */
   async getPasswordExpirationConfigurationWithOptions(request: GetPasswordExpirationConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<GetPasswordExpirationConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12262,11 +12933,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPasswordExpirationConfigurationResponse>(await this.callApi(params, req, runtime), new GetPasswordExpirationConfigurationResponse({}));
   }
 
+  /**
+   * @summary Queries the password expiration configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetPasswordExpirationConfigurationRequest
+   * @return GetPasswordExpirationConfigurationResponse
+   */
   async getPasswordExpirationConfiguration(request: GetPasswordExpirationConfigurationRequest): Promise<GetPasswordExpirationConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPasswordExpirationConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the password history configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetPasswordHistoryConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPasswordHistoryConfigurationResponse
+   */
   async getPasswordHistoryConfigurationWithOptions(request: GetPasswordHistoryConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<GetPasswordHistoryConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12291,11 +12975,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPasswordHistoryConfigurationResponse>(await this.callApi(params, req, runtime), new GetPasswordHistoryConfigurationResponse({}));
   }
 
+  /**
+   * @summary Queries the password history configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetPasswordHistoryConfigurationRequest
+   * @return GetPasswordHistoryConfigurationResponse
+   */
   async getPasswordHistoryConfiguration(request: GetPasswordHistoryConfigurationRequest): Promise<GetPasswordHistoryConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPasswordHistoryConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the password initialization configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetPasswordInitializationConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPasswordInitializationConfigurationResponse
+   */
   async getPasswordInitializationConfigurationWithOptions(request: GetPasswordInitializationConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<GetPasswordInitializationConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12320,11 +13017,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPasswordInitializationConfigurationResponse>(await this.callApi(params, req, runtime), new GetPasswordInitializationConfigurationResponse({}));
   }
 
+  /**
+   * @summary Queries the password initialization configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request GetPasswordInitializationConfigurationRequest
+   * @return GetPasswordInitializationConfigurationResponse
+   */
   async getPasswordInitializationConfiguration(request: GetPasswordInitializationConfigurationRequest): Promise<GetPasswordInitializationConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPasswordInitializationConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request GetRootOrganizationalUnitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRootOrganizationalUnitResponse
+   */
   async getRootOrganizationalUnitWithOptions(request: GetRootOrganizationalUnitRequest, runtime: $Util.RuntimeOptions): Promise<GetRootOrganizationalUnitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12349,11 +13059,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRootOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new GetRootOrganizationalUnitResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request GetRootOrganizationalUnitRequest
+   * @return GetRootOrganizationalUnitResponse
+   */
   async getRootOrganizationalUnit(request: GetRootOrganizationalUnitRequest): Promise<GetRootOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRootOrganizationalUnitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request GetUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserResponse
+   */
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12382,11 +13105,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request GetUserRequest
+   * @return GetUserResponse
+   */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
+   *
+   * @param request ListApplicationClientSecretsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationClientSecretsResponse
+   */
   async listApplicationClientSecretsWithOptions(request: ListApplicationClientSecretsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationClientSecretsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12415,11 +13151,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationClientSecretsResponse>(await this.callApi(params, req, runtime), new ListApplicationClientSecretsResponse({}));
   }
 
+  /**
+   * @summary Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
+   *
+   * @param request ListApplicationClientSecretsRequest
+   * @return ListApplicationClientSecretsResponse
+   */
   async listApplicationClientSecrets(request: ListApplicationClientSecretsRequest): Promise<ListApplicationClientSecretsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationClientSecretsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
+   *
+   * @param request ListApplicationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationsResponse
+   */
   async listApplicationsWithOptions(request: ListApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12468,17 +13217,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
+   *
+   * @param request ListApplicationsRequest
+   * @return ListApplicationsResponse
+   */
   async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsWithOptions(request, runtime);
   }
 
   /**
-    * You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
-    *
-    * @param request ListApplicationsForOrganizationalUnitRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListApplicationsForOrganizationalUnitResponse
+   * @summary Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+   *
+   * @description You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+   *
+   * @param request ListApplicationsForOrganizationalUnitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationsForOrganizationalUnitResponse
    */
   async listApplicationsForOrganizationalUnitWithOptions(request: ListApplicationsForOrganizationalUnitRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForOrganizationalUnitResponse> {
     Util.validateModel(request);
@@ -12521,16 +13278,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
-    *
-    * @param request ListApplicationsForOrganizationalUnitRequest
-    * @return ListApplicationsForOrganizationalUnitResponse
+   * @summary Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+   *
+   * @description You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+   *
+   * @param request ListApplicationsForOrganizationalUnitRequest
+   * @return ListApplicationsForOrganizationalUnitResponse
    */
   async listApplicationsForOrganizationalUnit(request: ListApplicationsForOrganizationalUnitRequest): Promise<ListApplicationsForOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsForOrganizationalUnitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+   *
+   * @param request ListApplicationsForUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationsForUserResponse
+   */
   async listApplicationsForUserWithOptions(request: ListApplicationsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12575,11 +13341,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationsForUserResponse>(await this.callApi(params, req, runtime), new ListApplicationsForUserResponse({}));
   }
 
+  /**
+   * @summary Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+   *
+   * @param request ListApplicationsForUserRequest
+   * @return ListApplicationsForUserResponse
+   */
   async listApplicationsForUser(request: ListApplicationsForUserRequest): Promise<ListApplicationsForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsForUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列表查询域名代理Token信息。
+   *
+   * @param request ListDomainProxyTokensRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDomainProxyTokensResponse
+   */
   async listDomainProxyTokensWithOptions(request: ListDomainProxyTokensRequest, runtime: $Util.RuntimeOptions): Promise<ListDomainProxyTokensResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12608,11 +13387,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDomainProxyTokensResponse>(await this.callApi(params, req, runtime), new ListDomainProxyTokensResponse({}));
   }
 
+  /**
+   * @summary 列表查询域名代理Token信息。
+   *
+   * @param request ListDomainProxyTokensRequest
+   * @return ListDomainProxyTokensResponse
+   */
   async listDomainProxyTokens(request: ListDomainProxyTokensRequest): Promise<ListDomainProxyTokensResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDomainProxyTokensWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列表查询域名记录。
+   *
+   * @param request ListDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDomainsResponse
+   */
   async listDomainsWithOptions(request: ListDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12637,11 +13429,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDomainsResponse>(await this.callApi(params, req, runtime), new ListDomainsResponse({}));
   }
 
+  /**
+   * @summary 列表查询域名记录。
+   *
+   * @param request ListDomainsRequest
+   * @return ListDomainsResponse
+   */
   async listDomains(request: ListDomainsRequest): Promise<ListDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询EIAM2.0/EIAM1.0实例列表
+   *
+   * @param request ListEiamInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEiamInstancesResponse
+   */
   async listEiamInstancesWithOptions(request: ListEiamInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListEiamInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12670,11 +13475,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEiamInstancesResponse>(await this.callApi(params, req, runtime), new ListEiamInstancesResponse({}));
   }
 
+  /**
+   * @summary 查询EIAM2.0/EIAM1.0实例列表
+   *
+   * @param request ListEiamInstancesRequest
+   * @return ListEiamInstancesResponse
+   */
   async listEiamInstances(request: ListEiamInstancesRequest): Promise<ListEiamInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEiamInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询EIAM2.0/EIAM1.0地域列表
+   *
+   * @param request ListEiamRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEiamRegionsResponse
+   */
   async listEiamRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListEiamRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -12691,11 +13509,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEiamRegionsResponse>(await this.callApi(params, req, runtime), new ListEiamRegionsResponse({}));
   }
 
+  /**
+   * @summary 查询EIAM2.0/EIAM1.0地域列表
+   *
+   * @return ListEiamRegionsResponse
+   */
   async listEiamRegions(): Promise<ListEiamRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEiamRegionsWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries a list of account groups in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request ListGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupsResponse
+   */
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12744,11 +13574,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of account groups in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request ListGroupsRequest
+   * @return ListGroupsResponse
+   */
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
+   *
+   * @param request ListGroupsForApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupsForApplicationResponse
+   */
   async listGroupsForApplicationWithOptions(request: ListGroupsForApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsForApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12789,11 +13632,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupsForApplicationResponse>(await this.callApi(params, req, runtime), new ListGroupsForApplicationResponse({}));
   }
 
+  /**
+   * @summary Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
+   *
+   * @param request ListGroupsForApplicationRequest
+   * @return ListGroupsForApplicationResponse
+   */
   async listGroupsForApplication(request: ListGroupsForApplicationRequest): Promise<ListGroupsForApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupsForApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
+   *
+   * @param request ListGroupsForUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupsForUserResponse
+   */
   async listGroupsForUserWithOptions(request: ListGroupsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsForUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12830,11 +13686,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupsForUserResponse>(await this.callApi(params, req, runtime), new ListGroupsForUserResponse({}));
   }
 
+  /**
+   * @summary Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
+   *
+   * @param request ListGroupsForUserRequest
+   * @return ListGroupsForUserResponse
+   */
   async listGroupsForUser(request: ListGroupsForUserRequest): Promise<ListGroupsForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupsForUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+   *
+   * @param request ListInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
+   */
   async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12871,11 +13740,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+   *
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
+   */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取支持专属端点的region列表
+   *
+   * @param request ListNetworkAccessEndpointAvailableRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNetworkAccessEndpointAvailableRegionsResponse
+   */
   async listNetworkAccessEndpointAvailableRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListNetworkAccessEndpointAvailableRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -12892,11 +13774,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNetworkAccessEndpointAvailableRegionsResponse>(await this.callApi(params, req, runtime), new ListNetworkAccessEndpointAvailableRegionsResponse({}));
   }
 
+  /**
+   * @summary 获取支持专属端点的region列表
+   *
+   * @return ListNetworkAccessEndpointAvailableRegionsResponse
+   */
   async listNetworkAccessEndpointAvailableRegions(): Promise<ListNetworkAccessEndpointAvailableRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNetworkAccessEndpointAvailableRegionsWithOptions(runtime);
   }
 
+  /**
+   * @summary 获取支持NAE的可用区列表
+   *
+   * @param request ListNetworkAccessEndpointAvailableZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNetworkAccessEndpointAvailableZonesResponse
+   */
   async listNetworkAccessEndpointAvailableZonesWithOptions(request: ListNetworkAccessEndpointAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListNetworkAccessEndpointAvailableZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12921,11 +13815,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNetworkAccessEndpointAvailableZonesResponse>(await this.callApi(params, req, runtime), new ListNetworkAccessEndpointAvailableZonesResponse({}));
   }
 
+  /**
+   * @summary 获取支持NAE的可用区列表
+   *
+   * @param request ListNetworkAccessEndpointAvailableZonesRequest
+   * @return ListNetworkAccessEndpointAvailableZonesResponse
+   */
   async listNetworkAccessEndpointAvailableZones(request: ListNetworkAccessEndpointAvailableZonesRequest): Promise<ListNetworkAccessEndpointAvailableZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNetworkAccessEndpointAvailableZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列表查询专属网络端点。
+   *
+   * @param request ListNetworkAccessEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNetworkAccessEndpointsResponse
+   */
   async listNetworkAccessEndpointsWithOptions(request: ListNetworkAccessEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<ListNetworkAccessEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12974,11 +13881,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNetworkAccessEndpointsResponse>(await this.callApi(params, req, runtime), new ListNetworkAccessEndpointsResponse({}));
   }
 
+  /**
+   * @summary 列表查询专属网络端点。
+   *
+   * @param request ListNetworkAccessEndpointsRequest
+   * @return ListNetworkAccessEndpointsResponse
+   */
   async listNetworkAccessEndpoints(request: ListNetworkAccessEndpointsRequest): Promise<ListNetworkAccessEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNetworkAccessEndpointsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列表某个网络访问端点下的访问路径。
+   *
+   * @param request ListNetworkAccessPathsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNetworkAccessPathsResponse
+   */
   async listNetworkAccessPathsWithOptions(request: ListNetworkAccessPathsRequest, runtime: $Util.RuntimeOptions): Promise<ListNetworkAccessPathsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13007,11 +13927,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNetworkAccessPathsResponse>(await this.callApi(params, req, runtime), new ListNetworkAccessPathsResponse({}));
   }
 
+  /**
+   * @summary 列表某个网络访问端点下的访问路径。
+   *
+   * @param request ListNetworkAccessPathsRequest
+   * @return ListNetworkAccessPathsResponse
+   */
   async listNetworkAccessPaths(request: ListNetworkAccessPathsRequest): Promise<ListNetworkAccessPathsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNetworkAccessPathsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询组织的所有父级路径
+   *
+   * @param request ListOrganizationalUnitParentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOrganizationalUnitParentsResponse
+   */
   async listOrganizationalUnitParentsWithOptions(request: ListOrganizationalUnitParentsRequest, runtime: $Util.RuntimeOptions): Promise<ListOrganizationalUnitParentsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13040,11 +13973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOrganizationalUnitParentsResponse>(await this.callApi(params, req, runtime), new ListOrganizationalUnitParentsResponse({}));
   }
 
+  /**
+   * @summary 查询组织的所有父级路径
+   *
+   * @param request ListOrganizationalUnitParentsRequest
+   * @return ListOrganizationalUnitParentsResponse
+   */
   async listOrganizationalUnitParents(request: ListOrganizationalUnitParentsRequest): Promise<ListOrganizationalUnitParentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOrganizationalUnitParentsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+   *
+   * @param request ListOrganizationalUnitsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOrganizationalUnitsResponse
+   */
   async listOrganizationalUnitsWithOptions(request: ListOrganizationalUnitsRequest, runtime: $Util.RuntimeOptions): Promise<ListOrganizationalUnitsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13093,11 +14039,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOrganizationalUnitsResponse>(await this.callApi(params, req, runtime), new ListOrganizationalUnitsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+   *
+   * @param request ListOrganizationalUnitsRequest
+   * @return ListOrganizationalUnitsResponse
+   */
   async listOrganizationalUnits(request: ListOrganizationalUnitsRequest): Promise<ListOrganizationalUnitsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOrganizationalUnitsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
+   *
+   * @param request ListOrganizationalUnitsForApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOrganizationalUnitsForApplicationResponse
+   */
   async listOrganizationalUnitsForApplicationWithOptions(request: ListOrganizationalUnitsForApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListOrganizationalUnitsForApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13138,11 +14097,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOrganizationalUnitsForApplicationResponse>(await this.callApi(params, req, runtime), new ListOrganizationalUnitsForApplicationResponse({}));
   }
 
+  /**
+   * @summary Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
+   *
+   * @param request ListOrganizationalUnitsForApplicationRequest
+   * @return ListOrganizationalUnitsForApplicationResponse
+   */
   async listOrganizationalUnitsForApplication(request: ListOrganizationalUnitsForApplicationRequest): Promise<ListOrganizationalUnitsForApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOrganizationalUnitsForApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the supported Alibaba Cloud regions.
+   *
+   * @param request ListRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRegionsResponse
+   */
   async listRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -13159,11 +14131,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the supported Alibaba Cloud regions.
+   *
+   * @return ListRegionsResponse
+   */
   async listRegions(): Promise<ListRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRegionsWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+   *
+   * @param request ListUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersResponse
+   */
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13240,11 +14224,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
+  /**
+   * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+   *
+   * @param request ListUsersRequest
+   * @return ListUsersResponse
+   */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
+   *
+   * @param request ListUsersForApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersForApplicationResponse
+   */
   async listUsersForApplicationWithOptions(request: ListUsersForApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersForApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13285,11 +14282,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersForApplicationResponse>(await this.callApi(params, req, runtime), new ListUsersForApplicationResponse({}));
   }
 
+  /**
+   * @summary Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
+   *
+   * @param request ListUsersForApplicationRequest
+   * @return ListUsersForApplicationResponse
+   */
   async listUsersForApplication(request: ListUsersForApplicationRequest): Promise<ListUsersForApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersForApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
+   *
+   * @param request ListUsersForGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersForGroupResponse
+   */
   async listUsersForGroupWithOptions(request: ListUsersForGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersForGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13330,11 +14340,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersForGroupResponse>(await this.callApi(params, req, runtime), new ListUsersForGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
+   *
+   * @param request ListUsersForGroupRequest
+   * @return ListUsersForGroupResponse
+   */
   async listUsersForGroup(request: ListUsersForGroupRequest): Promise<ListUsersForGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersForGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
+   *
+   * @param request ObtainApplicationClientSecretRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ObtainApplicationClientSecretResponse
+   */
   async obtainApplicationClientSecretWithOptions(request: ObtainApplicationClientSecretRequest, runtime: $Util.RuntimeOptions): Promise<ObtainApplicationClientSecretResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13367,11 +14390,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ObtainApplicationClientSecretResponse>(await this.callApi(params, req, runtime), new ObtainApplicationClientSecretResponse({}));
   }
 
+  /**
+   * @summary Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
+   *
+   * @param request ObtainApplicationClientSecretRequest
+   * @return ObtainApplicationClientSecretResponse
+   */
   async obtainApplicationClientSecret(request: ObtainApplicationClientSecretRequest): Promise<ObtainApplicationClientSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.obtainApplicationClientSecretWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看指定域名安全代理Token。
+   *
+   * @param request ObtainDomainProxyTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ObtainDomainProxyTokenResponse
+   */
   async obtainDomainProxyTokenWithOptions(request: ObtainDomainProxyTokenRequest, runtime: $Util.RuntimeOptions): Promise<ObtainDomainProxyTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13404,11 +14440,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ObtainDomainProxyTokenResponse>(await this.callApi(params, req, runtime), new ObtainDomainProxyTokenResponse({}));
   }
 
+  /**
+   * @summary 查看指定域名安全代理Token。
+   *
+   * @param request ObtainDomainProxyTokenRequest
+   * @return ObtainDomainProxyTokenResponse
+   */
   async obtainDomainProxyToken(request: ObtainDomainProxyTokenRequest): Promise<ObtainDomainProxyTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.obtainDomainProxyTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes an Employee Identity and Access Management (EIAM) account from multiple EIAM organizations of Identity as a Service (IDaaS). You cannot remove an account from a primary organization.
+   *
+   * @param request RemoveUserFromOrganizationalUnitsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveUserFromOrganizationalUnitsResponse
+   */
   async removeUserFromOrganizationalUnitsWithOptions(request: RemoveUserFromOrganizationalUnitsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromOrganizationalUnitsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13441,11 +14490,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveUserFromOrganizationalUnitsResponse>(await this.callApi(params, req, runtime), new RemoveUserFromOrganizationalUnitsResponse({}));
   }
 
+  /**
+   * @summary Removes an Employee Identity and Access Management (EIAM) account from multiple EIAM organizations of Identity as a Service (IDaaS). You cannot remove an account from a primary organization.
+   *
+   * @param request RemoveUserFromOrganizationalUnitsRequest
+   * @return RemoveUserFromOrganizationalUnitsResponse
+   */
   async removeUserFromOrganizationalUnits(request: RemoveUserFromOrganizationalUnitsRequest): Promise<RemoveUserFromOrganizationalUnitsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeUserFromOrganizationalUnitsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
+   *
+   * @param request RemoveUsersFromGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveUsersFromGroupResponse
+   */
   async removeUsersFromGroupWithOptions(request: RemoveUsersFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUsersFromGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13478,11 +14540,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveUsersFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveUsersFromGroupResponse({}));
   }
 
+  /**
+   * @summary Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
+   *
+   * @param request RemoveUsersFromGroupRequest
+   * @return RemoveUsersFromGroupResponse
+   */
   async removeUsersFromGroup(request: RemoveUsersFromGroupRequest): Promise<RemoveUsersFromGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeUsersFromGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request RevokeApplicationFromGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeApplicationFromGroupsResponse
+   */
   async revokeApplicationFromGroupsWithOptions(request: RevokeApplicationFromGroupsRequest, runtime: $Util.RuntimeOptions): Promise<RevokeApplicationFromGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13515,11 +14590,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeApplicationFromGroupsResponse>(await this.callApi(params, req, runtime), new RevokeApplicationFromGroupsResponse({}));
   }
 
+  /**
+   * @summary Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   *
+   * @param request RevokeApplicationFromGroupsRequest
+   * @return RevokeApplicationFromGroupsResponse
+   */
   async revokeApplicationFromGroups(request: RevokeApplicationFromGroupsRequest): Promise<RevokeApplicationFromGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeApplicationFromGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
+   *
+   * @param request RevokeApplicationFromOrganizationalUnitsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeApplicationFromOrganizationalUnitsResponse
+   */
   async revokeApplicationFromOrganizationalUnitsWithOptions(request: RevokeApplicationFromOrganizationalUnitsRequest, runtime: $Util.RuntimeOptions): Promise<RevokeApplicationFromOrganizationalUnitsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13552,11 +14640,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeApplicationFromOrganizationalUnitsResponse>(await this.callApi(params, req, runtime), new RevokeApplicationFromOrganizationalUnitsResponse({}));
   }
 
+  /**
+   * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
+   *
+   * @param request RevokeApplicationFromOrganizationalUnitsRequest
+   * @return RevokeApplicationFromOrganizationalUnitsResponse
+   */
   async revokeApplicationFromOrganizationalUnits(request: RevokeApplicationFromOrganizationalUnitsRequest): Promise<RevokeApplicationFromOrganizationalUnitsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeApplicationFromOrganizationalUnitsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
+   *
+   * @param request RevokeApplicationFromUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeApplicationFromUsersResponse
+   */
   async revokeApplicationFromUsersWithOptions(request: RevokeApplicationFromUsersRequest, runtime: $Util.RuntimeOptions): Promise<RevokeApplicationFromUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13589,11 +14690,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeApplicationFromUsersResponse>(await this.callApi(params, req, runtime), new RevokeApplicationFromUsersResponse({}));
   }
 
+  /**
+   * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
+   *
+   * @param request RevokeApplicationFromUsersRequest
+   * @return RevokeApplicationFromUsersResponse
+   */
   async revokeApplicationFromUsers(request: RevokeApplicationFromUsersRequest): Promise<RevokeApplicationFromUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeApplicationFromUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures the permissions of the Developer API feature of an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request SetApplicationGrantScopeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetApplicationGrantScopeResponse
+   */
   async setApplicationGrantScopeWithOptions(request: SetApplicationGrantScopeRequest, runtime: $Util.RuntimeOptions): Promise<SetApplicationGrantScopeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13626,11 +14740,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetApplicationGrantScopeResponse>(await this.callApi(params, req, runtime), new SetApplicationGrantScopeResponse({}));
   }
 
+  /**
+   * @summary Configures the permissions of the Developer API feature of an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request SetApplicationGrantScopeRequest
+   * @return SetApplicationGrantScopeResponse
+   */
   async setApplicationGrantScope(request: SetApplicationGrantScopeRequest): Promise<SetApplicationGrantScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setApplicationGrantScopeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request SetApplicationProvisioningConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetApplicationProvisioningConfigResponse
+   */
   async setApplicationProvisioningConfigWithOptions(request: SetApplicationProvisioningConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetApplicationProvisioningConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13675,16 +14802,33 @@ export default class Client extends OpenApi {
     return $tea.cast<SetApplicationProvisioningConfigResponse>(await this.callApi(params, req, runtime), new SetApplicationProvisioningConfigResponse({}));
   }
 
+  /**
+   * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @param request SetApplicationProvisioningConfigRequest
+   * @return SetApplicationProvisioningConfigResponse
+   */
   async setApplicationProvisioningConfig(request: SetApplicationProvisioningConfigRequest): Promise<SetApplicationProvisioningConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setApplicationProvisioningConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sets the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+   *
+   * @param request SetApplicationProvisioningScopeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetApplicationProvisioningScopeResponse
+   */
   async setApplicationProvisioningScopeWithOptions(request: SetApplicationProvisioningScopeRequest, runtime: $Util.RuntimeOptions): Promise<SetApplicationProvisioningScopeResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.applicationId)) {
       query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.groupIds)) {
+      query["GroupIds"] = request.groupIds;
     }
 
     if (!Util.isUnset(request.instanceId)) {
@@ -13712,17 +14856,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SetApplicationProvisioningScopeResponse>(await this.callApi(params, req, runtime), new SetApplicationProvisioningScopeResponse({}));
   }
 
+  /**
+   * @summary Sets the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+   *
+   * @param request SetApplicationProvisioningScopeRequest
+   * @return SetApplicationProvisioningScopeResponse
+   */
   async setApplicationProvisioningScope(request: SetApplicationProvisioningScopeRequest): Promise<SetApplicationProvisioningScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setApplicationProvisioningScopeWithOptions(request, runtime);
   }
 
   /**
-    * In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
-    *
-    * @param request SetApplicationSsoConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetApplicationSsoConfigResponse
+   * @summary Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @description In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+   *
+   * @param request SetApplicationSsoConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetApplicationSsoConfigResponse
    */
   async setApplicationSsoConfigWithOptions(request: SetApplicationSsoConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetApplicationSsoConfigResponse> {
     Util.validateModel(request);
@@ -13769,16 +14921,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
-    *
-    * @param request SetApplicationSsoConfigRequest
-    * @return SetApplicationSsoConfigResponse
+   * @summary Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   *
+   * @description In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+   *
+   * @param request SetApplicationSsoConfigRequest
+   * @return SetApplicationSsoConfigResponse
    */
   async setApplicationSsoConfig(request: SetApplicationSsoConfigRequest): Promise<SetApplicationSsoConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setApplicationSsoConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 设置默认域名。
+   *
+   * @param request SetDefaultDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDefaultDomainResponse
+   */
   async setDefaultDomainWithOptions(request: SetDefaultDomainRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13807,11 +14968,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDefaultDomainResponse>(await this.callApi(params, req, runtime), new SetDefaultDomainResponse({}));
   }
 
+  /**
+   * @summary 设置默认域名。
+   *
+   * @param request SetDefaultDomainRequest
+   * @return SetDefaultDomainResponse
+   */
   async setDefaultDomain(request: SetDefaultDomainRequest): Promise<SetDefaultDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDefaultDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures a forgot password policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request SetForgetPasswordConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetForgetPasswordConfigurationResponse
+   */
   async setForgetPasswordConfigurationWithOptions(request: SetForgetPasswordConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<SetForgetPasswordConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13844,11 +15018,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetForgetPasswordConfigurationResponse>(await this.callApi(params, req, runtime), new SetForgetPasswordConfigurationResponse({}));
   }
 
+  /**
+   * @summary Configures a forgot password policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request SetForgetPasswordConfigurationRequest
+   * @return SetForgetPasswordConfigurationResponse
+   */
   async setForgetPasswordConfiguration(request: SetForgetPasswordConfigurationRequest): Promise<SetForgetPasswordConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setForgetPasswordConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request SetPasswordComplexityConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetPasswordComplexityConfigurationResponse
+   */
   async setPasswordComplexityConfigurationWithOptions(request: SetPasswordComplexityConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<SetPasswordComplexityConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13881,11 +15068,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPasswordComplexityConfigurationResponse>(await this.callApi(params, req, runtime), new SetPasswordComplexityConfigurationResponse({}));
   }
 
+  /**
+   * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request SetPasswordComplexityConfigurationRequest
+   * @return SetPasswordComplexityConfigurationResponse
+   */
   async setPasswordComplexityConfiguration(request: SetPasswordComplexityConfigurationRequest): Promise<SetPasswordComplexityConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPasswordComplexityConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request SetPasswordExpirationConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetPasswordExpirationConfigurationResponse
+   */
   async setPasswordExpirationConfigurationWithOptions(request: SetPasswordExpirationConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<SetPasswordExpirationConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13938,11 +15138,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPasswordExpirationConfigurationResponse>(await this.callApi(params, req, runtime), new SetPasswordExpirationConfigurationResponse({}));
   }
 
+  /**
+   * @summary Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request SetPasswordExpirationConfigurationRequest
+   * @return SetPasswordExpirationConfigurationResponse
+   */
   async setPasswordExpirationConfiguration(request: SetPasswordExpirationConfigurationRequest): Promise<SetPasswordExpirationConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPasswordExpirationConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures a password history policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request SetPasswordHistoryConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetPasswordHistoryConfigurationResponse
+   */
   async setPasswordHistoryConfigurationWithOptions(request: SetPasswordHistoryConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<SetPasswordHistoryConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13975,11 +15188,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPasswordHistoryConfigurationResponse>(await this.callApi(params, req, runtime), new SetPasswordHistoryConfigurationResponse({}));
   }
 
+  /**
+   * @summary Configures a password history policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request SetPasswordHistoryConfigurationRequest
+   * @return SetPasswordHistoryConfigurationResponse
+   */
   async setPasswordHistoryConfiguration(request: SetPasswordHistoryConfigurationRequest): Promise<SetPasswordHistoryConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPasswordHistoryConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sets the password initialization configurations for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request SetPasswordInitializationConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetPasswordInitializationConfigurationResponse
+   */
   async setPasswordInitializationConfigurationWithOptions(request: SetPasswordInitializationConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<SetPasswordInitializationConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14020,11 +15246,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPasswordInitializationConfigurationResponse>(await this.callApi(params, req, runtime), new SetPasswordInitializationConfigurationResponse({}));
   }
 
+  /**
+   * @summary Sets the password initialization configurations for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request SetPasswordInitializationConfigurationRequest
+   * @return SetPasswordInitializationConfigurationResponse
+   */
   async setPasswordInitializationConfiguration(request: SetPasswordInitializationConfigurationRequest): Promise<SetPasswordInitializationConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPasswordInitializationConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the primary organizational unit to which an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account belongs. This account will be removed from the previous primary organizational unit and added to the new primary organization.
+   *
+   * @param request SetUserPrimaryOrganizationalUnitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetUserPrimaryOrganizationalUnitResponse
+   */
   async setUserPrimaryOrganizationalUnitWithOptions(request: SetUserPrimaryOrganizationalUnitRequest, runtime: $Util.RuntimeOptions): Promise<SetUserPrimaryOrganizationalUnitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14057,11 +15296,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetUserPrimaryOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new SetUserPrimaryOrganizationalUnitResponse({}));
   }
 
+  /**
+   * @summary Updates the primary organizational unit to which an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account belongs. This account will be removed from the previous primary organizational unit and added to the new primary organization.
+   *
+   * @param request SetUserPrimaryOrganizationalUnitRequest
+   * @return SetUserPrimaryOrganizationalUnitResponse
+   */
   async setUserPrimaryOrganizationalUnit(request: SetUserPrimaryOrganizationalUnitRequest): Promise<SetUserPrimaryOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setUserPrimaryOrganizationalUnitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
+   *
+   * @param request UnlockUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnlockUserResponse
+   */
   async unlockUserWithOptions(request: UnlockUserRequest, runtime: $Util.RuntimeOptions): Promise<UnlockUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14090,11 +15342,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnlockUserResponse>(await this.callApi(params, req, runtime), new UnlockUserResponse({}));
   }
 
+  /**
+   * @summary Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
+   *
+   * @param request UnlockUserRequest
+   * @return UnlockUserResponse
+   */
   async unlockUser(request: UnlockUserRequest): Promise<UnlockUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unlockUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request UpdateApplicationAuthorizationTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateApplicationAuthorizationTypeResponse
+   */
   async updateApplicationAuthorizationTypeWithOptions(request: UpdateApplicationAuthorizationTypeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationAuthorizationTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14127,11 +15392,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateApplicationAuthorizationTypeResponse>(await this.callApi(params, req, runtime), new UpdateApplicationAuthorizationTypeResponse({}));
   }
 
+  /**
+   * @summary Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request UpdateApplicationAuthorizationTypeRequest
+   * @return UpdateApplicationAuthorizationTypeResponse
+   */
   async updateApplicationAuthorizationType(request: UpdateApplicationAuthorizationTypeRequest): Promise<UpdateApplicationAuthorizationTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateApplicationAuthorizationTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request UpdateApplicationDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateApplicationDescriptionResponse
+   */
   async updateApplicationDescriptionWithOptions(request: UpdateApplicationDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14164,11 +15442,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateApplicationDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateApplicationDescriptionResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of an Employee Identity and Access Management (EIAM) application.
+   *
+   * @param request UpdateApplicationDescriptionRequest
+   * @return UpdateApplicationDescriptionResponse
+   */
   async updateApplicationDescription(request: UpdateApplicationDescriptionRequest): Promise<UpdateApplicationDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateApplicationDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the information is empty, the information is not updated by default.
+   *
+   * @param request UpdateGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGroupResponse
+   */
   async updateGroupWithOptions(request: UpdateGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14205,11 +15496,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGroupResponse>(await this.callApi(params, req, runtime), new UpdateGroupResponse({}));
   }
 
+  /**
+   * @summary Updates the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the information is empty, the information is not updated by default.
+   *
+   * @param request UpdateGroupRequest
+   * @return UpdateGroupResponse
+   */
   async updateGroup(request: UpdateGroupRequest): Promise<UpdateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account group.
+   *
+   * @param request UpdateGroupDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGroupDescriptionResponse
+   */
   async updateGroupDescriptionWithOptions(request: UpdateGroupDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14242,11 +15546,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGroupDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateGroupDescriptionResponse({}));
   }
 
+  /**
+   * @summary Updates the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account group.
+   *
+   * @param request UpdateGroupDescriptionRequest
+   * @return UpdateGroupDescriptionResponse
+   */
   async updateGroupDescription(request: UpdateGroupDescriptionRequest): Promise<UpdateGroupDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGroupDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request UpdateInstanceDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceDescriptionResponse
+   */
   async updateInstanceDescriptionWithOptions(request: UpdateInstanceDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14275,11 +15592,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateInstanceDescriptionResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   *
+   * @param request UpdateInstanceDescriptionRequest
+   * @return UpdateInstanceDescriptionResponse
+   */
   async updateInstanceDescription(request: UpdateInstanceDescriptionRequest): Promise<UpdateInstanceDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新一个专属网络端点的名称。
+   *
+   * @param request UpdateNetworkAccessEndpointNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateNetworkAccessEndpointNameResponse
+   */
   async updateNetworkAccessEndpointNameWithOptions(request: UpdateNetworkAccessEndpointNameRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNetworkAccessEndpointNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14312,11 +15642,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateNetworkAccessEndpointNameResponse>(await this.callApi(params, req, runtime), new UpdateNetworkAccessEndpointNameResponse({}));
   }
 
+  /**
+   * @summary 更新一个专属网络端点的名称。
+   *
+   * @param request UpdateNetworkAccessEndpointNameRequest
+   * @return UpdateNetworkAccessEndpointNameResponse
+   */
   async updateNetworkAccessEndpointName(request: UpdateNetworkAccessEndpointNameRequest): Promise<UpdateNetworkAccessEndpointNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNetworkAccessEndpointNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) organization. The basic information about the organization is not updated by default if no parameter is specified.
+   *
+   * @param request UpdateOrganizationalUnitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateOrganizationalUnitResponse
+   */
   async updateOrganizationalUnitWithOptions(request: UpdateOrganizationalUnitRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOrganizationalUnitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14349,11 +15692,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new UpdateOrganizationalUnitResponse({}));
   }
 
+  /**
+   * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) organization. The basic information about the organization is not updated by default if no parameter is specified.
+   *
+   * @param request UpdateOrganizationalUnitRequest
+   * @return UpdateOrganizationalUnitResponse
+   */
   async updateOrganizationalUnit(request: UpdateOrganizationalUnitRequest): Promise<UpdateOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateOrganizationalUnitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of an Employee Identity and Access Management (EIAM) organization.
+   *
+   * @param request UpdateOrganizationalUnitDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateOrganizationalUnitDescriptionResponse
+   */
   async updateOrganizationalUnitDescriptionWithOptions(request: UpdateOrganizationalUnitDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOrganizationalUnitDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14386,11 +15742,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOrganizationalUnitDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateOrganizationalUnitDescriptionResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of an Employee Identity and Access Management (EIAM) organization.
+   *
+   * @param request UpdateOrganizationalUnitDescriptionRequest
+   * @return UpdateOrganizationalUnitDescriptionResponse
+   */
   async updateOrganizationalUnitDescription(request: UpdateOrganizationalUnitDescriptionRequest): Promise<UpdateOrganizationalUnitDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateOrganizationalUnitDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the parent organization ID of an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). In this case, the organization is moved from a parent node to a new node.
+   *
+   * @param request UpdateOrganizationalUnitParentIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateOrganizationalUnitParentIdResponse
+   */
   async updateOrganizationalUnitParentIdWithOptions(request: UpdateOrganizationalUnitParentIdRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOrganizationalUnitParentIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14423,11 +15792,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOrganizationalUnitParentIdResponse>(await this.callApi(params, req, runtime), new UpdateOrganizationalUnitParentIdResponse({}));
   }
 
+  /**
+   * @summary Updates the parent organization ID of an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). In this case, the organization is moved from a parent node to a new node.
+   *
+   * @param request UpdateOrganizationalUnitParentIdRequest
+   * @return UpdateOrganizationalUnitParentIdResponse
+   */
   async updateOrganizationalUnitParentId(request: UpdateOrganizationalUnitParentIdRequest): Promise<UpdateOrganizationalUnitParentIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateOrganizationalUnitParentIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+   *
+   * @param request UpdateUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserResponse
+   */
   async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14488,11 +15870,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
   }
 
+  /**
+   * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+   *
+   * @param request UpdateUserRequest
+   * @return UpdateUserResponse
+   */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
+   *
+   * @param request UpdateUserDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserDescriptionResponse
+   */
   async updateUserDescriptionWithOptions(request: UpdateUserDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14525,11 +15920,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateUserDescriptionResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
+   *
+   * @param request UpdateUserDescriptionRequest
+   * @return UpdateUserDescriptionResponse
+   */
   async updateUserDescription(request: UpdateUserDescriptionRequest): Promise<UpdateUserDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
+   *
+   * @param request UpdateUserPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserPasswordResponse
+   */
   async updateUserPasswordWithOptions(request: UpdateUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14570,6 +15978,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserPasswordResponse>(await this.callApi(params, req, runtime), new UpdateUserPasswordResponse({}));
   }
 
+  /**
+   * @summary Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
+   *
+   * @param request UpdateUserPasswordRequest
+   * @return UpdateUserPasswordResponse
+   */
   async updateUserPassword(request: UpdateUserPasswordRequest): Promise<UpdateUserPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserPasswordWithOptions(request, runtime);
