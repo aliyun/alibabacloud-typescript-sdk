@@ -14773,12 +14773,14 @@ export class DescribeApplicationScalingRulesResponseBodyData extends $tea.Model 
 }
 
 export class DescribeApplicationSlbsResponseBodyDataInternet extends $tea.Model {
+  httpsCaCertId?: string;
   httpsCertId?: string;
   port?: number;
   protocol?: string;
   targetPort?: number;
   static names(): { [key: string]: string } {
     return {
+      httpsCaCertId: 'HttpsCaCertId',
       httpsCertId: 'HttpsCertId',
       port: 'Port',
       protocol: 'Protocol',
@@ -14788,6 +14790,7 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $tea.Model 
 
   static types(): { [key: string]: any } {
     return {
+      httpsCaCertId: 'string',
       httpsCertId: 'string',
       port: 'number',
       protocol: 'string',
@@ -14801,12 +14804,14 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $tea.Model 
 }
 
 export class DescribeApplicationSlbsResponseBodyDataIntranet extends $tea.Model {
+  httpsCaCertId?: string;
   httpsCertId?: string;
   port?: number;
   protocol?: string;
   targetPort?: number;
   static names(): { [key: string]: string } {
     return {
+      httpsCaCertId: 'HttpsCaCertId',
       httpsCertId: 'HttpsCertId',
       port: 'Port',
       protocol: 'Protocol',
@@ -14816,6 +14821,7 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $tea.Model 
 
   static types(): { [key: string]: any } {
     return {
+      httpsCaCertId: 'string',
       httpsCertId: 'string',
       port: 'number',
       protocol: 'string',
