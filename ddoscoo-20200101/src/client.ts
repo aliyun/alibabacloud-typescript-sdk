@@ -830,6 +830,75 @@ export class ConfigUdpReflectResponse extends $tea.Model {
   }
 }
 
+export class ConfigWebCCRuleV2Request extends $tea.Model {
+  domain?: string;
+  expires?: number;
+  ruleList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      expires: 'Expires',
+      ruleList: 'RuleList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      expires: 'number',
+      ruleList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigWebCCRuleV2ResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigWebCCRuleV2Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigWebCCRuleV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConfigWebCCRuleV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConfigWebCCTemplateRequest extends $tea.Model {
   domain?: string;
   resourceGroupId?: string;
@@ -8897,6 +8966,87 @@ export class DescribeWebCCRulesResponse extends $tea.Model {
   }
 }
 
+export class DescribeWebCCRulesV2Request extends $tea.Model {
+  domain?: string;
+  offset?: string;
+  owner?: string;
+  pageSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      offset: 'Offset',
+      owner: 'Owner',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      offset: 'string',
+      owner: 'string',
+      pageSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebCCRulesV2ResponseBody extends $tea.Model {
+  domain?: string;
+  requestId?: string;
+  totalCount?: string;
+  webCCRules?: DescribeWebCCRulesV2ResponseBodyWebCCRules[];
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      webCCRules: 'WebCCRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+      webCCRules: { 'type': 'array', 'itemType': DescribeWebCCRulesV2ResponseBodyWebCCRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebCCRulesV2Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeWebCCRulesV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWebCCRulesV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeWebCacheConfigsRequest extends $tea.Model {
   domains?: string[];
   resourceGroupId?: string;
@@ -15424,6 +15574,198 @@ export class DescribeWebCCRulesResponseBodyWebCCRules extends $tea.Model {
   }
 }
 
+export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition extends $tea.Model {
+  content?: string;
+  field?: string;
+  headerName?: string;
+  matchMethod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      field: 'Field',
+      headerName: 'HeaderName',
+      matchMethod: 'MatchMethod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      field: 'string',
+      headerName: 'string',
+      matchMethod: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit extends $tea.Model {
+  interval?: number;
+  subKey?: string;
+  target?: string;
+  threshold?: number;
+  ttl?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interval: 'Interval',
+      subKey: 'SubKey',
+      target: 'Target',
+      threshold: 'Threshold',
+      ttl: 'Ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interval: 'number',
+      subKey: 'string',
+      target: 'string',
+      threshold: 'number',
+      ttl: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics extends $tea.Model {
+  field?: string;
+  headerName?: string;
+  mode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      field: 'Field',
+      headerName: 'HeaderName',
+      mode: 'Mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'string',
+      headerName: 'string',
+      mode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode extends $tea.Model {
+  code?: number;
+  countThreshold?: number;
+  enabled?: boolean;
+  ratioThreshold?: number;
+  useRatio?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      countThreshold: 'CountThreshold',
+      enabled: 'Enabled',
+      ratioThreshold: 'RatioThreshold',
+      useRatio: 'UseRatio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      countThreshold: 'number',
+      enabled: 'boolean',
+      ratioThreshold: 'number',
+      useRatio: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail extends $tea.Model {
+  action?: string;
+  condition?: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition[];
+  count?: number;
+  interval?: number;
+  mode?: string;
+  name?: string;
+  rateLimit?: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit;
+  statistics?: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics;
+  statusCode?: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode;
+  ttl?: number;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      condition: 'Condition',
+      count: 'Count',
+      interval: 'Interval',
+      mode: 'Mode',
+      name: 'Name',
+      rateLimit: 'RateLimit',
+      statistics: 'Statistics',
+      statusCode: 'StatusCode',
+      ttl: 'Ttl',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      condition: { 'type': 'array', 'itemType': DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition },
+      count: 'number',
+      interval: 'number',
+      mode: 'string',
+      name: 'string',
+      rateLimit: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit,
+      statistics: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics,
+      statusCode: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode,
+      ttl: 'number',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebCCRulesV2ResponseBodyWebCCRules extends $tea.Model {
+  expires?: number;
+  name?: string;
+  owner?: string;
+  ruleDetail?: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail;
+  static names(): { [key: string]: string } {
+    return {
+      expires: 'Expires',
+      name: 'Name',
+      owner: 'Owner',
+      ruleDetail: 'RuleDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expires: 'number',
+      name: 'string',
+      owner: 'string',
+      ruleDetail: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeWebCacheConfigsResponseBodyDomainCacheConfigsCustomRules extends $tea.Model {
   cacheTtl?: number;
   mode?: string;
@@ -16518,6 +16860,56 @@ export default class Client extends OpenApi {
   async configUdpReflect(request: ConfigUdpReflectRequest): Promise<ConfigUdpReflectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configUdpReflectWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 配置新版基于匹配条件的cc规则
+   *
+   * @param request ConfigWebCCRuleV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigWebCCRuleV2Response
+   */
+  async configWebCCRuleV2WithOptions(request: ConfigWebCCRuleV2Request, runtime: $Util.RuntimeOptions): Promise<ConfigWebCCRuleV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.expires)) {
+      query["Expires"] = request.expires;
+    }
+
+    if (!Util.isUnset(request.ruleList)) {
+      query["RuleList"] = request.ruleList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConfigWebCCRuleV2",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfigWebCCRuleV2Response>(await this.callApi(params, req, runtime), new ConfigWebCCRuleV2Response({}));
+  }
+
+  /**
+   * @summary 配置新版基于匹配条件的cc规则
+   *
+   * @param request ConfigWebCCRuleV2Request
+   * @return ConfigWebCCRuleV2Response
+   */
+  async configWebCCRuleV2(request: ConfigWebCCRuleV2Request): Promise<ConfigWebCCRuleV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.configWebCCRuleV2WithOptions(request, runtime);
   }
 
   /**
@@ -22300,6 +22692,60 @@ export default class Client extends OpenApi {
   async describeWebCCRules(request: DescribeWebCCRulesRequest): Promise<DescribeWebCCRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebCCRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询新版cc规则
+   *
+   * @param request DescribeWebCCRulesV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebCCRulesV2Response
+   */
+  async describeWebCCRulesV2WithOptions(request: DescribeWebCCRulesV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeWebCCRulesV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWebCCRulesV2",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWebCCRulesV2Response>(await this.callApi(params, req, runtime), new DescribeWebCCRulesV2Response({}));
+  }
+
+  /**
+   * @summary 查询新版cc规则
+   *
+   * @param request DescribeWebCCRulesV2Request
+   * @return DescribeWebCCRulesV2Response
+   */
+  async describeWebCCRulesV2(request: DescribeWebCCRulesV2Request): Promise<DescribeWebCCRulesV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWebCCRulesV2WithOptions(request, runtime);
   }
 
   /**
