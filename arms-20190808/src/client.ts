@@ -3323,6 +3323,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
   environmentSubType?: string;
   environmentType?: string;
   feePackage?: string;
+  grafanaWorkspaceId?: string;
   managedType?: string;
   prometheusInstanceId?: string;
   regionId?: string;
@@ -3336,6 +3337,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
       environmentSubType: 'EnvironmentSubType',
       environmentType: 'EnvironmentType',
       feePackage: 'FeePackage',
+      grafanaWorkspaceId: 'GrafanaWorkspaceId',
       managedType: 'ManagedType',
       prometheusInstanceId: 'PrometheusInstanceId',
       regionId: 'RegionId',
@@ -3352,6 +3354,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
       environmentSubType: 'string',
       environmentType: 'string',
       feePackage: 'string',
+      grafanaWorkspaceId: 'string',
       managedType: 'string',
       prometheusInstanceId: 'string',
       regionId: 'string',
@@ -24966,6 +24969,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
   grafanaFolderTitle?: string;
   grafanaFolderUid?: string;
   grafanaFolderUrl?: string;
+  grafanaWorkspaceId?: string;
   managedType?: string;
   prometheusInstanceId?: string;
   prometheusInstanceName?: string;
@@ -24993,6 +24997,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       grafanaFolderTitle: 'GrafanaFolderTitle',
       grafanaFolderUid: 'GrafanaFolderUid',
       grafanaFolderUrl: 'GrafanaFolderUrl',
+      grafanaWorkspaceId: 'GrafanaWorkspaceId',
       managedType: 'ManagedType',
       prometheusInstanceId: 'PrometheusInstanceId',
       prometheusInstanceName: 'PrometheusInstanceName',
@@ -25023,6 +25028,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       grafanaFolderTitle: 'string',
       grafanaFolderUid: 'string',
       grafanaFolderUrl: 'string',
+      grafanaWorkspaceId: 'string',
       managedType: 'string',
       prometheusInstanceId: 'string',
       prometheusInstanceName: 'string',
@@ -26374,6 +26380,7 @@ export class GetPrometheusInstanceResponseBodyDataTags extends $tea.Model {
 }
 
 export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
+  accessType?: string;
   archiveDuration?: number;
   authToken?: string;
   clusterId?: string;
@@ -26385,7 +26392,6 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
   paymentType?: string;
   pushGatewayInterUrl?: string;
   pushGatewayIntraUrl?: string;
-  readOnly?: boolean;
   regionId?: string;
   remoteReadInterUrl?: string;
   remoteReadIntraUrl?: string;
@@ -26402,6 +26408,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessType: 'AccessType',
       archiveDuration: 'ArchiveDuration',
       authToken: 'AuthToken',
       clusterId: 'ClusterId',
@@ -26413,7 +26420,6 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       paymentType: 'PaymentType',
       pushGatewayInterUrl: 'PushGatewayInterUrl',
       pushGatewayIntraUrl: 'PushGatewayIntraUrl',
-      readOnly: 'ReadOnly',
       regionId: 'RegionId',
       remoteReadInterUrl: 'RemoteReadInterUrl',
       remoteReadIntraUrl: 'RemoteReadIntraUrl',
@@ -26433,6 +26439,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessType: 'string',
       archiveDuration: 'number',
       authToken: 'string',
       clusterId: 'string',
@@ -26444,7 +26451,6 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       paymentType: 'string',
       pushGatewayInterUrl: 'string',
       pushGatewayIntraUrl: 'string',
-      readOnly: 'boolean',
       regionId: 'string',
       remoteReadInterUrl: 'string',
       remoteReadIntraUrl: 'string',
@@ -28797,8 +28803,10 @@ export class GetTraceAppResponseBodyTraceAppTags extends $tea.Model {
 export class GetTraceAppResponseBodyTraceApp extends $tea.Model {
   appId?: number;
   appName?: string;
+  clusterId?: string;
   createTime?: number;
   labels?: string[];
+  language?: string;
   pid?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -28812,8 +28820,10 @@ export class GetTraceAppResponseBodyTraceApp extends $tea.Model {
     return {
       appId: 'AppId',
       appName: 'AppName',
+      clusterId: 'ClusterId',
       createTime: 'CreateTime',
       labels: 'Labels',
+      language: 'Language',
       pid: 'Pid',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -28830,8 +28840,10 @@ export class GetTraceAppResponseBodyTraceApp extends $tea.Model {
     return {
       appId: 'number',
       appName: 'string',
+      clusterId: 'string',
       createTime: 'number',
       labels: { 'type': 'array', 'itemType': 'string' },
+      language: 'string',
       pid: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -36368,6 +36380,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.feePackage)) {
       query["FeePackage"] = request.feePackage;
+    }
+
+    if (!Util.isUnset(request.grafanaWorkspaceId)) {
+      query["GrafanaWorkspaceId"] = request.grafanaWorkspaceId;
     }
 
     if (!Util.isUnset(request.managedType)) {
@@ -45631,7 +45647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes data sources from a global aggregation instance in Prometheus Service.
+   * @summary Removes data sources from a global aggregation instance.
    *
    * @param request RemoveAliClusterIdsFromPrometheusGlobalViewRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -45674,7 +45690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes data sources from a global aggregation instance in Prometheus Service.
+   * @summary Removes data sources from a global aggregation instance.
    *
    * @param request RemoveAliClusterIdsFromPrometheusGlobalViewRequest
    * @return RemoveAliClusterIdsFromPrometheusGlobalViewResponse
