@@ -2039,6 +2039,53 @@ export class GetTrackListByMailFromAndTagNameResponse extends $tea.Model {
   }
 }
 
+export class GetUserResponseBody extends $tea.Model {
+  data?: GetUserResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetUserResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUserSuppressionRequest extends $tea.Model {
   address?: string;
   endBounceTime?: number;
@@ -3725,6 +3772,88 @@ export class UpdateIpProtectionResponse extends $tea.Model {
   }
 }
 
+export class UpdateUserRequest extends $tea.Model {
+  user?: UpdateUserRequestUser;
+  static names(): { [key: string]: string } {
+    return {
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      user: UpdateUserRequestUser,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserShrinkRequest extends $tea.Model {
+  userShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userShrink: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetIpfilterListResponseBodyDataIpfilters extends $tea.Model {
   createTime?: string;
   id?: string;
@@ -3891,6 +4020,25 @@ export class GetTrackListByMailFromAndTagNameResponseBodyTrackList extends $tea.
   static types(): { [key: string]: any } {
     return {
       stat: { 'type': 'array', 'itemType': GetTrackListByMailFromAndTagNameResponseBodyTrackListStat },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserResponseBodyData extends $tea.Model {
+  enableEventbridge?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableEventbridge: 'EnableEventbridge',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableEventbridge: 'boolean',
     };
   }
 
@@ -4489,6 +4637,25 @@ export class SenderStatisticsDetailByParamResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       mailDetail: { 'type': 'array', 'itemType': SenderStatisticsDetailByParamResponseBodyDataMailDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserRequestUser extends $tea.Model {
+  enableEventbridge?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableEventbridge: 'EnableEventbridge',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableEventbridge: 'boolean',
     };
   }
 
@@ -5933,6 +6100,39 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 获取账号详情
+   *
+   * @param request GetUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserResponse
+   */
+  async getUserWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetUser",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
+  }
+
+  /**
+   * @summary 获取账号详情
+   *
+   * @return GetUserResponse
+   */
+  async getUser(): Promise<GetUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserWithOptions(runtime);
+  }
+
+  /**
    * @summary 列出用户无效地址
    *
    * @param request ListUserSuppressionRequest
@@ -7196,6 +7396,54 @@ export default class Client extends OpenApi {
   async updateIpProtection(request: UpdateIpProtectionRequest): Promise<UpdateIpProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIpProtectionWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 更新帐号信息
+   *
+   * @param tmpReq UpdateUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserResponse
+   */
+  async updateUserWithOptions(tmpReq: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateUserShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.user)) {
+      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.user, "User", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.userShrink)) {
+      body["User"] = request.userShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUser",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
+  }
+
+  /**
+   * @summary 更新帐号信息
+   *
+   * @param request UpdateUserRequest
+   * @return UpdateUserResponse
+   */
+  async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateUserWithOptions(request, runtime);
   }
 
 }
