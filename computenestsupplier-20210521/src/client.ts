@@ -8,6 +8,81 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddServiceSharedAccountsRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  serviceId?: string;
+  sharedAccounts?: AddServiceSharedAccountsRequestSharedAccounts[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      sharedAccounts: 'SharedAccounts',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+      sharedAccounts: { 'type': 'array', 'itemType': AddServiceSharedAccountsRequestSharedAccounts },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddServiceSharedAccountsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddServiceSharedAccountsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddServiceSharedAccountsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddServiceSharedAccountsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ContinueDeployServiceInstanceRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -65,9 +140,9 @@ export class ContinueDeployServiceInstanceResponseBody extends $tea.Model {
 }
 
 export class ContinueDeployServiceInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ContinueDeployServiceInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ContinueDeployServiceInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -228,9 +303,9 @@ export class CreateArtifactResponseBody extends $tea.Model {
 }
 
 export class CreateArtifactResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateArtifactResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateArtifactResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -255,6 +330,7 @@ export class CreateArtifactResponse extends $tea.Model {
 export class CreateServiceRequest extends $tea.Model {
   alarmMetadata?: string;
   approvalType?: string;
+  buildParameters?: string;
   clientToken?: string;
   deployMetadata?: string;
   deployType?: string;
@@ -282,6 +358,7 @@ export class CreateServiceRequest extends $tea.Model {
     return {
       alarmMetadata: 'AlarmMetadata',
       approvalType: 'ApprovalType',
+      buildParameters: 'BuildParameters',
       clientToken: 'ClientToken',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
@@ -312,6 +389,7 @@ export class CreateServiceRequest extends $tea.Model {
     return {
       alarmMetadata: 'string',
       approvalType: 'string',
+      buildParameters: 'string',
       clientToken: 'string',
       deployMetadata: 'string',
       deployType: 'string',
@@ -372,9 +450,9 @@ export class CreateServiceResponseBody extends $tea.Model {
 }
 
 export class CreateServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -399,6 +477,7 @@ export class CreateServiceResponse extends $tea.Model {
 export class CreateServiceInstanceRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
+  endTime?: string;
   name?: string;
   parameters?: { [key: string]: any };
   regionId?: string;
@@ -413,6 +492,7 @@ export class CreateServiceInstanceRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      endTime: 'EndTime',
       name: 'Name',
       parameters: 'Parameters',
       regionId: 'RegionId',
@@ -430,6 +510,7 @@ export class CreateServiceInstanceRequest extends $tea.Model {
     return {
       clientToken: 'string',
       dryRun: 'boolean',
+      endTime: 'string',
       name: 'string',
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       regionId: 'string',
@@ -451,6 +532,7 @@ export class CreateServiceInstanceRequest extends $tea.Model {
 export class CreateServiceInstanceShrinkRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
+  endTime?: string;
   name?: string;
   parametersShrink?: string;
   regionId?: string;
@@ -465,6 +547,7 @@ export class CreateServiceInstanceShrinkRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      endTime: 'EndTime',
       name: 'Name',
       parametersShrink: 'Parameters',
       regionId: 'RegionId',
@@ -482,6 +565,7 @@ export class CreateServiceInstanceShrinkRequest extends $tea.Model {
     return {
       clientToken: 'string',
       dryRun: 'boolean',
+      endTime: 'string',
       name: 'string',
       parametersShrink: 'string',
       regionId: 'string',
@@ -526,9 +610,9 @@ export class CreateServiceInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateServiceInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateServiceInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -592,9 +676,9 @@ export class DeleteArtifactResponseBody extends $tea.Model {
 }
 
 export class DeleteArtifactResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteArtifactResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteArtifactResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -664,9 +748,9 @@ export class DeleteServiceResponseBody extends $tea.Model {
 }
 
 export class DeleteServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -733,9 +817,9 @@ export class DeleteServiceInstancesResponseBody extends $tea.Model {
 }
 
 export class DeleteServiceInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteServiceInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServiceInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -802,9 +886,9 @@ export class DeployServiceInstanceResponseBody extends $tea.Model {
 }
 
 export class DeployServiceInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeployServiceInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeployServiceInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -913,9 +997,9 @@ export class GetArtifactResponseBody extends $tea.Model {
 }
 
 export class GetArtifactResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetArtifactResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetArtifactResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -988,9 +1072,9 @@ export class GetArtifactRepositoryCredentialsResponseBody extends $tea.Model {
 }
 
 export class GetArtifactRepositoryCredentialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetArtifactRepositoryCredentialsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetArtifactRepositoryCredentialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1049,14 +1133,17 @@ export class GetServiceRequest extends $tea.Model {
 export class GetServiceResponseBody extends $tea.Model {
   alarmMetadata?: string;
   approvalType?: string;
+  buildInfo?: string;
+  categories?: string;
+  commodity?: GetServiceResponseBodyCommodity;
   commodityCode?: string;
-  commodityEntities?: GetServiceResponseBodyCommodityEntities[];
-  commoditySpecifications?: GetServiceResponseBodyCommoditySpecifications[];
   createTime?: string;
+  crossRegionConnectionStatus?: string;
   defaultLicenseDays?: number;
   deployMetadata?: string;
   deployType?: string;
   duration?: number;
+  entitySource?: { [key: string]: string };
   isSupportOperated?: boolean;
   licenseMetadata?: string;
   logMetadata?: string;
@@ -1071,12 +1158,15 @@ export class GetServiceResponseBody extends $tea.Model {
   requestId?: string;
   resellable?: boolean;
   resourceGroupId?: string;
+  serviceAuditDocumentUrl?: string;
+  serviceDiscoverable?: string;
   serviceDocUrl?: string;
   serviceId?: string;
   serviceInfos?: GetServiceResponseBodyServiceInfos[];
   serviceProductUrl?: string;
   serviceType?: string;
   shareType?: string;
+  shareTypeStatus?: string;
   sourceServiceId?: string;
   sourceServiceVersion?: string;
   sourceSupplierName?: string;
@@ -1095,18 +1185,22 @@ export class GetServiceResponseBody extends $tea.Model {
   version?: string;
   versionName?: string;
   virtualInternetService?: string;
+  virtualInternetServiceId?: string;
   static names(): { [key: string]: string } {
     return {
       alarmMetadata: 'AlarmMetadata',
       approvalType: 'ApprovalType',
+      buildInfo: 'BuildInfo',
+      categories: 'Categories',
+      commodity: 'Commodity',
       commodityCode: 'CommodityCode',
-      commodityEntities: 'CommodityEntities',
-      commoditySpecifications: 'CommoditySpecifications',
       createTime: 'CreateTime',
+      crossRegionConnectionStatus: 'CrossRegionConnectionStatus',
       defaultLicenseDays: 'DefaultLicenseDays',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
       duration: 'Duration',
+      entitySource: 'EntitySource',
       isSupportOperated: 'IsSupportOperated',
       licenseMetadata: 'LicenseMetadata',
       logMetadata: 'LogMetadata',
@@ -1121,12 +1215,15 @@ export class GetServiceResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resellable: 'Resellable',
       resourceGroupId: 'ResourceGroupId',
+      serviceAuditDocumentUrl: 'ServiceAuditDocumentUrl',
+      serviceDiscoverable: 'ServiceDiscoverable',
       serviceDocUrl: 'ServiceDocUrl',
       serviceId: 'ServiceId',
       serviceInfos: 'ServiceInfos',
       serviceProductUrl: 'ServiceProductUrl',
       serviceType: 'ServiceType',
       shareType: 'ShareType',
+      shareTypeStatus: 'ShareTypeStatus',
       sourceServiceId: 'SourceServiceId',
       sourceServiceVersion: 'SourceServiceVersion',
       sourceSupplierName: 'SourceSupplierName',
@@ -1145,6 +1242,7 @@ export class GetServiceResponseBody extends $tea.Model {
       version: 'Version',
       versionName: 'VersionName',
       virtualInternetService: 'VirtualInternetService',
+      virtualInternetServiceId: 'VirtualInternetServiceId',
     };
   }
 
@@ -1152,14 +1250,17 @@ export class GetServiceResponseBody extends $tea.Model {
     return {
       alarmMetadata: 'string',
       approvalType: 'string',
+      buildInfo: 'string',
+      categories: 'string',
+      commodity: GetServiceResponseBodyCommodity,
       commodityCode: 'string',
-      commodityEntities: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityEntities },
-      commoditySpecifications: { 'type': 'array', 'itemType': GetServiceResponseBodyCommoditySpecifications },
       createTime: 'string',
+      crossRegionConnectionStatus: 'string',
       defaultLicenseDays: 'number',
       deployMetadata: 'string',
       deployType: 'string',
       duration: 'number',
+      entitySource: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       isSupportOperated: 'boolean',
       licenseMetadata: 'string',
       logMetadata: 'string',
@@ -1174,12 +1275,15 @@ export class GetServiceResponseBody extends $tea.Model {
       requestId: 'string',
       resellable: 'boolean',
       resourceGroupId: 'string',
+      serviceAuditDocumentUrl: 'string',
+      serviceDiscoverable: 'string',
       serviceDocUrl: 'string',
       serviceId: 'string',
       serviceInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfos },
       serviceProductUrl: 'string',
       serviceType: 'string',
       shareType: 'string',
+      shareTypeStatus: 'string',
       sourceServiceId: 'string',
       sourceServiceVersion: 'string',
       sourceSupplierName: 'string',
@@ -1198,6 +1302,7 @@ export class GetServiceResponseBody extends $tea.Model {
       version: 'string',
       versionName: 'string',
       virtualInternetService: 'string',
+      virtualInternetServiceId: 'string',
     };
   }
 
@@ -1207,9 +1312,9 @@ export class GetServiceResponseBody extends $tea.Model {
 }
 
 export class GetServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1233,6 +1338,7 @@ export class GetServiceResponse extends $tea.Model {
 
 export class GetServiceEstimateCostRequest extends $tea.Model {
   clientToken?: string;
+  commodity?: GetServiceEstimateCostRequestCommodity;
   parameters?: { [key: string]: any };
   regionId?: string;
   serviceId?: string;
@@ -1243,6 +1349,7 @@ export class GetServiceEstimateCostRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      commodity: 'Commodity',
       parameters: 'Parameters',
       regionId: 'RegionId',
       serviceId: 'ServiceId',
@@ -1256,6 +1363,7 @@ export class GetServiceEstimateCostRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      commodity: GetServiceEstimateCostRequestCommodity,
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       regionId: 'string',
       serviceId: 'string',
@@ -1273,6 +1381,7 @@ export class GetServiceEstimateCostRequest extends $tea.Model {
 
 export class GetServiceEstimateCostShrinkRequest extends $tea.Model {
   clientToken?: string;
+  commodityShrink?: string;
   parametersShrink?: string;
   regionId?: string;
   serviceId?: string;
@@ -1283,6 +1392,7 @@ export class GetServiceEstimateCostShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      commodityShrink: 'Commodity',
       parametersShrink: 'Parameters',
       regionId: 'RegionId',
       serviceId: 'ServiceId',
@@ -1296,6 +1406,7 @@ export class GetServiceEstimateCostShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      commodityShrink: 'string',
       parametersShrink: 'string',
       regionId: 'string',
       serviceId: 'string',
@@ -1312,10 +1423,12 @@ export class GetServiceEstimateCostShrinkRequest extends $tea.Model {
 }
 
 export class GetServiceEstimateCostResponseBody extends $tea.Model {
+  commodity?: { [key: string]: any };
   requestId?: string;
   resources?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      commodity: 'Commodity',
       requestId: 'RequestId',
       resources: 'Resources',
     };
@@ -1323,6 +1436,7 @@ export class GetServiceEstimateCostResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      commodity: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
       resources: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
@@ -1334,9 +1448,9 @@ export class GetServiceEstimateCostResponseBody extends $tea.Model {
 }
 
 export class GetServiceEstimateCostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceEstimateCostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceEstimateCostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1384,8 +1498,9 @@ export class GetServiceInstanceResponseBody extends $tea.Model {
   bizStatus?: string;
   createTime?: string;
   enableInstanceOps?: boolean;
-  enableUserPrometheus?: string;
+  enableUserPrometheus?: boolean;
   endTime?: string;
+  grafanaDashBoardUrl?: string;
   isOperated?: boolean;
   licenseMetadata?: string;
   name?: string;
@@ -1420,6 +1535,7 @@ export class GetServiceInstanceResponseBody extends $tea.Model {
       enableInstanceOps: 'EnableInstanceOps',
       enableUserPrometheus: 'EnableUserPrometheus',
       endTime: 'EndTime',
+      grafanaDashBoardUrl: 'GrafanaDashBoardUrl',
       isOperated: 'IsOperated',
       licenseMetadata: 'LicenseMetadata',
       name: 'Name',
@@ -1455,8 +1571,9 @@ export class GetServiceInstanceResponseBody extends $tea.Model {
       bizStatus: 'string',
       createTime: 'string',
       enableInstanceOps: 'boolean',
-      enableUserPrometheus: 'string',
+      enableUserPrometheus: 'boolean',
       endTime: 'string',
+      grafanaDashBoardUrl: 'string',
       isOperated: 'boolean',
       licenseMetadata: 'string',
       name: 'string',
@@ -1493,9 +1610,9 @@ export class GetServiceInstanceResponseBody extends $tea.Model {
 }
 
 export class GetServiceInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1509,6 +1626,99 @@ export class GetServiceInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetServiceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsRequest extends $tea.Model {
+  clientToken?: string;
+  deployRegionId?: string;
+  enablePrivateVpcConnection?: boolean;
+  parameters?: GetServiceTemplateParameterConstraintsRequestParameters[];
+  regionId?: string;
+  serviceId?: string;
+  serviceInstanceId?: string;
+  serviceVersion?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      deployRegionId: 'DeployRegionId',
+      enablePrivateVpcConnection: 'EnablePrivateVpcConnection',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceVersion: 'ServiceVersion',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      deployRegionId: 'string',
+      enablePrivateVpcConnection: 'boolean',
+      parameters: { 'type': 'array', 'itemType': GetServiceTemplateParameterConstraintsRequestParameters },
+      regionId: 'string',
+      serviceId: 'string',
+      serviceInstanceId: 'string',
+      serviceVersion: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsResponseBody extends $tea.Model {
+  familyConstraints?: string[];
+  parameterConstraints?: GetServiceTemplateParameterConstraintsResponseBodyParameterConstraints[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      familyConstraints: 'FamilyConstraints',
+      parameterConstraints: 'ParameterConstraints',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      familyConstraints: { 'type': 'array', 'itemType': 'string' },
+      parameterConstraints: { 'type': 'array', 'itemType': GetServiceTemplateParameterConstraintsResponseBodyParameterConstraints },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceTemplateParameterConstraintsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceTemplateParameterConstraintsResponseBody,
     };
   }
 
@@ -1571,9 +1781,9 @@ export class GetUploadCredentialsResponseBody extends $tea.Model {
 }
 
 export class GetUploadCredentialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUploadCredentialsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUploadCredentialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1655,9 +1865,9 @@ export class ListAcrImageRepositoriesResponseBody extends $tea.Model {
 }
 
 export class ListAcrImageRepositoriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAcrImageRepositoriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAcrImageRepositoriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1739,9 +1949,9 @@ export class ListAcrImageTagsResponseBody extends $tea.Model {
 }
 
 export class ListAcrImageTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAcrImageTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAcrImageTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1765,12 +1975,12 @@ export class ListAcrImageTagsResponse extends $tea.Model {
 
 export class ListArtifactVersionsRequest extends $tea.Model {
   artifactId?: string;
-  maxResult?: number;
+  maxResults?: number;
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
       artifactId: 'ArtifactId',
-      maxResult: 'MaxResult',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
     };
   }
@@ -1778,7 +1988,7 @@ export class ListArtifactVersionsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       artifactId: 'string',
-      maxResult: 'number',
+      maxResults: 'number',
       nextToken: 'string',
     };
   }
@@ -1820,9 +2030,9 @@ export class ListArtifactVersionsResponseBody extends $tea.Model {
 }
 
 export class ListArtifactVersionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListArtifactVersionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListArtifactVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1907,9 +2117,9 @@ export class ListArtifactsResponseBody extends $tea.Model {
 }
 
 export class ListArtifactsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListArtifactsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListArtifactsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2000,9 +2210,9 @@ export class ListServiceInstancesResponseBody extends $tea.Model {
 }
 
 export class ListServiceInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServiceInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2028,11 +2238,13 @@ export class ListServiceUsagesRequest extends $tea.Model {
   filter?: ListServiceUsagesRequestFilter[];
   maxResults?: number;
   nextToken?: string;
+  supplierRole?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      supplierRole: 'SupplierRole',
     };
   }
 
@@ -2041,6 +2253,7 @@ export class ListServiceUsagesRequest extends $tea.Model {
       filter: { 'type': 'array', 'itemType': ListServiceUsagesRequestFilter },
       maxResults: 'number',
       nextToken: 'string',
+      supplierRole: 'string',
     };
   }
 
@@ -2081,9 +2294,9 @@ export class ListServiceUsagesResponseBody extends $tea.Model {
 }
 
 export class ListServiceUsagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServiceUsagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceUsagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2174,9 +2387,9 @@ export class ListServicesResponseBody extends $tea.Model {
 }
 
 export class ListServicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2243,9 +2456,9 @@ export class ModifyServiceInstanceResourcesResponseBody extends $tea.Model {
 }
 
 export class ModifyServiceInstanceResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyServiceInstanceResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyServiceInstanceResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2309,9 +2522,9 @@ export class PushMeteringDataResponseBody extends $tea.Model {
 }
 
 export class PushMeteringDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PushMeteringDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushMeteringDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2381,9 +2594,9 @@ export class RegisterServiceResponseBody extends $tea.Model {
 }
 
 export class RegisterServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RegisterServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RegisterServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2468,9 +2681,9 @@ export class ReleaseArtifactResponseBody extends $tea.Model {
 }
 
 export class ReleaseArtifactResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseArtifactResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseArtifactResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2601,9 +2814,9 @@ export class UpdateArtifactResponseBody extends $tea.Model {
 }
 
 export class UpdateArtifactResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateArtifactResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateArtifactResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2644,6 +2857,7 @@ export class UpdateServiceRequest extends $tea.Model {
   serviceVersion?: string;
   tenantType?: string;
   trialDuration?: number;
+  updateOption?: UpdateServiceRequestUpdateOption;
   upgradeMetadata?: string;
   versionName?: string;
   static names(): { [key: string]: string } {
@@ -2666,6 +2880,7 @@ export class UpdateServiceRequest extends $tea.Model {
       serviceVersion: 'ServiceVersion',
       tenantType: 'TenantType',
       trialDuration: 'TrialDuration',
+      updateOption: 'UpdateOption',
       upgradeMetadata: 'UpgradeMetadata',
       versionName: 'VersionName',
     };
@@ -2691,6 +2906,86 @@ export class UpdateServiceRequest extends $tea.Model {
       serviceVersion: 'string',
       tenantType: 'string',
       trialDuration: 'number',
+      updateOption: UpdateServiceRequestUpdateOption,
+      upgradeMetadata: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceShrinkRequest extends $tea.Model {
+  alarmMetadata?: string;
+  clientToken?: string;
+  deployMetadata?: string;
+  deployType?: string;
+  duration?: number;
+  isSupportOperated?: boolean;
+  licenseMetadata?: string;
+  logMetadata?: string;
+  operationMetadata?: string;
+  policyNames?: string;
+  regionId?: string;
+  resellable?: boolean;
+  serviceId?: string;
+  serviceInfo?: UpdateServiceShrinkRequestServiceInfo[];
+  serviceType?: string;
+  serviceVersion?: string;
+  tenantType?: string;
+  trialDuration?: number;
+  updateOptionShrink?: string;
+  upgradeMetadata?: string;
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmMetadata: 'AlarmMetadata',
+      clientToken: 'ClientToken',
+      deployMetadata: 'DeployMetadata',
+      deployType: 'DeployType',
+      duration: 'Duration',
+      isSupportOperated: 'IsSupportOperated',
+      licenseMetadata: 'LicenseMetadata',
+      logMetadata: 'LogMetadata',
+      operationMetadata: 'OperationMetadata',
+      policyNames: 'PolicyNames',
+      regionId: 'RegionId',
+      resellable: 'Resellable',
+      serviceId: 'ServiceId',
+      serviceInfo: 'ServiceInfo',
+      serviceType: 'ServiceType',
+      serviceVersion: 'ServiceVersion',
+      tenantType: 'TenantType',
+      trialDuration: 'TrialDuration',
+      updateOptionShrink: 'UpdateOption',
+      upgradeMetadata: 'UpgradeMetadata',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmMetadata: 'string',
+      clientToken: 'string',
+      deployMetadata: 'string',
+      deployType: 'string',
+      duration: 'number',
+      isSupportOperated: 'boolean',
+      licenseMetadata: 'string',
+      logMetadata: 'string',
+      operationMetadata: 'string',
+      policyNames: 'string',
+      regionId: 'string',
+      resellable: 'boolean',
+      serviceId: 'string',
+      serviceInfo: { 'type': 'array', 'itemType': UpdateServiceShrinkRequestServiceInfo },
+      serviceType: 'string',
+      serviceVersion: 'string',
+      tenantType: 'string',
+      trialDuration: 'number',
+      updateOptionShrink: 'string',
       upgradeMetadata: 'string',
       versionName: 'string',
     };
@@ -2721,9 +3016,9 @@ export class UpdateServiceResponseBody extends $tea.Model {
 }
 
 export class UpdateServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2737,6 +3032,333 @@ export class UpdateServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceAttributeRequest extends $tea.Model {
+  endTime?: string;
+  regionId?: string;
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceInstanceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateServiceInstanceAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceSpecRequest extends $tea.Model {
+  clientToken?: string;
+  enableUserPrometheus?: boolean;
+  operationName?: string;
+  parameters?: { [key: string]: any };
+  predefinedParametersName?: string;
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      enableUserPrometheus: 'EnableUserPrometheus',
+      operationName: 'OperationName',
+      parameters: 'Parameters',
+      predefinedParametersName: 'PredefinedParametersName',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      enableUserPrometheus: 'boolean',
+      operationName: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      predefinedParametersName: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceSpecShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  enableUserPrometheus?: boolean;
+  operationName?: string;
+  parametersShrink?: string;
+  predefinedParametersName?: string;
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      enableUserPrometheus: 'EnableUserPrometheus',
+      operationName: 'OperationName',
+      parametersShrink: 'Parameters',
+      predefinedParametersName: 'PredefinedParametersName',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      enableUserPrometheus: 'boolean',
+      operationName: 'string',
+      parametersShrink: 'string',
+      predefinedParametersName: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceSpecResponseBody extends $tea.Model {
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceSpecResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceInstanceSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateServiceInstanceSpecResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeServiceInstanceRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: string;
+  parameters?: { [key: string]: any };
+  regionId?: string;
+  serviceInstanceId?: string;
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      regionId: 'string',
+      serviceInstanceId: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeServiceInstanceShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: string;
+  parametersShrink?: string;
+  regionId?: string;
+  serviceInstanceId?: string;
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      parametersShrink: 'Parameters',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'string',
+      parametersShrink: 'string',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeServiceInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  serviceInstanceId?: string;
+  status?: string;
+  upgradeRequiredParameters?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      serviceInstanceId: 'ServiceInstanceId',
+      status: 'Status',
+      upgradeRequiredParameters: 'UpgradeRequiredParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      serviceInstanceId: 'string',
+      status: 'string',
+      upgradeRequiredParameters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeServiceInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeServiceInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpgradeServiceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddServiceSharedAccountsRequestSharedAccounts extends $tea.Model {
+  permission?: string;
+  userAliUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      permission: 'Permission',
+      userAliUid: 'UserAliUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      permission: 'string',
+      userAliUid: 'string',
     };
   }
 
@@ -2860,7 +3482,30 @@ export class CreateArtifactShrinkRequestTag extends $tea.Model {
   }
 }
 
+export class CreateServiceRequestServiceInfoAgreements extends $tea.Model {
+  name?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServiceRequestServiceInfo extends $tea.Model {
+  agreements?: CreateServiceRequestServiceInfoAgreements[];
   image?: string;
   locale?: string;
   longDescriptionUrl?: string;
@@ -2868,6 +3513,7 @@ export class CreateServiceRequestServiceInfo extends $tea.Model {
   shortDescription?: string;
   static names(): { [key: string]: string } {
     return {
+      agreements: 'Agreements',
       image: 'Image',
       locale: 'Locale',
       longDescriptionUrl: 'LongDescriptionUrl',
@@ -2878,6 +3524,7 @@ export class CreateServiceRequestServiceInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agreements: { 'type': 'array', 'itemType': CreateServiceRequestServiceInfoAgreements },
       image: 'string',
       locale: 'string',
       longDescriptionUrl: 'string',
@@ -3035,23 +3682,226 @@ export class GetArtifactRepositoryCredentialsResponseBodyCredentials extends $te
   }
 }
 
-export class GetServiceResponseBodyCommodityEntities extends $tea.Model {
-  entityIds?: string[];
-  predefinedParameterName?: string;
+export class GetServiceResponseBodyCommodityCssMetadataComponentsMappings extends $tea.Model {
+  mappings?: { [key: string]: string };
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
-      entityIds: 'EntityIds',
-      predefinedParameterName: 'PredefinedParameterName',
+      mappings: 'Mappings',
       templateName: 'TemplateName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      entityIds: { 'type': 'array', 'itemType': 'string' },
-      predefinedParameterName: 'string',
+      mappings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos extends $tea.Model {
+  entityId?: string;
+  metricName?: string;
+  promql?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      metricName: 'MetricName',
+      promql: 'Promql',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      metricName: 'string',
+      promql: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings extends $tea.Model {
+  entityIds?: string;
+  specificationName?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityIds: 'EntityIds',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityIds: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadata extends $tea.Model {
+  componentsMappings?: GetServiceResponseBodyCommodityCssMetadataComponentsMappings[];
+  meteringEntityExtraInfos?: GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos[];
+  meteringEntityMappings?: GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      componentsMappings: 'ComponentsMappings',
+      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
+      meteringEntityMappings: 'MeteringEntityMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentsMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataComponentsMappings },
+      meteringEntityExtraInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos },
+      meteringEntityMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos extends $tea.Model {
+  entityId?: string;
+  metricName?: string;
+  promql?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      metricName: 'MetricName',
+      promql: 'Promql',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      metricName: 'string',
+      promql: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings extends $tea.Model {
+  entityIds?: string;
+  specificationName?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityIds: 'EntityIds',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityIds: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings extends $tea.Model {
+  specificationCode?: string;
+  specificationName?: string;
+  templateName?: string;
+  trialType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specificationCode: 'SpecificationCode',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+      trialType: 'TrialType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specificationCode: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+      trialType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadata extends $tea.Model {
+  meteringEntityExtraInfos?: GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos[];
+  meteringEntityMappings?: GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings[];
+  specificationMappings?: GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
+      meteringEntityMappings: 'MeteringEntityMappings',
+      specificationMappings: 'SpecificationMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meteringEntityExtraInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos },
+      meteringEntityMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings },
+      specificationMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMeteringEntities extends $tea.Model {
+  entityId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      name: 'string',
     };
   }
 
@@ -3061,22 +3911,87 @@ export class GetServiceResponseBodyCommodityEntities extends $tea.Model {
 }
 
 export class GetServiceResponseBodyCommoditySpecifications extends $tea.Model {
-  predefinedParameterName?: string;
-  specificationCode?: string;
-  templateName?: string;
+  code?: string;
+  name?: string;
+  times?: string[];
   static names(): { [key: string]: string } {
     return {
-      predefinedParameterName: 'PredefinedParameterName',
-      specificationCode: 'SpecificationCode',
-      templateName: 'TemplateName',
+      code: 'Code',
+      name: 'Name',
+      times: 'Times',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      predefinedParameterName: 'string',
-      specificationCode: 'string',
-      templateName: 'string',
+      code: 'string',
+      name: 'string',
+      times: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodity extends $tea.Model {
+  chargeType?: string;
+  commodityCode?: string;
+  components?: string[];
+  cssMetadata?: GetServiceResponseBodyCommodityCssMetadata;
+  marketplaceMetadata?: GetServiceResponseBodyCommodityMarketplaceMetadata;
+  meteringEntities?: GetServiceResponseBodyCommodityMeteringEntities[];
+  saasBoostMetadata?: string;
+  specifications?: GetServiceResponseBodyCommoditySpecifications[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      commodityCode: 'CommodityCode',
+      components: 'Components',
+      cssMetadata: 'CssMetadata',
+      marketplaceMetadata: 'MarketplaceMetadata',
+      meteringEntities: 'MeteringEntities',
+      saasBoostMetadata: 'SaasBoostMetadata',
+      specifications: 'Specifications',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      commodityCode: 'string',
+      components: { 'type': 'array', 'itemType': 'string' },
+      cssMetadata: GetServiceResponseBodyCommodityCssMetadata,
+      marketplaceMetadata: GetServiceResponseBodyCommodityMarketplaceMetadata,
+      meteringEntities: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMeteringEntities },
+      saasBoostMetadata: 'string',
+      specifications: { 'type': 'array', 'itemType': GetServiceResponseBodyCommoditySpecifications },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfosAgreements extends $tea.Model {
+  name?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
     };
   }
 
@@ -3086,6 +4001,7 @@ export class GetServiceResponseBodyCommoditySpecifications extends $tea.Model {
 }
 
 export class GetServiceResponseBodyServiceInfos extends $tea.Model {
+  agreements?: GetServiceResponseBodyServiceInfosAgreements[];
   image?: string;
   locale?: string;
   longDescriptionUrl?: string;
@@ -3093,6 +4009,7 @@ export class GetServiceResponseBodyServiceInfos extends $tea.Model {
   shortDescription?: string;
   static names(): { [key: string]: string } {
     return {
+      agreements: 'Agreements',
       image: 'Image',
       locale: 'Locale',
       longDescriptionUrl: 'LongDescriptionUrl',
@@ -3103,6 +4020,7 @@ export class GetServiceResponseBodyServiceInfos extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agreements: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosAgreements },
       image: 'string',
       locale: 'string',
       longDescriptionUrl: 'string',
@@ -3173,6 +4091,28 @@ export class GetServiceResponseBodyTags extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceEstimateCostRequestCommodity extends $tea.Model {
+  payPeriod?: number;
+  payPeriodUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      payPeriod: 'PayPeriod',
+      payPeriodUnit: 'PayPeriodUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payPeriod: 'number',
+      payPeriodUnit: 'string',
     };
   }
 
@@ -3399,6 +4339,93 @@ export class GetServiceInstanceResponseBodyTags extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsRequestParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints extends $tea.Model {
+  allowedValues?: string[];
+  propertyName?: string;
+  resourceName?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedValues: 'AllowedValues',
+      propertyName: 'PropertyName',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedValues: { 'type': 'array', 'itemType': 'string' },
+      propertyName: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstraints extends $tea.Model {
+  allowedValues?: string[];
+  associationParameterNames?: string[];
+  behavior?: string;
+  behaviorReason?: string;
+  originalConstraints?: GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints[];
+  parameterKey?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedValues: 'AllowedValues',
+      associationParameterNames: 'AssociationParameterNames',
+      behavior: 'Behavior',
+      behaviorReason: 'BehaviorReason',
+      originalConstraints: 'OriginalConstraints',
+      parameterKey: 'ParameterKey',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedValues: { 'type': 'array', 'itemType': 'string' },
+      associationParameterNames: { 'type': 'array', 'itemType': 'string' },
+      behavior: 'string',
+      behaviorReason: 'string',
+      originalConstraints: { 'type': 'array', 'itemType': GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints },
+      parameterKey: 'string',
+      type: 'string',
     };
   }
 
@@ -3814,6 +4841,7 @@ export class ListServiceInstancesResponseBodyServiceInstancesTags extends $tea.M
 }
 
 export class ListServiceInstancesResponseBodyServiceInstances extends $tea.Model {
+  bizStatus?: string;
   createTime?: string;
   enableInstanceOps?: boolean;
   endTime?: string;
@@ -3838,6 +4866,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $tea.Model
   userId?: number;
   static names(): { [key: string]: string } {
     return {
+      bizStatus: 'BizStatus',
       createTime: 'CreateTime',
       enableInstanceOps: 'EnableInstanceOps',
       endTime: 'EndTime',
@@ -3865,6 +4894,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      bizStatus: 'string',
       createTime: 'string',
       enableInstanceOps: 'boolean',
       endTime: 'string',
@@ -3917,76 +4947,6 @@ export class ListServiceUsagesRequestFilter extends $tea.Model {
   }
 }
 
-export class ListServiceUsagesResponseBodyServiceUsagesUserInformation extends $tea.Model {
-  company?: string;
-  contactEmail?: string;
-  contactNumber?: string;
-  contactPerson?: string;
-  contactPersonTitle?: string;
-  country?: string;
-  emailAddress?: string;
-  industry?: string;
-  name?: string;
-  productBusiness?: string;
-  productDeliveryTypes?: string;
-  productSellTypes?: string;
-  source?: string;
-  supplierDesc?: string;
-  supplierName?: string;
-  supplierUrl?: string;
-  telephone?: string;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      company: 'Company',
-      contactEmail: 'ContactEmail',
-      contactNumber: 'ContactNumber',
-      contactPerson: 'ContactPerson',
-      contactPersonTitle: 'ContactPersonTitle',
-      country: 'Country',
-      emailAddress: 'EmailAddress',
-      industry: 'Industry',
-      name: 'Name',
-      productBusiness: 'ProductBusiness',
-      productDeliveryTypes: 'ProductDeliveryTypes',
-      productSellTypes: 'ProductSellTypes',
-      source: 'Source',
-      supplierDesc: 'SupplierDesc',
-      supplierName: 'SupplierName',
-      supplierUrl: 'SupplierUrl',
-      telephone: 'Telephone',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      company: 'string',
-      contactEmail: 'string',
-      contactNumber: 'string',
-      contactPerson: 'string',
-      contactPersonTitle: 'string',
-      country: 'string',
-      emailAddress: 'string',
-      industry: 'string',
-      name: 'string',
-      productBusiness: 'string',
-      productDeliveryTypes: 'string',
-      productSellTypes: 'string',
-      source: 'string',
-      supplierDesc: 'string',
-      supplierName: 'string',
-      supplierUrl: 'string',
-      telephone: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListServiceUsagesResponseBodyServiceUsages extends $tea.Model {
   comments?: string;
   createTime?: string;
@@ -3996,7 +4956,7 @@ export class ListServiceUsagesResponseBodyServiceUsages extends $tea.Model {
   supplierName?: string;
   updateTime?: string;
   userAliUid?: number;
-  userInformation?: ListServiceUsagesResponseBodyServiceUsagesUserInformation;
+  userInformation?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       comments: 'Comments',
@@ -4021,7 +4981,7 @@ export class ListServiceUsagesResponseBodyServiceUsages extends $tea.Model {
       supplierName: 'string',
       updateTime: 'string',
       userAliUid: 'number',
-      userInformation: ListServiceUsagesResponseBodyServiceUsagesUserInformation,
+      userInformation: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
@@ -4066,6 +5026,31 @@ export class ListServicesRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyServicesCommodity extends $tea.Model {
+  commodityCode?: string;
+  saasBoostMetadata?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      saasBoostMetadata: 'SaasBoostMetadata',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      saasBoostMetadata: 'string',
+      type: 'string',
     };
   }
 
@@ -4128,16 +5113,22 @@ export class ListServicesResponseBodyServices extends $tea.Model {
   approvalType?: string;
   artifactId?: string;
   artifactVersion?: string;
+  buildInfo?: string;
+  categories?: string;
+  commodity?: ListServicesResponseBodyServicesCommodity;
   commodityCode?: string;
   createTime?: string;
   defaultVersion?: boolean;
   deployType?: string;
+  hasBeta?: boolean;
+  hasDraft?: boolean;
   latestResellSourceServiceVersion?: string;
   publishTime?: string;
   relationType?: string;
   resellApplyStatus?: string;
   resellServiceId?: string;
   resourceGroupId?: string;
+  serviceDiscoverable?: string;
   serviceId?: string;
   serviceInfos?: ListServicesResponseBodyServicesServiceInfos[];
   serviceType?: string;
@@ -4161,16 +5152,22 @@ export class ListServicesResponseBodyServices extends $tea.Model {
       approvalType: 'ApprovalType',
       artifactId: 'ArtifactId',
       artifactVersion: 'ArtifactVersion',
+      buildInfo: 'BuildInfo',
+      categories: 'Categories',
+      commodity: 'Commodity',
       commodityCode: 'CommodityCode',
       createTime: 'CreateTime',
       defaultVersion: 'DefaultVersion',
       deployType: 'DeployType',
+      hasBeta: 'HasBeta',
+      hasDraft: 'HasDraft',
       latestResellSourceServiceVersion: 'LatestResellSourceServiceVersion',
       publishTime: 'PublishTime',
       relationType: 'RelationType',
       resellApplyStatus: 'ResellApplyStatus',
       resellServiceId: 'ResellServiceId',
       resourceGroupId: 'ResourceGroupId',
+      serviceDiscoverable: 'ServiceDiscoverable',
       serviceId: 'ServiceId',
       serviceInfos: 'ServiceInfos',
       serviceType: 'ServiceType',
@@ -4197,16 +5194,22 @@ export class ListServicesResponseBodyServices extends $tea.Model {
       approvalType: 'string',
       artifactId: 'string',
       artifactVersion: 'string',
+      buildInfo: 'string',
+      categories: 'string',
+      commodity: ListServicesResponseBodyServicesCommodity,
       commodityCode: 'string',
       createTime: 'string',
       defaultVersion: 'boolean',
       deployType: 'string',
+      hasBeta: 'boolean',
+      hasDraft: 'boolean',
       latestResellSourceServiceVersion: 'string',
       publishTime: 'string',
       relationType: 'string',
       resellApplyStatus: 'string',
       resellServiceId: 'string',
       resourceGroupId: 'string',
+      serviceDiscoverable: 'string',
       serviceId: 'string',
       serviceInfos: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesServiceInfos },
       serviceType: 'string',
@@ -4270,7 +5273,30 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
   }
 }
 
+export class UpdateServiceRequestServiceInfoAgreements extends $tea.Model {
+  name?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceRequestServiceInfo extends $tea.Model {
+  agreements?: UpdateServiceRequestServiceInfoAgreements[];
   image?: string;
   locale?: string;
   longDescriptionUrl?: string;
@@ -4278,6 +5304,7 @@ export class UpdateServiceRequestServiceInfo extends $tea.Model {
   shortDescription?: string;
   static names(): { [key: string]: string } {
     return {
+      agreements: 'Agreements',
       image: 'Image',
       locale: 'Locale',
       longDescriptionUrl: 'LongDescriptionUrl',
@@ -4288,6 +5315,82 @@ export class UpdateServiceRequestServiceInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agreements: { 'type': 'array', 'itemType': UpdateServiceRequestServiceInfoAgreements },
+      image: 'string',
+      locale: 'string',
+      longDescriptionUrl: 'string',
+      name: 'string',
+      shortDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestUpdateOption extends $tea.Model {
+  updateFrom?: string;
+  static names(): { [key: string]: string } {
+    return {
+      updateFrom: 'UpdateFrom',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateFrom: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceShrinkRequestServiceInfoAgreements extends $tea.Model {
+  name?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceShrinkRequestServiceInfo extends $tea.Model {
+  agreements?: UpdateServiceShrinkRequestServiceInfoAgreements[];
+  image?: string;
+  locale?: string;
+  longDescriptionUrl?: string;
+  name?: string;
+  shortDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agreements: 'Agreements',
+      image: 'Image',
+      locale: 'Locale',
+      longDescriptionUrl: 'LongDescriptionUrl',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreements: { 'type': 'array', 'itemType': UpdateServiceShrinkRequestServiceInfoAgreements },
       image: 'string',
       locale: 'string',
       longDescriptionUrl: 'string',
@@ -4324,6 +5427,65 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AddServiceSharedAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddServiceSharedAccountsResponse
+   */
+  async addServiceSharedAccountsWithOptions(request: AddServiceSharedAccountsRequest, runtime: $Util.RuntimeOptions): Promise<AddServiceSharedAccountsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.sharedAccounts)) {
+      query["SharedAccounts"] = request.sharedAccounts;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddServiceSharedAccounts",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new AddServiceSharedAccountsResponse({}));
+  }
+
+  /**
+   * @param request AddServiceSharedAccountsRequest
+   * @return AddServiceSharedAccountsResponse
+   */
+  async addServiceSharedAccounts(request: AddServiceSharedAccountsRequest): Promise<AddServiceSharedAccountsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addServiceSharedAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ContinueDeployServiceInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ContinueDeployServiceInstanceResponse
+   */
   async continueDeployServiceInstanceWithOptions(request: ContinueDeployServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ContinueDeployServiceInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4364,11 +5526,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ContinueDeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
   }
 
+  /**
+   * @param request ContinueDeployServiceInstanceRequest
+   * @return ContinueDeployServiceInstanceResponse
+   */
   async continueDeployServiceInstance(request: ContinueDeployServiceInstanceRequest): Promise<ContinueDeployServiceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.continueDeployServiceInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建部署物
+   *
+   * @param tmpReq CreateArtifactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateArtifactResponse
+   */
   async createArtifactWithOptions(tmpReq: CreateArtifactRequest, runtime: $Util.RuntimeOptions): Promise<CreateArtifactResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateArtifactShrinkRequest({ });
@@ -4431,11 +5604,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateArtifactResponse>(await this.callApi(params, req, runtime), new CreateArtifactResponse({}));
   }
 
+  /**
+   * @summary 创建部署物
+   *
+   * @param request CreateArtifactRequest
+   * @return CreateArtifactResponse
+   */
   async createArtifact(request: CreateArtifactRequest): Promise<CreateArtifactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createArtifactWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建新服务版本
+   *
+   * @param request CreateServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceResponse
+   */
   async createServiceWithOptions(request: CreateServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4445,6 +5631,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.approvalType)) {
       query["ApprovalType"] = request.approvalType;
+    }
+
+    if (!Util.isUnset(request.buildParameters)) {
+      query["BuildParameters"] = request.buildParameters;
     }
 
     if (!Util.isUnset(request.clientToken)) {
@@ -4556,11 +5746,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
   }
 
+  /**
+   * @summary 创建新服务版本
+   *
+   * @param request CreateServiceRequest
+   * @return CreateServiceResponse
+   */
   async createService(request: CreateServiceRequest): Promise<CreateServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 商家侧创建服务实例
+   *
+   * @param tmpReq CreateServiceInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceInstanceResponse
+   */
   async createServiceInstanceWithOptions(tmpReq: CreateServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceInstanceResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateServiceInstanceShrinkRequest({ });
@@ -4576,6 +5779,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -4635,11 +5842,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceInstanceResponse>(await this.callApi(params, req, runtime), new CreateServiceInstanceResponse({}));
   }
 
+  /**
+   * @summary 商家侧创建服务实例
+   *
+   * @param request CreateServiceInstanceRequest
+   * @return CreateServiceInstanceResponse
+   */
   async createServiceInstance(request: CreateServiceInstanceRequest): Promise<CreateServiceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除部署物
+   *
+   * @param request DeleteArtifactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteArtifactResponse
+   */
   async deleteArtifactWithOptions(request: DeleteArtifactRequest, runtime: $Util.RuntimeOptions): Promise<DeleteArtifactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4668,11 +5888,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteArtifactResponse>(await this.callApi(params, req, runtime), new DeleteArtifactResponse({}));
   }
 
+  /**
+   * @summary 删除部署物
+   *
+   * @param request DeleteArtifactRequest
+   * @return DeleteArtifactResponse
+   */
   async deleteArtifact(request: DeleteArtifactRequest): Promise<DeleteArtifactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteArtifactWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServiceResponse
+   */
   async deleteServiceWithOptions(request: DeleteServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4709,11 +5940,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
   }
 
+  /**
+   * @param request DeleteServiceRequest
+   * @return DeleteServiceResponse
+   */
   async deleteService(request: DeleteServiceRequest): Promise<DeleteServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteServiceInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServiceInstancesResponse
+   */
   async deleteServiceInstancesWithOptions(request: DeleteServiceInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4746,11 +5986,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteServiceInstancesResponse({}));
   }
 
+  /**
+   * @param request DeleteServiceInstancesRequest
+   * @return DeleteServiceInstancesResponse
+   */
   async deleteServiceInstances(request: DeleteServiceInstancesRequest): Promise<DeleteServiceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServiceInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeployServiceInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeployServiceInstanceResponse
+   */
   async deployServiceInstanceWithOptions(request: DeployServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeployServiceInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4783,11 +6032,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new DeployServiceInstanceResponse({}));
   }
 
+  /**
+   * @param request DeployServiceInstanceRequest
+   * @return DeployServiceInstanceResponse
+   */
   async deployServiceInstance(request: DeployServiceInstanceRequest): Promise<DeployServiceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deployServiceInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取部署物信息
+   *
+   * @param request GetArtifactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetArtifactResponse
+   */
   async getArtifactWithOptions(request: GetArtifactRequest, runtime: $Util.RuntimeOptions): Promise<GetArtifactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4820,11 +6080,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetArtifactResponse>(await this.callApi(params, req, runtime), new GetArtifactResponse({}));
   }
 
+  /**
+   * @summary 获取部署物信息
+   *
+   * @param request GetArtifactRequest
+   * @return GetArtifactResponse
+   */
   async getArtifact(request: GetArtifactRequest): Promise<GetArtifactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getArtifactWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取部署物仓库访问凭证
+   *
+   * @param request GetArtifactRepositoryCredentialsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetArtifactRepositoryCredentialsResponse
+   */
   async getArtifactRepositoryCredentialsWithOptions(request: GetArtifactRepositoryCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<GetArtifactRepositoryCredentialsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4853,11 +6126,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetArtifactRepositoryCredentialsResponse>(await this.callApi(params, req, runtime), new GetArtifactRepositoryCredentialsResponse({}));
   }
 
+  /**
+   * @summary 获取部署物仓库访问凭证
+   *
+   * @param request GetArtifactRepositoryCredentialsRequest
+   * @return GetArtifactRepositoryCredentialsResponse
+   */
   async getArtifactRepositoryCredentials(request: GetArtifactRepositoryCredentialsRequest): Promise<GetArtifactRepositoryCredentialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getArtifactRepositoryCredentialsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询服务详情
+   *
+   * @param request GetServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceResponse
+   */
   async getServiceWithOptions(request: GetServiceRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4902,15 +6188,32 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
   }
 
+  /**
+   * @summary 查询服务详情
+   *
+   * @param request GetServiceRequest
+   * @return GetServiceResponse
+   */
   async getService(request: GetServiceRequest): Promise<GetServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 计算巢服务部署询价
+   *
+   * @param tmpReq GetServiceEstimateCostRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceEstimateCostResponse
+   */
   async getServiceEstimateCostWithOptions(tmpReq: GetServiceEstimateCostRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceEstimateCostResponse> {
     Util.validateModel(tmpReq);
     let request = new GetServiceEstimateCostShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.commodity)) {
+      request.commodityShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commodity, "Commodity", "json");
+    }
+
     if (!Util.isUnset(tmpReq.parameters)) {
       request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
     }
@@ -4918,6 +6221,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.commodityShrink)) {
+      query["Commodity"] = request.commodityShrink;
     }
 
     if (!Util.isUnset(request.parametersShrink)) {
@@ -4965,11 +6272,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceEstimateCostResponse>(await this.callApi(params, req, runtime), new GetServiceEstimateCostResponse({}));
   }
 
+  /**
+   * @summary 计算巢服务部署询价
+   *
+   * @param request GetServiceEstimateCostRequest
+   * @return GetServiceEstimateCostResponse
+   */
   async getServiceEstimateCost(request: GetServiceEstimateCostRequest): Promise<GetServiceEstimateCostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceEstimateCostWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetServiceInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceInstanceResponse
+   */
   async getServiceInstanceWithOptions(request: GetServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4998,11 +6316,94 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceInstanceResponse>(await this.callApi(params, req, runtime), new GetServiceInstanceResponse({}));
   }
 
+  /**
+   * @param request GetServiceInstanceRequest
+   * @return GetServiceInstanceResponse
+   */
   async getServiceInstance(request: GetServiceInstanceRequest): Promise<GetServiceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取ROS模板参数限制
+   *
+   * @param request GetServiceTemplateParameterConstraintsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceTemplateParameterConstraintsResponse
+   */
+  async getServiceTemplateParameterConstraintsWithOptions(request: GetServiceTemplateParameterConstraintsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceTemplateParameterConstraintsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deployRegionId)) {
+      query["DeployRegionId"] = request.deployRegionId;
+    }
+
+    if (!Util.isUnset(request.enablePrivateVpcConnection)) {
+      query["EnablePrivateVpcConnection"] = request.enablePrivateVpcConnection;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetServiceTemplateParameterConstraints",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
+  }
+
+  /**
+   * @summary 获取ROS模板参数限制
+   *
+   * @param request GetServiceTemplateParameterConstraintsRequest
+   * @return GetServiceTemplateParameterConstraintsResponse
+   */
+  async getServiceTemplateParameterConstraints(request: GetServiceTemplateParameterConstraintsRequest): Promise<GetServiceTemplateParameterConstraintsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceTemplateParameterConstraintsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request GetUploadCredentialsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUploadCredentialsResponse
+   */
   async getUploadCredentialsWithOptions(request: GetUploadCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<GetUploadCredentialsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5027,11 +6428,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUploadCredentialsResponse>(await this.callApi(params, req, runtime), new GetUploadCredentialsResponse({}));
   }
 
+  /**
+   * @param request GetUploadCredentialsRequest
+   * @return GetUploadCredentialsResponse
+   */
   async getUploadCredentials(request: GetUploadCredentialsRequest): Promise<GetUploadCredentialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUploadCredentialsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 展示部署物
+   *
+   * @param request ListAcrImageRepositoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAcrImageRepositoriesResponse
+   */
   async listAcrImageRepositoriesWithOptions(request: ListAcrImageRepositoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListAcrImageRepositoriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5068,11 +6480,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAcrImageRepositoriesResponse>(await this.callApi(params, req, runtime), new ListAcrImageRepositoriesResponse({}));
   }
 
+  /**
+   * @summary 展示部署物
+   *
+   * @param request ListAcrImageRepositoriesRequest
+   * @return ListAcrImageRepositoriesResponse
+   */
   async listAcrImageRepositories(request: ListAcrImageRepositoriesRequest): Promise<ListAcrImageRepositoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAcrImageRepositoriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 展示部署物
+   *
+   * @param request ListAcrImageTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAcrImageTagsResponse
+   */
   async listAcrImageTagsWithOptions(request: ListAcrImageTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAcrImageTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5109,11 +6534,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAcrImageTagsResponse>(await this.callApi(params, req, runtime), new ListAcrImageTagsResponse({}));
   }
 
+  /**
+   * @summary 展示部署物
+   *
+   * @param request ListAcrImageTagsRequest
+   * @return ListAcrImageTagsResponse
+   */
   async listAcrImageTags(request: ListAcrImageTagsRequest): Promise<ListAcrImageTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAcrImageTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 展示部署物版本
+   *
+   * @param request ListArtifactVersionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListArtifactVersionsResponse
+   */
   async listArtifactVersionsWithOptions(request: ListArtifactVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactVersionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5121,8 +6559,8 @@ export default class Client extends OpenApi {
       query["ArtifactId"] = request.artifactId;
     }
 
-    if (!Util.isUnset(request.maxResult)) {
-      query["MaxResult"] = request.maxResult;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
     }
 
     if (!Util.isUnset(request.nextToken)) {
@@ -5146,11 +6584,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListArtifactVersionsResponse>(await this.callApi(params, req, runtime), new ListArtifactVersionsResponse({}));
   }
 
+  /**
+   * @summary 展示部署物版本
+   *
+   * @param request ListArtifactVersionsRequest
+   * @return ListArtifactVersionsResponse
+   */
   async listArtifactVersions(request: ListArtifactVersionsRequest): Promise<ListArtifactVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listArtifactVersionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 展示部署物
+   *
+   * @param request ListArtifactsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListArtifactsResponse
+   */
   async listArtifactsWithOptions(request: ListArtifactsRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5191,11 +6642,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListArtifactsResponse>(await this.callApi(params, req, runtime), new ListArtifactsResponse({}));
   }
 
+  /**
+   * @summary 展示部署物
+   *
+   * @param request ListArtifactsRequest
+   * @return ListArtifactsResponse
+   */
   async listArtifacts(request: ListArtifactsRequest): Promise<ListArtifactsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listArtifactsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListServiceInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServiceInstancesResponse
+   */
   async listServiceInstancesWithOptions(request: ListServiceInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5244,11 +6706,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
   }
 
+  /**
+   * @param request ListServiceInstancesRequest
+   * @return ListServiceInstancesResponse
+   */
   async listServiceInstances(request: ListServiceInstancesRequest): Promise<ListServiceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 商家获取服务使用申请接口
+   *
+   * @param request ListServiceUsagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServiceUsagesResponse
+   */
   async listServiceUsagesWithOptions(request: ListServiceUsagesRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceUsagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5262,6 +6735,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.supplierRole)) {
+      query["SupplierRole"] = request.supplierRole;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5281,11 +6758,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceUsagesResponse>(await this.callApi(params, req, runtime), new ListServiceUsagesResponse({}));
   }
 
+  /**
+   * @summary 商家获取服务使用申请接口
+   *
+   * @param request ListServiceUsagesRequest
+   * @return ListServiceUsagesResponse
+   */
   async listServiceUsages(request: ListServiceUsagesRequest): Promise<ListServiceUsagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceUsagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询服务
+   *
+   * @param request ListServicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServicesResponse
+   */
   async listServicesWithOptions(request: ListServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5334,11 +6824,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
   }
 
+  /**
+   * @summary 查询服务
+   *
+   * @param request ListServicesRequest
+   * @return ListServicesResponse
+   */
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServicesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改服务实例资源
+   *
+   * @param request ModifyServiceInstanceResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyServiceInstanceResourcesResponse
+   */
   async modifyServiceInstanceResourcesWithOptions(request: ModifyServiceInstanceResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyServiceInstanceResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5371,11 +6874,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ModifyServiceInstanceResourcesResponse({}));
   }
 
+  /**
+   * @summary 修改服务实例资源
+   *
+   * @param request ModifyServiceInstanceResourcesRequest
+   * @return ModifyServiceInstanceResourcesResponse
+   */
   async modifyServiceInstanceResources(request: ModifyServiceInstanceResourcesRequest): Promise<ModifyServiceInstanceResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyServiceInstanceResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PushMeteringDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushMeteringDataResponse
+   */
   async pushMeteringDataWithOptions(request: PushMeteringDataRequest, runtime: $Util.RuntimeOptions): Promise<PushMeteringDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5404,11 +6918,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushMeteringDataResponse>(await this.callApi(params, req, runtime), new PushMeteringDataResponse({}));
   }
 
+  /**
+   * @param request PushMeteringDataRequest
+   * @return PushMeteringDataResponse
+   */
   async pushMeteringData(request: PushMeteringDataRequest): Promise<PushMeteringDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushMeteringDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RegisterServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RegisterServiceResponse
+   */
   async registerServiceWithOptions(request: RegisterServiceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5441,11 +6964,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RegisterServiceResponse>(await this.callApi(params, req, runtime), new RegisterServiceResponse({}));
   }
 
+  /**
+   * @param request RegisterServiceRequest
+   * @return RegisterServiceResponse
+   */
   async registerService(request: RegisterServiceRequest): Promise<RegisterServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 发布部署物
+   *
+   * @param request ReleaseArtifactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseArtifactResponse
+   */
   async releaseArtifactWithOptions(request: ReleaseArtifactRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseArtifactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5470,11 +7004,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseArtifactResponse>(await this.callApi(params, req, runtime), new ReleaseArtifactResponse({}));
   }
 
+  /**
+   * @summary 发布部署物
+   *
+   * @param request ReleaseArtifactRequest
+   * @return ReleaseArtifactResponse
+   */
   async releaseArtifact(request: ReleaseArtifactRequest): Promise<ReleaseArtifactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseArtifactWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新部署物
+   *
+   * @param tmpReq UpdateArtifactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateArtifactResponse
+   */
   async updateArtifactWithOptions(tmpReq: UpdateArtifactRequest, runtime: $Util.RuntimeOptions): Promise<UpdateArtifactResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateArtifactShrinkRequest({ });
@@ -5521,13 +7068,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateArtifactResponse>(await this.callApi(params, req, runtime), new UpdateArtifactResponse({}));
   }
 
+  /**
+   * @summary 更新部署物
+   *
+   * @param request UpdateArtifactRequest
+   * @return UpdateArtifactResponse
+   */
   async updateArtifact(request: UpdateArtifactRequest): Promise<UpdateArtifactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateArtifactWithOptions(request, runtime);
   }
 
-  async updateServiceWithOptions(request: UpdateServiceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
-    Util.validateModel(request);
+  /**
+   * @param tmpReq UpdateServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceResponse
+   */
+  async updateServiceWithOptions(tmpReq: UpdateServiceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateServiceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.updateOption)) {
+      request.updateOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateOption, "UpdateOption", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.alarmMetadata)) {
       query["AlarmMetadata"] = request.alarmMetadata;
@@ -5601,6 +7165,10 @@ export default class Client extends OpenApi {
       query["TrialDuration"] = request.trialDuration;
     }
 
+    if (!Util.isUnset(request.updateOptionShrink)) {
+      query["UpdateOption"] = request.updateOptionShrink;
+    }
+
     if (!Util.isUnset(request.upgradeMetadata)) {
       query["UpgradeMetadata"] = request.upgradeMetadata;
     }
@@ -5626,9 +7194,195 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
   }
 
+  /**
+   * @param request UpdateServiceRequest
+   * @return UpdateServiceResponse
+   */
   async updateService(request: UpdateServiceRequest): Promise<UpdateServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 更新服务实例属性
+   *
+   * @param request UpdateServiceInstanceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceInstanceAttributeResponse
+   */
+  async updateServiceInstanceAttributeWithOptions(request: UpdateServiceInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateServiceInstanceAttribute",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceInstanceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceAttributeResponse({}));
+  }
+
+  /**
+   * @summary 更新服务实例属性
+   *
+   * @param request UpdateServiceInstanceAttributeRequest
+   * @return UpdateServiceInstanceAttributeResponse
+   */
+  async updateServiceInstanceAttribute(request: UpdateServiceInstanceAttributeRequest): Promise<UpdateServiceInstanceAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateServiceInstanceAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 变配服务实例
+   *
+   * @param tmpReq UpdateServiceInstanceSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceInstanceSpecResponse
+   */
+  async updateServiceInstanceSpecWithOptions(tmpReq: UpdateServiceInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceSpecResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateServiceInstanceSpecShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableUserPrometheus)) {
+      query["EnableUserPrometheus"] = request.enableUserPrometheus;
+    }
+
+    if (!Util.isUnset(request.operationName)) {
+      query["OperationName"] = request.operationName;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!Util.isUnset(request.predefinedParametersName)) {
+      query["PredefinedParametersName"] = request.predefinedParametersName;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateServiceInstanceSpec",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceInstanceSpecResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
+  }
+
+  /**
+   * @summary 变配服务实例
+   *
+   * @param request UpdateServiceInstanceSpecRequest
+   * @return UpdateServiceInstanceSpecResponse
+   */
+  async updateServiceInstanceSpec(request: UpdateServiceInstanceSpecRequest): Promise<UpdateServiceInstanceSpecResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateServiceInstanceSpecWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq UpgradeServiceInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeServiceInstanceResponse
+   */
+  async upgradeServiceInstanceWithOptions(tmpReq: UpgradeServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeServiceInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpgradeServiceInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpgradeServiceInstance",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeServiceInstanceResponse({}));
+  }
+
+  /**
+   * @param request UpgradeServiceInstanceRequest
+   * @return UpgradeServiceInstanceResponse
+   */
+  async upgradeServiceInstance(request: UpgradeServiceInstanceRequest): Promise<UpgradeServiceInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upgradeServiceInstanceWithOptions(request, runtime);
   }
 
 }
