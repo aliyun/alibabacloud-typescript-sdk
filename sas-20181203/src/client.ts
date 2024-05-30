@@ -18152,11 +18152,13 @@ export class DescribeLatestScanTaskResponse extends $tea.Model {
 export class DescribeLogMetaRequest extends $tea.Model {
   from?: string;
   lang?: string;
+  resourceDirectoryAccountId?: number;
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
       from: 'From',
       lang: 'Lang',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
     };
   }
@@ -18165,6 +18167,7 @@ export class DescribeLogMetaRequest extends $tea.Model {
     return {
       from: 'string',
       lang: 'string',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
     };
   }
@@ -31934,15 +31937,18 @@ export class GetLastOnceTaskInfoResponse extends $tea.Model {
 
 export class GetLogMetaRequest extends $tea.Model {
   logStore?: string;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       logStore: 'LogStore',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       logStore: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 
@@ -43901,12 +43907,14 @@ export class ModifyLogMetaStatusRequest extends $tea.Model {
   from?: string;
   logStore?: string;
   project?: string;
+  resourceDirectoryAccountId?: number;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       from: 'From',
       logStore: 'LogStore',
       project: 'Project',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       status: 'Status',
     };
   }
@@ -43916,6 +43924,7 @@ export class ModifyLogMetaStatusRequest extends $tea.Model {
       from: 'string',
       logStore: 'string',
       project: 'string',
+      resourceDirectoryAccountId: 'number',
       status: 'string',
     };
   }
@@ -44187,15 +44196,18 @@ export class ModifyNoticeConfigResponse extends $tea.Model {
 
 export class ModifyOpenLogShipperRequest extends $tea.Model {
   from?: string;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       from: 'From',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       from: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 
@@ -59938,6 +59950,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
   clusterName?: string;
   containerId?: string;
   digest?: string;
+  firstScanTime?: number;
   highRiskImage?: number;
   image?: string;
   imageCreate?: number;
@@ -59972,6 +59985,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
       clusterName: 'ClusterName',
       containerId: 'ContainerId',
       digest: 'Digest',
+      firstScanTime: 'FirstScanTime',
       highRiskImage: 'HighRiskImage',
       image: 'Image',
       imageCreate: 'ImageCreate',
@@ -60009,6 +60023,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
       clusterName: 'string',
       containerId: 'string',
       digest: 'string',
+      firstScanTime: 'number',
       highRiskImage: 'number',
       image: 'string',
       imageCreate: 'number',
@@ -60404,6 +60419,7 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
   riskLevel?: string;
   sensitiveFileKey?: string;
   sensitiveFileName?: string;
+  unprocessedNum?: number;
   static names(): { [key: string]: string } {
     return {
       classKey: 'ClassKey',
@@ -60414,6 +60430,7 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
       riskLevel: 'RiskLevel',
       sensitiveFileKey: 'SensitiveFileKey',
       sensitiveFileName: 'SensitiveFileName',
+      unprocessedNum: 'UnprocessedNum',
     };
   }
 
@@ -60427,6 +60444,7 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
       riskLevel: 'string',
       sensitiveFileKey: 'string',
       sensitiveFileName: 'string',
+      unprocessedNum: 'number',
     };
   }
 
@@ -79239,50 +79257,45 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
+      'cn-qingdao': "tds.aliyuncs.com",
+      'cn-beijing': "tds.aliyuncs.com",
+      'cn-zhangjiakou': "tds.aliyuncs.com",
+      'cn-huhehaote': "tds.aliyuncs.com",
+      'cn-wulanchabu': "tds.aliyuncs.com",
       'cn-hangzhou': "tds.aliyuncs.com",
-      'cn-shanghai': "tds.cn-shanghai.aliyuncs.com",
+      'cn-shanghai': "tds.aliyuncs.com",
+      'cn-nanjing': "tds.aliyuncs.com",
+      'cn-fuzhou': "tds.aliyuncs.com",
+      'cn-shenzhen': "tds.aliyuncs.com",
+      'cn-heyuan': "tds.aliyuncs.com",
+      'cn-guangzhou': "tds.aliyuncs.com",
+      'ap-southeast-2': "tds.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-6': "tds.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-2': "tds.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "tds.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-1': "tds.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-7': "tds.ap-southeast-1.aliyuncs.com",
+      'cn-chengdu': "tds.aliyuncs.com",
       'ap-southeast-1': "tds.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-5': "tds.ap-southeast-1.aliyuncs.com",
+      'cn-hongkong': "tds.aliyuncs.com",
       'eu-central-1': "tds.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2-pop': "sas.aliyuncs.com",
-      'ap-south-1': "tds-vpc.ap-south-1.aliyuncs.com",
-      'ap-southeast-3': "tds.ap-southeast-3.aliyuncs.com",
-      'cn-beijing-finance-1': "sas.aliyuncs.com",
-      'cn-beijing-finance-pop': "sas.aliyuncs.com",
-      'cn-beijing-gov-1': "sas.aliyuncs.com",
-      'cn-beijing-nu16-b01': "sas.aliyuncs.com",
-      'cn-edge-1': "sas.aliyuncs.com",
-      'cn-fujian': "sas.aliyuncs.com",
-      'cn-haidian-cm12-c01': "sas.aliyuncs.com",
-      'cn-hangzhou-bj-b01': "sas.aliyuncs.com",
-      'cn-hangzhou-finance': "sas.aliyuncs.com",
-      'cn-hangzhou-internal-prod-1': "sas.aliyuncs.com",
-      'cn-hangzhou-internal-test-1': "sas.aliyuncs.com",
-      'cn-hangzhou-internal-test-2': "sas.aliyuncs.com",
-      'cn-hangzhou-internal-test-3': "sas.aliyuncs.com",
-      'cn-hangzhou-test-306': "sas.aliyuncs.com",
-      'cn-hongkong-finance-pop': "sas.aliyuncs.com",
-      'cn-huhehaote-nebula-1': "sas.aliyuncs.com",
-      'cn-north-2-gov-1': "sas.aliyuncs.com",
-      'cn-qingdao-nebula': "sas.aliyuncs.com",
-      'cn-shanghai-et15-b01': "sas.aliyuncs.com",
-      'cn-shanghai-et2-b01': "sas.aliyuncs.com",
-      'cn-shanghai-inner': "sas.aliyuncs.com",
-      'cn-shanghai-internal-test-1': "sas.aliyuncs.com",
-      'cn-shenzhen-inner': "sas.aliyuncs.com",
-      'cn-shenzhen-st4-d01': "sas.aliyuncs.com",
-      'cn-shenzhen-su18-b01': "sas.aliyuncs.com",
-      'cn-wuhan': "sas.aliyuncs.com",
-      'cn-wulanchabu': "sas.aliyuncs.com",
-      'cn-yushanfang': "sas.aliyuncs.com",
-      'cn-zhangbei': "sas.aliyuncs.com",
-      'cn-zhangbei-na61-b01': "sas.aliyuncs.com",
-      'cn-zhangjiakou-na62-a01': "sas.aliyuncs.com",
-      'cn-zhengzhou-nebula-1': "sas.aliyuncs.com",
-      'eu-west-1-oxs': "sas.aliyuncs.com",
-      'me-east-1': "sas.aliyuncs.com",
-      'rus-west-1-pop': "sas.aliyuncs.com",
-      'us-east-1': "tds-vpc.us-east-1.aliyuncs.com",
-      'us-west-1': "tds.us-west-1.aliyuncs.com",
+      'us-east-1': "tds.ap-southeast-1.aliyuncs.com",
+      'us-west-1': "tds.ap-southeast-1.aliyuncs.com",
+      'eu-west-1': "tds.ap-southeast-1.aliyuncs.com",
+      'me-east-1': "tds.ap-southeast-1.aliyuncs.com",
+      'me-central-1': "tds.ap-southeast-1.aliyuncs.com",
+      'ap-south-1': "tds.ap-southeast-1.aliyuncs.com",
+      'cn-beijing-finance-1': "tds.aliyuncs.com",
+      'cn-hangzhou-finance': "tds.aliyuncs.com",
+      'cn-shanghai-finance-1': "tds.aliyuncs.com",
+      'cn-shenzhen-finance-1': "tds.aliyuncs.com",
+      'cn-heyuan-acdr-1': "tds.aliyuncs.com",
+      'cn-north-2-gov-1': "tds.aliyuncs.com",
+      'cn-qingdao-acdr-ut-1': "tds.aliyuncs.com",
+      'cn-shanghai-mybk': "tds.aliyuncs.com",
+      'cn-wuhan-lr': "tds.aliyuncs.com",
+      'cn-zhengzhou-jva': "tds.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("sas", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -81513,10 +81526,7 @@ export default class Client extends OpenApi {
    * @summary Pushes a file to the cloud for detection.
    *
    * @description You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
-   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
-   * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
-   * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
-   * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
+   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
    *
    * @param request CreateFileDetectRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -81578,10 +81588,7 @@ export default class Client extends OpenApi {
    * @summary Pushes a file to the cloud for detection.
    *
    * @description You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
-   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
-   * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
-   * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
-   * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
+   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
    *
    * @param request CreateFileDetectRequest
    * @return CreateFileDetectResponse
@@ -84560,7 +84567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete oss scan policy.
+   * @summary Deletes the configuration of an Object Storage Service (OSS) file detection policy.
    *
    * @param request DeleteOssScanConfigRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -84591,7 +84598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete oss scan policy.
+   * @summary Deletes the configuration of an Object Storage Service (OSS) file detection policy.
    *
    * @param request DeleteOssScanConfigRequest
    * @return DeleteOssScanConfigResponse
@@ -85380,7 +85387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant.
+   * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant. You can call this operation to query the installation status only if the installation request is initiated within 2 minutes.
    *
    * @param request DescribeAgentInstallStatusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -85419,7 +85426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant.
+   * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant. You can call this operation to query the installation status only if the installation request is initiated within 2 minutes.
    *
    * @param request DescribeAgentInstallStatusRequest
    * @return DescribeAgentInstallStatusResponse
@@ -89215,7 +89222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看漏洞修复使用次数
+   * @summary Queries the number of vulnerabilities that are fixed by the pay-as-you-go vulnerability fixing feature.
    *
    * @param request DescribeFixUsedCountRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -89238,7 +89245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看漏洞修复使用次数
+   * @summary Queries the number of vulnerabilities that are fixed by the pay-as-you-go vulnerability fixing feature.
    *
    * @return DescribeFixUsedCountResponse
    */
@@ -91944,6 +91951,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!Util.isUnset(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -92198,7 +92209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询恶意文件类型列表。
+   * @summary Queries a list of malicious image sample types.
    *
    * @param request DescribeMatchedMaliciousNamesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -92233,7 +92244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询恶意文件类型列表。
+   * @summary Queries a list of malicious image sample types.
    *
    * @param request DescribeMatchedMaliciousNamesRequest
    * @return DescribeMatchedMaliciousNamesResponse
@@ -101303,6 +101314,10 @@ export default class Client extends OpenApi {
       query["LogStore"] = request.logStore;
     }
 
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -105771,7 +105786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary List image risk items.
+   * @summary Queries the types of risky image build commands.
    *
    * @param request ListImageBuildRiskItemRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -105802,7 +105817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary List image risk items.
+   * @summary Queries the types of risky image build commands.
    *
    * @param request ListImageBuildRiskItemRequest
    * @return ListImageBuildRiskItemResponse
@@ -106620,7 +106635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries oss scan policies.
+   * @summary Queries the configuration of an Object Storage Service (OSS) file detection policy.
    *
    * @param request ListOssScanConfigRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -106647,7 +106662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries oss scan policies.
+   * @summary Queries the configuration of an Object Storage Service (OSS) file detection policy.
    *
    * @param request ListOssScanConfigRequest
    * @return ListOssScanConfigResponse
@@ -108636,7 +108651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the status of rules for non-image program defense.
+   * @summary Changes the status of non-image program defense rules.
    *
    * @param request ModifyContainerDefenseRuleSwitchRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -108671,7 +108686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the status of rules for non-image program defense.
+   * @summary Changes the status of non-image program defense rules.
    *
    * @param request ModifyContainerDefenseRuleSwitchRequest
    * @return ModifyContainerDefenseRuleSwitchResponse
@@ -109455,6 +109470,10 @@ export default class Client extends OpenApi {
       query["Project"] = request.project;
     }
 
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
     }
@@ -109651,6 +109670,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.from)) {
       query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -111882,7 +111905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Change the rule status for non-image program defense.
+   * @summary Changes the status of a rule for container tamper-proofing.
    *
    * @param request OperateSwitchStatusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -111917,7 +111940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Change the rule status for non-image program defense.
+   * @summary Changes the status of a rule for container tamper-proofing.
    *
    * @param request OperateSwitchStatusRequest
    * @return OperateSwitchStatusResponse
@@ -113408,7 +113431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Reset the honeypot.
+   * @summary Resets a honeypot.
    *
    * @param request ResetHoneypotRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -113443,7 +113466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Reset the honeypot.
+   * @summary Resets a honeypot.
    *
    * @param request ResetHoneypotRequest
    * @return ResetHoneypotResponse
@@ -114015,7 +114038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Start the honeypot.
+   * @summary Starts a honeypot.
    *
    * @param request StartHoneypotRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -114050,7 +114073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Start the honeypot.
+   * @summary Starts a honeypot.
    *
    * @param request StartHoneypotRequest
    * @return StartHoneypotResponse
