@@ -2201,10 +2201,12 @@ export class AddFaceVideoTemplateResponseBodyDateFaceInfos extends $tea.Model {
 export class AddFaceVideoTemplateResponseBodyDate extends $tea.Model {
   faceInfos?: AddFaceVideoTemplateResponseBodyDateFaceInfos[];
   templateId?: string;
+  transResult?: string;
   static names(): { [key: string]: string } {
     return {
       faceInfos: 'FaceInfos',
       templateId: 'TemplateId',
+      transResult: 'TransResult',
     };
   }
 
@@ -2212,6 +2214,7 @@ export class AddFaceVideoTemplateResponseBodyDate extends $tea.Model {
     return {
       faceInfos: { 'type': 'array', 'itemType': AddFaceVideoTemplateResponseBodyDateFaceInfos },
       templateId: 'string',
+      transResult: 'string',
     };
   }
 
@@ -2799,6 +2802,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AbstractEcommerceVideoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AbstractEcommerceVideoResponse
+   */
   async abstractEcommerceVideoWithOptions(request: AbstractEcommerceVideoRequest, runtime: $Util.RuntimeOptions): Promise<AbstractEcommerceVideoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2835,6 +2843,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AbstractEcommerceVideoResponse>(await this.callApi(params, req, runtime), new AbstractEcommerceVideoResponse({}));
   }
 
+  /**
+   * @param request AbstractEcommerceVideoRequest
+   * @return AbstractEcommerceVideoResponse
+   */
   async abstractEcommerceVideo(request: AbstractEcommerceVideoRequest): Promise<AbstractEcommerceVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.abstractEcommerceVideoWithOptions(request, runtime);
@@ -2847,7 +2859,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2871,12 +2883,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2914,6 +2927,11 @@ export default class Client extends OpenApi {
     return abstractEcommerceVideoResp;
   }
 
+  /**
+   * @param request AbstractFilmVideoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AbstractFilmVideoResponse
+   */
   async abstractFilmVideoWithOptions(request: AbstractFilmVideoRequest, runtime: $Util.RuntimeOptions): Promise<AbstractFilmVideoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2942,6 +2960,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AbstractFilmVideoResponse>(await this.callApi(params, req, runtime), new AbstractFilmVideoResponse({}));
   }
 
+  /**
+   * @param request AbstractFilmVideoRequest
+   * @return AbstractFilmVideoResponse
+   */
   async abstractFilmVideo(request: AbstractFilmVideoRequest): Promise<AbstractFilmVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.abstractFilmVideoWithOptions(request, runtime);
@@ -2954,7 +2976,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2978,12 +3000,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3021,6 +3044,13 @@ export default class Client extends OpenApi {
     return abstractFilmVideoResp;
   }
 
+  /**
+   * @summary 视频人脸融合模板增加
+   *
+   * @param request AddFaceVideoTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddFaceVideoTemplateResponse
+   */
   async addFaceVideoTemplateWithOptions(request: AddFaceVideoTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceVideoTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3049,6 +3079,12 @@ export default class Client extends OpenApi {
     return $tea.cast<AddFaceVideoTemplateResponse>(await this.callApi(params, req, runtime), new AddFaceVideoTemplateResponse({}));
   }
 
+  /**
+   * @summary 视频人脸融合模板增加
+   *
+   * @param request AddFaceVideoTemplateRequest
+   * @return AddFaceVideoTemplateResponse
+   */
   async addFaceVideoTemplate(request: AddFaceVideoTemplateRequest): Promise<AddFaceVideoTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addFaceVideoTemplateWithOptions(request, runtime);
@@ -3061,7 +3097,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3085,12 +3121,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3128,6 +3165,11 @@ export default class Client extends OpenApi {
     return addFaceVideoTemplateResp;
   }
 
+  /**
+   * @param request AdjustVideoColorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AdjustVideoColorResponse
+   */
   async adjustVideoColorWithOptions(request: AdjustVideoColorRequest, runtime: $Util.RuntimeOptions): Promise<AdjustVideoColorResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3168,6 +3210,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AdjustVideoColorResponse>(await this.callApi(params, req, runtime), new AdjustVideoColorResponse({}));
   }
 
+  /**
+   * @param request AdjustVideoColorRequest
+   * @return AdjustVideoColorResponse
+   */
   async adjustVideoColor(request: AdjustVideoColorRequest): Promise<AdjustVideoColorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.adjustVideoColorWithOptions(request, runtime);
@@ -3180,7 +3226,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3204,12 +3250,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3247,6 +3294,11 @@ export default class Client extends OpenApi {
     return adjustVideoColorResp;
   }
 
+  /**
+   * @param request ChangeVideoSizeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeVideoSizeResponse
+   */
   async changeVideoSizeWithOptions(request: ChangeVideoSizeRequest, runtime: $Util.RuntimeOptions): Promise<ChangeVideoSizeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3303,6 +3355,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeVideoSizeResponse>(await this.callApi(params, req, runtime), new ChangeVideoSizeResponse({}));
   }
 
+  /**
+   * @param request ChangeVideoSizeRequest
+   * @return ChangeVideoSizeResponse
+   */
   async changeVideoSize(request: ChangeVideoSizeRequest): Promise<ChangeVideoSizeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeVideoSizeWithOptions(request, runtime);
@@ -3315,7 +3371,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3339,12 +3395,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3382,6 +3439,11 @@ export default class Client extends OpenApi {
     return changeVideoSizeResp;
   }
 
+  /**
+   * @param request ConvertHdrVideoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConvertHdrVideoResponse
+   */
   async convertHdrVideoWithOptions(request: ConvertHdrVideoRequest, runtime: $Util.RuntimeOptions): Promise<ConvertHdrVideoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3418,6 +3480,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ConvertHdrVideoResponse>(await this.callApi(params, req, runtime), new ConvertHdrVideoResponse({}));
   }
 
+  /**
+   * @param request ConvertHdrVideoRequest
+   * @return ConvertHdrVideoResponse
+   */
   async convertHdrVideo(request: ConvertHdrVideoRequest): Promise<ConvertHdrVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.convertHdrVideoWithOptions(request, runtime);
@@ -3430,7 +3496,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3454,12 +3520,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3497,6 +3564,13 @@ export default class Client extends OpenApi {
     return convertHdrVideoResp;
   }
 
+  /**
+   * @summary 视频人脸融合模板删除
+   *
+   * @param request DeleteFaceVideoTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFaceVideoTemplateResponse
+   */
   async deleteFaceVideoTemplateWithOptions(request: DeleteFaceVideoTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceVideoTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3521,11 +3595,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFaceVideoTemplateResponse>(await this.callApi(params, req, runtime), new DeleteFaceVideoTemplateResponse({}));
   }
 
+  /**
+   * @summary 视频人脸融合模板删除
+   *
+   * @param request DeleteFaceVideoTemplateRequest
+   * @return DeleteFaceVideoTemplateResponse
+   */
   async deleteFaceVideoTemplate(request: DeleteFaceVideoTemplateRequest): Promise<DeleteFaceVideoTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFaceVideoTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 视频人像增强
+   *
+   * @param request EnhancePortraitVideoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnhancePortraitVideoResponse
+   */
   async enhancePortraitVideoWithOptions(request: EnhancePortraitVideoRequest, runtime: $Util.RuntimeOptions): Promise<EnhancePortraitVideoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3550,6 +3637,12 @@ export default class Client extends OpenApi {
     return $tea.cast<EnhancePortraitVideoResponse>(await this.callApi(params, req, runtime), new EnhancePortraitVideoResponse({}));
   }
 
+  /**
+   * @summary 视频人像增强
+   *
+   * @param request EnhancePortraitVideoRequest
+   * @return EnhancePortraitVideoResponse
+   */
   async enhancePortraitVideo(request: EnhancePortraitVideoRequest): Promise<EnhancePortraitVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enhancePortraitVideoWithOptions(request, runtime);
@@ -3562,7 +3655,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3586,12 +3679,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3629,6 +3723,11 @@ export default class Client extends OpenApi {
     return enhancePortraitVideoResp;
   }
 
+  /**
+   * @param request EnhanceVideoQualityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnhanceVideoQualityResponse
+   */
   async enhanceVideoQualityWithOptions(request: EnhanceVideoQualityRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceVideoQualityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3677,6 +3776,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EnhanceVideoQualityResponse>(await this.callApi(params, req, runtime), new EnhanceVideoQualityResponse({}));
   }
 
+  /**
+   * @param request EnhanceVideoQualityRequest
+   * @return EnhanceVideoQualityResponse
+   */
   async enhanceVideoQuality(request: EnhanceVideoQualityRequest): Promise<EnhanceVideoQualityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enhanceVideoQualityWithOptions(request, runtime);
@@ -3689,7 +3792,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3713,12 +3816,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3756,6 +3860,11 @@ export default class Client extends OpenApi {
     return enhanceVideoQualityResp;
   }
 
+  /**
+   * @param request EraseVideoLogoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EraseVideoLogoResponse
+   */
   async eraseVideoLogoWithOptions(request: EraseVideoLogoRequest, runtime: $Util.RuntimeOptions): Promise<EraseVideoLogoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3784,6 +3893,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EraseVideoLogoResponse>(await this.callApi(params, req, runtime), new EraseVideoLogoResponse({}));
   }
 
+  /**
+   * @param request EraseVideoLogoRequest
+   * @return EraseVideoLogoResponse
+   */
   async eraseVideoLogo(request: EraseVideoLogoRequest): Promise<EraseVideoLogoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.eraseVideoLogoWithOptions(request, runtime);
@@ -3796,7 +3909,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3820,12 +3933,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3863,6 +3977,11 @@ export default class Client extends OpenApi {
     return eraseVideoLogoResp;
   }
 
+  /**
+   * @param request EraseVideoSubtitlesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EraseVideoSubtitlesResponse
+   */
   async eraseVideoSubtitlesWithOptions(request: EraseVideoSubtitlesRequest, runtime: $Util.RuntimeOptions): Promise<EraseVideoSubtitlesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3903,6 +4022,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EraseVideoSubtitlesResponse>(await this.callApi(params, req, runtime), new EraseVideoSubtitlesResponse({}));
   }
 
+  /**
+   * @param request EraseVideoSubtitlesRequest
+   * @return EraseVideoSubtitlesResponse
+   */
   async eraseVideoSubtitles(request: EraseVideoSubtitlesRequest): Promise<EraseVideoSubtitlesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.eraseVideoSubtitlesWithOptions(request, runtime);
@@ -3915,7 +4038,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3939,12 +4062,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3982,6 +4106,13 @@ export default class Client extends OpenApi {
     return eraseVideoSubtitlesResp;
   }
 
+  /**
+   * @summary 视频人像卡通化
+   *
+   * @param request GenerateHumanAnimeStyleVideoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateHumanAnimeStyleVideoResponse
+   */
   async generateHumanAnimeStyleVideoWithOptions(request: GenerateHumanAnimeStyleVideoRequest, runtime: $Util.RuntimeOptions): Promise<GenerateHumanAnimeStyleVideoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4010,6 +4141,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateHumanAnimeStyleVideoResponse>(await this.callApi(params, req, runtime), new GenerateHumanAnimeStyleVideoResponse({}));
   }
 
+  /**
+   * @summary 视频人像卡通化
+   *
+   * @param request GenerateHumanAnimeStyleVideoRequest
+   * @return GenerateHumanAnimeStyleVideoResponse
+   */
   async generateHumanAnimeStyleVideo(request: GenerateHumanAnimeStyleVideoRequest): Promise<GenerateHumanAnimeStyleVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateHumanAnimeStyleVideoWithOptions(request, runtime);
@@ -4022,7 +4159,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -4046,12 +4183,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -4089,6 +4227,11 @@ export default class Client extends OpenApi {
     return generateHumanAnimeStyleVideoResp;
   }
 
+  /**
+   * @param request GenerateVideoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateVideoResponse
+   */
   async generateVideoWithOptions(request: GenerateVideoRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVideoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4153,6 +4296,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateVideoResponse>(await this.callApi(params, req, runtime), new GenerateVideoResponse({}));
   }
 
+  /**
+   * @param request GenerateVideoRequest
+   * @return GenerateVideoResponse
+   */
   async generateVideo(request: GenerateVideoRequest): Promise<GenerateVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateVideoWithOptions(request, runtime);
@@ -4165,7 +4312,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -4189,12 +4336,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -4241,6 +4389,11 @@ export default class Client extends OpenApi {
     return generateVideoResp;
   }
 
+  /**
+   * @param request GetAsyncJobResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAsyncJobResultResponse
+   */
   async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4265,11 +4418,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsyncJobResultResponse>(await this.callApi(params, req, runtime), new GetAsyncJobResultResponse({}));
   }
 
+  /**
+   * @param request GetAsyncJobResultRequest
+   * @return GetAsyncJobResultResponse
+   */
   async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAsyncJobResultWithOptions(request, runtime);
   }
 
+  /**
+   * @param request InterpolateVideoFrameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InterpolateVideoFrameResponse
+   */
   async interpolateVideoFrameWithOptions(request: InterpolateVideoFrameRequest, runtime: $Util.RuntimeOptions): Promise<InterpolateVideoFrameResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4302,6 +4464,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InterpolateVideoFrameResponse>(await this.callApi(params, req, runtime), new InterpolateVideoFrameResponse({}));
   }
 
+  /**
+   * @param request InterpolateVideoFrameRequest
+   * @return InterpolateVideoFrameResponse
+   */
   async interpolateVideoFrame(request: InterpolateVideoFrameRequest): Promise<InterpolateVideoFrameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.interpolateVideoFrameWithOptions(request, runtime);
@@ -4314,7 +4480,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -4338,12 +4504,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -4381,6 +4548,11 @@ export default class Client extends OpenApi {
     return interpolateVideoFrameResp;
   }
 
+  /**
+   * @param request MergeVideoFaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MergeVideoFaceResponse
+   */
   async mergeVideoFaceWithOptions(request: MergeVideoFaceRequest, runtime: $Util.RuntimeOptions): Promise<MergeVideoFaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4421,6 +4593,10 @@ export default class Client extends OpenApi {
     return $tea.cast<MergeVideoFaceResponse>(await this.callApi(params, req, runtime), new MergeVideoFaceResponse({}));
   }
 
+  /**
+   * @param request MergeVideoFaceRequest
+   * @return MergeVideoFaceResponse
+   */
   async mergeVideoFace(request: MergeVideoFaceRequest): Promise<MergeVideoFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.mergeVideoFaceWithOptions(request, runtime);
@@ -4433,7 +4609,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -4457,12 +4633,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -4526,6 +4703,13 @@ export default class Client extends OpenApi {
     return mergeVideoFaceResp;
   }
 
+  /**
+   * @summary 视频模板融合换脸
+   *
+   * @param request MergeVideoModelFaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MergeVideoModelFaceResponse
+   */
   async mergeVideoModelFaceWithOptions(request: MergeVideoModelFaceRequest, runtime: $Util.RuntimeOptions): Promise<MergeVideoModelFaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4570,6 +4754,12 @@ export default class Client extends OpenApi {
     return $tea.cast<MergeVideoModelFaceResponse>(await this.callApi(params, req, runtime), new MergeVideoModelFaceResponse({}));
   }
 
+  /**
+   * @summary 视频模板融合换脸
+   *
+   * @param request MergeVideoModelFaceRequest
+   * @return MergeVideoModelFaceResponse
+   */
   async mergeVideoModelFace(request: MergeVideoModelFaceRequest): Promise<MergeVideoModelFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.mergeVideoModelFaceWithOptions(request, runtime);
@@ -4582,7 +4772,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -4606,12 +4796,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -4649,6 +4840,13 @@ export default class Client extends OpenApi {
     return mergeVideoModelFaceResp;
   }
 
+  /**
+   * @summary 视频人脸融合模板查询
+   *
+   * @param request QueryFaceVideoTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryFaceVideoTemplateResponse
+   */
   async queryFaceVideoTemplateWithOptions(request: QueryFaceVideoTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QueryFaceVideoTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4681,11 +4879,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryFaceVideoTemplateResponse>(await this.callApi(params, req, runtime), new QueryFaceVideoTemplateResponse({}));
   }
 
+  /**
+   * @summary 视频人脸融合模板查询
+   *
+   * @param request QueryFaceVideoTemplateRequest
+   * @return QueryFaceVideoTemplateResponse
+   */
   async queryFaceVideoTemplate(request: QueryFaceVideoTemplateRequest): Promise<QueryFaceVideoTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryFaceVideoTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 视频降噪
+   *
+   * @param request ReduceVideoNoiseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReduceVideoNoiseResponse
+   */
   async reduceVideoNoiseWithOptions(request: ReduceVideoNoiseRequest, runtime: $Util.RuntimeOptions): Promise<ReduceVideoNoiseResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4710,6 +4921,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ReduceVideoNoiseResponse>(await this.callApi(params, req, runtime), new ReduceVideoNoiseResponse({}));
   }
 
+  /**
+   * @summary 视频降噪
+   *
+   * @param request ReduceVideoNoiseRequest
+   * @return ReduceVideoNoiseResponse
+   */
   async reduceVideoNoise(request: ReduceVideoNoiseRequest): Promise<ReduceVideoNoiseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reduceVideoNoiseWithOptions(request, runtime);
@@ -4722,7 +4939,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -4746,12 +4963,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -4789,6 +5007,11 @@ export default class Client extends OpenApi {
     return reduceVideoNoiseResp;
   }
 
+  /**
+   * @param request SuperResolveVideoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SuperResolveVideoResponse
+   */
   async superResolveVideoWithOptions(request: SuperResolveVideoRequest, runtime: $Util.RuntimeOptions): Promise<SuperResolveVideoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4817,6 +5040,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SuperResolveVideoResponse>(await this.callApi(params, req, runtime), new SuperResolveVideoResponse({}));
   }
 
+  /**
+   * @param request SuperResolveVideoRequest
+   * @return SuperResolveVideoResponse
+   */
   async superResolveVideo(request: SuperResolveVideoRequest): Promise<SuperResolveVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.superResolveVideoWithOptions(request, runtime);
@@ -4829,7 +5056,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -4853,12 +5080,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -4896,6 +5124,11 @@ export default class Client extends OpenApi {
     return superResolveVideoResp;
   }
 
+  /**
+   * @param request ToneSdrVideoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ToneSdrVideoResponse
+   */
   async toneSdrVideoWithOptions(request: ToneSdrVideoRequest, runtime: $Util.RuntimeOptions): Promise<ToneSdrVideoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4928,6 +5161,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ToneSdrVideoResponse>(await this.callApi(params, req, runtime), new ToneSdrVideoResponse({}));
   }
 
+  /**
+   * @param request ToneSdrVideoRequest
+   * @return ToneSdrVideoResponse
+   */
   async toneSdrVideo(request: ToneSdrVideoRequest): Promise<ToneSdrVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.toneSdrVideoWithOptions(request, runtime);
@@ -4940,7 +5177,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -4964,12 +5201,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
