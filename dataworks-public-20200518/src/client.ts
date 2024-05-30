@@ -33193,11 +33193,16 @@ export class GetNodeResponseBodyData extends $tea.Model {
   baselineId?: number;
   businessId?: number;
   connection?: string;
+  createTime?: number;
   cronExpress?: string;
+  deployDate?: number;
   description?: string;
   dqcDescription?: string;
   dqcType?: number;
+  fileId?: number;
   fileType?: number;
+  fileVersion?: number;
+  modifyTime?: number;
   nodeId?: number;
   nodeName?: string;
   ownerId?: string;
@@ -33216,11 +33221,16 @@ export class GetNodeResponseBodyData extends $tea.Model {
       baselineId: 'BaselineId',
       businessId: 'BusinessId',
       connection: 'Connection',
+      createTime: 'CreateTime',
       cronExpress: 'CronExpress',
+      deployDate: 'DeployDate',
       description: 'Description',
       dqcDescription: 'DqcDescription',
       dqcType: 'DqcType',
+      fileId: 'FileId',
       fileType: 'FileType',
+      fileVersion: 'FileVersion',
+      modifyTime: 'ModifyTime',
       nodeId: 'NodeId',
       nodeName: 'NodeName',
       ownerId: 'OwnerId',
@@ -33242,11 +33252,16 @@ export class GetNodeResponseBodyData extends $tea.Model {
       baselineId: 'number',
       businessId: 'number',
       connection: 'string',
+      createTime: 'number',
       cronExpress: 'string',
+      deployDate: 'number',
       description: 'string',
       dqcDescription: 'string',
       dqcType: 'number',
+      fileId: 'number',
       fileType: 'number',
+      fileVersion: 'number',
+      modifyTime: 'number',
       nodeId: 'number',
       nodeName: 'string',
       ownerId: 'string',
@@ -33279,6 +33294,7 @@ export class GetNodeChildrenResponseBodyDataNodes extends $tea.Model {
   projectId?: number;
   repeatability?: boolean;
   schedulerType?: string;
+  stepType?: string;
   static names(): { [key: string]: string } {
     return {
       baselineId: 'BaselineId',
@@ -33291,6 +33307,7 @@ export class GetNodeChildrenResponseBodyDataNodes extends $tea.Model {
       projectId: 'ProjectId',
       repeatability: 'Repeatability',
       schedulerType: 'SchedulerType',
+      stepType: 'StepType',
     };
   }
 
@@ -33306,6 +33323,7 @@ export class GetNodeChildrenResponseBodyDataNodes extends $tea.Model {
       projectId: 'number',
       repeatability: 'boolean',
       schedulerType: 'string',
+      stepType: 'string',
     };
   }
 
@@ -33372,6 +33390,7 @@ export class GetNodeParentsResponseBodyDataNodes extends $tea.Model {
   projectId?: number;
   repeatability?: boolean;
   schedulerType?: string;
+  stepType?: string;
   static names(): { [key: string]: string } {
     return {
       baselineId: 'BaselineId',
@@ -33384,6 +33403,7 @@ export class GetNodeParentsResponseBodyDataNodes extends $tea.Model {
       projectId: 'ProjectId',
       repeatability: 'Repeatability',
       schedulerType: 'SchedulerType',
+      stepType: 'StepType',
     };
   }
 
@@ -33399,6 +33419,7 @@ export class GetNodeParentsResponseBodyDataNodes extends $tea.Model {
       projectId: 'number',
       repeatability: 'boolean',
       schedulerType: 'string',
+      stepType: 'string',
     };
   }
 
@@ -38305,11 +38326,16 @@ export class ListNodesResponseBodyDataNodes extends $tea.Model {
   baselineId?: number;
   businessId?: number;
   connection?: string;
+  createTime?: number;
   cronExpress?: string;
+  deployDate?: number;
   description?: string;
   dqcDescription?: string;
   dqcType?: number;
+  fileId?: number;
   fileType?: number;
+  fileVersion?: number;
+  modifyTime?: number;
   nodeId?: number;
   nodeName?: string;
   ownerId?: string;
@@ -38328,11 +38354,16 @@ export class ListNodesResponseBodyDataNodes extends $tea.Model {
       baselineId: 'BaselineId',
       businessId: 'BusinessId',
       connection: 'Connection',
+      createTime: 'CreateTime',
       cronExpress: 'CronExpress',
+      deployDate: 'DeployDate',
       description: 'Description',
       dqcDescription: 'DqcDescription',
       dqcType: 'DqcType',
+      fileId: 'FileId',
       fileType: 'FileType',
+      fileVersion: 'FileVersion',
+      modifyTime: 'ModifyTime',
       nodeId: 'NodeId',
       nodeName: 'NodeName',
       ownerId: 'OwnerId',
@@ -38354,11 +38385,16 @@ export class ListNodesResponseBodyDataNodes extends $tea.Model {
       baselineId: 'number',
       businessId: 'number',
       connection: 'string',
+      createTime: 'number',
       cronExpress: 'string',
+      deployDate: 'number',
       description: 'string',
       dqcDescription: 'string',
       dqcType: 'number',
+      fileId: 'number',
       fileType: 'number',
+      fileVersion: 'number',
+      modifyTime: 'number',
       nodeId: 'number',
       nodeName: 'string',
       ownerId: 'string',
@@ -41386,7 +41422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The operation that you want to perform. Set the value to **AddMetaCollectionEntity**.
+   * @summary Adds an entity to a collection.
    *
    * @param request AddMetaCollectionEntityRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -41425,7 +41461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The operation that you want to perform. Set the value to **AddMetaCollectionEntity**.
+   * @summary Adds an entity to a collection.
    *
    * @param request AddMetaCollectionEntityRequest
    * @return AddMetaCollectionEntityResponse
@@ -42356,7 +42392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+   * @summary Creates a data synchronization task.
    *
    * @param request CreateDISyncTaskRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -42407,7 +42443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+   * @summary Creates a data synchronization task.
    *
    * @param request CreateDISyncTaskRequest
    * @return CreateDISyncTaskResponse
@@ -43294,7 +43330,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -43318,12 +43354,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -44222,7 +44259,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -44246,12 +44283,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -44464,6 +44502,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Creates a table folder. This API operation will be replaced soon. We recommend that you do not call this API operation.
+   *
    * @param request CreateTableThemeRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return CreateTableThemeResponse
@@ -44505,6 +44545,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Creates a table folder. This API operation will be replaced soon. We recommend that you do not call this API operation.
+   *
    * @param request CreateTableThemeRequest
    * @return CreateTableThemeResponse
    */
@@ -49121,9 +49163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The operation that you want to perform. Set the value to **GetMetaTableBasicInfo**.
-   *
-   * @description ****
+   * @summary Queries the basic information about a metatable.
    *
    * @param request GetMetaTableBasicInfoRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -49150,9 +49190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The operation that you want to perform. Set the value to **GetMetaTableBasicInfo**.
-   *
-   * @description ****
+   * @summary Queries the basic information about a metatable.
    *
    * @param request GetMetaTableBasicInfoRequest
    * @return GetMetaTableBasicInfoResponse
@@ -49421,6 +49459,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries metatables in a specified category.
+   *
    * @param request GetMetaTableListByCategoryRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return GetMetaTableListByCategoryResponse
@@ -49446,6 +49486,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries metatables in a specified category.
+   *
    * @param request GetMetaTableListByCategoryRequest
    * @return GetMetaTableListByCategoryResponse
    */
@@ -49513,9 +49555,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary For more information about the example on how to use the GetMetaTablePartition operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+   * @summary Queries the partitions of a metatable.
    *
-   * @description The operation that you want to perform. Set the value to **GetMetaTablePartition**.
+   * @description You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine instance.
    *
    * @param tmpReq GetMetaTablePartitionRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -49580,9 +49622,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary For more information about the example on how to use the GetMetaTablePartition operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+   * @summary Queries the partitions of a metatable.
    *
-   * @description The operation that you want to perform. Set the value to **GetMetaTablePartition**.
+   * @description You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine instance.
    *
    * @param request GetMetaTablePartitionRequest
    * @return GetMetaTablePartitionResponse
@@ -49959,6 +50001,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the ancestor nodes of a node.
+   *
    * @param request GetNodeParentsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return GetNodeParentsResponse
@@ -49992,6 +50036,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the ancestor nodes of a node.
+   *
    * @param request GetNodeParentsRequest
    * @return GetNodeParentsResponse
    */
@@ -50461,6 +50507,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the details of a custom alert rule.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetRemind\\&type=RPC\\&version=2020-05-18)
+   *
    * @param request GetRemindRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return GetRemindResponse
@@ -50490,6 +50541,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the details of a custom alert rule.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetRemind\\&type=RPC\\&version=2020-05-18)
+   *
    * @param request GetRemindRequest
    * @return GetRemindResponse
    */
@@ -51049,6 +51105,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries compute engine instances.
+   *
    * @param request ListCalcEnginesRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ListCalcEnginesResponse
@@ -51098,6 +51156,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries compute engine instances.
+   *
    * @param request ListCalcEnginesRequest
    * @return ListCalcEnginesResponse
    */
@@ -52755,7 +52815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The operation that you want to perform. Set the value to **ListMetaCollectionEntities**.
+   * @summary Queries the entities in a collection.
    *
    * @param request ListMetaCollectionEntitiesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -52802,7 +52862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The operation that you want to perform. Set the value to **ListMetaCollectionEntities**.
+   * @summary Queries the entities in a collection.
    *
    * @param request ListMetaCollectionEntitiesRequest
    * @return ListMetaCollectionEntitiesResponse
@@ -52813,9 +52873,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+   * @summary Queries information about collections. Collections include data albums that are displayed on the DataMap page and categories that are created in the data albums. You can call this API operation to query collections by type.
    *
-   * @description You can configure only one of the Creator, Administrator, and Follower parameters.
+   * @description The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
    *
    * @param request ListMetaCollectionsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -52878,9 +52938,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+   * @summary Queries information about collections. Collections include data albums that are displayed on the DataMap page and categories that are created in the data albums. You can call this API operation to query collections by type.
    *
-   * @description You can configure only one of the Creator, Administrator, and Follower parameters.
+   * @description The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
    *
    * @param request ListMetaCollectionsRequest
    * @return ListMetaCollectionsResponse
@@ -53403,6 +53463,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries members in a DataWorks workspace.
+   *
    * @param request ListProjectMembersRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ListProjectMembersResponse
@@ -53440,6 +53502,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries members in a DataWorks workspace.
+   *
    * @param request ListProjectMembersRequest
    * @return ListProjectMembersResponse
    */
@@ -53449,7 +53513,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Dataworks ID of the workspace.
+   * @summary A topic is added to describe how to call the ListProjectRoles operation to query all roles in a workspace.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=ListProjectRoles\\&type=RPC\\&version=2020-05-18)
    *
    * @param request ListProjectRolesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -53480,7 +53547,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Dataworks ID of the workspace.
+   * @summary A topic is added to describe how to call the ListProjectRoles operation to query all roles in a workspace.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=ListProjectRoles\\&type=RPC\\&version=2020-05-18)
    *
    * @param request ListProjectRolesRequest
    * @return ListProjectRolesResponse
@@ -54075,6 +54145,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries table levels. This API operation will be replaced soon. We recommend that you do not call this API operation.
+   *
    * @param request ListTableLevelRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ListTableLevelResponse
@@ -54100,6 +54172,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries table levels. This API operation will be replaced soon. We recommend that you do not call this API operation.
+   *
    * @param request ListTableLevelRequest
    * @return ListTableLevelResponse
    */
@@ -54109,6 +54183,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries table folders. This API operation will be replaced soon. We recommend that you do not call this API operation.
+   *
    * @param request ListTableThemeRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ListTableThemeResponse
@@ -54134,6 +54210,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries table folders. This API operation will be replaced soon. We recommend that you do not call this API operation.
+   *
    * @param request ListTableThemeRequest
    * @return ListTableThemeResponse
    */
@@ -57536,6 +57614,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Updates the metadata information about a table.
+   *
    * @param request UpdateMetaTableRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return UpdateMetaTableResponse
@@ -57607,6 +57687,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Updates the metadata information about a table.
+   *
    * @param request UpdateMetaTableRequest
    * @return UpdateMetaTableResponse
    */
