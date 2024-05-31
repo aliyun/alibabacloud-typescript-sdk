@@ -6659,6 +6659,61 @@ export class CreateEventStreamingRequestSink extends $tea.Model {
   }
 }
 
+export class CreateEventStreamingRequestSourceSourceApacheKafkaParameters extends $tea.Model {
+  bootstraps?: string;
+  consumerGroup?: string;
+  networkType?: string;
+  offsetReset?: string;
+  saslMechanism?: string;
+  saslPassword?: string;
+  saslUser?: string;
+  securityGroupId?: string;
+  securityProtocol?: string;
+  topic?: string;
+  vSwitchIds?: string;
+  valueDataType?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bootstraps: 'Bootstraps',
+      consumerGroup: 'ConsumerGroup',
+      networkType: 'NetworkType',
+      offsetReset: 'OffsetReset',
+      saslMechanism: 'SaslMechanism',
+      saslPassword: 'SaslPassword',
+      saslUser: 'SaslUser',
+      securityGroupId: 'SecurityGroupId',
+      securityProtocol: 'SecurityProtocol',
+      topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      valueDataType: 'ValueDataType',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bootstraps: 'string',
+      consumerGroup: 'string',
+      networkType: 'string',
+      offsetReset: 'string',
+      saslMechanism: 'string',
+      saslPassword: 'string',
+      saslUser: 'string',
+      securityGroupId: 'string',
+      securityProtocol: 'string',
+      topic: 'string',
+      vSwitchIds: 'string',
+      valueDataType: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingRequestSourceSourceDTSParameters extends $tea.Model {
   brokerUrl?: string;
   initCheckPoint?: number;
@@ -6853,6 +6908,7 @@ export class CreateEventStreamingRequestSourceSourceRabbitMQParameters extends $
 
 export class CreateEventStreamingRequestSourceSourceRocketMQParameters extends $tea.Model {
   authType?: string;
+  bodyDataType?: string;
   filterSql?: string;
   filterType?: string;
   groupID?: string;
@@ -6877,6 +6933,7 @@ export class CreateEventStreamingRequestSourceSourceRocketMQParameters extends $
   static names(): { [key: string]: string } {
     return {
       authType: 'AuthType',
+      bodyDataType: 'BodyDataType',
       filterSql: 'FilterSql',
       filterType: 'FilterType',
       groupID: 'GroupID',
@@ -6904,6 +6961,7 @@ export class CreateEventStreamingRequestSourceSourceRocketMQParameters extends $
   static types(): { [key: string]: any } {
     return {
       authType: 'string',
+      bodyDataType: 'string',
       filterSql: 'string',
       filterType: 'string',
       groupID: 'string',
@@ -6962,6 +7020,7 @@ export class CreateEventStreamingRequestSourceSourceSLSParameters extends $tea.M
 }
 
 export class CreateEventStreamingRequestSource extends $tea.Model {
+  sourceApacheKafkaParameters?: CreateEventStreamingRequestSourceSourceApacheKafkaParameters;
   sourceDTSParameters?: CreateEventStreamingRequestSourceSourceDTSParameters;
   sourceKafkaParameters?: CreateEventStreamingRequestSourceSourceKafkaParameters;
   sourceMNSParameters?: CreateEventStreamingRequestSourceSourceMNSParameters;
@@ -6972,6 +7031,7 @@ export class CreateEventStreamingRequestSource extends $tea.Model {
   sourceSLSParameters?: CreateEventStreamingRequestSourceSourceSLSParameters;
   static names(): { [key: string]: string } {
     return {
+      sourceApacheKafkaParameters: 'SourceApacheKafkaParameters',
       sourceDTSParameters: 'SourceDTSParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
@@ -6985,6 +7045,7 @@ export class CreateEventStreamingRequestSource extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      sourceApacheKafkaParameters: CreateEventStreamingRequestSourceSourceApacheKafkaParameters,
       sourceDTSParameters: CreateEventStreamingRequestSourceSourceDTSParameters,
       sourceKafkaParameters: CreateEventStreamingRequestSourceSourceKafkaParameters,
       sourceMNSParameters: CreateEventStreamingRequestSourceSourceMNSParameters,
@@ -9120,6 +9181,61 @@ export class GetEventStreamingResponseBodyDataSink extends $tea.Model {
   }
 }
 
+export class GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters extends $tea.Model {
+  bootstraps?: string;
+  consumerGroup?: string;
+  networkType?: string;
+  offsetReset?: string;
+  saslMechanism?: string;
+  saslPassword?: string;
+  saslUser?: string;
+  securityGroupId?: string;
+  securityProtocol?: string;
+  topic?: string;
+  vSwitchIds?: string;
+  valueDataType?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bootstraps: 'Bootstraps',
+      consumerGroup: 'ConsumerGroup',
+      networkType: 'NetworkType',
+      offsetReset: 'OffsetReset',
+      saslMechanism: 'SaslMechanism',
+      saslPassword: 'SaslPassword',
+      saslUser: 'SaslUser',
+      securityGroupId: 'SecurityGroupId',
+      securityProtocol: 'SecurityProtocol',
+      topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      valueDataType: 'ValueDataType',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bootstraps: 'string',
+      consumerGroup: 'string',
+      networkType: 'string',
+      offsetReset: 'string',
+      saslMechanism: 'string',
+      saslPassword: 'string',
+      saslUser: 'string',
+      securityGroupId: 'string',
+      securityProtocol: 'string',
+      topic: 'string',
+      vSwitchIds: 'string',
+      valueDataType: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventStreamingResponseBodyDataSourceSourceDTSParameters extends $tea.Model {
   brokerUrl?: string;
   initCheckPoint?: string;
@@ -9311,6 +9427,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters ext
 
 export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters extends $tea.Model {
   authType?: string;
+  bodyDataType?: string;
   groupID?: string;
   instanceEndpoint?: string;
   instanceId?: string;
@@ -9329,6 +9446,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
   static names(): { [key: string]: string } {
     return {
       authType: 'AuthType',
+      bodyDataType: 'BodyDataType',
       groupID: 'GroupID',
       instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
@@ -9350,6 +9468,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
   static types(): { [key: string]: any } {
     return {
       authType: 'string',
+      bodyDataType: 'string',
       groupID: 'string',
       instanceEndpoint: 'string',
       instanceId: 'string',
@@ -9405,6 +9524,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceSLSParameters extends 
 }
 
 export class GetEventStreamingResponseBodyDataSource extends $tea.Model {
+  sourceApacheKafkaParameters?: GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters;
   sourceDTSParameters?: GetEventStreamingResponseBodyDataSourceSourceDTSParameters;
   sourceKafkaParameters?: GetEventStreamingResponseBodyDataSourceSourceKafkaParameters;
   sourceMNSParameters?: GetEventStreamingResponseBodyDataSourceSourceMNSParameters;
@@ -9415,6 +9535,7 @@ export class GetEventStreamingResponseBodyDataSource extends $tea.Model {
   sourceSLSParameters?: GetEventStreamingResponseBodyDataSourceSourceSLSParameters;
   static names(): { [key: string]: string } {
     return {
+      sourceApacheKafkaParameters: 'SourceApacheKafkaParameters',
       sourceDTSParameters: 'SourceDTSParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
@@ -9428,6 +9549,7 @@ export class GetEventStreamingResponseBodyDataSource extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      sourceApacheKafkaParameters: GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters,
       sourceDTSParameters: GetEventStreamingResponseBodyDataSourceSourceDTSParameters,
       sourceKafkaParameters: GetEventStreamingResponseBodyDataSourceSourceKafkaParameters,
       sourceMNSParameters: GetEventStreamingResponseBodyDataSourceSourceMNSParameters,
@@ -11479,6 +11601,61 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $tea
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters extends $tea.Model {
+  bootstraps?: string;
+  consumerGroup?: string;
+  networkType?: string;
+  offsetReset?: string;
+  saslMechanism?: string;
+  saslPassword?: string;
+  saslUser?: string;
+  securityGroupId?: string;
+  securityProtocol?: string;
+  topic?: string;
+  vSwitchIds?: string;
+  valueDataType?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bootstraps: 'Bootstraps',
+      consumerGroup: 'ConsumerGroup',
+      networkType: 'NetworkType',
+      offsetReset: 'OffsetReset',
+      saslMechanism: 'SaslMechanism',
+      saslPassword: 'SaslPassword',
+      saslUser: 'SaslUser',
+      securityGroupId: 'SecurityGroupId',
+      securityProtocol: 'SecurityProtocol',
+      topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      valueDataType: 'ValueDataType',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bootstraps: 'string',
+      consumerGroup: 'string',
+      networkType: 'string',
+      offsetReset: 'string',
+      saslMechanism: 'string',
+      saslPassword: 'string',
+      saslUser: 'string',
+      securityGroupId: 'string',
+      securityProtocol: 'string',
+      topic: 'string',
+      vSwitchIds: 'string',
+      valueDataType: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters extends $tea.Model {
   brokerUrl?: string;
   initCheckPoint?: string;
@@ -11667,6 +11844,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbi
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters extends $tea.Model {
   authType?: string;
+  bodyDataType?: string;
   groupID?: string;
   instanceEndpoint?: string;
   instanceId?: string;
@@ -11685,6 +11863,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   static names(): { [key: string]: string } {
     return {
       authType: 'AuthType',
+      bodyDataType: 'BodyDataType',
       groupID: 'GroupID',
       instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
@@ -11706,6 +11885,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   static types(): { [key: string]: any } {
     return {
       authType: 'string',
+      bodyDataType: 'string',
       groupID: 'string',
       instanceEndpoint: 'string',
       instanceId: 'string',
@@ -11761,6 +11941,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceSLSPa
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $tea.Model {
+  sourceApacheKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters;
   sourceDTSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters;
   sourceKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters;
   sourceMNSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters;
@@ -11771,6 +11952,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $t
   sourceSLSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceSLSParameters;
   static names(): { [key: string]: string } {
     return {
+      sourceApacheKafkaParameters: 'SourceApacheKafkaParameters',
       sourceDTSParameters: 'SourceDTSParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
@@ -11784,6 +11966,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $t
 
   static types(): { [key: string]: any } {
     return {
+      sourceApacheKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters,
       sourceDTSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters,
       sourceKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters,
       sourceMNSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters,
@@ -14823,6 +15006,61 @@ export class UpdateEventStreamingRequestSink extends $tea.Model {
   }
 }
 
+export class UpdateEventStreamingRequestSourceSourceApacheKafkaParameters extends $tea.Model {
+  bootstraps?: string;
+  consumerGroup?: string;
+  networkType?: string;
+  offsetReset?: string;
+  saslMechanism?: string;
+  saslPassword?: string;
+  saslUser?: string;
+  securityGroupId?: string;
+  securityProtocol?: string;
+  topic?: string;
+  vSwitchIds?: string;
+  valueDataType?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bootstraps: 'Bootstraps',
+      consumerGroup: 'ConsumerGroup',
+      networkType: 'NetworkType',
+      offsetReset: 'OffsetReset',
+      saslMechanism: 'SaslMechanism',
+      saslPassword: 'SaslPassword',
+      saslUser: 'SaslUser',
+      securityGroupId: 'SecurityGroupId',
+      securityProtocol: 'SecurityProtocol',
+      topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      valueDataType: 'ValueDataType',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bootstraps: 'string',
+      consumerGroup: 'string',
+      networkType: 'string',
+      offsetReset: 'string',
+      saslMechanism: 'string',
+      saslPassword: 'string',
+      saslUser: 'string',
+      securityGroupId: 'string',
+      securityProtocol: 'string',
+      topic: 'string',
+      vSwitchIds: 'string',
+      valueDataType: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSourceSourceDTSParameters extends $tea.Model {
   brokerUrl?: string;
   initCheckPoint?: number;
@@ -15014,6 +15252,7 @@ export class UpdateEventStreamingRequestSourceSourceRabbitMQParameters extends $
 
 export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $tea.Model {
   authType?: string;
+  bodyDataType?: string;
   groupID?: string;
   instanceEndpoint?: string;
   instanceId?: string;
@@ -15032,6 +15271,7 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
   static names(): { [key: string]: string } {
     return {
       authType: 'AuthType',
+      bodyDataType: 'BodyDataType',
       groupID: 'GroupID',
       instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
@@ -15053,6 +15293,7 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
   static types(): { [key: string]: any } {
     return {
       authType: 'string',
+      bodyDataType: 'string',
       groupID: 'string',
       instanceEndpoint: 'string',
       instanceId: 'string',
@@ -15096,6 +15337,7 @@ export class UpdateEventStreamingRequestSourceSourceSLSParameters extends $tea.M
 }
 
 export class UpdateEventStreamingRequestSource extends $tea.Model {
+  sourceApacheKafkaParameters?: UpdateEventStreamingRequestSourceSourceApacheKafkaParameters;
   sourceDTSParameters?: UpdateEventStreamingRequestSourceSourceDTSParameters;
   sourceKafkaParameters?: UpdateEventStreamingRequestSourceSourceKafkaParameters;
   sourceMNSParameters?: UpdateEventStreamingRequestSourceSourceMNSParameters;
@@ -15106,6 +15348,7 @@ export class UpdateEventStreamingRequestSource extends $tea.Model {
   sourceSLSParameters?: UpdateEventStreamingRequestSourceSourceSLSParameters;
   static names(): { [key: string]: string } {
     return {
+      sourceApacheKafkaParameters: 'SourceApacheKafkaParameters',
       sourceDTSParameters: 'SourceDTSParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
@@ -15119,6 +15362,7 @@ export class UpdateEventStreamingRequestSource extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      sourceApacheKafkaParameters: UpdateEventStreamingRequestSourceSourceApacheKafkaParameters,
       sourceDTSParameters: UpdateEventStreamingRequestSourceSourceDTSParameters,
       sourceKafkaParameters: UpdateEventStreamingRequestSourceSourceKafkaParameters,
       sourceMNSParameters: UpdateEventStreamingRequestSourceSourceMNSParameters,
