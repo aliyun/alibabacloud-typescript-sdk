@@ -340,6 +340,7 @@ export class Task extends $tea.Model {
   defaultDatabase?: string;
   defaultResourceQueueId?: string;
   defaultSqlComputeId?: string;
+  deploymentId?: string;
   extraArtifactIds?: string[];
   extraSparkSubmitParams?: string;
   files?: string[];
@@ -347,6 +348,7 @@ export class Task extends $tea.Model {
   gmtModified?: string;
   hasChanged?: boolean;
   hasCommited?: boolean;
+  isStreaming?: boolean;
   jars?: string[];
   lastRunResourceQueueId?: string;
   modifier?: number;
@@ -361,6 +363,7 @@ export class Task extends $tea.Model {
   sparkExecutorMemory?: number;
   sparkLogLevel?: string;
   sparkLogPath?: string;
+  sparkSubmitClause?: string;
   sparkVersion?: string;
   tags?: { [key: string]: string };
   type?: string;
@@ -376,6 +379,7 @@ export class Task extends $tea.Model {
       defaultDatabase: 'defaultDatabase',
       defaultResourceQueueId: 'defaultResourceQueueId',
       defaultSqlComputeId: 'defaultSqlComputeId',
+      deploymentId: 'deploymentId',
       extraArtifactIds: 'extraArtifactIds',
       extraSparkSubmitParams: 'extraSparkSubmitParams',
       files: 'files',
@@ -383,6 +387,7 @@ export class Task extends $tea.Model {
       gmtModified: 'gmtModified',
       hasChanged: 'hasChanged',
       hasCommited: 'hasCommited',
+      isStreaming: 'isStreaming',
       jars: 'jars',
       lastRunResourceQueueId: 'lastRunResourceQueueId',
       modifier: 'modifier',
@@ -397,6 +402,7 @@ export class Task extends $tea.Model {
       sparkExecutorMemory: 'sparkExecutorMemory',
       sparkLogLevel: 'sparkLogLevel',
       sparkLogPath: 'sparkLogPath',
+      sparkSubmitClause: 'sparkSubmitClause',
       sparkVersion: 'sparkVersion',
       tags: 'tags',
       type: 'type',
@@ -415,6 +421,7 @@ export class Task extends $tea.Model {
       defaultDatabase: 'string',
       defaultResourceQueueId: 'string',
       defaultSqlComputeId: 'string',
+      deploymentId: 'string',
       extraArtifactIds: { 'type': 'array', 'itemType': 'string' },
       extraSparkSubmitParams: 'string',
       files: { 'type': 'array', 'itemType': 'string' },
@@ -422,6 +429,7 @@ export class Task extends $tea.Model {
       gmtModified: 'string',
       hasChanged: 'boolean',
       hasCommited: 'boolean',
+      isStreaming: 'boolean',
       jars: { 'type': 'array', 'itemType': 'string' },
       lastRunResourceQueueId: 'string',
       modifier: 'number',
@@ -436,6 +444,7 @@ export class Task extends $tea.Model {
       sparkExecutorMemory: 'number',
       sparkLogLevel: 'string',
       sparkLogPath: 'string',
+      sparkSubmitClause: 'string',
       sparkVersion: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       type: 'string',
@@ -736,6 +745,87 @@ export class CancelJobRunResponse extends $tea.Model {
   }
 }
 
+export class CreateSqlStatementRequest extends $tea.Model {
+  codeContent?: string;
+  defaultCatalog?: string;
+  defaultDatabase?: string;
+  limit?: number;
+  sqlComputeId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeContent: 'codeContent',
+      defaultCatalog: 'defaultCatalog',
+      defaultDatabase: 'defaultDatabase',
+      limit: 'limit',
+      sqlComputeId: 'sqlComputeId',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeContent: 'string',
+      defaultCatalog: 'string',
+      defaultDatabase: 'string',
+      limit: 'number',
+      sqlComputeId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlStatementResponseBody extends $tea.Model {
+  data?: CreateSqlStatementResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateSqlStatementResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlStatementResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSqlStatementResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSqlStatementResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobRunRequest extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -794,6 +884,72 @@ export class GetJobRunResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetJobRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSqlStatementRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSqlStatementResponseBody extends $tea.Model {
+  data?: GetSqlStatementResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetSqlStatementResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSqlStatementResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSqlStatementResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSqlStatementResponseBody,
     };
   }
 
@@ -874,6 +1030,7 @@ export class GrantRoleToUsersResponse extends $tea.Model {
 export class ListJobRunsRequest extends $tea.Model {
   creator?: string;
   endTime?: ListJobRunsRequestEndTime;
+  jobRunDeploymentId?: string;
   jobRunId?: string;
   maxResults?: number;
   name?: string;
@@ -887,6 +1044,7 @@ export class ListJobRunsRequest extends $tea.Model {
     return {
       creator: 'creator',
       endTime: 'endTime',
+      jobRunDeploymentId: 'jobRunDeploymentId',
       jobRunId: 'jobRunId',
       maxResults: 'maxResults',
       name: 'name',
@@ -903,6 +1061,7 @@ export class ListJobRunsRequest extends $tea.Model {
     return {
       creator: 'string',
       endTime: ListJobRunsRequestEndTime,
+      jobRunDeploymentId: 'string',
       jobRunId: 'string',
       maxResults: 'number',
       name: 'string',
@@ -923,6 +1082,7 @@ export class ListJobRunsRequest extends $tea.Model {
 export class ListJobRunsShrinkRequest extends $tea.Model {
   creator?: string;
   endTimeShrink?: string;
+  jobRunDeploymentId?: string;
   jobRunId?: string;
   maxResults?: number;
   name?: string;
@@ -936,6 +1096,7 @@ export class ListJobRunsShrinkRequest extends $tea.Model {
     return {
       creator: 'creator',
       endTimeShrink: 'endTime',
+      jobRunDeploymentId: 'jobRunDeploymentId',
       jobRunId: 'jobRunId',
       maxResults: 'maxResults',
       name: 'name',
@@ -952,6 +1113,7 @@ export class ListJobRunsShrinkRequest extends $tea.Model {
     return {
       creator: 'string',
       endTimeShrink: 'string',
+      jobRunDeploymentId: 'string',
       jobRunId: 'string',
       maxResults: 'number',
       name: 'string',
@@ -1457,6 +1619,69 @@ export class StartJobRunResponse extends $tea.Model {
   }
 }
 
+export class TerminateSqlStatementRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateSqlStatementResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateSqlStatementResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TerminateSqlStatementResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TerminateSqlStatementResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConfigurationOverridesConfigurations extends $tea.Model {
   configFileName?: string;
   configItemKey?: string;
@@ -1570,6 +1795,25 @@ export class SqlOutputSchema extends $tea.Model {
   }
 }
 
+export class CreateSqlStatementResponseBodyData extends $tea.Model {
+  statementId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      statementId: 'statementId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statementId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobRunResponseBodyJobRunConfigurationOverrides extends $tea.Model {
   configurations?: Configuration[];
   static names(): { [key: string]: string } {
@@ -1670,6 +1914,62 @@ export class GetJobRunResponseBodyJobRun extends $tea.Model {
       tags: { 'type': 'array', 'itemType': Tag },
       webUI: 'string',
       workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSqlStatementResponseBodyDataSqlOutputs extends $tea.Model {
+  rows?: string;
+  schema?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rows: 'rows',
+      schema: 'schema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rows: 'string',
+      schema: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSqlStatementResponseBodyData extends $tea.Model {
+  executionTime?: number[];
+  sqlErrorCode?: string;
+  sqlErrorMessage?: string;
+  sqlOutputs?: GetSqlStatementResponseBodyDataSqlOutputs[];
+  state?: string;
+  statementId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executionTime: 'executionTime',
+      sqlErrorCode: 'sqlErrorCode',
+      sqlErrorMessage: 'sqlErrorMessage',
+      sqlOutputs: 'sqlOutputs',
+      state: 'state',
+      statementId: 'statementId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executionTime: { 'type': 'array', 'itemType': 'number' },
+      sqlErrorCode: 'string',
+      sqlErrorMessage: 'string',
+      sqlOutputs: { 'type': 'array', 'itemType': GetSqlStatementResponseBodyDataSqlOutputs },
+      state: 'string',
+      statementId: 'string',
     };
   }
 
@@ -2375,6 +2675,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 使用session运行SQL
+   *
+   * @param request CreateSqlStatementRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSqlStatementResponse
+   */
+  async createSqlStatementWithOptions(workspaceId: string, request: CreateSqlStatementRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSqlStatementResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.codeContent)) {
+      body["codeContent"] = request.codeContent;
+    }
+
+    if (!Util.isUnset(request.defaultCatalog)) {
+      body["defaultCatalog"] = request.defaultCatalog;
+    }
+
+    if (!Util.isUnset(request.defaultDatabase)) {
+      body["defaultDatabase"] = request.defaultDatabase;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.sqlComputeId)) {
+      body["sqlComputeId"] = request.sqlComputeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSqlStatement",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${OpenApiUtil.getEncodeParam(workspaceId)}/statement`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSqlStatementResponse>(await this.callApi(params, req, runtime), new CreateSqlStatementResponse({}));
+  }
+
+  /**
+   * @summary 使用session运行SQL
+   *
+   * @param request CreateSqlStatementRequest
+   * @return CreateSqlStatementResponse
+   */
+  async createSqlStatement(workspaceId: string, request: CreateSqlStatementRequest): Promise<CreateSqlStatementResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSqlStatementWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * @summary 获取任务
    *
    * @param request GetJobRunRequest
@@ -2417,6 +2784,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobRunWithOptions(workspaceId, jobRunId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取Sql Statement状态
+   *
+   * @param request GetSqlStatementRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSqlStatementResponse
+   */
+  async getSqlStatementWithOptions(workspaceId: string, statementId: string, request: GetSqlStatementRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSqlStatementResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSqlStatement",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${OpenApiUtil.getEncodeParam(workspaceId)}/statement/${OpenApiUtil.getEncodeParam(statementId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSqlStatementResponse>(await this.callApi(params, req, runtime), new GetSqlStatementResponse({}));
+  }
+
+  /**
+   * @summary 获取Sql Statement状态
+   *
+   * @param request GetSqlStatementRequest
+   * @return GetSqlStatementResponse
+   */
+  async getSqlStatement(workspaceId: string, statementId: string, request: GetSqlStatementRequest): Promise<GetSqlStatementResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSqlStatementWithOptions(workspaceId, statementId, request, headers, runtime);
   }
 
   /**
@@ -2509,6 +2921,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTimeShrink)) {
       query["endTime"] = request.endTimeShrink;
+    }
+
+    if (!Util.isUnset(request.jobRunDeploymentId)) {
+      query["jobRunDeploymentId"] = request.jobRunDeploymentId;
     }
 
     if (!Util.isUnset(request.jobRunId)) {
@@ -2890,6 +3306,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startJobRunWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 终止 session statement
+   *
+   * @param request TerminateSqlStatementRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TerminateSqlStatementResponse
+   */
+  async terminateSqlStatementWithOptions(workspaceId: string, statementId: string, request: TerminateSqlStatementRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TerminateSqlStatementResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TerminateSqlStatement",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${OpenApiUtil.getEncodeParam(workspaceId)}/statement/${OpenApiUtil.getEncodeParam(statementId)}/terminate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TerminateSqlStatementResponse>(await this.callApi(params, req, runtime), new TerminateSqlStatementResponse({}));
+  }
+
+  /**
+   * @summary 终止 session statement
+   *
+   * @param request TerminateSqlStatementRequest
+   * @return TerminateSqlStatementResponse
+   */
+  async terminateSqlStatement(workspaceId: string, statementId: string, request: TerminateSqlStatementRequest): Promise<TerminateSqlStatementResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.terminateSqlStatementWithOptions(workspaceId, statementId, request, headers, runtime);
   }
 
 }
