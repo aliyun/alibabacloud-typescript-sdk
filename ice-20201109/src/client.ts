@@ -11094,6 +11094,96 @@ export class SearchMediaByFaceResponse extends $tea.Model {
   }
 }
 
+export class SearchMediaByHybridRequest extends $tea.Model {
+  mediaId?: string;
+  mediaType?: string;
+  pageNo?: number;
+  pageSize?: number;
+  searchLibName?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      searchLibName: 'SearchLibName',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaType: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      searchLibName: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByHybridResponseBody extends $tea.Model {
+  code?: string;
+  mediaList?: SearchMediaByHybridResponseBodyMediaList[];
+  requestId?: string;
+  success?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      mediaList: 'MediaList',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      mediaList: { 'type': 'array', 'itemType': SearchMediaByHybridResponseBodyMediaList },
+      requestId: 'string',
+      success: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByHybridResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchMediaByHybridResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchMediaByHybridResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchMediaByMultimodalRequest extends $tea.Model {
   mediaType?: string;
   pageNo?: number;
@@ -27357,6 +27447,53 @@ export class SearchMediaByFaceResponseBodyMediaInfoList extends $tea.Model {
   }
 }
 
+export class SearchMediaByHybridResponseBodyMediaListClipInfo extends $tea.Model {
+  from?: number;
+  score?: number;
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      score: 'Score',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      score: 'number',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByHybridResponseBodyMediaList extends $tea.Model {
+  clipInfo?: SearchMediaByHybridResponseBodyMediaListClipInfo[];
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipInfo: 'ClipInfo',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipInfo: { 'type': 'array', 'itemType': SearchMediaByHybridResponseBodyMediaListClipInfo },
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchMediaByMultimodalResponseBodyMediaListClipInfo extends $tea.Model {
   from?: number;
   score?: number;
@@ -35974,7 +36111,7 @@ export default class Client extends OpenApi {
       protocol: "HTTPS",
       pathname: "/",
       method: "POST",
-      authType: "AK",
+      authType: "Anonymous",
       style: "RPC",
       reqBodyType: "formData",
       bodyType: "json",
@@ -39196,6 +39333,68 @@ export default class Client extends OpenApi {
   async searchMediaByFace(request: SearchMediaByFaceRequest): Promise<SearchMediaByFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchMediaByFaceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 混合搜索
+   *
+   * @param request SearchMediaByHybridRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchMediaByHybridResponse
+   */
+  async searchMediaByHybridWithOptions(request: SearchMediaByHybridRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaByHybridResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      query["Text"] = request.text;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchMediaByHybrid",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchMediaByHybridResponse>(await this.callApi(params, req, runtime), new SearchMediaByHybridResponse({}));
+  }
+
+  /**
+   * @summary 混合搜索
+   *
+   * @param request SearchMediaByHybridRequest
+   * @return SearchMediaByHybridResponse
+   */
+  async searchMediaByHybrid(request: SearchMediaByHybridRequest): Promise<SearchMediaByHybridResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchMediaByHybridWithOptions(request, runtime);
   }
 
   /**
