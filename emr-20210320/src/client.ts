@@ -1941,14 +1941,18 @@ export class NodeGroupStateChangeReason extends $tea.Model {
 
 export class NodeSelector extends $tea.Model {
   nodeGroupId?: string;
+  nodeGroupIds?: string[];
   nodeGroupName?: string;
+  nodeGroupNames?: string[];
   nodeGroupTypes?: string[];
   nodeNames?: string[];
   nodeSelectType?: string;
   static names(): { [key: string]: string } {
     return {
       nodeGroupId: 'NodeGroupId',
+      nodeGroupIds: 'NodeGroupIds',
       nodeGroupName: 'NodeGroupName',
+      nodeGroupNames: 'NodeGroupNames',
       nodeGroupTypes: 'NodeGroupTypes',
       nodeNames: 'NodeNames',
       nodeSelectType: 'NodeSelectType',
@@ -1958,7 +1962,9 @@ export class NodeSelector extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       nodeGroupId: 'string',
+      nodeGroupIds: { 'type': 'array', 'itemType': 'string' },
       nodeGroupName: 'string',
+      nodeGroupNames: { 'type': 'array', 'itemType': 'string' },
       nodeGroupTypes: { 'type': 'array', 'itemType': 'string' },
       nodeNames: { 'type': 'array', 'itemType': 'string' },
       nodeSelectType: 'string',
@@ -2719,7 +2725,6 @@ export class ScalingRule extends $tea.Model {
   activityType?: string;
   adjustmentValue?: number;
   metricsTrigger?: MetricsTrigger;
-  minAdjustmentValue?: number;
   ruleName?: string;
   timeTrigger?: TimeTrigger;
   triggerType?: string;
@@ -2728,7 +2733,6 @@ export class ScalingRule extends $tea.Model {
       activityType: 'ActivityType',
       adjustmentValue: 'AdjustmentValue',
       metricsTrigger: 'MetricsTrigger',
-      minAdjustmentValue: 'MinAdjustmentValue',
       ruleName: 'RuleName',
       timeTrigger: 'TimeTrigger',
       triggerType: 'TriggerType',
@@ -2740,7 +2744,6 @@ export class ScalingRule extends $tea.Model {
       activityType: 'string',
       adjustmentValue: 'number',
       metricsTrigger: MetricsTrigger,
-      minAdjustmentValue: 'number',
       ruleName: 'string',
       timeTrigger: TimeTrigger,
       triggerType: 'string',
@@ -25241,9 +25244,42 @@ export default class Client extends OpenApi {
       'cn-shenzhen': "emr.aliyuncs.com",
       'ap-southeast-1': "emr.aliyuncs.com",
       'us-west-1': "emr.aliyuncs.com",
-      'cn-hangzhou-finance': "emr.aliyuncs.com",
-      'cn-shenzhen-finance-1': "emr.aliyuncs.com",
       'cn-shanghai-finance-1': "emr.aliyuncs.com",
+      'cn-shenzhen-finance-1': "emr.aliyuncs.com",
+      'cn-north-2-gov-1': "emr.aliyuncs.com",
+      'ap-northeast-2-pop': "emr.aliyuncs.com",
+      'cn-beijing-finance-1': "emr.aliyuncs.com",
+      'cn-beijing-finance-pop': "emr.aliyuncs.com",
+      'cn-beijing-gov-1': "emr.aliyuncs.com",
+      'cn-beijing-nu16-b01': "emr.aliyuncs.com",
+      'cn-edge-1': "emr.aliyuncs.com",
+      'cn-fujian': "emr.aliyuncs.com",
+      'cn-haidian-cm12-c01': "emr.aliyuncs.com",
+      'cn-hangzhou-bj-b01': "emr.aliyuncs.com",
+      'cn-hangzhou-finance': "emr.aliyuncs.com",
+      'cn-hangzhou-internal-prod-1': "emr.aliyuncs.com",
+      'cn-hangzhou-internal-test-1': "emr.aliyuncs.com",
+      'cn-hangzhou-internal-test-2': "emr.aliyuncs.com",
+      'cn-hangzhou-internal-test-3': "emr.aliyuncs.com",
+      'cn-hangzhou-test-306': "emr.aliyuncs.com",
+      'cn-hongkong-finance-pop': "emr.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "emr.aliyuncs.com",
+      'cn-qingdao-nebula': "emr.aliyuncs.com",
+      'cn-shanghai-et15-b01': "emr.aliyuncs.com",
+      'cn-shanghai-et2-b01': "emr.aliyuncs.com",
+      'cn-shanghai-inner': "emr.aliyuncs.com",
+      'cn-shanghai-internal-test-1': "emr.aliyuncs.com",
+      'cn-shenzhen-inner': "emr.aliyuncs.com",
+      'cn-shenzhen-st4-d01': "emr.aliyuncs.com",
+      'cn-shenzhen-su18-b01': "emr.aliyuncs.com",
+      'cn-wuhan': "emr.aliyuncs.com",
+      'cn-yushanfang': "emr.aliyuncs.com",
+      'cn-zhangbei': "emr.aliyuncs.com",
+      'cn-zhangbei-na61-b01': "emr.aliyuncs.com",
+      'cn-zhangjiakou-na62-a01': "emr.aliyuncs.com",
+      'cn-zhengzhou-nebula-1': "emr.aliyuncs.com",
+      'eu-west-1-oxs': "emr.aliyuncs.com",
+      'rus-west-1-pop': "emr.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("emr", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -25262,6 +25298,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request CreateApiTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApiTemplateResponse
+   */
   async createApiTemplateWithOptions(request: CreateApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25302,11 +25343,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApiTemplateResponse>(await this.callApi(params, req, runtime), new CreateApiTemplateResponse({}));
   }
 
+  /**
+   * @param request CreateApiTemplateRequest
+   * @return CreateApiTemplateResponse
+   */
   async createApiTemplate(request: CreateApiTemplateRequest): Promise<CreateApiTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApiTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a pay-as-you-go or subscription cluster.
+   *
+   * @param request CreateClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateClusterResponse
+   */
   async createClusterWithOptions(request: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25391,17 +25443,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
   }
 
+  /**
+   * @summary Creates a pay-as-you-go or subscription cluster.
+   *
+   * @param request CreateClusterRequest
+   * @return CreateClusterResponse
+   */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createClusterWithOptions(request, runtime);
   }
 
   /**
-    * 创建节点组。
-    *
-    * @param request CreateNodeGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateNodeGroupResponse
+   * @summary Creates a node group.
+   *
+   * @description 创建节点组。
+   *
+   * @param request CreateNodeGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNodeGroupResponse
    */
   async createNodeGroupWithOptions(request: CreateNodeGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateNodeGroupResponse> {
     Util.validateModel(request);
@@ -25436,10 +25496,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建节点组。
-    *
-    * @param request CreateNodeGroupRequest
-    * @return CreateNodeGroupResponse
+   * @summary Creates a node group.
+   *
+   * @description 创建节点组。
+   *
+   * @param request CreateNodeGroupRequest
+   * @return CreateNodeGroupResponse
    */
   async createNodeGroup(request: CreateNodeGroupRequest): Promise<CreateNodeGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25447,11 +25509,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 缩容节点。
-    *
-    * @param request DecreaseNodesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DecreaseNodesResponse
+   * @summary Perform a scale-out operation on the target node group.
+   *
+   * @description 缩容节点。
+   *
+   * @param request DecreaseNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DecreaseNodesResponse
    */
   async decreaseNodesWithOptions(request: DecreaseNodesRequest, runtime: $Util.RuntimeOptions): Promise<DecreaseNodesResponse> {
     Util.validateModel(request);
@@ -25494,10 +25558,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 缩容节点。
-    *
-    * @param request DecreaseNodesRequest
-    * @return DecreaseNodesResponse
+   * @summary Perform a scale-out operation on the target node group.
+   *
+   * @description 缩容节点。
+   *
+   * @param request DecreaseNodesRequest
+   * @return DecreaseNodesResponse
    */
   async decreaseNodes(request: DecreaseNodesRequest): Promise<DecreaseNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25505,11 +25571,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建集群模板
-    *
-    * @param request DeleteApiTemplateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteApiTemplateResponse
+   * @description 创建集群模板
+   *
+   * @param request DeleteApiTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApiTemplateResponse
    */
   async deleteApiTemplateWithOptions(request: DeleteApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiTemplateResponse> {
     Util.validateModel(request);
@@ -25548,16 +25614,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建集群模板
-    *
-    * @param request DeleteApiTemplateRequest
-    * @return DeleteApiTemplateResponse
+   * @description 创建集群模板
+   *
+   * @param request DeleteApiTemplateRequest
+   * @return DeleteApiTemplateResponse
    */
   async deleteApiTemplate(request: DeleteApiTemplateRequest): Promise<DeleteApiTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApiTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteClusterResponse
+   */
   async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25586,11 +25657,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
   }
 
+  /**
+   * @param request DeleteClusterRequest
+   * @return DeleteClusterResponse
+   */
   async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取API模板详情
+   *
+   * @param request GetApiTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApiTemplateResponse
+   */
   async getApiTemplateWithOptions(request: GetApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetApiTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25619,17 +25701,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApiTemplateResponse>(await this.callApi(params, req, runtime), new GetApiTemplateResponse({}));
   }
 
+  /**
+   * @summary 获取API模板详情
+   *
+   * @param request GetApiTemplateRequest
+   * @return GetApiTemplateResponse
+   */
   async getApiTemplate(request: GetApiTemplateRequest): Promise<GetApiTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApiTemplateWithOptions(request, runtime);
   }
 
   /**
-    * 查询应用详情。
-    *
-    * @param request GetApplicationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetApplicationResponse
+   * @description 查询应用详情。
+   *
+   * @param request GetApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApplicationResponse
    */
   async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
     Util.validateModel(request);
@@ -25664,10 +25752,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询应用详情。
-    *
-    * @param request GetApplicationRequest
-    * @return GetApplicationResponse
+   * @description 查询应用详情。
+   *
+   * @param request GetApplicationRequest
+   * @return GetApplicationResponse
    */
   async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25675,11 +25763,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取弹性伸缩活动详情。
-    *
-    * @param request GetAutoScalingActivityRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAutoScalingActivityResponse
+   * @description 获取弹性伸缩活动详情。
+   *
+   * @param request GetAutoScalingActivityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAutoScalingActivityResponse
    */
   async getAutoScalingActivityWithOptions(request: GetAutoScalingActivityRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoScalingActivityResponse> {
     Util.validateModel(request);
@@ -25714,16 +25802,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取弹性伸缩活动详情。
-    *
-    * @param request GetAutoScalingActivityRequest
-    * @return GetAutoScalingActivityResponse
+   * @description 获取弹性伸缩活动详情。
+   *
+   * @param request GetAutoScalingActivityRequest
+   * @return GetAutoScalingActivityResponse
    */
   async getAutoScalingActivity(request: GetAutoScalingActivityRequest): Promise<GetAutoScalingActivityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAutoScalingActivityWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetAutoScalingPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAutoScalingPolicyResponse
+   */
   async getAutoScalingPolicyWithOptions(request: GetAutoScalingPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoScalingPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25756,11 +25849,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAutoScalingPolicyResponse>(await this.callApi(params, req, runtime), new GetAutoScalingPolicyResponse({}));
   }
 
+  /**
+   * @param request GetAutoScalingPolicyRequest
+   * @return GetAutoScalingPolicyResponse
+   */
   async getAutoScalingPolicy(request: GetAutoScalingPolicyRequest): Promise<GetAutoScalingPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAutoScalingPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the details of a cluster.
+   *
+   * @param request GetClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterResponse
+   */
   async getClusterWithOptions(request: GetClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25789,17 +25893,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterResponse>(await this.callApi(params, req, runtime), new GetClusterResponse({}));
   }
 
+  /**
+   * @summary Obtains the details of a cluster.
+   *
+   * @param request GetClusterRequest
+   * @return GetClusterResponse
+   */
   async getCluster(request: GetClusterRequest): Promise<GetClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClusterWithOptions(request, runtime);
   }
 
   /**
-    * get one doctor analysis app
-    *
-    * @param request GetDoctorApplicationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorApplicationResponse
+   * @summary Obtains job analysis information on E-MapReduce (EMR) Doctor.
+   *
+   * @description get one doctor analysis app
+   *
+   * @param request GetDoctorApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorApplicationResponse
    */
   async getDoctorApplicationWithOptions(request: GetDoctorApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorApplicationResponse> {
     Util.validateModel(request);
@@ -25838,10 +25950,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get one doctor analysis app
-    *
-    * @param request GetDoctorApplicationRequest
-    * @return GetDoctorApplicationResponse
+   * @summary Obtains job analysis information on E-MapReduce (EMR) Doctor.
+   *
+   * @description get one doctor analysis app
+   *
+   * @param request GetDoctorApplicationRequest
+   * @return GetDoctorApplicationResponse
    */
   async getDoctorApplication(request: GetDoctorApplicationRequest): Promise<GetDoctorApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25849,11 +25963,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get one specific luster engine queue by <type, name>
-    *
-    * @param request GetDoctorComputeSummaryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorComputeSummaryResponse
+   * @summary Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
+   *
+   * @description get one specific luster engine queue by <type, name>
+   *
+   * @param request GetDoctorComputeSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorComputeSummaryResponse
    */
   async getDoctorComputeSummaryWithOptions(request: GetDoctorComputeSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorComputeSummaryResponse> {
     Util.validateModel(request);
@@ -25892,10 +26008,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get one specific luster engine queue by <type, name>
-    *
-    * @param request GetDoctorComputeSummaryRequest
-    * @return GetDoctorComputeSummaryResponse
+   * @summary Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
+   *
+   * @description get one specific luster engine queue by <type, name>
+   *
+   * @param request GetDoctorComputeSummaryRequest
+   * @return GetDoctorComputeSummaryResponse
    */
   async getDoctorComputeSummary(request: GetDoctorComputeSummaryRequest): Promise<GetDoctorComputeSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25903,11 +26021,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor HBaseCluster
-    *
-    * @param request GetDoctorHBaseClusterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorHBaseClusterResponse
+   * @summary Obtains the metrics of an HBase cluster.
+   *
+   * @description get Doctor HBaseCluster
+   *
+   * @param request GetDoctorHBaseClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorHBaseClusterResponse
    */
   async getDoctorHBaseClusterWithOptions(request: GetDoctorHBaseClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHBaseClusterResponse> {
     Util.validateModel(request);
@@ -25942,10 +26062,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor HBaseCluster
-    *
-    * @param request GetDoctorHBaseClusterRequest
-    * @return GetDoctorHBaseClusterResponse
+   * @summary Obtains the metrics of an HBase cluster.
+   *
+   * @description get Doctor HBaseCluster
+   *
+   * @param request GetDoctorHBaseClusterRequest
+   * @return GetDoctorHBaseClusterResponse
    */
   async getDoctorHBaseCluster(request: GetDoctorHBaseClusterRequest): Promise<GetDoctorHBaseClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25953,11 +26075,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HBaseRegions
-    *
-    * @param request GetDoctorHBaseRegionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorHBaseRegionResponse
+   * @description list Doctor HBaseRegions
+   *
+   * @param request GetDoctorHBaseRegionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorHBaseRegionResponse
    */
   async getDoctorHBaseRegionWithOptions(request: GetDoctorHBaseRegionRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHBaseRegionResponse> {
     Util.validateModel(request);
@@ -25996,10 +26118,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HBaseRegions
-    *
-    * @param request GetDoctorHBaseRegionRequest
-    * @return GetDoctorHBaseRegionResponse
+   * @description list Doctor HBaseRegions
+   *
+   * @param request GetDoctorHBaseRegionRequest
+   * @return GetDoctorHBaseRegionResponse
    */
   async getDoctorHBaseRegion(request: GetDoctorHBaseRegionRequest): Promise<GetDoctorHBaseRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26007,11 +26129,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor HBaseRegionServer
-    *
-    * @param request GetDoctorHBaseRegionServerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorHBaseRegionServerResponse
+   * @summary Obtains the information about an HBase region server.
+   *
+   * @description get Doctor HBaseRegionServer
+   *
+   * @param request GetDoctorHBaseRegionServerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorHBaseRegionServerResponse
    */
   async getDoctorHBaseRegionServerWithOptions(request: GetDoctorHBaseRegionServerRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHBaseRegionServerResponse> {
     Util.validateModel(request);
@@ -26050,10 +26174,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor HBaseRegionServer
-    *
-    * @param request GetDoctorHBaseRegionServerRequest
-    * @return GetDoctorHBaseRegionServerResponse
+   * @summary Obtains the information about an HBase region server.
+   *
+   * @description get Doctor HBaseRegionServer
+   *
+   * @param request GetDoctorHBaseRegionServerRequest
+   * @return GetDoctorHBaseRegionServerResponse
    */
   async getDoctorHBaseRegionServer(request: GetDoctorHBaseRegionServerRequest): Promise<GetDoctorHBaseRegionServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26061,11 +26187,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor HBaseTable
-    *
-    * @param request GetDoctorHBaseTableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorHBaseTableResponse
+   * @description get Doctor HBaseTable
+   *
+   * @param request GetDoctorHBaseTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorHBaseTableResponse
    */
   async getDoctorHBaseTableWithOptions(request: GetDoctorHBaseTableRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHBaseTableResponse> {
     Util.validateModel(request);
@@ -26104,10 +26230,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor HBaseTable
-    *
-    * @param request GetDoctorHBaseTableRequest
-    * @return GetDoctorHBaseTableResponse
+   * @description get Doctor HBaseTable
+   *
+   * @param request GetDoctorHBaseTableRequest
+   * @return GetDoctorHBaseTableResponse
    */
   async getDoctorHBaseTable(request: GetDoctorHBaseTableRequest): Promise<GetDoctorHBaseTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26115,11 +26241,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HBaseTableRegions
-    *
-    * @param request GetDoctorHDFSClusterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorHDFSClusterResponse
+   * @summary Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
+   *
+   * @description list Doctor HBaseTableRegions
+   *
+   * @param request GetDoctorHDFSClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorHDFSClusterResponse
    */
   async getDoctorHDFSClusterWithOptions(request: GetDoctorHDFSClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHDFSClusterResponse> {
     Util.validateModel(request);
@@ -26154,10 +26282,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HBaseTableRegions
-    *
-    * @param request GetDoctorHDFSClusterRequest
-    * @return GetDoctorHDFSClusterResponse
+   * @summary Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
+   *
+   * @description list Doctor HBaseTableRegions
+   *
+   * @param request GetDoctorHDFSClusterRequest
+   * @return GetDoctorHDFSClusterResponse
    */
   async getDoctorHDFSCluster(request: GetDoctorHDFSClusterRequest): Promise<GetDoctorHDFSClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26165,11 +26295,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor HDFSNode
-    *
-    * @param request GetDoctorHDFSDirectoryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorHDFSDirectoryResponse
+   * @summary Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
+   *
+   * @description get Doctor HDFSNode
+   *
+   * @param request GetDoctorHDFSDirectoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorHDFSDirectoryResponse
    */
   async getDoctorHDFSDirectoryWithOptions(request: GetDoctorHDFSDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHDFSDirectoryResponse> {
     Util.validateModel(request);
@@ -26208,10 +26340,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor HDFSNode
-    *
-    * @param request GetDoctorHDFSDirectoryRequest
-    * @return GetDoctorHDFSDirectoryResponse
+   * @summary Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
+   *
+   * @description get Doctor HDFSNode
+   *
+   * @param request GetDoctorHDFSDirectoryRequest
+   * @return GetDoctorHDFSDirectoryResponse
    */
   async getDoctorHDFSDirectory(request: GetDoctorHDFSDirectoryRequest): Promise<GetDoctorHDFSDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26219,11 +26353,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor HDFS UGI
-    *
-    * @param request GetDoctorHDFSUGIRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorHDFSUGIResponse
+   * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for a specific owner or group on E-MapReduce (EMR) Doctor.
+   *
+   * @description get Doctor HDFS UGI
+   *
+   * @param request GetDoctorHDFSUGIRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorHDFSUGIResponse
    */
   async getDoctorHDFSUGIWithOptions(request: GetDoctorHDFSUGIRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHDFSUGIResponse> {
     Util.validateModel(request);
@@ -26266,10 +26402,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor HDFS UGI
-    *
-    * @param request GetDoctorHDFSUGIRequest
-    * @return GetDoctorHDFSUGIResponse
+   * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for a specific owner or group on E-MapReduce (EMR) Doctor.
+   *
+   * @description get Doctor HDFS UGI
+   *
+   * @param request GetDoctorHDFSUGIRequest
+   * @return GetDoctorHDFSUGIResponse
    */
   async getDoctorHDFSUGI(request: GetDoctorHDFSUGIRequest): Promise<GetDoctorHDFSUGIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26277,11 +26415,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor Hive Cluster
-    *
-    * @param request GetDoctorHiveClusterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorHiveClusterResponse
+   * @summary Obtains the analysis results of a Hive cluster.
+   *
+   * @description list Doctor Hive Cluster
+   *
+   * @param request GetDoctorHiveClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorHiveClusterResponse
    */
   async getDoctorHiveClusterWithOptions(request: GetDoctorHiveClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHiveClusterResponse> {
     Util.validateModel(request);
@@ -26316,10 +26456,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor Hive Cluster
-    *
-    * @param request GetDoctorHiveClusterRequest
-    * @return GetDoctorHiveClusterResponse
+   * @summary Obtains the analysis results of a Hive cluster.
+   *
+   * @description list Doctor Hive Cluster
+   *
+   * @param request GetDoctorHiveClusterRequest
+   * @return GetDoctorHiveClusterResponse
    */
   async getDoctorHiveCluster(request: GetDoctorHiveClusterRequest): Promise<GetDoctorHiveClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26327,11 +26469,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor Hive Database
-    *
-    * @param request GetDoctorHiveDatabaseRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorHiveDatabaseResponse
+   * @summary Obtains the analysis results of a Hive database.
+   *
+   * @description get Doctor Hive Database
+   *
+   * @param request GetDoctorHiveDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorHiveDatabaseResponse
    */
   async getDoctorHiveDatabaseWithOptions(request: GetDoctorHiveDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHiveDatabaseResponse> {
     Util.validateModel(request);
@@ -26370,10 +26514,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor Hive Database
-    *
-    * @param request GetDoctorHiveDatabaseRequest
-    * @return GetDoctorHiveDatabaseResponse
+   * @summary Obtains the analysis results of a Hive database.
+   *
+   * @description get Doctor Hive Database
+   *
+   * @param request GetDoctorHiveDatabaseRequest
+   * @return GetDoctorHiveDatabaseResponse
    */
   async getDoctorHiveDatabase(request: GetDoctorHiveDatabaseRequest): Promise<GetDoctorHiveDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26381,11 +26527,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor Hive Table
-    *
-    * @param request GetDoctorHiveTableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorHiveTableResponse
+   * @summary Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
+   *
+   * @description get Doctor Hive Table
+   *
+   * @param request GetDoctorHiveTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorHiveTableResponse
    */
   async getDoctorHiveTableWithOptions(request: GetDoctorHiveTableRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHiveTableResponse> {
     Util.validateModel(request);
@@ -26424,10 +26572,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get Doctor Hive Table
-    *
-    * @param request GetDoctorHiveTableRequest
-    * @return GetDoctorHiveTableResponse
+   * @summary Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
+   *
+   * @description get Doctor Hive Table
+   *
+   * @param request GetDoctorHiveTableRequest
+   * @return GetDoctorHiveTableResponse
    */
   async getDoctorHiveTable(request: GetDoctorHiveTableRequest): Promise<GetDoctorHiveTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26435,11 +26585,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get realtime job by yarn
-    *
-    * @param request GetDoctorJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorJobResponse
+   * @summary Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
+   *
+   * @description Get realtime job by yarn
+   *
+   * @param request GetDoctorJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorJobResponse
    */
   async getDoctorJobWithOptions(request: GetDoctorJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorJobResponse> {
     Util.validateModel(request);
@@ -26474,10 +26626,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get realtime job by yarn
-    *
-    * @param request GetDoctorJobRequest
-    * @return GetDoctorJobResponse
+   * @summary Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
+   *
+   * @description Get realtime job by yarn
+   *
+   * @param request GetDoctorJobRequest
+   * @return GetDoctorJobResponse
    */
   async getDoctorJob(request: GetDoctorJobRequest): Promise<GetDoctorJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26485,11 +26639,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get specify component's report analysis by emr doctor
-    *
-    * @param request GetDoctorReportComponentSummaryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDoctorReportComponentSummaryResponse
+   * @description get specify component's report analysis by emr doctor
+   *
+   * @param request GetDoctorReportComponentSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDoctorReportComponentSummaryResponse
    */
   async getDoctorReportComponentSummaryWithOptions(request: GetDoctorReportComponentSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorReportComponentSummaryResponse> {
     Util.validateModel(request);
@@ -26528,10 +26682,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * get specify component's report analysis by emr doctor
-    *
-    * @param request GetDoctorReportComponentSummaryRequest
-    * @return GetDoctorReportComponentSummaryResponse
+   * @description get specify component's report analysis by emr doctor
+   *
+   * @param request GetDoctorReportComponentSummaryRequest
+   * @return GetDoctorReportComponentSummaryResponse
    */
   async getDoctorReportComponentSummary(request: GetDoctorReportComponentSummaryRequest): Promise<GetDoctorReportComponentSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26539,11 +26693,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取节点组详情。
-    *
-    * @param request GetNodeGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetNodeGroupResponse
+   * @summary You can call this operation to obtain the details of a node group.
+   *
+   * @description 获取节点组详情。
+   *
+   * @param request GetNodeGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNodeGroupResponse
    */
   async getNodeGroupWithOptions(request: GetNodeGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeGroupResponse> {
     Util.validateModel(request);
@@ -26578,10 +26734,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取节点组详情。
-    *
-    * @param request GetNodeGroupRequest
-    * @return GetNodeGroupResponse
+   * @summary You can call this operation to obtain the details of a node group.
+   *
+   * @description 获取节点组详情。
+   *
+   * @param request GetNodeGroupRequest
+   * @return GetNodeGroupResponse
    */
   async getNodeGroup(request: GetNodeGroupRequest): Promise<GetNodeGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26589,11 +26747,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取操作详情。
-    *
-    * @param request GetOperationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetOperationResponse
+   * @summary Gets the details of an asynchronous operation.
+   *
+   * @description 获取操作详情。
+   *
+   * @param request GetOperationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOperationResponse
    */
   async getOperationWithOptions(request: GetOperationRequest, runtime: $Util.RuntimeOptions): Promise<GetOperationResponse> {
     Util.validateModel(request);
@@ -26628,16 +26788,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取操作详情。
-    *
-    * @param request GetOperationRequest
-    * @return GetOperationResponse
+   * @summary Gets the details of an asynchronous operation.
+   *
+   * @description 获取操作详情。
+   *
+   * @param request GetOperationRequest
+   * @return GetOperationResponse
    */
   async getOperation(request: GetOperationRequest): Promise<GetOperationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOperationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Scale out the node group.
+   *
+   * @param request IncreaseNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IncreaseNodesResponse
+   */
   async increaseNodesWithOptions(request: IncreaseNodesRequest, runtime: $Util.RuntimeOptions): Promise<IncreaseNodesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26694,11 +26863,24 @@ export default class Client extends OpenApi {
     return $tea.cast<IncreaseNodesResponse>(await this.callApi(params, req, runtime), new IncreaseNodesResponse({}));
   }
 
+  /**
+   * @summary Scale out the node group.
+   *
+   * @param request IncreaseNodesRequest
+   * @return IncreaseNodesResponse
+   */
   async increaseNodes(request: IncreaseNodesRequest): Promise<IncreaseNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.increaseNodesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Add an EMR resource to the target resource group. A resource can belong to only one resource group.
+   *
+   * @param request JoinResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return JoinResourceGroupResponse
+   */
   async joinResourceGroupWithOptions(request: JoinResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<JoinResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26735,11 +26917,24 @@ export default class Client extends OpenApi {
     return $tea.cast<JoinResourceGroupResponse>(await this.callApi(params, req, runtime), new JoinResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Add an EMR resource to the target resource group. A resource can belong to only one resource group.
+   *
+   * @param request JoinResourceGroupRequest
+   * @return JoinResourceGroupResponse
+   */
   async joinResourceGroup(request: JoinResourceGroupRequest): Promise<JoinResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.joinResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询API模板
+   *
+   * @param request ListApiTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApiTemplatesResponse
+   */
   async listApiTemplatesWithOptions(request: ListApiTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListApiTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26792,17 +26987,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApiTemplatesResponse>(await this.callApi(params, req, runtime), new ListApiTemplatesResponse({}));
   }
 
+  /**
+   * @summary 查询API模板
+   *
+   * @param request ListApiTemplatesRequest
+   * @return ListApiTemplatesResponse
+   */
   async listApiTemplates(request: ListApiTemplatesRequest): Promise<ListApiTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApiTemplatesWithOptions(request, runtime);
   }
 
   /**
-    * 查询应用配置。
-    *
-    * @param request ListApplicationConfigsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListApplicationConfigsResponse
+   * @description 查询应用配置。
+   *
+   * @param request ListApplicationConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationConfigsResponse
    */
   async listApplicationConfigsWithOptions(request: ListApplicationConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationConfigsResponse> {
     Util.validateModel(request);
@@ -26865,10 +27066,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询应用配置。
-    *
-    * @param request ListApplicationConfigsRequest
-    * @return ListApplicationConfigsResponse
+   * @description 查询应用配置。
+   *
+   * @param request ListApplicationConfigsRequest
+   * @return ListApplicationConfigsResponse
    */
   async listApplicationConfigs(request: ListApplicationConfigsRequest): Promise<ListApplicationConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26876,11 +27077,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询应用列表。
-    *
-    * @param request ListApplicationsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListApplicationsResponse
+   * @description 查询应用列表。
+   *
+   * @param request ListApplicationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationsResponse
    */
   async listApplicationsWithOptions(request: ListApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
     Util.validateModel(request);
@@ -26923,10 +27124,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询应用列表。
-    *
-    * @param request ListApplicationsRequest
-    * @return ListApplicationsResponse
+   * @description 查询应用列表。
+   *
+   * @param request ListApplicationsRequest
+   * @return ListApplicationsResponse
    */
   async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26934,11 +27135,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询弹性伸缩活动列表。
-    *
-    * @param request ListAutoScalingActivitiesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListAutoScalingActivitiesResponse
+   * @description 查询弹性伸缩活动列表。
+   *
+   * @param request ListAutoScalingActivitiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAutoScalingActivitiesResponse
    */
   async listAutoScalingActivitiesWithOptions(request: ListAutoScalingActivitiesRequest, runtime: $Util.RuntimeOptions): Promise<ListAutoScalingActivitiesResponse> {
     Util.validateModel(request);
@@ -27001,16 +27202,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询弹性伸缩活动列表。
-    *
-    * @param request ListAutoScalingActivitiesRequest
-    * @return ListAutoScalingActivitiesResponse
+   * @description 查询弹性伸缩活动列表。
+   *
+   * @param request ListAutoScalingActivitiesRequest
+   * @return ListAutoScalingActivitiesResponse
    */
   async listAutoScalingActivities(request: ListAutoScalingActivitiesRequest): Promise<ListAutoScalingActivitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAutoScalingActivitiesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries E-MapReduce (EMR) clusters.
+   *
+   * @param request ListClustersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClustersResponse
+   */
   async listClustersWithOptions(request: ListClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListClustersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27071,17 +27279,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
   }
 
+  /**
+   * @summary Queries E-MapReduce (EMR) clusters.
+   *
+   * @param request ListClustersRequest
+   * @return ListClustersResponse
+   */
   async listClusters(request: ListClustersRequest): Promise<ListClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClustersWithOptions(request, runtime);
   }
 
   /**
-    * 查询组件实例列表。
-    *
-    * @param request ListComponentInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListComponentInstancesResponse
+   * @description 查询组件实例列表。
+   *
+   * @param request ListComponentInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListComponentInstancesResponse
    */
   async listComponentInstancesWithOptions(request: ListComponentInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListComponentInstancesResponse> {
     Util.validateModel(request);
@@ -27140,10 +27354,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询组件实例列表。
-    *
-    * @param request ListComponentInstancesRequest
-    * @return ListComponentInstancesResponse
+   * @description 查询组件实例列表。
+   *
+   * @param request ListComponentInstancesRequest
+   * @return ListComponentInstancesResponse
    */
   async listComponentInstances(request: ListComponentInstancesRequest): Promise<ListComponentInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27151,11 +27365,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询组件列表。
-    *
-    * @param request ListComponentsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListComponentsResponse
+   * @description 查询组件列表。
+   *
+   * @param request ListComponentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListComponentsResponse
    */
   async listComponentsWithOptions(request: ListComponentsRequest, runtime: $Util.RuntimeOptions): Promise<ListComponentsResponse> {
     Util.validateModel(request);
@@ -27210,10 +27424,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询组件列表。
-    *
-    * @param request ListComponentsRequest
-    * @return ListComponentsResponse
+   * @description 查询组件列表。
+   *
+   * @param request ListComponentsRequest
+   * @return ListComponentsResponse
    */
   async listComponents(request: ListComponentsRequest): Promise<ListComponentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27221,11 +27435,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list all doctor analysis apps
-    *
-    * @param request ListDoctorApplicationsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDoctorApplicationsResponse
+   * @summary Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
+   *
+   * @description list all doctor analysis apps
+   *
+   * @param request ListDoctorApplicationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDoctorApplicationsResponse
    */
   async listDoctorApplicationsWithOptions(request: ListDoctorApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorApplicationsResponse> {
     Util.validateModel(request);
@@ -27292,10 +27508,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list all doctor analysis apps
-    *
-    * @param request ListDoctorApplicationsRequest
-    * @return ListDoctorApplicationsResponse
+   * @summary Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
+   *
+   * @description list all doctor analysis apps
+   *
+   * @param request ListDoctorApplicationsRequest
+   * @return ListDoctorApplicationsResponse
    */
   async listDoctorApplications(request: ListDoctorApplicationsRequest): Promise<ListDoctorApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27303,11 +27521,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor analysis result of cluster engine queue view
-    *
-    * @param request ListDoctorComputeSummaryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDoctorComputeSummaryResponse
+   * @summary Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
+   *
+   * @description list Doctor analysis result of cluster engine queue view
+   *
+   * @param request ListDoctorComputeSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDoctorComputeSummaryResponse
    */
   async listDoctorComputeSummaryWithOptions(request: ListDoctorComputeSummaryRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorComputeSummaryResponse> {
     Util.validateModel(request);
@@ -27362,10 +27582,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor analysis result of cluster engine queue view
-    *
-    * @param request ListDoctorComputeSummaryRequest
-    * @return ListDoctorComputeSummaryResponse
+   * @summary Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
+   *
+   * @description list Doctor analysis result of cluster engine queue view
+   *
+   * @param request ListDoctorComputeSummaryRequest
+   * @return ListDoctorComputeSummaryResponse
    */
   async listDoctorComputeSummary(request: ListDoctorComputeSummaryRequest): Promise<ListDoctorComputeSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27373,11 +27595,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HBaseRegionServers
-    *
-    * @param request ListDoctorHBaseRegionServersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDoctorHBaseRegionServersResponse
+   * @summary Obtains the information about multiple HBase RegionServers at a time.
+   *
+   * @description list Doctor HBaseRegionServers
+   *
+   * @param request ListDoctorHBaseRegionServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDoctorHBaseRegionServersResponse
    */
   async listDoctorHBaseRegionServersWithOptions(request: ListDoctorHBaseRegionServersRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHBaseRegionServersResponse> {
     Util.validateModel(request);
@@ -27432,10 +27656,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HBaseRegionServers
-    *
-    * @param request ListDoctorHBaseRegionServersRequest
-    * @return ListDoctorHBaseRegionServersResponse
+   * @summary Obtains the information about multiple HBase RegionServers at a time.
+   *
+   * @description list Doctor HBaseRegionServers
+   *
+   * @param request ListDoctorHBaseRegionServersRequest
+   * @return ListDoctorHBaseRegionServersResponse
    */
   async listDoctorHBaseRegionServers(request: ListDoctorHBaseRegionServersRequest): Promise<ListDoctorHBaseRegionServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27443,11 +27669,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HBaseTables
-    *
-    * @param request ListDoctorHBaseTablesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDoctorHBaseTablesResponse
+   * @summary Obtains the information about multiple HBase tables at a time.
+   *
+   * @description list Doctor HBaseTables
+   *
+   * @param request ListDoctorHBaseTablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDoctorHBaseTablesResponse
    */
   async listDoctorHBaseTablesWithOptions(request: ListDoctorHBaseTablesRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHBaseTablesResponse> {
     Util.validateModel(request);
@@ -27502,10 +27730,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HBaseTables
-    *
-    * @param request ListDoctorHBaseTablesRequest
-    * @return ListDoctorHBaseTablesResponse
+   * @summary Obtains the information about multiple HBase tables at a time.
+   *
+   * @description list Doctor HBaseTables
+   *
+   * @param request ListDoctorHBaseTablesRequest
+   * @return ListDoctorHBaseTablesResponse
    */
   async listDoctorHBaseTables(request: ListDoctorHBaseTablesRequest): Promise<ListDoctorHBaseTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27513,11 +27743,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HDFSNodes
-    *
-    * @param request ListDoctorHDFSDirectoriesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDoctorHDFSDirectoriesResponse
+   * @description list Doctor HDFSNodes
+   *
+   * @param request ListDoctorHDFSDirectoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDoctorHDFSDirectoriesResponse
    */
   async listDoctorHDFSDirectoriesWithOptions(request: ListDoctorHDFSDirectoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHDFSDirectoriesResponse> {
     Util.validateModel(request);
@@ -27572,10 +27802,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HDFSNodes
-    *
-    * @param request ListDoctorHDFSDirectoriesRequest
-    * @return ListDoctorHDFSDirectoriesResponse
+   * @description list Doctor HDFSNodes
+   *
+   * @param request ListDoctorHDFSDirectoriesRequest
+   * @return ListDoctorHDFSDirectoriesResponse
    */
   async listDoctorHDFSDirectories(request: ListDoctorHDFSDirectoriesRequest): Promise<ListDoctorHDFSDirectoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27583,11 +27813,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HDFS UGIs
-    *
-    * @param request ListDoctorHDFSUGIRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDoctorHDFSUGIResponse
+   * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
+   *
+   * @description list Doctor HDFS UGIs
+   *
+   * @param request ListDoctorHDFSUGIRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDoctorHDFSUGIResponse
    */
   async listDoctorHDFSUGIWithOptions(request: ListDoctorHDFSUGIRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHDFSUGIResponse> {
     Util.validateModel(request);
@@ -27642,10 +27874,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor HDFS UGIs
-    *
-    * @param request ListDoctorHDFSUGIRequest
-    * @return ListDoctorHDFSUGIResponse
+   * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
+   *
+   * @description list Doctor HDFS UGIs
+   *
+   * @param request ListDoctorHDFSUGIRequest
+   * @return ListDoctorHDFSUGIResponse
    */
   async listDoctorHDFSUGI(request: ListDoctorHDFSUGIRequest): Promise<ListDoctorHDFSUGIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27653,11 +27887,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor Hive Databases
-    *
-    * @param request ListDoctorHiveDatabasesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDoctorHiveDatabasesResponse
+   * @summary Obtains the analysis results of multiple Hive databases at a time.
+   *
+   * @description list Doctor Hive Databases
+   *
+   * @param request ListDoctorHiveDatabasesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDoctorHiveDatabasesResponse
    */
   async listDoctorHiveDatabasesWithOptions(request: ListDoctorHiveDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHiveDatabasesResponse> {
     Util.validateModel(request);
@@ -27712,10 +27948,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor Hive Databases
-    *
-    * @param request ListDoctorHiveDatabasesRequest
-    * @return ListDoctorHiveDatabasesResponse
+   * @summary Obtains the analysis results of multiple Hive databases at a time.
+   *
+   * @description list Doctor Hive Databases
+   *
+   * @param request ListDoctorHiveDatabasesRequest
+   * @return ListDoctorHiveDatabasesResponse
    */
   async listDoctorHiveDatabases(request: ListDoctorHiveDatabasesRequest): Promise<ListDoctorHiveDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27723,11 +27961,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor Hive Tables
-    *
-    * @param request ListDoctorHiveTablesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDoctorHiveTablesResponse
+   * @summary Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
+   *
+   * @description list Doctor Hive Tables
+   *
+   * @param request ListDoctorHiveTablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDoctorHiveTablesResponse
    */
   async listDoctorHiveTablesWithOptions(request: ListDoctorHiveTablesRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHiveTablesResponse> {
     Util.validateModel(request);
@@ -27782,10 +28022,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list Doctor Hive Tables
-    *
-    * @param request ListDoctorHiveTablesRequest
-    * @return ListDoctorHiveTablesResponse
+   * @summary Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
+   *
+   * @description list Doctor Hive Tables
+   *
+   * @param request ListDoctorHiveTablesRequest
+   * @return ListDoctorHiveTablesResponse
    */
   async listDoctorHiveTables(request: ListDoctorHiveTablesRequest): Promise<ListDoctorHiveTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27793,11 +28035,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list realtime jobs by yarn
-    *
-    * @param request ListDoctorJobsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDoctorJobsResponse
+   * @summary Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+   *
+   * @description list realtime jobs by yarn
+   *
+   * @param request ListDoctorJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDoctorJobsResponse
    */
   async listDoctorJobsWithOptions(request: ListDoctorJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorJobsResponse> {
     Util.validateModel(request);
@@ -27868,10 +28112,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list realtime jobs by yarn
-    *
-    * @param request ListDoctorJobsRequest
-    * @return ListDoctorJobsResponse
+   * @summary Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+   *
+   * @description list realtime jobs by yarn
+   *
+   * @param request ListDoctorJobsRequest
+   * @return ListDoctorJobsResponse
    */
   async listDoctorJobs(request: ListDoctorJobsRequest): Promise<ListDoctorJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27879,11 +28125,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list stats groupBy jobs by yarn
-    *
-    * @param request ListDoctorJobsStatsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDoctorJobsStatsResponse
+   * @summary Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+   *
+   * @description list stats groupBy jobs by yarn
+   *
+   * @param request ListDoctorJobsStatsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDoctorJobsStatsResponse
    */
   async listDoctorJobsStatsWithOptions(request: ListDoctorJobsStatsRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorJobsStatsResponse> {
     Util.validateModel(request);
@@ -27942,10 +28190,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list stats groupBy jobs by yarn
-    *
-    * @param request ListDoctorJobsStatsRequest
-    * @return ListDoctorJobsStatsResponse
+   * @summary Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+   *
+   * @description list stats groupBy jobs by yarn
+   *
+   * @param request ListDoctorJobsStatsRequest
+   * @return ListDoctorJobsStatsResponse
    */
   async listDoctorJobsStats(request: ListDoctorJobsStatsRequest): Promise<ListDoctorJobsStatsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27953,11 +28203,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list all reports analysis by emr doctor
-    *
-    * @param request ListDoctorReportsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDoctorReportsResponse
+   * @summary Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
+   *
+   * @description list all reports analysis by emr doctor
+   *
+   * @param request ListDoctorReportsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDoctorReportsResponse
    */
   async listDoctorReportsWithOptions(request: ListDoctorReportsRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorReportsResponse> {
     Util.validateModel(request);
@@ -27996,16 +28248,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * list all reports analysis by emr doctor
-    *
-    * @param request ListDoctorReportsRequest
-    * @return ListDoctorReportsResponse
+   * @summary Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
+   *
+   * @description list all reports analysis by emr doctor
+   *
+   * @param request ListDoctorReportsRequest
+   * @return ListDoctorReportsResponse
    */
   async listDoctorReports(request: ListDoctorReportsRequest): Promise<ListDoctorReportsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDoctorReportsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListInstanceTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceTypesResponse
+   */
   async listInstanceTypesWithOptions(request: ListInstanceTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceTypesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28070,11 +28329,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceTypesResponse>(await this.callApi(params, req, runtime), new ListInstanceTypesResponse({}));
   }
 
+  /**
+   * @param request ListInstanceTypesRequest
+   * @return ListInstanceTypesResponse
+   */
   async listInstanceTypes(request: ListInstanceTypesRequest): Promise<ListInstanceTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceTypesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of node groups in an EMR cluster.
+   *
+   * @param request ListNodeGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNodeGroupsResponse
+   */
   async listNodeGroupsWithOptions(request: ListNodeGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28127,11 +28397,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNodeGroupsResponse>(await this.callApi(params, req, runtime), new ListNodeGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries the list of node groups in an EMR cluster.
+   *
+   * @param request ListNodeGroupsRequest
+   * @return ListNodeGroupsResponse
+   */
   async listNodeGroups(request: ListNodeGroupsRequest): Promise<ListNodeGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodeGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the node list of an EMR cluster.
+   *
+   * @param request ListNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNodesResponse
+   */
   async listNodesWithOptions(request: ListNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28196,17 +28479,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
   }
 
+  /**
+   * @summary Queries the node list of an EMR cluster.
+   *
+   * @param request ListNodesRequest
+   * @return ListNodesResponse
+   */
   async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodesWithOptions(request, runtime);
   }
 
   /**
-    * 查询主版本。
-    *
-    * @param request ListReleaseVersionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListReleaseVersionsResponse
+   * @summary Queries the major E-MapReduce (EMR) versions.
+   *
+   * @description 查询主版本。
+   *
+   * @param request ListReleaseVersionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListReleaseVersionsResponse
    */
   async listReleaseVersionsWithOptions(request: ListReleaseVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListReleaseVersionsResponse> {
     Util.validateModel(request);
@@ -28241,10 +28532,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询主版本。
-    *
-    * @param request ListReleaseVersionsRequest
-    * @return ListReleaseVersionsResponse
+   * @summary Queries the major E-MapReduce (EMR) versions.
+   *
+   * @description 查询主版本。
+   *
+   * @param request ListReleaseVersionsRequest
+   * @return ListReleaseVersionsResponse
    */
   async listReleaseVersions(request: ListReleaseVersionsRequest): Promise<ListReleaseVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28252,11 +28545,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询集群脚本。
-    *
-    * @param request ListScriptsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListScriptsResponse
+   * @description 查询集群脚本。
+   *
+   * @param request ListScriptsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListScriptsResponse
    */
   async listScriptsWithOptions(request: ListScriptsRequest, runtime: $Util.RuntimeOptions): Promise<ListScriptsResponse> {
     Util.validateModel(request);
@@ -28299,16 +28592,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询集群脚本。
-    *
-    * @param request ListScriptsRequest
-    * @return ListScriptsResponse
+   * @description 查询集群脚本。
+   *
+   * @param request ListScriptsRequest
+   * @return ListScriptsResponse
    */
   async listScripts(request: ListScriptsRequest): Promise<ListScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listScriptsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tags that are bound to an EMR cluster.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28353,17 +28653,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries the tags that are bound to an EMR cluster.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to configure auto scaling policies.
-    *
-    * @param request PutAutoScalingPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PutAutoScalingPolicyResponse
+   * @summary Configures auto scaling rules.
+   *
+   * @description You can call this operation to configure auto scaling policies.
+   *
+   * @param request PutAutoScalingPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PutAutoScalingPolicyResponse
    */
   async putAutoScalingPolicyWithOptions(request: PutAutoScalingPolicyRequest, runtime: $Util.RuntimeOptions): Promise<PutAutoScalingPolicyResponse> {
     Util.validateModel(request);
@@ -28406,16 +28714,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to configure auto scaling policies.
-    *
-    * @param request PutAutoScalingPolicyRequest
-    * @return PutAutoScalingPolicyResponse
+   * @summary Configures auto scaling rules.
+   *
+   * @description You can call this operation to configure auto scaling policies.
+   *
+   * @param request PutAutoScalingPolicyRequest
+   * @return PutAutoScalingPolicyResponse
    */
   async putAutoScalingPolicy(request: PutAutoScalingPolicyRequest): Promise<PutAutoScalingPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putAutoScalingPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RemoveAutoScalingPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveAutoScalingPolicyResponse
+   */
   async removeAutoScalingPolicyWithOptions(request: RemoveAutoScalingPolicyRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAutoScalingPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28448,17 +28763,21 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveAutoScalingPolicyResponse>(await this.callApi(params, req, runtime), new RemoveAutoScalingPolicyResponse({}));
   }
 
+  /**
+   * @param request RemoveAutoScalingPolicyRequest
+   * @return RemoveAutoScalingPolicyResponse
+   */
   async removeAutoScalingPolicy(request: RemoveAutoScalingPolicyRequest): Promise<RemoveAutoScalingPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeAutoScalingPolicyWithOptions(request, runtime);
   }
 
   /**
-    * 执行集群模板
-    *
-    * @param request RunApiTemplateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RunApiTemplateResponse
+   * @description 执行集群模板
+   *
+   * @param request RunApiTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunApiTemplateResponse
    */
   async runApiTemplateWithOptions(request: RunApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<RunApiTemplateResponse> {
     Util.validateModel(request);
@@ -28497,16 +28816,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 执行集群模板
-    *
-    * @param request RunApiTemplateRequest
-    * @return RunApiTemplateResponse
+   * @description 执行集群模板
+   *
+   * @param request RunApiTemplateRequest
+   * @return RunApiTemplateResponse
    */
   async runApiTemplate(request: RunApiTemplateRequest): Promise<RunApiTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runApiTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RunApplicationActionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunApplicationActionResponse
+   */
   async runApplicationActionWithOptions(request: RunApplicationActionRequest, runtime: $Util.RuntimeOptions): Promise<RunApplicationActionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28563,11 +28887,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RunApplicationActionResponse>(await this.callApi(params, req, runtime), new RunApplicationActionResponse({}));
   }
 
+  /**
+   * @param request RunApplicationActionRequest
+   * @return RunApplicationActionResponse
+   */
   async runApplicationAction(request: RunApplicationActionRequest): Promise<RunApplicationActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runApplicationActionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Bind tags to a specified EMR cluster.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28604,17 +28939,25 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Bind tags to a specified EMR cluster.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * 删除指定资源标签。
-    *
-    * @param request UntagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UntagResourcesResponse
+   * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
+   *
+   * @description 删除指定资源标签。
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -28657,10 +29000,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除指定资源标签。
-    *
-    * @param request UntagResourcesRequest
-    * @return UntagResourcesResponse
+   * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
+   *
+   * @description 删除指定资源标签。
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28668,11 +29013,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 修改集群模板
-    *
-    * @param request UpdateApiTemplateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateApiTemplateResponse
+   * @description 修改集群模板
+   *
+   * @param request UpdateApiTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateApiTemplateResponse
    */
   async updateApiTemplateWithOptions(request: UpdateApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApiTemplateResponse> {
     Util.validateModel(request);
@@ -28719,16 +29064,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 修改集群模板
-    *
-    * @param request UpdateApiTemplateRequest
-    * @return UpdateApiTemplateResponse
+   * @description 修改集群模板
+   *
+   * @param request UpdateApiTemplateRequest
+   * @return UpdateApiTemplateResponse
    */
   async updateApiTemplate(request: UpdateApiTemplateRequest): Promise<UpdateApiTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateApiTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateApplicationConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateApplicationConfigsResponse
+   */
   async updateApplicationConfigsWithOptions(request: UpdateApplicationConfigsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28785,6 +29135,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateApplicationConfigsResponse>(await this.callApi(params, req, runtime), new UpdateApplicationConfigsResponse({}));
   }
 
+  /**
+   * @param request UpdateApplicationConfigsRequest
+   * @return UpdateApplicationConfigsResponse
+   */
   async updateApplicationConfigs(request: UpdateApplicationConfigsRequest): Promise<UpdateApplicationConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateApplicationConfigsWithOptions(request, runtime);
