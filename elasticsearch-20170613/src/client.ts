@@ -15918,6 +15918,7 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
   advancedDedicateMaster?: boolean;
   advancedSetting?: DescribeInstanceResponseBodyResultAdvancedSetting;
   aliwsDicts?: DescribeInstanceResponseBodyResultAliwsDicts[];
+  archType?: string;
   clientNodeConfiguration?: DescribeInstanceResponseBodyResultClientNodeConfiguration;
   createdAt?: string;
   dedicateMaster?: boolean;
@@ -15973,6 +15974,7 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
       advancedDedicateMaster: 'advancedDedicateMaster',
       advancedSetting: 'advancedSetting',
       aliwsDicts: 'aliwsDicts',
+      archType: 'archType',
       clientNodeConfiguration: 'clientNodeConfiguration',
       createdAt: 'createdAt',
       dedicateMaster: 'dedicateMaster',
@@ -16031,6 +16033,7 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
       advancedDedicateMaster: 'boolean',
       advancedSetting: DescribeInstanceResponseBodyResultAdvancedSetting,
       aliwsDicts: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultAliwsDicts },
+      archType: 'string',
       clientNodeConfiguration: DescribeInstanceResponseBodyResultClientNodeConfiguration,
       createdAt: 'string',
       dedicateMaster: 'boolean',
@@ -22377,6 +22380,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Restores nodes in disabled zones. This operation is available only for multi-zone Elasticsearch clusters.
+   *
+   * @param request ActivateZonesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ActivateZonesResponse
+   */
   async activateZonesWithOptions(InstanceId: string, request: ActivateZonesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ActivateZonesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22403,12 +22414,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ActivateZonesResponse>(await this.callApi(params, req, runtime), new ActivateZonesResponse({}));
   }
 
+  /**
+   * @summary Restores nodes in disabled zones. This operation is available only for multi-zone Elasticsearch clusters.
+   *
+   * @param request ActivateZonesRequest
+   * @return ActivateZonesResponse
+   */
   async activateZones(InstanceId: string, request: ActivateZonesRequest): Promise<ActivateZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.activateZonesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request AddConnectableClusterRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddConnectableClusterResponse
+   */
   async addConnectableClusterWithOptions(InstanceId: string, request: AddConnectableClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddConnectableClusterResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22435,12 +22458,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddConnectableClusterResponse>(await this.callApi(params, req, runtime), new AddConnectableClusterResponse({}));
   }
 
+  /**
+   * @param request AddConnectableClusterRequest
+   * @return AddConnectableClusterResponse
+   */
   async addConnectableCluster(InstanceId: string, request: AddConnectableClusterRequest): Promise<AddConnectableClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addConnectableClusterWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call the AddSnapshotRepo to create a reference repository when configuring a cross-cluster OSS repository.
+   *
+   * @param request AddSnapshotRepoRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddSnapshotRepoResponse
+   */
   async addSnapshotRepoWithOptions(InstanceId: string, request: AddSnapshotRepoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddSnapshotRepoResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -22461,12 +22496,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSnapshotRepoResponse>(await this.callApi(params, req, runtime), new AddSnapshotRepoResponse({}));
   }
 
+  /**
+   * @summary Call the AddSnapshotRepo to create a reference repository when configuring a cross-cluster OSS repository.
+   *
+   * @param request AddSnapshotRepoRequest
+   * @return AddSnapshotRepoResponse
+   */
   async addSnapshotRepo(InstanceId: string, request: AddSnapshotRepoRequest): Promise<AddSnapshotRepoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addSnapshotRepoWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Restores an Elasticsearch cluster that is frozen after it is released.
+   *
+   * @param request CancelDeletionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelDeletionResponse
+   */
   async cancelDeletionWithOptions(InstanceId: string, request: CancelDeletionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelDeletionResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22492,12 +22541,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelDeletionResponse>(await this.callApi(params, req, runtime), new CancelDeletionResponse({}));
   }
 
+  /**
+   * @summary Restores an Elasticsearch cluster that is frozen after it is released.
+   *
+   * @param request CancelDeletionRequest
+   * @return CancelDeletionResponse
+   */
   async cancelDeletion(InstanceId: string, request: CancelDeletionRequest): Promise<CancelDeletionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelDeletionWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Restores a Logstash cluster that is frozen after it is released.
+   *
+   * @param request CancelLogstashDeletionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelLogstashDeletionResponse
+   */
   async cancelLogstashDeletionWithOptions(InstanceId: string, request: CancelLogstashDeletionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelLogstashDeletionResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22523,12 +22586,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelLogstashDeletionResponse>(await this.callApi(params, req, runtime), new CancelLogstashDeletionResponse({}));
   }
 
+  /**
+   * @summary Restores a Logstash cluster that is frozen after it is released.
+   *
+   * @param request CancelLogstashDeletionRequest
+   * @return CancelLogstashDeletionResponse
+   */
   async cancelLogstashDeletion(InstanceId: string, request: CancelLogstashDeletionRequest): Promise<CancelLogstashDeletionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelLogstashDeletionWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request CancelTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelTaskResponse
+   */
   async cancelTaskWithOptions(InstanceId: string, request: CancelTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22558,12 +22633,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
   }
 
+  /**
+   * @param request CancelTaskRequest
+   * @return CancelTaskResponse
+   */
   async cancelTask(InstanceId: string, request: CancelTaskRequest): Promise<CancelTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 容量规划
+   *
+   * @param request CapacityPlanRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CapacityPlanResponse
+   */
   async capacityPlanWithOptions(request: CapacityPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CapacityPlanResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22601,12 +22688,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CapacityPlanResponse>(await this.callApi(params, req, runtime), new CapacityPlanResponse({}));
   }
 
+  /**
+   * @summary 容量规划
+   *
+   * @param request CapacityPlanRequest
+   * @return CapacityPlanResponse
+   */
   async capacityPlan(request: CapacityPlanRequest): Promise<CapacityPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.capacityPlanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 关闭实例的智能运维功能
+   *
+   * @param request CloseDiagnosisRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloseDiagnosisResponse
+   */
   async closeDiagnosisWithOptions(InstanceId: string, request: CloseDiagnosisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseDiagnosisResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22636,12 +22737,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseDiagnosisResponse>(await this.callApi(params, req, runtime), new CloseDiagnosisResponse({}));
   }
 
+  /**
+   * @summary 关闭实例的智能运维功能
+   *
+   * @param request CloseDiagnosisRequest
+   * @return CloseDiagnosisResponse
+   */
   async closeDiagnosis(InstanceId: string, request: CloseDiagnosisRequest): Promise<CloseDiagnosisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.closeDiagnosisWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request CloseHttpsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloseHttpsResponse
+   */
   async closeHttpsWithOptions(InstanceId: string, request: CloseHttpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseHttpsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22667,12 +22780,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseHttpsResponse>(await this.callApi(params, req, runtime), new CloseHttpsResponse({}));
   }
 
+  /**
+   * @param request CloseHttpsRequest
+   * @return CloseHttpsResponse
+   */
   async closeHttps(InstanceId: string, request: CloseHttpsRequest): Promise<CloseHttpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.closeHttpsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 关闭索引托管
+   *
+   * @param request CloseManagedIndexRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloseManagedIndexResponse
+   */
   async closeManagedIndexWithOptions(InstanceId: string, Index: string, request: CloseManagedIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseManagedIndexResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22698,12 +22823,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseManagedIndexResponse>(await this.callApi(params, req, runtime), new CloseManagedIndexResponse({}));
   }
 
+  /**
+   * @summary 关闭索引托管
+   *
+   * @param request CloseManagedIndexRequest
+   * @return CloseManagedIndexResponse
+   */
   async closeManagedIndex(InstanceId: string, Index: string, request: CloseManagedIndexRequest): Promise<CloseManagedIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.closeManagedIndexWithOptions(InstanceId, Index, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建收集器
+   *
+   * @param request CreateCollectorRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCollectorResponse
+   */
   async createCollectorWithOptions(request: CreateCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCollectorResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22763,12 +22902,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCollectorResponse>(await this.callApi(params, req, runtime), new CreateCollectorResponse({}));
   }
 
+  /**
+   * @summary 创建收集器
+   *
+   * @param request CreateCollectorRequest
+   * @return CreateCollectorResponse
+   */
   async createCollector(request: CreateCollectorRequest): Promise<CreateCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCollectorWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建Elasticsearch组合模板
+   *
+   * @param request CreateComponentIndexRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateComponentIndexResponse
+   */
   async createComponentIndexWithOptions(InstanceId: string, name: string, request: CreateComponentIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateComponentIndexResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22798,12 +22951,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateComponentIndexResponse>(await this.callApi(params, req, runtime), new CreateComponentIndexResponse({}));
   }
 
+  /**
+   * @summary 创建Elasticsearch组合模板
+   *
+   * @param request CreateComponentIndexRequest
+   * @return CreateComponentIndexResponse
+   */
   async createComponentIndex(InstanceId: string, name: string, request: CreateComponentIndexRequest): Promise<CreateComponentIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建数据流
+   *
+   * @param request CreateDataStreamRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataStreamResponse
+   */
   async createDataStreamWithOptions(InstanceId: string, request: CreateDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDataStreamResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22830,12 +22997,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataStreamResponse>(await this.callApi(params, req, runtime), new CreateDataStreamResponse({}));
   }
 
+  /**
+   * @summary 创建数据流
+   *
+   * @param request CreateDataStreamRequest
+   * @return CreateDataStreamResponse
+   */
   async createDataStream(InstanceId: string, request: CreateDataStreamRequest): Promise<CreateDataStreamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createDataStreamWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建索引生命周期策略
+   *
+   * @param request CreateILMPolicyRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateILMPolicyResponse
+   */
   async createILMPolicyWithOptions(InstanceId: string, request: CreateILMPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateILMPolicyResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22862,12 +23043,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateILMPolicyResponse>(await this.callApi(params, req, runtime), new CreateILMPolicyResponse({}));
   }
 
+  /**
+   * @summary 创建索引生命周期策略
+   *
+   * @param request CreateILMPolicyRequest
+   * @return CreateILMPolicyResponse
+   */
   async createILMPolicy(InstanceId: string, request: CreateILMPolicyRequest): Promise<CreateILMPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createILMPolicyWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建索引模版
+   *
+   * @param request CreateIndexTemplateRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIndexTemplateResponse
+   */
   async createIndexTemplateWithOptions(InstanceId: string, request: CreateIndexTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIndexTemplateResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22919,12 +23114,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIndexTemplateResponse>(await this.callApi(params, req, runtime), new CreateIndexTemplateResponse({}));
   }
 
+  /**
+   * @summary 创建索引模版
+   *
+   * @param request CreateIndexTemplateRequest
+   * @return CreateIndexTemplateResponse
+   */
   async createIndexTemplate(InstanceId: string, request: CreateIndexTemplateRequest): Promise<CreateIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIndexTemplateWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建logstash实例
+   *
+   * @param request CreateLogstashRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLogstashResponse
+   */
   async createLogstashWithOptions(request: CreateLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLogstashResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22984,12 +23193,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLogstashResponse>(await this.callApi(params, req, runtime), new CreateLogstashResponse({}));
   }
 
+  /**
+   * @summary 创建logstash实例
+   *
+   * @param request CreateLogstashRequest
+   * @return CreateLogstashResponse
+   */
   async createLogstash(request: CreateLogstashRequest): Promise<CreateLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createLogstashWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建Logstash管道任务
+   *
+   * @param request CreatePipelinesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePipelinesResponse
+   */
   async createPipelinesWithOptions(InstanceId: string, request: CreatePipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelinesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23020,12 +23243,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePipelinesResponse>(await this.callApi(params, req, runtime), new CreatePipelinesResponse({}));
   }
 
+  /**
+   * @summary 创建Logstash管道任务
+   *
+   * @param request CreatePipelinesRequest
+   * @return CreatePipelinesResponse
+   */
   async createPipelines(InstanceId: string, request: CreatePipelinesRequest): Promise<CreatePipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createPipelinesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request CreateSnapshotRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSnapshotResponse
+   */
   async createSnapshotWithOptions(InstanceId: string, request: CreateSnapshotRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23052,6 +23287,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSnapshotResponse>(await this.callApi(params, req, runtime), new CreateSnapshotResponse({}));
   }
 
+  /**
+   * @param request CreateSnapshotRequest
+   * @return CreateSnapshotResponse
+   */
   async createSnapshot(InstanceId: string, request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -23059,12 +23298,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
-    *
-    * @param request CreateVpcEndpointRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpcEndpointResponse
+   * @summary 创建私网链接VPC终端节点
+   *
+   * @description 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
+   *
+   * @param request CreateVpcEndpointRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpcEndpointResponse
    */
   async createVpcEndpointWithOptions(InstanceId: string, request: CreateVpcEndpointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVpcEndpointResponse> {
     Util.validateModel(request);
@@ -23106,10 +23347,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
-    *
-    * @param request CreateVpcEndpointRequest
-    * @return CreateVpcEndpointResponse
+   * @summary 创建私网链接VPC终端节点
+   *
+   * @description 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
+   *
+   * @param request CreateVpcEndpointRequest
+   * @return CreateVpcEndpointResponse
    */
   async createVpcEndpoint(InstanceId: string, request: CreateVpcEndpointRequest): Promise<CreateVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23117,6 +23360,14 @@ export default class Client extends OpenApi {
     return await this.createVpcEndpointWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call deactivatezones to offline part of the zone when multiple zones are available. And you need to migrate the nodes in the offline zone to other zones.
+   *
+   * @param request DeactivateZonesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeactivateZonesResponse
+   */
   async deactivateZonesWithOptions(InstanceId: string, request: DeactivateZonesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeactivateZonesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23143,12 +23394,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeactivateZonesResponse>(await this.callApi(params, req, runtime), new DeactivateZonesResponse({}));
   }
 
+  /**
+   * @summary Call deactivatezones to offline part of the zone when multiple zones are available. And you need to migrate the nodes in the offline zone to other zones.
+   *
+   * @param request DeactivateZonesRequest
+   * @return DeactivateZonesResponse
+   */
   async deactivateZones(InstanceId: string, request: DeactivateZonesRequest): Promise<DeactivateZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deactivateZonesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a shipper.
+   *
+   * @param request DeleteCollectorRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCollectorResponse
+   */
   async deleteCollectorWithOptions(ResId: string, request: DeleteCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCollectorResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23174,12 +23439,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCollectorResponse>(await this.callApi(params, req, runtime), new DeleteCollectorResponse({}));
   }
 
+  /**
+   * @summary Deletes a shipper.
+   *
+   * @param request DeleteCollectorRequest
+   * @return DeleteCollectorResponse
+   */
   async deleteCollector(ResId: string, request: DeleteCollectorRequest): Promise<DeleteCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCollectorWithOptions(ResId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除组合索引模板
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteComponentIndexResponse
+   */
   async deleteComponentIndexWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteComponentIndexResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23198,12 +23476,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteComponentIndexResponse>(await this.callApi(params, req, runtime), new DeleteComponentIndexResponse({}));
   }
 
+  /**
+   * @summary 删除组合索引模板
+   *
+   * @return DeleteComponentIndexResponse
+   */
   async deleteComponentIndex(InstanceId: string, name: string): Promise<DeleteComponentIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteComponentIndexWithOptions(InstanceId, name, headers, runtime);
   }
 
+  /**
+   * @param request DeleteConnectedClusterRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteConnectedClusterResponse
+   */
   async deleteConnectedClusterWithOptions(InstanceId: string, request: DeleteConnectedClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConnectedClusterResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23233,12 +23522,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConnectedClusterResponse>(await this.callApi(params, req, runtime), new DeleteConnectedClusterResponse({}));
   }
 
+  /**
+   * @param request DeleteConnectedClusterRequest
+   * @return DeleteConnectedClusterResponse
+   */
   async deleteConnectedCluster(InstanceId: string, request: DeleteConnectedClusterRequest): Promise<DeleteConnectedClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteConnectedClusterWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除数据流
+   *
+   * @param request DeleteDataStreamRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataStreamResponse
+   */
   async deleteDataStreamWithOptions(InstanceId: string, DataStream: string, request: DeleteDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDataStreamResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23264,12 +23565,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataStreamResponse>(await this.callApi(params, req, runtime), new DeleteDataStreamResponse({}));
   }
 
+  /**
+   * @summary 删除数据流
+   *
+   * @param request DeleteDataStreamRequest
+   * @return DeleteDataStreamResponse
+   */
   async deleteDataStream(InstanceId: string, DataStream: string, request: DeleteDataStreamRequest): Promise<DeleteDataStreamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
   }
 
+  /**
+   * @param request DeleteDataTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataTaskResponse
+   */
   async deleteDataTaskWithOptions(InstanceId: string, request: DeleteDataTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDataTaskResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23299,12 +23612,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataTaskResponse>(await this.callApi(params, req, runtime), new DeleteDataTaskResponse({}));
   }
 
+  /**
+   * @param request DeleteDataTaskRequest
+   * @return DeleteDataTaskResponse
+   */
   async deleteDataTask(InstanceId: string, request: DeleteDataTaskRequest): Promise<DeleteDataTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDataTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除历史索引模板
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDeprecatedTemplateResponse
+   */
   async deleteDeprecatedTemplateWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDeprecatedTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23323,12 +23647,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDeprecatedTemplateResponse>(await this.callApi(params, req, runtime), new DeleteDeprecatedTemplateResponse({}));
   }
 
+  /**
+   * @summary 删除历史索引模板
+   *
+   * @return DeleteDeprecatedTemplateResponse
+   */
   async deleteDeprecatedTemplate(InstanceId: string, name: string): Promise<DeleteDeprecatedTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteILMPolicyResponse
+   */
   async deleteILMPolicyWithOptions(InstanceId: string, PolicyName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteILMPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23347,12 +23681,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteILMPolicyResponse>(await this.callApi(params, req, runtime), new DeleteILMPolicyResponse({}));
   }
 
+  /**
+   * @return DeleteILMPolicyResponse
+   */
   async deleteILMPolicy(InstanceId: string, PolicyName: string): Promise<DeleteILMPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
   }
 
+  /**
+   * @summary 删除ES集群索引模版
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIndexTemplateResponse
+   */
   async deleteIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23371,12 +23715,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIndexTemplateResponse>(await this.callApi(params, req, runtime), new DeleteIndexTemplateResponse({}));
   }
 
+  /**
+   * @summary 删除ES集群索引模版
+   *
+   * @return DeleteIndexTemplateResponse
+   */
   async deleteIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DeleteIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
   }
 
+  /**
+   * @param request DeleteInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
+   */
   async deleteInstanceWithOptions(InstanceId: string, request: DeleteInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23406,6 +23761,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
+  /**
+   * @param request DeleteInstanceRequest
+   * @return DeleteInstanceResponse
+   */
   async deleteInstance(InstanceId: string, request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -23413,12 +23772,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
-    *
-    * @param request DeleteLogstashRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteLogstashResponse
+   * @summary Releases a Logstash cluster.
+   *
+   * @description Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+   *
+   * @param request DeleteLogstashRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLogstashResponse
    */
   async deleteLogstashWithOptions(InstanceId: string, request: DeleteLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLogstashResponse> {
     Util.validateModel(request);
@@ -23450,10 +23811,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
-    *
-    * @param request DeleteLogstashRequest
-    * @return DeleteLogstashResponse
+   * @summary Releases a Logstash cluster.
+   *
+   * @description Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+   *
+   * @param request DeleteLogstashRequest
+   * @return DeleteLogstashResponse
    */
   async deleteLogstash(InstanceId: string, request: DeleteLogstashRequest): Promise<DeleteLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23461,6 +23824,14 @@ export default class Client extends OpenApi {
     return await this.deleteLogstashWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a pipeline that is configured for a Logstash cluster.
+   *
+   * @param request DeletePipelinesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePipelinesResponse
+   */
   async deletePipelinesWithOptions(InstanceId: string, request: DeletePipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePipelinesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23490,12 +23861,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePipelinesResponse>(await this.callApi(params, req, runtime), new DeletePipelinesResponse({}));
   }
 
+  /**
+   * @summary Deletes a pipeline that is configured for a Logstash cluster.
+   *
+   * @param request DeletePipelinesRequest
+   * @return DeletePipelinesResponse
+   */
   async deletePipelines(InstanceId: string, request: DeletePipelinesRequest): Promise<DeletePipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deletePipelinesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request DeleteSnapshotRepoRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSnapshotRepoResponse
+   */
   async deleteSnapshotRepoWithOptions(InstanceId: string, request: DeleteSnapshotRepoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotRepoResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23525,12 +23908,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSnapshotRepoResponse>(await this.callApi(params, req, runtime), new DeleteSnapshotRepoResponse({}));
   }
 
+  /**
+   * @param request DeleteSnapshotRepoRequest
+   * @return DeleteSnapshotRepoResponse
+   */
   async deleteSnapshotRepo(InstanceId: string, request: DeleteSnapshotRepoRequest): Promise<DeleteSnapshotRepoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteSnapshotRepoWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除服务账号vpc下的终端节点
+   *
+   * @param request DeleteVpcEndpointRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpcEndpointResponse
+   */
   async deleteVpcEndpointWithOptions(InstanceId: string, EndpointId: string, request: DeleteVpcEndpointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23556,6 +23951,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcEndpointResponse>(await this.callApi(params, req, runtime), new DeleteVpcEndpointResponse({}));
   }
 
+  /**
+   * @summary 删除服务账号vpc下的终端节点
+   *
+   * @param request DeleteVpcEndpointRequest
+   * @return DeleteVpcEndpointResponse
+   */
   async deleteVpcEndpoint(InstanceId: string, EndpointId: string, request: DeleteVpcEndpointRequest): Promise<DeleteVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -23563,11 +23964,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAckOperatorResponse
+   * @summary Queries the information of ES-operator that is installed for a specified Container Service for Kubernetes (ACK) cluster.
+   *
+   * @description > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAckOperatorResponse
    */
   async describeAckOperatorWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAckOperatorResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -23588,9 +23991,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
-    *
-    * @return DescribeAckOperatorResponse
+   * @summary Queries the information of ES-operator that is installed for a specified Container Service for Kubernetes (ACK) cluster.
+   *
+   * @description > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+   *
+   * @return DescribeAckOperatorResponse
    */
   async describeAckOperator(ClusterId: string): Promise<DescribeAckOperatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23598,6 +24003,13 @@ export default class Client extends OpenApi {
     return await this.describeAckOperatorWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+   * @summary DescribeApm
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApmResponse
+   */
   async describeApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApmResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23616,12 +24028,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApmResponse>(await this.callApi(params, req, runtime), new DescribeApmResponse({}));
   }
 
+  /**
+   * @summary DescribeApm
+   *
+   * @return DescribeApmResponse
+   */
   async describeApm(instanceId: string): Promise<DescribeApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeApmWithOptions(instanceId, headers, runtime);
   }
 
+  /**
+   * @summary Queries the details of a shipper.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCollectorResponse
+   */
   async describeCollectorWithOptions(ResId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeCollectorResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23640,12 +24064,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCollectorResponse>(await this.callApi(params, req, runtime), new DescribeCollectorResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a shipper.
+   *
+   * @return DescribeCollectorResponse
+   */
   async describeCollector(ResId: string): Promise<DescribeCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeCollectorWithOptions(ResId, headers, runtime);
   }
 
+  /**
+   * @summary 查看组合索引模板详情
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeComponentIndexResponse
+   */
   async describeComponentIndexWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeComponentIndexResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23664,12 +24100,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeComponentIndexResponse>(await this.callApi(params, req, runtime), new DescribeComponentIndexResponse({}));
   }
 
+  /**
+   * @summary 查看组合索引模板详情
+   *
+   * @return DescribeComponentIndexResponse
+   */
   async describeComponentIndex(InstanceId: string, name: string): Promise<DescribeComponentIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeComponentIndexWithOptions(InstanceId, name, headers, runtime);
   }
 
+  /**
+   * @param request DescribeConnectableClustersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeConnectableClustersResponse
+   */
   async describeConnectableClustersWithOptions(InstanceId: string, request: DescribeConnectableClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeConnectableClustersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23695,12 +24142,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeConnectableClustersResponse>(await this.callApi(params, req, runtime), new DescribeConnectableClustersResponse({}));
   }
 
+  /**
+   * @param request DescribeConnectableClustersRequest
+   * @return DescribeConnectableClustersResponse
+   */
   async describeConnectableClusters(InstanceId: string, request: DescribeConnectableClustersRequest): Promise<DescribeConnectableClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeConnectableClustersWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary DescribeDeprecatedTemplate
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDeprecatedTemplateResponse
+   */
   async describeDeprecatedTemplateWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDeprecatedTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23719,12 +24177,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDeprecatedTemplateResponse>(await this.callApi(params, req, runtime), new DescribeDeprecatedTemplateResponse({}));
   }
 
+  /**
+   * @summary DescribeDeprecatedTemplate
+   *
+   * @return DescribeDeprecatedTemplateResponse
+   */
   async describeDeprecatedTemplate(InstanceId: string, name: string): Promise<DescribeDeprecatedTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
   }
 
+  /**
+   * @param request DescribeDiagnoseReportRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDiagnoseReportResponse
+   */
   async describeDiagnoseReportWithOptions(InstanceId: string, ReportId: string, request: DescribeDiagnoseReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnoseReportResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23750,12 +24219,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnoseReportResponse>(await this.callApi(params, req, runtime), new DescribeDiagnoseReportResponse({}));
   }
 
+  /**
+   * @param request DescribeDiagnoseReportRequest
+   * @return DescribeDiagnoseReportResponse
+   */
   async describeDiagnoseReport(InstanceId: string, ReportId: string, request: DescribeDiagnoseReportRequest): Promise<DescribeDiagnoseReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeDiagnoseReportWithOptions(InstanceId, ReportId, request, headers, runtime);
   }
 
+  /**
+   * @param request DescribeDiagnosisSettingsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDiagnosisSettingsResponse
+   */
   async describeDiagnosisSettingsWithOptions(InstanceId: string, request: DescribeDiagnosisSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisSettingsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23781,12 +24260,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnosisSettingsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisSettingsResponse({}));
   }
 
+  /**
+   * @param request DescribeDiagnosisSettingsRequest
+   * @return DescribeDiagnosisSettingsResponse
+   */
   async describeDiagnosisSettings(InstanceId: string, request: DescribeDiagnosisSettingsRequest): Promise<DescribeDiagnosisSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeDiagnosisSettingsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取集群动态指标
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDynamicSettingsResponse
+   */
   async describeDynamicSettingsWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDynamicSettingsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23805,6 +24295,11 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDynamicSettingsResponse>(await this.callApi(params, req, runtime), new DescribeDynamicSettingsResponse({}));
   }
 
+  /**
+   * @summary 获取集群动态指标
+   *
+   * @return DescribeDynamicSettingsResponse
+   */
   async describeDynamicSettings(InstanceId: string): Promise<DescribeDynamicSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -23812,14 +24307,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * An Elasticsearch cluster can be in a health state indicated by one of the following colors:
-    * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
-    * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
-    * *   RED: Primary shards are not normally allocated.
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeElasticsearchHealthResponse
+   * @summary Queries the health status of an Elasticsearch cluster.
+   *
+   * @description An Elasticsearch cluster can be in a health state indicated by one of the following colors:
+   * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
+   * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
+   * *   RED: Primary shards are not normally allocated.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeElasticsearchHealthResponse
    */
   async describeElasticsearchHealthWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeElasticsearchHealthResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -23840,12 +24337,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * An Elasticsearch cluster can be in a health state indicated by one of the following colors:
-    * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
-    * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
-    * *   RED: Primary shards are not normally allocated.
-    *
-    * @return DescribeElasticsearchHealthResponse
+   * @summary Queries the health status of an Elasticsearch cluster.
+   *
+   * @description An Elasticsearch cluster can be in a health state indicated by one of the following colors:
+   * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
+   * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
+   * *   RED: Primary shards are not normally allocated.
+   *
+   * @return DescribeElasticsearchHealthResponse
    */
   async describeElasticsearchHealth(InstanceId: string): Promise<DescribeElasticsearchHealthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23853,6 +24352,11 @@ export default class Client extends OpenApi {
     return await this.describeElasticsearchHealthWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeILMPolicyResponse
+   */
   async describeILMPolicyWithOptions(InstanceId: string, PolicyName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeILMPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23871,12 +24375,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeILMPolicyResponse>(await this.callApi(params, req, runtime), new DescribeILMPolicyResponse({}));
   }
 
+  /**
+   * @return DescribeILMPolicyResponse
+   */
   async describeILMPolicy(InstanceId: string, PolicyName: string): Promise<DescribeILMPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIndexTemplateResponse
+   */
   async describeIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeIndexTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23895,12 +24407,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIndexTemplateResponse>(await this.callApi(params, req, runtime), new DescribeIndexTemplateResponse({}));
   }
 
+  /**
+   * @return DescribeIndexTemplateResponse
+   */
   async describeIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DescribeIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
   }
 
+  /**
+   * @summary The name of the dictionary file.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceResponse
+   */
   async describeInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23919,12 +24441,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
   }
 
+  /**
+   * @summary The name of the dictionary file.
+   *
+   * @return DescribeInstanceResponse
+   */
   async describeInstance(InstanceId: string): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeInstanceWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 获取Elasticsearch集群Kibana节点settings配置
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeKibanaSettingsResponse
+   */
   async describeKibanaSettingsWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeKibanaSettingsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23943,12 +24477,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeKibanaSettingsResponse>(await this.callApi(params, req, runtime), new DescribeKibanaSettingsResponse({}));
   }
 
+  /**
+   * @summary 获取Elasticsearch集群Kibana节点settings配置
+   *
+   * @return DescribeKibanaSettingsResponse
+   */
   async describeKibanaSettings(InstanceId: string): Promise<DescribeKibanaSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeKibanaSettingsWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 查看Logstash实例详情
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogstashResponse
+   */
   async describeLogstashWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeLogstashResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23967,12 +24513,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogstashResponse>(await this.callApi(params, req, runtime), new DescribeLogstashResponse({}));
   }
 
+  /**
+   * @summary 查看Logstash实例详情
+   *
+   * @return DescribeLogstashResponse
+   */
   async describeLogstash(InstanceId: string): Promise<DescribeLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeLogstashWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePipelineResponse
+   */
   async describePipelineWithOptions(InstanceId: string, PipelineId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePipelineResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -23991,12 +24547,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePipelineResponse>(await this.callApi(params, req, runtime), new DescribePipelineResponse({}));
   }
 
+  /**
+   * @return DescribePipelineResponse
+   */
   async describePipeline(InstanceId: string, PipelineId: string): Promise<DescribePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describePipelineWithOptions(InstanceId, PipelineId, headers, runtime);
   }
 
+  /**
+   * @summary Queries the management configurations of pipelines in a Logstash cluster.
+   *
+   * @param request DescribePipelineManagementConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePipelineManagementConfigResponse
+   */
   async describePipelineManagementConfigWithOptions(InstanceId: string, request: DescribePipelineManagementConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePipelineManagementConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24022,12 +24589,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePipelineManagementConfigResponse>(await this.callApi(params, req, runtime), new DescribePipelineManagementConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the management configurations of pipelines in a Logstash cluster.
+   *
+   * @param request DescribePipelineManagementConfigRequest
+   * @return DescribePipelineManagementConfigResponse
+   */
   async describePipelineManagementConfig(InstanceId: string, request: DescribePipelineManagementConfigRequest): Promise<DescribePipelineManagementConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describePipelineManagementConfigWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -24046,12 +24624,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeRegionsWithOptions(headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSnapshotSettingResponse
+   */
   async describeSnapshotSettingWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotSettingResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -24070,12 +24656,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotSettingResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotSettingResponse({}));
   }
 
+  /**
+   * @return DescribeSnapshotSettingResponse
+   */
   async describeSnapshotSetting(InstanceId: string): Promise<DescribeSnapshotSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeSnapshotSettingWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTemplatesResponse
+   */
   async describeTemplatesWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTemplatesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -24094,12 +24688,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeTemplatesResponse({}));
   }
 
+  /**
+   * @return DescribeTemplatesResponse
+   */
   async describeTemplates(InstanceId: string): Promise<DescribeTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeTemplatesWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of the X-Pack Monitoring feature of a Logstash cluster.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeXpackMonitorConfigResponse
+   */
   async describeXpackMonitorConfigWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeXpackMonitorConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -24118,12 +24722,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeXpackMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeXpackMonitorConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of the X-Pack Monitoring feature of a Logstash cluster.
+   *
+   * @return DescribeXpackMonitorConfigResponse
+   */
   async describeXpackMonitorConfig(InstanceId: string): Promise<DescribeXpackMonitorConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeXpackMonitorConfigWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 触发ES实例智能诊断
+   *
+   * @param request DiagnoseInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DiagnoseInstanceResponse
+   */
   async diagnoseInstanceWithOptions(InstanceId: string, request: DiagnoseInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DiagnoseInstanceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24167,12 +24784,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DiagnoseInstanceResponse>(await this.callApi(params, req, runtime), new DiagnoseInstanceResponse({}));
   }
 
+  /**
+   * @summary 触发ES实例智能诊断
+   *
+   * @param request DiagnoseInstanceRequest
+   * @return DiagnoseInstanceResponse
+   */
   async diagnoseInstance(InstanceId: string, request: DiagnoseInstanceRequest): Promise<DiagnoseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.diagnoseInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 关闭kibana私网
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableKibanaPvlNetworkResponse
+   */
   async disableKibanaPvlNetworkWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableKibanaPvlNetworkResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -24191,12 +24821,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableKibanaPvlNetworkResponse>(await this.callApi(params, req, runtime), new DisableKibanaPvlNetworkResponse({}));
   }
 
+  /**
+   * @summary 关闭kibana私网
+   *
+   * @return DisableKibanaPvlNetworkResponse
+   */
   async disableKibanaPvlNetwork(InstanceId: string): Promise<DisableKibanaPvlNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableKibanaPvlNetworkWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 开启v3 kibana私网
+   *
+   * @param request EnableKibanaPvlNetworkRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableKibanaPvlNetworkResponse
+   */
   async enableKibanaPvlNetworkWithOptions(InstanceId: string, request: EnableKibanaPvlNetworkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableKibanaPvlNetworkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24234,12 +24877,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableKibanaPvlNetworkResponse>(await this.callApi(params, req, runtime), new EnableKibanaPvlNetworkResponse({}));
   }
 
+  /**
+   * @summary 开启v3 kibana私网
+   *
+   * @param request EnableKibanaPvlNetworkRequest
+   * @return EnableKibanaPvlNetworkResponse
+   */
   async enableKibanaPvlNetwork(InstanceId: string, request: EnableKibanaPvlNetworkRequest): Promise<EnableKibanaPvlNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableKibanaPvlNetworkWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the estimated time that is required to restart a Logstash cluster.
+   *
+   * @param request EstimatedLogstashRestartTimeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EstimatedLogstashRestartTimeResponse
+   */
   async estimatedLogstashRestartTimeWithOptions(InstanceId: string, request: EstimatedLogstashRestartTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EstimatedLogstashRestartTimeResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24266,12 +24923,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EstimatedLogstashRestartTimeResponse>(await this.callApi(params, req, runtime), new EstimatedLogstashRestartTimeResponse({}));
   }
 
+  /**
+   * @summary Queries the estimated time that is required to restart a Logstash cluster.
+   *
+   * @param request EstimatedLogstashRestartTimeRequest
+   * @return EstimatedLogstashRestartTimeResponse
+   */
   async estimatedLogstashRestartTime(InstanceId: string, request: EstimatedLogstashRestartTimeRequest): Promise<EstimatedLogstashRestartTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.estimatedLogstashRestartTimeWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the estimated time that is required to restart an Elasticsearch cluster.
+   *
+   * @param request EstimatedRestartTimeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EstimatedRestartTimeResponse
+   */
   async estimatedRestartTimeWithOptions(InstanceId: string, request: EstimatedRestartTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EstimatedRestartTimeResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24298,12 +24969,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EstimatedRestartTimeResponse>(await this.callApi(params, req, runtime), new EstimatedRestartTimeResponse({}));
   }
 
+  /**
+   * @summary Queries the estimated time that is required to restart an Elasticsearch cluster.
+   *
+   * @param request EstimatedRestartTimeRequest
+   * @return EstimatedRestartTimeResponse
+   */
   async estimatedRestartTime(InstanceId: string, request: EstimatedRestartTimeRequest): Promise<EstimatedRestartTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.estimatedRestartTimeWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call GetClusterDataInformation to obtain the data information about the cluster.
+   *
+   * @param request GetClusterDataInformationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterDataInformationResponse
+   */
   async getClusterDataInformationWithOptions(request: GetClusterDataInformationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterDataInformationResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -24324,12 +25009,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterDataInformationResponse>(await this.callApi(params, req, runtime), new GetClusterDataInformationResponse({}));
   }
 
+  /**
+   * @summary Call GetClusterDataInformation to obtain the data information about the cluster.
+   *
+   * @param request GetClusterDataInformationRequest
+   * @return GetClusterDataInformationResponse
+   */
   async getClusterDataInformation(request: GetClusterDataInformationRequest): Promise<GetClusterDataInformationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getClusterDataInformationWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetElastictaskResponse
+   */
   async getElastictaskWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetElastictaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -24348,12 +25044,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetElastictaskResponse>(await this.callApi(params, req, runtime), new GetElastictaskResponse({}));
   }
 
+  /**
+   * @return GetElastictaskResponse
+   */
   async getElastictask(InstanceId: string): Promise<GetElastictaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getElastictaskWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 获取高级监控报警自定义Grafana监控报警项
+   *
+   * @param request GetEmonGrafanaAlertsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEmonGrafanaAlertsResponse
+   */
   async getEmonGrafanaAlertsWithOptions(ProjectId: string, request: GetEmonGrafanaAlertsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmonGrafanaAlertsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -24374,12 +25081,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEmonGrafanaAlertsResponse>(await this.callApi(params, req, runtime), new GetEmonGrafanaAlertsResponse({}));
   }
 
+  /**
+   * @summary 获取高级监控报警自定义Grafana监控报警项
+   *
+   * @param request GetEmonGrafanaAlertsRequest
+   * @return GetEmonGrafanaAlertsResponse
+   */
   async getEmonGrafanaAlerts(ProjectId: string, request: GetEmonGrafanaAlertsRequest): Promise<GetEmonGrafanaAlertsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getEmonGrafanaAlertsWithOptions(ProjectId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取高级监控报警自定义Grafana监控大盘列表
+   *
+   * @param request GetEmonGrafanaDashboardsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEmonGrafanaDashboardsResponse
+   */
   async getEmonGrafanaDashboardsWithOptions(ProjectId: string, request: GetEmonGrafanaDashboardsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmonGrafanaDashboardsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -24400,12 +25121,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEmonGrafanaDashboardsResponse>(await this.callApi(params, req, runtime), new GetEmonGrafanaDashboardsResponse({}));
   }
 
+  /**
+   * @summary 获取高级监控报警自定义Grafana监控大盘列表
+   *
+   * @param request GetEmonGrafanaDashboardsRequest
+   * @return GetEmonGrafanaDashboardsResponse
+   */
   async getEmonGrafanaDashboards(ProjectId: string, request: GetEmonGrafanaDashboardsRequest): Promise<GetEmonGrafanaDashboardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getEmonGrafanaDashboardsWithOptions(ProjectId, request, headers, runtime);
   }
 
+  /**
+   * @param request GetEmonMonitorDataRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEmonMonitorDataResponse
+   */
   async getEmonMonitorDataWithOptions(ProjectId: string, request: GetEmonMonitorDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmonMonitorDataResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -24426,12 +25159,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEmonMonitorDataResponse>(await this.callApi(params, req, runtime), new GetEmonMonitorDataResponse({}));
   }
 
+  /**
+   * @param request GetEmonMonitorDataRequest
+   * @return GetEmonMonitorDataResponse
+   */
   async getEmonMonitorData(ProjectId: string, request: GetEmonMonitorDataRequest): Promise<GetEmonMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getEmonMonitorDataWithOptions(ProjectId, request, headers, runtime);
   }
 
+  /**
+   * @summary 统计OpenStore实例的存储容量和使用情况
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpenStoreUsageResponse
+   */
   async getOpenStoreUsageWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOpenStoreUsageResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -24450,12 +25194,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpenStoreUsageResponse>(await this.callApi(params, req, runtime), new GetOpenStoreUsageResponse({}));
   }
 
+  /**
+   * @summary 统计OpenStore实例的存储容量和使用情况
+   *
+   * @return GetOpenStoreUsageResponse
+   */
   async getOpenStoreUsage(InstanceId: string): Promise<GetOpenStoreUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getOpenStoreUsageWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary The maximum number of nodes.
+   *
+   * @param request GetRegionConfigurationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRegionConfigurationResponse
+   */
   async getRegionConfigurationWithOptions(request: GetRegionConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRegionConfigurationResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24481,12 +25238,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRegionConfigurationResponse>(await this.callApi(params, req, runtime), new GetRegionConfigurationResponse({}));
   }
 
+  /**
+   * @summary The maximum number of nodes.
+   *
+   * @param request GetRegionConfigurationRequest
+   * @return GetRegionConfigurationResponse
+   */
   async getRegionConfiguration(request: GetRegionConfigurationRequest): Promise<GetRegionConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRegionConfigurationWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 实例区域商品化配置
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRegionalInstanceConfigResponse
+   */
   async getRegionalInstanceConfigWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRegionalInstanceConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -24505,12 +25275,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRegionalInstanceConfigResponse>(await this.callApi(params, req, runtime), new GetRegionalInstanceConfigResponse({}));
   }
 
+  /**
+   * @summary 实例区域商品化配置
+   *
+   * @return GetRegionalInstanceConfigResponse
+   */
   async getRegionalInstanceConfig(): Promise<GetRegionalInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRegionalInstanceConfigWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary ES集群可缩容节点
+   *
+   * @param request GetSuggestShrinkableNodesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSuggestShrinkableNodesResponse
+   */
   async getSuggestShrinkableNodesWithOptions(InstanceId: string, request: GetSuggestShrinkableNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSuggestShrinkableNodesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24544,12 +25327,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSuggestShrinkableNodesResponse>(await this.callApi(params, req, runtime), new GetSuggestShrinkableNodesResponse({}));
   }
 
+  /**
+   * @summary ES集群可缩容节点
+   *
+   * @param request GetSuggestShrinkableNodesRequest
+   * @return GetSuggestShrinkableNodesResponse
+   */
   async getSuggestShrinkableNodes(InstanceId: string, request: GetSuggestShrinkableNodesRequest): Promise<GetSuggestShrinkableNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSuggestShrinkableNodesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取可数据迁移节点
+   *
+   * @param request GetTransferableNodesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTransferableNodesResponse
+   */
   async getTransferableNodesWithOptions(InstanceId: string, request: GetTransferableNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTransferableNodesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24579,6 +25376,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTransferableNodesResponse>(await this.callApi(params, req, runtime), new GetTransferableNodesResponse({}));
   }
 
+  /**
+   * @summary 获取可数据迁移节点
+   *
+   * @param request GetTransferableNodesRequest
+   * @return GetTransferableNodesResponse
+   */
   async getTransferableNodes(InstanceId: string, request: GetTransferableNodesRequest): Promise<GetTransferableNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -24586,12 +25389,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
-    *
-    * @param request InitializeOperationRoleRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return InitializeOperationRoleResponse
+   * @summary Creates a service-linked role.
+   *
+   * @description > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+   *
+   * @param request InitializeOperationRoleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InitializeOperationRoleResponse
    */
   async initializeOperationRoleWithOptions(request: InitializeOperationRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InitializeOperationRoleResponse> {
     Util.validateModel(request);
@@ -24620,10 +25425,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
-    *
-    * @param request InitializeOperationRoleRequest
-    * @return InitializeOperationRoleResponse
+   * @summary Creates a service-linked role.
+   *
+   * @description > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+   *
+   * @param request InitializeOperationRoleRequest
+   * @return InitializeOperationRoleResponse
    */
   async initializeOperationRole(request: InitializeOperationRoleRequest): Promise<InitializeOperationRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24632,12 +25439,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
-    *
-    * @param request InstallAckOperatorRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return InstallAckOperatorResponse
+   * @summary Installs ES-operator for a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @description > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+   *
+   * @param request InstallAckOperatorRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallAckOperatorResponse
    */
   async installAckOperatorWithOptions(ClusterId: string, request: InstallAckOperatorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallAckOperatorResponse> {
     Util.validateModel(request);
@@ -24666,10 +25475,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
-    *
-    * @param request InstallAckOperatorRequest
-    * @return InstallAckOperatorResponse
+   * @summary Installs ES-operator for a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @description > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+   *
+   * @param request InstallAckOperatorRequest
+   * @return InstallAckOperatorResponse
    */
   async installAckOperator(ClusterId: string, request: InstallAckOperatorRequest): Promise<InstallAckOperatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24677,6 +25488,14 @@ export default class Client extends OpenApi {
     return await this.installAckOperatorWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call InstallKibanaSystemPlugin to install the Kibana plug-in. The Kibana specification must be 2-Core 4 GB or higher.
+   *
+   * @param request InstallKibanaSystemPluginRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallKibanaSystemPluginResponse
+   */
   async installKibanaSystemPluginWithOptions(InstanceId: string, request: InstallKibanaSystemPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallKibanaSystemPluginResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24703,6 +25522,12 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallKibanaSystemPluginResponse>(await this.callApi(params, req, runtime), new InstallKibanaSystemPluginResponse({}));
   }
 
+  /**
+   * @summary Call InstallKibanaSystemPlugin to install the Kibana plug-in. The Kibana specification must be 2-Core 4 GB or higher.
+   *
+   * @param request InstallKibanaSystemPluginRequest
+   * @return InstallKibanaSystemPluginResponse
+   */
   async installKibanaSystemPlugin(InstanceId: string, request: InstallKibanaSystemPluginRequest): Promise<InstallKibanaSystemPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -24710,12 +25535,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ls-cn-oew1qbgl\\*\\*\\*\\*
-    *
-    * @param request InstallLogstashSystemPluginRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return InstallLogstashSystemPluginResponse
+   * @summary The returned data also contains **Headers** parameters, indicating that header information is returned.
+   *
+   * @description ls-cn-oew1qbgl\\*\\*\\*\\*
+   *
+   * @param request InstallLogstashSystemPluginRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallLogstashSystemPluginResponse
    */
   async installLogstashSystemPluginWithOptions(InstanceId: string, request: InstallLogstashSystemPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallLogstashSystemPluginResponse> {
     Util.validateModel(request);
@@ -24744,10 +25571,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ls-cn-oew1qbgl\\*\\*\\*\\*
-    *
-    * @param request InstallLogstashSystemPluginRequest
-    * @return InstallLogstashSystemPluginResponse
+   * @summary The returned data also contains **Headers** parameters, indicating that header information is returned.
+   *
+   * @description ls-cn-oew1qbgl\\*\\*\\*\\*
+   *
+   * @param request InstallLogstashSystemPluginRequest
+   * @return InstallLogstashSystemPluginResponse
    */
   async installLogstashSystemPlugin(InstanceId: string, request: InstallLogstashSystemPluginRequest): Promise<InstallLogstashSystemPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24755,6 +25584,14 @@ export default class Client extends OpenApi {
     return await this.installLogstashSystemPluginWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call InstallSystemPlugin to install a system preset plug-in.
+   *
+   * @param request InstallSystemPluginRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallSystemPluginResponse
+   */
   async installSystemPluginWithOptions(InstanceId: string, request: InstallSystemPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallSystemPluginResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24781,12 +25618,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallSystemPluginResponse>(await this.callApi(params, req, runtime), new InstallSystemPluginResponse({}));
   }
 
+  /**
+   * @summary Call InstallSystemPlugin to install a system preset plug-in.
+   *
+   * @param request InstallSystemPluginRequest
+   * @return InstallSystemPluginResponse
+   */
   async installSystemPlugin(InstanceId: string, request: InstallSystemPluginRequest): Promise<InstallSystemPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.installSystemPluginWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Installs custom plug-ins that are uploaded to the Elasticsearch console.
+   *
+   * @param request InstallUserPluginsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallUserPluginsResponse
+   */
   async installUserPluginsWithOptions(InstanceId: string, request: InstallUserPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallUserPluginsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -24807,12 +25658,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallUserPluginsResponse>(await this.callApi(params, req, runtime), new InstallUserPluginsResponse({}));
   }
 
+  /**
+   * @summary Installs custom plug-ins that are uploaded to the Elasticsearch console.
+   *
+   * @param request InstallUserPluginsRequest
+   * @return InstallUserPluginsResponse
+   */
   async installUserPlugins(InstanceId: string, request: InstallUserPluginsRequest): Promise<InstallUserPluginsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.installUserPluginsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request InterruptElasticsearchTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InterruptElasticsearchTaskResponse
+   */
   async interruptElasticsearchTaskWithOptions(InstanceId: string, request: InterruptElasticsearchTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InterruptElasticsearchTaskResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24838,12 +25701,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InterruptElasticsearchTaskResponse>(await this.callApi(params, req, runtime), new InterruptElasticsearchTaskResponse({}));
   }
 
+  /**
+   * @param request InterruptElasticsearchTaskRequest
+   * @return InterruptElasticsearchTaskResponse
+   */
   async interruptElasticsearchTask(InstanceId: string, request: InterruptElasticsearchTaskRequest): Promise<InterruptElasticsearchTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.interruptElasticsearchTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary After the task is suspended, the Logstash cluster is in the suspended state.
+   *
+   * @param request InterruptLogstashTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InterruptLogstashTaskResponse
+   */
   async interruptLogstashTaskWithOptions(InstanceId: string, request: InterruptLogstashTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InterruptLogstashTaskResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24869,12 +25744,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InterruptLogstashTaskResponse>(await this.callApi(params, req, runtime), new InterruptLogstashTaskResponse({}));
   }
 
+  /**
+   * @summary After the task is suspended, the Logstash cluster is in the suspended state.
+   *
+   * @param request InterruptLogstashTaskRequest
+   * @return InterruptLogstashTaskResponse
+   */
   async interruptLogstashTask(InstanceId: string, request: InterruptLogstashTaskRequest): Promise<InterruptLogstashTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.interruptLogstashTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of Container Service for Kubernetes (ACK) clusters.
+   *
+   * @param request ListAckClustersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAckClustersResponse
+   */
   async listAckClustersWithOptions(request: ListAckClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAckClustersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24908,6 +25797,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAckClustersResponse>(await this.callApi(params, req, runtime), new ListAckClustersResponse({}));
   }
 
+  /**
+   * @summary Queries a list of Container Service for Kubernetes (ACK) clusters.
+   *
+   * @param request ListAckClustersRequest
+   * @return ListAckClustersResponse
+   */
   async listAckClusters(request: ListAckClustersRequest): Promise<ListAckClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -24915,12 +25810,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
-    *
-    * @param request ListAckNamespacesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListAckNamespacesResponse
+   * @summary Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
+   *
+   * @description > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+   *
+   * @param request ListAckNamespacesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAckNamespacesResponse
    */
   async listAckNamespacesWithOptions(ClusterId: string, request: ListAckNamespacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAckNamespacesResponse> {
     Util.validateModel(request);
@@ -24952,10 +25849,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
-    *
-    * @param request ListAckNamespacesRequest
-    * @return ListAckNamespacesResponse
+   * @summary Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
+   *
+   * @description > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+   *
+   * @param request ListAckNamespacesRequest
+   * @return ListAckNamespacesResponse
    */
   async listAckNamespaces(ClusterId: string, request: ListAckNamespacesRequest): Promise<ListAckNamespacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24963,6 +25862,14 @@ export default class Client extends OpenApi {
     return await this.listAckNamespacesWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary 变更记录 变更详情
+   *
+   * @param request ListActionRecordsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListActionRecordsResponse
+   */
   async listActionRecordsWithOptions(InstanceId: string, request: ListActionRecordsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListActionRecordsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25016,12 +25923,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListActionRecordsResponse>(await this.callApi(params, req, runtime), new ListActionRecordsResponse({}));
   }
 
+  /**
+   * @summary 变更记录 变更详情
+   *
+   * @param request ListActionRecordsRequest
+   * @return ListActionRecordsResponse
+   */
   async listActionRecords(InstanceId: string, request: ListActionRecordsRequest): Promise<ListActionRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listActionRecordsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary es-cn-tl32cpgwa002l\\*\\*\\*\\*
+   *
+   * @param request ListAllNodeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAllNodeResponse
+   */
   async listAllNodeWithOptions(InstanceId: string, request: ListAllNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAllNodeResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25047,12 +25968,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAllNodeResponse>(await this.callApi(params, req, runtime), new ListAllNodeResponse({}));
   }
 
+  /**
+   * @summary es-cn-tl32cpgwa002l\\*\\*\\*\\*
+   *
+   * @param request ListAllNodeRequest
+   * @return ListAllNodeResponse
+   */
   async listAllNode(InstanceId: string, request: ListAllNodeRequest): Promise<ListAllNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAllNodeWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 实例可添加的OSS引用仓库
+   *
+   * @param request ListAlternativeSnapshotReposRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAlternativeSnapshotReposResponse
+   */
   async listAlternativeSnapshotReposWithOptions(InstanceId: string, request: ListAlternativeSnapshotReposRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAlternativeSnapshotReposResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25078,12 +26013,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAlternativeSnapshotReposResponse>(await this.callApi(params, req, runtime), new ListAlternativeSnapshotReposResponse({}));
   }
 
+  /**
+   * @summary 实例可添加的OSS引用仓库
+   *
+   * @param request ListAlternativeSnapshotReposRequest
+   * @return ListAlternativeSnapshotReposResponse
+   */
   async listAlternativeSnapshotRepos(InstanceId: string, request: ListAlternativeSnapshotReposRequest): Promise<ListAlternativeSnapshotReposResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAlternativeSnapshotReposWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary ListApm
+   *
+   * @param request ListApmRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApmResponse
+   */
   async listApmWithOptions(request: ListApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListApmResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25125,12 +26074,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApmResponse>(await this.callApi(params, req, runtime), new ListApmResponse({}));
   }
 
+  /**
+   * @summary ListApm
+   *
+   * @param request ListApmRequest
+   * @return ListApmResponse
+   */
   async listApm(request: ListApmRequest): Promise<ListApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listApmWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAvailableEsInstanceIdsResponse
+   */
   async listAvailableEsInstanceIdsWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAvailableEsInstanceIdsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -25149,12 +26111,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAvailableEsInstanceIdsResponse>(await this.callApi(params, req, runtime), new ListAvailableEsInstanceIdsResponse({}));
   }
 
+  /**
+   * @summary Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+   *
+   * @return ListAvailableEsInstanceIdsResponse
+   */
   async listAvailableEsInstanceIds(InstanceId: string): Promise<ListAvailableEsInstanceIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAvailableEsInstanceIdsWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary Queries shippers.
+   *
+   * @param request ListCollectorsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCollectorsResponse
+   */
   async listCollectorsWithOptions(request: ListCollectorsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCollectorsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25200,12 +26175,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCollectorsResponse>(await this.callApi(params, req, runtime), new ListCollectorsResponse({}));
   }
 
+  /**
+   * @summary Queries shippers.
+   *
+   * @param request ListCollectorsRequest
+   * @return ListCollectorsResponse
+   */
   async listCollectors(request: ListCollectorsRequest): Promise<ListCollectorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCollectorsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary ES集群组合索引列表
+   *
+   * @param request ListComponentIndicesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListComponentIndicesResponse
+   */
   async listComponentIndicesWithOptions(InstanceId: string, request: ListComponentIndicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListComponentIndicesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25239,12 +26228,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListComponentIndicesResponse>(await this.callApi(params, req, runtime), new ListComponentIndicesResponse({}));
   }
 
+  /**
+   * @summary ES集群组合索引列表
+   *
+   * @param request ListComponentIndicesRequest
+   * @return ListComponentIndicesResponse
+   */
   async listComponentIndices(InstanceId: string, request: ListComponentIndicesRequest): Promise<ListComponentIndicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listComponentIndicesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取与当前实例进行网络互通的实例列表
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConnectedClustersResponse
+   */
   async listConnectedClustersWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConnectedClustersResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -25263,12 +26265,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConnectedClustersResponse>(await this.callApi(params, req, runtime), new ListConnectedClustersResponse({}));
   }
 
+  /**
+   * @summary 获取与当前实例进行网络互通的实例列表
+   *
+   * @return ListConnectedClustersResponse
+   */
   async listConnectedClusters(InstanceId: string): Promise<ListConnectedClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConnectedClustersWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @param request ListDataStreamsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataStreamsResponse
+   */
   async listDataStreamsWithOptions(InstanceId: string, request: ListDataStreamsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataStreamsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25298,12 +26311,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataStreamsResponse>(await this.callApi(params, req, runtime), new ListDataStreamsResponse({}));
   }
 
+  /**
+   * @param request ListDataStreamsRequest
+   * @return ListDataStreamsResponse
+   */
   async listDataStreams(InstanceId: string, request: ListDataStreamsRequest): Promise<ListDataStreamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDataStreamsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataTasksResponse
+   */
   async listDataTasksWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataTasksResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -25322,12 +26344,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataTasksResponse>(await this.callApi(params, req, runtime), new ListDataTasksResponse({}));
   }
 
+  /**
+   * @return ListDataTasksResponse
+   */
   async listDataTasks(InstanceId: string): Promise<ListDataTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDataTasksWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary Queries the default configuration files of shippers.
+   *
+   * @param request ListDefaultCollectorConfigurationsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDefaultCollectorConfigurationsResponse
+   */
   async listDefaultCollectorConfigurationsWithOptions(request: ListDefaultCollectorConfigurationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDefaultCollectorConfigurationsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25361,12 +26394,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDefaultCollectorConfigurationsResponse>(await this.callApi(params, req, runtime), new ListDefaultCollectorConfigurationsResponse({}));
   }
 
+  /**
+   * @summary Queries the default configuration files of shippers.
+   *
+   * @param request ListDefaultCollectorConfigurationsRequest
+   * @return ListDefaultCollectorConfigurationsResponse
+   */
   async listDefaultCollectorConfigurations(request: ListDefaultCollectorConfigurationsRequest): Promise<ListDefaultCollectorConfigurationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDefaultCollectorConfigurationsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary ListDeprecatedTemplates
+   *
+   * @param request ListDeprecatedTemplatesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDeprecatedTemplatesResponse
+   */
   async listDeprecatedTemplatesWithOptions(InstanceId: string, request: ListDeprecatedTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDeprecatedTemplatesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25400,12 +26447,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeprecatedTemplatesResponse>(await this.callApi(params, req, runtime), new ListDeprecatedTemplatesResponse({}));
   }
 
+  /**
+   * @summary ListDeprecatedTemplates
+   *
+   * @param request ListDeprecatedTemplatesRequest
+   * @return ListDeprecatedTemplatesResponse
+   */
   async listDeprecatedTemplates(InstanceId: string, request: ListDeprecatedTemplatesRequest): Promise<ListDeprecatedTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDeprecatedTemplatesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the indexes for health diagnosis performed on an Elasticsearch cluster.
+   *
+   * @param request ListDiagnoseIndicesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDiagnoseIndicesResponse
+   */
   async listDiagnoseIndicesWithOptions(InstanceId: string, request: ListDiagnoseIndicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseIndicesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25431,12 +26492,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDiagnoseIndicesResponse>(await this.callApi(params, req, runtime), new ListDiagnoseIndicesResponse({}));
   }
 
+  /**
+   * @summary Queries the indexes for health diagnosis performed on an Elasticsearch cluster.
+   *
+   * @param request ListDiagnoseIndicesRequest
+   * @return ListDiagnoseIndicesResponse
+   */
   async listDiagnoseIndices(InstanceId: string, request: ListDiagnoseIndicesRequest): Promise<ListDiagnoseIndicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDiagnoseIndicesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取集群诊断报告列表
+   *
+   * @param request ListDiagnoseReportRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDiagnoseReportResponse
+   */
   async listDiagnoseReportWithOptions(InstanceId: string, request: ListDiagnoseReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseReportResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25486,12 +26561,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDiagnoseReportResponse>(await this.callApi(params, req, runtime), new ListDiagnoseReportResponse({}));
   }
 
+  /**
+   * @summary 获取集群诊断报告列表
+   *
+   * @param request ListDiagnoseReportRequest
+   * @return ListDiagnoseReportResponse
+   */
   async listDiagnoseReport(InstanceId: string, request: ListDiagnoseReportRequest): Promise<ListDiagnoseReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDiagnoseReportWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the IDs of the historical intelligent O&M reports of an Elasticsearch cluster.
+   *
+   * @param request ListDiagnoseReportIdsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDiagnoseReportIdsResponse
+   */
   async listDiagnoseReportIdsWithOptions(InstanceId: string, request: ListDiagnoseReportIdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseReportIdsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25537,12 +26626,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDiagnoseReportIdsResponse>(await this.callApi(params, req, runtime), new ListDiagnoseReportIdsResponse({}));
   }
 
+  /**
+   * @summary Queries the IDs of the historical intelligent O&M reports of an Elasticsearch cluster.
+   *
+   * @param request ListDiagnoseReportIdsRequest
+   * @return ListDiagnoseReportIdsResponse
+   */
   async listDiagnoseReportIds(InstanceId: string, request: ListDiagnoseReportIdsRequest): Promise<ListDiagnoseReportIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDiagnoseReportIdsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary The diagnostic item is used to check whether data write requests of a cluster are accumulated. If data write requests are accumulated, a bulk rejection occurs. This may cause data loss and severely consume system resources.
+   *
+   * @param request ListDiagnosisItemsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDiagnosisItemsResponse
+   */
   async listDiagnosisItemsWithOptions(request: ListDiagnosisItemsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDiagnosisItemsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25568,12 +26671,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDiagnosisItemsResponse>(await this.callApi(params, req, runtime), new ListDiagnosisItemsResponse({}));
   }
 
+  /**
+   * @summary The diagnostic item is used to check whether data write requests of a cluster are accumulated. If data write requests are accumulated, a bulk rejection occurs. This may cause data loss and severely consume system resources.
+   *
+   * @param request ListDiagnosisItemsRequest
+   * @return ListDiagnosisItemsResponse
+   */
   async listDiagnosisItems(request: ListDiagnosisItemsRequest): Promise<ListDiagnosisItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDiagnosisItemsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request ListDictInformationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDictInformationResponse
+   */
   async listDictInformationWithOptions(InstanceId: string, request: ListDictInformationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDictInformationResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25607,12 +26722,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDictInformationResponse>(await this.callApi(params, req, runtime), new ListDictInformationResponse({}));
   }
 
+  /**
+   * @param request ListDictInformationRequest
+   * @return ListDictInformationResponse
+   */
   async listDictInformation(InstanceId: string, request: ListDictInformationRequest): Promise<ListDictInformationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDictInformationWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the details of a specified type of dictionary.
+   *
+   * @param request ListDictsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDictsResponse
+   */
   async listDictsWithOptions(InstanceId: string, request: ListDictsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDictsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25642,6 +26769,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDictsResponse>(await this.callApi(params, req, runtime), new ListDictsResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a specified type of dictionary.
+   *
+   * @param request ListDictsRequest
+   * @return ListDictsResponse
+   */
   async listDicts(InstanceId: string, request: ListDictsRequest): Promise<ListDictsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -25649,12 +26782,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](~~146446~~).
-    *
-    * @param request ListEcsInstancesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListEcsInstancesResponse
+   * @description **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+   *
+   * @param request ListEcsInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEcsInstancesResponse
    */
   async listEcsInstancesWithOptions(request: ListEcsInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsInstancesResponse> {
     Util.validateModel(request);
@@ -25702,10 +26835,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](~~146446~~).
-    *
-    * @param request ListEcsInstancesRequest
-    * @return ListEcsInstancesResponse
+   * @description **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+   *
+   * @param request ListEcsInstancesRequest
+   * @return ListEcsInstancesResponse
    */
   async listEcsInstances(request: ListEcsInstancesRequest): Promise<ListEcsInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25713,6 +26846,13 @@ export default class Client extends OpenApi {
     return await this.listEcsInstancesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the driver files of a Logstash cluster.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExtendfilesResponse
+   */
   async listExtendfilesWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExtendfilesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -25731,12 +26871,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExtendfilesResponse>(await this.callApi(params, req, runtime), new ListExtendfilesResponse({}));
   }
 
+  /**
+   * @summary Queries the driver files of a Logstash cluster.
+   *
+   * @return ListExtendfilesResponse
+   */
   async listExtendfiles(InstanceId: string): Promise<ListExtendfilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listExtendfilesWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @param request ListILMPoliciesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListILMPoliciesResponse
+   */
   async listILMPoliciesWithOptions(InstanceId: string, request: ListILMPoliciesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListILMPoliciesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25762,12 +26913,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListILMPoliciesResponse>(await this.callApi(params, req, runtime), new ListILMPoliciesResponse({}));
   }
 
+  /**
+   * @param request ListILMPoliciesRequest
+   * @return ListILMPoliciesResponse
+   */
   async listILMPolicies(InstanceId: string, request: ListILMPoliciesRequest): Promise<ListILMPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listILMPoliciesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request ListIndexTemplatesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIndexTemplatesResponse
+   */
   async listIndexTemplatesWithOptions(InstanceId: string, request: ListIndexTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndexTemplatesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25801,12 +26962,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIndexTemplatesResponse>(await this.callApi(params, req, runtime), new ListIndexTemplatesResponse({}));
   }
 
+  /**
+   * @param request ListIndexTemplatesRequest
+   * @return ListIndexTemplatesResponse
+   */
   async listIndexTemplates(InstanceId: string, request: ListIndexTemplatesRequest): Promise<ListIndexTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIndexTemplatesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 查询Elasticsearch实例列表
+   *
+   * @param request ListInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceResponse
+   */
   async listInstanceWithOptions(request: ListInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25872,12 +27045,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceResponse>(await this.callApi(params, req, runtime), new ListInstanceResponse({}));
   }
 
+  /**
+   * @summary 查询Elasticsearch实例列表
+   *
+   * @param request ListInstanceRequest
+   * @return ListInstanceResponse
+   */
   async listInstance(request: ListInstanceRequest): Promise<ListInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstanceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 集群触发的硬件运维事件列表
+   *
+   * @param tmpReq ListInstanceHistoryEventsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceHistoryEventsResponse
+   */
   async listInstanceHistoryEventsWithOptions(tmpReq: ListInstanceHistoryEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceHistoryEventsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListInstanceHistoryEventsShrinkRequest({ });
@@ -25966,12 +27153,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceHistoryEventsResponse>(await this.callApi(params, req, runtime), new ListInstanceHistoryEventsResponse({}));
   }
 
+  /**
+   * @summary 集群触发的硬件运维事件列表
+   *
+   * @param request ListInstanceHistoryEventsRequest
+   * @return ListInstanceHistoryEventsResponse
+   */
   async listInstanceHistoryEvents(request: ListInstanceHistoryEventsRequest): Promise<ListInstanceHistoryEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstanceHistoryEventsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取当前实例先特定的索引列表
+   *
+   * @param request ListInstanceIndicesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceIndicesResponse
+   */
   async listInstanceIndicesWithOptions(InstanceId: string, request: ListInstanceIndicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceIndicesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26017,12 +27218,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceIndicesResponse>(await this.callApi(params, req, runtime), new ListInstanceIndicesResponse({}));
   }
 
+  /**
+   * @summary 获取当前实例先特定的索引列表
+   *
+   * @param request ListInstanceIndicesRequest
+   * @return ListInstanceIndicesResponse
+   */
   async listInstanceIndices(InstanceId: string, request: ListInstanceIndicesRequest): Promise<ListInstanceIndicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstanceIndicesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of Kibana plug-ins.
+   *
+   * @param request ListKibanaPluginsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListKibanaPluginsResponse
+   */
   async listKibanaPluginsWithOptions(InstanceId: string, request: ListKibanaPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListKibanaPluginsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26052,12 +27267,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListKibanaPluginsResponse>(await this.callApi(params, req, runtime), new ListKibanaPluginsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of Kibana plug-ins.
+   *
+   * @param request ListKibanaPluginsRequest
+   * @return ListKibanaPluginsResponse
+   */
   async listKibanaPlugins(InstanceId: string, request: ListKibanaPluginsRequest): Promise<ListKibanaPluginsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listKibanaPluginsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 查询kibana私网连接信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListKibanaPvlNetworkResponse
+   */
   async listKibanaPvlNetworkWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListKibanaPvlNetworkResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -26076,12 +27304,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListKibanaPvlNetworkResponse>(await this.callApi(params, req, runtime), new ListKibanaPvlNetworkResponse({}));
   }
 
+  /**
+   * @summary 查询kibana私网连接信息
+   *
+   * @return ListKibanaPvlNetworkResponse
+   */
   async listKibanaPvlNetwork(InstanceId: string): Promise<ListKibanaPvlNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listKibanaPvlNetworkWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary Logstash集群列表
+   *
+   * @param request ListLogstashRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLogstashResponse
+   */
   async listLogstashWithOptions(request: ListLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogstashResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26131,12 +27372,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogstashResponse>(await this.callApi(params, req, runtime), new ListLogstashResponse({}));
   }
 
+  /**
+   * @summary Logstash集群列表
+   *
+   * @param request ListLogstashRequest
+   * @return ListLogstashResponse
+   */
   async listLogstash(request: ListLogstashRequest): Promise<ListLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLogstashWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取Logstash日志
+   *
+   * @param request ListLogstashLogRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLogstashLogResponse
+   */
   async listLogstashLogWithOptions(InstanceId: string, request: ListLogstashLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogstashLogResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26182,12 +27437,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogstashLogResponse>(await this.callApi(params, req, runtime), new ListLogstashLogResponse({}));
   }
 
+  /**
+   * @summary 获取Logstash日志
+   *
+   * @param request ListLogstashLogRequest
+   * @return ListLogstashLogResponse
+   */
   async listLogstashLog(InstanceId: string, request: ListLogstashLogRequest): Promise<ListLogstashLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLogstashLogWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Logstash插件列表
+   *
+   * @param request ListLogstashPluginsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLogstashPluginsResponse
+   */
   async listLogstashPluginsWithOptions(InstanceId: string, request: ListLogstashPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogstashPluginsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26225,12 +27494,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogstashPluginsResponse>(await this.callApi(params, req, runtime), new ListLogstashPluginsResponse({}));
   }
 
+  /**
+   * @summary Logstash插件列表
+   *
+   * @param request ListLogstashPluginsRequest
+   * @return ListLogstashPluginsResponse
+   */
   async listLogstashPlugins(InstanceId: string, request: ListLogstashPluginsRequest): Promise<ListLogstashPluginsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLogstashPluginsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the statuses of Elastic Compute Service (ECS) instances on which a shipper is installed.
+   *
+   * @param request ListNodesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNodesResponse
+   */
   async listNodesWithOptions(ResId: string, request: ListNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26272,12 +27555,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
   }
 
+  /**
+   * @summary Queries the statuses of Elastic Compute Service (ECS) instances on which a shipper is installed.
+   *
+   * @param request ListNodesRequest
+   * @return ListNodesResponse
+   */
   async listNodes(ResId: string, request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listNodesWithOptions(ResId, request, headers, runtime);
   }
 
+  /**
+   * @param request ListPipelineRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPipelineResponse
+   */
   async listPipelineWithOptions(InstanceId: string, request: ListPipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26311,12 +27606,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPipelineResponse>(await this.callApi(params, req, runtime), new ListPipelineResponse({}));
   }
 
+  /**
+   * @param request ListPipelineRequest
+   * @return ListPipelineResponse
+   */
   async listPipeline(InstanceId: string, request: ListPipelineRequest): Promise<ListPipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPipelineWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary The error message returned.
+   *
+   * @param request ListPipelineIdsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPipelineIdsResponse
+   */
   async listPipelineIdsWithOptions(InstanceId: string, request: ListPipelineIdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineIdsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -26337,12 +27644,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPipelineIdsResponse>(await this.callApi(params, req, runtime), new ListPipelineIdsResponse({}));
   }
 
+  /**
+   * @summary The error message returned.
+   *
+   * @param request ListPipelineIdsRequest
+   * @return ListPipelineIdsResponse
+   */
   async listPipelineIds(InstanceId: string, request: ListPipelineIdsRequest): Promise<ListPipelineIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPipelineIdsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary ES系统插件列表
+   *
+   * @param request ListPluginsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPluginsResponse
+   */
   async listPluginsWithOptions(InstanceId: string, request: ListPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPluginsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26380,12 +27701,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPluginsResponse>(await this.callApi(params, req, runtime), new ListPluginsResponse({}));
   }
 
+  /**
+   * @summary ES系统插件列表
+   *
+   * @param request ListPluginsRequest
+   * @return ListPluginsResponse
+   */
   async listPlugins(InstanceId: string, request: ListPluginsRequest): Promise<ListPluginsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPluginsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 查看Elasticsearch集群各种类型的日志
+   *
+   * @param request ListSearchLogRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSearchLogResponse
+   */
   async listSearchLogWithOptions(InstanceId: string, request: ListSearchLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSearchLogResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26431,6 +27766,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSearchLogResponse>(await this.callApi(params, req, runtime), new ListSearchLogResponse({}));
   }
 
+  /**
+   * @summary 查看Elasticsearch集群各种类型的日志
+   *
+   * @param request ListSearchLogRequest
+   * @return ListSearchLogResponse
+   */
   async listSearchLog(InstanceId: string, request: ListSearchLogRequest): Promise<ListSearchLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -26438,12 +27779,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
-    *
-    * @param request ListShardRecoveriesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListShardRecoveriesResponse
+   * @summary Queries the information about shards that are being restored or shards that are restored. By default, this operation returns only the information about shards that are being restored after you call this operation.
+   *
+   * @description > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+   *
+   * @param request ListShardRecoveriesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListShardRecoveriesResponse
    */
   async listShardRecoveriesWithOptions(InstanceId: string, request: ListShardRecoveriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShardRecoveriesResponse> {
     Util.validateModel(request);
@@ -26471,10 +27814,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
-    *
-    * @param request ListShardRecoveriesRequest
-    * @return ListShardRecoveriesResponse
+   * @summary Queries the information about shards that are being restored or shards that are restored. By default, this operation returns only the information about shards that are being restored after you call this operation.
+   *
+   * @description > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+   *
+   * @param request ListShardRecoveriesRequest
+   * @return ListShardRecoveriesResponse
    */
   async listShardRecoveries(InstanceId: string, request: ListShardRecoveriesRequest): Promise<ListShardRecoveriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26482,6 +27827,13 @@ export default class Client extends OpenApi {
     return await this.listShardRecoveriesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取跨集群索引仓库列表
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSnapshotReposByInstanceIdResponse
+   */
   async listSnapshotReposByInstanceIdWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSnapshotReposByInstanceIdResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -26500,12 +27852,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSnapshotReposByInstanceIdResponse>(await this.callApi(params, req, runtime), new ListSnapshotReposByInstanceIdResponse({}));
   }
 
+  /**
+   * @summary 获取跨集群索引仓库列表
+   *
+   * @return ListSnapshotReposByInstanceIdResponse
+   */
   async listSnapshotReposByInstanceId(InstanceId: string): Promise<ListSnapshotReposByInstanceIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSnapshotReposByInstanceIdWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 查看资源和标签关系
+   *
+   * @param request ListTagResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26551,12 +27916,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary 查看资源和标签关系
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查看所有已常见的标签
+   *
+   * @param request ListTagsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagsResponse
+   */
   async listTagsWithOptions(request: ListTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26586,12 +27965,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
   }
 
+  /**
+   * @summary 查看所有已常见的标签
+   *
+   * @param request ListTagsRequest
+   * @return ListTagsResponse
+   */
   async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTagsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
+   *
+   * @param request ListVpcEndpointsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcEndpointsResponse
+   */
   async listVpcEndpointsWithOptions(InstanceId: string, request: ListVpcEndpointsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26621,6 +28014,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcEndpointsResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointsResponse({}));
   }
 
+  /**
+   * @summary Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
+   *
+   * @param request ListVpcEndpointsRequest
+   * @return ListVpcEndpointsResponse
+   */
   async listVpcEndpoints(InstanceId: string, request: ListVpcEndpointsRequest): Promise<ListVpcEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -26628,16 +28027,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
-    * *   The error message returned because the current account is in a zone that has sufficient resources.
-    *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](~~96650~~) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
-    * *   The cluster is in the healthy state.
-    *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
-    *
-    * @param request MigrateToOtherZoneRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return MigrateToOtherZoneResponse
+   * @summary Call the MigrateToOtherZone to migrate the nodes in the specified zone to the destination zone.
+   *
+   * @description If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
+   * *   The error message returned because the current account is in a zone that has sufficient resources.
+   *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](https://help.aliyun.com/document_detail/96650.html) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
+   * *   The cluster is in the healthy state.
+   *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+   *
+   * @param request MigrateToOtherZoneRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MigrateToOtherZoneResponse
    */
   async migrateToOtherZoneWithOptions(InstanceId: string, request: MigrateToOtherZoneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MigrateToOtherZoneResponse> {
     Util.validateModel(request);
@@ -26666,14 +28067,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
-    * *   The error message returned because the current account is in a zone that has sufficient resources.
-    *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](~~96650~~) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
-    * *   The cluster is in the healthy state.
-    *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
-    *
-    * @param request MigrateToOtherZoneRequest
-    * @return MigrateToOtherZoneResponse
+   * @summary Call the MigrateToOtherZone to migrate the nodes in the specified zone to the destination zone.
+   *
+   * @description If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
+   * *   The error message returned because the current account is in a zone that has sufficient resources.
+   *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](https://help.aliyun.com/document_detail/96650.html) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
+   * *   The cluster is in the healthy state.
+   *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+   *
+   * @param request MigrateToOtherZoneRequest
+   * @return MigrateToOtherZoneResponse
    */
   async migrateToOtherZone(InstanceId: string, request: MigrateToOtherZoneRequest): Promise<MigrateToOtherZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26681,6 +28084,14 @@ export default class Client extends OpenApi {
     return await this.migrateToOtherZoneWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Changes the Elastic Compute Service (ECS) instances on which a shipper is installed.
+   *
+   * @param request ModifyDeployMachineRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDeployMachineResponse
+   */
   async modifyDeployMachineWithOptions(ResId: string, request: ModifyDeployMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyDeployMachineResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26707,12 +28118,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDeployMachineResponse>(await this.callApi(params, req, runtime), new ModifyDeployMachineResponse({}));
   }
 
+  /**
+   * @summary Changes the Elastic Compute Service (ECS) instances on which a shipper is installed.
+   *
+   * @param request ModifyDeployMachineRequest
+   * @return ModifyDeployMachineResponse
+   */
   async modifyDeployMachine(ResId: string, request: ModifyDeployMachineRequest): Promise<ModifyDeployMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modifyDeployMachineWithOptions(ResId, request, headers, runtime);
   }
 
+  /**
+   * @param request ModifyElastictaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyElastictaskResponse
+   */
   async modifyElastictaskWithOptions(InstanceId: string, request: ModifyElastictaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyElastictaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -26733,6 +28156,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyElastictaskResponse>(await this.callApi(params, req, runtime), new ModifyElastictaskResponse({}));
   }
 
+  /**
+   * @param request ModifyElastictaskRequest
+   * @return ModifyElastictaskResponse
+   */
   async modifyElastictask(InstanceId: string, request: ModifyElastictaskRequest): Promise<ModifyElastictaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -26740,12 +28167,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * es-cn-n6w1o1x0w001c\\*\\*\\*\\*
-    *
-    * @param request ModifyInstanceMaintainTimeRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceMaintainTimeResponse
+   * @summary ## RequestBody
+   * You must also specify the following parameters in the RequestBody parameter to specify the maintenance window information.  
+   * | Parameter | Type | Required | Example | Description |
+   * | --------- | ---- | -------- | ------- | ----------- |
+   * | maintainStartTime | String | No | 02:00Z | The start time of the maintenance window. Specify the time in the HH:mmZ format. The time must be in UTC. |
+   * | maintainEndTime | String | No | 06:00Z | The end time of the maintenance window. Specify the time in the HH:mmZ format. The time must be displayed in UTC. |
+   * | openMaintainTime | boolean | Yes | true | Specifies whether to enable the maintenance window feature. Only **true** is supported, indicating that the feature is enabled. |
+   * Examples: 
+   * ```
+   * {
+   *     "openMaintainTime": true,
+   *     "maintainStartTime": "03:00Z",
+   *     "maintainEndTime": "04:00Z"
+   * }
+   * ```
+   *
+   * @description es-cn-n6w1o1x0w001c\\*\\*\\*\\*
+   *
+   * @param request ModifyInstanceMaintainTimeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceMaintainTimeResponse
    */
   async modifyInstanceMaintainTimeWithOptions(InstanceId: string, request: ModifyInstanceMaintainTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMaintainTimeResponse> {
     Util.validateModel(request);
@@ -26774,10 +28217,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * es-cn-n6w1o1x0w001c\\*\\*\\*\\*
-    *
-    * @param request ModifyInstanceMaintainTimeRequest
-    * @return ModifyInstanceMaintainTimeResponse
+   * @summary ## RequestBody
+   * You must also specify the following parameters in the RequestBody parameter to specify the maintenance window information.  
+   * | Parameter | Type | Required | Example | Description |
+   * | --------- | ---- | -------- | ------- | ----------- |
+   * | maintainStartTime | String | No | 02:00Z | The start time of the maintenance window. Specify the time in the HH:mmZ format. The time must be in UTC. |
+   * | maintainEndTime | String | No | 06:00Z | The end time of the maintenance window. Specify the time in the HH:mmZ format. The time must be displayed in UTC. |
+   * | openMaintainTime | boolean | Yes | true | Specifies whether to enable the maintenance window feature. Only **true** is supported, indicating that the feature is enabled. |
+   * Examples: 
+   * ```
+   * {
+   *     "openMaintainTime": true,
+   *     "maintainStartTime": "03:00Z",
+   *     "maintainEndTime": "04:00Z"
+   * }
+   * ```
+   *
+   * @description es-cn-n6w1o1x0w001c\\*\\*\\*\\*
+   *
+   * @param request ModifyInstanceMaintainTimeRequest
+   * @return ModifyInstanceMaintainTimeResponse
    */
   async modifyInstanceMaintainTime(InstanceId: string, request: ModifyInstanceMaintainTimeRequest): Promise<ModifyInstanceMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26786,12 +28245,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the cluster.
-    *
-    * @param request ModifyWhiteIpsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyWhiteIpsResponse
+   * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
+   * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
+   * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
+   * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+   *
+   * @description The ID of the cluster.
+   *
+   * @param request ModifyWhiteIpsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWhiteIpsResponse
    */
   async modifyWhiteIpsWithOptions(InstanceId: string, request: ModifyWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyWhiteIpsResponse> {
     Util.validateModel(request);
@@ -26841,10 +28305,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the cluster.
-    *
-    * @param request ModifyWhiteIpsRequest
-    * @return ModifyWhiteIpsResponse
+   * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
+   * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
+   * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
+   * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+   *
+   * @description The ID of the cluster.
+   *
+   * @param request ModifyWhiteIpsRequest
+   * @return ModifyWhiteIpsResponse
    */
   async modifyWhiteIps(InstanceId: string, request: ModifyWhiteIpsRequest): Promise<ModifyWhiteIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26852,6 +28321,14 @@ export default class Client extends OpenApi {
     return await this.modifyWhiteIpsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Migrates an Elasticsearch cluster to a specified resource group.
+   *
+   * @param request MoveResourceGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroupWithOptions(InstanceId: string, request: MoveResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26878,12 +28355,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Migrates an Elasticsearch cluster to a specified resource group.
+   *
+   * @param request MoveResourceGroupRequest
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroup(InstanceId: string, request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.moveResourceGroupWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request OpenDiagnosisRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenDiagnosisResponse
+   */
   async openDiagnosisWithOptions(InstanceId: string, request: OpenDiagnosisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OpenDiagnosisResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26913,6 +28402,10 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenDiagnosisResponse>(await this.callApi(params, req, runtime), new OpenDiagnosisResponse({}));
   }
 
+  /**
+   * @param request OpenDiagnosisRequest
+   * @return OpenDiagnosisResponse
+   */
   async openDiagnosis(InstanceId: string, request: OpenDiagnosisRequest): Promise<OpenDiagnosisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -26920,12 +28413,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  To ensure data security, we recommend that you enable HTTPS.
-    *
-    * @param request OpenHttpsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return OpenHttpsResponse
+   * @description >  To ensure data security, we recommend that you enable HTTPS.
+   *
+   * @param request OpenHttpsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenHttpsResponse
    */
   async openHttpsWithOptions(InstanceId: string, request: OpenHttpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OpenHttpsResponse> {
     Util.validateModel(request);
@@ -26953,10 +28446,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  To ensure data security, we recommend that you enable HTTPS.
-    *
-    * @param request OpenHttpsRequest
-    * @return OpenHttpsResponse
+   * @description >  To ensure data security, we recommend that you enable HTTPS.
+   *
+   * @param request OpenHttpsRequest
+   * @return OpenHttpsResponse
    */
   async openHttps(InstanceId: string, request: OpenHttpsRequest): Promise<OpenHttpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26964,6 +28457,12 @@ export default class Client extends OpenApi {
     return await this.openHttpsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request PostEmonTryAlarmRuleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PostEmonTryAlarmRuleResponse
+   */
   async postEmonTryAlarmRuleWithOptions(ProjectId: string, AlarmGroupId: string, request: PostEmonTryAlarmRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PostEmonTryAlarmRuleResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -26984,12 +28483,22 @@ export default class Client extends OpenApi {
     return $tea.cast<PostEmonTryAlarmRuleResponse>(await this.callApi(params, req, runtime), new PostEmonTryAlarmRuleResponse({}));
   }
 
+  /**
+   * @param request PostEmonTryAlarmRuleRequest
+   * @return PostEmonTryAlarmRuleResponse
+   */
   async postEmonTryAlarmRule(ProjectId: string, AlarmGroupId: string, request: PostEmonTryAlarmRuleRequest): Promise<PostEmonTryAlarmRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.postEmonTryAlarmRuleWithOptions(ProjectId, AlarmGroupId, request, headers, runtime);
   }
 
+  /**
+   * @param request RecommendTemplatesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecommendTemplatesResponse
+   */
   async recommendTemplatesWithOptions(InstanceId: string, request: RecommendTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RecommendTemplatesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27015,12 +28524,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecommendTemplatesResponse>(await this.callApi(params, req, runtime), new RecommendTemplatesResponse({}));
   }
 
+  /**
+   * @param request RecommendTemplatesRequest
+   * @return RecommendTemplatesResponse
+   */
   async recommendTemplates(InstanceId: string, request: RecommendTemplatesRequest): Promise<RecommendTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.recommendTemplatesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Installs a shipper that failed to be installed when you create the shipper.
+   *
+   * @param request ReinstallCollectorRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReinstallCollectorResponse
+   */
   async reinstallCollectorWithOptions(ResId: string, request: ReinstallCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReinstallCollectorResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27047,12 +28568,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ReinstallCollectorResponse>(await this.callApi(params, req, runtime), new ReinstallCollectorResponse({}));
   }
 
+  /**
+   * @summary Installs a shipper that failed to be installed when you create the shipper.
+   *
+   * @param request ReinstallCollectorRequest
+   * @return ReinstallCollectorResponse
+   */
   async reinstallCollector(ResId: string, request: ReinstallCollectorRequest): Promise<ReinstallCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.reinstallCollectorWithOptions(ResId, request, headers, runtime);
   }
 
+  /**
+   * @summary RemoveApm
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveApmResponse
+   */
   async removeApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveApmResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -27071,12 +28605,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveApmResponse>(await this.callApi(params, req, runtime), new RemoveApmResponse({}));
   }
 
+  /**
+   * @summary RemoveApm
+   *
+   * @return RemoveApmResponse
+   */
   async removeApm(instanceId: string): Promise<RemoveApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeApmWithOptions(instanceId, headers, runtime);
   }
 
+  /**
+   * @summary Call RenewInstance to renew a subscription instance.
+   *
+   * @param request RenewInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewInstanceResponse
+   */
   async renewInstanceWithOptions(InstanceId: string, request: RenewInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27103,12 +28650,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
   }
 
+  /**
+   * @summary Call RenewInstance to renew a subscription instance.
+   *
+   * @param request RenewInstanceRequest
+   * @return RenewInstanceResponse
+   */
   async renewInstance(InstanceId: string, request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.renewInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Renews a Logstash cluster.
+   *
+   * @param request RenewLogstashRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewLogstashResponse
+   */
   async renewLogstashWithOptions(InstanceId: string, request: RenewLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenewLogstashResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27135,12 +28696,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewLogstashResponse>(await this.callApi(params, req, runtime), new RenewLogstashResponse({}));
   }
 
+  /**
+   * @summary Renews a Logstash cluster.
+   *
+   * @param request RenewLogstashRequest
+   * @return RenewLogstashResponse
+   */
   async renewLogstash(InstanceId: string, request: RenewLogstashRequest): Promise<RenewLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.renewLogstashWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Restarts a shipper.
+   *
+   * @param request RestartCollectorRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartCollectorResponse
+   */
   async restartCollectorWithOptions(ResId: string, request: RestartCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartCollectorResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27166,6 +28741,12 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartCollectorResponse>(await this.callApi(params, req, runtime), new RestartCollectorResponse({}));
   }
 
+  /**
+   * @summary Restarts a shipper.
+   *
+   * @param request RestartCollectorRequest
+   * @return RestartCollectorResponse
+   */
   async restartCollector(ResId: string, request: RestartCollectorRequest): Promise<RestartCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -27173,12 +28754,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
-    *
-    * @param request RestartInstanceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RestartInstanceResponse
+   * @summary You can call this operation to restart a specified Elasticsearch instance.
+   *
+   * @description >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+   *
+   * @param request RestartInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartInstanceResponse
    */
   async restartInstanceWithOptions(InstanceId: string, request: RestartInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartInstanceResponse> {
     Util.validateModel(request);
@@ -27211,10 +28794,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
-    *
-    * @param request RestartInstanceRequest
-    * @return RestartInstanceResponse
+   * @summary You can call this operation to restart a specified Elasticsearch instance.
+   *
+   * @description >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+   *
+   * @param request RestartInstanceRequest
+   * @return RestartInstanceResponse
    */
   async restartInstance(InstanceId: string, request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27222,6 +28807,14 @@ export default class Client extends OpenApi {
     return await this.restartInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 重启Logstash集群
+   *
+   * @param request RestartLogstashRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartLogstashResponse
+   */
   async restartLogstashWithOptions(InstanceId: string, request: RestartLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartLogstashResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27273,12 +28866,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartLogstashResponse>(await this.callApi(params, req, runtime), new RestartLogstashResponse({}));
   }
 
+  /**
+   * @summary 重启Logstash集群
+   *
+   * @param request RestartLogstashRequest
+   * @return RestartLogstashResponse
+   */
   async restartLogstash(InstanceId: string, request: RestartLogstashRequest): Promise<RestartLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.restartLogstashWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request ResumeElasticsearchTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeElasticsearchTaskResponse
+   */
   async resumeElasticsearchTaskWithOptions(InstanceId: string, request: ResumeElasticsearchTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeElasticsearchTaskResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27304,12 +28909,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeElasticsearchTaskResponse>(await this.callApi(params, req, runtime), new ResumeElasticsearchTaskResponse({}));
   }
 
+  /**
+   * @param request ResumeElasticsearchTaskRequest
+   * @return ResumeElasticsearchTaskResponse
+   */
   async resumeElasticsearchTask(InstanceId: string, request: ResumeElasticsearchTaskRequest): Promise<ResumeElasticsearchTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.resumeElasticsearchTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Resumes a change task of a Logstash cluster. After the task is resumed, the Logstash cluster is in the activating state.
+   *
+   * @param request ResumeLogstashTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeLogstashTaskResponse
+   */
   async resumeLogstashTaskWithOptions(InstanceId: string, request: ResumeLogstashTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeLogstashTaskResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27335,12 +28952,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeLogstashTaskResponse>(await this.callApi(params, req, runtime), new ResumeLogstashTaskResponse({}));
   }
 
+  /**
+   * @summary Resumes a change task of a Logstash cluster. After the task is resumed, the Logstash cluster is in the activating state.
+   *
+   * @param request ResumeLogstashTaskRequest
+   * @return ResumeLogstashTaskResponse
+   */
   async resumeLogstashTask(InstanceId: string, request: ResumeLogstashTaskRequest): Promise<ResumeLogstashTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.resumeLogstashTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 滚动数据流，生成新索引
+   *
+   * @param request RolloverDataStreamRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RolloverDataStreamResponse
+   */
   async rolloverDataStreamWithOptions(InstanceId: string, DataStream: string, request: RolloverDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RolloverDataStreamResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27366,12 +28997,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RolloverDataStreamResponse>(await this.callApi(params, req, runtime), new RolloverDataStreamResponse({}));
   }
 
+  /**
+   * @summary 滚动数据流，生成新索引
+   *
+   * @param request RolloverDataStreamRequest
+   * @return RolloverDataStreamResponse
+   */
   async rolloverDataStream(InstanceId: string, DataStream: string, request: RolloverDataStreamRequest): Promise<RolloverDataStreamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.rolloverDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
   }
 
+  /**
+   * @summary Runs pipelines in a Logstash cluster.
+   *
+   * @param request RunPipelinesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunPipelinesResponse
+   */
   async runPipelinesWithOptions(InstanceId: string, request: RunPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunPipelinesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27398,12 +29043,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RunPipelinesResponse>(await this.callApi(params, req, runtime), new RunPipelinesResponse({}));
   }
 
+  /**
+   * @summary Runs pipelines in a Logstash cluster.
+   *
+   * @param request RunPipelinesRequest
+   * @return RunPipelinesResponse
+   */
   async runPipelines(InstanceId: string, request: RunPipelinesRequest): Promise<RunPipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runPipelinesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary ES集群缩节点
+   *
+   * @param request ShrinkNodeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ShrinkNodeResponse
+   */
   async shrinkNodeWithOptions(InstanceId: string, request: ShrinkNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ShrinkNodeResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27442,12 +29101,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ShrinkNodeResponse>(await this.callApi(params, req, runtime), new ShrinkNodeResponse({}));
   }
 
+  /**
+   * @summary ES集群缩节点
+   *
+   * @param request ShrinkNodeRequest
+   * @return ShrinkNodeResponse
+   */
   async shrinkNode(InstanceId: string, request: ShrinkNodeRequest): Promise<ShrinkNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.shrinkNodeWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary StartApm
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartApmResponse
+   */
   async startApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartApmResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -27466,12 +29138,25 @@ export default class Client extends OpenApi {
     return $tea.cast<StartApmResponse>(await this.callApi(params, req, runtime), new StartApmResponse({}));
   }
 
+  /**
+   * @summary StartApm
+   *
+   * @return StartApmResponse
+   */
   async startApm(instanceId: string): Promise<StartApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startApmWithOptions(instanceId, headers, runtime);
   }
 
+  /**
+   * @summary Starts a collector to collect data.
+   *
+   * @param request StartCollectorRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartCollectorResponse
+   */
   async startCollectorWithOptions(ResId: string, request: StartCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartCollectorResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27497,12 +29182,25 @@ export default class Client extends OpenApi {
     return $tea.cast<StartCollectorResponse>(await this.callApi(params, req, runtime), new StartCollectorResponse({}));
   }
 
+  /**
+   * @summary Starts a collector to collect data.
+   *
+   * @param request StartCollectorRequest
+   * @return StartCollectorResponse
+   */
   async startCollector(ResId: string, request: StartCollectorRequest): Promise<StartCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startCollectorWithOptions(ResId, request, headers, runtime);
   }
 
+  /**
+   * @summary StopApm
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopApmResponse
+   */
   async stopApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopApmResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -27521,12 +29219,25 @@ export default class Client extends OpenApi {
     return $tea.cast<StopApmResponse>(await this.callApi(params, req, runtime), new StopApmResponse({}));
   }
 
+  /**
+   * @summary StopApm
+   *
+   * @return StopApmResponse
+   */
   async stopApm(instanceId: string): Promise<StopApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopApmWithOptions(instanceId, headers, runtime);
   }
 
+  /**
+   * @summary Stops a shipper.
+   *
+   * @param request StopCollectorRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopCollectorResponse
+   */
   async stopCollectorWithOptions(ResId: string, request: StopCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopCollectorResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27552,12 +29263,26 @@ export default class Client extends OpenApi {
     return $tea.cast<StopCollectorResponse>(await this.callApi(params, req, runtime), new StopCollectorResponse({}));
   }
 
+  /**
+   * @summary Stops a shipper.
+   *
+   * @param request StopCollectorRequest
+   * @return StopCollectorResponse
+   */
   async stopCollector(ResId: string, request: StopCollectorRequest): Promise<StopCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopCollectorWithOptions(ResId, request, headers, runtime);
   }
 
+  /**
+   * @summary Stops pipelines in a Logstash cluster.
+   *
+   * @param request StopPipelinesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopPipelinesResponse
+   */
   async stopPipelinesWithOptions(InstanceId: string, request: StopPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopPipelinesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27584,12 +29309,26 @@ export default class Client extends OpenApi {
     return $tea.cast<StopPipelinesResponse>(await this.callApi(params, req, runtime), new StopPipelinesResponse({}));
   }
 
+  /**
+   * @summary Stops pipelines in a Logstash cluster.
+   *
+   * @param request StopPipelinesRequest
+   * @return StopPipelinesResponse
+   */
   async stopPipelines(InstanceId: string, request: StopPipelinesRequest): Promise<StopPipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopPipelinesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary The information about the clusters and tags.
+   *
+   * @param request TagResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27623,12 +29362,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary The information about the clusters and tags.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 缩节点，数据迁移
+   *
+   * @param request TransferNodeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TransferNodeResponse
+   */
   async transferNodeWithOptions(InstanceId: string, request: TransferNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TransferNodeResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27659,12 +29412,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TransferNodeResponse>(await this.callApi(params, req, runtime), new TransferNodeResponse({}));
   }
 
+  /**
+   * @summary 缩节点，数据迁移
+   *
+   * @param request TransferNodeRequest
+   * @return TransferNodeResponse
+   */
   async transferNode(InstanceId: string, request: TransferNodeRequest): Promise<TransferNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.transferNodeWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 开关ES集群及Kibana节点公私网访问
+   *
+   * @param request TriggerNetworkRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TriggerNetworkResponse
+   */
   async triggerNetworkWithOptions(InstanceId: string, request: TriggerNetworkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TriggerNetworkResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27704,12 +29471,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TriggerNetworkResponse>(await this.callApi(params, req, runtime), new TriggerNetworkResponse({}));
   }
 
+  /**
+   * @summary 开关ES集群及Kibana节点公私网访问
+   *
+   * @param request TriggerNetworkRequest
+   * @return TriggerNetworkResponse
+   */
   async triggerNetwork(InstanceId: string, request: TriggerNetworkRequest): Promise<TriggerNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.triggerNetworkWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
+   *
+   * @param request UninstallKibanaPluginRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UninstallKibanaPluginResponse
+   */
   async uninstallKibanaPluginWithOptions(InstanceId: string, request: UninstallKibanaPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UninstallKibanaPluginResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27736,12 +29517,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UninstallKibanaPluginResponse>(await this.callApi(params, req, runtime), new UninstallKibanaPluginResponse({}));
   }
 
+  /**
+   * @summary Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
+   *
+   * @param request UninstallKibanaPluginRequest
+   * @return UninstallKibanaPluginResponse
+   */
   async uninstallKibanaPlugin(InstanceId: string, request: UninstallKibanaPluginRequest): Promise<UninstallKibanaPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.uninstallKibanaPluginWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 卸载Logstash实例已安装的插件
+   *
+   * @param request UninstallLogstashPluginRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UninstallLogstashPluginResponse
+   */
   async uninstallLogstashPluginWithOptions(InstanceId: string, request: UninstallLogstashPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UninstallLogstashPluginResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27768,12 +29563,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UninstallLogstashPluginResponse>(await this.callApi(params, req, runtime), new UninstallLogstashPluginResponse({}));
   }
 
+  /**
+   * @summary 卸载Logstash实例已安装的插件
+   *
+   * @param request UninstallLogstashPluginRequest
+   * @return UninstallLogstashPluginResponse
+   */
   async uninstallLogstashPlugin(InstanceId: string, request: UninstallLogstashPluginRequest): Promise<UninstallLogstashPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.uninstallLogstashPluginWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call UninstallPlugin to uninstall the preset plug-in.
+   *
+   * @param request UninstallPluginRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UninstallPluginResponse
+   */
   async uninstallPluginWithOptions(InstanceId: string, request: UninstallPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UninstallPluginResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27804,6 +29613,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UninstallPluginResponse>(await this.callApi(params, req, runtime), new UninstallPluginResponse({}));
   }
 
+  /**
+   * @summary Call UninstallPlugin to uninstall the preset plug-in.
+   *
+   * @param request UninstallPluginRequest
+   * @return UninstallPluginResponse
+   */
   async uninstallPlugin(InstanceId: string, request: UninstallPluginRequest): Promise<UninstallPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -27811,15 +29626,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can only delete user tags.
-    * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
-    * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
-    *
-    * @param request UntagResourcesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UntagResourcesResponse
+   * @summary 删除ES集群实例的用户可见标签
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can only delete user tags.
+   * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
+   * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+   *
+   * @param request UntagResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -27860,13 +29677,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can only delete user tags.
-    * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
-    * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
-    *
-    * @param request UntagResourcesRequest
-    * @return UntagResourcesResponse
+   * @summary 删除ES集群实例的用户可见标签
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can only delete user tags.
+   * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
+   * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27875,12 +29694,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
-    *
-    * @param request UpdateAdminPasswordRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAdminPasswordResponse
+   * @summary 修改ES集群密码
+   *
+   * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+   *
+   * @param request UpdateAdminPasswordRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAdminPasswordResponse
    */
   async updateAdminPasswordWithOptions(InstanceId: string, request: UpdateAdminPasswordRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAdminPasswordResponse> {
     Util.validateModel(request);
@@ -27914,10 +29735,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
-    *
-    * @param request UpdateAdminPasswordRequest
-    * @return UpdateAdminPasswordResponse
+   * @summary 修改ES集群密码
+   *
+   * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+   *
+   * @param request UpdateAdminPasswordRequest
+   * @return UpdateAdminPasswordResponse
    */
   async updateAdminPassword(InstanceId: string, request: UpdateAdminPasswordRequest): Promise<UpdateAdminPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27925,6 +29748,14 @@ export default class Client extends OpenApi {
     return await this.updateAdminPasswordWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call UpdateAdvancedSetting to change the garbage collector configuration for the specified instance.
+   *
+   * @param request UpdateAdvancedSettingRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAdvancedSettingResponse
+   */
   async updateAdvancedSettingWithOptions(InstanceId: string, request: UpdateAdvancedSettingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAdvancedSettingResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -27951,6 +29782,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAdvancedSettingResponse>(await this.callApi(params, req, runtime), new UpdateAdvancedSettingResponse({}));
   }
 
+  /**
+   * @summary Call UpdateAdvancedSetting to change the garbage collector configuration for the specified instance.
+   *
+   * @param request UpdateAdvancedSettingRequest
+   * @return UpdateAdvancedSettingResponse
+   */
   async updateAdvancedSetting(InstanceId: string, request: UpdateAdvancedSettingRequest): Promise<UpdateAdvancedSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -27958,15 +29795,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
-    * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-    * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-    *
-    * @param request UpdateAliwsDictRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAliwsDictResponse
+   * @summary Updates the dictionary file of the analysis-aliws plug-in.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
+   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+   *
+   * @param request UpdateAliwsDictRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAliwsDictResponse
    */
   async updateAliwsDictWithOptions(InstanceId: string, request: UpdateAliwsDictRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAliwsDictResponse> {
     Util.validateModel(request);
@@ -27995,13 +29834,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
-    * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-    * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-    *
-    * @param request UpdateAliwsDictRequest
-    * @return UpdateAliwsDictResponse
+   * @summary Updates the dictionary file of the analysis-aliws plug-in.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
+   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+   *
+   * @param request UpdateAliwsDictRequest
+   * @return UpdateAliwsDictResponse
    */
   async updateAliwsDict(InstanceId: string, request: UpdateAliwsDictRequest): Promise<UpdateAliwsDictResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28009,6 +29850,14 @@ export default class Client extends OpenApi {
     return await this.updateAliwsDictWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 修改APM实规格配置
+   *
+   * @param request UpdateApmRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateApmResponse
+   */
   async updateApmWithOptions(instanceId: string, request: UpdateApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApmResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28050,6 +29899,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateApmResponse>(await this.callApi(params, req, runtime), new UpdateApmResponse({}));
   }
 
+  /**
+   * @summary 修改APM实规格配置
+   *
+   * @param request UpdateApmRequest
+   * @return UpdateApmResponse
+   */
   async updateApm(instanceId: string, request: UpdateApmRequest): Promise<UpdateApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -28057,12 +29912,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request UpdateBlackIpsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateBlackIpsResponse
+   * @deprecated OpenAPI UpdateBlackIps is deprecated
+   *
+   * @summary 修改ES实例访问黑名单，已废弃
+   *
+   * @param request UpdateBlackIpsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBlackIpsResponse
    */
   // Deprecated
   async updateBlackIpsWithOptions(InstanceId: string, request: UpdateBlackIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateBlackIpsResponse> {
@@ -28091,10 +29948,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request UpdateBlackIpsRequest
-    * @return UpdateBlackIpsResponse
+   * @deprecated OpenAPI UpdateBlackIps is deprecated
+   *
+   * @summary 修改ES实例访问黑名单，已废弃
+   *
+   * @param request UpdateBlackIpsRequest
+   * @return UpdateBlackIpsResponse
    */
   // Deprecated
   async updateBlackIps(InstanceId: string, request: UpdateBlackIpsRequest): Promise<UpdateBlackIpsResponse> {
@@ -28103,6 +29962,14 @@ export default class Client extends OpenApi {
     return await this.updateBlackIpsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the configurations of a shipper.
+   *
+   * @param request UpdateCollectorRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCollectorResponse
+   */
   async updateCollectorWithOptions(ResId: string, request: UpdateCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCollectorResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28129,12 +29996,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCollectorResponse>(await this.callApi(params, req, runtime), new UpdateCollectorResponse({}));
   }
 
+  /**
+   * @summary Updates the configurations of a shipper.
+   *
+   * @param request UpdateCollectorRequest
+   * @return UpdateCollectorResponse
+   */
   async updateCollector(ResId: string, request: UpdateCollectorRequest): Promise<UpdateCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCollectorWithOptions(ResId, request, headers, runtime);
   }
 
+  /**
+   * @summary Changes the name of a shipper.
+   *
+   * @param request UpdateCollectorNameRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCollectorNameResponse
+   */
   async updateCollectorNameWithOptions(ResId: string, request: UpdateCollectorNameRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCollectorNameResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28161,12 +30042,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCollectorNameResponse>(await this.callApi(params, req, runtime), new UpdateCollectorNameResponse({}));
   }
 
+  /**
+   * @summary Changes the name of a shipper.
+   *
+   * @param request UpdateCollectorNameRequest
+   * @return UpdateCollectorNameResponse
+   */
   async updateCollectorName(ResId: string, request: UpdateCollectorNameRequest): Promise<UpdateCollectorNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCollectorNameWithOptions(ResId, request, headers, runtime);
   }
 
+  /**
+   * @summary 修改ES集群动态索引
+   *
+   * @param request UpdateComponentIndexRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateComponentIndexResponse
+   */
   async updateComponentIndexWithOptions(InstanceId: string, name: string, request: UpdateComponentIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateComponentIndexResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28196,12 +30091,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateComponentIndexResponse>(await this.callApi(params, req, runtime), new UpdateComponentIndexResponse({}));
   }
 
+  /**
+   * @summary 修改ES集群动态索引
+   *
+   * @param request UpdateComponentIndexRequest
+   * @return UpdateComponentIndexResponse
+   */
   async updateComponentIndex(InstanceId: string, name: string, request: UpdateComponentIndexRequest): Promise<UpdateComponentIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
   }
 
+  /**
+   * @summary 修改elasticsearch实例名称名称
+   *
+   * @param request UpdateDescriptionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDescriptionResponse
+   */
   async updateDescriptionWithOptions(InstanceId: string, request: UpdateDescriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDescriptionResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28233,12 +30142,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateDescriptionResponse({}));
   }
 
+  /**
+   * @summary 修改elasticsearch实例名称名称
+   *
+   * @param request UpdateDescriptionRequest
+   * @return UpdateDescriptionResponse
+   */
   async updateDescription(InstanceId: string, request: UpdateDescriptionRequest): Promise<UpdateDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDescriptionWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation&maintenance (O&M) scene settings.
+   *
+   * @param request UpdateDiagnosisSettingsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDiagnosisSettingsResponse
+   */
   async updateDiagnosisSettingsWithOptions(InstanceId: string, request: UpdateDiagnosisSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDiagnosisSettingsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28269,6 +30192,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDiagnosisSettingsResponse>(await this.callApi(params, req, runtime), new UpdateDiagnosisSettingsResponse({}));
   }
 
+  /**
+   * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation&maintenance (O&M) scene settings.
+   *
+   * @param request UpdateDiagnosisSettingsRequest
+   * @return UpdateDiagnosisSettingsResponse
+   */
   async updateDiagnosisSettings(InstanceId: string, request: UpdateDiagnosisSettingsRequest): Promise<UpdateDiagnosisSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -28276,14 +30205,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-    * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-    *
-    * @param request UpdateDictRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateDictResponse
+   * @summary Updates a dictionary of an Elasticsearch cluster.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+   *
+   * @param request UpdateDictRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDictResponse
    */
   async updateDictWithOptions(InstanceId: string, request: UpdateDictRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDictResponse> {
     Util.validateModel(request);
@@ -28312,12 +30243,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-    * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-    *
-    * @param request UpdateDictRequest
-    * @return UpdateDictResponse
+   * @summary Updates a dictionary of an Elasticsearch cluster.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+   *
+   * @param request UpdateDictRequest
+   * @return UpdateDictResponse
    */
   async updateDict(InstanceId: string, request: UpdateDictRequest): Promise<UpdateDictResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28325,6 +30258,14 @@ export default class Client extends OpenApi {
     return await this.updateDictWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 修改集群动态配置
+   *
+   * @param request UpdateDynamicSettingsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDynamicSettingsResponse
+   */
   async updateDynamicSettingsWithOptions(InstanceId: string, request: UpdateDynamicSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDynamicSettingsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28359,12 +30300,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDynamicSettingsResponse>(await this.callApi(params, req, runtime), new UpdateDynamicSettingsResponse({}));
   }
 
+  /**
+   * @summary 修改集群动态配置
+   *
+   * @param request UpdateDynamicSettingsRequest
+   * @return UpdateDynamicSettingsResponse
+   */
   async updateDynamicSettings(InstanceId: string, request: UpdateDynamicSettingsRequest): Promise<UpdateDynamicSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDynamicSettingsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request UpdateExtendConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateExtendConfigResponse
+   */
   async updateExtendConfigWithOptions(InstanceId: string, request: UpdateExtendConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateExtendConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28391,6 +30344,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateExtendConfigResponse>(await this.callApi(params, req, runtime), new UpdateExtendConfigResponse({}));
   }
 
+  /**
+   * @param request UpdateExtendConfigRequest
+   * @return UpdateExtendConfigResponse
+   */
   async updateExtendConfig(InstanceId: string, request: UpdateExtendConfigRequest): Promise<UpdateExtendConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -28398,12 +30355,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
-    *
-    * @param request UpdateExtendfilesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateExtendfilesResponse
+   * @summary Updates the driver files of a Logstash cluster.
+   *
+   * @description When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+   *
+   * @param request UpdateExtendfilesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateExtendfilesResponse
    */
   async updateExtendfilesWithOptions(InstanceId: string, request: UpdateExtendfilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateExtendfilesResponse> {
     Util.validateModel(request);
@@ -28432,10 +30391,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
-    *
-    * @param request UpdateExtendfilesRequest
-    * @return UpdateExtendfilesResponse
+   * @summary Updates the driver files of a Logstash cluster.
+   *
+   * @description When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+   *
+   * @param request UpdateExtendfilesRequest
+   * @return UpdateExtendfilesResponse
    */
   async updateExtendfiles(InstanceId: string, request: UpdateExtendfilesRequest): Promise<UpdateExtendfilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28444,14 +30405,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-    * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-    *
-    * @param request UpdateHotIkDictsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateHotIkDictsResponse
+   * @summary Performs a rolling update for the IK dictionaries of an Elasticsearch cluster.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+   *
+   * @param request UpdateHotIkDictsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateHotIkDictsResponse
    */
   async updateHotIkDictsWithOptions(InstanceId: string, request: UpdateHotIkDictsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateHotIkDictsResponse> {
     Util.validateModel(request);
@@ -28480,12 +30443,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-    * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-    *
-    * @param request UpdateHotIkDictsRequest
-    * @return UpdateHotIkDictsResponse
+   * @summary Performs a rolling update for the IK dictionaries of an Elasticsearch cluster.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+   *
+   * @param request UpdateHotIkDictsRequest
+   * @return UpdateHotIkDictsResponse
    */
   async updateHotIkDicts(InstanceId: string, request: UpdateHotIkDictsRequest): Promise<UpdateHotIkDictsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28493,6 +30458,14 @@ export default class Client extends OpenApi {
     return await this.updateHotIkDictsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 修改ES集群索引生命周期策略
+   *
+   * @param request UpdateILMPolicyRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateILMPolicyResponse
+   */
   async updateILMPolicyWithOptions(InstanceId: string, PolicyName: string, request: UpdateILMPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateILMPolicyResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28519,12 +30492,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateILMPolicyResponse>(await this.callApi(params, req, runtime), new UpdateILMPolicyResponse({}));
   }
 
+  /**
+   * @summary 修改ES集群索引生命周期策略
+   *
+   * @param request UpdateILMPolicyRequest
+   * @return UpdateILMPolicyResponse
+   */
   async updateILMPolicy(InstanceId: string, PolicyName: string, request: UpdateILMPolicyRequest): Promise<UpdateILMPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateILMPolicyWithOptions(InstanceId, PolicyName, request, headers, runtime);
   }
 
+  /**
+   * @summary 修改ES集群索引模版配置
+   *
+   * @param request UpdateIndexTemplateRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIndexTemplateResponse
+   */
   async updateIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, request: UpdateIndexTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIndexTemplateResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28551,6 +30538,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIndexTemplateResponse>(await this.callApi(params, req, runtime), new UpdateIndexTemplateResponse({}));
   }
 
+  /**
+   * @summary 修改ES集群索引模版配置
+   *
+   * @param request UpdateIndexTemplateRequest
+   * @return UpdateIndexTemplateResponse
+   */
   async updateIndexTemplate(InstanceId: string, IndexTemplate: string, request: UpdateIndexTemplateRequest): Promise<UpdateIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -28558,12 +30551,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * es-cn-n6w1ptcb30009\\*\\*\\*\\*
-    *
-    * @param request UpdateInstanceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateInstanceResponse
+   * @summary 修改ES集群节点配置
+   *
+   * @description es-cn-n6w1ptcb30009\\*\\*\\*\\*
+   *
+   * @param request UpdateInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceResponse
    */
   async updateInstanceWithOptions(InstanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
@@ -28633,10 +30628,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * es-cn-n6w1ptcb30009\\*\\*\\*\\*
-    *
-    * @param request UpdateInstanceRequest
-    * @return UpdateInstanceResponse
+   * @summary 修改ES集群节点配置
+   *
+   * @description es-cn-n6w1ptcb30009\\*\\*\\*\\*
+   *
+   * @param request UpdateInstanceRequest
+   * @return UpdateInstanceResponse
    */
   async updateInstance(InstanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28644,6 +30641,14 @@ export default class Client extends OpenApi {
     return await this.updateInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call UpdateInstanceChargeType to change the billing method of a pay-as-you-go instance to subscription.
+   *
+   * @param request UpdateInstanceChargeTypeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceChargeTypeResponse
+   */
   async updateInstanceChargeTypeWithOptions(InstanceId: string, request: UpdateInstanceChargeTypeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceChargeTypeResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28670,6 +30675,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new UpdateInstanceChargeTypeResponse({}));
   }
 
+  /**
+   * @summary Call UpdateInstanceChargeType to change the billing method of a pay-as-you-go instance to subscription.
+   *
+   * @param request UpdateInstanceChargeTypeRequest
+   * @return UpdateInstanceChargeTypeResponse
+   */
   async updateInstanceChargeType(InstanceId: string, request: UpdateInstanceChargeTypeRequest): Promise<UpdateInstanceChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -28677,13 +30688,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
-    *
-    * @param request UpdateInstanceSettingsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateInstanceSettingsResponse
+   * @summary Call UpdateInstanceSettings to update the YML configuration of a specified instance.
+   *
+   * @description When you call this operation, take note of the following items:
+   * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+   *
+   * @param request UpdateInstanceSettingsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceSettingsResponse
    */
   async updateInstanceSettingsWithOptions(InstanceId: string, request: UpdateInstanceSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceSettingsResponse> {
     Util.validateModel(request);
@@ -28712,11 +30725,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
-    *
-    * @param request UpdateInstanceSettingsRequest
-    * @return UpdateInstanceSettingsResponse
+   * @summary Call UpdateInstanceSettings to update the YML configuration of a specified instance.
+   *
+   * @description When you call this operation, take note of the following items:
+   * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+   *
+   * @param request UpdateInstanceSettingsRequest
+   * @return UpdateInstanceSettingsResponse
    */
   async updateInstanceSettings(InstanceId: string, request: UpdateInstanceSettingsRequest): Promise<UpdateInstanceSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28724,6 +30739,14 @@ export default class Client extends OpenApi {
     return await this.updateInstanceSettingsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新kibana私网链接
+   *
+   * @param request UpdateKibanaPvlNetworkRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateKibanaPvlNetworkResponse
+   */
   async updateKibanaPvlNetworkWithOptions(InstanceId: string, request: UpdateKibanaPvlNetworkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateKibanaPvlNetworkResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28759,12 +30782,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateKibanaPvlNetworkResponse>(await this.callApi(params, req, runtime), new UpdateKibanaPvlNetworkResponse({}));
   }
 
+  /**
+   * @summary 更新kibana私网链接
+   *
+   * @param request UpdateKibanaPvlNetworkRequest
+   * @return UpdateKibanaPvlNetworkResponse
+   */
   async updateKibanaPvlNetwork(InstanceId: string, request: UpdateKibanaPvlNetworkRequest): Promise<UpdateKibanaPvlNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateKibanaPvlNetworkWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call UpdateKibanaSettings to modify the Kibana configuration. Currently, you can only modify the Kibana language configuration.
+   *
+   * @param request UpdateKibanaSettingsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateKibanaSettingsResponse
+   */
   async updateKibanaSettingsWithOptions(InstanceId: string, request: UpdateKibanaSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateKibanaSettingsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28791,6 +30828,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateKibanaSettingsResponse>(await this.callApi(params, req, runtime), new UpdateKibanaSettingsResponse({}));
   }
 
+  /**
+   * @summary Call UpdateKibanaSettings to modify the Kibana configuration. Currently, you can only modify the Kibana language configuration.
+   *
+   * @param request UpdateKibanaSettingsRequest
+   * @return UpdateKibanaSettingsResponse
+   */
   async updateKibanaSettings(InstanceId: string, request: UpdateKibanaSettingsRequest): Promise<UpdateKibanaSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -28798,16 +30841,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
-    * *   You can update an IP address whitelist by using the following parameters:
-    *     *   kibanaIPWhitelist
-    *     *   modifyMode and whiteIpGroup
-    * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
-    *
-    * @param request UpdateKibanaWhiteIpsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateKibanaWhiteIpsResponse
+   * @summary Updates an IP address whitelist for access to the Kibana console of a specified Elasticsearch cluster.
+   *
+   * @description *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
+   * *   You can update an IP address whitelist by using the following parameters:
+   *     *   kibanaIPWhitelist
+   *     *   modifyMode and whiteIpGroup
+   * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+   *
+   * @param request UpdateKibanaWhiteIpsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateKibanaWhiteIpsResponse
    */
   async updateKibanaWhiteIpsWithOptions(InstanceId: string, request: UpdateKibanaWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateKibanaWhiteIpsResponse> {
     Util.validateModel(request);
@@ -28849,14 +30894,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
-    * *   You can update an IP address whitelist by using the following parameters:
-    *     *   kibanaIPWhitelist
-    *     *   modifyMode and whiteIpGroup
-    * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
-    *
-    * @param request UpdateKibanaWhiteIpsRequest
-    * @return UpdateKibanaWhiteIpsResponse
+   * @summary Updates an IP address whitelist for access to the Kibana console of a specified Elasticsearch cluster.
+   *
+   * @description *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
+   * *   You can update an IP address whitelist by using the following parameters:
+   *     *   kibanaIPWhitelist
+   *     *   modifyMode and whiteIpGroup
+   * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+   *
+   * @param request UpdateKibanaWhiteIpsRequest
+   * @return UpdateKibanaWhiteIpsResponse
    */
   async updateKibanaWhiteIps(InstanceId: string, request: UpdateKibanaWhiteIpsRequest): Promise<UpdateKibanaWhiteIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28864,6 +30911,14 @@ export default class Client extends OpenApi {
     return await this.updateKibanaWhiteIpsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 修改Logstash节点规格磁盘配置
+   *
+   * @param request UpdateLogstashRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLogstashResponse
+   */
   async updateLogstashWithOptions(InstanceId: string, request: UpdateLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28899,12 +30954,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLogstashResponse>(await this.callApi(params, req, runtime), new UpdateLogstashResponse({}));
   }
 
+  /**
+   * @summary 修改Logstash节点规格磁盘配置
+   *
+   * @param request UpdateLogstashRequest
+   * @return UpdateLogstashResponse
+   */
   async updateLogstash(InstanceId: string, request: UpdateLogstashRequest): Promise<UpdateLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateLogstashWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Switches the billing method of a Logstash cluster from pay-as-you-go to subscription.
+   *
+   * @param request UpdateLogstashChargeTypeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLogstashChargeTypeResponse
+   */
   async updateLogstashChargeTypeWithOptions(InstanceId: string, request: UpdateLogstashChargeTypeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashChargeTypeResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28931,6 +31000,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLogstashChargeTypeResponse>(await this.callApi(params, req, runtime), new UpdateLogstashChargeTypeResponse({}));
   }
 
+  /**
+   * @summary Switches the billing method of a Logstash cluster from pay-as-you-go to subscription.
+   *
+   * @param request UpdateLogstashChargeTypeRequest
+   * @return UpdateLogstashChargeTypeResponse
+   */
   async updateLogstashChargeType(InstanceId: string, request: UpdateLogstashChargeTypeRequest): Promise<UpdateLogstashChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -28938,12 +31013,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
-    *
-    * @param request UpdateLogstashDescriptionRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateLogstashDescriptionResponse
+   * @summary Changes the name of a specified Logstash cluster.
+   *
+   * @description When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+   *
+   * @param request UpdateLogstashDescriptionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLogstashDescriptionResponse
    */
   async updateLogstashDescriptionWithOptions(InstanceId: string, request: UpdateLogstashDescriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashDescriptionResponse> {
     Util.validateModel(request);
@@ -28977,10 +31054,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
-    *
-    * @param request UpdateLogstashDescriptionRequest
-    * @return UpdateLogstashDescriptionResponse
+   * @summary Changes the name of a specified Logstash cluster.
+   *
+   * @description When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+   *
+   * @param request UpdateLogstashDescriptionRequest
+   * @return UpdateLogstashDescriptionResponse
    */
   async updateLogstashDescription(InstanceId: string, request: UpdateLogstashDescriptionRequest): Promise<UpdateLogstashDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28989,13 +31068,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
-    *
-    * @param request UpdateLogstashSettingsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateLogstashSettingsResponse
+   * @summary Updates the configuration of a specified Logstash cluster.
+   *
+   * @description When you call this operation, take note of the following items:
+   * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+   *
+   * @param request UpdateLogstashSettingsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLogstashSettingsResponse
    */
   async updateLogstashSettingsWithOptions(InstanceId: string, request: UpdateLogstashSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashSettingsResponse> {
     Util.validateModel(request);
@@ -29024,11 +31105,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
-    *
-    * @param request UpdateLogstashSettingsRequest
-    * @return UpdateLogstashSettingsResponse
+   * @summary Updates the configuration of a specified Logstash cluster.
+   *
+   * @description When you call this operation, take note of the following items:
+   * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+   *
+   * @param request UpdateLogstashSettingsRequest
+   * @return UpdateLogstashSettingsResponse
    */
   async updateLogstashSettings(InstanceId: string, request: UpdateLogstashSettingsRequest): Promise<UpdateLogstashSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29036,6 +31119,14 @@ export default class Client extends OpenApi {
     return await this.updateLogstashSettingsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 修改Logstash管道配置
+   *
+   * @param request UpdatePipelineManagementConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePipelineManagementConfigResponse
+   */
   async updatePipelineManagementConfigWithOptions(InstanceId: string, request: UpdatePipelineManagementConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineManagementConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -29083,12 +31174,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePipelineManagementConfigResponse>(await this.callApi(params, req, runtime), new UpdatePipelineManagementConfigResponse({}));
   }
 
+  /**
+   * @summary 修改Logstash管道配置
+   *
+   * @param request UpdatePipelineManagementConfigRequest
+   * @return UpdatePipelineManagementConfigResponse
+   */
   async updatePipelineManagementConfig(InstanceId: string, request: UpdatePipelineManagementConfigRequest): Promise<UpdatePipelineManagementConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updatePipelineManagementConfigWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates a pipeline of a Logstash cluster.
+   *
+   * @param request UpdatePipelinesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePipelinesResponse
+   */
   async updatePipelinesWithOptions(InstanceId: string, request: UpdatePipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelinesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -29119,6 +31224,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePipelinesResponse>(await this.callApi(params, req, runtime), new UpdatePipelinesResponse({}));
   }
 
+  /**
+   * @summary Updates a pipeline of a Logstash cluster.
+   *
+   * @param request UpdatePipelinesRequest
+   * @return UpdatePipelinesResponse
+   */
   async updatePipelines(InstanceId: string, request: UpdatePipelinesRequest): Promise<UpdatePipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -29126,12 +31237,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
-    *
-    * @param request UpdatePrivateNetworkWhiteIpsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdatePrivateNetworkWhiteIpsResponse
+   * @summary ## RequestBody
+   * | Property | Type | Required | Example | Description |
+   * | -------- | ---- | -------- | ------- | ----------- |
+   * | privateNetworkIpWhiteList | List<String> | No | ["0.0.XX.XX","10.2.XX.XX","192.168.XX.XX/25"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
+   * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
+   * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
+   * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
+   * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+   * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+   * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
+   * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
+   * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+   *
+   * @description >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+   *
+   * @param request UpdatePrivateNetworkWhiteIpsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePrivateNetworkWhiteIpsResponse
    */
   async updatePrivateNetworkWhiteIpsWithOptions(InstanceId: string, request: UpdatePrivateNetworkWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateNetworkWhiteIpsResponse> {
     Util.validateModel(request);
@@ -29164,10 +31288,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
-    *
-    * @param request UpdatePrivateNetworkWhiteIpsRequest
-    * @return UpdatePrivateNetworkWhiteIpsResponse
+   * @summary ## RequestBody
+   * | Property | Type | Required | Example | Description |
+   * | -------- | ---- | -------- | ------- | ----------- |
+   * | privateNetworkIpWhiteList | List<String> | No | ["0.0.XX.XX","10.2.XX.XX","192.168.XX.XX/25"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
+   * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
+   * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
+   * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
+   * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+   * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+   * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
+   * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
+   * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+   *
+   * @description >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+   *
+   * @param request UpdatePrivateNetworkWhiteIpsRequest
+   * @return UpdatePrivateNetworkWhiteIpsResponse
    */
   async updatePrivateNetworkWhiteIps(InstanceId: string, request: UpdatePrivateNetworkWhiteIpsRequest): Promise<UpdatePrivateNetworkWhiteIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29176,13 +31313,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
-    *
-    * @param request UpdatePublicNetworkRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdatePublicNetworkResponse
+   * @summary Call UpdatePublicNetwork to open or close the public network address of the specified elasticsearch instance.
+   *
+   * @description When you call this operation, take note of the following items:
+   * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+   *
+   * @param request UpdatePublicNetworkRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePublicNetworkResponse
    */
   async updatePublicNetworkWithOptions(InstanceId: string, request: UpdatePublicNetworkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePublicNetworkResponse> {
     Util.validateModel(request);
@@ -29211,11 +31350,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
-    *
-    * @param request UpdatePublicNetworkRequest
-    * @return UpdatePublicNetworkResponse
+   * @summary Call UpdatePublicNetwork to open or close the public network address of the specified elasticsearch instance.
+   *
+   * @description When you call this operation, take note of the following items:
+   * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+   *
+   * @param request UpdatePublicNetworkRequest
+   * @return UpdatePublicNetworkResponse
    */
   async updatePublicNetwork(InstanceId: string, request: UpdatePublicNetworkRequest): Promise<UpdatePublicNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29224,12 +31365,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
-    *
-    * @param request UpdatePublicWhiteIpsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdatePublicWhiteIpsResponse
+   * @summary ## RequestBody
+   * | Property | Type | Required | Example | Description |
+   * | -------- | ---- | -------- | ------- | ----------- |
+   * | publicIpWhitelist | List<String> | Yes | ["0.0.0.0/0","0.0.0.0/1"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
+   * You cannot configure both publicIpWhitelist and whiteIpGroup. |
+   * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
+   * You cannot configure both publicIpWhitelist and whiteIpGroup. |
+   * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+   * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+   * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
+   * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
+   * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+   *
+   * @description >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+   *
+   * @param request UpdatePublicWhiteIpsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePublicWhiteIpsResponse
    */
   async updatePublicWhiteIpsWithOptions(InstanceId: string, request: UpdatePublicWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePublicWhiteIpsResponse> {
     Util.validateModel(request);
@@ -29262,10 +31416,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
-    *
-    * @param request UpdatePublicWhiteIpsRequest
-    * @return UpdatePublicWhiteIpsResponse
+   * @summary ## RequestBody
+   * | Property | Type | Required | Example | Description |
+   * | -------- | ---- | -------- | ------- | ----------- |
+   * | publicIpWhitelist | List<String> | Yes | ["0.0.0.0/0","0.0.0.0/1"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
+   * You cannot configure both publicIpWhitelist and whiteIpGroup. |
+   * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
+   * You cannot configure both publicIpWhitelist and whiteIpGroup. |
+   * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+   * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+   * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
+   * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
+   * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+   *
+   * @description >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+   *
+   * @param request UpdatePublicWhiteIpsRequest
+   * @return UpdatePublicWhiteIpsResponse
    */
   async updatePublicWhiteIps(InstanceId: string, request: UpdatePublicWhiteIpsRequest): Promise<UpdatePublicWhiteIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29273,6 +31440,14 @@ export default class Client extends OpenApi {
     return await this.updatePublicWhiteIpsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更改ES集群高可用策略
+   *
+   * @param request UpdateReadWritePolicyRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateReadWritePolicyResponse
+   */
   async updateReadWritePolicyWithOptions(InstanceId: string, request: UpdateReadWritePolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateReadWritePolicyResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -29299,12 +31474,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateReadWritePolicyResponse>(await this.callApi(params, req, runtime), new UpdateReadWritePolicyResponse({}));
   }
 
+  /**
+   * @summary 更改ES集群高可用策略
+   *
+   * @param request UpdateReadWritePolicyRequest
+   * @return UpdateReadWritePolicyResponse
+   */
   async updateReadWritePolicy(InstanceId: string, request: UpdateReadWritePolicyRequest): Promise<UpdateReadWritePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateReadWritePolicyWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Call UpdateSnapshotSetting to update the data backup configuration of the specified instance.
+   *
+   * @param request UpdateSnapshotSettingRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSnapshotSettingResponse
+   */
   async updateSnapshotSettingWithOptions(InstanceId: string, request: UpdateSnapshotSettingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSnapshotSettingResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -29325,6 +31514,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSnapshotSettingResponse>(await this.callApi(params, req, runtime), new UpdateSnapshotSettingResponse({}));
   }
 
+  /**
+   * @summary Call UpdateSnapshotSetting to update the data backup configuration of the specified instance.
+   *
+   * @param request UpdateSnapshotSettingRequest
+   * @return UpdateSnapshotSettingResponse
+   */
   async updateSnapshotSetting(InstanceId: string, request: UpdateSnapshotSettingRequest): Promise<UpdateSnapshotSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -29332,14 +31527,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-    * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-    *
-    * @param request UpdateSynonymsDictsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateSynonymsDictsResponse
+   * @summary Updates the synonym dictionaries of an Elasticsearch cluster.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+   *
+   * @param request UpdateSynonymsDictsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSynonymsDictsResponse
    */
   async updateSynonymsDictsWithOptions(InstanceId: string, request: UpdateSynonymsDictsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSynonymsDictsResponse> {
     Util.validateModel(request);
@@ -29368,12 +31565,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-    * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-    *
-    * @param request UpdateSynonymsDictsRequest
-    * @return UpdateSynonymsDictsResponse
+   * @summary Updates the synonym dictionaries of an Elasticsearch cluster.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+   *
+   * @param request UpdateSynonymsDictsRequest
+   * @return UpdateSynonymsDictsResponse
    */
   async updateSynonymsDicts(InstanceId: string, request: UpdateSynonymsDictsRequest): Promise<UpdateSynonymsDictsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29381,6 +31580,12 @@ export default class Client extends OpenApi {
     return await this.updateSynonymsDictsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request UpdateTemplateRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTemplateResponse
+   */
   async updateTemplateWithOptions(InstanceId: string, TemplateName: string, request: UpdateTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -29407,6 +31612,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
+  /**
+   * @param request UpdateTemplateRequest
+   * @return UpdateTemplateResponse
+   */
   async updateTemplate(InstanceId: string, TemplateName: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -29414,12 +31623,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](~~142230~~). You cannot force your program to obtain these parameters.
-    *
-    * @param request UpdateWhiteIpsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateWhiteIpsResponse
+   * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
+   * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
+   * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
+   * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+   *
+   * @description > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
+   *
+   * @param request UpdateWhiteIpsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWhiteIpsResponse
    */
   async updateWhiteIpsWithOptions(InstanceId: string, request: UpdateWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWhiteIpsResponse> {
     Util.validateModel(request);
@@ -29461,10 +31675,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](~~142230~~). You cannot force your program to obtain these parameters.
-    *
-    * @param request UpdateWhiteIpsRequest
-    * @return UpdateWhiteIpsResponse
+   * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
+   * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
+   * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
+   * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+   *
+   * @description > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
+   *
+   * @param request UpdateWhiteIpsRequest
+   * @return UpdateWhiteIpsResponse
    */
   async updateWhiteIps(InstanceId: string, request: UpdateWhiteIpsRequest): Promise<UpdateWhiteIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29472,6 +31691,14 @@ export default class Client extends OpenApi {
     return await this.updateWhiteIpsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 修改Logstash实例的X-Pack监控报警配置。
+   *
+   * @param request UpdateXpackMonitorConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateXpackMonitorConfigResponse
+   */
   async updateXpackMonitorConfigWithOptions(InstanceId: string, request: UpdateXpackMonitorConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateXpackMonitorConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -29515,6 +31742,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateXpackMonitorConfigResponse>(await this.callApi(params, req, runtime), new UpdateXpackMonitorConfigResponse({}));
   }
 
+  /**
+   * @summary 修改Logstash实例的X-Pack监控报警配置。
+   *
+   * @param request UpdateXpackMonitorConfigRequest
+   * @return UpdateXpackMonitorConfigResponse
+   */
   async updateXpackMonitorConfig(InstanceId: string, request: UpdateXpackMonitorConfigRequest): Promise<UpdateXpackMonitorConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -29522,12 +31755,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
-    *
-    * @param request UpgradeEngineVersionRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeEngineVersionResponse
+   * @summary ES集群版本升级
+   *
+   * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+   *
+   * @param request UpgradeEngineVersionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeEngineVersionResponse
    */
   async upgradeEngineVersionWithOptions(InstanceId: string, request: UpgradeEngineVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeEngineVersionResponse> {
     Util.validateModel(request);
@@ -29569,10 +31804,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
-    *
-    * @param request UpgradeEngineVersionRequest
-    * @return UpgradeEngineVersionResponse
+   * @summary ES集群版本升级
+   *
+   * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+   *
+   * @param request UpgradeEngineVersionRequest
+   * @return UpgradeEngineVersionResponse
    */
   async upgradeEngineVersion(InstanceId: string, request: UpgradeEngineVersionRequest): Promise<UpgradeEngineVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29581,12 +31818,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
-    *
-    * @param request ValidateConnectionRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ValidateConnectionResponse
+   * @summary Tests the connectivity between a Logstash cluster and its associated Elasticsearch cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+   *
+   * @description > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+   *
+   * @param request ValidateConnectionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ValidateConnectionResponse
    */
   async validateConnectionWithOptions(InstanceId: string, request: ValidateConnectionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateConnectionResponse> {
     Util.validateModel(request);
@@ -29615,10 +31854,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
-    *
-    * @param request ValidateConnectionRequest
-    * @return ValidateConnectionResponse
+   * @summary Tests the connectivity between a Logstash cluster and its associated Elasticsearch cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+   *
+   * @description > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+   *
+   * @param request ValidateConnectionRequest
+   * @return ValidateConnectionResponse
    */
   async validateConnection(InstanceId: string, request: ValidateConnectionRequest): Promise<ValidateConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29626,6 +31867,14 @@ export default class Client extends OpenApi {
     return await this.validateConnectionWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 校验缩节点合法性
+   *
+   * @param request ValidateShrinkNodesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ValidateShrinkNodesResponse
+   */
   async validateShrinkNodesWithOptions(InstanceId: string, request: ValidateShrinkNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateShrinkNodesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -29660,12 +31909,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateShrinkNodesResponse>(await this.callApi(params, req, runtime), new ValidateShrinkNodesResponse({}));
   }
 
+  /**
+   * @summary 校验缩节点合法性
+   *
+   * @param request ValidateShrinkNodesRequest
+   * @return ValidateShrinkNodesResponse
+   */
   async validateShrinkNodes(InstanceId: string, request: ValidateShrinkNodesRequest): Promise<ValidateShrinkNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.validateShrinkNodesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request ValidateSlrPermissionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ValidateSlrPermissionResponse
+   */
   async validateSlrPermissionWithOptions(request: ValidateSlrPermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateSlrPermissionResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -29695,12 +31956,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateSlrPermissionResponse>(await this.callApi(params, req, runtime), new ValidateSlrPermissionResponse({}));
   }
 
+  /**
+   * @param request ValidateSlrPermissionRequest
+   * @return ValidateSlrPermissionResponse
+   */
   async validateSlrPermission(request: ValidateSlrPermissionRequest): Promise<ValidateSlrPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.validateSlrPermissionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 缩节点校验数据迁移合法性
+   *
+   * @param request ValidateTransferableNodesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ValidateTransferableNodesResponse
+   */
   async validateTransferableNodesWithOptions(InstanceId: string, request: ValidateTransferableNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateTransferableNodesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -29727,6 +32000,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateTransferableNodesResponse>(await this.callApi(params, req, runtime), new ValidateTransferableNodesResponse({}));
   }
 
+  /**
+   * @summary 缩节点校验数据迁移合法性
+   *
+   * @param request ValidateTransferableNodesRequest
+   * @return ValidateTransferableNodesResponse
+   */
   async validateTransferableNodes(InstanceId: string, request: ValidateTransferableNodesRequest): Promise<ValidateTransferableNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -29734,12 +32013,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The configurations of warm nodes.
-    *
-    * @param request CreateInstanceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateInstanceResponse
+   * @summary The configurations of dedicated master nodes.
+   *
+   * @description The configurations of warm nodes.
+   *
+   * @param request CreateInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -29837,10 +32118,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The configurations of warm nodes.
-    *
-    * @param request CreateInstanceRequest
-    * @return CreateInstanceResponse
+   * @summary The configurations of dedicated master nodes.
+   *
+   * @description The configurations of warm nodes.
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
