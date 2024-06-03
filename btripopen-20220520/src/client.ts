@@ -30276,6 +30276,67 @@ export class FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDo extend
   }
 }
 
+export class FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDoList extends $tea.Model {
+  arrAirportName?: string;
+  arrCity?: string;
+  arrCityName?: string;
+  arrTime?: string;
+  cabin?: string;
+  cabinClass?: number;
+  cabinClassStr?: string;
+  depAirportName?: string;
+  depCity?: string;
+  depCityName?: string;
+  depTime?: string;
+  discount?: string;
+  flightNo?: string;
+  price?: number;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arrAirportName: 'arr_airport_name',
+      arrCity: 'arr_city',
+      arrCityName: 'arr_city_name',
+      arrTime: 'arr_time',
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      cabinClassStr: 'cabin_class_str',
+      depAirportName: 'dep_airport_name',
+      depCity: 'dep_city',
+      depCityName: 'dep_city_name',
+      depTime: 'dep_time',
+      discount: 'discount',
+      flightNo: 'flight_no',
+      price: 'price',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrAirportName: 'string',
+      arrCity: 'string',
+      arrCityName: 'string',
+      arrTime: 'string',
+      cabin: 'string',
+      cabinClass: 'number',
+      cabinClassStr: 'string',
+      depAirportName: 'string',
+      depCity: 'string',
+      depCityName: 'string',
+      depTime: 'string',
+      discount: 'string',
+      flightNo: 'string',
+      price: 'number',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlightExceedApplyQueryResponseBodyModuleApplyRecommendFlights extends $tea.Model {
   arrAirportName?: string;
   arrCityName?: string;
@@ -30334,6 +30395,7 @@ export class FlightExceedApplyQueryResponseBodyModuleApplyRecommendFlights exten
 export class FlightExceedApplyQueryResponseBodyModule extends $tea.Model {
   applyId?: number;
   applyIntentionInfoDo?: FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDo;
+  applyIntentionInfoDoList?: FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDoList[];
   applyRecommendFlights?: FlightExceedApplyQueryResponseBodyModuleApplyRecommendFlights;
   btripCause?: string;
   corpId?: string;
@@ -30349,6 +30411,7 @@ export class FlightExceedApplyQueryResponseBodyModule extends $tea.Model {
     return {
       applyId: 'apply_id',
       applyIntentionInfoDo: 'apply_intention_info_do',
+      applyIntentionInfoDoList: 'apply_intention_info_do_list',
       applyRecommendFlights: 'apply_recommend_flights',
       btripCause: 'btrip_cause',
       corpId: 'corp_id',
@@ -30367,6 +30430,7 @@ export class FlightExceedApplyQueryResponseBodyModule extends $tea.Model {
     return {
       applyId: 'number',
       applyIntentionInfoDo: FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDo,
+      applyIntentionInfoDoList: { 'type': 'array', 'itemType': FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDoList },
       applyRecommendFlights: FlightExceedApplyQueryResponseBodyModuleApplyRecommendFlights,
       btripCause: 'string',
       corpId: 'string',
@@ -56715,6 +56779,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
   machineCode?: string;
   ossUrl?: string;
   passwordArea?: string;
+  pdfOssUrl?: string;
   purchaserBankAccountInfo?: string;
   purchaserContactInfo?: string;
   purchaserName?: string;
@@ -56751,6 +56816,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       machineCode: 'machine_code',
       ossUrl: 'oss_url',
       passwordArea: 'password_area',
+      pdfOssUrl: 'pdf_oss_url',
       purchaserBankAccountInfo: 'purchaser_bank_account_info',
       purchaserContactInfo: 'purchaser_contact_info',
       purchaserName: 'purchaser_name',
@@ -56790,6 +56856,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       machineCode: 'string',
       ossUrl: 'string',
       passwordArea: 'string',
+      pdfOssUrl: 'string',
       purchaserBankAccountInfo: 'string',
       purchaserContactInfo: 'string',
       purchaserName: 'string',
