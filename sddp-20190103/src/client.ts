@@ -5294,6 +5294,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
   id?: string;
   instanceDescription?: string;
   instanceId?: string;
+  lastModifiedTime?: number;
   lastScanTime?: number;
   memberAccount?: number;
   modelTags?: DescribeDataObjectsResponseBodyItemsModelTags[];
@@ -5313,6 +5314,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
       id: 'Id',
       instanceDescription: 'InstanceDescription',
       instanceId: 'InstanceId',
+      lastModifiedTime: 'LastModifiedTime',
       lastScanTime: 'LastScanTime',
       memberAccount: 'MemberAccount',
       modelTags: 'ModelTags',
@@ -5335,6 +5337,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
       id: 'string',
       instanceDescription: 'string',
       instanceId: 'string',
+      lastModifiedTime: 'number',
       lastScanTime: 'number',
       memberAccount: 'number',
       modelTags: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItemsModelTags },
@@ -6205,6 +6208,7 @@ export class DescribeOssObjectsResponseBodyItems extends $tea.Model {
   fileId?: string;
   id?: string;
   instanceId?: number;
+  lastModifiedTime?: number;
   name?: string;
   regionId?: string;
   riskLevelId?: number;
@@ -6223,6 +6227,7 @@ export class DescribeOssObjectsResponseBodyItems extends $tea.Model {
       fileId: 'FileId',
       id: 'Id',
       instanceId: 'InstanceId',
+      lastModifiedTime: 'LastModifiedTime',
       name: 'Name',
       regionId: 'RegionId',
       riskLevelId: 'RiskLevelId',
@@ -6244,6 +6249,7 @@ export class DescribeOssObjectsResponseBodyItems extends $tea.Model {
       fileId: 'string',
       id: 'string',
       instanceId: 'number',
+      lastModifiedTime: 'number',
       name: 'string',
       regionId: 'string',
       riskLevelId: 'number',
@@ -6715,13 +6721,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateConfigResponse
+   * @summary Modifies the configurations of a common configuration item for alerts.
+   *
+   * @description You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateConfigResponse
    */
   async createConfigWithOptions(request: CreateConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateConfigResponse> {
     Util.validateModel(request);
@@ -6768,12 +6776,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateConfigRequest
-    * @return CreateConfigResponse
+   * @summary Modifies the configurations of a common configuration item for alerts.
+   *
+   * @description You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateConfigRequest
+   * @return CreateConfigResponse
    */
   async createConfig(request: CreateConfigRequest): Promise<CreateConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6781,13 +6791,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateDataLimitRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDataLimitResponse
+   * @summary Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
+   *
+   * @description You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateDataLimitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataLimitResponse
    */
   async createDataLimitWithOptions(request: CreateDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataLimitResponse> {
     Util.validateModel(request);
@@ -6882,18 +6894,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateDataLimitRequest
-    * @return CreateDataLimitResponse
+   * @summary Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
+   *
+   * @description You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateDataLimitRequest
+   * @return CreateDataLimitResponse
    */
   async createDataLimit(request: CreateDataLimitRequest): Promise<CreateDataLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataLimitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a custom sensitive data detection rule.
+   *
+   * @param request CreateRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRuleResponse
+   */
   async createRuleWithOptions(request: CreateRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6982,19 +7003,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRuleResponse>(await this.callApi(params, req, runtime), new CreateRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a custom sensitive data detection rule.
+   *
+   * @param request CreateRuleRequest
+   * @return CreateRuleResponse
+   */
   async createRule(request: CreateRuleRequest): Promise<CreateRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRuleWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateScanTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateScanTaskResponse
+   * @summary Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
+   *
+   * @description You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateScanTaskResponse
    */
   async createScanTaskWithOptions(request: CreateScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateScanTaskResponse> {
     Util.validateModel(request);
@@ -7069,12 +7098,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateScanTaskRequest
-    * @return CreateScanTaskResponse
+   * @summary Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
+   *
+   * @description You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateScanTaskRequest
+   * @return CreateScanTaskResponse
    */
   async createScanTask(request: CreateScanTaskRequest): Promise<CreateScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7082,13 +7113,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateSlrRoleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateSlrRoleResponse
+   * @summary Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
+   *
+   * @description You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateSlrRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSlrRoleResponse
    */
   async createSlrRoleWithOptions(request: CreateSlrRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateSlrRoleResponse> {
     Util.validateModel(request);
@@ -7123,12 +7156,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateSlrRoleRequest
-    * @return CreateSlrRoleResponse
+   * @summary Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
+   *
+   * @description You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateSlrRoleRequest
+   * @return CreateSlrRoleResponse
    */
   async createSlrRole(request: CreateSlrRoleRequest): Promise<CreateSlrRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7136,13 +7171,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteDataLimitRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDataLimitResponse
+   * @summary Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
+   *
+   * @description You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteDataLimitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataLimitResponse
    */
   async deleteDataLimitWithOptions(request: DeleteDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLimitResponse> {
     Util.validateModel(request);
@@ -7181,18 +7218,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteDataLimitRequest
-    * @return DeleteDataLimitResponse
+   * @summary Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
+   *
+   * @description You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteDataLimitRequest
+   * @return DeleteDataLimitResponse
    */
   async deleteDataLimit(request: DeleteDataLimitRequest): Promise<DeleteDataLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataLimitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a custom sensitive data detection rule from Data Security Center (DSC).
+   *
+   * @param request DeleteRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRuleResponse
+   */
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7229,11 +7275,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRuleResponse>(await this.callApi(params, req, runtime), new DeleteRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a custom sensitive data detection rule from Data Security Center (DSC).
+   *
+   * @param request DeleteRuleRequest
+   * @return DeleteRuleResponse
+   */
   async deleteRule(request: DeleteRuleRequest): Promise<DeleteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeCategoryTemplateListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCategoryTemplateListResponse
+   */
   async describeCategoryTemplateListWithOptions(request: DescribeCategoryTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryTemplateListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7274,19 +7331,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCategoryTemplateListResponse>(await this.callApi(params, req, runtime), new DescribeCategoryTemplateListResponse({}));
   }
 
+  /**
+   * @param request DescribeCategoryTemplateListRequest
+   * @return DescribeCategoryTemplateListResponse
+   */
   async describeCategoryTemplateList(request: DescribeCategoryTemplateListRequest): Promise<DescribeCategoryTemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCategoryTemplateListWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query rules in a classification template.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeCategoryTemplateRuleListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCategoryTemplateRuleListResponse
+   * @summary Queries rules in a classification template by page.
+   *
+   * @description You can call this operation to query rules in a classification template.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeCategoryTemplateRuleListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCategoryTemplateRuleListResponse
    */
   async describeCategoryTemplateRuleListWithOptions(request: DescribeCategoryTemplateRuleListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryTemplateRuleListResponse> {
     Util.validateModel(request);
@@ -7333,12 +7396,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query rules in a classification template.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeCategoryTemplateRuleListRequest
-    * @return DescribeCategoryTemplateRuleListResponse
+   * @summary Queries rules in a classification template by page.
+   *
+   * @description You can call this operation to query rules in a classification template.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeCategoryTemplateRuleListRequest
+   * @return DescribeCategoryTemplateRuleListResponse
    */
   async describeCategoryTemplateRuleList(request: DescribeCategoryTemplateRuleListRequest): Promise<DescribeCategoryTemplateRuleListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7346,15 +7411,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
-    * ## [](#)Precautions
-    * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
-    * ## [](#qps)Limits
-    * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeColumnsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeColumnsResponse
+   * @summary Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
+   *
+   * @description You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
+   * ## [](#)Precautions
+   * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
+   * ## [](#qps)Limits
+   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeColumnsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeColumnsResponse
    */
   async describeColumnsWithOptions(request: DescribeColumnsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeColumnsResponse> {
     Util.validateModel(request);
@@ -7429,20 +7496,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
-    * ## [](#)Precautions
-    * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
-    * ## [](#qps)Limits
-    * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeColumnsRequest
-    * @return DescribeColumnsResponse
+   * @summary Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
+   *
+   * @description You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
+   * ## [](#)Precautions
+   * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
+   * ## [](#qps)Limits
+   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeColumnsRequest
+   * @return DescribeColumnsResponse
    */
   async describeColumns(request: DescribeColumnsRequest): Promise<DescribeColumnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeColumnsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询数据安全中心连接授权的MaxCompute、RDS等数据资产表中列的数据
+   *
+   * @param request DescribeColumnsV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeColumnsV2Response
+   */
   async describeColumnsV2WithOptions(request: DescribeColumnsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeColumnsV2Response> {
     Util.validateModel(request);
     let query = { };
@@ -7515,11 +7591,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeColumnsV2Response>(await this.callApi(params, req, runtime), new DescribeColumnsV2Response({}));
   }
 
+  /**
+   * @summary 查询数据安全中心连接授权的MaxCompute、RDS等数据资产表中列的数据
+   *
+   * @param request DescribeColumnsV2Request
+   * @return DescribeColumnsV2Response
+   */
   async describeColumnsV2(request: DescribeColumnsV2Request): Promise<DescribeColumnsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeColumnsV2WithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries common configuration items for alerts.
+   *
+   * @param request DescribeConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeConfigsResponse
+   */
   async describeConfigsWithOptions(request: DescribeConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7544,11 +7633,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeConfigsResponse>(await this.callApi(params, req, runtime), new DescribeConfigsResponse({}));
   }
 
+  /**
+   * @summary Queries common configuration items for alerts.
+   *
+   * @param request DescribeConfigsRequest
+   * @return DescribeConfigsResponse
+   */
   async describeConfigs(request: DescribeConfigsRequest): Promise<DescribeConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
+   *
+   * @param request DescribeDataAssetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataAssetsResponse
+   */
   async describeDataAssetsWithOptions(request: DescribeDataAssetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataAssetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7597,11 +7699,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataAssetsResponse>(await this.callApi(params, req, runtime), new DescribeDataAssetsResponse({}));
   }
 
+  /**
+   * @summary Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
+   *
+   * @param request DescribeDataAssetsRequest
+   * @return DescribeDataAssetsResponse
+   */
   async describeDataAssets(request: DescribeDataAssetsRequest): Promise<DescribeDataAssetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataAssetsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
+   *
+   * @param request DescribeDataLimitDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataLimitDetailResponse
+   */
   async describeDataLimitDetailWithOptions(request: DescribeDataLimitDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7638,19 +7753,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataLimitDetailResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
+   *
+   * @param request DescribeDataLimitDetailRequest
+   * @return DescribeDataLimitDetailResponse
+   */
   async describeDataLimitDetail(request: DescribeDataLimitDetailRequest): Promise<DescribeDataLimitDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataLimitDetailWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDataLimitSetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDataLimitSetResponse
+   * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+   *
+   * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDataLimitSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataLimitSetResponse
    */
   async describeDataLimitSetWithOptions(request: DescribeDataLimitSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitSetResponse> {
     Util.validateModel(request);
@@ -7689,18 +7812,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDataLimitSetRequest
-    * @return DescribeDataLimitSetResponse
+   * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+   *
+   * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDataLimitSetRequest
+   * @return DescribeDataLimitSetResponse
    */
   async describeDataLimitSet(request: DescribeDataLimitSetRequest): Promise<DescribeDataLimitSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataLimitSetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
+   *
+   * @param request DescribeDataLimitsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataLimitsResponse
+   */
   async describeDataLimitsWithOptions(request: DescribeDataLimitsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7781,19 +7913,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataLimitsResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitsResponse({}));
   }
 
+  /**
+   * @summary Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
+   *
+   * @param request DescribeDataLimitsRequest
+   * @return DescribeDataLimitsResponse
+   */
   async describeDataLimits(request: DescribeDataLimitsRequest): Promise<DescribeDataLimitsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataLimitsWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query the execution information of a static de-identification task, including the status and progress.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDataMaskingRunHistoryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDataMaskingRunHistoryResponse
+   * @summary Queries the execution information about a de-identification task.
+   *
+   * @description You can call this operation to query the execution information of a static de-identification task, including the status and progress.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDataMaskingRunHistoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataMaskingRunHistoryResponse
    */
   async describeDataMaskingRunHistoryWithOptions(request: DescribeDataMaskingRunHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataMaskingRunHistoryResponse> {
     Util.validateModel(request);
@@ -7860,12 +8000,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the execution information of a static de-identification task, including the status and progress.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDataMaskingRunHistoryRequest
-    * @return DescribeDataMaskingRunHistoryResponse
+   * @summary Queries the execution information about a de-identification task.
+   *
+   * @description You can call this operation to query the execution information of a static de-identification task, including the status and progress.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDataMaskingRunHistoryRequest
+   * @return DescribeDataMaskingRunHistoryResponse
    */
   async describeDataMaskingRunHistory(request: DescribeDataMaskingRunHistoryRequest): Promise<DescribeDataMaskingRunHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7873,13 +8015,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query static de-identification tasks. This facilitates task queries and management.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDataMaskingTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDataMaskingTasksResponse
+   * @summary Queries de-identification tasks.
+   *
+   * @description You can call this operation to query static de-identification tasks. This facilitates task queries and management.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDataMaskingTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataMaskingTasksResponse
    */
   async describeDataMaskingTasksWithOptions(request: DescribeDataMaskingTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataMaskingTasksResponse> {
     Util.validateModel(request);
@@ -7930,18 +8074,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query static de-identification tasks. This facilitates task queries and management.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDataMaskingTasksRequest
-    * @return DescribeDataMaskingTasksResponse
+   * @summary Queries de-identification tasks.
+   *
+   * @description You can call this operation to query static de-identification tasks. This facilitates task queries and management.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDataMaskingTasksRequest
+   * @return DescribeDataMaskingTasksResponse
    */
   async describeDataMaskingTasks(request: DescribeDataMaskingTasksRequest): Promise<DescribeDataMaskingTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataMaskingTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看数据对象列详情
+   *
+   * @param request DescribeDataObjectColumnDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataObjectColumnDetailResponse
+   */
   async describeDataObjectColumnDetailWithOptions(request: DescribeDataObjectColumnDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectColumnDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7990,11 +8143,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataObjectColumnDetailResponse>(await this.callApi(params, req, runtime), new DescribeDataObjectColumnDetailResponse({}));
   }
 
+  /**
+   * @summary 查看数据对象列详情
+   *
+   * @param request DescribeDataObjectColumnDetailRequest
+   * @return DescribeDataObjectColumnDetailResponse
+   */
   async describeDataObjectColumnDetail(request: DescribeDataObjectColumnDetailRequest): Promise<DescribeDataObjectColumnDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataObjectColumnDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看数据对象列详情V2
+   *
+   * @param request DescribeDataObjectColumnDetailV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataObjectColumnDetailV2Response
+   */
   async describeDataObjectColumnDetailV2WithOptions(request: DescribeDataObjectColumnDetailV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectColumnDetailV2Response> {
     Util.validateModel(request);
     let query = { };
@@ -8043,11 +8209,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataObjectColumnDetailV2Response>(await this.callApi(params, req, runtime), new DescribeDataObjectColumnDetailV2Response({}));
   }
 
+  /**
+   * @summary 查看数据对象列详情V2
+   *
+   * @param request DescribeDataObjectColumnDetailV2Request
+   * @return DescribeDataObjectColumnDetailV2Response
+   */
   async describeDataObjectColumnDetailV2(request: DescribeDataObjectColumnDetailV2Request): Promise<DescribeDataObjectColumnDetailV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataObjectColumnDetailV2WithOptions(request, runtime);
   }
 
+  /**
+   * @summary 分页查询数据目录对象
+   *
+   * @param request DescribeDataObjectsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataObjectsResponse
+   */
   async describeDataObjectsWithOptions(request: DescribeDataObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8136,11 +8315,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataObjectsResponse>(await this.callApi(params, req, runtime), new DescribeDataObjectsResponse({}));
   }
 
+  /**
+   * @summary 分页查询数据目录对象
+   *
+   * @param request DescribeDataObjectsRequest
+   * @return DescribeDataObjectsResponse
+   */
   async describeDataObjects(request: DescribeDataObjectsRequest): Promise<DescribeDataObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataObjectsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDocTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDocTypesResponse
+   */
   async describeDocTypesWithOptions(request: DescribeDocTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDocTypesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8165,11 +8355,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDocTypesResponse>(await this.callApi(params, req, runtime), new DescribeDocTypesResponse({}));
   }
 
+  /**
+   * @param request DescribeDocTypesRequest
+   * @return DescribeDocTypesResponse
+   */
   async describeDocTypes(request: DescribeDocTypesRequest): Promise<DescribeDocTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDocTypesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
+   *
+   * @param request DescribeEventDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEventDetailResponse
+   */
   async describeEventDetailWithOptions(request: DescribeEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8198,11 +8399,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEventDetailResponse>(await this.callApi(params, req, runtime), new DescribeEventDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
+   *
+   * @param request DescribeEventDetailRequest
+   * @return DescribeEventDetailResponse
+   */
   async describeEventDetail(request: DescribeEventDetailRequest): Promise<DescribeEventDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEventDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the types of anomalous events.
+   *
+   * @param request DescribeEventTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEventTypesResponse
+   */
   async describeEventTypesWithOptions(request: DescribeEventTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventTypesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8243,19 +8457,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEventTypesResponse>(await this.callApi(params, req, runtime), new DescribeEventTypesResponse({}));
   }
 
+  /**
+   * @summary Queries the types of anomalous events.
+   *
+   * @param request DescribeEventTypesRequest
+   * @return DescribeEventTypesResponse
+   */
   async describeEventTypes(request: DescribeEventTypesRequest): Promise<DescribeEventTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEventTypesWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeEventsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeEventsResponse
+   * @summary Queries anomalous events.
+   *
+   * @description You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEventsResponse
    */
   async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
     Util.validateModel(request);
@@ -8342,12 +8564,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeEventsRequest
-    * @return DescribeEventsResponse
+   * @summary Queries anomalous events.
+   *
+   * @description You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeEventsRequest
+   * @return DescribeEventsResponse
    */
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8355,14 +8579,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
-    * This operation is no longer used for the KMS console of the new version.
-    * # [](#qps-)QPS limits
-    * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeInstanceSourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceSourcesResponse
+   * @summary Queries a list of data assets.
+   *
+   * @description You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
+   * This operation is no longer used for the KMS console of the new version.
+   * # [](#qps-)QPS limits
+   * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeInstanceSourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceSourcesResponse
    */
   async describeInstanceSourcesWithOptions(request: DescribeInstanceSourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSourcesResponse> {
     Util.validateModel(request);
@@ -8437,13 +8663,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
-    * This operation is no longer used for the KMS console of the new version.
-    * # [](#qps-)QPS limits
-    * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeInstanceSourcesRequest
-    * @return DescribeInstanceSourcesResponse
+   * @summary Queries a list of data assets.
+   *
+   * @description You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
+   * This operation is no longer used for the KMS console of the new version.
+   * # [](#qps-)QPS limits
+   * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeInstanceSourcesRequest
+   * @return DescribeInstanceSourcesResponse
    */
   async describeInstanceSources(request: DescribeInstanceSourcesRequest): Promise<DescribeInstanceSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8451,13 +8679,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstancesResponse
+   * @summary Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
+   *
+   * @description When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstancesResponse
    */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
@@ -8520,12 +8750,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeInstancesRequest
-    * @return DescribeInstancesResponse
+   * @summary Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
+   *
+   * @description When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeInstancesRequest
+   * @return DescribeInstancesResponse
    */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8533,15 +8765,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
-    * ## [](#)Precautions
-    * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
-    * ## [](#qps)Limits
-    * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeOssObjectDetailRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeOssObjectDetailResponse
+   * @summary Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
+   *
+   * @description You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
+   * ## [](#)Precautions
+   * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
+   * ## [](#qps)Limits
+   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeOssObjectDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOssObjectDetailResponse
    */
   async describeOssObjectDetailWithOptions(request: DescribeOssObjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectDetailResponse> {
     Util.validateModel(request);
@@ -8572,20 +8806,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
-    * ## [](#)Precautions
-    * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
-    * ## [](#qps)Limits
-    * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeOssObjectDetailRequest
-    * @return DescribeOssObjectDetailResponse
+   * @summary Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
+   *
+   * @description You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
+   * ## [](#)Precautions
+   * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
+   * ## [](#qps)Limits
+   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeOssObjectDetailRequest
+   * @return DescribeOssObjectDetailResponse
    */
   async describeOssObjectDetail(request: DescribeOssObjectDetailRequest): Promise<DescribeOssObjectDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOssObjectDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息
+   *
+   * @param request DescribeOssObjectDetailV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOssObjectDetailV2Response
+   */
   async describeOssObjectDetailV2WithOptions(request: DescribeOssObjectDetailV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectDetailV2Response> {
     Util.validateModel(request);
     let query = { };
@@ -8614,11 +8857,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOssObjectDetailV2Response>(await this.callApi(params, req, runtime), new DescribeOssObjectDetailV2Response({}));
   }
 
+  /**
+   * @summary 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息
+   *
+   * @param request DescribeOssObjectDetailV2Request
+   * @return DescribeOssObjectDetailV2Response
+   */
   async describeOssObjectDetailV2(request: DescribeOssObjectDetailV2Request): Promise<DescribeOssObjectDetailV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOssObjectDetailV2WithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
+   *
+   * @param request DescribeOssObjectsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOssObjectsResponse
+   */
   async describeOssObjectsWithOptions(request: DescribeOssObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8687,19 +8943,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOssObjectsResponse>(await this.callApi(params, req, runtime), new DescribeOssObjectsResponse({}));
   }
 
+  /**
+   * @summary Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
+   *
+   * @param request DescribeOssObjectsRequest
+   * @return DescribeOssObjectsResponse
+   */
   async describeOssObjects(request: DescribeOssObjectsRequest): Promise<DescribeOssObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOssObjectsWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribePackagesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePackagesResponse
+   * @summary Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
+   *
+   * @description You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribePackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePackagesResponse
    */
   async describePackagesWithOptions(request: DescribePackagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackagesResponse> {
     Util.validateModel(request);
@@ -8754,18 +9018,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribePackagesRequest
-    * @return DescribePackagesResponse
+   * @summary Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
+   *
+   * @description You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribePackagesRequest
+   * @return DescribePackagesResponse
    */
   async describePackages(request: DescribePackagesRequest): Promise<DescribePackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePackagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取一级授权列表
+   *
+   * @param request DescribeParentInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParentInstanceResponse
+   */
   async describeParentInstanceWithOptions(request: DescribeParentInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParentInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8834,19 +9107,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParentInstanceResponse>(await this.callApi(params, req, runtime), new DescribeParentInstanceResponse({}));
   }
 
+  /**
+   * @summary 获取一级授权列表
+   *
+   * @param request DescribeParentInstanceRequest
+   * @return DescribeParentInstanceResponse
+   */
   async describeParentInstance(request: DescribeParentInstanceRequest): Promise<DescribeParentInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParentInstanceWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeRiskLevelsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRiskLevelsResponse
+   * @summary Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
+   *
+   * @description You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeRiskLevelsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRiskLevelsResponse
    */
   async describeRiskLevelsWithOptions(request: DescribeRiskLevelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskLevelsResponse> {
     Util.validateModel(request);
@@ -8881,18 +9162,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeRiskLevelsRequest
-    * @return DescribeRiskLevelsResponse
+   * @summary Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
+   *
+   * @description You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeRiskLevelsRequest
+   * @return DescribeRiskLevelsResponse
    */
   async describeRiskLevels(request: DescribeRiskLevelsRequest): Promise<DescribeRiskLevelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRiskLevelsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries sensitive data detection rules.
+   *
+   * @param request DescribeRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRulesResponse
+   */
   async describeRulesWithOptions(request: DescribeRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8985,19 +9275,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRulesResponse>(await this.callApi(params, req, runtime), new DescribeRulesResponse({}));
   }
 
+  /**
+   * @summary Queries sensitive data detection rules.
+   *
+   * @param request DescribeRulesRequest
+   * @return DescribeRulesResponse
+   */
   async describeRules(request: DescribeRulesRequest): Promise<DescribeRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRulesWithOptions(request, runtime);
   }
 
   /**
-    * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
-    * # Limits
-    * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
-    *
-    * @param request DescribeTablesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTablesResponse
+   * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+   *
+   * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
+   * # Limits
+   * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
+   *
+   * @param request DescribeTablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTablesResponse
    */
   async describeTablesWithOptions(request: DescribeTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTablesResponse> {
     Util.validateModel(request);
@@ -9068,18 +9366,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
-    * # Limits
-    * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
-    *
-    * @param request DescribeTablesRequest
-    * @return DescribeTablesResponse
+   * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+   *
+   * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
+   * # Limits
+   * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
+   *
+   * @param request DescribeTablesRequest
+   * @return DescribeTablesResponse
    */
   async describeTables(request: DescribeTablesRequest): Promise<DescribeTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTablesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeTemplateAllRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTemplateAllRulesResponse
+   */
   async describeTemplateAllRulesWithOptions(request: DescribeTemplateAllRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateAllRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9112,19 +9417,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTemplateAllRulesResponse>(await this.callApi(params, req, runtime), new DescribeTemplateAllRulesResponse({}));
   }
 
+  /**
+   * @param request DescribeTemplateAllRulesRequest
+   * @return DescribeTemplateAllRulesResponse
+   */
   async describeTemplateAllRules(request: DescribeTemplateAllRulesRequest): Promise<DescribeTemplateAllRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTemplateAllRulesWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeUserStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeUserStatusResponse
+   * @summary Queries the information about an account.
+   *
+   * @description You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeUserStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserStatusResponse
    */
   async describeUserStatusWithOptions(request: DescribeUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserStatusResponse> {
     Util.validateModel(request);
@@ -9155,12 +9466,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeUserStatusRequest
-    * @return DescribeUserStatusResponse
+   * @summary Queries the information about an account.
+   *
+   * @description You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeUserStatusRequest
+   * @return DescribeUserStatusResponse
    */
   async describeUserStatus(request: DescribeUserStatusRequest): Promise<DescribeUserStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9168,13 +9481,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DisableUserConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DisableUserConfigResponse
+   * @summary Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
+   *
+   * @description You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DisableUserConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableUserConfigResponse
    */
   async disableUserConfigWithOptions(request: DisableUserConfigRequest, runtime: $Util.RuntimeOptions): Promise<DisableUserConfigResponse> {
     Util.validateModel(request);
@@ -9209,18 +9524,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DisableUserConfigRequest
-    * @return DisableUserConfigResponse
+   * @summary Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
+   *
+   * @description You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DisableUserConfigRequest
+   * @return DisableUserConfigResponse
    */
   async disableUserConfig(request: DisableUserConfigRequest): Promise<DisableUserConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableUserConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Dynamically de-identifies sensitive data.
+   *
+   * @param request ExecDatamaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExecDatamaskResponse
+   */
   async execDatamaskWithOptions(request: ExecDatamaskRequest, runtime: $Util.RuntimeOptions): Promise<ExecDatamaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9257,11 +9581,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExecDatamaskResponse>(await this.callApi(params, req, runtime), new ExecDatamaskResponse({}));
   }
 
+  /**
+   * @summary Dynamically de-identifies sensitive data.
+   *
+   * @param request ExecDatamaskRequest
+   * @return ExecDatamaskResponse
+   */
   async execDatamask(request: ExecDatamaskRequest): Promise<ExecDatamaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.execDatamaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Triggers a de-identification task.
+   *
+   * @param request ManualTriggerMaskingProcessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ManualTriggerMaskingProcessResponse
+   */
   async manualTriggerMaskingProcessWithOptions(request: ManualTriggerMaskingProcessRequest, runtime: $Util.RuntimeOptions): Promise<ManualTriggerMaskingProcessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9290,11 +9627,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ManualTriggerMaskingProcessResponse>(await this.callApi(params, req, runtime), new ManualTriggerMaskingProcessResponse({}));
   }
 
+  /**
+   * @summary Triggers a de-identification task.
+   *
+   * @param request ManualTriggerMaskingProcessRequest
+   * @return ManualTriggerMaskingProcessResponse
+   */
   async manualTriggerMaskingProcess(request: ManualTriggerMaskingProcessRequest): Promise<ManualTriggerMaskingProcessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.manualTriggerMaskingProcessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
+   *
+   * @param request ModifyDataLimitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDataLimitResponse
+   */
   async modifyDataLimitWithOptions(request: ModifyDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDataLimitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9383,19 +9733,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDataLimitResponse>(await this.callApi(params, req, runtime), new ModifyDataLimitResponse({}));
   }
 
+  /**
+   * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
+   *
+   * @param request ModifyDataLimitRequest
+   * @return ModifyDataLimitResponse
+   */
   async modifyDataLimit(request: ModifyDataLimitRequest): Promise<ModifyDataLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDataLimitWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyDefaultLevelRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDefaultLevelResponse
+   * @summary Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
+   *
+   * @description You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyDefaultLevelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDefaultLevelResponse
    */
   async modifyDefaultLevelWithOptions(request: ModifyDefaultLevelRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefaultLevelResponse> {
     Util.validateModel(request);
@@ -9430,12 +9788,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyDefaultLevelRequest
-    * @return ModifyDefaultLevelResponse
+   * @summary Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
+   *
+   * @description You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyDefaultLevelRequest
+   * @return ModifyDefaultLevelResponse
    */
   async modifyDefaultLevel(request: ModifyDefaultLevelRequest): Promise<ModifyDefaultLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9443,13 +9803,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyEventStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyEventStatusResponse
+   * @summary Handles an anomalous event.
+   *
+   * @description You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyEventStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyEventStatusResponse
    */
   async modifyEventStatusWithOptions(request: ModifyEventStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEventStatusResponse> {
     Util.validateModel(request);
@@ -9492,18 +9854,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyEventStatusRequest
-    * @return ModifyEventStatusResponse
+   * @summary Handles an anomalous event.
+   *
+   * @description You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyEventStatusRequest
+   * @return ModifyEventStatusResponse
    */
   async modifyEventStatus(request: ModifyEventStatusRequest): Promise<ModifyEventStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyEventStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the detection of anomalous events of subtypes.
+   *
+   * @param request ModifyEventTypeStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyEventTypeStatusResponse
+   */
   async modifyEventTypeStatusWithOptions(request: ModifyEventTypeStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEventTypeStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9536,19 +9907,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyEventTypeStatusResponse>(await this.callApi(params, req, runtime), new ModifyEventTypeStatusResponse({}));
   }
 
+  /**
+   * @summary Enables the detection of anomalous events of subtypes.
+   *
+   * @param request ModifyEventTypeStatusRequest
+   * @return ModifyEventTypeStatusResponse
+   */
   async modifyEventTypeStatus(request: ModifyEventTypeStatusRequest): Promise<ModifyEventTypeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyEventTypeStatusWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyReportTaskStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyReportTaskStatusResponse
+   * @summary Enables or disables the report task.
+   *
+   * @description You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyReportTaskStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyReportTaskStatusResponse
    */
   async modifyReportTaskStatusWithOptions(request: ModifyReportTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReportTaskStatusResponse> {
     Util.validateModel(request);
@@ -9583,12 +9962,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyReportTaskStatusRequest
-    * @return ModifyReportTaskStatusResponse
+   * @summary Enables or disables the report task.
+   *
+   * @description You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyReportTaskStatusRequest
+   * @return ModifyReportTaskStatusResponse
    */
   async modifyReportTaskStatus(request: ModifyReportTaskStatusRequest): Promise<ModifyReportTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9596,13 +9977,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyRuleResponse
+   * @summary Modifies a custom sensitive data detection rule in Data Security Center (DSC).
+   *
+   * @description When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyRuleResponse
    */
   async modifyRuleWithOptions(request: ModifyRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRuleResponse> {
     Util.validateModel(request);
@@ -9673,18 +10056,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyRuleRequest
-    * @return ModifyRuleResponse
+   * @summary Modifies a custom sensitive data detection rule in Data Security Center (DSC).
+   *
+   * @description When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyRuleRequest
+   * @return ModifyRuleResponse
    */
   async modifyRule(request: ModifyRuleRequest): Promise<ModifyRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables a sensitive data detection rule.
+   *
+   * @param request ModifyRuleStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyRuleStatusResponse
+   */
   async modifyRuleStatusWithOptions(request: ModifyRuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRuleStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9721,19 +10113,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyRuleStatusResponse>(await this.callApi(params, req, runtime), new ModifyRuleStatusResponse({}));
   }
 
+  /**
+   * @summary Enables or disables a sensitive data detection rule.
+   *
+   * @param request ModifyRuleStatusRequest
+   * @return ModifyRuleStatusResponse
+   */
   async modifyRuleStatus(request: ModifyRuleStatusRequest): Promise<ModifyRuleStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRuleStatusWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request StopMaskingProcessRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopMaskingProcessResponse
+   * @summary Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
+   *
+   * @description You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request StopMaskingProcessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopMaskingProcessResponse
    */
   async stopMaskingProcessWithOptions(request: StopMaskingProcessRequest, runtime: $Util.RuntimeOptions): Promise<StopMaskingProcessResponse> {
     Util.validateModel(request);
@@ -9764,12 +10164,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request StopMaskingProcessRequest
-    * @return StopMaskingProcessResponse
+   * @summary Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
+   *
+   * @description You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request StopMaskingProcessRequest
+   * @return StopMaskingProcessResponse
    */
   async stopMaskingProcess(request: StopMaskingProcessRequest): Promise<StopMaskingProcessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
