@@ -19483,6 +19483,7 @@ export class ListInstanceResponseBodyResultTags extends $tea.Model {
 
 export class ListInstanceResponseBodyResult extends $tea.Model {
   advancedDedicateMaster?: boolean;
+  archType?: string;
   clientNodeConfiguration?: ListInstanceResponseBodyResultClientNodeConfiguration;
   createdAt?: string;
   dedicateMaster?: boolean;
@@ -19513,6 +19514,7 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       advancedDedicateMaster: 'advancedDedicateMaster',
+      archType: 'archType',
       clientNodeConfiguration: 'clientNodeConfiguration',
       createdAt: 'createdAt',
       dedicateMaster: 'dedicateMaster',
@@ -19546,6 +19548,7 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       advancedDedicateMaster: 'boolean',
+      archType: 'string',
       clientNodeConfiguration: ListInstanceResponseBodyResultClientNodeConfiguration,
       createdAt: 'string',
       dedicateMaster: 'boolean',
