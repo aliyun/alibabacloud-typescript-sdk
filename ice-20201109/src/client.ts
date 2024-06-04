@@ -18792,6 +18792,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model 
   mediaType?: string;
   modifiedTime?: string;
   referenceId?: string;
+  snapshots?: string;
   source?: string;
   spriteImages?: string;
   status?: string;
@@ -18815,6 +18816,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model 
       mediaType: 'MediaType',
       modifiedTime: 'ModifiedTime',
       referenceId: 'ReferenceId',
+      snapshots: 'Snapshots',
       source: 'Source',
       spriteImages: 'SpriteImages',
       status: 'Status',
@@ -18841,6 +18843,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model 
       mediaType: 'string',
       modifiedTime: 'string',
       referenceId: 'string',
+      snapshots: 'string',
       source: 'string',
       spriteImages: 'string',
       status: 'string',
