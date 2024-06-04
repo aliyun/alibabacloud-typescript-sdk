@@ -753,6 +753,168 @@ export class CreatePostpaidInstanceResponse extends $tea.Model {
   }
 }
 
+export class DeleteApisecAbnormalRequest extends $tea.Model {
+  abnormalId?: string;
+  clusterId?: string;
+  instanceId?: string;
+  region?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abnormalId: 'AbnormalId',
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      region: 'Region',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormalId: 'string',
+      clusterId: 'string',
+      instanceId: 'string',
+      region: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApisecAbnormalResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApisecAbnormalResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApisecAbnormalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteApisecAbnormalResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApisecEventRequest extends $tea.Model {
+  clusterId?: string;
+  eventId?: string;
+  instanceId?: string;
+  region?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      eventId: 'EventId',
+      instanceId: 'InstanceId',
+      region: 'Region',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      eventId: 'string',
+      instanceId: 'string',
+      region: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApisecEventResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApisecEventResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApisecEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteApisecEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDefenseResourceGroupRequest extends $tea.Model {
   groupName?: string;
   instanceId?: string;
@@ -1270,6 +1432,381 @@ export class DescribeAccountDelegatedStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAccountDelegatedStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecAbnormalDomainStatisticRequest extends $tea.Model {
+  clusterId?: string;
+  endTime?: number;
+  instanceId?: string;
+  orderWay?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  region?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      orderWay: 'OrderWay',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      region: 'Region',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      orderWay: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      region: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecAbnormalDomainStatisticResponseBody extends $tea.Model {
+  data?: DescribeApisecAbnormalDomainStatisticResponseBodyData[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecAbnormalDomainStatisticResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecAbnormalDomainStatisticResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecAbnormalDomainStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecAbnormalDomainStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecAssetTrendRequest extends $tea.Model {
+  clusterId?: string;
+  endTime?: number;
+  instanceId?: string;
+  region?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      region: 'Region',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      region: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecAssetTrendResponseBody extends $tea.Model {
+  data?: DescribeApisecAssetTrendResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecAssetTrendResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecAssetTrendResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecAssetTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecAssetTrendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
+  clusterId?: string;
+  endTime?: number;
+  instanceId?: string;
+  orderWay?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  region?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      orderWay: 'OrderWay',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      region: 'Region',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      orderWay: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      region: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecEventDomainStatisticResponseBody extends $tea.Model {
+  data?: DescribeApisecEventDomainStatisticResponseBodyData[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecEventDomainStatisticResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecEventDomainStatisticResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecEventDomainStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecEventDomainStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSensitiveDomainStatisticRequest extends $tea.Model {
+  clusterId?: string;
+  endTime?: number;
+  instanceId?: string;
+  orderWay?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  region?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  startTime?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      orderWay: 'OrderWay',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      region: 'Region',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      orderWay: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      region: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSensitiveDomainStatisticResponseBody extends $tea.Model {
+  data?: DescribeApisecSensitiveDomainStatisticResponseBodyData[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecSensitiveDomainStatisticResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSensitiveDomainStatisticResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecSensitiveDomainStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecSensitiveDomainStatisticResponseBody,
     };
   }
 
@@ -7397,6 +7934,127 @@ export class CreateDomainResponseBodyDomainInfo extends $tea.Model {
   }
 }
 
+export class DescribeApisecAbnormalDomainStatisticResponseBodyData extends $tea.Model {
+  apiCount?: number;
+  domain?: string;
+  high?: number;
+  low?: number;
+  medium?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiCount: 'ApiCount',
+      domain: 'Domain',
+      high: 'High',
+      low: 'Low',
+      medium: 'Medium',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiCount: 'number',
+      domain: 'string',
+      high: 'number',
+      low: 'number',
+      medium: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecAssetTrendResponseBodyData extends $tea.Model {
+  assetActive?: number;
+  assetCount?: number;
+  assetOffline?: number;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assetActive: 'AssetActive',
+      assetCount: 'AssetCount',
+      assetOffline: 'AssetOffline',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetActive: 'number',
+      assetCount: 'number',
+      assetOffline: 'number',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecEventDomainStatisticResponseBodyData extends $tea.Model {
+  apiCount?: number;
+  domain?: string;
+  high?: number;
+  low?: number;
+  medium?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiCount: 'ApiCount',
+      domain: 'Domain',
+      high: 'High',
+      low: 'Low',
+      medium: 'Medium',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiCount: 'number',
+      domain: 'string',
+      high: 'number',
+      low: 'number',
+      medium: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $tea.Model {
+  apiCount?: number;
+  domainCount?: number;
+  sensitiveCode?: string;
+  sensitiveLevel?: string;
+  sensitiveName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiCount: 'ApiCount',
+      domainCount: 'DomainCount',
+      sensitiveCode: 'SensitiveCode',
+      sensitiveLevel: 'SensitiveLevel',
+      sensitiveName: 'SensitiveName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiCount: 'number',
+      domainCount: 'number',
+      sensitiveCode: 'string',
+      sensitiveLevel: 'string',
+      sensitiveName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCertDetailResponseBodyCertDetail extends $tea.Model {
   afterDate?: number;
   beforeDate?: number;
@@ -9723,6 +10381,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Clears an IP address blacklist for major event protection.
+   *
+   * @param request ClearMajorProtectionBlackIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ClearMajorProtectionBlackIpResponse
+   */
   async clearMajorProtectionBlackIpWithOptions(request: ClearMajorProtectionBlackIpRequest, runtime: $Util.RuntimeOptions): Promise<ClearMajorProtectionBlackIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9763,11 +10428,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ClearMajorProtectionBlackIpResponse>(await this.callApi(params, req, runtime), new ClearMajorProtectionBlackIpResponse({}));
   }
 
+  /**
+   * @summary Clears an IP address blacklist for major event protection.
+   *
+   * @param request ClearMajorProtectionBlackIpRequest
+   * @return ClearMajorProtectionBlackIpResponse
+   */
   async clearMajorProtectionBlackIp(request: ClearMajorProtectionBlackIpRequest): Promise<ClearMajorProtectionBlackIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.clearMajorProtectionBlackIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a new protection template from the copy.
+   *
+   * @param request CopyDefenseTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopyDefenseTemplateResponse
+   */
   async copyDefenseTemplateWithOptions(request: CopyDefenseTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CopyDefenseTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9804,11 +10482,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyDefenseTemplateResponse>(await this.callApi(params, req, runtime), new CopyDefenseTemplateResponse({}));
   }
 
+  /**
+   * @summary Creates a new protection template from the copy.
+   *
+   * @param request CopyDefenseTemplateRequest
+   * @return CopyDefenseTemplateResponse
+   */
   async copyDefenseTemplate(request: CopyDefenseTemplateRequest): Promise<CopyDefenseTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyDefenseTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a protected object group.
+   *
+   * @param request CreateDefenseResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDefenseResourceGroupResponse
+   */
   async createDefenseResourceGroupWithOptions(request: CreateDefenseResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDefenseResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9853,11 +10544,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDefenseResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateDefenseResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a protected object group.
+   *
+   * @param request CreateDefenseResourceGroupRequest
+   * @return CreateDefenseResourceGroupResponse
+   */
   async createDefenseResourceGroup(request: CreateDefenseResourceGroupRequest): Promise<CreateDefenseResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDefenseResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a protection rule.
+   *
+   * @param request CreateDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDefenseRuleResponse
+   */
   async createDefenseRuleWithOptions(request: CreateDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateDefenseRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9902,11 +10606,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDefenseRuleResponse>(await this.callApi(params, req, runtime), new CreateDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a protection rule.
+   *
+   * @param request CreateDefenseRuleRequest
+   * @return CreateDefenseRuleResponse
+   */
   async createDefenseRule(request: CreateDefenseRuleRequest): Promise<CreateDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDefenseRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a protection rule template.
+   *
+   * @param request CreateDefenseTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDefenseTemplateResponse
+   */
   async createDefenseTemplateWithOptions(request: CreateDefenseTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateDefenseTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9963,11 +10680,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDefenseTemplateResponse>(await this.callApi(params, req, runtime), new CreateDefenseTemplateResponse({}));
   }
 
+  /**
+   * @summary Creates a protection rule template.
+   *
+   * @param request CreateDefenseTemplateRequest
+   * @return CreateDefenseTemplateResponse
+   */
   async createDefenseTemplate(request: CreateDefenseTemplateRequest): Promise<CreateDefenseTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDefenseTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a domain name to Web Application Firewall (WAF).
+   *
+   * @param tmpReq CreateDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDomainResponse
+   */
   async createDomainWithOptions(tmpReq: CreateDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDomainShrinkRequest({ });
@@ -10026,17 +10756,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDomainResponse>(await this.callApi(params, req, runtime), new CreateDomainResponse({}));
   }
 
+  /**
+   * @summary Adds a domain name to Web Application Firewall (WAF).
+   *
+   * @param request CreateDomainRequest
+   * @return CreateDomainResponse
+   */
   async createDomain(request: CreateDomainRequest): Promise<CreateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDomainWithOptions(request, runtime);
   }
 
   /**
-    * This operation is available only on the China site (aliyun.com).
-    *
-    * @param request CreateMajorProtectionBlackIpRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateMajorProtectionBlackIpResponse
+   * @summary Creates an IP address blacklist for major event protection.
+   *
+   * @description This operation is available only on the China site (aliyun.com).
+   *
+   * @param request CreateMajorProtectionBlackIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMajorProtectionBlackIpResponse
    */
   async createMajorProtectionBlackIpWithOptions(request: CreateMajorProtectionBlackIpRequest, runtime: $Util.RuntimeOptions): Promise<CreateMajorProtectionBlackIpResponse> {
     Util.validateModel(request);
@@ -10091,16 +10829,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only on the China site (aliyun.com).
-    *
-    * @param request CreateMajorProtectionBlackIpRequest
-    * @return CreateMajorProtectionBlackIpResponse
+   * @summary Creates an IP address blacklist for major event protection.
+   *
+   * @description This operation is available only on the China site (aliyun.com).
+   *
+   * @param request CreateMajorProtectionBlackIpRequest
+   * @return CreateMajorProtectionBlackIpResponse
    */
   async createMajorProtectionBlackIp(request: CreateMajorProtectionBlackIpRequest): Promise<CreateMajorProtectionBlackIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMajorProtectionBlackIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
+   *
+   * @param request CreateMemberAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMemberAccountsResponse
+   */
   async createMemberAccountsWithOptions(request: CreateMemberAccountsRequest, runtime: $Util.RuntimeOptions): Promise<CreateMemberAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10141,11 +10888,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMemberAccountsResponse>(await this.callApi(params, req, runtime), new CreateMemberAccountsResponse({}));
   }
 
+  /**
+   * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
+   *
+   * @param request CreateMemberAccountsRequest
+   * @return CreateMemberAccountsResponse
+   */
   async createMemberAccounts(request: CreateMemberAccountsRequest): Promise<CreateMemberAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMemberAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
+   *
+   * @param request CreatePostpaidInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePostpaidInstanceResponse
+   */
   async createPostpaidInstanceWithOptions(request: CreatePostpaidInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreatePostpaidInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10174,11 +10934,148 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePostpaidInstanceResponse>(await this.callApi(params, req, runtime), new CreatePostpaidInstanceResponse({}));
   }
 
+  /**
+   * @summary Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
+   *
+   * @param request CreatePostpaidInstanceRequest
+   * @return CreatePostpaidInstanceResponse
+   */
   async createPostpaidInstance(request: CreatePostpaidInstanceRequest): Promise<CreatePostpaidInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPostpaidInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除API安全风险
+   *
+   * @param request DeleteApisecAbnormalRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApisecAbnormalResponse
+   */
+  async deleteApisecAbnormalWithOptions(request: DeleteApisecAbnormalRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApisecAbnormalResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.abnormalId)) {
+      query["AbnormalId"] = request.abnormalId;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteApisecAbnormal",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteApisecAbnormalResponse>(await this.callApi(params, req, runtime), new DeleteApisecAbnormalResponse({}));
+  }
+
+  /**
+   * @summary 删除API安全风险
+   *
+   * @param request DeleteApisecAbnormalRequest
+   * @return DeleteApisecAbnormalResponse
+   */
+  async deleteApisecAbnormal(request: DeleteApisecAbnormalRequest): Promise<DeleteApisecAbnormalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteApisecAbnormalWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 删除API安全事件
+   *
+   * @param request DeleteApisecEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApisecEventResponse
+   */
+  async deleteApisecEventWithOptions(request: DeleteApisecEventRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApisecEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteApisecEvent",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteApisecEventResponse>(await this.callApi(params, req, runtime), new DeleteApisecEventResponse({}));
+  }
+
+  /**
+   * @summary 删除API安全事件
+   *
+   * @param request DeleteApisecEventRequest
+   * @return DeleteApisecEventResponse
+   */
+  async deleteApisecEvent(request: DeleteApisecEventRequest): Promise<DeleteApisecEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteApisecEventWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Deletes a protected object group.
+   *
+   * @param request DeleteDefenseResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDefenseResourceGroupResponse
+   */
   async deleteDefenseResourceGroupWithOptions(request: DeleteDefenseResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDefenseResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10215,11 +11112,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDefenseResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteDefenseResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes a protected object group.
+   *
+   * @param request DeleteDefenseResourceGroupRequest
+   * @return DeleteDefenseResourceGroupResponse
+   */
   async deleteDefenseResourceGroup(request: DeleteDefenseResourceGroupRequest): Promise<DeleteDefenseResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDefenseResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a protection rule.
+   *
+   * @param request DeleteDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDefenseRuleResponse
+   */
   async deleteDefenseRuleWithOptions(request: DeleteDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDefenseRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10260,11 +11170,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDefenseRuleResponse>(await this.callApi(params, req, runtime), new DeleteDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a protection rule.
+   *
+   * @param request DeleteDefenseRuleRequest
+   * @return DeleteDefenseRuleResponse
+   */
   async deleteDefenseRule(request: DeleteDefenseRuleRequest): Promise<DeleteDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDefenseRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a protection rule template.
+   *
+   * @param request DeleteDefenseTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDefenseTemplateResponse
+   */
   async deleteDefenseTemplateWithOptions(request: DeleteDefenseTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDefenseTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10301,11 +11224,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDefenseTemplateResponse>(await this.callApi(params, req, runtime), new DeleteDefenseTemplateResponse({}));
   }
 
+  /**
+   * @summary Deletes a protection rule template.
+   *
+   * @param request DeleteDefenseTemplateRequest
+   * @return DeleteDefenseTemplateResponse
+   */
   async deleteDefenseTemplate(request: DeleteDefenseTemplateRequest): Promise<DeleteDefenseTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDefenseTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a domain name that is added to Web Application Firewall (WAF).
+   *
+   * @param request DeleteDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainResponse
+   */
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10346,11 +11282,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
   }
 
+  /**
+   * @summary Deletes a domain name that is added to Web Application Firewall (WAF).
+   *
+   * @param request DeleteDomainRequest
+   * @return DeleteDomainResponse
+   */
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an IP address blacklist for major event protection.
+   *
+   * @param request DeleteMajorProtectionBlackIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMajorProtectionBlackIpResponse
+   */
   async deleteMajorProtectionBlackIpWithOptions(request: DeleteMajorProtectionBlackIpRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMajorProtectionBlackIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10395,11 +11344,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMajorProtectionBlackIpResponse>(await this.callApi(params, req, runtime), new DeleteMajorProtectionBlackIpResponse({}));
   }
 
+  /**
+   * @summary Deletes an IP address blacklist for major event protection.
+   *
+   * @param request DeleteMajorProtectionBlackIpRequest
+   * @return DeleteMajorProtectionBlackIpResponse
+   */
   async deleteMajorProtectionBlackIp(request: DeleteMajorProtectionBlackIpRequest): Promise<DeleteMajorProtectionBlackIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMajorProtectionBlackIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes the members that are added for multi-account management in Web Application Firewall (WAF).
+   *
+   * @param request DeleteMemberAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMemberAccountResponse
+   */
   async deleteMemberAccountWithOptions(request: DeleteMemberAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMemberAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10440,11 +11402,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMemberAccountResponse>(await this.callApi(params, req, runtime), new DeleteMemberAccountResponse({}));
   }
 
+  /**
+   * @summary Removes the members that are added for multi-account management in Web Application Firewall (WAF).
+   *
+   * @param request DeleteMemberAccountRequest
+   * @return DeleteMemberAccountResponse
+   */
   async deleteMemberAccount(request: DeleteMemberAccountRequest): Promise<DeleteMemberAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMemberAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
+   *
+   * @param request DescribeAccountDelegatedStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccountDelegatedStatusResponse
+   */
   async describeAccountDelegatedStatusWithOptions(request: DescribeAccountDelegatedStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountDelegatedStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10477,11 +11452,328 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountDelegatedStatusResponse>(await this.callApi(params, req, runtime), new DescribeAccountDelegatedStatusResponse({}));
   }
 
+  /**
+   * @summary Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
+   *
+   * @param request DescribeAccountDelegatedStatusRequest
+   * @return DescribeAccountDelegatedStatusResponse
+   */
   async describeAccountDelegatedStatus(request: DescribeAccountDelegatedStatusRequest): Promise<DescribeAccountDelegatedStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountDelegatedStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询API安全风险站点统计
+   *
+   * @param request DescribeApisecAbnormalDomainStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisecAbnormalDomainStatisticResponse
+   */
+  async describeApisecAbnormalDomainStatisticWithOptions(request: DescribeApisecAbnormalDomainStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecAbnormalDomainStatisticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderWay)) {
+      query["OrderWay"] = request.orderWay;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecAbnormalDomainStatistic",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecAbnormalDomainStatisticResponse>(await this.callApi(params, req, runtime), new DescribeApisecAbnormalDomainStatisticResponse({}));
+  }
+
+  /**
+   * @summary 查询API安全风险站点统计
+   *
+   * @param request DescribeApisecAbnormalDomainStatisticRequest
+   * @return DescribeApisecAbnormalDomainStatisticResponse
+   */
+  async describeApisecAbnormalDomainStatistic(request: DescribeApisecAbnormalDomainStatisticRequest): Promise<DescribeApisecAbnormalDomainStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecAbnormalDomainStatisticWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询API安全资产趋势图
+   *
+   * @param request DescribeApisecAssetTrendRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisecAssetTrendResponse
+   */
+  async describeApisecAssetTrendWithOptions(request: DescribeApisecAssetTrendRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecAssetTrendResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecAssetTrend",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecAssetTrendResponse>(await this.callApi(params, req, runtime), new DescribeApisecAssetTrendResponse({}));
+  }
+
+  /**
+   * @summary 查询API安全资产趋势图
+   *
+   * @param request DescribeApisecAssetTrendRequest
+   * @return DescribeApisecAssetTrendResponse
+   */
+  async describeApisecAssetTrend(request: DescribeApisecAssetTrendRequest): Promise<DescribeApisecAssetTrendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecAssetTrendWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询API安全事件站点统计
+   *
+   * @param request DescribeApisecEventDomainStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisecEventDomainStatisticResponse
+   */
+  async describeApisecEventDomainStatisticWithOptions(request: DescribeApisecEventDomainStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecEventDomainStatisticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderWay)) {
+      query["OrderWay"] = request.orderWay;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecEventDomainStatistic",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecEventDomainStatisticResponse>(await this.callApi(params, req, runtime), new DescribeApisecEventDomainStatisticResponse({}));
+  }
+
+  /**
+   * @summary 查询API安全事件站点统计
+   *
+   * @param request DescribeApisecEventDomainStatisticRequest
+   * @return DescribeApisecEventDomainStatisticResponse
+   */
+  async describeApisecEventDomainStatistic(request: DescribeApisecEventDomainStatisticRequest): Promise<DescribeApisecEventDomainStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecEventDomainStatisticWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询API安全敏感数据类型统计
+   *
+   * @param request DescribeApisecSensitiveDomainStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisecSensitiveDomainStatisticResponse
+   */
+  async describeApisecSensitiveDomainStatisticWithOptions(request: DescribeApisecSensitiveDomainStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecSensitiveDomainStatisticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderWay)) {
+      query["OrderWay"] = request.orderWay;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecSensitiveDomainStatistic",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecSensitiveDomainStatisticResponse>(await this.callApi(params, req, runtime), new DescribeApisecSensitiveDomainStatisticResponse({}));
+  }
+
+  /**
+   * @summary 查询API安全敏感数据类型统计
+   *
+   * @param request DescribeApisecSensitiveDomainStatisticRequest
+   * @return DescribeApisecSensitiveDomainStatisticResponse
+   */
+  async describeApisecSensitiveDomainStatistic(request: DescribeApisecSensitiveDomainStatisticRequest): Promise<DescribeApisecSensitiveDomainStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecSensitiveDomainStatisticWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
+   *
+   * @param request DescribeCertDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCertDetailResponse
+   */
   async describeCertDetailWithOptions(request: DescribeCertDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10518,11 +11810,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCertDetailResponse>(await this.callApi(params, req, runtime), new DescribeCertDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
+   *
+   * @param request DescribeCertDetailRequest
+   * @return DescribeCertDetailResponse
+   */
   async describeCertDetail(request: DescribeCertDetailRequest): Promise<DescribeCertDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCertDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeCertsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCertsResponse
+   */
   async describeCertsWithOptions(request: DescribeCertsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10571,11 +11876,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCertsResponse>(await this.callApi(params, req, runtime), new DescribeCertsResponse({}));
   }
 
+  /**
+   * @summary Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeCertsRequest
+   * @return DescribeCertsResponse
+   */
   async describeCerts(request: DescribeCertsRequest): Promise<DescribeCertsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCertsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries cloud service resources that are added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeCloudResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudResourcesResponse
+   */
   async describeCloudResourcesWithOptions(request: DescribeCloudResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10648,11 +11966,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCloudResourcesResponse>(await this.callApi(params, req, runtime), new DescribeCloudResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries cloud service resources that are added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeCloudResourcesRequest
+   * @return DescribeCloudResourcesResponse
+   */
   async describeCloudResources(request: DescribeCloudResourcesRequest): Promise<DescribeCloudResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a protected object.
+   *
+   * @param request DescribeDefenseResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseResourceResponse
+   */
   async describeDefenseResourceWithOptions(request: DescribeDefenseResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10689,11 +12020,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseResourceResponse>(await this.callApi(params, req, runtime), new DescribeDefenseResourceResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a protected object.
+   *
+   * @param request DescribeDefenseResourceRequest
+   * @return DescribeDefenseResourceResponse
+   */
   async describeDefenseResource(request: DescribeDefenseResourceRequest): Promise<DescribeDefenseResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a protected object group.
+   *
+   * @param request DescribeDefenseResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseResourceGroupResponse
+   */
   async describeDefenseResourceGroupWithOptions(request: DescribeDefenseResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10730,11 +12074,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseResourceGroupResponse>(await this.callApi(params, req, runtime), new DescribeDefenseResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a protected object group.
+   *
+   * @param request DescribeDefenseResourceGroupRequest
+   * @return DescribeDefenseResourceGroupResponse
+   */
   async describeDefenseResourceGroup(request: DescribeDefenseResourceGroupRequest): Promise<DescribeDefenseResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the names of protected object groups.
+   *
+   * @param request DescribeDefenseResourceGroupNamesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseResourceGroupNamesResponse
+   */
   async describeDefenseResourceGroupNamesWithOptions(request: DescribeDefenseResourceGroupNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceGroupNamesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10779,11 +12136,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseResourceGroupNamesResponse>(await this.callApi(params, req, runtime), new DescribeDefenseResourceGroupNamesResponse({}));
   }
 
+  /**
+   * @summary Queries the names of protected object groups.
+   *
+   * @param request DescribeDefenseResourceGroupNamesRequest
+   * @return DescribeDefenseResourceGroupNamesResponse
+   */
   async describeDefenseResourceGroupNames(request: DescribeDefenseResourceGroupNamesRequest): Promise<DescribeDefenseResourceGroupNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseResourceGroupNamesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Performs a pagination query to retrieve the information about protected object groups.
+   *
+   * @param request DescribeDefenseResourceGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseResourceGroupsResponse
+   */
   async describeDefenseResourceGroupsWithOptions(request: DescribeDefenseResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10832,11 +12202,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseResourceGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDefenseResourceGroupsResponse({}));
   }
 
+  /**
+   * @summary Performs a pagination query to retrieve the information about protected object groups.
+   *
+   * @param request DescribeDefenseResourceGroupsRequest
+   * @return DescribeDefenseResourceGroupsResponse
+   */
   async describeDefenseResourceGroups(request: DescribeDefenseResourceGroupsRequest): Promise<DescribeDefenseResourceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseResourceGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Performs a pagination query to retrieve the names of protected objects.
+   *
+   * @param request DescribeDefenseResourceNamesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseResourceNamesResponse
+   */
   async describeDefenseResourceNamesWithOptions(request: DescribeDefenseResourceNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceNamesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10881,11 +12264,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseResourceNamesResponse>(await this.callApi(params, req, runtime), new DescribeDefenseResourceNamesResponse({}));
   }
 
+  /**
+   * @summary Performs a pagination query to retrieve the names of protected objects.
+   *
+   * @param request DescribeDefenseResourceNamesRequest
+   * @return DescribeDefenseResourceNamesResponse
+   */
   async describeDefenseResourceNames(request: DescribeDefenseResourceNamesRequest): Promise<DescribeDefenseResourceNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseResourceNamesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the protection templates that are associated with a protected object or protected object group.
+   *
+   * @param request DescribeDefenseResourceTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseResourceTemplatesResponse
+   */
   async describeDefenseResourceTemplatesWithOptions(request: DescribeDefenseResourceTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10934,11 +12330,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseResourceTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeDefenseResourceTemplatesResponse({}));
   }
 
+  /**
+   * @summary Queries the protection templates that are associated with a protected object or protected object group.
+   *
+   * @param request DescribeDefenseResourceTemplatesRequest
+   * @return DescribeDefenseResourceTemplatesResponse
+   */
   async describeDefenseResourceTemplates(request: DescribeDefenseResourceTemplatesRequest): Promise<DescribeDefenseResourceTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseResourceTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries protected objects by page.
+   *
+   * @param request DescribeDefenseResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseResourcesResponse
+   */
   async describeDefenseResourcesWithOptions(request: DescribeDefenseResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10987,11 +12396,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseResourcesResponse>(await this.callApi(params, req, runtime), new DescribeDefenseResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries protected objects by page.
+   *
+   * @param request DescribeDefenseResourcesRequest
+   * @return DescribeDefenseResourcesResponse
+   */
   async describeDefenseResources(request: DescribeDefenseResourcesRequest): Promise<DescribeDefenseResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a protection rule.
+   *
+   * @param request DescribeDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseRuleResponse
+   */
   async describeDefenseRuleWithOptions(request: DescribeDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11032,11 +12454,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseRuleResponse>(await this.callApi(params, req, runtime), new DescribeDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Queries a protection rule.
+   *
+   * @param request DescribeDefenseRuleRequest
+   * @return DescribeDefenseRuleResponse
+   */
   async describeDefenseRule(request: DescribeDefenseRuleRequest): Promise<DescribeDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries protection rules by page.
+   *
+   * @param request DescribeDefenseRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseRulesResponse
+   */
   async describeDefenseRulesWithOptions(request: DescribeDefenseRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11085,11 +12520,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseRulesResponse>(await this.callApi(params, req, runtime), new DescribeDefenseRulesResponse({}));
   }
 
+  /**
+   * @summary Queries protection rules by page.
+   *
+   * @param request DescribeDefenseRulesRequest
+   * @return DescribeDefenseRulesResponse
+   */
   async describeDefenseRules(request: DescribeDefenseRulesRequest): Promise<DescribeDefenseRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a protection rule template.
+   *
+   * @param request DescribeDefenseTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseTemplateResponse
+   */
   async describeDefenseTemplateWithOptions(request: DescribeDefenseTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11126,11 +12574,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseTemplateResponse>(await this.callApi(params, req, runtime), new DescribeDefenseTemplateResponse({}));
   }
 
+  /**
+   * @summary Queries a protection rule template.
+   *
+   * @param request DescribeDefenseTemplateRequest
+   * @return DescribeDefenseTemplateResponse
+   */
   async describeDefenseTemplate(request: DescribeDefenseTemplateRequest): Promise<DescribeDefenseTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the names of protected object groups for which a protection template can take effect.
+   *
+   * @param request DescribeDefenseTemplateValidGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseTemplateValidGroupsResponse
+   */
   async describeDefenseTemplateValidGroupsWithOptions(request: DescribeDefenseTemplateValidGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseTemplateValidGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11183,11 +12644,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseTemplateValidGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDefenseTemplateValidGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries the names of protected object groups for which a protection template can take effect.
+   *
+   * @param request DescribeDefenseTemplateValidGroupsRequest
+   * @return DescribeDefenseTemplateValidGroupsResponse
+   */
   async describeDefenseTemplateValidGroups(request: DescribeDefenseTemplateValidGroupsRequest): Promise<DescribeDefenseTemplateValidGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseTemplateValidGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Performs a paging query to retrieve protection templates.
+   *
+   * @param request DescribeDefenseTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefenseTemplatesResponse
+   */
   async describeDefenseTemplatesWithOptions(request: DescribeDefenseTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11252,11 +12726,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeDefenseTemplatesResponse({}));
   }
 
+  /**
+   * @summary Performs a paging query to retrieve protection templates.
+   *
+   * @param request DescribeDefenseTemplatesRequest
+   * @return DescribeDefenseTemplatesResponse
+   */
   async describeDefenseTemplates(request: DescribeDefenseTemplatesRequest): Promise<DescribeDefenseTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
+   *
+   * @param request DescribeDomainDNSRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainDNSRecordResponse
+   */
   async describeDomainDNSRecordWithOptions(request: DescribeDomainDNSRecordRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainDNSRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11293,11 +12780,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainDNSRecordResponse>(await this.callApi(params, req, runtime), new DescribeDomainDNSRecordResponse({}));
   }
 
+  /**
+   * @summary Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
+   *
+   * @param request DescribeDomainDNSRecordRequest
+   * @return DescribeDomainDNSRecordResponse
+   */
   async describeDomainDNSRecord(request: DescribeDomainDNSRecordRequest): Promise<DescribeDomainDNSRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainDNSRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a domain name that is added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeDomainDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainDetailResponse
+   */
   async describeDomainDetailWithOptions(request: DescribeDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11330,11 +12830,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainDetailResponse>(await this.callApi(params, req, runtime), new DescribeDomainDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a domain name that is added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeDomainDetailRequest
+   * @return DescribeDomainDetailResponse
+   */
   async describeDomainDetail(request: DescribeDomainDetailRequest): Promise<DescribeDomainDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the domain names that are added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainsResponse
+   */
   async describeDomainsWithOptions(request: DescribeDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11387,11 +12900,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDomainsResponse({}));
   }
 
+  /**
+   * @summary Queries the domain names that are added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeDomainsRequest
+   * @return DescribeDomainsResponse
+   */
   async describeDomains(request: DescribeDomainsRequest): Promise<DescribeDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
+   *
+   * @param request DescribeFlowChartRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFlowChartResponse
+   */
   async describeFlowChartWithOptions(request: DescribeFlowChartRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowChartResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11440,11 +12966,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFlowChartResponse>(await this.callApi(params, req, runtime), new DescribeFlowChartResponse({}));
   }
 
+  /**
+   * @summary Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
+   *
+   * @param request DescribeFlowChartRequest
+   * @return DescribeFlowChartResponse
+   */
   async describeFlowChart(request: DescribeFlowChartRequest): Promise<DescribeFlowChartResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFlowChartWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top 10 protected objects that receive requests.
+   *
+   * @param request DescribeFlowTopResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFlowTopResourceResponse
+   */
   async describeFlowTopResourceWithOptions(request: DescribeFlowTopResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowTopResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11485,11 +13024,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFlowTopResourceResponse>(await this.callApi(params, req, runtime), new DescribeFlowTopResourceResponse({}));
   }
 
+  /**
+   * @summary Queries the top 10 protected objects that receive requests.
+   *
+   * @param request DescribeFlowTopResourceRequest
+   * @return DescribeFlowTopResourceResponse
+   */
   async describeFlowTopResource(request: DescribeFlowTopResourceRequest): Promise<DescribeFlowTopResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFlowTopResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top 10 URLs that are used to initiate requests.
+   *
+   * @param request DescribeFlowTopUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFlowTopUrlResponse
+   */
   async describeFlowTopUrlWithOptions(request: DescribeFlowTopUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowTopUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11534,11 +13086,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFlowTopUrlResponse>(await this.callApi(params, req, runtime), new DescribeFlowTopUrlResponse({}));
   }
 
+  /**
+   * @summary Queries the top 10 URLs that are used to initiate requests.
+   *
+   * @param request DescribeFlowTopUrlRequest
+   * @return DescribeFlowTopUrlResponse
+   */
   async describeFlowTopUrl(request: DescribeFlowTopUrlRequest): Promise<DescribeFlowTopUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFlowTopUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeHybridCloudGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHybridCloudGroupsResponse
+   */
   async describeHybridCloudGroupsWithOptions(request: DescribeHybridCloudGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHybridCloudGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11595,11 +13160,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHybridCloudGroupsResponse>(await this.callApi(params, req, runtime), new DescribeHybridCloudGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeHybridCloudGroupsRequest
+   * @return DescribeHybridCloudGroupsResponse
+   */
   async describeHybridCloudGroups(request: DescribeHybridCloudGroupsRequest): Promise<DescribeHybridCloudGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHybridCloudGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
+   *
+   * @param request DescribeHybridCloudResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHybridCloudResourcesResponse
+   */
   async describeHybridCloudResourcesWithOptions(request: DescribeHybridCloudResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHybridCloudResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11652,11 +13230,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHybridCloudResourcesResponse>(await this.callApi(params, req, runtime), new DescribeHybridCloudResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
+   *
+   * @param request DescribeHybridCloudResourcesRequest
+   * @return DescribeHybridCloudResourcesResponse
+   */
   async describeHybridCloudResources(request: DescribeHybridCloudResourcesRequest): Promise<DescribeHybridCloudResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHybridCloudResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
+   *
+   * @param request DescribeHybridCloudUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHybridCloudUserResponse
+   */
   async describeHybridCloudUserWithOptions(request: DescribeHybridCloudUserRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHybridCloudUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11689,11 +13280,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHybridCloudUserResponse>(await this.callApi(params, req, runtime), new DescribeHybridCloudUserResponse({}));
   }
 
+  /**
+   * @summary Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
+   *
+   * @param request DescribeHybridCloudUserRequest
+   * @return DescribeHybridCloudUserResponse
+   */
   async describeHybridCloudUser(request: DescribeHybridCloudUserRequest): Promise<DescribeHybridCloudUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHybridCloudUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
+   *
+   * @param request DescribeInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceResponse
+   */
   async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11722,11 +13326,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
+   *
+   * @param request DescribeInstanceRequest
+   * @return DescribeInstanceResponse
+   */
   async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries IP addresses in an IP address blacklist for major event protection by page.
+   *
+   * @param request DescribeMajorProtectionBlackIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMajorProtectionBlackIpsResponse
+   */
   async describeMajorProtectionBlackIpsWithOptions(request: DescribeMajorProtectionBlackIpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMajorProtectionBlackIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11783,11 +13400,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMajorProtectionBlackIpsResponse>(await this.callApi(params, req, runtime), new DescribeMajorProtectionBlackIpsResponse({}));
   }
 
+  /**
+   * @summary Queries IP addresses in an IP address blacklist for major event protection by page.
+   *
+   * @param request DescribeMajorProtectionBlackIpsRequest
+   * @return DescribeMajorProtectionBlackIpsResponse
+   */
   async describeMajorProtectionBlackIps(request: DescribeMajorProtectionBlackIpsRequest): Promise<DescribeMajorProtectionBlackIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMajorProtectionBlackIpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about members.
+   *
+   * @param request DescribeMemberAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMemberAccountsResponse
+   */
   async describeMemberAccountsWithOptions(request: DescribeMemberAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMemberAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11828,11 +13458,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMemberAccountsResponse>(await this.callApi(params, req, runtime), new DescribeMemberAccountsResponse({}));
   }
 
+  /**
+   * @summary Queries information about members.
+   *
+   * @param request DescribeMemberAccountsRequest
+   * @return DescribeMemberAccountsResponse
+   */
   async describeMemberAccounts(request: DescribeMemberAccountsRequest): Promise<DescribeMemberAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMemberAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the queries per second (QPS) statistics of a WAF instance.
+   *
+   * @param request DescribePeakTrendRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePeakTrendResponse
+   */
   async describePeakTrendWithOptions(request: DescribePeakTrendRequest, runtime: $Util.RuntimeOptions): Promise<DescribePeakTrendResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11881,11 +13524,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePeakTrendResponse>(await this.callApi(params, req, runtime), new DescribePeakTrendResponse({}));
   }
 
+  /**
+   * @summary Queries the queries per second (QPS) statistics of a WAF instance.
+   *
+   * @param request DescribePeakTrendRequest
+   * @return DescribePeakTrendResponse
+   */
   async describePeakTrend(request: DescribePeakTrendRequest): Promise<DescribePeakTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePeakTrendWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
+   *
+   * @param request DescribeProductInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProductInstancesResponse
+   */
   async describeProductInstancesWithOptions(request: DescribeProductInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProductInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11950,11 +13606,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProductInstancesResponse>(await this.callApi(params, req, runtime), new DescribeProductInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
+   *
+   * @param request DescribeProductInstancesRequest
+   * @return DescribeProductInstancesResponse
+   */
   async describeProductInstances(request: DescribeProductInstancesRequest): Promise<DescribeProductInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProductInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
+   *
+   * @param request DescribePunishedDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePunishedDomainsResponse
+   */
   async describePunishedDomainsWithOptions(request: DescribePunishedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePunishedDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11991,11 +13660,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePunishedDomainsResponse>(await this.callApi(params, req, runtime), new DescribePunishedDomainsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
+   *
+   * @param request DescribePunishedDomainsRequest
+   * @return DescribePunishedDomainsResponse
+   */
   async describePunishedDomains(request: DescribePunishedDomainsRequest): Promise<DescribePunishedDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePunishedDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
+   *
+   * @param request DescribeResourceInstanceCertsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourceInstanceCertsResponse
+   */
   async describeResourceInstanceCertsWithOptions(request: DescribeResourceInstanceCertsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceInstanceCertsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12040,11 +13722,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResourceInstanceCertsResponse>(await this.callApi(params, req, runtime), new DescribeResourceInstanceCertsResponse({}));
   }
 
+  /**
+   * @summary Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
+   *
+   * @param request DescribeResourceInstanceCertsRequest
+   * @return DescribeResourceInstanceCertsResponse
+   */
   async describeResourceInstanceCerts(request: DescribeResourceInstanceCertsRequest): Promise<DescribeResourceInstanceCertsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResourceInstanceCertsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether the log collection feature is enabled for a protected object.
+   *
+   * @param request DescribeResourceLogStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourceLogStatusResponse
+   */
   async describeResourceLogStatusWithOptions(request: DescribeResourceLogStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceLogStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12081,11 +13776,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResourceLogStatusResponse>(await this.callApi(params, req, runtime), new DescribeResourceLogStatusResponse({}));
   }
 
+  /**
+   * @summary Queries whether the log collection feature is enabled for a protected object.
+   *
+   * @param request DescribeResourceLogStatusRequest
+   * @return DescribeResourceLogStatusResponse
+   */
   async describeResourceLogStatus(request: DescribeResourceLogStatusRequest): Promise<DescribeResourceLogStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResourceLogStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the ports of a cloud service instance that are added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeResourcePortRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourcePortResponse
+   */
   async describeResourcePortWithOptions(request: DescribeResourcePortRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourcePortResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12122,11 +13830,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResourcePortResponse>(await this.callApi(params, req, runtime), new DescribeResourcePortResponse({}));
   }
 
+  /**
+   * @summary Queries the ports of a cloud service instance that are added to Web Application Firewall (WAF).
+   *
+   * @param request DescribeResourcePortRequest
+   * @return DescribeResourcePortResponse
+   */
   async describeResourcePort(request: DescribeResourcePortRequest): Promise<DescribeResourcePortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResourcePortWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
+   *
+   * @param request DescribeResourceRegionIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourceRegionIdResponse
+   */
   async describeResourceRegionIdWithOptions(request: DescribeResourceRegionIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceRegionIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12159,11 +13880,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResourceRegionIdResponse>(await this.callApi(params, req, runtime), new DescribeResourceRegionIdResponse({}));
   }
 
+  /**
+   * @summary Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
+   *
+   * @param request DescribeResourceRegionIdRequest
+   * @return DescribeResourceRegionIdResponse
+   */
   async describeResourceRegionId(request: DescribeResourceRegionIdRequest): Promise<DescribeResourceRegionIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResourceRegionIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the region IDs of Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that can be added to Web Application Firewall (WAF) in transparent proxy mode.
+   *
+   * @param request DescribeResourceSupportRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourceSupportRegionsResponse
+   */
   async describeResourceSupportRegionsWithOptions(request: DescribeResourceSupportRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceSupportRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12196,11 +13930,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResourceSupportRegionsResponse>(await this.callApi(params, req, runtime), new DescribeResourceSupportRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the region IDs of Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that can be added to Web Application Firewall (WAF) in transparent proxy mode.
+   *
+   * @param request DescribeResourceSupportRegionsRequest
+   * @return DescribeResourceSupportRegionsResponse
+   */
   async describeResourceSupportRegions(request: DescribeResourceSupportRegionsRequest): Promise<DescribeResourceSupportRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResourceSupportRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
+   *
+   * @param request DescribeResponseCodeTrendGraphRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResponseCodeTrendGraphResponse
+   */
   async describeResponseCodeTrendGraphWithOptions(request: DescribeResponseCodeTrendGraphRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResponseCodeTrendGraphResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12253,11 +14000,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResponseCodeTrendGraphResponse>(await this.callApi(params, req, runtime), new DescribeResponseCodeTrendGraphResponse({}));
   }
 
+  /**
+   * @summary Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
+   *
+   * @param request DescribeResponseCodeTrendGraphRequest
+   * @return DescribeResponseCodeTrendGraphResponse
+   */
   async describeResponseCodeTrendGraph(request: DescribeResponseCodeTrendGraphRequest): Promise<DescribeResponseCodeTrendGraphResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResponseCodeTrendGraphWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries regular expression rule groups by page.
+   *
+   * @param request DescribeRuleGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRuleGroupsResponse
+   */
   async describeRuleGroupsWithOptions(request: DescribeRuleGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRuleGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12306,11 +14066,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRuleGroupsResponse>(await this.callApi(params, req, runtime), new DescribeRuleGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries regular expression rule groups by page.
+   *
+   * @param request DescribeRuleGroupsRequest
+   * @return DescribeRuleGroupsResponse
+   */
   async describeRuleGroups(request: DescribeRuleGroupsRequest): Promise<DescribeRuleGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRuleGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top 10 IP addresses from which attacks are initiated.
+   *
+   * @param request DescribeRuleHitsTopClientIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRuleHitsTopClientIpResponse
+   */
   async describeRuleHitsTopClientIpWithOptions(request: DescribeRuleHitsTopClientIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRuleHitsTopClientIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12359,11 +14132,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRuleHitsTopClientIpResponse>(await this.callApi(params, req, runtime), new DescribeRuleHitsTopClientIpResponse({}));
   }
 
+  /**
+   * @summary Queries the top 10 IP addresses from which attacks are initiated.
+   *
+   * @param request DescribeRuleHitsTopClientIpRequest
+   * @return DescribeRuleHitsTopClientIpResponse
+   */
   async describeRuleHitsTopClientIp(request: DescribeRuleHitsTopClientIpRequest): Promise<DescribeRuleHitsTopClientIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRuleHitsTopClientIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top 10 protected objects that trigger protection rules.
+   *
+   * @param request DescribeRuleHitsTopResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRuleHitsTopResourceResponse
+   */
   async describeRuleHitsTopResourceWithOptions(request: DescribeRuleHitsTopResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRuleHitsTopResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12408,11 +14194,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRuleHitsTopResourceResponse>(await this.callApi(params, req, runtime), new DescribeRuleHitsTopResourceResponse({}));
   }
 
+  /**
+   * @summary Queries the top 10 protected objects that trigger protection rules.
+   *
+   * @param request DescribeRuleHitsTopResourceRequest
+   * @return DescribeRuleHitsTopResourceResponse
+   */
   async describeRuleHitsTopResource(request: DescribeRuleHitsTopResourceRequest): Promise<DescribeRuleHitsTopResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRuleHitsTopResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the IDs of the top 10 protection rules that are matched by requests.
+   *
+   * @param request DescribeRuleHitsTopRuleIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRuleHitsTopRuleIdResponse
+   */
   async describeRuleHitsTopRuleIdWithOptions(request: DescribeRuleHitsTopRuleIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRuleHitsTopRuleIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12465,11 +14264,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRuleHitsTopRuleIdResponse>(await this.callApi(params, req, runtime), new DescribeRuleHitsTopRuleIdResponse({}));
   }
 
+  /**
+   * @summary Queries the IDs of the top 10 protection rules that are matched by requests.
+   *
+   * @param request DescribeRuleHitsTopRuleIdRequest
+   * @return DescribeRuleHitsTopRuleIdResponse
+   */
   async describeRuleHitsTopRuleId(request: DescribeRuleHitsTopRuleIdRequest): Promise<DescribeRuleHitsTopRuleIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRuleHitsTopRuleIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top 10 protection modules that are matched.
+   *
+   * @param request DescribeRuleHitsTopTuleTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRuleHitsTopTuleTypeResponse
+   */
   async describeRuleHitsTopTuleTypeWithOptions(request: DescribeRuleHitsTopTuleTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRuleHitsTopTuleTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12510,11 +14322,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRuleHitsTopTuleTypeResponse>(await this.callApi(params, req, runtime), new DescribeRuleHitsTopTuleTypeResponse({}));
   }
 
+  /**
+   * @summary Queries the top 10 protection modules that are matched.
+   *
+   * @param request DescribeRuleHitsTopTuleTypeRequest
+   * @return DescribeRuleHitsTopTuleTypeResponse
+   */
   async describeRuleHitsTopTuleType(request: DescribeRuleHitsTopTuleTypeRequest): Promise<DescribeRuleHitsTopTuleTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRuleHitsTopTuleTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top 10 user agents that are used to initiate attacks.
+   *
+   * @param request DescribeRuleHitsTopUaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRuleHitsTopUaResponse
+   */
   async describeRuleHitsTopUaWithOptions(request: DescribeRuleHitsTopUaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRuleHitsTopUaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12559,11 +14384,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRuleHitsTopUaResponse>(await this.callApi(params, req, runtime), new DescribeRuleHitsTopUaResponse({}));
   }
 
+  /**
+   * @summary Queries the top 10 user agents that are used to initiate attacks.
+   *
+   * @param request DescribeRuleHitsTopUaRequest
+   * @return DescribeRuleHitsTopUaResponse
+   */
   async describeRuleHitsTopUa(request: DescribeRuleHitsTopUaRequest): Promise<DescribeRuleHitsTopUaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRuleHitsTopUaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top 10 URLs that trigger protection rules.
+   *
+   * @param request DescribeRuleHitsTopUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRuleHitsTopUrlResponse
+   */
   async describeRuleHitsTopUrlWithOptions(request: DescribeRuleHitsTopUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRuleHitsTopUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12612,11 +14450,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRuleHitsTopUrlResponse>(await this.callApi(params, req, runtime), new DescribeRuleHitsTopUrlResponse({}));
   }
 
+  /**
+   * @summary Queries the top 10 URLs that trigger protection rules.
+   *
+   * @param request DescribeRuleHitsTopUrlRequest
+   * @return DescribeRuleHitsTopUrlResponse
+   */
   async describeRuleHitsTopUrl(request: DescribeRuleHitsTopUrlRequest): Promise<DescribeRuleHitsTopUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRuleHitsTopUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
+   *
+   * @param request DescribeSlsAuthStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlsAuthStatusResponse
+   */
   async describeSlsAuthStatusWithOptions(request: DescribeSlsAuthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlsAuthStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12649,11 +14500,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlsAuthStatusResponse>(await this.callApi(params, req, runtime), new DescribeSlsAuthStatusResponse({}));
   }
 
+  /**
+   * @summary Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
+   *
+   * @param request DescribeSlsAuthStatusRequest
+   * @return DescribeSlsAuthStatusResponse
+   */
   async describeSlsAuthStatus(request: DescribeSlsAuthStatusRequest): Promise<DescribeSlsAuthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlsAuthStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
+   *
+   * @param request DescribeSlsLogStoreRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlsLogStoreResponse
+   */
   async describeSlsLogStoreWithOptions(request: DescribeSlsLogStoreRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlsLogStoreResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12686,11 +14550,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlsLogStoreResponse>(await this.callApi(params, req, runtime), new DescribeSlsLogStoreResponse({}));
   }
 
+  /**
+   * @summary Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
+   *
+   * @param request DescribeSlsLogStoreRequest
+   * @return DescribeSlsLogStoreResponse
+   */
   async describeSlsLogStore(request: DescribeSlsLogStoreRequest): Promise<DescribeSlsLogStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlsLogStoreWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of a Simple Log Service Logstore.
+   *
+   * @param request DescribeSlsLogStoreStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlsLogStoreStatusResponse
+   */
   async describeSlsLogStoreStatusWithOptions(request: DescribeSlsLogStoreStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlsLogStoreStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12723,11 +14600,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlsLogStoreStatusResponse>(await this.callApi(params, req, runtime), new DescribeSlsLogStoreStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a Simple Log Service Logstore.
+   *
+   * @param request DescribeSlsLogStoreStatusRequest
+   * @return DescribeSlsLogStoreStatusResponse
+   */
   async describeSlsLogStoreStatus(request: DescribeSlsLogStoreStatusRequest): Promise<DescribeSlsLogStoreStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlsLogStoreStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of protected resources for which a protection template takes effect.
+   *
+   * @param request DescribeTemplateResourceCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTemplateResourceCountResponse
+   */
   async describeTemplateResourceCountWithOptions(request: DescribeTemplateResourceCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateResourceCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12764,11 +14654,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTemplateResourceCountResponse>(await this.callApi(params, req, runtime), new DescribeTemplateResourceCountResponse({}));
   }
 
+  /**
+   * @summary Queries the number of protected resources for which a protection template takes effect.
+   *
+   * @param request DescribeTemplateResourceCountRequest
+   * @return DescribeTemplateResourceCountResponse
+   */
   async describeTemplateResourceCount(request: DescribeTemplateResourceCountRequest): Promise<DescribeTemplateResourceCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTemplateResourceCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the resources that are associated to a protection rule template.
+   *
+   * @param request DescribeTemplateResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTemplateResourcesResponse
+   */
   async describeTemplateResourcesWithOptions(request: DescribeTemplateResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12809,11 +14712,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTemplateResourcesResponse>(await this.callApi(params, req, runtime), new DescribeTemplateResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries the resources that are associated to a protection rule template.
+   *
+   * @param request DescribeTemplateResourcesRequest
+   * @return DescribeTemplateResourcesResponse
+   */
   async describeTemplateResources(request: DescribeTemplateResourcesRequest): Promise<DescribeTemplateResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTemplateResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available regions for log storage.
+   *
+   * @param request DescribeUserSlsLogRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserSlsLogRegionsResponse
+   */
   async describeUserSlsLogRegionsWithOptions(request: DescribeUserSlsLogRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserSlsLogRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12846,11 +14762,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserSlsLogRegionsResponse>(await this.callApi(params, req, runtime), new DescribeUserSlsLogRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries available regions for log storage.
+   *
+   * @param request DescribeUserSlsLogRegionsRequest
+   * @return DescribeUserSlsLogRegionsResponse
+   */
   async describeUserSlsLogRegions(request: DescribeUserSlsLogRegionsRequest): Promise<DescribeUserSlsLogRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserSlsLogRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status, region ID, and status modification time of Web Application Firewall (WAF) logs.
+   *
+   * @param request DescribeUserWafLogStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserWafLogStatusResponse
+   */
   async describeUserWafLogStatusWithOptions(request: DescribeUserWafLogStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserWafLogStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12883,11 +14812,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserWafLogStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserWafLogStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status, region ID, and status modification time of Web Application Firewall (WAF) logs.
+   *
+   * @param request DescribeUserWafLogStatusRequest
+   * @return DescribeUserWafLogStatusResponse
+   */
   async describeUserWafLogStatus(request: DescribeUserWafLogStatusRequest): Promise<DescribeUserWafLogStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserWafLogStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top 10 IP addresses from which requests are sent.
+   *
+   * @param request DescribeVisitTopIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVisitTopIpResponse
+   */
   async describeVisitTopIpWithOptions(request: DescribeVisitTopIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVisitTopIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12932,11 +14874,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVisitTopIpResponse>(await this.callApi(params, req, runtime), new DescribeVisitTopIpResponse({}));
   }
 
+  /**
+   * @summary Queries the top 10 IP addresses from which requests are sent.
+   *
+   * @param request DescribeVisitTopIpRequest
+   * @return DescribeVisitTopIpResponse
+   */
   async describeVisitTopIp(request: DescribeVisitTopIpRequest): Promise<DescribeVisitTopIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVisitTopIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top 10 user agents that are used to initiate requests.
+   *
+   * @param request DescribeVisitUasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVisitUasResponse
+   */
   async describeVisitUasWithOptions(request: DescribeVisitUasRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVisitUasResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12977,11 +14932,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVisitUasResponse>(await this.callApi(params, req, runtime), new DescribeVisitUasResponse({}));
   }
 
+  /**
+   * @summary Queries the top 10 user agents that are used to initiate requests.
+   *
+   * @param request DescribeVisitUasRequest
+   * @return DescribeVisitUasResponse
+   */
   async describeVisitUas(request: DescribeVisitUasRequest): Promise<DescribeVisitUasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVisitUasWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the back-to-origin CIDR blocks of a Web Application Firewall (WAF) instance.
+   *
+   * @param request DescribeWafSourceIpSegmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWafSourceIpSegmentResponse
+   */
   async describeWafSourceIpSegmentWithOptions(request: DescribeWafSourceIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWafSourceIpSegmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13014,11 +14982,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWafSourceIpSegmentResponse>(await this.callApi(params, req, runtime), new DescribeWafSourceIpSegmentResponse({}));
   }
 
+  /**
+   * @summary Queries the back-to-origin CIDR blocks of a Web Application Firewall (WAF) instance.
+   *
+   * @param request DescribeWafSourceIpSegmentRequest
+   * @return DescribeWafSourceIpSegmentResponse
+   */
   async describeWafSourceIpSegment(request: DescribeWafSourceIpSegmentRequest): Promise<DescribeWafSourceIpSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWafSourceIpSegmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries tag keys.
+   *
+   * @param request ListTagKeysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagKeysResponse
+   */
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13055,11 +15036,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
+  /**
+   * @summary Queries tag keys.
+   *
+   * @param request ListTagKeysRequest
+   * @return ListTagKeysResponse
+   */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tags that are added to a resource.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13100,11 +15094,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries the tags that are added to a resource.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tag values of a tag key.
+   *
+   * @param request ListTagValuesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagValuesResponse
+   */
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13141,11 +15148,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
   }
 
+  /**
+   * @summary Queries the tag values of a tag key.
+   *
+   * @param request ListTagValuesRequest
+   * @return ListTagValuesResponse
+   */
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a protected object group.
+   *
+   * @param request ModifyDefenseResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDefenseResourceGroupResponse
+   */
   async modifyDefenseResourceGroupWithOptions(request: ModifyDefenseResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefenseResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13194,11 +15214,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDefenseResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyDefenseResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a protected object group.
+   *
+   * @param request ModifyDefenseResourceGroupRequest
+   * @return ModifyDefenseResourceGroupResponse
+   */
   async modifyDefenseResourceGroup(request: ModifyDefenseResourceGroupRequest): Promise<ModifyDefenseResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDefenseResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the cookie settings of a protected object and the method to identify the originating IP addresses of clients.
+   *
+   * @param request ModifyDefenseResourceXffRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDefenseResourceXffResponse
+   */
   async modifyDefenseResourceXffWithOptions(request: ModifyDefenseResourceXffRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefenseResourceXffResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13255,11 +15288,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDefenseResourceXffResponse>(await this.callApi(params, req, runtime), new ModifyDefenseResourceXffResponse({}));
   }
 
+  /**
+   * @summary Modifies the cookie settings of a protected object and the method to identify the originating IP addresses of clients.
+   *
+   * @param request ModifyDefenseResourceXffRequest
+   * @return ModifyDefenseResourceXffResponse
+   */
   async modifyDefenseResourceXff(request: ModifyDefenseResourceXffRequest): Promise<ModifyDefenseResourceXffResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDefenseResourceXffWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a protection rule.
+   *
+   * @param request ModifyDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDefenseRuleResponse
+   */
   async modifyDefenseRuleWithOptions(request: ModifyDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefenseRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13304,11 +15350,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDefenseRuleResponse>(await this.callApi(params, req, runtime), new ModifyDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a protection rule.
+   *
+   * @param request ModifyDefenseRuleRequest
+   * @return ModifyDefenseRuleResponse
+   */
   async modifyDefenseRule(request: ModifyDefenseRuleRequest): Promise<ModifyDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDefenseRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the cached page of a website that is protected based on a website tamper-proofing rule.
+   *
+   * @param request ModifyDefenseRuleCacheRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDefenseRuleCacheResponse
+   */
   async modifyDefenseRuleCacheWithOptions(request: ModifyDefenseRuleCacheRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefenseRuleCacheResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13349,11 +15408,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDefenseRuleCacheResponse>(await this.callApi(params, req, runtime), new ModifyDefenseRuleCacheResponse({}));
   }
 
+  /**
+   * @summary Updates the cached page of a website that is protected based on a website tamper-proofing rule.
+   *
+   * @param request ModifyDefenseRuleCacheRequest
+   * @return ModifyDefenseRuleCacheResponse
+   */
   async modifyDefenseRuleCache(request: ModifyDefenseRuleCacheRequest): Promise<ModifyDefenseRuleCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDefenseRuleCacheWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the status of a protection rule.
+   *
+   * @param request ModifyDefenseRuleStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDefenseRuleStatusResponse
+   */
   async modifyDefenseRuleStatusWithOptions(request: ModifyDefenseRuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefenseRuleStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13398,11 +15470,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDefenseRuleStatusResponse>(await this.callApi(params, req, runtime), new ModifyDefenseRuleStatusResponse({}));
   }
 
+  /**
+   * @summary Changes the status of a protection rule.
+   *
+   * @param request ModifyDefenseRuleStatusRequest
+   * @return ModifyDefenseRuleStatusResponse
+   */
   async modifyDefenseRuleStatus(request: ModifyDefenseRuleStatusRequest): Promise<ModifyDefenseRuleStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDefenseRuleStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a protection rule template.
+   *
+   * @param request ModifyDefenseTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDefenseTemplateResponse
+   */
   async modifyDefenseTemplateWithOptions(request: ModifyDefenseTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefenseTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13447,11 +15532,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDefenseTemplateResponse>(await this.callApi(params, req, runtime), new ModifyDefenseTemplateResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a protection rule template.
+   *
+   * @param request ModifyDefenseTemplateRequest
+   * @return ModifyDefenseTemplateResponse
+   */
   async modifyDefenseTemplate(request: ModifyDefenseTemplateRequest): Promise<ModifyDefenseTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDefenseTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the status of a protection rule template.
+   *
+   * @param request ModifyDefenseTemplateStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDefenseTemplateStatusResponse
+   */
   async modifyDefenseTemplateStatusWithOptions(request: ModifyDefenseTemplateStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefenseTemplateStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13492,11 +15590,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDefenseTemplateStatusResponse>(await this.callApi(params, req, runtime), new ModifyDefenseTemplateStatusResponse({}));
   }
 
+  /**
+   * @summary Changes the status of a protection rule template.
+   *
+   * @param request ModifyDefenseTemplateStatusRequest
+   * @return ModifyDefenseTemplateStatusResponse
+   */
   async modifyDefenseTemplateStatus(request: ModifyDefenseTemplateStatusRequest): Promise<ModifyDefenseTemplateStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDefenseTemplateStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
+   *
+   * @param tmpReq ModifyDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDomainResponse
+   */
   async modifyDomainWithOptions(tmpReq: ModifyDomainRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyDomainShrinkRequest({ });
@@ -13551,11 +15662,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDomainResponse>(await this.callApi(params, req, runtime), new ModifyDomainResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
+   *
+   * @param request ModifyDomainRequest
+   * @return ModifyDomainResponse
+   */
   async modifyDomain(request: ModifyDomainRequest): Promise<ModifyDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
+   *
+   * @param request ModifyDomainPunishStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDomainPunishStatusResponse
+   */
   async modifyDomainPunishStatusWithOptions(request: ModifyDomainPunishStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainPunishStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13592,11 +15716,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDomainPunishStatusResponse>(await this.callApi(params, req, runtime), new ModifyDomainPunishStatusResponse({}));
   }
 
+  /**
+   * @summary Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
+   *
+   * @param request ModifyDomainPunishStatusRequest
+   * @return ModifyDomainPunishStatusResponse
+   */
   async modifyDomainPunishStatus(request: ModifyDomainPunishStatusRequest): Promise<ModifyDomainPunishStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDomainPunishStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables manual bypass for a hybrid cloud cluster of the SDK-based traffic mirroring mode.
+   *
+   * @param request ModifyHybridCloudClusterBypassStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyHybridCloudClusterBypassStatusResponse
+   */
   async modifyHybridCloudClusterBypassStatusWithOptions(request: ModifyHybridCloudClusterBypassStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHybridCloudClusterBypassStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13629,11 +15766,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHybridCloudClusterBypassStatusResponse>(await this.callApi(params, req, runtime), new ModifyHybridCloudClusterBypassStatusResponse({}));
   }
 
+  /**
+   * @summary Enables or disables manual bypass for a hybrid cloud cluster of the SDK-based traffic mirroring mode.
+   *
+   * @param request ModifyHybridCloudClusterBypassStatusRequest
+   * @return ModifyHybridCloudClusterBypassStatusResponse
+   */
   async modifyHybridCloudClusterBypassStatus(request: ModifyHybridCloudClusterBypassStatusRequest): Promise<ModifyHybridCloudClusterBypassStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHybridCloudClusterBypassStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an IP address blacklist for major event protection.
+   *
+   * @param request ModifyMajorProtectionBlackIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyMajorProtectionBlackIpResponse
+   */
   async modifyMajorProtectionBlackIpWithOptions(request: ModifyMajorProtectionBlackIpRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMajorProtectionBlackIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13686,11 +15836,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyMajorProtectionBlackIpResponse>(await this.callApi(params, req, runtime), new ModifyMajorProtectionBlackIpResponse({}));
   }
 
+  /**
+   * @summary Modifies an IP address blacklist for major event protection.
+   *
+   * @param request ModifyMajorProtectionBlackIpRequest
+   * @return ModifyMajorProtectionBlackIpResponse
+   */
   async modifyMajorProtectionBlackIp(request: ModifyMajorProtectionBlackIpRequest): Promise<ModifyMajorProtectionBlackIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyMajorProtectionBlackIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the information about members that are added for multi-account management.
+   *
+   * @param request ModifyMemberAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyMemberAccountResponse
+   */
   async modifyMemberAccountWithOptions(request: ModifyMemberAccountRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMemberAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13735,11 +15898,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyMemberAccountResponse>(await this.callApi(params, req, runtime), new ModifyMemberAccountResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about members that are added for multi-account management.
+   *
+   * @param request ModifyMemberAccountRequest
+   * @return ModifyMemberAccountResponse
+   */
   async modifyMemberAccount(request: ModifyMemberAccountRequest): Promise<ModifyMemberAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyMemberAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the log collection feature for a protected object.
+   *
+   * @param request ModifyResourceLogStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyResourceLogStatusResponse
+   */
   async modifyResourceLogStatusWithOptions(request: ModifyResourceLogStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyResourceLogStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13780,11 +15956,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyResourceLogStatusResponse>(await this.callApi(params, req, runtime), new ModifyResourceLogStatusResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the log collection feature for a protected object.
+   *
+   * @param request ModifyResourceLogStatusRequest
+   * @return ModifyResourceLogStatusResponse
+   */
   async modifyResourceLogStatus(request: ModifyResourceLogStatusRequest): Promise<ModifyResourceLogStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyResourceLogStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates or disassociates a protected object or protected object group with or from a protection rule template.
+   *
+   * @param request ModifyTemplateResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTemplateResourcesResponse
+   */
   async modifyTemplateResourcesWithOptions(request: ModifyTemplateResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTemplateResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13837,17 +16026,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTemplateResourcesResponse>(await this.callApi(params, req, runtime), new ModifyTemplateResourcesResponse({}));
   }
 
+  /**
+   * @summary Associates or disassociates a protected object or protected object group with or from a protection rule template.
+   *
+   * @param request ModifyTemplateResourcesRequest
+   * @return ModifyTemplateResourcesResponse
+   */
   async modifyTemplateResources(request: ModifyTemplateResourcesRequest): Promise<ModifyTemplateResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTemplateResourcesWithOptions(request, runtime);
   }
 
   /**
-    * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](~~2743168~~) operation to query the status of the task.
-    *
-    * @param request SyncProductInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SyncProductInstanceResponse
+   * @summary Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances to Web Application Firewall (WAF).
+   *
+   * @description SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
+   *
+   * @param request SyncProductInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SyncProductInstanceResponse
    */
   async syncProductInstanceWithOptions(request: SyncProductInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SyncProductInstanceResponse> {
     Util.validateModel(request);
@@ -13882,16 +16079,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](~~2743168~~) operation to query the status of the task.
-    *
-    * @param request SyncProductInstanceRequest
-    * @return SyncProductInstanceResponse
+   * @summary Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances to Web Application Firewall (WAF).
+   *
+   * @description SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
+   *
+   * @param request SyncProductInstanceRequest
+   * @return SyncProductInstanceResponse
    */
   async syncProductInstance(request: SyncProductInstanceRequest): Promise<SyncProductInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.syncProductInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds tags to resources.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13928,11 +16134,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Adds tags to resources.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from resources and then deletes the tags.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13973,6 +16192,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from resources and then deletes the tags.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
