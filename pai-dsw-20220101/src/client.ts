@@ -1897,6 +1897,7 @@ export class ListInstancesRequest extends $tea.Model {
   accessibility?: string;
   instanceId?: string;
   instanceName?: string;
+  labels?: { [key: string]: any };
   order?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -1911,6 +1912,7 @@ export class ListInstancesRequest extends $tea.Model {
       accessibility: 'Accessibility',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
+      labels: 'Labels',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -1928,6 +1930,62 @@ export class ListInstancesRequest extends $tea.Model {
       accessibility: 'string',
       instanceId: 'string',
       instanceName: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      paymentType: 'string',
+      resourceId: 'string',
+      sortBy: 'string',
+      status: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesShrinkRequest extends $tea.Model {
+  acceleratorType?: string;
+  accessibility?: string;
+  instanceId?: string;
+  instanceName?: string;
+  labelsShrink?: string;
+  order?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  paymentType?: string;
+  resourceId?: string;
+  sortBy?: string;
+  status?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorType: 'AcceleratorType',
+      accessibility: 'Accessibility',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      labelsShrink: 'Labels',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      paymentType: 'PaymentType',
+      resourceId: 'ResourceId',
+      sortBy: 'SortBy',
+      status: 'Status',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorType: 'string',
+      accessibility: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      labelsShrink: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -3163,10 +3221,16 @@ export class ListInstancesResponseBodyInstancesCloudDisks extends $tea.Model {
 export class ListInstancesResponseBodyInstancesDatasets extends $tea.Model {
   datasetId?: string;
   mountPath?: string;
+  optionType?: string;
+  options?: string;
+  uri?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       mountPath: 'MountPath',
+      optionType: 'OptionType',
+      options: 'Options',
+      uri: 'Uri',
     };
   }
 
@@ -3174,6 +3238,9 @@ export class ListInstancesResponseBodyInstancesDatasets extends $tea.Model {
     return {
       datasetId: 'string',
       mountPath: 'string',
+      optionType: 'string',
+      options: 'string',
+      uri: 'string',
     };
   }
 
@@ -3679,6 +3746,12 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request CreateIdleInstanceCullerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIdleInstanceCullerResponse
+   */
   async createIdleInstanceCullerWithOptions(InstanceId: string, request: CreateIdleInstanceCullerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIdleInstanceCullerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3712,12 +3785,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new CreateIdleInstanceCullerResponse({}));
   }
 
+  /**
+   * @param request CreateIdleInstanceCullerRequest
+   * @return CreateIdleInstanceCullerResponse
+   */
   async createIdleInstanceCuller(InstanceId: string, request: CreateIdleInstanceCullerRequest): Promise<CreateIdleInstanceCullerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIdleInstanceCullerWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建实例
+   *
+   * @param request CreateInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
+   */
   async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3807,12 +3892,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
+  /**
+   * @summary 创建实例
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
+   */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建定时关机任务
+   *
+   * @param request CreateInstanceShutdownTimerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceShutdownTimerResponse
+   */
   async createInstanceShutdownTimerWithOptions(InstanceId: string, request: CreateInstanceShutdownTimerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceShutdownTimerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3842,12 +3941,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new CreateInstanceShutdownTimerResponse({}));
   }
 
+  /**
+   * @summary 创建定时关机任务
+   *
+   * @param request CreateInstanceShutdownTimerRequest
+   * @return CreateInstanceShutdownTimerResponse
+   */
   async createInstanceShutdownTimer(InstanceId: string, request: CreateInstanceShutdownTimerRequest): Promise<CreateInstanceShutdownTimerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceShutdownTimerWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建实例快照
+   *
+   * @param request CreateInstanceSnapshotRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceSnapshotResponse
+   */
   async createInstanceSnapshotWithOptions(InstanceId: string, request: CreateInstanceSnapshotRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceSnapshotResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3893,12 +4006,23 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new CreateInstanceSnapshotResponse({}));
   }
 
+  /**
+   * @summary 创建实例快照
+   *
+   * @param request CreateInstanceSnapshotRequest
+   * @return CreateInstanceSnapshotResponse
+   */
   async createInstanceSnapshot(InstanceId: string, request: CreateInstanceSnapshotRequest): Promise<CreateInstanceSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceSnapshotWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIdleInstanceCullerResponse
+   */
   async deleteIdleInstanceCullerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIdleInstanceCullerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3917,12 +4041,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new DeleteIdleInstanceCullerResponse({}));
   }
 
+  /**
+   * @return DeleteIdleInstanceCullerResponse
+   */
   async deleteIdleInstanceCuller(InstanceId: string): Promise<DeleteIdleInstanceCullerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteIdleInstanceCullerWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 删除实例
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
+   */
   async deleteInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3941,12 +4075,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
+  /**
+   * @summary 删除实例
+   *
+   * @return DeleteInstanceResponse
+   */
   async deleteInstance(InstanceId: string): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 删除定时关机任务
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceShutdownTimerResponse
+   */
   async deleteInstanceShutdownTimerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceShutdownTimerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3965,12 +4111,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new DeleteInstanceShutdownTimerResponse({}));
   }
 
+  /**
+   * @summary 删除定时关机任务
+   *
+   * @return DeleteInstanceShutdownTimerResponse
+   */
   async deleteInstanceShutdownTimer(InstanceId: string): Promise<DeleteInstanceShutdownTimerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceShutdownTimerWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 获取实例快照详情
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceSnapshotResponse
+   */
   async deleteInstanceSnapshotWithOptions(InstanceId: string, SnapshotId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceSnapshotResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3989,12 +4147,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteInstanceSnapshotResponse({}));
   }
 
+  /**
+   * @summary 获取实例快照详情
+   *
+   * @return DeleteInstanceSnapshotResponse
+   */
   async deleteInstanceSnapshot(InstanceId: string, SnapshotId: string): Promise<DeleteInstanceSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceSnapshotWithOptions(InstanceId, SnapshotId, headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIdleInstanceCullerResponse
+   */
   async getIdleInstanceCullerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIdleInstanceCullerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4013,12 +4181,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new GetIdleInstanceCullerResponse({}));
   }
 
+  /**
+   * @return GetIdleInstanceCullerResponse
+   */
   async getIdleInstanceCuller(InstanceId: string): Promise<GetIdleInstanceCullerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIdleInstanceCullerWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 获取实例详情
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceResponse
+   */
   async getInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4037,12 +4215,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
   }
 
+  /**
+   * @summary 获取实例详情
+   *
+   * @return GetInstanceResponse
+   */
   async getInstance(InstanceId: string): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @param request GetInstanceEventsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceEventsResponse
+   */
   async getInstanceEventsWithOptions(InstanceId: string, request: GetInstanceEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceEventsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4076,12 +4265,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceEventsResponse>(await this.callApi(params, req, runtime), new GetInstanceEventsResponse({}));
   }
 
+  /**
+   * @param request GetInstanceEventsRequest
+   * @return GetInstanceEventsResponse
+   */
   async getInstanceEvents(InstanceId: string, request: GetInstanceEventsRequest): Promise<GetInstanceEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceEventsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request GetInstanceMetricsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceMetricsResponse
+   */
   async getInstanceMetricsWithOptions(InstanceId: string, request: GetInstanceMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceMetricsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4119,12 +4318,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceMetricsResponse>(await this.callApi(params, req, runtime), new GetInstanceMetricsResponse({}));
   }
 
+  /**
+   * @param request GetInstanceMetricsRequest
+   * @return GetInstanceMetricsResponse
+   */
   async getInstanceMetrics(InstanceId: string, request: GetInstanceMetricsRequest): Promise<GetInstanceMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceMetricsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取定时关机任务
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceShutdownTimerResponse
+   */
   async getInstanceShutdownTimerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceShutdownTimerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4143,12 +4353,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new GetInstanceShutdownTimerResponse({}));
   }
 
+  /**
+   * @summary 获取定时关机任务
+   *
+   * @return GetInstanceShutdownTimerResponse
+   */
   async getInstanceShutdownTimer(InstanceId: string): Promise<GetInstanceShutdownTimerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceShutdownTimerWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 获取实例快照详情
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceSnapshotResponse
+   */
   async getInstanceSnapshotWithOptions(InstanceId: string, SnapshotId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceSnapshotResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4167,12 +4389,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new GetInstanceSnapshotResponse({}));
   }
 
+  /**
+   * @summary 获取实例快照详情
+   *
+   * @return GetInstanceSnapshotResponse
+   */
   async getInstanceSnapshot(InstanceId: string, SnapshotId: string): Promise<GetInstanceSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceSnapshotWithOptions(InstanceId, SnapshotId, headers, runtime);
   }
 
+  /**
+   * @param request GetLifecycleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLifecycleResponse
+   */
   async getLifecycleWithOptions(InstanceId: string, request: GetLifecycleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLifecycleResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4214,12 +4447,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLifecycleResponse>(await this.callApi(params, req, runtime), new GetLifecycleResponse({}));
   }
 
+  /**
+   * @param request GetLifecycleRequest
+   * @return GetLifecycleResponse
+   */
   async getLifecycle(InstanceId: string, request: GetLifecycleRequest): Promise<GetLifecycleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLifecycleWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @param request GetResourceGroupStatisticsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetResourceGroupStatisticsResponse
+   */
   async getResourceGroupStatisticsWithOptions(request: GetResourceGroupStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceGroupStatisticsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4257,12 +4500,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResourceGroupStatisticsResponse>(await this.callApi(params, req, runtime), new GetResourceGroupStatisticsResponse({}));
   }
 
+  /**
+   * @param request GetResourceGroupStatisticsRequest
+   * @return GetResourceGroupStatisticsResponse
+   */
   async getResourceGroupStatistics(request: GetResourceGroupStatisticsRequest): Promise<GetResourceGroupStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getResourceGroupStatisticsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request GetTokenRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTokenResponse
+   */
   async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4292,12 +4545,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
   }
 
+  /**
+   * @param request GetTokenRequest
+   * @return GetTokenResponse
+   */
   async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTokenWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取用户配置
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserConfigResponse
+   */
   async getUserConfigWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4316,12 +4580,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserConfigResponse>(await this.callApi(params, req, runtime), new GetUserConfigResponse({}));
   }
 
+  /**
+   * @summary 获取用户配置
+   *
+   * @return GetUserConfigResponse
+   */
   async getUserConfig(): Promise<GetUserConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getUserConfigWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary 获取ECS规格列表
+   *
+   * @param request ListEcsSpecsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEcsSpecsResponse
+   */
   async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsSpecsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4363,12 +4640,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
   }
 
+  /**
+   * @summary 获取ECS规格列表
+   *
+   * @param request ListEcsSpecsRequest
+   * @return ListEcsSpecsResponse
+   */
   async listEcsSpecs(request: ListEcsSpecsRequest): Promise<ListEcsSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEcsSpecsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询实例快照列表
+   *
+   * @param request ListInstanceSnapshotRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceSnapshotResponse
+   */
   async listInstanceSnapshotWithOptions(InstanceId: string, request: ListInstanceSnapshotRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceSnapshotResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4406,12 +4697,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new ListInstanceSnapshotResponse({}));
   }
 
+  /**
+   * @summary 查询实例快照列表
+   *
+   * @param request ListInstanceSnapshotRequest
+   * @return ListInstanceSnapshotResponse
+   */
   async listInstanceSnapshot(InstanceId: string, request: ListInstanceSnapshotRequest): Promise<ListInstanceSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstanceSnapshotWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取实例统计信息
+   *
+   * @param request ListInstanceStatisticsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceStatisticsResponse
+   */
   async listInstanceStatisticsWithOptions(request: ListInstanceStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceStatisticsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4437,14 +4742,32 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceStatisticsResponse>(await this.callApi(params, req, runtime), new ListInstanceStatisticsResponse({}));
   }
 
+  /**
+   * @summary 获取实例统计信息
+   *
+   * @param request ListInstanceStatisticsRequest
+   * @return ListInstanceStatisticsResponse
+   */
   async listInstanceStatistics(request: ListInstanceStatisticsRequest): Promise<ListInstanceStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstanceStatisticsWithOptions(request, headers, runtime);
   }
 
-  async listInstancesWithOptions(request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
-    Util.validateModel(request);
+  /**
+   * @param tmpReq ListInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
+   */
+  async listInstancesWithOptions(tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.labels)) {
+      request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "Labels", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.acceleratorType)) {
       query["AcceleratorType"] = request.acceleratorType;
@@ -4460,6 +4783,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.labelsShrink)) {
+      query["Labels"] = request.labelsShrink;
     }
 
     if (!Util.isUnset(request.order)) {
@@ -4512,12 +4839,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
+  /**
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
+   */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 启动实例
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartInstanceResponse
+   */
   async startInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4536,12 +4874,25 @@ export default class Client extends OpenApi {
     return $tea.cast<StartInstanceResponse>(await this.callApi(params, req, runtime), new StartInstanceResponse({}));
   }
 
+  /**
+   * @summary 启动实例
+   *
+   * @return StartInstanceResponse
+   */
   async startInstance(InstanceId: string): Promise<StartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startInstanceWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 停止实例
+   *
+   * @param request StopInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopInstanceResponse
+   */
   async stopInstanceWithOptions(InstanceId: string, request: StopInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopInstanceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4567,12 +4918,26 @@ export default class Client extends OpenApi {
     return $tea.cast<StopInstanceResponse>(await this.callApi(params, req, runtime), new StopInstanceResponse({}));
   }
 
+  /**
+   * @summary 停止实例
+   *
+   * @param request StopInstanceRequest
+   * @return StopInstanceResponse
+   */
   async stopInstance(InstanceId: string, request: StopInstanceRequest): Promise<StopInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新实例
+   *
+   * @param request UpdateInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceResponse
+   */
   async updateInstanceWithOptions(InstanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4662,6 +5027,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
   }
 
+  /**
+   * @summary 更新实例
+   *
+   * @param request UpdateInstanceRequest
+   * @return UpdateInstanceResponse
+   */
   async updateInstance(InstanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
