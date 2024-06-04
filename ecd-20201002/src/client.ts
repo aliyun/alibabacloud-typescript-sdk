@@ -1112,9 +1112,11 @@ export class GetLoginTokenResponseBody extends $tea.Model {
   label?: string;
   loginToken?: string;
   nextStage?: string;
+  passwordStrategy?: GetLoginTokenResponseBodyPasswordStrategy;
   phone?: string;
   props?: { [key: string]: string };
   qrCodePng?: string;
+  reason?: string;
   requestId?: string;
   riskVerifyInfo?: GetLoginTokenResponseBodyRiskVerifyInfo;
   secret?: string;
@@ -1130,9 +1132,11 @@ export class GetLoginTokenResponseBody extends $tea.Model {
       label: 'Label',
       loginToken: 'LoginToken',
       nextStage: 'NextStage',
+      passwordStrategy: 'PasswordStrategy',
       phone: 'Phone',
       props: 'Props',
       qrCodePng: 'QrCodePng',
+      reason: 'Reason',
       requestId: 'RequestId',
       riskVerifyInfo: 'RiskVerifyInfo',
       secret: 'Secret',
@@ -1151,9 +1155,11 @@ export class GetLoginTokenResponseBody extends $tea.Model {
       label: 'string',
       loginToken: 'string',
       nextStage: 'string',
+      passwordStrategy: GetLoginTokenResponseBodyPasswordStrategy,
       phone: 'string',
       props: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       qrCodePng: 'string',
+      reason: 'string',
       requestId: 'string',
       riskVerifyInfo: GetLoginTokenResponseBodyRiskVerifyInfo,
       secret: 'string',
@@ -3077,6 +3083,28 @@ export class GetCloudDriveServiceMountTokenResponseBodyToken extends $tea.Model 
   }
 }
 
+export class GetLoginTokenResponseBodyPasswordStrategy extends $tea.Model {
+  tenantAlternativeChars?: string[];
+  tenantPasswordLength?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantAlternativeChars: 'TenantAlternativeChars',
+      tenantPasswordLength: 'TenantPasswordLength',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantAlternativeChars: { 'type': 'array', 'itemType': 'string' },
+      tenantPasswordLength: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLoginTokenResponseBodyRiskVerifyInfo extends $tea.Model {
   email?: string;
   lastLockDuration?: number;
@@ -3148,6 +3176,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 允许桌面FOTA升级
+   *
+   * @param request ApproveFotaUpdateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApproveFotaUpdateResponse
+   */
   async approveFotaUpdateWithOptions(request: ApproveFotaUpdateRequest, runtime: $Util.RuntimeOptions): Promise<ApproveFotaUpdateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3196,11 +3231,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ApproveFotaUpdateResponse>(await this.callApi(params, req, runtime), new ApproveFotaUpdateResponse({}));
   }
 
+  /**
+   * @summary 允许桌面FOTA升级
+   *
+   * @param request ApproveFotaUpdateRequest
+   * @return ApproveFotaUpdateResponse
+   */
   async approveFotaUpdate(request: ApproveFotaUpdateRequest): Promise<ApproveFotaUpdateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.approveFotaUpdateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ChangePasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangePasswordResponse
+   */
   async changePasswordWithOptions(request: ChangePasswordRequest, runtime: $Util.RuntimeOptions): Promise<ChangePasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3253,11 +3299,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
   }
 
+  /**
+   * @param request ChangePasswordRequest
+   * @return ChangePasswordResponse
+   */
   async changePassword(request: ChangePasswordRequest): Promise<ChangePasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changePasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteFingerPrintTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFingerPrintTemplateResponse
+   */
   async deleteFingerPrintTemplateWithOptions(request: DeleteFingerPrintTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFingerPrintTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3302,11 +3357,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new DeleteFingerPrintTemplateResponse({}));
   }
 
+  /**
+   * @param request DeleteFingerPrintTemplateRequest
+   * @return DeleteFingerPrintTemplateResponse
+   */
   async deleteFingerPrintTemplate(request: DeleteFingerPrintTemplateRequest): Promise<DeleteFingerPrintTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFingerPrintTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDirectoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDirectoriesResponse
+   */
   async describeDirectoriesWithOptions(request: DescribeDirectoriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDirectoriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3339,11 +3403,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDirectoriesResponse>(await this.callApi(params, req, runtime), new DescribeDirectoriesResponse({}));
   }
 
+  /**
+   * @param request DescribeDirectoriesRequest
+   * @return DescribeDirectoriesResponse
+   */
   async describeDirectories(request: DescribeDirectoriesRequest): Promise<DescribeDirectoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDirectoriesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFingerPrintTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFingerPrintTemplatesResponse
+   */
   async describeFingerPrintTemplatesWithOptions(request: DescribeFingerPrintTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFingerPrintTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3380,11 +3453,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFingerPrintTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeFingerPrintTemplatesResponse({}));
   }
 
+  /**
+   * @param request DescribeFingerPrintTemplatesRequest
+   * @return DescribeFingerPrintTemplatesResponse
+   */
   async describeFingerPrintTemplates(request: DescribeFingerPrintTemplatesRequest): Promise<DescribeFingerPrintTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFingerPrintTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeGlobalDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGlobalDesktopsResponse
+   */
   async describeGlobalDesktopsWithOptions(request: DescribeGlobalDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalDesktopsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3481,11 +3563,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGlobalDesktopsResponse>(await this.callApi(params, req, runtime), new DescribeGlobalDesktopsResponse({}));
   }
 
+  /**
+   * @param request DescribeGlobalDesktopsRequest
+   * @return DescribeGlobalDesktopsResponse
+   */
   async describeGlobalDesktops(request: DescribeGlobalDesktopsRequest): Promise<DescribeGlobalDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGlobalDesktopsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeOfficeSitesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOfficeSitesResponse
+   */
   async describeOfficeSitesWithOptions(request: DescribeOfficeSitesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOfficeSitesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3518,11 +3609,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOfficeSitesResponse>(await this.callApi(params, req, runtime), new DescribeOfficeSitesResponse({}));
   }
 
+  /**
+   * @param request DescribeOfficeSitesRequest
+   * @return DescribeOfficeSitesResponse
+   */
   async describeOfficeSites(request: DescribeOfficeSitesRequest): Promise<DescribeOfficeSitesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOfficeSitesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3551,11 +3651,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列举快照
+   *
+   * @param request DescribeSnapshotsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSnapshotsResponse
+   */
   async describeSnapshotsWithOptions(request: DescribeSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3608,11 +3719,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotsResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotsResponse({}));
   }
 
+  /**
+   * @summary 列举快照
+   *
+   * @param request DescribeSnapshotsRequest
+   * @return DescribeSnapshotsResponse
+   */
   async describeSnapshots(request: DescribeSnapshotsRequest): Promise<DescribeSnapshotsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnapshotsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request EncryptPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EncryptPasswordResponse
+   */
   async encryptPasswordWithOptions(request: EncryptPasswordRequest, runtime: $Util.RuntimeOptions): Promise<EncryptPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3661,11 +3783,22 @@ export default class Client extends OpenApi {
     return $tea.cast<EncryptPasswordResponse>(await this.callApi(params, req, runtime), new EncryptPasswordResponse({}));
   }
 
+  /**
+   * @param request EncryptPasswordRequest
+   * @return EncryptPasswordResponse
+   */
   async encryptPassword(request: EncryptPasswordRequest): Promise<EncryptPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.encryptPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取无影云盘的免密token
+   *
+   * @param request GetCloudDriveServiceMountTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCloudDriveServiceMountTokenResponse
+   */
   async getCloudDriveServiceMountTokenWithOptions(request: GetCloudDriveServiceMountTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetCloudDriveServiceMountTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3706,11 +3839,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCloudDriveServiceMountTokenResponse>(await this.callApi(params, req, runtime), new GetCloudDriveServiceMountTokenResponse({}));
   }
 
+  /**
+   * @summary 获取无影云盘的免密token
+   *
+   * @param request GetCloudDriveServiceMountTokenRequest
+   * @return GetCloudDriveServiceMountTokenResponse
+   */
   async getCloudDriveServiceMountToken(request: GetCloudDriveServiceMountTokenRequest): Promise<GetCloudDriveServiceMountTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCloudDriveServiceMountTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetConnectionTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetConnectionTicketResponse
+   */
   async getConnectionTicketWithOptions(request: GetConnectionTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionTicketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3787,11 +3931,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
   }
 
+  /**
+   * @param request GetConnectionTicketRequest
+   * @return GetConnectionTicketResponse
+   */
   async getConnectionTicket(request: GetConnectionTicketRequest): Promise<GetConnectionTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConnectionTicketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains logon credentials.
+   *
+   * @param request GetLoginTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLoginTokenResponse
+   */
   async getLoginTokenWithOptions(request: GetLoginTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3884,11 +4039,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLoginTokenResponse>(await this.callApi(params, req, runtime), new GetLoginTokenResponse({}));
   }
 
+  /**
+   * @summary Obtains logon credentials.
+   *
+   * @param request GetLoginTokenRequest
+   * @return GetLoginTokenResponse
+   */
   async getLoginToken(request: GetLoginTokenRequest): Promise<GetLoginTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLoginTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 是否保持登录判断接口
+   *
+   * @param request IsKeepAliveRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IsKeepAliveResponse
+   */
   async isKeepAliveWithOptions(request: IsKeepAliveRequest, runtime: $Util.RuntimeOptions): Promise<IsKeepAliveResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3921,11 +4089,24 @@ export default class Client extends OpenApi {
     return $tea.cast<IsKeepAliveResponse>(await this.callApi(params, req, runtime), new IsKeepAliveResponse({}));
   }
 
+  /**
+   * @summary 是否保持登录判断接口
+   *
+   * @param request IsKeepAliveRequest
+   * @return IsKeepAliveResponse
+   */
   async isKeepAlive(request: IsKeepAliveRequest): Promise<IsKeepAliveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.isKeepAliveWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询Agent需要上报的配置信息
+   *
+   * @param request QueryEdsAgentReportConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryEdsAgentReportConfigResponse
+   */
   async queryEdsAgentReportConfigWithOptions(request: QueryEdsAgentReportConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdsAgentReportConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3958,11 +4139,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEdsAgentReportConfigResponse>(await this.callApi(params, req, runtime), new QueryEdsAgentReportConfigResponse({}));
   }
 
+  /**
+   * @summary 查询Agent需要上报的配置信息
+   *
+   * @param request QueryEdsAgentReportConfigRequest
+   * @return QueryEdsAgentReportConfigResponse
+   */
   async queryEdsAgentReportConfig(request: QueryEdsAgentReportConfigRequest): Promise<QueryEdsAgentReportConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEdsAgentReportConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Restart cloud computers.
+   *
+   * @param request RebootDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebootDesktopsResponse
+   */
   async rebootDesktopsWithOptions(request: RebootDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<RebootDesktopsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4023,11 +4217,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RebootDesktopsResponse>(await this.callApi(params, req, runtime), new RebootDesktopsResponse({}));
   }
 
+  /**
+   * @summary Restart cloud computers.
+   *
+   * @param request RebootDesktopsRequest
+   * @return RebootDesktopsResponse
+   */
   async rebootDesktops(request: RebootDesktopsRequest): Promise<RebootDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootDesktopsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RefreshLoginTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RefreshLoginTokenResponse
+   */
   async refreshLoginTokenWithOptions(request: RefreshLoginTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshLoginTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4076,11 +4281,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshLoginTokenResponse>(await this.callApi(params, req, runtime), new RefreshLoginTokenResponse({}));
   }
 
+  /**
+   * @param request RefreshLoginTokenRequest
+   * @return RefreshLoginTokenResponse
+   */
   async refreshLoginToken(request: RefreshLoginTokenRequest): Promise<RefreshLoginTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshLoginTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 上报edsAgent的信息
+   *
+   * @param request ReportEdsAgentInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReportEdsAgentInfoResponse
+   */
   async reportEdsAgentInfoWithOptions(request: ReportEdsAgentInfoRequest, runtime: $Util.RuntimeOptions): Promise<ReportEdsAgentInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4117,11 +4333,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ReportEdsAgentInfoResponse>(await this.callApi(params, req, runtime), new ReportEdsAgentInfoResponse({}));
   }
 
+  /**
+   * @summary 上报edsAgent的信息
+   *
+   * @param request ReportEdsAgentInfoRequest
+   * @return ReportEdsAgentInfoResponse
+   */
   async reportEdsAgentInfo(request: ReportEdsAgentInfoRequest): Promise<ReportEdsAgentInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reportEdsAgentInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ReportSessionStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReportSessionStatusResponse
+   */
   async reportSessionStatusWithOptions(request: ReportSessionStatusRequest, runtime: $Util.RuntimeOptions): Promise<ReportSessionStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4166,11 +4393,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ReportSessionStatusResponse>(await this.callApi(params, req, runtime), new ReportSessionStatusResponse({}));
   }
 
+  /**
+   * @param request ReportSessionStatusRequest
+   * @return ReportSessionStatusResponse
+   */
   async reportSessionStatus(request: ReportSessionStatusRequest): Promise<ReportSessionStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reportSessionStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResetPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetPasswordResponse
+   */
   async resetPasswordWithOptions(request: ResetPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4219,11 +4455,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetPasswordResponse>(await this.callApi(params, req, runtime), new ResetPasswordResponse({}));
   }
 
+  /**
+   * @param request ResetPasswordRequest
+   * @return ResetPasswordResponse
+   */
   async resetPassword(request: ResetPasswordRequest): Promise<ResetPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 还原快照
+   *
+   * @param request ResetSnapshotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetSnapshotResponse
+   */
   async resetSnapshotWithOptions(request: ResetSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<ResetSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4264,11 +4511,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetSnapshotResponse>(await this.callApi(params, req, runtime), new ResetSnapshotResponse({}));
   }
 
+  /**
+   * @summary 还原快照
+   *
+   * @param request ResetSnapshotRequest
+   * @return ResetSnapshotResponse
+   */
   async resetSnapshot(request: ResetSnapshotRequest): Promise<ResetSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetSnapshotWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SendTokenCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SendTokenCodeResponse
+   */
   async sendTokenCodeWithOptions(request: SendTokenCodeRequest, runtime: $Util.RuntimeOptions): Promise<SendTokenCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4321,11 +4579,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SendTokenCodeResponse>(await this.callApi(params, req, runtime), new SendTokenCodeResponse({}));
   }
 
+  /**
+   * @param request SendTokenCodeRequest
+   * @return SendTokenCodeResponse
+   */
   async sendTokenCode(request: SendTokenCodeRequest): Promise<SendTokenCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendTokenCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetFingerPrintTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetFingerPrintTemplateResponse
+   */
   async setFingerPrintTemplateWithOptions(request: SetFingerPrintTemplateRequest, runtime: $Util.RuntimeOptions): Promise<SetFingerPrintTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4386,11 +4653,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SetFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new SetFingerPrintTemplateResponse({}));
   }
 
+  /**
+   * @param request SetFingerPrintTemplateRequest
+   * @return SetFingerPrintTemplateResponse
+   */
   async setFingerPrintTemplate(request: SetFingerPrintTemplateRequest): Promise<SetFingerPrintTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setFingerPrintTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetFingerPrintTemplateDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetFingerPrintTemplateDescriptionResponse
+   */
   async setFingerPrintTemplateDescriptionWithOptions(request: SetFingerPrintTemplateDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<SetFingerPrintTemplateDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4439,17 +4715,23 @@ export default class Client extends OpenApi {
     return $tea.cast<SetFingerPrintTemplateDescriptionResponse>(await this.callApi(params, req, runtime), new SetFingerPrintTemplateDescriptionResponse({}));
   }
 
+  /**
+   * @param request SetFingerPrintTemplateDescriptionRequest
+   * @return SetFingerPrintTemplateDescriptionResponse
+   */
   async setFingerPrintTemplateDescription(request: SetFingerPrintTemplateDescriptionRequest): Promise<SetFingerPrintTemplateDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setFingerPrintTemplateDescriptionWithOptions(request, runtime);
   }
 
   /**
-    * The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
-    *
-    * @param request StartDesktopsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartDesktopsResponse
+   * @summary Start cloud computers.
+   *
+   * @description The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
+   *
+   * @param request StartDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartDesktopsResponse
    */
   async startDesktopsWithOptions(request: StartDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<StartDesktopsResponse> {
     Util.validateModel(request);
@@ -4508,16 +4790,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
-    *
-    * @param request StartDesktopsRequest
-    * @return StartDesktopsResponse
+   * @summary Start cloud computers.
+   *
+   * @description The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
+   *
+   * @param request StartDesktopsRequest
+   * @return StartDesktopsResponse
    */
   async startDesktops(request: StartDesktopsRequest): Promise<StartDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDesktopsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request StartRecordContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartRecordContentResponse
+   */
   async startRecordContentWithOptions(request: StartRecordContentRequest, runtime: $Util.RuntimeOptions): Promise<StartRecordContentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4570,17 +4859,23 @@ export default class Client extends OpenApi {
     return $tea.cast<StartRecordContentResponse>(await this.callApi(params, req, runtime), new StartRecordContentResponse({}));
   }
 
+  /**
+   * @param request StartRecordContentRequest
+   * @return StartRecordContentResponse
+   */
   async startRecordContent(request: StartRecordContentRequest): Promise<StartRecordContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startRecordContentWithOptions(request, runtime);
   }
 
   /**
-    * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
-    *
-    * @param request StopDesktopsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopDesktopsResponse
+   * @summary Stops cloud computers.
+   *
+   * @description The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+   *
+   * @param request StopDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopDesktopsResponse
    */
   async stopDesktopsWithOptions(request: StopDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<StopDesktopsResponse> {
     Util.validateModel(request);
@@ -4639,16 +4934,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
-    *
-    * @param request StopDesktopsRequest
-    * @return StopDesktopsResponse
+   * @summary Stops cloud computers.
+   *
+   * @description The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+   *
+   * @param request StopDesktopsRequest
+   * @return StopDesktopsResponse
    */
   async stopDesktops(request: StopDesktopsRequest): Promise<StopDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDesktopsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request StopRecordContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopRecordContentResponse
+   */
   async stopRecordContentWithOptions(request: StopRecordContentRequest, runtime: $Util.RuntimeOptions): Promise<StopRecordContentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4697,11 +4999,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StopRecordContentResponse>(await this.callApi(params, req, runtime), new StopRecordContentResponse({}));
   }
 
+  /**
+   * @param request StopRecordContentRequest
+   * @return StopRecordContentResponse
+   */
   async stopRecordContent(request: StopRecordContentRequest): Promise<StopRecordContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopRecordContentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 解绑用户桌面
+   *
+   * @param request UnbindUserDesktopRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnbindUserDesktopResponse
+   */
   async unbindUserDesktopWithOptions(request: UnbindUserDesktopRequest, runtime: $Util.RuntimeOptions): Promise<UnbindUserDesktopResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4750,11 +5063,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindUserDesktopResponse>(await this.callApi(params, req, runtime), new UnbindUserDesktopResponse({}));
   }
 
+  /**
+   * @summary 解绑用户桌面
+   *
+   * @param request UnbindUserDesktopRequest
+   * @return UnbindUserDesktopResponse
+   */
   async unbindUserDesktop(request: UnbindUserDesktopRequest): Promise<UnbindUserDesktopResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindUserDesktopWithOptions(request, runtime);
   }
 
+  /**
+   * @param request VerifyCredentialRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyCredentialResponse
+   */
   async verifyCredentialWithOptions(request: VerifyCredentialRequest, runtime: $Util.RuntimeOptions): Promise<VerifyCredentialResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4807,6 +5131,10 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyCredentialResponse>(await this.callApi(params, req, runtime), new VerifyCredentialResponse({}));
   }
 
+  /**
+   * @param request VerifyCredentialRequest
+   * @return VerifyCredentialResponse
+   */
   async verifyCredential(request: VerifyCredentialRequest): Promise<VerifyCredentialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyCredentialWithOptions(request, runtime);
