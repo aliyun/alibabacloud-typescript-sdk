@@ -27109,10 +27109,12 @@ export class CreateDIJobRequestResourceSettingsRealtimeResourceSettings extends 
 export class CreateDIJobRequestResourceSettings extends $tea.Model {
   offlineResourceSettings?: CreateDIJobRequestResourceSettingsOfflineResourceSettings;
   realtimeResourceSettings?: CreateDIJobRequestResourceSettingsRealtimeResourceSettings;
+  requestedCu?: number;
   static names(): { [key: string]: string } {
     return {
       offlineResourceSettings: 'OfflineResourceSettings',
       realtimeResourceSettings: 'RealtimeResourceSettings',
+      requestedCu: 'RequestedCu',
     };
   }
 
@@ -27120,6 +27122,7 @@ export class CreateDIJobRequestResourceSettings extends $tea.Model {
     return {
       offlineResourceSettings: CreateDIJobRequestResourceSettingsOfflineResourceSettings,
       realtimeResourceSettings: CreateDIJobRequestResourceSettingsRealtimeResourceSettings,
+      requestedCu: 'number',
     };
   }
 
@@ -29307,10 +29310,12 @@ export class GetDIJobResponseBodyDataResourceSettingsRealtimeResourceSettings ex
 export class GetDIJobResponseBodyDataResourceSettings extends $tea.Model {
   offlineResourceSettings?: GetDIJobResponseBodyDataResourceSettingsOfflineResourceSettings;
   realtimeResourceSettings?: GetDIJobResponseBodyDataResourceSettingsRealtimeResourceSettings;
+  requestedCu?: number;
   static names(): { [key: string]: string } {
     return {
       offlineResourceSettings: 'OfflineResourceSettings',
       realtimeResourceSettings: 'RealtimeResourceSettings',
+      requestedCu: 'RequestedCu',
     };
   }
 
@@ -29318,6 +29323,7 @@ export class GetDIJobResponseBodyDataResourceSettings extends $tea.Model {
     return {
       offlineResourceSettings: GetDIJobResponseBodyDataResourceSettingsOfflineResourceSettings,
       realtimeResourceSettings: GetDIJobResponseBodyDataResourceSettingsRealtimeResourceSettings,
+      requestedCu: 'number',
     };
   }
 
@@ -41022,10 +41028,12 @@ export class UpdateDIJobRequestResourceSettingsRealtimeResourceSettings extends 
 export class UpdateDIJobRequestResourceSettings extends $tea.Model {
   offlineResourceSettings?: UpdateDIJobRequestResourceSettingsOfflineResourceSettings;
   realtimeResourceSettings?: UpdateDIJobRequestResourceSettingsRealtimeResourceSettings;
+  requestedCu?: number;
   static names(): { [key: string]: string } {
     return {
       offlineResourceSettings: 'OfflineResourceSettings',
       realtimeResourceSettings: 'RealtimeResourceSettings',
+      requestedCu: 'RequestedCu',
     };
   }
 
@@ -41033,6 +41041,7 @@ export class UpdateDIJobRequestResourceSettings extends $tea.Model {
     return {
       offlineResourceSettings: UpdateDIJobRequestResourceSettingsOfflineResourceSettings,
       realtimeResourceSettings: UpdateDIJobRequestResourceSettingsRealtimeResourceSettings,
+      requestedCu: 'number',
     };
   }
 
@@ -49777,7 +49786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The operation that you want to perform.
+   * @summary Queries the information about a migration task.
    *
    * @param request GetMigrationSummaryRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -49812,7 +49821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The operation that you want to perform.
+   * @summary Queries the information about a migration task.
    *
    * @param request GetMigrationSummaryRequest
    * @return GetMigrationSummaryResponse
