@@ -59,9 +59,9 @@ export class AddEntriesToAclResponseBody extends $tea.Model {
 }
 
 export class AddEntriesToAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddEntriesToAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddEntriesToAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -134,9 +134,9 @@ export class AddServersToServerGroupResponseBody extends $tea.Model {
 }
 
 export class AddServersToServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddServersToServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddServersToServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -209,9 +209,9 @@ export class ApplyHealthCheckTemplateToServerGroupResponseBody extends $tea.Mode
 }
 
 export class ApplyHealthCheckTemplateToServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApplyHealthCheckTemplateToServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyHealthCheckTemplateToServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -287,9 +287,9 @@ export class AssociateAclsWithListenerResponseBody extends $tea.Model {
 }
 
 export class AssociateAclsWithListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateAclsWithListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateAclsWithListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -362,9 +362,9 @@ export class AssociateAdditionalCertificatesWithListenerResponseBody extends $te
 }
 
 export class AssociateAdditionalCertificatesWithListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateAdditionalCertificatesWithListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateAdditionalCertificatesWithListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -440,9 +440,9 @@ export class AttachCommonBandwidthPackageToLoadBalancerResponseBody extends $tea
 }
 
 export class AttachCommonBandwidthPackageToLoadBalancerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachCommonBandwidthPackageToLoadBalancerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachCommonBandwidthPackageToLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -512,9 +512,9 @@ export class CancelShiftLoadBalancerZonesResponseBody extends $tea.Model {
 }
 
 export class CancelShiftLoadBalancerZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelShiftLoadBalancerZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelShiftLoadBalancerZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -590,9 +590,9 @@ export class CreateAScriptsResponseBody extends $tea.Model {
 }
 
 export class CreateAScriptsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAScriptsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAScriptsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -671,9 +671,9 @@ export class CreateAclResponseBody extends $tea.Model {
 }
 
 export class CreateAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -779,9 +779,9 @@ export class CreateHealthCheckTemplateResponseBody extends $tea.Model {
 }
 
 export class CreateHealthCheckTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateHealthCheckTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateHealthCheckTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -899,9 +899,9 @@ export class CreateListenerResponseBody extends $tea.Model {
 }
 
 export class CreateListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1004,9 +1004,9 @@ export class CreateLoadBalancerResponseBody extends $tea.Model {
 }
 
 export class CreateLoadBalancerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLoadBalancerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1097,9 +1097,9 @@ export class CreateRuleResponseBody extends $tea.Model {
 }
 
 export class CreateRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1175,9 +1175,9 @@ export class CreateRulesResponseBody extends $tea.Model {
 }
 
 export class CreateRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1259,9 +1259,9 @@ export class CreateSecurityPolicyResponseBody extends $tea.Model {
 }
 
 export class CreateSecurityPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSecurityPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSecurityPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1285,6 +1285,7 @@ export class CreateSecurityPolicyResponse extends $tea.Model {
 
 export class CreateServerGroupRequest extends $tea.Model {
   clientToken?: string;
+  connectionDrainConfig?: CreateServerGroupRequestConnectionDrainConfig;
   dryRun?: boolean;
   healthCheckConfig?: CreateServerGroupRequestHealthCheckConfig;
   protocol?: string;
@@ -1293,6 +1294,7 @@ export class CreateServerGroupRequest extends $tea.Model {
   serverGroupName?: string;
   serverGroupType?: string;
   serviceName?: string;
+  slowStartConfig?: CreateServerGroupRequestSlowStartConfig;
   stickySessionConfig?: CreateServerGroupRequestStickySessionConfig;
   tag?: CreateServerGroupRequestTag[];
   uchConfig?: CreateServerGroupRequestUchConfig;
@@ -1301,6 +1303,7 @@ export class CreateServerGroupRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      connectionDrainConfig: 'ConnectionDrainConfig',
       dryRun: 'DryRun',
       healthCheckConfig: 'HealthCheckConfig',
       protocol: 'Protocol',
@@ -1309,6 +1312,7 @@ export class CreateServerGroupRequest extends $tea.Model {
       serverGroupName: 'ServerGroupName',
       serverGroupType: 'ServerGroupType',
       serviceName: 'ServiceName',
+      slowStartConfig: 'SlowStartConfig',
       stickySessionConfig: 'StickySessionConfig',
       tag: 'Tag',
       uchConfig: 'UchConfig',
@@ -1320,6 +1324,7 @@ export class CreateServerGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      connectionDrainConfig: CreateServerGroupRequestConnectionDrainConfig,
       dryRun: 'boolean',
       healthCheckConfig: CreateServerGroupRequestHealthCheckConfig,
       protocol: 'string',
@@ -1328,6 +1333,7 @@ export class CreateServerGroupRequest extends $tea.Model {
       serverGroupName: 'string',
       serverGroupType: 'string',
       serviceName: 'string',
+      slowStartConfig: CreateServerGroupRequestSlowStartConfig,
       stickySessionConfig: CreateServerGroupRequestStickySessionConfig,
       tag: { 'type': 'array', 'itemType': CreateServerGroupRequestTag },
       uchConfig: CreateServerGroupRequestUchConfig,
@@ -1367,9 +1373,9 @@ export class CreateServerGroupResponseBody extends $tea.Model {
 }
 
 export class CreateServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1439,9 +1445,9 @@ export class DeleteAScriptsResponseBody extends $tea.Model {
 }
 
 export class DeleteAScriptsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAScriptsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAScriptsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1511,9 +1517,9 @@ export class DeleteAclResponseBody extends $tea.Model {
 }
 
 export class DeleteAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1580,9 +1586,9 @@ export class DeleteHealthCheckTemplatesResponseBody extends $tea.Model {
 }
 
 export class DeleteHealthCheckTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteHealthCheckTemplatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteHealthCheckTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1652,9 +1658,9 @@ export class DeleteListenerResponseBody extends $tea.Model {
 }
 
 export class DeleteListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1724,9 +1730,9 @@ export class DeleteLoadBalancerResponseBody extends $tea.Model {
 }
 
 export class DeleteLoadBalancerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLoadBalancerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1796,9 +1802,9 @@ export class DeleteRuleResponseBody extends $tea.Model {
 }
 
 export class DeleteRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1868,9 +1874,9 @@ export class DeleteRulesResponseBody extends $tea.Model {
 }
 
 export class DeleteRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1937,9 +1943,9 @@ export class DeleteSecurityPolicyResponseBody extends $tea.Model {
 }
 
 export class DeleteSecurityPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSecurityPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSecurityPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2009,9 +2015,9 @@ export class DeleteServerGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2075,9 +2081,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2141,9 +2147,9 @@ export class DescribeZonesResponseBody extends $tea.Model {
 }
 
 export class DescribeZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2219,9 +2225,9 @@ export class DetachCommonBandwidthPackageFromLoadBalancerResponseBody extends $t
 }
 
 export class DetachCommonBandwidthPackageFromLoadBalancerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachCommonBandwidthPackageFromLoadBalancerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachCommonBandwidthPackageFromLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2288,9 +2294,9 @@ export class DisableDeletionProtectionResponseBody extends $tea.Model {
 }
 
 export class DisableDeletionProtectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableDeletionProtectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableDeletionProtectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2357,9 +2363,9 @@ export class DisableLoadBalancerAccessLogResponseBody extends $tea.Model {
 }
 
 export class DisableLoadBalancerAccessLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableLoadBalancerAccessLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableLoadBalancerAccessLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2429,9 +2435,9 @@ export class DisableLoadBalancerIpv6InternetResponseBody extends $tea.Model {
 }
 
 export class DisableLoadBalancerIpv6InternetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableLoadBalancerIpv6InternetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableLoadBalancerIpv6InternetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2504,9 +2510,9 @@ export class DissociateAclsFromListenerResponseBody extends $tea.Model {
 }
 
 export class DissociateAclsFromListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DissociateAclsFromListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DissociateAclsFromListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2579,9 +2585,9 @@ export class DissociateAdditionalCertificatesFromListenerResponseBody extends $t
 }
 
 export class DissociateAdditionalCertificatesFromListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DissociateAdditionalCertificatesFromListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DissociateAdditionalCertificatesFromListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2648,9 +2654,9 @@ export class EnableDeletionProtectionResponseBody extends $tea.Model {
 }
 
 export class EnableDeletionProtectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableDeletionProtectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableDeletionProtectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2723,9 +2729,9 @@ export class EnableLoadBalancerAccessLogResponseBody extends $tea.Model {
 }
 
 export class EnableLoadBalancerAccessLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableLoadBalancerAccessLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableLoadBalancerAccessLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2795,9 +2801,9 @@ export class EnableLoadBalancerIpv6InternetResponseBody extends $tea.Model {
 }
 
 export class EnableLoadBalancerIpv6InternetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableLoadBalancerIpv6InternetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableLoadBalancerIpv6InternetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2900,9 +2906,9 @@ export class GetHealthCheckTemplateAttributeResponseBody extends $tea.Model {
 }
 
 export class GetHealthCheckTemplateAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHealthCheckTemplateAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHealthCheckTemplateAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3023,9 +3029,9 @@ export class GetListenerAttributeResponseBody extends $tea.Model {
 }
 
 export class GetListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3104,9 +3110,9 @@ export class GetListenerHealthStatusResponseBody extends $tea.Model {
 }
 
 export class GetListenerHealthStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetListenerHealthStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetListenerHealthStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3233,9 +3239,9 @@ export class GetLoadBalancerAttributeResponseBody extends $tea.Model {
 }
 
 export class GetLoadBalancerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLoadBalancerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLoadBalancerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3320,9 +3326,9 @@ export class ListAScriptsResponseBody extends $tea.Model {
 }
 
 export class ListAScriptsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAScriptsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAScriptsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3401,9 +3407,9 @@ export class ListAclEntriesResponseBody extends $tea.Model {
 }
 
 export class ListAclEntriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAclEntriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAclEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3467,9 +3473,9 @@ export class ListAclRelationsResponseBody extends $tea.Model {
 }
 
 export class ListAclRelationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAclRelationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAclRelationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3557,9 +3563,9 @@ export class ListAclsResponseBody extends $tea.Model {
 }
 
 export class ListAclsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAclsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAclsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3653,9 +3659,9 @@ export class ListAsynJobsResponseBody extends $tea.Model {
 }
 
 export class ListAsynJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAsynJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAsynJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3740,9 +3746,9 @@ export class ListHealthCheckTemplatesResponseBody extends $tea.Model {
 }
 
 export class ListHealthCheckTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListHealthCheckTemplatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHealthCheckTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3765,12 +3771,14 @@ export class ListHealthCheckTemplatesResponse extends $tea.Model {
 }
 
 export class ListListenerCertificatesRequest extends $tea.Model {
+  certificateIds?: string[];
   certificateType?: string;
   listenerId?: string;
   maxResults?: number;
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
+      certificateIds: 'CertificateIds',
       certificateType: 'CertificateType',
       listenerId: 'ListenerId',
       maxResults: 'MaxResults',
@@ -3780,6 +3788,7 @@ export class ListListenerCertificatesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certificateIds: { 'type': 'array', 'itemType': 'string' },
       certificateType: 'string',
       listenerId: 'string',
       maxResults: 'number',
@@ -3824,9 +3833,9 @@ export class ListListenerCertificatesResponseBody extends $tea.Model {
 }
 
 export class ListListenerCertificatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListListenerCertificatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListListenerCertificatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3914,9 +3923,9 @@ export class ListListenersResponseBody extends $tea.Model {
 }
 
 export class ListListenersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListListenersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListListenersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4031,9 +4040,9 @@ export class ListLoadBalancersResponseBody extends $tea.Model {
 }
 
 export class ListLoadBalancersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListLoadBalancersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLoadBalancersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4124,9 +4133,9 @@ export class ListRulesResponseBody extends $tea.Model {
 }
 
 export class ListRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4214,9 +4223,9 @@ export class ListSecurityPoliciesResponseBody extends $tea.Model {
 }
 
 export class ListSecurityPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSecurityPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSecurityPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4280,9 +4289,9 @@ export class ListSecurityPolicyRelationsResponseBody extends $tea.Model {
 }
 
 export class ListSecurityPolicyRelationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSecurityPolicyRelationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSecurityPolicyRelationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4367,9 +4376,9 @@ export class ListServerGroupServersResponseBody extends $tea.Model {
 }
 
 export class ListServerGroupServersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServerGroupServersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServerGroupServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4463,9 +4472,9 @@ export class ListServerGroupsResponseBody extends $tea.Model {
 }
 
 export class ListServerGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServerGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServerGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4510,9 +4519,9 @@ export class ListSystemSecurityPoliciesResponseBody extends $tea.Model {
 }
 
 export class ListSystemSecurityPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSystemSecurityPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSystemSecurityPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4597,9 +4606,9 @@ export class ListTagKeysResponseBody extends $tea.Model {
 }
 
 export class ListTagKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4681,9 +4690,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4768,9 +4777,9 @@ export class ListTagValuesResponseBody extends $tea.Model {
 }
 
 export class ListTagValuesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagValuesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagValuesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4837,9 +4846,9 @@ export class MoveResourceGroupResponseBody extends $tea.Model {
 }
 
 export class MoveResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MoveResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MoveResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4912,9 +4921,9 @@ export class RemoveEntriesFromAclResponseBody extends $tea.Model {
 }
 
 export class RemoveEntriesFromAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveEntriesFromAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveEntriesFromAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4987,9 +4996,9 @@ export class RemoveServersFromServerGroupResponseBody extends $tea.Model {
 }
 
 export class RemoveServersFromServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveServersFromServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveServersFromServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5065,9 +5074,9 @@ export class ReplaceServersInServerGroupResponseBody extends $tea.Model {
 }
 
 export class ReplaceServersInServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReplaceServersInServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReplaceServersInServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5137,9 +5146,9 @@ export class StartListenerResponseBody extends $tea.Model {
 }
 
 export class StartListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5209,9 +5218,9 @@ export class StartShiftLoadBalancerZonesResponseBody extends $tea.Model {
 }
 
 export class StartShiftLoadBalancerZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartShiftLoadBalancerZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartShiftLoadBalancerZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5281,9 +5290,9 @@ export class StopListenerResponseBody extends $tea.Model {
 }
 
 export class StopListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5350,9 +5359,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5425,9 +5434,9 @@ export class UnTagResourcesResponseBody extends $tea.Model {
 }
 
 export class UnTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5497,9 +5506,9 @@ export class UpdateAScriptsResponseBody extends $tea.Model {
 }
 
 export class UpdateAScriptsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAScriptsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAScriptsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5569,9 +5578,9 @@ export class UpdateAclAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateAclAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAclAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAclAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5674,9 +5683,9 @@ export class UpdateHealthCheckTemplateAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateHealthCheckTemplateAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateHealthCheckTemplateAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateHealthCheckTemplateAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5782,9 +5791,9 @@ export class UpdateListenerAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5860,9 +5869,9 @@ export class UpdateListenerLogConfigResponseBody extends $tea.Model {
 }
 
 export class UpdateListenerLogConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateListenerLogConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateListenerLogConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5938,9 +5947,9 @@ export class UpdateLoadBalancerAddressTypeConfigResponseBody extends $tea.Model 
 }
 
 export class UpdateLoadBalancerAddressTypeConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLoadBalancerAddressTypeConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLoadBalancerAddressTypeConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6016,9 +6025,9 @@ export class UpdateLoadBalancerAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateLoadBalancerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLoadBalancerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLoadBalancerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6088,9 +6097,9 @@ export class UpdateLoadBalancerEditionResponseBody extends $tea.Model {
 }
 
 export class UpdateLoadBalancerEditionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLoadBalancerEditionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLoadBalancerEditionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6163,9 +6172,9 @@ export class UpdateLoadBalancerZonesResponseBody extends $tea.Model {
 }
 
 export class UpdateLoadBalancerZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLoadBalancerZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLoadBalancerZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6247,9 +6256,9 @@ export class UpdateRuleAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateRuleAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateRuleAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRuleAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6319,9 +6328,9 @@ export class UpdateRulesAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateRulesAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateRulesAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRulesAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6400,9 +6409,9 @@ export class UpdateSecurityPolicyAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateSecurityPolicyAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSecurityPolicyAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSecurityPolicyAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6426,24 +6435,28 @@ export class UpdateSecurityPolicyAttributeResponse extends $tea.Model {
 
 export class UpdateServerGroupAttributeRequest extends $tea.Model {
   clientToken?: string;
+  connectionDrainConfig?: UpdateServerGroupAttributeRequestConnectionDrainConfig;
   dryRun?: boolean;
   healthCheckConfig?: UpdateServerGroupAttributeRequestHealthCheckConfig;
   scheduler?: string;
   serverGroupId?: string;
   serverGroupName?: string;
   serviceName?: string;
+  slowStartConfig?: UpdateServerGroupAttributeRequestSlowStartConfig;
   stickySessionConfig?: UpdateServerGroupAttributeRequestStickySessionConfig;
   uchConfig?: UpdateServerGroupAttributeRequestUchConfig;
   upstreamKeepaliveEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      connectionDrainConfig: 'ConnectionDrainConfig',
       dryRun: 'DryRun',
       healthCheckConfig: 'HealthCheckConfig',
       scheduler: 'Scheduler',
       serverGroupId: 'ServerGroupId',
       serverGroupName: 'ServerGroupName',
       serviceName: 'ServiceName',
+      slowStartConfig: 'SlowStartConfig',
       stickySessionConfig: 'StickySessionConfig',
       uchConfig: 'UchConfig',
       upstreamKeepaliveEnabled: 'UpstreamKeepaliveEnabled',
@@ -6453,12 +6466,14 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      connectionDrainConfig: UpdateServerGroupAttributeRequestConnectionDrainConfig,
       dryRun: 'boolean',
       healthCheckConfig: UpdateServerGroupAttributeRequestHealthCheckConfig,
       scheduler: 'string',
       serverGroupId: 'string',
       serverGroupName: 'string',
       serviceName: 'string',
+      slowStartConfig: UpdateServerGroupAttributeRequestSlowStartConfig,
       stickySessionConfig: UpdateServerGroupAttributeRequestStickySessionConfig,
       uchConfig: UpdateServerGroupAttributeRequestUchConfig,
       upstreamKeepaliveEnabled: 'boolean',
@@ -6493,9 +6508,9 @@ export class UpdateServerGroupAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateServerGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateServerGroupAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServerGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6568,9 +6583,9 @@ export class UpdateServerGroupServersAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateServerGroupServersAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateServerGroupServersAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServerGroupServersAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8451,6 +8466,28 @@ export class CreateSecurityPolicyRequestTag extends $tea.Model {
   }
 }
 
+export class CreateServerGroupRequestConnectionDrainConfig extends $tea.Model {
+  connectionDrainEnabled?: boolean;
+  connectionDrainTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectionDrainEnabled: 'ConnectionDrainEnabled',
+      connectionDrainTimeout: 'ConnectionDrainTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionDrainEnabled: 'boolean',
+      connectionDrainTimeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
   healthCheckCodes?: string[];
   healthCheckConnectPort?: number;
@@ -8495,6 +8532,28 @@ export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
       healthCheckTimeout: 'number',
       healthyThreshold: 'number',
       unhealthyThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServerGroupRequestSlowStartConfig extends $tea.Model {
+  slowStartDuration?: number;
+  slowStartEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      slowStartDuration: 'SlowStartDuration',
+      slowStartEnabled: 'SlowStartEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      slowStartDuration: 'number',
+      slowStartEnabled: 'boolean',
     };
   }
 
@@ -11206,6 +11265,28 @@ export class ListServerGroupsRequestTag extends $tea.Model {
   }
 }
 
+export class ListServerGroupsResponseBodyServerGroupsConnectionDrainConfig extends $tea.Model {
+  connectionDrainEnabled?: boolean;
+  connectionDrainTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectionDrainEnabled: 'ConnectionDrainEnabled',
+      connectionDrainTimeout: 'ConnectionDrainTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionDrainEnabled: 'boolean',
+      connectionDrainTimeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServerGroupsResponseBodyServerGroupsHealthCheckConfig extends $tea.Model {
   healthCheckCodes?: string[];
   healthCheckConnectPort?: number;
@@ -11250,6 +11331,28 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheckConfig extends $
       healthCheckTimeout: 'number',
       healthyThreshold: 'number',
       unhealthyThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServerGroupsResponseBodyServerGroupsSlowStartConfig extends $tea.Model {
+  slowStartDuration?: number;
+  slowStartEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      slowStartDuration: 'SlowStartDuration',
+      slowStartEnabled: 'SlowStartEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      slowStartDuration: 'number',
+      slowStartEnabled: 'boolean',
     };
   }
 
@@ -11332,6 +11435,7 @@ export class ListServerGroupsResponseBodyServerGroupsUchConfig extends $tea.Mode
 
 export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
   configManagedEnabled?: boolean;
+  connectionDrainConfig?: ListServerGroupsResponseBodyServerGroupsConnectionDrainConfig;
   createTime?: string;
   healthCheckConfig?: ListServerGroupsResponseBodyServerGroupsHealthCheckConfig;
   ipv6Enabled?: boolean;
@@ -11345,6 +11449,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
   serverGroupStatus?: string;
   serverGroupType?: string;
   serviceName?: string;
+  slowStartConfig?: ListServerGroupsResponseBodyServerGroupsSlowStartConfig;
   stickySessionConfig?: ListServerGroupsResponseBodyServerGroupsStickySessionConfig;
   tags?: ListServerGroupsResponseBodyServerGroupsTags[];
   uchConfig?: ListServerGroupsResponseBodyServerGroupsUchConfig;
@@ -11353,6 +11458,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       configManagedEnabled: 'ConfigManagedEnabled',
+      connectionDrainConfig: 'ConnectionDrainConfig',
       createTime: 'CreateTime',
       healthCheckConfig: 'HealthCheckConfig',
       ipv6Enabled: 'Ipv6Enabled',
@@ -11366,6 +11472,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
       serverGroupStatus: 'ServerGroupStatus',
       serverGroupType: 'ServerGroupType',
       serviceName: 'ServiceName',
+      slowStartConfig: 'SlowStartConfig',
       stickySessionConfig: 'StickySessionConfig',
       tags: 'Tags',
       uchConfig: 'UchConfig',
@@ -11377,6 +11484,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       configManagedEnabled: 'boolean',
+      connectionDrainConfig: ListServerGroupsResponseBodyServerGroupsConnectionDrainConfig,
       createTime: 'string',
       healthCheckConfig: ListServerGroupsResponseBodyServerGroupsHealthCheckConfig,
       ipv6Enabled: 'boolean',
@@ -11390,6 +11498,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
       serverGroupStatus: 'string',
       serverGroupType: 'string',
       serviceName: 'string',
+      slowStartConfig: ListServerGroupsResponseBodyServerGroupsSlowStartConfig,
       stickySessionConfig: ListServerGroupsResponseBodyServerGroupsStickySessionConfig,
       tags: { 'type': 'array', 'itemType': ListServerGroupsResponseBodyServerGroupsTags },
       uchConfig: ListServerGroupsResponseBodyServerGroupsUchConfig,
@@ -13251,6 +13360,28 @@ export class UpdateRulesAttributeRequestRules extends $tea.Model {
   }
 }
 
+export class UpdateServerGroupAttributeRequestConnectionDrainConfig extends $tea.Model {
+  connectionDrainEnabled?: boolean;
+  connectionDrainTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectionDrainEnabled: 'ConnectionDrainEnabled',
+      connectionDrainTimeout: 'ConnectionDrainTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionDrainEnabled: 'boolean',
+      connectionDrainTimeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $tea.Model {
   healthCheckCodes?: string[];
   healthCheckConnectPort?: number;
@@ -13295,6 +13426,28 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $tea.Mod
       healthCheckTimeout: 'number',
       healthyThreshold: 'number',
       unhealthyThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServerGroupAttributeRequestSlowStartConfig extends $tea.Model {
+  slowStartDuration?: number;
+  slowStartEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      slowStartDuration: 'SlowStartDuration',
+      slowStartEnabled: 'SlowStartEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      slowStartDuration: 'number',
+      slowStartEnabled: 'boolean',
     };
   }
 
@@ -13411,16 +13564,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
-    *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
-    *     *   The maximum number of IP entries that each ACL can contain: 1,000
-    * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](~~213616~~) operation to query the status of the task.
-    *     *   If the ACL is in the **Adding** state, the IP entries are being added.
-    *     *   If the ACL is in the **Available** state, the IP entries are added.
-    *
-    * @param request AddEntriesToAclRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddEntriesToAclResponse
+   * @summary Adds IP entries to an access control list (ACL).
+   *
+   * @description *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
+   *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
+   *     *   The maximum number of IP entries that each ACL can contain: 1,000
+   * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
+   *     *   If the ACL is in the **Adding** state, the IP entries are being added.
+   *     *   If the ACL is in the **Available** state, the IP entries are added.
+   *
+   * @param request AddEntriesToAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddEntriesToAclResponse
    */
   async addEntriesToAclWithOptions(request: AddEntriesToAclRequest, runtime: $Util.RuntimeOptions): Promise<AddEntriesToAclResponse> {
     Util.validateModel(request);
@@ -13459,15 +13614,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
-    *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
-    *     *   The maximum number of IP entries that each ACL can contain: 1,000
-    * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](~~213616~~) operation to query the status of the task.
-    *     *   If the ACL is in the **Adding** state, the IP entries are being added.
-    *     *   If the ACL is in the **Available** state, the IP entries are added.
-    *
-    * @param request AddEntriesToAclRequest
-    * @return AddEntriesToAclResponse
+   * @summary Adds IP entries to an access control list (ACL).
+   *
+   * @description *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
+   *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
+   *     *   The maximum number of IP entries that each ACL can contain: 1,000
+   * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
+   *     *   If the ACL is in the **Adding** state, the IP entries are being added.
+   *     *   If the ACL is in the **Available** state, the IP entries are added.
+   *
+   * @param request AddEntriesToAclRequest
+   * @return AddEntriesToAclResponse
    */
   async addEntriesToAcl(request: AddEntriesToAclRequest): Promise<AddEntriesToAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13475,17 +13632,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-    * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
-    * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-    * *   If a server group is in the **Available** state, it indicates that the server group is running.
-    * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
-    * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
-    * *   If a backend server is in the **Available** state, it indicates that the server is running.
-    *
-    * @param request AddServersToServerGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddServersToServerGroupResponse
+   * @summary Adds backend servers to a server group.
+   *
+   * @description **AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
+   * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+   * *   If a server group is in the **Available** state, it indicates that the server group is running.
+   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
+   * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
+   * *   If a backend server is in the **Available** state, it indicates that the server is running.
+   *
+   * @param request AddServersToServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddServersToServerGroupResponse
    */
   async addServersToServerGroupWithOptions(request: AddServersToServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddServersToServerGroupResponse> {
     Util.validateModel(request);
@@ -13524,22 +13683,31 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-    * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
-    * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-    * *   If a server group is in the **Available** state, it indicates that the server group is running.
-    * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
-    * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
-    * *   If a backend server is in the **Available** state, it indicates that the server is running.
-    *
-    * @param request AddServersToServerGroupRequest
-    * @return AddServersToServerGroupResponse
+   * @summary Adds backend servers to a server group.
+   *
+   * @description **AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
+   * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+   * *   If a server group is in the **Available** state, it indicates that the server group is running.
+   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
+   * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
+   * *   If a backend server is in the **Available** state, it indicates that the server is running.
+   *
+   * @param request AddServersToServerGroupRequest
+   * @return AddServersToServerGroupResponse
    */
   async addServersToServerGroup(request: AddServersToServerGroupRequest): Promise<AddServersToServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addServersToServerGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Applies a health check template to a server group.
+   *
+   * @param request ApplyHealthCheckTemplateToServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyHealthCheckTemplateToServerGroupResponse
+   */
   async applyHealthCheckTemplateToServerGroupWithOptions(request: ApplyHealthCheckTemplateToServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<ApplyHealthCheckTemplateToServerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13576,19 +13744,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyHealthCheckTemplateToServerGroupResponse>(await this.callApi(params, req, runtime), new ApplyHealthCheckTemplateToServerGroupResponse({}));
   }
 
+  /**
+   * @summary Applies a health check template to a server group.
+   *
+   * @param request ApplyHealthCheckTemplateToServerGroupRequest
+   * @return ApplyHealthCheckTemplateToServerGroupResponse
+   */
   async applyHealthCheckTemplateToServerGroup(request: ApplyHealthCheckTemplateToServerGroupRequest): Promise<ApplyHealthCheckTemplateToServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyHealthCheckTemplateToServerGroupWithOptions(request, runtime);
   }
 
   /**
-    * **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](~~213618~~) operation to query the status of the task.
-    * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
-    * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
-    *
-    * @param request AssociateAclsWithListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateAclsWithListenerResponse
+   * @summary Associates access control lists (ACLs) with a listener.
+   *
+   * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+   * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
+   * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
+   *
+   * @param request AssociateAclsWithListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateAclsWithListenerResponse
    */
   async associateAclsWithListenerWithOptions(request: AssociateAclsWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAclsWithListenerResponse> {
     Util.validateModel(request);
@@ -13631,12 +13807,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](~~213618~~) operation to query the status of the task.
-    * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
-    * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
-    *
-    * @param request AssociateAclsWithListenerRequest
-    * @return AssociateAclsWithListenerResponse
+   * @summary Associates access control lists (ACLs) with a listener.
+   *
+   * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+   * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
+   * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
+   *
+   * @param request AssociateAclsWithListenerRequest
+   * @return AssociateAclsWithListenerResponse
    */
   async associateAclsWithListener(request: AssociateAclsWithListenerRequest): Promise<AssociateAclsWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13644,13 +13822,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task:
-    * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
-    * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
-    *
-    * @param request AssociateAdditionalCertificatesWithListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateAdditionalCertificatesWithListenerResponse
+   * @summary Associates additional certificates with a listener.
+   *
+   * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+   * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
+   * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
+   *
+   * @param request AssociateAdditionalCertificatesWithListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateAdditionalCertificatesWithListenerResponse
    */
   async associateAdditionalCertificatesWithListenerWithOptions(request: AssociateAdditionalCertificatesWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     Util.validateModel(request);
@@ -13689,12 +13869,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task:
-    * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
-    * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
-    *
-    * @param request AssociateAdditionalCertificatesWithListenerRequest
-    * @return AssociateAdditionalCertificatesWithListenerResponse
+   * @summary Associates additional certificates with a listener.
+   *
+   * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+   * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
+   * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
+   *
+   * @param request AssociateAdditionalCertificatesWithListenerRequest
+   * @return AssociateAdditionalCertificatesWithListenerResponse
    */
   async associateAdditionalCertificatesWithListener(request: AssociateAdditionalCertificatesWithListenerRequest): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13702,13 +13884,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
-    * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
-    * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
-    *
-    * @param request AttachCommonBandwidthPackageToLoadBalancerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+   * @summary Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+   *
+   * @description **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
+   * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
+   *
+   * @param request AttachCommonBandwidthPackageToLoadBalancerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachCommonBandwidthPackageToLoadBalancerResponse
    */
   async attachCommonBandwidthPackageToLoadBalancerWithOptions(request: AttachCommonBandwidthPackageToLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<AttachCommonBandwidthPackageToLoadBalancerResponse> {
     Util.validateModel(request);
@@ -13751,12 +13935,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
-    * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
-    * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
-    *
-    * @param request AttachCommonBandwidthPackageToLoadBalancerRequest
-    * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+   * @summary Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+   *
+   * @description **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
+   * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
+   *
+   * @param request AttachCommonBandwidthPackageToLoadBalancerRequest
+   * @return AttachCommonBandwidthPackageToLoadBalancerResponse
    */
   async attachCommonBandwidthPackageToLoadBalancer(request: AttachCommonBandwidthPackageToLoadBalancerRequest): Promise<AttachCommonBandwidthPackageToLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13764,11 +13950,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
-    *
-    * @param request CancelShiftLoadBalancerZonesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelShiftLoadBalancerZonesResponse
+   * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
+   *
+   * @description This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+   *
+   * @param request CancelShiftLoadBalancerZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelShiftLoadBalancerZonesResponse
    */
   async cancelShiftLoadBalancerZonesWithOptions(request: CancelShiftLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<CancelShiftLoadBalancerZonesResponse> {
     Util.validateModel(request);
@@ -13807,10 +13995,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
-    *
-    * @param request CancelShiftLoadBalancerZonesRequest
-    * @return CancelShiftLoadBalancerZonesResponse
+   * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
+   *
+   * @description This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+   *
+   * @param request CancelShiftLoadBalancerZonesRequest
+   * @return CancelShiftLoadBalancerZonesResponse
    */
   async cancelShiftLoadBalancerZones(request: CancelShiftLoadBalancerZonesRequest): Promise<CancelShiftLoadBalancerZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13818,18 +14008,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
-    * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](~~214358~~).
-    * *   By default, the feature to create and manage AScript rules is unavailable. Log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/alb/quotas?spm=a2c4g.11186623.0.0.6e8834f6IFiF2I). On the **Privileges** page, enter the quota ID `slb_user_visible_gray_label/ascript` and apply for the quota.
-    * ### Usage notes
-    * *   **CreateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task:
-    *     *   If an AScript rule is in the **Creating** state, the AScript rule is being created.
-    *     *   If an AScript rule is in the **Available** state, the AScript rule is created.
-    * *   In the following table, the value of **N** is **1**.
-    *
-    * @param request CreateAScriptsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAScriptsResponse
+   * @summary Creates AScript rules.
+   *
+   * @description ### Prerequisites
+   * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
+   * *   By default, the feature to create and manage AScript rules is unavailable. Log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/alb/quotas?spm=a2c4g.11186623.0.0.6e8834f6IFiF2I). On the **Privileges** page, enter the quota ID `slb_user_visible_gray_label/ascript` and apply for the quota.
+   * ### Usage notes
+   * *   **CreateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
+   *     *   If an AScript rule is in the **Creating** state, the AScript rule is being created.
+   *     *   If an AScript rule is in the **Available** state, the AScript rule is created.
+   * *   In the following table, the value of **N** is **1**.
+   *
+   * @param request CreateAScriptsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAScriptsResponse
    */
   async createAScriptsWithOptions(request: CreateAScriptsRequest, runtime: $Util.RuntimeOptions): Promise<CreateAScriptsResponse> {
     Util.validateModel(request);
@@ -13868,17 +14060,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
-    * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](~~214358~~).
-    * *   By default, the feature to create and manage AScript rules is unavailable. Log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/alb/quotas?spm=a2c4g.11186623.0.0.6e8834f6IFiF2I). On the **Privileges** page, enter the quota ID `slb_user_visible_gray_label/ascript` and apply for the quota.
-    * ### Usage notes
-    * *   **CreateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task:
-    *     *   If an AScript rule is in the **Creating** state, the AScript rule is being created.
-    *     *   If an AScript rule is in the **Available** state, the AScript rule is created.
-    * *   In the following table, the value of **N** is **1**.
-    *
-    * @param request CreateAScriptsRequest
-    * @return CreateAScriptsResponse
+   * @summary Creates AScript rules.
+   *
+   * @description ### Prerequisites
+   * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
+   * *   By default, the feature to create and manage AScript rules is unavailable. Log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/alb/quotas?spm=a2c4g.11186623.0.0.6e8834f6IFiF2I). On the **Privileges** page, enter the quota ID `slb_user_visible_gray_label/ascript` and apply for the quota.
+   * ### Usage notes
+   * *   **CreateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
+   *     *   If an AScript rule is in the **Creating** state, the AScript rule is being created.
+   *     *   If an AScript rule is in the **Available** state, the AScript rule is created.
+   * *   In the following table, the value of **N** is **1**.
+   *
+   * @param request CreateAScriptsRequest
+   * @return CreateAScriptsResponse
    */
   async createAScripts(request: CreateAScriptsRequest): Promise<CreateAScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13886,14 +14080,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * The **CreateAcl** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListAcls](~~213617~~) operation to query the status of an ACL:
-    * *   If an ACL is in the **Creating** state, the ACL is being created.
-    * *   If an ACL is in the **Available** state, the ACL is created.
-    *
-    * @param request CreateAclRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAclResponse
+   * @summary Creates an access control list (ACL) in a region.
+   *
+   * @description ## Usage notes
+   * The **CreateAcl** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of an ACL:
+   * *   If an ACL is in the **Creating** state, the ACL is being created.
+   * *   If an ACL is in the **Available** state, the ACL is created.
+   *
+   * @param request CreateAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAclResponse
    */
   async createAclWithOptions(request: CreateAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateAclResponse> {
     Util.validateModel(request);
@@ -13936,19 +14132,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * The **CreateAcl** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListAcls](~~213617~~) operation to query the status of an ACL:
-    * *   If an ACL is in the **Creating** state, the ACL is being created.
-    * *   If an ACL is in the **Available** state, the ACL is created.
-    *
-    * @param request CreateAclRequest
-    * @return CreateAclResponse
+   * @summary Creates an access control list (ACL) in a region.
+   *
+   * @description ## Usage notes
+   * The **CreateAcl** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of an ACL:
+   * *   If an ACL is in the **Creating** state, the ACL is being created.
+   * *   If an ACL is in the **Available** state, the ACL is created.
+   *
+   * @param request CreateAclRequest
+   * @return CreateAclResponse
    */
   async createAcl(request: CreateAclRequest): Promise<CreateAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a health check template in a region.
+   *
+   * @param request CreateHealthCheckTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHealthCheckTemplateResponse
+   */
   async createHealthCheckTemplateWithOptions(request: CreateHealthCheckTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateHealthCheckTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14029,20 +14234,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHealthCheckTemplateResponse>(await this.callApi(params, req, runtime), new CreateHealthCheckTemplateResponse({}));
   }
 
+  /**
+   * @summary Creates a health check template in a region.
+   *
+   * @param request CreateHealthCheckTemplateRequest
+   * @return CreateHealthCheckTemplateResponse
+   */
   async createHealthCheckTemplate(request: CreateHealthCheckTemplateRequest): Promise<CreateHealthCheckTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHealthCheckTemplateWithOptions(request, runtime);
   }
 
   /**
-    * ## Usage notes
-    * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](~~214353~~) operation to query the status of the HTTP, HTTPS, or QUIC listener.
-    * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, it indicates that the listener is being created.
-    * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, it indicates that the listener has been created successfully.
-    *
-    * @param request CreateListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateListenerResponse
+   * @summary Creates an HTTP, HTTPS, or QUIC listener in a region.
+   *
+   * @description ## Usage notes
+   * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/214353.html) operation to query the status of the HTTP, HTTPS, or QUIC listener.
+   * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, it indicates that the listener is being created.
+   * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, it indicates that the listener has been created successfully.
+   *
+   * @param request CreateListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateListenerResponse
    */
   async createListenerWithOptions(request: CreateListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateListenerResponse> {
     Util.validateModel(request);
@@ -14137,13 +14350,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](~~214353~~) operation to query the status of the HTTP, HTTPS, or QUIC listener.
-    * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, it indicates that the listener is being created.
-    * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, it indicates that the listener has been created successfully.
-    *
-    * @param request CreateListenerRequest
-    * @return CreateListenerResponse
+   * @summary Creates an HTTP, HTTPS, or QUIC listener in a region.
+   *
+   * @description ## Usage notes
+   * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/214353.html) operation to query the status of the HTTP, HTTPS, or QUIC listener.
+   * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, it indicates that the listener is being created.
+   * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, it indicates that the listener has been created successfully.
+   *
+   * @param request CreateListenerRequest
+   * @return CreateListenerResponse
    */
   async createListener(request: CreateListenerRequest): Promise<CreateListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14151,13 +14366,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of an ALB instance.
-    * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
-    * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
-    *
-    * @param request CreateLoadBalancerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerResponse
+   * @summary Creates an Application Load Balancer (ALB) instance in a region.
+   *
+   * @description **CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
+   * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
+   * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
+   *
+   * @param request CreateLoadBalancerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerResponse
    */
   async createLoadBalancerWithOptions(request: CreateLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerResponse> {
     Util.validateModel(request);
@@ -14236,12 +14453,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of an ALB instance.
-    * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
-    * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
-    *
-    * @param request CreateLoadBalancerRequest
-    * @return CreateLoadBalancerResponse
+   * @summary Creates an Application Load Balancer (ALB) instance in a region.
+   *
+   * @description **CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
+   * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
+   * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
+   *
+   * @param request CreateLoadBalancerRequest
+   * @return CreateLoadBalancerResponse
    */
   async createLoadBalancer(request: CreateLoadBalancerRequest): Promise<CreateLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14249,19 +14468,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Take note of the following limits:
-    * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
-    * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
-    * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule.
-    *     *   If a forwarding rule is in the **Provisioning** state, the forwarding rule is being created.
-    *     *   If a forwarding rule is in the **Available** state, the forwarding rule is created.
-    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
-    *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
-    *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-    *
-    * @param request CreateRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateRuleResponse
+   * @summary Creates a forwarding rule for a listener.
+   *
+   * @description Take note of the following limits:
+   * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
+   * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
+   * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule.
+   *     *   If a forwarding rule is in the **Provisioning** state, the forwarding rule is being created.
+   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is created.
+   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
+   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
+   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+   *
+   * @param request CreateRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRuleResponse
    */
   async createRuleWithOptions(request: CreateRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRuleResponse> {
     Util.validateModel(request);
@@ -14320,18 +14541,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Take note of the following limits:
-    * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
-    * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
-    * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule.
-    *     *   If a forwarding rule is in the **Provisioning** state, the forwarding rule is being created.
-    *     *   If a forwarding rule is in the **Available** state, the forwarding rule is created.
-    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
-    *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
-    *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-    *
-    * @param request CreateRuleRequest
-    * @return CreateRuleResponse
+   * @summary Creates a forwarding rule for a listener.
+   *
+   * @description Take note of the following limits:
+   * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
+   * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
+   * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule.
+   *     *   If a forwarding rule is in the **Provisioning** state, the forwarding rule is being created.
+   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is created.
+   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
+   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
+   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+   *
+   * @param request CreateRuleRequest
+   * @return CreateRuleResponse
    */
   async createRule(request: CreateRuleRequest): Promise<CreateRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14339,19 +14562,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   When you configure the **Redirect** action, you can use the default value for the **HttpCode** parameter but you cannot use the default values for all of the other parameters.
-    * *   If you specify the **Rewrite** action and other actions in a forwarding rule, make sure that one of the actions is **ForwardGroup**.
-    * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of forwarding rules.
-    *     *   If forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
-    *     *   If forwarding rules are in the **Available** state, the forwarding rules have been created.
-    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-    *     *   Limits on conditions: You can specify at most 5 conditions if you use a basic Application Load Balancer (ALB) instance, at most 10 conditions if you use a standard ALB instance, and at most 10 conditions if you use a WAF-enabled ALB instance.
-    *     *   Limits on actions: You can specify at most 3 actions if you use a basic ALB instance, at most 5 actions if you use a standard ALB instance, and at most 10 actions if you use a WAF-enabled ALB instance.
-    *
-    * @param request CreateRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateRulesResponse
+   * @summary Creates one or more forwarding rules at a time.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   When you configure the **Redirect** action, you can use the default value for the **HttpCode** parameter but you cannot use the default values for all of the other parameters.
+   * *   If you specify the **Rewrite** action and other actions in a forwarding rule, make sure that one of the actions is **ForwardGroup**.
+   * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
+   *     *   If forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
+   *     *   If forwarding rules are in the **Available** state, the forwarding rules have been created.
+   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
+   *     *   Limits on conditions: You can specify at most 5 conditions if you use a basic Application Load Balancer (ALB) instance, at most 10 conditions if you use a standard ALB instance, and at most 10 conditions if you use a WAF-enabled ALB instance.
+   *     *   Limits on actions: You can specify at most 3 actions if you use a basic ALB instance, at most 5 actions if you use a standard ALB instance, and at most 10 actions if you use a WAF-enabled ALB instance.
+   *
+   * @param request CreateRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRulesResponse
    */
   async createRulesWithOptions(request: CreateRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateRulesResponse> {
     Util.validateModel(request);
@@ -14390,24 +14615,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   When you configure the **Redirect** action, you can use the default value for the **HttpCode** parameter but you cannot use the default values for all of the other parameters.
-    * *   If you specify the **Rewrite** action and other actions in a forwarding rule, make sure that one of the actions is **ForwardGroup**.
-    * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of forwarding rules.
-    *     *   If forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
-    *     *   If forwarding rules are in the **Available** state, the forwarding rules have been created.
-    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-    *     *   Limits on conditions: You can specify at most 5 conditions if you use a basic Application Load Balancer (ALB) instance, at most 10 conditions if you use a standard ALB instance, and at most 10 conditions if you use a WAF-enabled ALB instance.
-    *     *   Limits on actions: You can specify at most 3 actions if you use a basic ALB instance, at most 5 actions if you use a standard ALB instance, and at most 10 actions if you use a WAF-enabled ALB instance.
-    *
-    * @param request CreateRulesRequest
-    * @return CreateRulesResponse
+   * @summary Creates one or more forwarding rules at a time.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   When you configure the **Redirect** action, you can use the default value for the **HttpCode** parameter but you cannot use the default values for all of the other parameters.
+   * *   If you specify the **Rewrite** action and other actions in a forwarding rule, make sure that one of the actions is **ForwardGroup**.
+   * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
+   *     *   If forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
+   *     *   If forwarding rules are in the **Available** state, the forwarding rules have been created.
+   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
+   *     *   Limits on conditions: You can specify at most 5 conditions if you use a basic Application Load Balancer (ALB) instance, at most 10 conditions if you use a standard ALB instance, and at most 10 conditions if you use a WAF-enabled ALB instance.
+   *     *   Limits on actions: You can specify at most 3 actions if you use a basic ALB instance, at most 5 actions if you use a standard ALB instance, and at most 10 actions if you use a WAF-enabled ALB instance.
+   *
+   * @param request CreateRulesRequest
+   * @return CreateRulesResponse
    */
   async createRules(request: CreateRulesRequest): Promise<CreateRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a custom security policy in a region.
+   *
+   * @param request CreateSecurityPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSecurityPolicyResponse
+   */
   async createSecurityPolicyWithOptions(request: CreateSecurityPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecurityPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14456,25 +14690,37 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSecurityPolicyResponse>(await this.callApi(params, req, runtime), new CreateSecurityPolicyResponse({}));
   }
 
+  /**
+   * @summary Creates a custom security policy in a region.
+   *
+   * @param request CreateSecurityPolicyRequest
+   * @return CreateSecurityPolicyResponse
+   */
   async createSecurityPolicy(request: CreateSecurityPolicyRequest): Promise<CreateSecurityPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSecurityPolicyWithOptions(request, runtime);
   }
 
   /**
-    * **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](~~213627~~) to query the status of a server group.
-    * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
-    * *   If a server group is in the **Available** state, it indicates that the server group is created.
-    *
-    * @param request CreateServerGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateServerGroupResponse
+   * @summary Creates a server group in a region.
+   *
+   * @description **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
+   * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
+   * *   If a server group is in the **Available** state, it indicates that the server group is created.
+   *
+   * @param request CreateServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServerGroupResponse
    */
   async createServerGroupWithOptions(request: CreateServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateServerGroupResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.connectionDrainConfig)) {
+      query["ConnectionDrainConfig"] = request.connectionDrainConfig;
     }
 
     if (!Util.isUnset(request.dryRun)) {
@@ -14507,6 +14753,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.slowStartConfig)) {
+      query["SlowStartConfig"] = request.slowStartConfig;
     }
 
     if (!Util.isUnset(request.stickySessionConfig)) {
@@ -14547,12 +14797,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](~~213627~~) to query the status of a server group.
-    * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
-    * *   If a server group is in the **Available** state, it indicates that the server group is created.
-    *
-    * @param request CreateServerGroupRequest
-    * @return CreateServerGroupResponse
+   * @summary Creates a server group in a region.
+   *
+   * @description **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
+   * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
+   * *   If a server group is in the **Available** state, it indicates that the server group is created.
+   *
+   * @param request CreateServerGroupRequest
+   * @return CreateServerGroupResponse
    */
   async createServerGroup(request: CreateServerGroupRequest): Promise<CreateServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14560,13 +14812,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task:
-    * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
-    * *   If an AScript rule cannot be found, the AScript rule is deleted.
-    *
-    * @param request DeleteAScriptsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAScriptsResponse
+   * @summary Deletes AScript rules.
+   *
+   * @description **DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
+   * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
+   * *   If an AScript rule cannot be found, the AScript rule is deleted.
+   *
+   * @param request DeleteAScriptsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAScriptsResponse
    */
   async deleteAScriptsWithOptions(request: DeleteAScriptsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAScriptsResponse> {
     Util.validateModel(request);
@@ -14601,12 +14855,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task:
-    * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
-    * *   If an AScript rule cannot be found, the AScript rule is deleted.
-    *
-    * @param request DeleteAScriptsRequest
-    * @return DeleteAScriptsResponse
+   * @summary Deletes AScript rules.
+   *
+   * @description **DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
+   * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
+   * *   If an AScript rule cannot be found, the AScript rule is deleted.
+   *
+   * @param request DeleteAScriptsRequest
+   * @return DeleteAScriptsResponse
    */
   async deleteAScripts(request: DeleteAScriptsRequest): Promise<DeleteAScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14614,13 +14870,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](~~213617~~) operation to query the status of the task.
-    * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
-    * *   If the ACL cannot be found, the ACL is deleted.
-    *
-    * @param request DeleteAclRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAclResponse
+   * @summary Deletes an access control list (ACL).
+   *
+   * @description **DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
+   * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
+   * *   If the ACL cannot be found, the ACL is deleted.
+   *
+   * @param request DeleteAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAclResponse
    */
   async deleteAclWithOptions(request: DeleteAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAclResponse> {
     Util.validateModel(request);
@@ -14655,18 +14913,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](~~213617~~) operation to query the status of the task.
-    * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
-    * *   If the ACL cannot be found, the ACL is deleted.
-    *
-    * @param request DeleteAclRequest
-    * @return DeleteAclResponse
+   * @summary Deletes an access control list (ACL).
+   *
+   * @description **DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
+   * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
+   * *   If the ACL cannot be found, the ACL is deleted.
+   *
+   * @param request DeleteAclRequest
+   * @return DeleteAclResponse
    */
   async deleteAcl(request: DeleteAclRequest): Promise<DeleteAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes health check templates.
+   *
+   * @param request DeleteHealthCheckTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteHealthCheckTemplatesResponse
+   */
   async deleteHealthCheckTemplatesWithOptions(request: DeleteHealthCheckTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHealthCheckTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14699,19 +14966,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHealthCheckTemplatesResponse>(await this.callApi(params, req, runtime), new DeleteHealthCheckTemplatesResponse({}));
   }
 
+  /**
+   * @summary Deletes health check templates.
+   *
+   * @param request DeleteHealthCheckTemplatesRequest
+   * @return DeleteHealthCheckTemplatesResponse
+   */
   async deleteHealthCheckTemplates(request: DeleteHealthCheckTemplatesRequest): Promise<DeleteHealthCheckTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHealthCheckTemplatesWithOptions(request, runtime);
   }
 
   /**
-    * **DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task.
-    * *   If the listener is in the **Deleting** state, the listener is being deleted.
-    * *   If the listener cannot be found, the listener is deleted.
-    *
-    * @param request DeleteListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteListenerResponse
+   * @summary Deletes a listener.
+   *
+   * @description **DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+   * *   If the listener is in the **Deleting** state, the listener is being deleted.
+   * *   If the listener cannot be found, the listener is deleted.
+   *
+   * @param request DeleteListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteListenerResponse
    */
   async deleteListenerWithOptions(request: DeleteListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteListenerResponse> {
     Util.validateModel(request);
@@ -14746,12 +15021,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task.
-    * *   If the listener is in the **Deleting** state, the listener is being deleted.
-    * *   If the listener cannot be found, the listener is deleted.
-    *
-    * @param request DeleteListenerRequest
-    * @return DeleteListenerResponse
+   * @summary Deletes a listener.
+   *
+   * @description **DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+   * *   If the listener is in the **Deleting** state, the listener is being deleted.
+   * *   If the listener cannot be found, the listener is deleted.
+   *
+   * @param request DeleteListenerRequest
+   * @return DeleteListenerResponse
    */
   async deleteListener(request: DeleteListenerRequest): Promise<DeleteListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14759,13 +15036,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
-    * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
-    * *   If an ALB instance cannot be found, the ALB instance is deleted.
-    *
-    * @param request DeleteLoadBalancerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteLoadBalancerResponse
+   * @summary Deletes an Application Load Balancer (ALB) instance.
+   *
+   * @description **DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
+   * *   If an ALB instance cannot be found, the ALB instance is deleted.
+   *
+   * @param request DeleteLoadBalancerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLoadBalancerResponse
    */
   async deleteLoadBalancerWithOptions(request: DeleteLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoadBalancerResponse> {
     Util.validateModel(request);
@@ -14800,12 +15079,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
-    * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
-    * *   If an ALB instance cannot be found, the ALB instance is deleted.
-    *
-    * @param request DeleteLoadBalancerRequest
-    * @return DeleteLoadBalancerResponse
+   * @summary Deletes an Application Load Balancer (ALB) instance.
+   *
+   * @description **DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
+   * *   If an ALB instance cannot be found, the ALB instance is deleted.
+   *
+   * @param request DeleteLoadBalancerRequest
+   * @return DeleteLoadBalancerResponse
    */
   async deleteLoadBalancer(request: DeleteLoadBalancerRequest): Promise<DeleteLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14813,13 +15094,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule:
-    * *   If the forwarding rule is in the **Deleting** state, the forwarding rule is being deleted.
-    * *   If the forwarding rule cannot be found, the forwarding rule is deleted.
-    *
-    * @param request DeleteRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteRuleResponse
+   * @summary Deletes a forwarding rule.
+   *
+   * @description **DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+   * *   If the forwarding rule is in the **Deleting** state, the forwarding rule is being deleted.
+   * *   If the forwarding rule cannot be found, the forwarding rule is deleted.
+   *
+   * @param request DeleteRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRuleResponse
    */
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
     Util.validateModel(request);
@@ -14854,12 +15137,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule:
-    * *   If the forwarding rule is in the **Deleting** state, the forwarding rule is being deleted.
-    * *   If the forwarding rule cannot be found, the forwarding rule is deleted.
-    *
-    * @param request DeleteRuleRequest
-    * @return DeleteRuleResponse
+   * @summary Deletes a forwarding rule.
+   *
+   * @description **DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+   * *   If the forwarding rule is in the **Deleting** state, the forwarding rule is being deleted.
+   * *   If the forwarding rule cannot be found, the forwarding rule is deleted.
+   *
+   * @param request DeleteRuleRequest
+   * @return DeleteRuleResponse
    */
   async deleteRule(request: DeleteRuleRequest): Promise<DeleteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14867,13 +15152,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of forwarding rules.
-    * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
-    * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
-    *
-    * @param request DeleteRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteRulesResponse
+   * @summary Deletes one or more forwarding rules from a listener at a time.
+   *
+   * @description **DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
+   * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
+   * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
+   *
+   * @param request DeleteRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRulesResponse
    */
   async deleteRulesWithOptions(request: DeleteRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRulesResponse> {
     Util.validateModel(request);
@@ -14908,18 +15195,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of forwarding rules.
-    * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
-    * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
-    *
-    * @param request DeleteRulesRequest
-    * @return DeleteRulesResponse
+   * @summary Deletes one or more forwarding rules from a listener at a time.
+   *
+   * @description **DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
+   * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
+   * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
+   *
+   * @param request DeleteRulesRequest
+   * @return DeleteRulesResponse
    */
   async deleteRules(request: DeleteRulesRequest): Promise<DeleteRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a custom security policy.
+   *
+   * @param request DeleteSecurityPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSecurityPolicyResponse
+   */
   async deleteSecurityPolicyWithOptions(request: DeleteSecurityPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecurityPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14952,19 +15248,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSecurityPolicyResponse>(await this.callApi(params, req, runtime), new DeleteSecurityPolicyResponse({}));
   }
 
+  /**
+   * @summary Deletes a custom security policy.
+   *
+   * @param request DeleteSecurityPolicyRequest
+   * @return DeleteSecurityPolicyResponse
+   */
   async deleteSecurityPolicy(request: DeleteSecurityPolicyRequest): Promise<DeleteSecurityPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSecurityPolicyWithOptions(request, runtime);
   }
 
   /**
-    * **DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](~~213627~~) operation to query the status of the task.
-    * *   If a server group is in the **Deleting** state, it indicates that the server group is being deleted.
-    * *   If a specified server group cannot be found, it indicates that the server group has been deleted.
-    *
-    * @param request DeleteServerGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteServerGroupResponse
+   * @summary Deletes a server group.
+   *
+   * @description **DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the task.
+   * *   If a server group is in the **Deleting** state, it indicates that the server group is being deleted.
+   * *   If a specified server group cannot be found, it indicates that the server group has been deleted.
+   *
+   * @param request DeleteServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServerGroupResponse
    */
   async deleteServerGroupWithOptions(request: DeleteServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServerGroupResponse> {
     Util.validateModel(request);
@@ -14999,18 +15303,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](~~213627~~) operation to query the status of the task.
-    * *   If a server group is in the **Deleting** state, it indicates that the server group is being deleted.
-    * *   If a specified server group cannot be found, it indicates that the server group has been deleted.
-    *
-    * @param request DeleteServerGroupRequest
-    * @return DeleteServerGroupResponse
+   * @summary Deletes a server group.
+   *
+   * @description **DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the task.
+   * *   If a server group is in the **Deleting** state, it indicates that the server group is being deleted.
+   * *   If a specified server group cannot be found, it indicates that the server group has been deleted.
+   *
+   * @param request DeleteServerGroupRequest
+   * @return DeleteServerGroupResponse
    */
   async deleteServerGroup(request: DeleteServerGroupRequest): Promise<DeleteServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServerGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available regions.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15035,11 +15348,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries available regions.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries zones in a region.
+   *
+   * @param request DescribeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15064,19 +15390,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * @summary Queries zones in a region.
+   *
+   * @param request DescribeZonesRequest
+   * @return DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
   /**
-    * **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214359~~) operation to query the status of the task.
-    * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
-    * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
-    *
-    * @param request DetachCommonBandwidthPackageFromLoadBalancerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+   * @summary Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+   *
+   * @description **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
+   * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
+   * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
+   *
+   * @param request DetachCommonBandwidthPackageFromLoadBalancerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
    */
   async detachCommonBandwidthPackageFromLoadBalancerWithOptions(request: DetachCommonBandwidthPackageFromLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<DetachCommonBandwidthPackageFromLoadBalancerResponse> {
     Util.validateModel(request);
@@ -15119,18 +15453,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214359~~) operation to query the status of the task.
-    * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
-    * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
-    *
-    * @param request DetachCommonBandwidthPackageFromLoadBalancerRequest
-    * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+   * @summary Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+   *
+   * @description **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
+   * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
+   * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
+   *
+   * @param request DetachCommonBandwidthPackageFromLoadBalancerRequest
+   * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
    */
   async detachCommonBandwidthPackageFromLoadBalancer(request: DetachCommonBandwidthPackageFromLoadBalancerRequest): Promise<DetachCommonBandwidthPackageFromLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachCommonBandwidthPackageFromLoadBalancerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables deletion protection for an Application Load Balancer (ALB) instance.
+   *
+   * @param request DisableDeletionProtectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableDeletionProtectionResponse
+   */
   async disableDeletionProtectionWithOptions(request: DisableDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<DisableDeletionProtectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15163,11 +15506,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableDeletionProtectionResponse>(await this.callApi(params, req, runtime), new DisableDeletionProtectionResponse({}));
   }
 
+  /**
+   * @summary Disables deletion protection for an Application Load Balancer (ALB) instance.
+   *
+   * @param request DisableDeletionProtectionRequest
+   * @return DisableDeletionProtectionResponse
+   */
   async disableDeletionProtection(request: DisableDeletionProtectionRequest): Promise<DisableDeletionProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableDeletionProtectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables the access log feature for a Server Load Balancer (SLB) instance.
+   *
+   * @param request DisableLoadBalancerAccessLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableLoadBalancerAccessLogResponse
+   */
   async disableLoadBalancerAccessLogWithOptions(request: DisableLoadBalancerAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<DisableLoadBalancerAccessLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15200,26 +15556,34 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableLoadBalancerAccessLogResponse>(await this.callApi(params, req, runtime), new DisableLoadBalancerAccessLogResponse({}));
   }
 
+  /**
+   * @summary Disables the access log feature for a Server Load Balancer (SLB) instance.
+   *
+   * @param request DisableLoadBalancerAccessLogRequest
+   * @return DisableLoadBalancerAccessLogResponse
+   */
   async disableLoadBalancerAccessLog(request: DisableLoadBalancerAccessLogRequest): Promise<DisableLoadBalancerAccessLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableLoadBalancerAccessLogWithOptions(request, runtime);
   }
 
   /**
-    * ### Prerequisites
-    * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](~~214358~~) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
-    * > If you set **AddressIpVersion** to **DualStack**:
-    * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
-    * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
-    * ### Description
-    * *   After the DisableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Intranet** and the type of the IPv6 address of the ALB instance is changed from public to private. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, private IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the value of **Ipv6AddressType**.
-    * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
-    *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
-    *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-    *
-    * @param request DisableLoadBalancerIpv6InternetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DisableLoadBalancerIpv6InternetResponse
+   * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from public to private.
+   *
+   * @description ### Prerequisites
+   * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
+   * > If you set **AddressIpVersion** to **DualStack**:
+   * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
+   * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
+   * ### Description
+   * *   After the DisableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Intranet** and the type of the IPv6 address of the ALB instance is changed from public to private. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, private IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the value of **Ipv6AddressType**.
+   * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
+   *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
+   *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
+   *
+   * @param request DisableLoadBalancerIpv6InternetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableLoadBalancerIpv6InternetResponse
    */
   async disableLoadBalancerIpv6InternetWithOptions(request: DisableLoadBalancerIpv6InternetRequest, runtime: $Util.RuntimeOptions): Promise<DisableLoadBalancerIpv6InternetResponse> {
     Util.validateModel(request);
@@ -15254,19 +15618,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
-    * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](~~214358~~) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
-    * > If you set **AddressIpVersion** to **DualStack**:
-    * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
-    * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
-    * ### Description
-    * *   After the DisableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Intranet** and the type of the IPv6 address of the ALB instance is changed from public to private. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, private IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the value of **Ipv6AddressType**.
-    * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
-    *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
-    *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-    *
-    * @param request DisableLoadBalancerIpv6InternetRequest
-    * @return DisableLoadBalancerIpv6InternetResponse
+   * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from public to private.
+   *
+   * @description ### Prerequisites
+   * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
+   * > If you set **AddressIpVersion** to **DualStack**:
+   * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
+   * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
+   * ### Description
+   * *   After the DisableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Intranet** and the type of the IPv6 address of the ALB instance is changed from public to private. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, private IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the value of **Ipv6AddressType**.
+   * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
+   *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
+   *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
+   *
+   * @param request DisableLoadBalancerIpv6InternetRequest
+   * @return DisableLoadBalancerIpv6InternetResponse
    */
   async disableLoadBalancerIpv6Internet(request: DisableLoadBalancerIpv6InternetRequest): Promise<DisableLoadBalancerIpv6InternetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15274,13 +15640,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](~~213618~~) operation to query the status of the task.
-    * *   If an ACL is in the **Dissociating** state, the ACL is being disassociated from the listener.
-    * *   If an ACL is in the **Dissociated** state, the ACL is disassociated from the listener.
-    *
-    * @param request DissociateAclsFromListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DissociateAclsFromListenerResponse
+   * @summary Disassociates access control lists (ACLs) from a listener.
+   *
+   * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+   * *   If an ACL is in the **Dissociating** state, the ACL is being disassociated from the listener.
+   * *   If an ACL is in the **Dissociated** state, the ACL is disassociated from the listener.
+   *
+   * @param request DissociateAclsFromListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DissociateAclsFromListenerResponse
    */
   async dissociateAclsFromListenerWithOptions(request: DissociateAclsFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAclsFromListenerResponse> {
     Util.validateModel(request);
@@ -15319,12 +15687,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](~~213618~~) operation to query the status of the task.
-    * *   If an ACL is in the **Dissociating** state, the ACL is being disassociated from the listener.
-    * *   If an ACL is in the **Dissociated** state, the ACL is disassociated from the listener.
-    *
-    * @param request DissociateAclsFromListenerRequest
-    * @return DissociateAclsFromListenerResponse
+   * @summary Disassociates access control lists (ACLs) from a listener.
+   *
+   * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+   * *   If an ACL is in the **Dissociating** state, the ACL is being disassociated from the listener.
+   * *   If an ACL is in the **Dissociated** state, the ACL is disassociated from the listener.
+   *
+   * @param request DissociateAclsFromListenerRequest
+   * @return DissociateAclsFromListenerResponse
    */
   async dissociateAclsFromListener(request: DissociateAclsFromListenerRequest): Promise<DissociateAclsFromListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15332,11 +15702,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~214354~~) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-    *
-    * @param request DissociateAdditionalCertificatesFromListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DissociateAdditionalCertificatesFromListenerResponse
+   * @summary Disassociates additional certificates from a listener.
+   *
+   * @description **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+   *
+   * @param request DissociateAdditionalCertificatesFromListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DissociateAdditionalCertificatesFromListenerResponse
    */
   async dissociateAdditionalCertificatesFromListenerWithOptions(request: DissociateAdditionalCertificatesFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
     Util.validateModel(request);
@@ -15375,16 +15747,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~214354~~) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-    *
-    * @param request DissociateAdditionalCertificatesFromListenerRequest
-    * @return DissociateAdditionalCertificatesFromListenerResponse
+   * @summary Disassociates additional certificates from a listener.
+   *
+   * @description **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+   *
+   * @param request DissociateAdditionalCertificatesFromListenerRequest
+   * @return DissociateAdditionalCertificatesFromListenerResponse
    */
   async dissociateAdditionalCertificatesFromListener(request: DissociateAdditionalCertificatesFromListenerRequest): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dissociateAdditionalCertificatesFromListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables deletion protection for a resource.
+   *
+   * @param request EnableDeletionProtectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableDeletionProtectionResponse
+   */
   async enableDeletionProtectionWithOptions(request: EnableDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<EnableDeletionProtectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15417,11 +15798,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableDeletionProtectionResponse>(await this.callApi(params, req, runtime), new EnableDeletionProtectionResponse({}));
   }
 
+  /**
+   * @summary Enables deletion protection for a resource.
+   *
+   * @param request EnableDeletionProtectionRequest
+   * @return EnableDeletionProtectionResponse
+   */
   async enableDeletionProtection(request: EnableDeletionProtectionRequest): Promise<EnableDeletionProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableDeletionProtectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the access log feature for an Application Load Balancer (ALB) instance.
+   *
+   * @param request EnableLoadBalancerAccessLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableLoadBalancerAccessLogResponse
+   */
   async enableLoadBalancerAccessLogWithOptions(request: EnableLoadBalancerAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<EnableLoadBalancerAccessLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15462,26 +15856,34 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableLoadBalancerAccessLogResponse>(await this.callApi(params, req, runtime), new EnableLoadBalancerAccessLogResponse({}));
   }
 
+  /**
+   * @summary Enables the access log feature for an Application Load Balancer (ALB) instance.
+   *
+   * @param request EnableLoadBalancerAccessLogRequest
+   * @return EnableLoadBalancerAccessLogResponse
+   */
   async enableLoadBalancerAccessLog(request: EnableLoadBalancerAccessLogRequest): Promise<EnableLoadBalancerAccessLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableLoadBalancerAccessLogWithOptions(request, runtime);
   }
 
   /**
-    * ### Prerequisites
-    * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](~~214358~~) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
-    * > If you set **AddressIpVersion** to **DualStack**:
-    * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
-    * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
-    * ### Description
-    * *   After the EnableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Internet** and the type of the IPv6 address of the ALB instance is changed from private to public. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, public IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the value of **Ipv6AddressType**.
-    * *   **EnableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
-    *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
-    *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-    *
-    * @param request EnableLoadBalancerIpv6InternetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return EnableLoadBalancerIpv6InternetResponse
+   * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from private to public.
+   *
+   * @description ### Prerequisites
+   * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
+   * > If you set **AddressIpVersion** to **DualStack**:
+   * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
+   * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
+   * ### Description
+   * *   After the EnableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Internet** and the type of the IPv6 address of the ALB instance is changed from private to public. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, public IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the value of **Ipv6AddressType**.
+   * *   **EnableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
+   *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
+   *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
+   *
+   * @param request EnableLoadBalancerIpv6InternetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableLoadBalancerIpv6InternetResponse
    */
   async enableLoadBalancerIpv6InternetWithOptions(request: EnableLoadBalancerIpv6InternetRequest, runtime: $Util.RuntimeOptions): Promise<EnableLoadBalancerIpv6InternetResponse> {
     Util.validateModel(request);
@@ -15516,25 +15918,34 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
-    * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](~~214358~~) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
-    * > If you set **AddressIpVersion** to **DualStack**:
-    * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
-    * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
-    * ### Description
-    * *   After the EnableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Internet** and the type of the IPv6 address of the ALB instance is changed from private to public. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, public IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the value of **Ipv6AddressType**.
-    * *   **EnableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
-    *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
-    *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-    *
-    * @param request EnableLoadBalancerIpv6InternetRequest
-    * @return EnableLoadBalancerIpv6InternetResponse
+   * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from private to public.
+   *
+   * @description ### Prerequisites
+   * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
+   * > If you set **AddressIpVersion** to **DualStack**:
+   * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
+   * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
+   * ### Description
+   * *   After the EnableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Internet** and the type of the IPv6 address of the ALB instance is changed from private to public. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, public IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the value of **Ipv6AddressType**.
+   * *   **EnableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
+   *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
+   *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
+   *
+   * @param request EnableLoadBalancerIpv6InternetRequest
+   * @return EnableLoadBalancerIpv6InternetResponse
    */
   async enableLoadBalancerIpv6Internet(request: EnableLoadBalancerIpv6InternetRequest): Promise<EnableLoadBalancerIpv6InternetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableLoadBalancerIpv6InternetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a health check template.
+   *
+   * @param request GetHealthCheckTemplateAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetHealthCheckTemplateAttributeResponse
+   */
   async getHealthCheckTemplateAttributeWithOptions(request: GetHealthCheckTemplateAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetHealthCheckTemplateAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15559,11 +15970,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHealthCheckTemplateAttributeResponse>(await this.callApi(params, req, runtime), new GetHealthCheckTemplateAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a health check template.
+   *
+   * @param request GetHealthCheckTemplateAttributeRequest
+   * @return GetHealthCheckTemplateAttributeResponse
+   */
   async getHealthCheckTemplateAttribute(request: GetHealthCheckTemplateAttributeRequest): Promise<GetHealthCheckTemplateAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHealthCheckTemplateAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a listener.
+   *
+   * @param request GetListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetListenerAttributeResponse
+   */
   async getListenerAttributeWithOptions(request: GetListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetListenerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15588,11 +16012,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetListenerAttributeResponse>(await this.callApi(params, req, runtime), new GetListenerAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a listener.
+   *
+   * @param request GetListenerAttributeRequest
+   * @return GetListenerAttributeResponse
+   */
   async getListenerAttribute(request: GetListenerAttributeRequest): Promise<GetListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the health check status of a listener and its forwarding rules.
+   *
+   * @param request GetListenerHealthStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetListenerHealthStatusResponse
+   */
   async getListenerHealthStatusWithOptions(request: GetListenerHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetListenerHealthStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15629,11 +16066,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetListenerHealthStatusResponse>(await this.callApi(params, req, runtime), new GetListenerHealthStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the health check status of a listener and its forwarding rules.
+   *
+   * @param request GetListenerHealthStatusRequest
+   * @return GetListenerHealthStatusResponse
+   */
   async getListenerHealthStatus(request: GetListenerHealthStatusRequest): Promise<GetListenerHealthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getListenerHealthStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an Application Load Balancer (ALB) instance.
+   *
+   * @param request GetLoadBalancerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLoadBalancerAttributeResponse
+   */
   async getLoadBalancerAttributeWithOptions(request: GetLoadBalancerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetLoadBalancerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15658,11 +16108,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLoadBalancerAttributeResponse>(await this.callApi(params, req, runtime), new GetLoadBalancerAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an Application Load Balancer (ALB) instance.
+   *
+   * @param request GetLoadBalancerAttributeRequest
+   * @return GetLoadBalancerAttributeResponse
+   */
   async getLoadBalancerAttribute(request: GetLoadBalancerAttributeRequest): Promise<GetLoadBalancerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLoadBalancerAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries AScript rules.
+   *
+   * @param request ListAScriptsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAScriptsResponse
+   */
   async listAScriptsWithOptions(request: ListAScriptsRequest, runtime: $Util.RuntimeOptions): Promise<ListAScriptsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15703,11 +16166,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAScriptsResponse>(await this.callApi(params, req, runtime), new ListAScriptsResponse({}));
   }
 
+  /**
+   * @summary Queries AScript rules.
+   *
+   * @param request ListAScriptsRequest
+   * @return ListAScriptsResponse
+   */
   async listAScripts(request: ListAScriptsRequest): Promise<ListAScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAScriptsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the entries of an access control list (ACL).
+   *
+   * @param request ListAclEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAclEntriesResponse
+   */
   async listAclEntriesWithOptions(request: ListAclEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListAclEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15740,11 +16216,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAclEntriesResponse>(await this.callApi(params, req, runtime), new ListAclEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries the entries of an access control list (ACL).
+   *
+   * @param request ListAclEntriesRequest
+   * @return ListAclEntriesResponse
+   */
   async listAclEntries(request: ListAclEntriesRequest): Promise<ListAclEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAclEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the listeners that are associated with access control lists (ACLs).
+   *
+   * @param request ListAclRelationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAclRelationsResponse
+   */
   async listAclRelationsWithOptions(request: ListAclRelationsRequest, runtime: $Util.RuntimeOptions): Promise<ListAclRelationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15769,11 +16258,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAclRelationsResponse>(await this.callApi(params, req, runtime), new ListAclRelationsResponse({}));
   }
 
+  /**
+   * @summary Queries the listeners that are associated with access control lists (ACLs).
+   *
+   * @param request ListAclRelationsRequest
+   * @return ListAclRelationsResponse
+   */
   async listAclRelations(request: ListAclRelationsRequest): Promise<ListAclRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAclRelationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the access control lists (ACLs) in a region.
+   *
+   * @param request ListAclsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAclsResponse
+   */
   async listAclsWithOptions(request: ListAclsRequest, runtime: $Util.RuntimeOptions): Promise<ListAclsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15818,11 +16320,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAclsResponse>(await this.callApi(params, req, runtime), new ListAclsResponse({}));
   }
 
+  /**
+   * @summary Queries the access control lists (ACLs) in a region.
+   *
+   * @param request ListAclsRequest
+   * @return ListAclsResponse
+   */
   async listAcls(request: ListAclsRequest): Promise<ListAclsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAclsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries asynchronous tasks in a region.
+   *
+   * @param request ListAsynJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAsynJobsResponse
+   */
   async listAsynJobsWithOptions(request: ListAsynJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListAsynJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15875,11 +16390,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAsynJobsResponse>(await this.callApi(params, req, runtime), new ListAsynJobsResponse({}));
   }
 
+  /**
+   * @summary Queries asynchronous tasks in a region.
+   *
+   * @param request ListAsynJobsRequest
+   * @return ListAsynJobsResponse
+   */
   async listAsynJobs(request: ListAsynJobsRequest): Promise<ListAsynJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAsynJobsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries health check templates in a region.
+   *
+   * @param request ListHealthCheckTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHealthCheckTemplatesResponse
+   */
   async listHealthCheckTemplatesWithOptions(request: ListHealthCheckTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListHealthCheckTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15920,14 +16448,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHealthCheckTemplatesResponse>(await this.callApi(params, req, runtime), new ListHealthCheckTemplatesResponse({}));
   }
 
+  /**
+   * @summary Queries health check templates in a region.
+   *
+   * @param request ListHealthCheckTemplatesRequest
+   * @return ListHealthCheckTemplatesResponse
+   */
   async listHealthCheckTemplates(request: ListHealthCheckTemplatesRequest): Promise<ListHealthCheckTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHealthCheckTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the certificates that are associated with a listener, including additional certificates and the default certificate.
+   *
+   * @param request ListListenerCertificatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListListenerCertificatesResponse
+   */
   async listListenerCertificatesWithOptions(request: ListListenerCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListListenerCertificatesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.certificateIds)) {
+      query["CertificateIds"] = request.certificateIds;
+    }
+
     if (!Util.isUnset(request.certificateType)) {
       query["CertificateType"] = request.certificateType;
     }
@@ -15961,11 +16506,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListListenerCertificatesResponse>(await this.callApi(params, req, runtime), new ListListenerCertificatesResponse({}));
   }
 
+  /**
+   * @summary Queries the certificates that are associated with a listener, including additional certificates and the default certificate.
+   *
+   * @param request ListListenerCertificatesRequest
+   * @return ListListenerCertificatesResponse
+   */
   async listListenerCertificates(request: ListListenerCertificatesRequest): Promise<ListListenerCertificatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listListenerCertificatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the listeners in a region.
+   *
+   * @param request ListListenersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListListenersResponse
+   */
   async listListenersWithOptions(request: ListListenersRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16010,11 +16568,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListListenersResponse>(await this.callApi(params, req, runtime), new ListListenersResponse({}));
   }
 
+  /**
+   * @summary Queries the listeners in a region.
+   *
+   * @param request ListListenersRequest
+   * @return ListListenersResponse
+   */
   async listListeners(request: ListListenersRequest): Promise<ListListenersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listListenersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Application Load Balancer (ALB) instances in a region based on filter conditions.
+   *
+   * @param request ListLoadBalancersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLoadBalancersResponse
+   */
   async listLoadBalancersWithOptions(request: ListLoadBalancersRequest, runtime: $Util.RuntimeOptions): Promise<ListLoadBalancersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16095,11 +16666,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLoadBalancersResponse>(await this.callApi(params, req, runtime), new ListLoadBalancersResponse({}));
   }
 
+  /**
+   * @summary Queries Application Load Balancer (ALB) instances in a region based on filter conditions.
+   *
+   * @param request ListLoadBalancersRequest
+   * @return ListLoadBalancersResponse
+   */
   async listLoadBalancers(request: ListLoadBalancersRequest): Promise<ListLoadBalancersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLoadBalancersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the forwarding rules in a region.
+   *
+   * @param request ListRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRulesResponse
+   */
   async listRulesWithOptions(request: ListRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16148,11 +16732,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRulesResponse>(await this.callApi(params, req, runtime), new ListRulesResponse({}));
   }
 
+  /**
+   * @summary Queries the forwarding rules in a region.
+   *
+   * @param request ListRulesRequest
+   * @return ListRulesResponse
+   */
   async listRules(request: ListRulesRequest): Promise<ListRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries custom security policies in a region.
+   *
+   * @param request ListSecurityPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSecurityPoliciesResponse
+   */
   async listSecurityPoliciesWithOptions(request: ListSecurityPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListSecurityPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16197,11 +16794,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSecurityPoliciesResponse>(await this.callApi(params, req, runtime), new ListSecurityPoliciesResponse({}));
   }
 
+  /**
+   * @summary Queries custom security policies in a region.
+   *
+   * @param request ListSecurityPoliciesRequest
+   * @return ListSecurityPoliciesResponse
+   */
   async listSecurityPolicies(request: ListSecurityPoliciesRequest): Promise<ListSecurityPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSecurityPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the listeners that are associated with security policies.
+   *
+   * @param request ListSecurityPolicyRelationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSecurityPolicyRelationsResponse
+   */
   async listSecurityPolicyRelationsWithOptions(request: ListSecurityPolicyRelationsRequest, runtime: $Util.RuntimeOptions): Promise<ListSecurityPolicyRelationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16226,11 +16836,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSecurityPolicyRelationsResponse>(await this.callApi(params, req, runtime), new ListSecurityPolicyRelationsResponse({}));
   }
 
+  /**
+   * @summary Queries the listeners that are associated with security policies.
+   *
+   * @param request ListSecurityPolicyRelationsRequest
+   * @return ListSecurityPolicyRelationsResponse
+   */
   async listSecurityPolicyRelations(request: ListSecurityPolicyRelationsRequest): Promise<ListSecurityPolicyRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSecurityPolicyRelationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries servers in a server group.
+   *
+   * @param request ListServerGroupServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServerGroupServersResponse
+   */
   async listServerGroupServersWithOptions(request: ListServerGroupServersRequest, runtime: $Util.RuntimeOptions): Promise<ListServerGroupServersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16271,11 +16894,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServerGroupServersResponse>(await this.callApi(params, req, runtime), new ListServerGroupServersResponse({}));
   }
 
+  /**
+   * @summary Queries servers in a server group.
+   *
+   * @param request ListServerGroupServersRequest
+   * @return ListServerGroupServersResponse
+   */
   async listServerGroupServers(request: ListServerGroupServersRequest): Promise<ListServerGroupServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServerGroupServersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries server groups in a region.
+   *
+   * @param request ListServerGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServerGroupsResponse
+   */
   async listServerGroupsWithOptions(request: ListServerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListServerGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16328,11 +16964,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServerGroupsResponse>(await this.callApi(params, req, runtime), new ListServerGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries server groups in a region.
+   *
+   * @param request ListServerGroupsRequest
+   * @return ListServerGroupsResponse
+   */
   async listServerGroups(request: ListServerGroupsRequest): Promise<ListServerGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServerGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries system security policies in a region.
+   *
+   * @param request ListSystemSecurityPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSystemSecurityPoliciesResponse
+   */
   async listSystemSecurityPoliciesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSystemSecurityPoliciesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -16349,11 +16998,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSystemSecurityPoliciesResponse>(await this.callApi(params, req, runtime), new ListSystemSecurityPoliciesResponse({}));
   }
 
+  /**
+   * @summary Queries system security policies in a region.
+   *
+   * @return ListSystemSecurityPoliciesResponse
+   */
   async listSystemSecurityPolicies(): Promise<ListSystemSecurityPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSystemSecurityPoliciesWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries tag keys.
+   *
+   * @param request ListTagKeysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagKeysResponse
+   */
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16394,11 +17055,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
+  /**
+   * @summary Queries tag keys.
+   *
+   * @param request ListTagKeysRequest
+   * @return ListTagKeysResponse
+   */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tags of resources.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16439,11 +17113,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries the tags of resources.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries tag values.
+   *
+   * @param request ListTagValuesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagValuesResponse
+   */
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16484,11 +17171,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
   }
 
+  /**
+   * @summary Queries tag values.
+   *
+   * @param request ListTagValuesRequest
+   * @return ListTagValuesResponse
+   */
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Moves a resource to another resource group.
+   *
+   * @param request MoveResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16521,19 +17221,27 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Moves a resource to another resource group.
+   *
+   * @param request MoveResourceGroupRequest
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
   /**
-    * **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](~~213616~~) operation to query the status of the task.
-    * *   If an ACL is in the **Removing** state, the entries are being removed.
-    * *   If an ACL cannot be found, the entries are removed.
-    *
-    * @param request RemoveEntriesFromAclRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveEntriesFromAclResponse
+   * @summary Removes entries from an access control list (ACL).
+   *
+   * @description **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
+   * *   If an ACL is in the **Removing** state, the entries are being removed.
+   * *   If an ACL cannot be found, the entries are removed.
+   *
+   * @param request RemoveEntriesFromAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveEntriesFromAclResponse
    */
   async removeEntriesFromAclWithOptions(request: RemoveEntriesFromAclRequest, runtime: $Util.RuntimeOptions): Promise<RemoveEntriesFromAclResponse> {
     Util.validateModel(request);
@@ -16572,12 +17280,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](~~213616~~) operation to query the status of the task.
-    * *   If an ACL is in the **Removing** state, the entries are being removed.
-    * *   If an ACL cannot be found, the entries are removed.
-    *
-    * @param request RemoveEntriesFromAclRequest
-    * @return RemoveEntriesFromAclResponse
+   * @summary Removes entries from an access control list (ACL).
+   *
+   * @description **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
+   * *   If an ACL is in the **Removing** state, the entries are being removed.
+   * *   If an ACL cannot be found, the entries are removed.
+   *
+   * @param request RemoveEntriesFromAclRequest
+   * @return RemoveEntriesFromAclResponse
    */
   async removeEntriesFromAcl(request: RemoveEntriesFromAclRequest): Promise<RemoveEntriesFromAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16585,17 +17295,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-    * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
-    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
-    * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
-    *     *   If a backend server is in the **Removing** state, the server is being removed from the server group.
-    *     *   If a backend server cannot be found, the server is no longer in the server group.
-    *
-    * @param request RemoveServersFromServerGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveServersFromServerGroupResponse
+   * @summary Removes backend servers from a server group.
+   *
+   * @description **RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
+   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
+   *     *   If a backend server is in the **Removing** state, the server is being removed from the server group.
+   *     *   If a backend server cannot be found, the server is no longer in the server group.
+   *
+   * @param request RemoveServersFromServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveServersFromServerGroupResponse
    */
   async removeServersFromServerGroupWithOptions(request: RemoveServersFromServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveServersFromServerGroupResponse> {
     Util.validateModel(request);
@@ -16634,16 +17346,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-    * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
-    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
-    * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
-    *     *   If a backend server is in the **Removing** state, the server is being removed from the server group.
-    *     *   If a backend server cannot be found, the server is no longer in the server group.
-    *
-    * @param request RemoveServersFromServerGroupRequest
-    * @return RemoveServersFromServerGroupResponse
+   * @summary Removes backend servers from a server group.
+   *
+   * @description **RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
+   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
+   *     *   If a backend server is in the **Removing** state, the server is being removed from the server group.
+   *     *   If a backend server cannot be found, the server is no longer in the server group.
+   *
+   * @param request RemoveServersFromServerGroupRequest
+   * @return RemoveServersFromServerGroupResponse
    */
   async removeServersFromServerGroup(request: RemoveServersFromServerGroupRequest): Promise<RemoveServersFromServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16651,17 +17365,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-    * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
-    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
-    * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
-    *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
-    *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
-    *
-    * @param request ReplaceServersInServerGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReplaceServersInServerGroupResponse
+   * @summary Replaces backend servers in a server group.
+   *
+   * @description **ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
+   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
+   *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
+   *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
+   *
+   * @param request ReplaceServersInServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReplaceServersInServerGroupResponse
    */
   async replaceServersInServerGroupWithOptions(request: ReplaceServersInServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceServersInServerGroupResponse> {
     Util.validateModel(request);
@@ -16704,16 +17420,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-    * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
-    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
-    * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
-    *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
-    *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
-    *
-    * @param request ReplaceServersInServerGroupRequest
-    * @return ReplaceServersInServerGroupResponse
+   * @summary Replaces backend servers in a server group.
+   *
+   * @description **ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
+   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
+   *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
+   *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
+   *
+   * @param request ReplaceServersInServerGroupRequest
+   * @return ReplaceServersInServerGroupResponse
    */
   async replaceServersInServerGroup(request: ReplaceServersInServerGroupRequest): Promise<ReplaceServersInServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16721,13 +17439,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task.
-    * *   If a listener is in the **Configuring** state, the listener is being enabled.
-    * *   If a listener is in the **Running** state, the listener is enabled.
-    *
-    * @param request StartListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartListenerResponse
+   * @summary Enables a listener.
+   *
+   * @description **StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+   * *   If a listener is in the **Configuring** state, the listener is being enabled.
+   * *   If a listener is in the **Running** state, the listener is enabled.
+   *
+   * @param request StartListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartListenerResponse
    */
   async startListenerWithOptions(request: StartListenerRequest, runtime: $Util.RuntimeOptions): Promise<StartListenerResponse> {
     Util.validateModel(request);
@@ -16762,12 +17482,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task.
-    * *   If a listener is in the **Configuring** state, the listener is being enabled.
-    * *   If a listener is in the **Running** state, the listener is enabled.
-    *
-    * @param request StartListenerRequest
-    * @return StartListenerResponse
+   * @summary Enables a listener.
+   *
+   * @description **StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+   * *   If a listener is in the **Configuring** state, the listener is being enabled.
+   * *   If a listener is in the **Running** state, the listener is enabled.
+   *
+   * @param request StartListenerRequest
+   * @return StartListenerResponse
    */
   async startListener(request: StartListenerRequest): Promise<StartListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16775,11 +17497,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
-    *
-    * @param request StartShiftLoadBalancerZonesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartShiftLoadBalancerZonesResponse
+   * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
+   *
+   * @description This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+   *
+   * @param request StartShiftLoadBalancerZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartShiftLoadBalancerZonesResponse
    */
   async startShiftLoadBalancerZonesWithOptions(request: StartShiftLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<StartShiftLoadBalancerZonesResponse> {
     Util.validateModel(request);
@@ -16818,10 +17542,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
-    *
-    * @param request StartShiftLoadBalancerZonesRequest
-    * @return StartShiftLoadBalancerZonesResponse
+   * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
+   *
+   * @description This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+   *
+   * @param request StartShiftLoadBalancerZonesRequest
+   * @return StartShiftLoadBalancerZonesResponse
    */
   async startShiftLoadBalancerZones(request: StartShiftLoadBalancerZonesRequest): Promise<StartShiftLoadBalancerZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16829,13 +17555,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task:
-    * *   If a listener is in the **Configuring** state, the listener is being disabled.
-    * *   If a listener is in the **Stopped** state, the listener is disabled.
-    *
-    * @param request StopListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopListenerResponse
+   * @summary Disables a listener.
+   *
+   * @description **StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+   * *   If a listener is in the **Configuring** state, the listener is being disabled.
+   * *   If a listener is in the **Stopped** state, the listener is disabled.
+   *
+   * @param request StopListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopListenerResponse
    */
   async stopListenerWithOptions(request: StopListenerRequest, runtime: $Util.RuntimeOptions): Promise<StopListenerResponse> {
     Util.validateModel(request);
@@ -16870,18 +17598,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task:
-    * *   If a listener is in the **Configuring** state, the listener is being disabled.
-    * *   If a listener is in the **Stopped** state, the listener is disabled.
-    *
-    * @param request StopListenerRequest
-    * @return StopListenerResponse
+   * @summary Disables a listener.
+   *
+   * @description **StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+   * *   If a listener is in the **Configuring** state, the listener is being disabled.
+   * *   If a listener is in the **Stopped** state, the listener is disabled.
+   *
+   * @param request StopListenerRequest
+   * @return StopListenerResponse
    */
   async stopListener(request: StopListenerRequest): Promise<StopListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds tags to resources.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16914,11 +17651,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Adds tags to resources.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from resources.
+   *
+   * @param request UnTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnTagResourcesResponse
+   */
   async unTagResourcesWithOptions(request: UnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UnTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16959,20 +17709,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UnTagResourcesResponse>(await this.callApi(params, req, runtime), new UnTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from resources.
+   *
+   * @param request UnTagResourcesRequest
+   * @return UnTagResourcesResponse
+   */
   async unTagResources(request: UnTagResourcesRequest): Promise<UnTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unTagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * *   **UpdateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task.
-    *     *   If an AScript rule is in the **Configuring** state, the AScript rule is being updated.
-    *     *   If an AScript rule is in the **Available** state, the AScript rule is updated.
-    * *   In the following table, the maximum value of **N** is **4**.
-    *
-    * @param request UpdateAScriptsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAScriptsResponse
+   * @summary Updates AScript rules.
+   *
+   * @description *   **UpdateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task.
+   *     *   If an AScript rule is in the **Configuring** state, the AScript rule is being updated.
+   *     *   If an AScript rule is in the **Available** state, the AScript rule is updated.
+   * *   In the following table, the maximum value of **N** is **4**.
+   *
+   * @param request UpdateAScriptsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAScriptsResponse
    */
   async updateAScriptsWithOptions(request: UpdateAScriptsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAScriptsResponse> {
     Util.validateModel(request);
@@ -17007,19 +17765,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task.
-    *     *   If an AScript rule is in the **Configuring** state, the AScript rule is being updated.
-    *     *   If an AScript rule is in the **Available** state, the AScript rule is updated.
-    * *   In the following table, the maximum value of **N** is **4**.
-    *
-    * @param request UpdateAScriptsRequest
-    * @return UpdateAScriptsResponse
+   * @summary Updates AScript rules.
+   *
+   * @description *   **UpdateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task.
+   *     *   If an AScript rule is in the **Configuring** state, the AScript rule is being updated.
+   *     *   If an AScript rule is in the **Available** state, the AScript rule is updated.
+   * *   In the following table, the maximum value of **N** is **4**.
+   *
+   * @param request UpdateAScriptsRequest
+   * @return UpdateAScriptsResponse
    */
   async updateAScripts(request: UpdateAScriptsRequest): Promise<UpdateAScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAScriptsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the attributes of an access control list (ACL), such as the name.
+   *
+   * @param request UpdateAclAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAclAttributeResponse
+   */
   async updateAclAttributeWithOptions(request: UpdateAclAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAclAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17056,11 +17823,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAclAttributeResponse>(await this.callApi(params, req, runtime), new UpdateAclAttributeResponse({}));
   }
 
+  /**
+   * @summary Updates the attributes of an access control list (ACL), such as the name.
+   *
+   * @param request UpdateAclAttributeRequest
+   * @return UpdateAclAttributeResponse
+   */
   async updateAclAttribute(request: UpdateAclAttributeRequest): Promise<UpdateAclAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAclAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the attributes, such as the name and protocol, of a health check template.
+   *
+   * @param request UpdateHealthCheckTemplateAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateHealthCheckTemplateAttributeResponse
+   */
   async updateHealthCheckTemplateAttributeWithOptions(request: UpdateHealthCheckTemplateAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHealthCheckTemplateAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17141,19 +17921,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateHealthCheckTemplateAttributeResponse>(await this.callApi(params, req, runtime), new UpdateHealthCheckTemplateAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the attributes, such as the name and protocol, of a health check template.
+   *
+   * @param request UpdateHealthCheckTemplateAttributeRequest
+   * @return UpdateHealthCheckTemplateAttributeResponse
+   */
   async updateHealthCheckTemplateAttribute(request: UpdateHealthCheckTemplateAttributeRequest): Promise<UpdateHealthCheckTemplateAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateHealthCheckTemplateAttributeWithOptions(request, runtime);
   }
 
   /**
-    * **UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task.
-    * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
-    * *   If a listener is in the **Running** state, the configuration of the listener is modified.
-    *
-    * @param request UpdateListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateListenerAttributeResponse
+   * @summary Updates the attributes of a listener, such as the name and the default action.
+   *
+   * @description **UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
+   * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
+   * *   If a listener is in the **Running** state, the configuration of the listener is modified.
+   *
+   * @param request UpdateListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateListenerAttributeResponse
    */
   async updateListenerAttributeWithOptions(request: UpdateListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerAttributeResponse> {
     Util.validateModel(request);
@@ -17236,12 +18024,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task.
-    * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
-    * *   If a listener is in the **Running** state, the configuration of the listener is modified.
-    *
-    * @param request UpdateListenerAttributeRequest
-    * @return UpdateListenerAttributeResponse
+   * @summary Updates the attributes of a listener, such as the name and the default action.
+   *
+   * @description **UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
+   * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
+   * *   If a listener is in the **Running** state, the configuration of the listener is modified.
+   *
+   * @param request UpdateListenerAttributeRequest
+   * @return UpdateListenerAttributeResponse
    */
   async updateListenerAttribute(request: UpdateListenerAttributeRequest): Promise<UpdateListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17249,14 +18039,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task:
-    * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
-    * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
-    * > You can update the log configuration of a listener only after you enable the access log feature.
-    *
-    * @param request UpdateListenerLogConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateListenerLogConfigResponse
+   * @summary Updates the log configuration of a listener, such as the access log configuration.
+   *
+   * @description **UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
+   * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
+   * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
+   * > You can update the log configuration of a listener only after you enable the access log feature.
+   *
+   * @param request UpdateListenerLogConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateListenerLogConfigResponse
    */
   async updateListenerLogConfigWithOptions(request: UpdateListenerLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerLogConfigResponse> {
     Util.validateModel(request);
@@ -17299,13 +18091,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task:
-    * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
-    * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
-    * > You can update the log configuration of a listener only after you enable the access log feature.
-    *
-    * @param request UpdateListenerLogConfigRequest
-    * @return UpdateListenerLogConfigResponse
+   * @summary Updates the log configuration of a listener, such as the access log configuration.
+   *
+   * @description **UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
+   * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
+   * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
+   * > You can update the log configuration of a listener only after you enable the access log feature.
+   *
+   * @param request UpdateListenerLogConfigRequest
+   * @return UpdateListenerLogConfigResponse
    */
   async updateListenerLogConfig(request: UpdateListenerLogConfigRequest): Promise<UpdateListenerLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17313,17 +18107,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Prerequisites
-    * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](~~214358~~).
-    * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](~~120192~~).
-    * ## Usage notes
-    * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
-    * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
-    * *   If an ALB instance is in the **Active** state, the network type has been changed.
-    *
-    * @param request UpdateLoadBalancerAddressTypeConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateLoadBalancerAddressTypeConfigResponse
+   * @summary Modifies the network type of an Application Load Balancer (ALB) instance.
+   *
+   * @description ## Prerequisites
+   * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
+   * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
+   * ## Usage notes
+   * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
+   * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
+   * *   If an ALB instance is in the **Active** state, the network type has been changed.
+   *
+   * @param request UpdateLoadBalancerAddressTypeConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLoadBalancerAddressTypeConfigResponse
    */
   async updateLoadBalancerAddressTypeConfigWithOptions(request: UpdateLoadBalancerAddressTypeConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerAddressTypeConfigResponse> {
     Util.validateModel(request);
@@ -17366,16 +18162,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Prerequisites
-    * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](~~214358~~).
-    * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](~~120192~~).
-    * ## Usage notes
-    * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
-    * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
-    * *   If an ALB instance is in the **Active** state, the network type has been changed.
-    *
-    * @param request UpdateLoadBalancerAddressTypeConfigRequest
-    * @return UpdateLoadBalancerAddressTypeConfigResponse
+   * @summary Modifies the network type of an Application Load Balancer (ALB) instance.
+   *
+   * @description ## Prerequisites
+   * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
+   * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
+   * ## Usage notes
+   * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
+   * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
+   * *   If an ALB instance is in the **Active** state, the network type has been changed.
+   *
+   * @param request UpdateLoadBalancerAddressTypeConfigRequest
+   * @return UpdateLoadBalancerAddressTypeConfigResponse
    */
   async updateLoadBalancerAddressTypeConfig(request: UpdateLoadBalancerAddressTypeConfigRequest): Promise<UpdateLoadBalancerAddressTypeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17383,13 +18181,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
-    * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
-    * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
-    *
-    * @param request UpdateLoadBalancerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateLoadBalancerAttributeResponse
+   * @summary Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
+   *
+   * @description **UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
+   * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
+   *
+   * @param request UpdateLoadBalancerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLoadBalancerAttributeResponse
    */
   async updateLoadBalancerAttributeWithOptions(request: UpdateLoadBalancerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerAttributeResponse> {
     Util.validateModel(request);
@@ -17432,12 +18232,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
-    * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
-    * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
-    *
-    * @param request UpdateLoadBalancerAttributeRequest
-    * @return UpdateLoadBalancerAttributeResponse
+   * @summary Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
+   *
+   * @description **UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
+   * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
+   *
+   * @param request UpdateLoadBalancerAttributeRequest
+   * @return UpdateLoadBalancerAttributeResponse
    */
   async updateLoadBalancerAttribute(request: UpdateLoadBalancerAttributeRequest): Promise<UpdateLoadBalancerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17445,15 +18247,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ##
-    * *   You can upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance but you cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](~~214654~~).
-    * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
-    *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
-    *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance has been modified.
-    *
-    * @param request UpdateLoadBalancerEditionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateLoadBalancerEditionResponse
+   * @summary Changes the edition of an Application Load Balancer (ALB) instance.
+   *
+   * @description ##
+   * *   You can upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance but you cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
+   * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
+   *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance has been modified.
+   *
+   * @param request UpdateLoadBalancerEditionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLoadBalancerEditionResponse
    */
   async updateLoadBalancerEditionWithOptions(request: UpdateLoadBalancerEditionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerEditionResponse> {
     Util.validateModel(request);
@@ -17492,14 +18296,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ##
-    * *   You can upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance but you cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](~~214654~~).
-    * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
-    *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
-    *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance has been modified.
-    *
-    * @param request UpdateLoadBalancerEditionRequest
-    * @return UpdateLoadBalancerEditionResponse
+   * @summary Changes the edition of an Application Load Balancer (ALB) instance.
+   *
+   * @description ##
+   * *   You can upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance but you cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
+   * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
+   *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance has been modified.
+   *
+   * @param request UpdateLoadBalancerEditionRequest
+   * @return UpdateLoadBalancerEditionResponse
    */
   async updateLoadBalancerEdition(request: UpdateLoadBalancerEditionRequest): Promise<UpdateLoadBalancerEditionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17507,14 +18313,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
-    * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
-    * *   If an ALB instance is in the **Active** state, the zones are modified.
-    * > You may be charged after you call UpdateLoadBalancerZones.
-    *
-    * @param request UpdateLoadBalancerZonesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateLoadBalancerZonesResponse
+   * @summary Modifies the zones of an Application Load Balancer (ALB) instance.
+   *
+   * @description **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
+   * *   If an ALB instance is in the **Active** state, the zones are modified.
+   * > You may be charged after you call UpdateLoadBalancerZones.
+   *
+   * @param request UpdateLoadBalancerZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLoadBalancerZonesResponse
    */
   async updateLoadBalancerZonesWithOptions(request: UpdateLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerZonesResponse> {
     Util.validateModel(request);
@@ -17553,13 +18361,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
-    * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
-    * *   If an ALB instance is in the **Active** state, the zones are modified.
-    * > You may be charged after you call UpdateLoadBalancerZones.
-    *
-    * @param request UpdateLoadBalancerZonesRequest
-    * @return UpdateLoadBalancerZonesResponse
+   * @summary Modifies the zones of an Application Load Balancer (ALB) instance.
+   *
+   * @description **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
+   * *   If an ALB instance is in the **Active** state, the zones are modified.
+   * > You may be charged after you call UpdateLoadBalancerZones.
+   *
+   * @param request UpdateLoadBalancerZonesRequest
+   * @return UpdateLoadBalancerZonesResponse
    */
   async updateLoadBalancerZones(request: UpdateLoadBalancerZonesRequest): Promise<UpdateLoadBalancerZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17567,16 +18377,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule:
-    *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
-    *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
-    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-    *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
-    *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
-    *
-    * @param request UpdateRuleAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateRuleAttributeResponse
+   * @summary Updates a forwarding rule, such as the match condition, action, and name.
+   *
+   * @description *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+   *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
+   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
+   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
+   *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
+   *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
+   *
+   * @param request UpdateRuleAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRuleAttributeResponse
    */
   async updateRuleAttributeWithOptions(request: UpdateRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleAttributeResponse> {
     Util.validateModel(request);
@@ -17627,15 +18439,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule:
-    *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
-    *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
-    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-    *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
-    *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
-    *
-    * @param request UpdateRuleAttributeRequest
-    * @return UpdateRuleAttributeResponse
+   * @summary Updates a forwarding rule, such as the match condition, action, and name.
+   *
+   * @description *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+   *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
+   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
+   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
+   *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
+   *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
+   *
+   * @param request UpdateRuleAttributeRequest
+   * @return UpdateRuleAttributeResponse
    */
   async updateRuleAttribute(request: UpdateRuleAttributeRequest): Promise<UpdateRuleAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17643,16 +18457,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of the task.
-    * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
-    * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
-    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
-    *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
-    *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-    *
-    * @param request UpdateRulesAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateRulesAttributeResponse
+   * @summary Modifies the attributes of forwarding rules.
+   *
+   * @description **UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
+   * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
+   * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
+   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
+   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
+   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+   *
+   * @param request UpdateRulesAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRulesAttributeResponse
    */
   async updateRulesAttributeWithOptions(request: UpdateRulesAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRulesAttributeResponse> {
     Util.validateModel(request);
@@ -17687,15 +18503,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of the task.
-    * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
-    * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
-    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
-    *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
-    *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-    *
-    * @param request UpdateRulesAttributeRequest
-    * @return UpdateRulesAttributeResponse
+   * @summary Modifies the attributes of forwarding rules.
+   *
+   * @description **UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
+   * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
+   * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
+   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
+   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
+   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+   *
+   * @param request UpdateRulesAttributeRequest
+   * @return UpdateRulesAttributeResponse
    */
   async updateRulesAttribute(request: UpdateRulesAttributeRequest): Promise<UpdateRulesAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17703,14 +18521,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ##
-    * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](~~213609~~) to query the status of the task.
-    * *   If a security policy is in the **Configuring** state, the security policy is being updated.
-    * *   If a security policy is in the **Available** state, the security policy is updated.
-    *
-    * @param request UpdateSecurityPolicyAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateSecurityPolicyAttributeResponse
+   * @summary Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
+   *
+   * @description ##
+   * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](https://help.aliyun.com/document_detail/213609.html) to query the status of the task.
+   * *   If a security policy is in the **Configuring** state, the security policy is being updated.
+   * *   If a security policy is in the **Available** state, the security policy is updated.
+   *
+   * @param request UpdateSecurityPolicyAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSecurityPolicyAttributeResponse
    */
   async updateSecurityPolicyAttributeWithOptions(request: UpdateSecurityPolicyAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSecurityPolicyAttributeResponse> {
     Util.validateModel(request);
@@ -17757,13 +18577,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ##
-    * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](~~213609~~) to query the status of the task.
-    * *   If a security policy is in the **Configuring** state, the security policy is being updated.
-    * *   If a security policy is in the **Available** state, the security policy is updated.
-    *
-    * @param request UpdateSecurityPolicyAttributeRequest
-    * @return UpdateSecurityPolicyAttributeResponse
+   * @summary Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
+   *
+   * @description ##
+   * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](https://help.aliyun.com/document_detail/213609.html) to query the status of the task.
+   * *   If a security policy is in the **Configuring** state, the security policy is being updated.
+   * *   If a security policy is in the **Available** state, the security policy is updated.
+   *
+   * @param request UpdateSecurityPolicyAttributeRequest
+   * @return UpdateSecurityPolicyAttributeResponse
    */
   async updateSecurityPolicyAttribute(request: UpdateSecurityPolicyAttributeRequest): Promise<UpdateSecurityPolicyAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17771,20 +18593,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group:
-    * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
-    * *   If a server group is in the **Available** state, the configuration of the server group is modified.
-    *
-    * @param request UpdateServerGroupAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateServerGroupAttributeResponse
+   * @summary Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+   *
+   * @description ## Description
+   * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group:
+   * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
+   * *   If a server group is in the **Available** state, the configuration of the server group is modified.
+   *
+   * @param request UpdateServerGroupAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServerGroupAttributeResponse
    */
   async updateServerGroupAttributeWithOptions(request: UpdateServerGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServerGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.connectionDrainConfig)) {
+      query["ConnectionDrainConfig"] = request.connectionDrainConfig;
     }
 
     if (!Util.isUnset(request.dryRun)) {
@@ -17809,6 +18637,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.slowStartConfig)) {
+      query["SlowStartConfig"] = request.slowStartConfig;
     }
 
     if (!Util.isUnset(request.stickySessionConfig)) {
@@ -17841,13 +18673,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group:
-    * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
-    * *   If a server group is in the **Available** state, the configuration of the server group is modified.
-    *
-    * @param request UpdateServerGroupAttributeRequest
-    * @return UpdateServerGroupAttributeResponse
+   * @summary Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+   *
+   * @description ## Description
+   * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group:
+   * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
+   * *   If a server group is in the **Available** state, the configuration of the server group is modified.
+   *
+   * @param request UpdateServerGroupAttributeRequest
+   * @return UpdateServerGroupAttributeResponse
    */
   async updateServerGroupAttribute(request: UpdateServerGroupAttributeRequest): Promise<UpdateServerGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17855,17 +18689,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-    * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
-    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
-    * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
-    *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
-    *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-    *
-    * @param request UpdateServerGroupServersAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateServerGroupServersAttributeResponse
+   * @summary Modifies the configurations, such as the backend server weight and description, of a server group.
+   *
+   * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
+   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
+   *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
+   *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
+   *
+   * @param request UpdateServerGroupServersAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServerGroupServersAttributeResponse
    */
   async updateServerGroupServersAttributeWithOptions(request: UpdateServerGroupServersAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServerGroupServersAttributeResponse> {
     Util.validateModel(request);
@@ -17904,16 +18740,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-    * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
-    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
-    * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
-    *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
-    *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-    *
-    * @param request UpdateServerGroupServersAttributeRequest
-    * @return UpdateServerGroupServersAttributeResponse
+   * @summary Modifies the configurations, such as the backend server weight and description, of a server group.
+   *
+   * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
+   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
+   *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
+   *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
+   *
+   * @param request UpdateServerGroupServersAttributeRequest
+   * @return UpdateServerGroupServersAttributeResponse
    */
   async updateServerGroupServersAttribute(request: UpdateServerGroupServersAttributeRequest): Promise<UpdateServerGroupServersAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
