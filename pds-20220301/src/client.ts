@@ -3,7 +3,6 @@
  *
  */
 import Util, * as $Util from '@alicloud/tea-util';
-import SPI from '@alicloud/gateway-spi';
 import GatewayClient from '@alicloud/gateway-pds';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
@@ -284,6 +283,179 @@ export class AggregationsGroup extends $tea.Model {
     return {
       count: 'number',
       value: 'Buffer',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Album extends $tea.Model {
+  albumId?: string;
+  baseFaceFile?: File;
+  baseFaceGroupId?: string;
+  coverFile?: File;
+  createdAt?: string;
+  description?: string;
+  fileCount?: number;
+  name?: string;
+  owner?: string;
+  updatedAt?: string;
+  userTags?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      albumId: 'album_id',
+      baseFaceFile: 'base_face_file',
+      baseFaceGroupId: 'base_face_group_id',
+      coverFile: 'cover_file',
+      createdAt: 'created_at',
+      description: 'description',
+      fileCount: 'file_count',
+      name: 'name',
+      owner: 'owner',
+      updatedAt: 'updated_at',
+      userTags: 'user_tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      albumId: 'string',
+      baseFaceFile: File,
+      baseFaceGroupId: 'string',
+      coverFile: File,
+      createdAt: 'string',
+      description: 'string',
+      fileCount: 'number',
+      name: 'string',
+      owner: 'string',
+      updatedAt: 'string',
+      userTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlbumFile extends $tea.Model {
+  albumId?: string;
+  category?: string;
+  contentHash?: string;
+  contentHashName?: string;
+  contentType?: string;
+  crc64Hash?: string;
+  createdAt?: string;
+  description?: string;
+  domainId?: string;
+  downloadUrl?: string;
+  driveId?: string;
+  exFieldsInfo?: { [key: string]: any };
+  fileExtension?: string;
+  fileId?: string;
+  hidden?: boolean;
+  imageMediaMetadata?: ImageMediaMetadata;
+  investigationInfo?: InvestigationInfo;
+  joinedAt?: number;
+  labels?: string[];
+  localCreatedAt?: string;
+  localModifiedAt?: string;
+  mimeType?: string;
+  name?: string;
+  objectUri?: string;
+  parentFileId?: string;
+  revisionId?: string;
+  size?: number;
+  starred?: boolean;
+  status?: string;
+  thumbnail?: string;
+  thumbnailUrls?: { [key: string]: string };
+  transhedAt?: string;
+  type?: string;
+  updatedAt?: string;
+  uploadId?: string;
+  userMeta?: string;
+  static names(): { [key: string]: string } {
+    return {
+      albumId: 'album_id',
+      category: 'category',
+      contentHash: 'content_hash',
+      contentHashName: 'content_hash_name',
+      contentType: 'content_type',
+      crc64Hash: 'crc64_hash',
+      createdAt: 'created_at',
+      description: 'description',
+      domainId: 'domain_id',
+      downloadUrl: 'download_url',
+      driveId: 'drive_id',
+      exFieldsInfo: 'ex_fields_info',
+      fileExtension: 'file_extension',
+      fileId: 'file_id',
+      hidden: 'hidden',
+      imageMediaMetadata: 'image_media_metadata',
+      investigationInfo: 'investigation_info',
+      joinedAt: 'joined_at',
+      labels: 'labels',
+      localCreatedAt: 'local_created_at',
+      localModifiedAt: 'local_modified_at',
+      mimeType: 'mime_type',
+      name: 'name',
+      objectUri: 'object_uri',
+      parentFileId: 'parent_file_id',
+      revisionId: 'revision_id',
+      size: 'size',
+      starred: 'starred',
+      status: 'status',
+      thumbnail: 'thumbnail',
+      thumbnailUrls: 'thumbnail_urls',
+      transhedAt: 'transhed_at',
+      type: 'type',
+      updatedAt: 'updated_at',
+      uploadId: 'upload_id',
+      userMeta: 'user_meta',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      albumId: 'string',
+      category: 'string',
+      contentHash: 'string',
+      contentHashName: 'string',
+      contentType: 'string',
+      crc64Hash: 'string',
+      createdAt: 'string',
+      description: 'string',
+      domainId: 'string',
+      downloadUrl: 'string',
+      driveId: 'string',
+      exFieldsInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      fileExtension: 'string',
+      fileId: 'string',
+      hidden: 'boolean',
+      imageMediaMetadata: ImageMediaMetadata,
+      investigationInfo: InvestigationInfo,
+      joinedAt: 'number',
+      labels: { 'type': 'array', 'itemType': 'string' },
+      localCreatedAt: 'string',
+      localModifiedAt: 'string',
+      mimeType: 'string',
+      name: 'string',
+      objectUri: 'string',
+      parentFileId: 'string',
+      revisionId: 'string',
+      size: 'number',
+      starred: 'boolean',
+      status: 'string',
+      thumbnail: 'string',
+      thumbnailUrls: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      transhedAt: 'string',
+      type: 'string',
+      updatedAt: 'string',
+      uploadId: 'string',
+      userMeta: 'string',
     };
   }
 
@@ -590,6 +762,34 @@ export class AuthenticationInfo extends $tea.Model {
       authenticationType: 'string',
       extra: 'string',
       identity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BaseAlbumFileOperationResult extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  file?: CommonFileItem;
+  isSucceed?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'error_code',
+      errorMessage: 'error_message',
+      file: 'file',
+      isSucceed: 'is_succeed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      file: CommonFileItem,
+      isSucceed: 'boolean',
     };
   }
 
@@ -1188,6 +1388,31 @@ export class ClearRecycleBinItem extends $tea.Model {
   }
 }
 
+export class CommonFileItem extends $tea.Model {
+  driveId?: string;
+  fileId?: string;
+  revisionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      fileId: 'file_id',
+      revisionId: 'revision_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      fileId: 'string',
+      revisionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Condition extends $tea.Model {
   intEquals?: number[];
   intNotEquals?: number[];
@@ -1606,19 +1831,31 @@ export class CustomSideLinkConfig extends $tea.Model {
 }
 
 export class DataCName extends $tea.Model {
-  dataCname?: string;
+  certExpireTime?: number;
+  certName?: string;
+  cname?: string;
+  cnameType?: string;
   location?: string;
+  storeId?: string;
   static names(): { [key: string]: string } {
     return {
-      dataCname: 'data_cname',
+      certExpireTime: 'cert_expire_time',
+      certName: 'cert_name',
+      cname: 'cname',
+      cnameType: 'cname_type',
       location: 'location',
+      storeId: 'store_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataCname: 'string',
+      certExpireTime: 'number',
+      certName: 'string',
+      cname: 'string',
+      cnameType: 'string',
       location: 'string',
+      storeId: 'string',
     };
   }
 
@@ -1629,6 +1866,7 @@ export class DataCName extends $tea.Model {
 
 export class Domain extends $tea.Model {
   createdAt?: string;
+  dataHashName?: string;
   description?: string;
   domainId?: string;
   domainName?: string;
@@ -1646,6 +1884,7 @@ export class Domain extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       createdAt: 'created_at',
+      dataHashName: 'data_hash_name',
       description: 'description',
       domainId: 'domain_id',
       domainName: 'domain_name',
@@ -1666,6 +1905,7 @@ export class Domain extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createdAt: 'string',
+      dataHashName: 'string',
       description: 'string',
       domainId: 'string',
       domainName: 'string',
@@ -1733,6 +1973,22 @@ export class DomainBuildClientConfig extends $tea.Model {
     return {
       copyright: 'string',
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DomainEndpoints extends $tea.Model {
+  static names(): { [key: string]: string } {
+    return {
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
     };
   }
 
@@ -1998,7 +2254,7 @@ export class File extends $tea.Model {
   fileExtension?: string;
   fileId?: string;
   hidden?: boolean;
-  investigationInfo?: FileInvestigationInfo;
+  imageMediaMetadata?: ImageMediaMetadata;
   labels?: string[];
   localCreatedAt?: string;
   localModifiedAt?: string;
@@ -2031,7 +2287,7 @@ export class File extends $tea.Model {
       fileExtension: 'file_extension',
       fileId: 'file_id',
       hidden: 'hidden',
-      investigationInfo: 'investigation_info',
+      imageMediaMetadata: 'image_media_metadata',
       labels: 'labels',
       localCreatedAt: 'local_created_at',
       localModifiedAt: 'local_modified_at',
@@ -2067,7 +2323,7 @@ export class File extends $tea.Model {
       fileExtension: 'string',
       fileId: 'string',
       hidden: 'boolean',
-      investigationInfo: FileInvestigationInfo,
+      imageMediaMetadata: ImageMediaMetadata,
       labels: { 'type': 'array', 'itemType': 'string' },
       localCreatedAt: 'string',
       localModifiedAt: 'string',
@@ -3227,6 +3483,7 @@ export class ShareLink extends $tea.Model {
   previewLimit?: number;
   reportCount?: number;
   saveCount?: number;
+  saveDownloadLimit?: number;
   saveLimit?: number;
   shareAllFiles?: boolean;
   shareId?: string;
@@ -3254,6 +3511,7 @@ export class ShareLink extends $tea.Model {
       previewLimit: 'preview_limit',
       reportCount: 'report_count',
       saveCount: 'save_count',
+      saveDownloadLimit: 'save_download_limit',
       saveLimit: 'save_limit',
       shareAllFiles: 'share_all_files',
       shareId: 'share_id',
@@ -3284,6 +3542,7 @@ export class ShareLink extends $tea.Model {
       previewLimit: 'number',
       reportCount: 'number',
       saveCount: 'number',
+      saveDownloadLimit: 'number',
       saveLimit: 'number',
       shareAllFiles: 'boolean',
       shareId: 'string',
@@ -3646,6 +3905,65 @@ export class Token extends $tea.Model {
   }
 }
 
+export class UCDataRefFileInfo extends $tea.Model {
+  driveId?: string;
+  fileId?: string;
+  revisionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      fileId: 'file_id',
+      revisionId: 'revision_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      fileId: 'string',
+      revisionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UCObjectInfo extends $tea.Model {
+  bucket?: string;
+  md5?: string;
+  objectKey?: string;
+  region?: string;
+  sha1?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'bucket',
+      md5: 'md5',
+      objectKey: 'object_key',
+      region: 'region',
+      sha1: 'sha1',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      md5: 'string',
+      objectKey: 'string',
+      region: 'string',
+      sha1: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UncompressConfig extends $tea.Model {
   enable?: boolean;
   version?: string;
@@ -3729,6 +4047,8 @@ export class UncompressedFileInfo extends $tea.Model {
 
 export class UploadFormInfo extends $tea.Model {
   bucketName?: string;
+  endpoint?: string;
+  formData?: { [key: string]: string };
   objectKey?: string;
   ossAccessKeyId?: string;
   ossEndPoint?: string;
@@ -3738,6 +4058,8 @@ export class UploadFormInfo extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       bucketName: 'bucket_name',
+      endpoint: 'endpoint',
+      formData: 'form_data',
       objectKey: 'object_key',
       ossAccessKeyId: 'oss_access_key_id',
       ossEndPoint: 'oss_end_point',
@@ -3750,6 +4072,8 @@ export class UploadFormInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       bucketName: 'string',
+      endpoint: 'string',
+      formData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       objectKey: 'string',
       ossAccessKeyId: 'string',
       ossEndPoint: 'string',
@@ -4100,11 +4424,13 @@ export class VideoPreviewPlayInfo extends $tea.Model {
   category?: string;
   liveTranscodingTaskList?: VideoPreviewPlayInfoLiveTranscodingTaskList[];
   meta?: VideoPreviewPlayInfoMeta;
+  offlineVideoTranscodingList?: VideoPreviewPlayInfoOfflineVideoTranscodingList[];
   static names(): { [key: string]: string } {
     return {
       category: 'category',
       liveTranscodingTaskList: 'live_transcoding_task_list',
       meta: 'meta',
+      offlineVideoTranscodingList: 'offline_video_transcoding_list',
     };
   }
 
@@ -4113,6 +4439,7 @@ export class VideoPreviewPlayInfo extends $tea.Model {
       category: 'string',
       liveTranscodingTaskList: { 'type': 'array', 'itemType': VideoPreviewPlayInfoLiveTranscodingTaskList },
       meta: VideoPreviewPlayInfoMeta,
+      offlineVideoTranscodingList: { 'type': 'array', 'itemType': VideoPreviewPlayInfoOfflineVideoTranscodingList },
     };
   }
 
@@ -4411,8 +4738,8 @@ export class AddGroupMemberRequest extends $tea.Model {
 }
 
 export class AddGroupMemberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4480,9 +4807,9 @@ export class AddStoryFilesResponseBody extends $tea.Model {
 }
 
 export class AddStoryFilesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddStoryFilesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddStoryFilesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4533,8 +4860,8 @@ export class AssignRoleRequest extends $tea.Model {
 }
 
 export class AssignRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4629,8 +4956,8 @@ export class AuthorizeShrinkRequest extends $tea.Model {
 }
 
 export class AuthorizeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4692,9 +5019,9 @@ export class BatchResponseBody extends $tea.Model {
 }
 
 export class BatchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4745,8 +5072,8 @@ export class CancelAssignRoleRequest extends $tea.Model {
 }
 
 export class CancelAssignRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4786,8 +5113,8 @@ export class CancelShareLinkRequest extends $tea.Model {
 }
 
 export class CancelShareLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4852,9 +5179,9 @@ export class ClearRecyclebinResponseBody extends $tea.Model {
 }
 
 export class ClearRecyclebinResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ClearRecyclebinResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClearRecyclebinResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4902,9 +5229,9 @@ export class CompleteFileRequest extends $tea.Model {
 }
 
 export class CompleteFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: File;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: File;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4989,9 +5316,9 @@ export class CopyFileResponseBody extends $tea.Model {
 }
 
 export class CopyFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CopyFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CopyFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5073,9 +5400,9 @@ export class CreateCustomizedStoryResponseBody extends $tea.Model {
 }
 
 export class CreateCustomizedStoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCustomizedStoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCustomizedStoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5135,9 +5462,9 @@ export class CreateDomainRequest extends $tea.Model {
 }
 
 export class CreateDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Domain;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Domain;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5200,19 +5527,49 @@ export class CreateDriveRequest extends $tea.Model {
 }
 
 export class CreateDriveResponseBody extends $tea.Model {
+  createdAt?: string;
+  creator?: string;
+  description?: string;
   domainId?: string;
   driveId?: string;
+  driveName?: string;
+  driveType?: string;
+  owner?: string;
+  ownerType?: string;
+  status?: string;
+  totalSize?: number;
+  usedSize?: number;
   static names(): { [key: string]: string } {
     return {
+      createdAt: 'created_at',
+      creator: 'creator',
+      description: 'description',
       domainId: 'domain_id',
       driveId: 'drive_id',
+      driveName: 'drive_name',
+      driveType: 'drive_type',
+      owner: 'owner',
+      ownerType: 'owner_type',
+      status: 'status',
+      totalSize: 'total_size',
+      usedSize: 'used_size',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createdAt: 'string',
+      creator: 'string',
+      description: 'string',
       domainId: 'string',
       driveId: 'string',
+      driveName: 'string',
+      driveType: 'string',
+      owner: 'string',
+      ownerType: 'string',
+      status: 'string',
+      totalSize: 'number',
+      usedSize: 'number',
     };
   }
 
@@ -5222,9 +5579,9 @@ export class CreateDriveResponseBody extends $tea.Model {
 }
 
 export class CreateDriveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDriveResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDriveResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5375,9 +5732,9 @@ export class CreateFileResponseBody extends $tea.Model {
 }
 
 export class CreateFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5428,9 +5785,9 @@ export class CreateGroupRequest extends $tea.Model {
 }
 
 export class CreateGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Group;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Group;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5484,8 +5841,8 @@ export class CreateIdentityToBenefitPkgMappingRequest extends $tea.Model {
 }
 
 export class CreateIdentityToBenefitPkgMappingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5574,9 +5931,9 @@ export class CreateOrderResponseBody extends $tea.Model {
 }
 
 export class CreateOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5599,6 +5956,8 @@ export class CreateOrderResponse extends $tea.Model {
 }
 
 export class CreateShareLinkRequest extends $tea.Model {
+  creatable?: boolean;
+  creatableFileIdList?: string[];
   description?: string;
   disableDownload?: boolean;
   disablePreview?: boolean;
@@ -5607,7 +5966,6 @@ export class CreateShareLinkRequest extends $tea.Model {
   driveId?: string;
   expiration?: string;
   fileIdList?: string[];
-  officeEditable?: boolean;
   previewLimit?: number;
   saveLimit?: number;
   shareAllFiles?: boolean;
@@ -5616,6 +5974,8 @@ export class CreateShareLinkRequest extends $tea.Model {
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      creatable: 'creatable',
+      creatableFileIdList: 'creatable_file_id_list',
       description: 'description',
       disableDownload: 'disable_download',
       disablePreview: 'disable_preview',
@@ -5624,7 +5984,6 @@ export class CreateShareLinkRequest extends $tea.Model {
       driveId: 'drive_id',
       expiration: 'expiration',
       fileIdList: 'file_id_list',
-      officeEditable: 'office_editable',
       previewLimit: 'preview_limit',
       saveLimit: 'save_limit',
       shareAllFiles: 'share_all_files',
@@ -5636,6 +5995,8 @@ export class CreateShareLinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      creatable: 'boolean',
+      creatableFileIdList: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
       disableDownload: 'boolean',
       disablePreview: 'boolean',
@@ -5644,7 +6005,6 @@ export class CreateShareLinkRequest extends $tea.Model {
       driveId: 'string',
       expiration: 'string',
       fileIdList: { 'type': 'array', 'itemType': 'string' },
-      officeEditable: 'boolean',
       previewLimit: 'number',
       saveLimit: 'number',
       shareAllFiles: 'boolean',
@@ -5660,9 +6020,9 @@ export class CreateShareLinkRequest extends $tea.Model {
 }
 
 export class CreateShareLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ShareLink;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ShareLink;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5723,9 +6083,9 @@ export class CreateSimilarImageClusterTaskResponseBody extends $tea.Model {
 }
 
 export class CreateSimilarImageClusterTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSimilarImageClusterTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSimilarImageClusterTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5816,9 +6176,9 @@ export class CreateStoryResponseBody extends $tea.Model {
 }
 
 export class CreateStoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateStoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateStoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5951,9 +6311,9 @@ export class CreateUserResponseBody extends $tea.Model {
 }
 
 export class CreateUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6023,9 +6383,9 @@ export class CsiGetFileInfoResponseBody extends $tea.Model {
 }
 
 export class CsiGetFileInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CsiGetFileInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CsiGetFileInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6067,8 +6427,8 @@ export class DeleteDomainRequest extends $tea.Model {
 }
 
 export class DeleteDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6108,8 +6468,8 @@ export class DeleteDriveRequest extends $tea.Model {
 }
 
 export class DeleteDriveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6180,9 +6540,9 @@ export class DeleteFileResponseBody extends $tea.Model {
 }
 
 export class DeleteFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6224,8 +6584,8 @@ export class DeleteGroupRequest extends $tea.Model {
 }
 
 export class DeleteGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6271,8 +6631,8 @@ export class DeleteRevisionRequest extends $tea.Model {
 }
 
 export class DeleteRevisionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6334,9 +6694,9 @@ export class DeleteStoryResponseBody extends $tea.Model {
 }
 
 export class DeleteStoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteStoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteStoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6378,8 +6738,8 @@ export class DeleteUserRequest extends $tea.Model {
 }
 
 export class DeleteUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6441,9 +6801,9 @@ export class DeltaGetLastCursorResponseBody extends $tea.Model {
 }
 
 export class DeltaGetLastCursorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeltaGetLastCursorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeltaGetLastCursorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6500,8 +6860,8 @@ export class DownloadFileRequest extends $tea.Model {
 }
 
 export class DownloadFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6547,8 +6907,8 @@ export class FileAddPermissionRequest extends $tea.Model {
 }
 
 export class FileAddPermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6594,8 +6954,8 @@ export class FileDeleteUserTagsRequest extends $tea.Model {
 }
 
 export class FileDeleteUserTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6638,9 +6998,9 @@ export class FileListPermissionRequest extends $tea.Model {
 }
 
 export class FileListPermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FilePermissionMember[];
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FilePermissionMember[];
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6707,9 +7067,9 @@ export class FilePutUserTagsResponseBody extends $tea.Model {
 }
 
 export class FilePutUserTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FilePutUserTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FilePutUserTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6757,8 +7117,8 @@ export class FileRemovePermissionRequest extends $tea.Model {
 }
 
 export class FileRemovePermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6865,9 +7225,9 @@ export class GetAsyncTaskResponseBody extends $tea.Model {
 }
 
 export class GetAsyncTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAsyncTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAsyncTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6909,9 +7269,9 @@ export class GetDefaultDriveRequest extends $tea.Model {
 }
 
 export class GetDefaultDriveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Drive;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Drive;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6935,10 +7295,12 @@ export class GetDefaultDriveResponse extends $tea.Model {
 
 export class GetDomainRequest extends $tea.Model {
   domainId?: string;
+  fields?: string;
   getQuotaUsed?: boolean;
   static names(): { [key: string]: string } {
     return {
       domainId: 'domain_id',
+      fields: 'fields',
       getQuotaUsed: 'get_quota_used',
     };
   }
@@ -6946,6 +7308,7 @@ export class GetDomainRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainId: 'string',
+      fields: 'string',
       getQuotaUsed: 'boolean',
     };
   }
@@ -6956,9 +7319,9 @@ export class GetDomainRequest extends $tea.Model {
 }
 
 export class GetDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Domain;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Domain;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7009,9 +7372,9 @@ export class GetDomainQuotaResponseBody extends $tea.Model {
 }
 
 export class GetDomainQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDomainQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDomainQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7105,9 +7468,9 @@ export class GetDownloadUrlResponseBody extends $tea.Model {
 }
 
 export class GetDownloadUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDownloadUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDownloadUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7149,9 +7512,9 @@ export class GetDriveRequest extends $tea.Model {
 }
 
 export class GetDriveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Drive;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Drive;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7208,9 +7571,9 @@ export class GetFileRequest extends $tea.Model {
 }
 
 export class GetFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: File;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: File;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7252,9 +7615,9 @@ export class GetGroupRequest extends $tea.Model {
 }
 
 export class GetGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Group;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Group;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7302,9 +7665,9 @@ export class GetIdentityToBenefitPkgMappingRequest extends $tea.Model {
 }
 
 export class GetIdentityToBenefitPkgMappingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: IdentityToBenefitPkgMapping;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: IdentityToBenefitPkgMapping;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7352,9 +7715,9 @@ export class GetLinkInfoRequest extends $tea.Model {
 }
 
 export class GetLinkInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AccountLinkInfo;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AccountLinkInfo;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7415,9 +7778,9 @@ export class GetLinkInfoByUserIdResponseBody extends $tea.Model {
 }
 
 export class GetLinkInfoByUserIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLinkInfoByUserIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLinkInfoByUserIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7471,9 +7834,9 @@ export class GetRevisionRequest extends $tea.Model {
 }
 
 export class GetRevisionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Revision;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Revision;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7515,9 +7878,9 @@ export class GetShareLinkRequest extends $tea.Model {
 }
 
 export class GetShareLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ShareLink;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ShareLink;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7635,9 +7998,9 @@ export class GetShareLinkByAnonymousResponseBody extends $tea.Model {
 }
 
 export class GetShareLinkByAnonymousResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetShareLinkByAnonymousResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetShareLinkByAnonymousResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7707,9 +8070,9 @@ export class GetShareLinkTokenResponseBody extends $tea.Model {
 }
 
 export class GetShareLinkTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetShareLinkTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetShareLinkTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7772,9 +8135,9 @@ export class GetStoryRequest extends $tea.Model {
 }
 
 export class GetStoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Story;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Story;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7838,9 +8201,9 @@ export class GetTaskStatusResponseBody extends $tea.Model {
 }
 
 export class GetTaskStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTaskStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7928,9 +8291,9 @@ export class GetUploadUrlResponseBody extends $tea.Model {
 }
 
 export class GetUploadUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUploadUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUploadUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7972,9 +8335,9 @@ export class GetUserRequest extends $tea.Model {
 }
 
 export class GetUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: User;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: User;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8077,9 +8440,9 @@ export class GetVideoPreviewPlayInfoResponseBody extends $tea.Model {
 }
 
 export class GetVideoPreviewPlayInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVideoPreviewPlayInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVideoPreviewPlayInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8161,9 +8524,9 @@ export class GetVideoPreviewPlayMetaResponseBody extends $tea.Model {
 }
 
 export class GetVideoPreviewPlayMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVideoPreviewPlayMetaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVideoPreviewPlayMetaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8208,8 +8571,8 @@ export class GroupUpdateNameRequest extends $tea.Model {
 }
 
 export class GroupUpdateNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8270,9 +8633,9 @@ export class ImportUserRequest extends $tea.Model {
 }
 
 export class ImportUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: User;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: User;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8296,15 +8659,24 @@ export class ImportUserResponse extends $tea.Model {
 
 export class InvestigateFileRequest extends $tea.Model {
   driveFileIds?: InvestigateFileRequestDriveFileIds[];
+  policy?: InvestigateFileRequestPolicy;
+  recursive?: boolean;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       driveFileIds: 'drive_file_ids',
+      policy: 'policy',
+      recursive: 'recursive',
+      userData: 'user_data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       driveFileIds: { 'type': 'array', 'itemType': InvestigateFileRequestDriveFileIds },
+      policy: InvestigateFileRequestPolicy,
+      recursive: 'boolean',
+      userData: 'string',
     };
   }
 
@@ -8314,8 +8686,8 @@ export class InvestigateFileRequest extends $tea.Model {
 }
 
 export class InvestigateFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8364,9 +8736,9 @@ export class LinkAccountRequest extends $tea.Model {
 }
 
 export class LinkAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Token;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Token;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8442,9 +8814,9 @@ export class ListAddressGroupsResponseBody extends $tea.Model {
 }
 
 export class ListAddressGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAddressGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAddressGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8517,9 +8889,9 @@ export class ListAssignmentResponseBody extends $tea.Model {
 }
 
 export class ListAssignmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAssignmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAssignmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8595,9 +8967,9 @@ export class ListDeltaResponseBody extends $tea.Model {
 }
 
 export class ListDeltaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDeltaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDeltaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8623,11 +8995,13 @@ export class ListDomainsRequest extends $tea.Model {
   limit?: number;
   marker?: string;
   parentDomainId?: string;
+  serviceCode?: string;
   static names(): { [key: string]: string } {
     return {
       limit: 'limit',
       marker: 'marker',
       parentDomainId: 'parent_domain_id',
+      serviceCode: 'service_code',
     };
   }
 
@@ -8636,6 +9010,7 @@ export class ListDomainsRequest extends $tea.Model {
       limit: 'number',
       marker: 'string',
       parentDomainId: 'string',
+      serviceCode: 'string',
     };
   }
 
@@ -8667,9 +9042,9 @@ export class ListDomainsResponseBody extends $tea.Model {
 }
 
 export class ListDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDomainsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8742,9 +9117,9 @@ export class ListDriveResponseBody extends $tea.Model {
 }
 
 export class ListDriveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDriveResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDriveResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8823,9 +9198,9 @@ export class ListFacegroupsResponseBody extends $tea.Model {
 }
 
 export class ListFacegroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFacegroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFacegroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8922,9 +9297,9 @@ export class ListFileResponseBody extends $tea.Model {
 }
 
 export class ListFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8991,9 +9366,9 @@ export class ListGroupResponseBody extends $tea.Model {
 }
 
 export class ListGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9069,9 +9444,9 @@ export class ListGroupMemberResponseBody extends $tea.Model {
 }
 
 export class ListGroupMemberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListGroupMemberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGroupMemberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9113,9 +9488,9 @@ export class ListIdentityRoleRequest extends $tea.Model {
 }
 
 export class ListIdentityRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BaseRoleMemberResponse;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BaseRoleMemberResponse;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9182,9 +9557,9 @@ export class ListIdentityToBenefitPkgMappingResponseBody extends $tea.Model {
 }
 
 export class ListIdentityToBenefitPkgMappingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIdentityToBenefitPkgMappingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIdentityToBenefitPkgMappingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9251,9 +9626,9 @@ export class ListMyDrivesResponseBody extends $tea.Model {
 }
 
 export class ListMyDrivesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListMyDrivesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMyDrivesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9300,10 +9675,12 @@ export class ListMyGroupDriveRequest extends $tea.Model {
 export class ListMyGroupDriveResponseBody extends $tea.Model {
   items?: Drive[];
   nextMarker?: string;
+  rootGroupDrive?: Drive;
   static names(): { [key: string]: string } {
     return {
       items: 'items',
       nextMarker: 'next_marker',
+      rootGroupDrive: 'root_group_drive',
     };
   }
 
@@ -9311,6 +9688,7 @@ export class ListMyGroupDriveResponseBody extends $tea.Model {
     return {
       items: { 'type': 'array', 'itemType': Drive },
       nextMarker: 'string',
+      rootGroupDrive: Drive,
     };
   }
 
@@ -9320,9 +9698,9 @@ export class ListMyGroupDriveResponseBody extends $tea.Model {
 }
 
 export class ListMyGroupDriveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListMyGroupDriveResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMyGroupDriveResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9389,9 +9767,9 @@ export class ListReceivedFileResponseBody extends $tea.Model {
 }
 
 export class ListReceivedFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListReceivedFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListReceivedFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9464,9 +9842,9 @@ export class ListRecyclebinResponseBody extends $tea.Model {
 }
 
 export class ListRecyclebinResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRecyclebinResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRecyclebinResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9542,9 +9920,9 @@ export class ListRevisionResponseBody extends $tea.Model {
 }
 
 export class ListRevisionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRevisionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRevisionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9623,9 +10001,9 @@ export class ListShareLinkResponseBody extends $tea.Model {
 }
 
 export class ListShareLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListShareLinkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListShareLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9692,9 +10070,9 @@ export class ListTagsResponseBody extends $tea.Model {
 }
 
 export class ListTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9782,9 +10160,9 @@ export class ListUploadedPartsResponseBody extends $tea.Model {
 }
 
 export class ListUploadedPartsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUploadedPartsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUploadedPartsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9851,9 +10229,9 @@ export class ListUserResponseBody extends $tea.Model {
 }
 
 export class ListUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9935,9 +10313,9 @@ export class MoveFileResponseBody extends $tea.Model {
 }
 
 export class MoveFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MoveFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MoveFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10025,9 +10403,9 @@ export class QueryOrderPriceResponseBody extends $tea.Model {
 }
 
 export class QueryOrderPriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryOrderPriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryOrderPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10075,8 +10453,8 @@ export class RemoveFaceGroupFileRequest extends $tea.Model {
 }
 
 export class RemoveFaceGroupFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10122,8 +10500,8 @@ export class RemoveGroupMemberRequest extends $tea.Model {
 }
 
 export class RemoveGroupMemberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10191,9 +10569,9 @@ export class RemoveStoryFilesResponseBody extends $tea.Model {
 }
 
 export class RemoveStoryFilesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveStoryFilesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveStoryFilesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10266,9 +10644,9 @@ export class RestoreFileResponseBody extends $tea.Model {
 }
 
 export class RestoreFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RestoreFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestoreFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10316,9 +10694,9 @@ export class RestoreRevisionRequest extends $tea.Model {
 }
 
 export class RestoreRevisionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Revision;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Revision;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10391,9 +10769,9 @@ export class ScanFileResponseBody extends $tea.Model {
 }
 
 export class ScanFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ScanFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ScanFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10472,9 +10850,9 @@ export class SearchAddressGroupsResponseBody extends $tea.Model {
 }
 
 export class SearchAddressGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchAddressGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchAddressGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10497,14 +10875,12 @@ export class SearchAddressGroupsResponse extends $tea.Model {
 }
 
 export class SearchDomainsRequest extends $tea.Model {
-  instanceId?: string;
   limit?: number;
   marker?: string;
   name?: string;
   orderBy?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'instance_id',
       limit: 'limit',
       marker: 'marker',
       name: 'name',
@@ -10514,7 +10890,6 @@ export class SearchDomainsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       limit: 'number',
       marker: 'string',
       name: 'string',
@@ -10550,9 +10925,9 @@ export class SearchDomainsResponseBody extends $tea.Model {
 }
 
 export class SearchDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchDomainsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10628,9 +11003,9 @@ export class SearchDriveResponseBody extends $tea.Model {
 }
 
 export class SearchDriveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchDriveResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchDriveResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10715,9 +11090,9 @@ export class SearchFileResponseBody extends $tea.Model {
 }
 
 export class SearchFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10802,9 +11177,9 @@ export class SearchShareLinkResponseBody extends $tea.Model {
 }
 
 export class SearchShareLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchShareLinkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchShareLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10880,9 +11255,9 @@ export class SearchSimilarImageClustersResponseBody extends $tea.Model {
 }
 
 export class SearchSimilarImageClustersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchSimilarImageClustersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchSimilarImageClustersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10994,9 +11369,9 @@ export class SearchStoriesResponseBody extends $tea.Model {
 }
 
 export class SearchStoriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchStoriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchStoriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11084,9 +11459,9 @@ export class SearchUserResponseBody extends $tea.Model {
 }
 
 export class SearchUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11146,9 +11521,9 @@ export class TokenRequest extends $tea.Model {
 }
 
 export class TokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Token;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Token;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11221,9 +11596,9 @@ export class TrashFileResponseBody extends $tea.Model {
 }
 
 export class TrashFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TrashFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrashFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11274,8 +11649,8 @@ export class UnLinkAccountRequest extends $tea.Model {
 }
 
 export class UnLinkAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11336,9 +11711,9 @@ export class UpdateDomainRequest extends $tea.Model {
 }
 
 export class UpdateDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Domain;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Domain;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11395,9 +11770,9 @@ export class UpdateDriveRequest extends $tea.Model {
 }
 
 export class UpdateDriveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Drive;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Drive;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11473,9 +11848,9 @@ export class UpdateFacegroupResponseBody extends $tea.Model {
 }
 
 export class UpdateFacegroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateFacegroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateFacegroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11541,9 +11916,9 @@ export class UpdateFileRequest extends $tea.Model {
 }
 
 export class UpdateFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: File;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: File;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11591,9 +11966,9 @@ export class UpdateGroupRequest extends $tea.Model {
 }
 
 export class UpdateGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Group;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Group;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11647,8 +12022,8 @@ export class UpdateIdentityToBenefitPkgMappingRequest extends $tea.Model {
 }
 
 export class UpdateIdentityToBenefitPkgMappingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11700,9 +12075,9 @@ export class UpdateRevisionRequest extends $tea.Model {
 }
 
 export class UpdateRevisionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Revision;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Revision;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11792,9 +12167,9 @@ export class UpdateShareLinkRequest extends $tea.Model {
 }
 
 export class UpdateShareLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ShareLink;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ShareLink;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11870,9 +12245,9 @@ export class UpdateStoryResponseBody extends $tea.Model {
 }
 
 export class UpdateStoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateStoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateStoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11941,9 +12316,9 @@ export class UpdateUserRequest extends $tea.Model {
 }
 
 export class UpdateUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: User;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: User;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12178,28 +12553,6 @@ export class FaceGroupGroupCoverFaceBoundary extends $tea.Model {
       left: 'number',
       top: 'number',
       width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FileInvestigationInfo extends $tea.Model {
-  status?: number;
-  suggestion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'status',
-      suggestion: 'suggestion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'number',
-      suggestion: 'string',
     };
   }
 
@@ -12475,6 +12828,34 @@ export class VideoPreviewPlayInfoMeta extends $tea.Model {
   }
 }
 
+export class VideoPreviewPlayInfoOfflineVideoTranscodingList extends $tea.Model {
+  keepOriginalResolution?: boolean;
+  status?: string;
+  templateId?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keepOriginalResolution: 'keep_original_resolution',
+      status: 'status',
+      templateId: 'template_id',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keepOriginalResolution: 'boolean',
+      status: 'string',
+      templateId: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoPreviewPlayMetaLiveTranscodingTaskList extends $tea.Model {
   keepOriginalResolution?: boolean;
   status?: string;
@@ -12570,7 +12951,7 @@ export class AddStoryFilesRequestFiles extends $tea.Model {
 }
 
 export class BatchRequestRequests extends $tea.Model {
-  body?: { [key: string]: string };
+  body?: { [key: string]: any };
   headers?: { [key: string]: string };
   id?: string;
   method?: string;
@@ -12587,7 +12968,7 @@ export class BatchRequestRequests extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       id: 'string',
       method: 'string',
@@ -12601,7 +12982,7 @@ export class BatchRequestRequests extends $tea.Model {
 }
 
 export class BatchResponseBodyResponses extends $tea.Model {
-  body?: { [key: string]: string };
+  body?: { [key: string]: any };
   id?: string;
   status?: number;
   static names(): { [key: string]: string } {
@@ -12614,7 +12995,7 @@ export class BatchResponseBodyResponses extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       id: 'string',
       status: 'number',
     };
@@ -12801,16 +13182,40 @@ export class GetUploadUrlRequestPartInfoListParallelSha1Ctx extends $tea.Model {
   }
 }
 
+export class GetUploadUrlRequestPartInfoListParallelSha256Ctx extends $tea.Model {
+  h?: number[];
+  partOffset?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'h',
+      partOffset: 'part_offset',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: { 'type': 'array', 'itemType': 'number' },
+      partOffset: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUploadUrlRequestPartInfoList extends $tea.Model {
   contentMd5?: string;
   contentType?: string;
   parallelSha1Ctx?: GetUploadUrlRequestPartInfoListParallelSha1Ctx;
+  parallelSha256Ctx?: GetUploadUrlRequestPartInfoListParallelSha256Ctx;
   partNumber?: number;
   static names(): { [key: string]: string } {
     return {
       contentMd5: 'content_md5',
       contentType: 'content_type',
       parallelSha1Ctx: 'parallel_sha1_ctx',
+      parallelSha256Ctx: 'parallel_sha256_ctx',
       partNumber: 'part_number',
     };
   }
@@ -12820,6 +13225,7 @@ export class GetUploadUrlRequestPartInfoList extends $tea.Model {
       contentMd5: 'string',
       contentType: 'string',
       parallelSha1Ctx: GetUploadUrlRequestPartInfoListParallelSha1Ctx,
+      parallelSha256Ctx: GetUploadUrlRequestPartInfoListParallelSha256Ctx,
       partNumber: 'number',
     };
   }
@@ -12843,6 +13249,31 @@ export class InvestigateFileRequestDriveFileIds extends $tea.Model {
     return {
       driveId: 'string',
       fileId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvestigateFileRequestPolicy extends $tea.Model {
+  firstProductName?: string;
+  mteeCode?: string;
+  provider?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firstProductName: 'first_product_name',
+      mteeCode: 'mtee_code',
+      provider: 'provider',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firstProductName: 'string',
+      mteeCode: 'string',
+      provider: 'string',
     };
   }
 
@@ -13063,17 +13494,25 @@ export class UpdateUserRequestGroupInfoList extends $tea.Model {
 
 
 export default class Client extends OpenApi {
-  _client: SPI;
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._client = new GatewayClient();
-    this._spi = this._client;
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._signatureAlgorithm = "v2";
+    this._disableHttp2 = true;
     this._endpointRule = "";
   }
 
 
+  /**
+   * @summary Adds a member to a group.
+   *
+   * @param request AddGroupMemberRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGroupMemberResponse
+   */
   async addGroupMemberWithOptions(request: AddGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddGroupMemberResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13107,12 +13546,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGroupMemberResponse>(await this.execute(params, req, runtime), new AddGroupMemberResponse({}));
   }
 
+  /**
+   * @summary Adds a member to a group.
+   *
+   * @param request AddGroupMemberRequest
+   * @return AddGroupMemberResponse
+   */
   async addGroupMember(request: AddGroupMemberRequest): Promise<AddGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addGroupMemberWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 故事添加文件
+   *
+   * @param request AddStoryFilesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddStoryFilesResponse
+   */
   async addStoryFilesWithOptions(request: AddStoryFilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddStoryFilesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13146,6 +13599,12 @@ export default class Client extends OpenApi {
     return $tea.cast<AddStoryFilesResponse>(await this.execute(params, req, runtime), new AddStoryFilesResponse({}));
   }
 
+  /**
+   * @summary 故事添加文件
+   *
+   * @param request AddStoryFilesRequest
+   * @return AddStoryFilesResponse
+   */
   async addStoryFiles(request: AddStoryFilesRequest): Promise<AddStoryFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -13153,12 +13612,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to assign a group administrator role to a user.
-    *
-    * @param request AssignRoleRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssignRoleResponse
+   * @summary Assigns a group administrator role to a user.
+   *
+   * @description You can call this operation to assign a group administrator role to a user.
+   *
+   * @param request AssignRoleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssignRoleResponse
    */
   async assignRoleWithOptions(request: AssignRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AssignRoleResponse> {
     Util.validateModel(request);
@@ -13198,10 +13659,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to assign a group administrator role to a user.
-    *
-    * @param request AssignRoleRequest
-    * @return AssignRoleResponse
+   * @summary Assigns a group administrator role to a user.
+   *
+   * @description You can call this operation to assign a group administrator role to a user.
+   *
+   * @param request AssignRoleRequest
+   * @return AssignRoleResponse
    */
   async assignRole(request: AssignRoleRequest): Promise<AssignRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13210,12 +13673,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
-    *
-    * @param tmpReq AuthorizeRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AuthorizeResponse
+   * @summary Requests permissions by using OAuth 2.0.
+   *
+   * @description For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
+   *
+   * @param tmpReq AuthorizeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AuthorizeResponse
    */
   async authorizeWithOptions(tmpReq: AuthorizeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AuthorizeResponse> {
     Util.validateModel(tmpReq);
@@ -13273,10 +13738,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
-    *
-    * @param request AuthorizeRequest
-    * @return AuthorizeResponse
+   * @summary Requests permissions by using OAuth 2.0.
+   *
+   * @description For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
+   *
+   * @param request AuthorizeRequest
+   * @return AuthorizeResponse
    */
   async authorize(request: AuthorizeRequest): Promise<AuthorizeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13284,6 +13751,14 @@ export default class Client extends OpenApi {
     return await this.authorizeWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Calls multiple operations at a time to improve call efficiency.
+   *
+   * @param request BatchRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchResponse
+   */
   async batchWithOptions(request: BatchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13313,6 +13788,12 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchResponse>(await this.execute(params, req, runtime), new BatchResponse({}));
   }
 
+  /**
+   * @summary Calls multiple operations at a time to improve call efficiency.
+   *
+   * @param request BatchRequest
+   * @return BatchResponse
+   */
   async batch(request: BatchRequest): Promise<BatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -13320,12 +13801,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can cancel only the group administrator role.
-    *
-    * @param request CancelAssignRoleRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelAssignRoleResponse
+   * @summary Cancels a role.
+   *
+   * @description You can cancel only the group administrator role.
+   *
+   * @param request CancelAssignRoleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelAssignRoleResponse
    */
   async cancelAssignRoleWithOptions(request: CancelAssignRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelAssignRoleResponse> {
     Util.validateModel(request);
@@ -13365,10 +13848,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can cancel only the group administrator role.
-    *
-    * @param request CancelAssignRoleRequest
-    * @return CancelAssignRoleResponse
+   * @summary Cancels a role.
+   *
+   * @description You can cancel only the group administrator role.
+   *
+   * @param request CancelAssignRoleRequest
+   * @return CancelAssignRoleResponse
    */
   async cancelAssignRole(request: CancelAssignRoleRequest): Promise<CancelAssignRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13376,6 +13861,14 @@ export default class Client extends OpenApi {
     return await this.cancelAssignRoleWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a share link.
+   *
+   * @param request CancelShareLinkRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelShareLinkResponse
+   */
   async cancelShareLinkWithOptions(request: CancelShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelShareLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13401,12 +13894,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelShareLinkResponse>(await this.execute(params, req, runtime), new CancelShareLinkResponse({}));
   }
 
+  /**
+   * @summary Deletes a share link.
+   *
+   * @param request CancelShareLinkRequest
+   * @return CancelShareLinkResponse
+   */
   async cancelShareLink(request: CancelShareLinkRequest): Promise<CancelShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelShareLinkWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Empties the recycle bin.
+   *
+   * @param request ClearRecyclebinRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ClearRecyclebinResponse
+   */
   async clearRecyclebinWithOptions(request: ClearRecyclebinRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ClearRecyclebinResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13432,12 +13939,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ClearRecyclebinResponse>(await this.execute(params, req, runtime), new ClearRecyclebinResponse({}));
   }
 
+  /**
+   * @summary Empties the recycle bin.
+   *
+   * @param request ClearRecyclebinRequest
+   * @return ClearRecyclebinResponse
+   */
   async clearRecyclebin(request: ClearRecyclebinRequest): Promise<ClearRecyclebinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.clearRecyclebinWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Completes the upload of a file.
+   *
+   * @param request CompleteFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CompleteFileResponse
+   */
   async completeFileWithOptions(request: CompleteFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CompleteFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13471,12 +13992,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CompleteFileResponse>(await this.execute(params, req, runtime), new CompleteFileResponse({}));
   }
 
+  /**
+   * @summary Completes the upload of a file.
+   *
+   * @param request CompleteFileRequest
+   * @return CompleteFileResponse
+   */
   async completeFile(request: CompleteFileRequest): Promise<CompleteFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.completeFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Copies a file or folder.
+   *
+   * @param request CopyFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopyFileResponse
+   */
   async copyFileWithOptions(request: CopyFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CopyFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13522,12 +14057,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyFileResponse>(await this.execute(params, req, runtime), new CopyFileResponse({}));
   }
 
+  /**
+   * @summary Copies a file or folder.
+   *
+   * @param request CopyFileRequest
+   * @return CopyFileResponse
+   */
   async copyFile(request: CopyFileRequest): Promise<CopyFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.copyFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建自定义故事
+   *
+   * @param request CreateCustomizedStoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomizedStoryResponse
+   */
   async createCustomizedStoryWithOptions(request: CreateCustomizedStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCustomizedStoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13577,6 +14126,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCustomizedStoryResponse>(await this.execute(params, req, runtime), new CreateCustomizedStoryResponse({}));
   }
 
+  /**
+   * @summary 创建自定义故事
+   *
+   * @param request CreateCustomizedStoryRequest
+   * @return CreateCustomizedStoryResponse
+   */
   async createCustomizedStory(request: CreateCustomizedStoryRequest): Promise<CreateCustomizedStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -13584,12 +14139,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
-    *
-    * @param request CreateDomainRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDomainResponse
+   * @summary Create domain.
+   *
+   * @description If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+   *
+   * @param request CreateDomainRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDomainResponse
    */
   async createDomainWithOptions(request: CreateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(request);
@@ -13641,10 +14198,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
-    *
-    * @param request CreateDomainRequest
-    * @return CreateDomainResponse
+   * @summary Create domain.
+   *
+   * @description If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+   *
+   * @param request CreateDomainRequest
+   * @return CreateDomainResponse
    */
   async createDomain(request: CreateDomainRequest): Promise<CreateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13652,6 +14211,14 @@ export default class Client extends OpenApi {
     return await this.createDomainWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a drive.
+   *
+   * @param request CreateDriveRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDriveResponse
+   */
   async createDriveWithOptions(request: CreateDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDriveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13705,12 +14272,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDriveResponse>(await this.execute(params, req, runtime), new CreateDriveResponse({}));
   }
 
+  /**
+   * @summary Creates a drive.
+   *
+   * @param request CreateDriveRequest
+   * @return CreateDriveResponse
+   */
   async createDrive(request: CreateDriveRequest): Promise<CreateDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createDriveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a file or folder.
+   *
+   * @param request CreateFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFileResponse
+   */
   async createFileWithOptions(request: CreateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13816,12 +14397,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFileResponse>(await this.execute(params, req, runtime), new CreateFileResponse({}));
   }
 
+  /**
+   * @summary Creates a file or folder.
+   *
+   * @param request CreateFileRequest
+   * @return CreateFileResponse
+   */
   async createFile(request: CreateFileRequest): Promise<CreateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a group.
+   *
+   * @param request CreateGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGroupResponse
+   */
   async createGroupWithOptions(request: CreateGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13859,6 +14454,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGroupResponse>(await this.execute(params, req, runtime), new CreateGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a group.
+   *
+   * @param request CreateGroupRequest
+   * @return CreateGroupResponse
+   */
   async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -13866,12 +14467,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
-    *
-    * @param request CreateIdentityToBenefitPkgMappingRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateIdentityToBenefitPkgMappingResponse
+   * @summary Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+   *
+   * @description If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
+   *
+   * @param request CreateIdentityToBenefitPkgMappingRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIdentityToBenefitPkgMappingResponse
    */
   async createIdentityToBenefitPkgMappingWithOptions(request: CreateIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIdentityToBenefitPkgMappingResponse> {
     Util.validateModel(request);
@@ -13915,10 +14518,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
-    *
-    * @param request CreateIdentityToBenefitPkgMappingRequest
-    * @return CreateIdentityToBenefitPkgMappingResponse
+   * @summary Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+   *
+   * @description If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
+   *
+   * @param request CreateIdentityToBenefitPkgMappingRequest
+   * @return CreateIdentityToBenefitPkgMappingResponse
    */
   async createIdentityToBenefitPkgMapping(request: CreateIdentityToBenefitPkgMappingRequest): Promise<CreateIdentityToBenefitPkgMappingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13926,6 +14531,14 @@ export default class Client extends OpenApi {
     return await this.createIdentityToBenefitPkgMappingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建凌霄订单
+   *
+   * @param request CreateOrderRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrderResponse
+   */
   async createOrderWithOptions(request: CreateOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOrderResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13987,6 +14600,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrderResponse>(await this.execute(params, req, runtime), new CreateOrderResponse({}));
   }
 
+  /**
+   * @summary 创建凌霄订单
+   *
+   * @param request CreateOrderRequest
+   * @return CreateOrderResponse
+   */
   async createOrder(request: CreateOrderRequest): Promise<CreateOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -13994,16 +14613,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
-    *
-    * @param request CreateShareLinkRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateShareLinkResponse
+   * @summary Creates a share URL.
+   *
+   * @description A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
+   *
+   * @param request CreateShareLinkRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateShareLinkResponse
    */
   async createShareLinkWithOptions(request: CreateShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateShareLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.creatable)) {
+      body["creatable"] = request.creatable;
+    }
+
+    if (!Util.isUnset(request.creatableFileIdList)) {
+      body["creatable_file_id_list"] = request.creatableFileIdList;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
     }
@@ -14034,10 +14663,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileIdList)) {
       body["file_id_list"] = request.fileIdList;
-    }
-
-    if (!Util.isUnset(request.officeEditable)) {
-      body["office_editable"] = request.officeEditable;
     }
 
     if (!Util.isUnset(request.previewLimit)) {
@@ -14083,10 +14708,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
-    *
-    * @param request CreateShareLinkRequest
-    * @return CreateShareLinkResponse
+   * @summary Creates a share URL.
+   *
+   * @description A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
+   *
+   * @param request CreateShareLinkRequest
+   * @return CreateShareLinkResponse
    */
   async createShareLink(request: CreateShareLinkRequest): Promise<CreateShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14094,6 +14721,14 @@ export default class Client extends OpenApi {
     return await this.createShareLinkWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建相似图片聚类任务
+   *
+   * @param request CreateSimilarImageClusterTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSimilarImageClusterTaskResponse
+   */
   async createSimilarImageClusterTaskWithOptions(request: CreateSimilarImageClusterTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSimilarImageClusterTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14119,12 +14754,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSimilarImageClusterTaskResponse>(await this.execute(params, req, runtime), new CreateSimilarImageClusterTaskResponse({}));
   }
 
+  /**
+   * @summary 创建相似图片聚类任务
+   *
+   * @param request CreateSimilarImageClusterTaskRequest
+   * @return CreateSimilarImageClusterTaskResponse
+   */
   async createSimilarImageClusterTask(request: CreateSimilarImageClusterTaskRequest): Promise<CreateSimilarImageClusterTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createSimilarImageClusterTaskWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建推荐故事
+   *
+   * @param request CreateStoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateStoryResponse
+   */
   async createStoryWithOptions(request: CreateStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateStoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14190,12 +14839,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateStoryResponse>(await this.execute(params, req, runtime), new CreateStoryResponse({}));
   }
 
+  /**
+   * @summary 创建推荐故事
+   *
+   * @param request CreateStoryRequest
+   * @return CreateStoryResponse
+   */
   async createStory(request: CreateStoryRequest): Promise<CreateStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createStoryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a user.
+   *
+   * @param request CreateUserRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUserResponse
+   */
   async createUserWithOptions(request: CreateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14261,12 +14924,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserResponse>(await this.execute(params, req, runtime), new CreateUserResponse({}));
   }
 
+  /**
+   * @summary Creates a user.
+   *
+   * @param request CreateUserRequest
+   * @return CreateUserResponse
+   */
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取文件内容安全信息
+   *
+   * @param request CsiGetFileInfoRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CsiGetFileInfoResponse
+   */
   async csiGetFileInfoWithOptions(request: CsiGetFileInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CsiGetFileInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14300,12 +14977,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CsiGetFileInfoResponse>(await this.execute(params, req, runtime), new CsiGetFileInfoResponse({}));
   }
 
+  /**
+   * @summary 获取文件内容安全信息
+   *
+   * @param request CsiGetFileInfoRequest
+   * @return CsiGetFileInfoResponse
+   */
   async csiGetFileInfo(request: CsiGetFileInfoRequest): Promise<CsiGetFileInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.csiGetFileInfoWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Delete the domain
+   *
+   * @param request DeleteDomainRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainResponse
+   */
   async deleteDomainWithOptions(request: DeleteDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14331,12 +15022,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainResponse>(await this.execute(params, req, runtime), new DeleteDomainResponse({}));
   }
 
+  /**
+   * @summary Delete the domain
+   *
+   * @param request DeleteDomainRequest
+   * @return DeleteDomainResponse
+   */
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDomainWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a drive.
+   *
+   * @param request DeleteDriveRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDriveResponse
+   */
   async deleteDriveWithOptions(request: DeleteDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDriveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14362,12 +15067,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDriveResponse>(await this.execute(params, req, runtime), new DeleteDriveResponse({}));
   }
 
+  /**
+   * @summary Deletes a drive.
+   *
+   * @param request DeleteDriveRequest
+   * @return DeleteDriveResponse
+   */
   async deleteDrive(request: DeleteDriveRequest): Promise<DeleteDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDriveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a file or folder.
+   *
+   * @param request DeleteFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFileResponse
+   */
   async deleteFileWithOptions(request: DeleteFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14397,12 +15116,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFileResponse>(await this.execute(params, req, runtime), new DeleteFileResponse({}));
   }
 
+  /**
+   * @summary Deletes a file or folder.
+   *
+   * @param request DeleteFileRequest
+   * @return DeleteFileResponse
+   */
   async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
+   *
+   * @param request DeleteGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGroupResponse
+   */
   async deleteGroupWithOptions(request: DeleteGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14428,12 +15161,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGroupResponse>(await this.execute(params, req, runtime), new DeleteGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
+   *
+   * @param request DeleteGroupRequest
+   * @return DeleteGroupResponse
+   */
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a historical version of a file. You cannot delete the latest version of a file.
+   *
+   * @param request DeleteRevisionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRevisionResponse
+   */
   async deleteRevisionWithOptions(request: DeleteRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRevisionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14467,12 +15214,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRevisionResponse>(await this.execute(params, req, runtime), new DeleteRevisionResponse({}));
   }
 
+  /**
+   * @summary Deletes a historical version of a file. You cannot delete the latest version of a file.
+   *
+   * @param request DeleteRevisionRequest
+   * @return DeleteRevisionResponse
+   */
   async deleteRevision(request: DeleteRevisionRequest): Promise<DeleteRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteRevisionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 删除故事
+   *
+   * @param request DeleteStoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteStoryResponse
+   */
   async deleteStoryWithOptions(request: DeleteStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteStoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14502,12 +15263,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteStoryResponse>(await this.execute(params, req, runtime), new DeleteStoryResponse({}));
   }
 
+  /**
+   * @summary 删除故事
+   *
+   * @param request DeleteStoryRequest
+   * @return DeleteStoryResponse
+   */
   async deleteStory(request: DeleteStoryRequest): Promise<DeleteStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteStoryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a user.
+   *
+   * @param request DeleteUserRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserResponse
+   */
   async deleteUserWithOptions(request: DeleteUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14533,12 +15308,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserResponse>(await this.execute(params, req, runtime), new DeleteUserResponse({}));
   }
 
+  /**
+   * @summary Deletes a user.
+   *
+   * @param request DeleteUserRequest
+   * @return DeleteUserResponse
+   */
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the cursor of incremental information.
+   *
+   * @param request DeltaGetLastCursorRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeltaGetLastCursorResponse
+   */
   async deltaGetLastCursorWithOptions(request: DeltaGetLastCursorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeltaGetLastCursorResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14568,6 +15357,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeltaGetLastCursorResponse>(await this.execute(params, req, runtime), new DeltaGetLastCursorResponse({}));
   }
 
+  /**
+   * @summary Queries the cursor of incremental information.
+   *
+   * @param request DeltaGetLastCursorRequest
+   * @return DeltaGetLastCursorResponse
+   */
   async deltaGetLastCursor(request: DeltaGetLastCursorRequest): Promise<DeltaGetLastCursorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -14575,12 +15370,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For information about best practices for downloading a file.
-    *
-    * @param request DownloadFileRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DownloadFileResponse
+   * @summary Downloads a file.
+   *
+   * @description For information about best practices for downloading a file.
+   *
+   * @param request DownloadFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DownloadFileResponse
    */
   async downloadFileWithOptions(request: DownloadFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DownloadFileResponse> {
     Util.validateModel(request);
@@ -14628,10 +15425,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For information about best practices for downloading a file.
-    *
-    * @param request DownloadFileRequest
-    * @return DownloadFileResponse
+   * @summary Downloads a file.
+   *
+   * @description For information about best practices for downloading a file.
+   *
+   * @param request DownloadFileRequest
+   * @return DownloadFileResponse
    */
   async downloadFile(request: DownloadFileRequest): Promise<DownloadFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14639,6 +15438,14 @@ export default class Client extends OpenApi {
     return await this.downloadFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Grants permissions to access files to a user or group.
+   *
+   * @param request FileAddPermissionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FileAddPermissionResponse
+   */
   async fileAddPermissionWithOptions(request: FileAddPermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileAddPermissionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14672,12 +15479,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FileAddPermissionResponse>(await this.execute(params, req, runtime), new FileAddPermissionResponse({}));
   }
 
+  /**
+   * @summary Grants permissions to access files to a user or group.
+   *
+   * @param request FileAddPermissionRequest
+   * @return FileAddPermissionResponse
+   */
   async fileAddPermission(request: FileAddPermissionRequest): Promise<FileAddPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.fileAddPermissionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Removes custom tags from a file.
+   *
+   * @param request FileDeleteUserTagsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FileDeleteUserTagsResponse
+   */
   async fileDeleteUserTagsWithOptions(request: FileDeleteUserTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileDeleteUserTagsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14711,12 +15532,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FileDeleteUserTagsResponse>(await this.execute(params, req, runtime), new FileDeleteUserTagsResponse({}));
   }
 
+  /**
+   * @summary Removes custom tags from a file.
+   *
+   * @param request FileDeleteUserTagsRequest
+   * @return FileDeleteUserTagsResponse
+   */
   async fileDeleteUserTags(request: FileDeleteUserTagsRequest): Promise<FileDeleteUserTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.fileDeleteUserTagsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the sharing authorization records of a file.
+   *
+   * @param request FileListPermissionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FileListPermissionResponse
+   */
   async fileListPermissionWithOptions(request: FileListPermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileListPermissionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14746,6 +15581,12 @@ export default class Client extends OpenApi {
     return $tea.cast<FileListPermissionResponse>(await this.execute(params, req, runtime), new FileListPermissionResponse({}));
   }
 
+  /**
+   * @summary Queries the sharing authorization records of a file.
+   *
+   * @param request FileListPermissionRequest
+   * @return FileListPermissionResponse
+   */
   async fileListPermission(request: FileListPermissionRequest): Promise<FileListPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -14753,15 +15594,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is an incremental update operation. Take note of the following items:
-    * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
-    * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
-    * *   The existing tags with unique names are not affected.
-    *
-    * @param request FilePutUserTagsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return FilePutUserTagsResponse
+   * @summary Adds custom tags to a file.
+   *
+   * @description This operation is an incremental update operation. Take note of the following items:
+   * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
+   * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
+   * *   The existing tags with unique names are not affected.
+   *
+   * @param request FilePutUserTagsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FilePutUserTagsResponse
    */
   async filePutUserTagsWithOptions(request: FilePutUserTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FilePutUserTagsResponse> {
     Util.validateModel(request);
@@ -14797,13 +15640,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is an incremental update operation. Take note of the following items:
-    * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
-    * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
-    * *   The existing tags with unique names are not affected.
-    *
-    * @param request FilePutUserTagsRequest
-    * @return FilePutUserTagsResponse
+   * @summary Adds custom tags to a file.
+   *
+   * @description This operation is an incremental update operation. Take note of the following items:
+   * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
+   * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
+   * *   The existing tags with unique names are not affected.
+   *
+   * @param request FilePutUserTagsRequest
+   * @return FilePutUserTagsResponse
    */
   async filePutUserTags(request: FilePutUserTagsRequest): Promise<FilePutUserTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14811,6 +15656,14 @@ export default class Client extends OpenApi {
     return await this.filePutUserTagsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Cancels the permissions on a shared file.
+   *
+   * @param request FileRemovePermissionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FileRemovePermissionResponse
+   */
   async fileRemovePermissionWithOptions(request: FileRemovePermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileRemovePermissionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14844,12 +15697,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FileRemovePermissionResponse>(await this.execute(params, req, runtime), new FileRemovePermissionResponse({}));
   }
 
+  /**
+   * @summary Cancels the permissions on a shared file.
+   *
+   * @param request FileRemovePermissionRequest
+   * @return FileRemovePermissionResponse
+   */
   async fileRemovePermission(request: FileRemovePermissionRequest): Promise<FileRemovePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.fileRemovePermissionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about an asynchronous task.
+   *
+   * @param request GetAsyncTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAsyncTaskResponse
+   */
   async getAsyncTaskWithOptions(request: GetAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14875,12 +15742,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsyncTaskResponse>(await this.execute(params, req, runtime), new GetAsyncTaskResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an asynchronous task.
+   *
+   * @param request GetAsyncTaskRequest
+   * @return GetAsyncTaskResponse
+   */
   async getAsyncTask(request: GetAsyncTaskRequest): Promise<GetAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAsyncTaskWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the default drive of a user.
+   *
+   * @param request GetDefaultDriveRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDefaultDriveResponse
+   */
   async getDefaultDriveWithOptions(request: GetDefaultDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDefaultDriveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14906,17 +15787,35 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDefaultDriveResponse>(await this.execute(params, req, runtime), new GetDefaultDriveResponse({}));
   }
 
+  /**
+   * @summary Queries the default drive of a user.
+   *
+   * @param request GetDefaultDriveRequest
+   * @return GetDefaultDriveResponse
+   */
   async getDefaultDrive(request: GetDefaultDriveRequest): Promise<GetDefaultDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDefaultDriveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Get domain information.
+   *
+   * @param request GetDomainRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDomainResponse
+   */
   async getDomainWithOptions(request: GetDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.domainId)) {
       body["domain_id"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.fields)) {
+      body["fields"] = request.fields;
     }
 
     if (!Util.isUnset(request.getQuotaUsed)) {
@@ -14941,12 +15840,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDomainResponse>(await this.execute(params, req, runtime), new GetDomainResponse({}));
   }
 
+  /**
+   * @summary Get domain information.
+   *
+   * @param request GetDomainRequest
+   * @return GetDomainResponse
+   */
   async getDomain(request: GetDomainRequest): Promise<GetDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDomainWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取domain限额
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDomainQuotaResponse
+   */
   async getDomainQuotaWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDomainQuotaResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -14965,12 +15877,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDomainQuotaResponse>(await this.execute(params, req, runtime), new GetDomainQuotaResponse({}));
   }
 
+  /**
+   * @summary 获取domain限额
+   *
+   * @return GetDomainQuotaResponse
+   */
   async getDomainQuota(): Promise<GetDomainQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDomainQuotaWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
+   *
+   * @param request GetDownloadUrlRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDownloadUrlResponse
+   */
   async getDownloadUrlWithOptions(request: GetDownloadUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDownloadUrlResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15012,12 +15937,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDownloadUrlResponse>(await this.execute(params, req, runtime), new GetDownloadUrlResponse({}));
   }
 
+  /**
+   * @summary Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
+   *
+   * @param request GetDownloadUrlRequest
+   * @return GetDownloadUrlResponse
+   */
   async getDownloadUrl(request: GetDownloadUrlRequest): Promise<GetDownloadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDownloadUrlWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about a drive.
+   *
+   * @param request GetDriveRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDriveResponse
+   */
   async getDriveWithOptions(request: GetDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDriveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15043,12 +15982,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDriveResponse>(await this.execute(params, req, runtime), new GetDriveResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a drive.
+   *
+   * @param request GetDriveRequest
+   * @return GetDriveResponse
+   */
   async getDrive(request: GetDriveRequest): Promise<GetDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDriveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about a file.
+   *
+   * @param request GetFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileResponse
+   */
   async getFileWithOptions(request: GetFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15094,12 +16047,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileResponse>(await this.execute(params, req, runtime), new GetFileResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a file.
+   *
+   * @param request GetFileRequest
+   * @return GetFileResponse
+   */
   async getFile(request: GetFileRequest): Promise<GetFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about a group.
+   *
+   * @param request GetGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGroupResponse
+   */
   async getGroupWithOptions(request: GetGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15125,12 +16092,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGroupResponse>(await this.execute(params, req, runtime), new GetGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a group.
+   *
+   * @param request GetGroupRequest
+   * @return GetGroupResponse
+   */
   async getGroup(request: GetGroupRequest): Promise<GetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
+   *
+   * @param request GetIdentityToBenefitPkgMappingRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIdentityToBenefitPkgMappingResponse
+   */
   async getIdentityToBenefitPkgMappingWithOptions(request: GetIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIdentityToBenefitPkgMappingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15164,12 +16145,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIdentityToBenefitPkgMappingResponse>(await this.execute(params, req, runtime), new GetIdentityToBenefitPkgMappingResponse({}));
   }
 
+  /**
+   * @summary Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
+   *
+   * @param request GetIdentityToBenefitPkgMappingRequest
+   * @return GetIdentityToBenefitPkgMappingResponse
+   */
   async getIdentityToBenefitPkgMapping(request: GetIdentityToBenefitPkgMappingRequest): Promise<GetIdentityToBenefitPkgMappingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIdentityToBenefitPkgMappingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取用户认证方式详情
+   *
+   * @param request GetLinkInfoRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLinkInfoResponse
+   */
   async getLinkInfoWithOptions(request: GetLinkInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLinkInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15203,12 +16198,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLinkInfoResponse>(await this.execute(params, req, runtime), new GetLinkInfoResponse({}));
   }
 
+  /**
+   * @summary 获取用户认证方式详情
+   *
+   * @param request GetLinkInfoRequest
+   * @return GetLinkInfoResponse
+   */
   async getLinkInfo(request: GetLinkInfoRequest): Promise<GetLinkInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLinkInfoWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about a user based on the user ID.
+   *
+   * @param request GetLinkInfoByUserIdRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLinkInfoByUserIdResponse
+   */
   async getLinkInfoByUserIdWithOptions(request: GetLinkInfoByUserIdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLinkInfoByUserIdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15234,12 +16243,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLinkInfoByUserIdResponse>(await this.execute(params, req, runtime), new GetLinkInfoByUserIdResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a user based on the user ID.
+   *
+   * @param request GetLinkInfoByUserIdRequest
+   * @return GetLinkInfoByUserIdResponse
+   */
   async getLinkInfoByUserId(request: GetLinkInfoByUserIdRequest): Promise<GetLinkInfoByUserIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLinkInfoByUserIdWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about a version.
+   *
+   * @param request GetRevisionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRevisionResponse
+   */
   async getRevisionWithOptions(request: GetRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRevisionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15281,12 +16304,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRevisionResponse>(await this.execute(params, req, runtime), new GetRevisionResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a version.
+   *
+   * @param request GetRevisionRequest
+   * @return GetRevisionResponse
+   */
   async getRevision(request: GetRevisionRequest): Promise<GetRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRevisionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the share URL of a file.
+   *
+   * @param request GetShareLinkRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetShareLinkResponse
+   */
   async getShareLinkWithOptions(request: GetShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShareLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15312,12 +16349,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetShareLinkResponse>(await this.execute(params, req, runtime), new GetShareLinkResponse({}));
   }
 
+  /**
+   * @summary Queries the share URL of a file.
+   *
+   * @param request GetShareLinkRequest
+   * @return GetShareLinkResponse
+   */
   async getShareLink(request: GetShareLinkRequest): Promise<GetShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getShareLinkWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about a share link anonymously.
+   *
+   * @param request GetShareLinkByAnonymousRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetShareLinkByAnonymousResponse
+   */
   async getShareLinkByAnonymousWithOptions(request: GetShareLinkByAnonymousRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShareLinkByAnonymousResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15343,6 +16394,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetShareLinkByAnonymousResponse>(await this.execute(params, req, runtime), new GetShareLinkByAnonymousResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a share link anonymously.
+   *
+   * @param request GetShareLinkByAnonymousRequest
+   * @return GetShareLinkByAnonymousResponse
+   */
   async getShareLinkByAnonymous(request: GetShareLinkByAnonymousRequest): Promise<GetShareLinkByAnonymousResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -15350,12 +16407,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
-    *
-    * @param request GetShareLinkTokenRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetShareLinkTokenResponse
+   * @summary Queries a share token anonymously.
+   *
+   * @description To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
+   *
+   * @param request GetShareLinkTokenRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetShareLinkTokenResponse
    */
   async getShareLinkTokenWithOptions(request: GetShareLinkTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShareLinkTokenResponse> {
     Util.validateModel(request);
@@ -15391,10 +16450,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
-    *
-    * @param request GetShareLinkTokenRequest
-    * @return GetShareLinkTokenResponse
+   * @summary Queries a share token anonymously.
+   *
+   * @description To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
+   *
+   * @param request GetShareLinkTokenRequest
+   * @return GetShareLinkTokenResponse
    */
   async getShareLinkToken(request: GetShareLinkTokenRequest): Promise<GetShareLinkTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15402,6 +16463,14 @@ export default class Client extends OpenApi {
     return await this.getShareLinkTokenWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取故事详情
+   *
+   * @param request GetStoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetStoryResponse
+   */
   async getStoryWithOptions(request: GetStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetStoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15455,6 +16524,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStoryResponse>(await this.execute(params, req, runtime), new GetStoryResponse({}));
   }
 
+  /**
+   * @summary 获取故事详情
+   *
+   * @param request GetStoryRequest
+   * @return GetStoryResponse
+   */
   async getStory(request: GetStoryRequest): Promise<GetStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -15462,14 +16537,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, make sure that you are familiar with the [billing](~~425220~~) of Drive and Photo Service**.
-    * To call this operation, make sure that the value-added image processing feature is enabled.
-    * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
-    *
-    * @param request GetTaskStatusRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetTaskStatusResponse
+   * @summary Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
+   *
+   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
+   * To call this operation, make sure that the value-added image processing feature is enabled.
+   * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
+   *
+   * @param request GetTaskStatusRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskStatusResponse
    */
   async getTaskStatusWithOptions(request: GetTaskStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskStatusResponse> {
     Util.validateModel(request);
@@ -15501,12 +16578,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, make sure that you are familiar with the [billing](~~425220~~) of Drive and Photo Service**.
-    * To call this operation, make sure that the value-added image processing feature is enabled.
-    * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
-    *
-    * @param request GetTaskStatusRequest
-    * @return GetTaskStatusResponse
+   * @summary Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
+   *
+   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
+   * To call this operation, make sure that the value-added image processing feature is enabled.
+   * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
+   *
+   * @param request GetTaskStatusRequest
+   * @return GetTaskStatusResponse
    */
   async getTaskStatus(request: GetTaskStatusRequest): Promise<GetTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15514,6 +16593,14 @@ export default class Client extends OpenApi {
     return await this.getTaskStatusWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the upload URL of a file.
+   *
+   * @param request GetUploadUrlRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUploadUrlResponse
+   */
   async getUploadUrlWithOptions(request: GetUploadUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUploadUrlResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15555,12 +16642,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUploadUrlResponse>(await this.execute(params, req, runtime), new GetUploadUrlResponse({}));
   }
 
+  /**
+   * @summary Queries the upload URL of a file.
+   *
+   * @param request GetUploadUrlRequest
+   * @return GetUploadUrlResponse
+   */
   async getUploadUrl(request: GetUploadUrlRequest): Promise<GetUploadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getUploadUrlWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about a user.
+   *
+   * @param request GetUserRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserResponse
+   */
   async getUserWithOptions(request: GetUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15586,6 +16687,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserResponse>(await this.execute(params, req, runtime), new GetUserResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a user.
+   *
+   * @param request GetUserRequest
+   * @return GetUserResponse
+   */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -15593,12 +16700,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about best practices, see [Preview videos online](~~427477~~).
-    *
-    * @param request GetVideoPreviewPlayInfoRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetVideoPreviewPlayInfoResponse
+   * @summary Queries the information about video playback.
+   *
+   * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+   *
+   * @param request GetVideoPreviewPlayInfoRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVideoPreviewPlayInfoResponse
    */
   async getVideoPreviewPlayInfoWithOptions(request: GetVideoPreviewPlayInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVideoPreviewPlayInfoResponse> {
     Util.validateModel(request);
@@ -15654,10 +16763,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about best practices, see [Preview videos online](~~427477~~).
-    *
-    * @param request GetVideoPreviewPlayInfoRequest
-    * @return GetVideoPreviewPlayInfoResponse
+   * @summary Queries the information about video playback.
+   *
+   * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+   *
+   * @param request GetVideoPreviewPlayInfoRequest
+   * @return GetVideoPreviewPlayInfoResponse
    */
   async getVideoPreviewPlayInfo(request: GetVideoPreviewPlayInfoRequest): Promise<GetVideoPreviewPlayInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15666,12 +16777,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about best practices, see [Preview videos online](~~427477~~).
-    *
-    * @param request GetVideoPreviewPlayMetaRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetVideoPreviewPlayMetaResponse
+   * @summary Queries the preview metadata of a video.
+   *
+   * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+   *
+   * @param request GetVideoPreviewPlayMetaRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVideoPreviewPlayMetaResponse
    */
   async getVideoPreviewPlayMetaWithOptions(request: GetVideoPreviewPlayMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVideoPreviewPlayMetaResponse> {
     Util.validateModel(request);
@@ -15711,10 +16824,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about best practices, see [Preview videos online](~~427477~~).
-    *
-    * @param request GetVideoPreviewPlayMetaRequest
-    * @return GetVideoPreviewPlayMetaResponse
+   * @summary Queries the preview metadata of a video.
+   *
+   * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+   *
+   * @param request GetVideoPreviewPlayMetaRequest
+   * @return GetVideoPreviewPlayMetaResponse
    */
   async getVideoPreviewPlayMeta(request: GetVideoPreviewPlayMetaRequest): Promise<GetVideoPreviewPlayMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15722,6 +16837,14 @@ export default class Client extends OpenApi {
     return await this.getVideoPreviewPlayMetaWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 更新用户组名字
+   *
+   * @param request GroupUpdateNameRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GroupUpdateNameResponse
+   */
   async groupUpdateNameWithOptions(request: GroupUpdateNameRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GroupUpdateNameResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15751,12 +16874,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GroupUpdateNameResponse>(await this.execute(params, req, runtime), new GroupUpdateNameResponse({}));
   }
 
+  /**
+   * @summary 更新用户组名字
+   *
+   * @param request GroupUpdateNameRequest
+   * @return GroupUpdateNameResponse
+   */
   async groupUpdateName(request: GroupUpdateNameRequest): Promise<GroupUpdateNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.groupUpdateNameWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Imports a user.
+   *
+   * @param request ImportUserRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportUserResponse
+   */
   async importUserWithOptions(request: ImportUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ImportUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15810,17 +16947,43 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportUserResponse>(await this.execute(params, req, runtime), new ImportUserResponse({}));
   }
 
+  /**
+   * @summary Imports a user.
+   *
+   * @param request ImportUserRequest
+   * @return ImportUserResponse
+   */
   async importUser(request: ImportUserRequest): Promise<ImportUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.importUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 送审文件
+   *
+   * @param request InvestigateFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InvestigateFileResponse
+   */
   async investigateFileWithOptions(request: InvestigateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InvestigateFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.driveFileIds)) {
       body["drive_file_ids"] = request.driveFileIds;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      body["policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.recursive)) {
+      body["recursive"] = request.recursive;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      body["user_data"] = request.userData;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -15841,12 +17004,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InvestigateFileResponse>(await this.execute(params, req, runtime), new InvestigateFileResponse({}));
   }
 
+  /**
+   * @summary 送审文件
+   *
+   * @param request InvestigateFileRequest
+   * @return InvestigateFileResponse
+   */
   async investigateFile(request: InvestigateFileRequest): Promise<InvestigateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.investigateFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Associates an account with a user.
+   *
+   * @param request LinkAccountRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LinkAccountResponse
+   */
   async linkAccountWithOptions(request: LinkAccountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LinkAccountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15884,12 +17061,26 @@ export default class Client extends OpenApi {
     return $tea.cast<LinkAccountResponse>(await this.execute(params, req, runtime), new LinkAccountResponse({}));
   }
 
+  /**
+   * @summary Associates an account with a user.
+   *
+   * @param request LinkAccountRequest
+   * @return LinkAccountResponse
+   */
   async linkAccount(request: LinkAccountRequest): Promise<LinkAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.linkAccountWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries location-based groups.
+   *
+   * @param request ListAddressGroupsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAddressGroupsResponse
+   */
   async listAddressGroupsWithOptions(request: ListAddressGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAddressGroupsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15931,12 +17122,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAddressGroupsResponse>(await this.execute(params, req, runtime), new ListAddressGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries location-based groups.
+   *
+   * @param request ListAddressGroupsRequest
+   * @return ListAddressGroupsResponse
+   */
   async listAddressGroups(request: ListAddressGroupsRequest): Promise<ListAddressGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAddressGroupsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
+   *
+   * @param request ListAssignmentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAssignmentResponse
+   */
   async listAssignmentWithOptions(request: ListAssignmentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAssignmentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15974,12 +17179,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAssignmentResponse>(await this.execute(params, req, runtime), new ListAssignmentResponse({}));
   }
 
+  /**
+   * @summary Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
+   *
+   * @param request ListAssignmentRequest
+   * @return ListAssignmentResponse
+   */
   async listAssignment(request: ListAssignmentRequest): Promise<ListAssignmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAssignmentWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries incremental information.
+   *
+   * @param request ListDeltaRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDeltaResponse
+   */
   async listDeltaWithOptions(request: ListDeltaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDeltaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16017,12 +17236,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeltaResponse>(await this.execute(params, req, runtime), new ListDeltaResponse({}));
   }
 
+  /**
+   * @summary Queries incremental information.
+   *
+   * @param request ListDeltaRequest
+   * @return ListDeltaResponse
+   */
   async listDelta(request: ListDeltaRequest): Promise<ListDeltaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDeltaWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 列举 domain
+   *
+   * @param request ListDomainsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDomainsResponse
+   */
   async listDomainsWithOptions(request: ListDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16036,6 +17269,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.parentDomainId)) {
       body["parent_domain_id"] = request.parentDomainId;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["service_code"] = request.serviceCode;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -16056,12 +17293,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDomainsResponse>(await this.execute(params, req, runtime), new ListDomainsResponse({}));
   }
 
+  /**
+   * @summary 列举 domain
+   *
+   * @param request ListDomainsRequest
+   * @return ListDomainsResponse
+   */
   async listDomains(request: ListDomainsRequest): Promise<ListDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDomainsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of drives.
+   *
+   * @param request ListDriveRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDriveResponse
+   */
   async listDriveWithOptions(request: ListDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDriveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16099,12 +17350,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDriveResponse>(await this.execute(params, req, runtime), new ListDriveResponse({}));
   }
 
+  /**
+   * @summary Queries a list of drives.
+   *
+   * @param request ListDriveRequest
+   * @return ListDriveResponse
+   */
   async listDrive(request: ListDriveRequest): Promise<ListDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDriveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries face-based groups.
+   *
+   * @param request ListFacegroupsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFacegroupsResponse
+   */
   async listFacegroupsWithOptions(request: ListFacegroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFacegroupsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16146,12 +17411,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFacegroupsResponse>(await this.execute(params, req, runtime), new ListFacegroupsResponse({}));
   }
 
+  /**
+   * @summary Queries face-based groups.
+   *
+   * @param request ListFacegroupsRequest
+   * @return ListFacegroupsResponse
+   */
   async listFacegroups(request: ListFacegroupsRequest): Promise<ListFacegroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFacegroupsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of files and folders.
+   *
+   * @param request ListFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFileResponse
+   */
   async listFileWithOptions(request: ListFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16221,12 +17500,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFileResponse>(await this.execute(params, req, runtime), new ListFileResponse({}));
   }
 
+  /**
+   * @summary Queries a list of files and folders.
+   *
+   * @param request ListFileRequest
+   * @return ListFileResponse
+   */
   async listFile(request: ListFileRequest): Promise<ListFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries groups.
+   *
+   * @param request ListGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupResponse
+   */
   async listGroupWithOptions(request: ListGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16256,12 +17549,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupResponse>(await this.execute(params, req, runtime), new ListGroupResponse({}));
   }
 
+  /**
+   * @summary Queries groups.
+   *
+   * @param request ListGroupRequest
+   * @return ListGroupResponse
+   */
   async listGroup(request: ListGroupRequest): Promise<ListGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the members of a group.
+   *
+   * @param request ListGroupMemberRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupMemberResponse
+   */
   async listGroupMemberWithOptions(request: ListGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupMemberResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16299,12 +17606,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupMemberResponse>(await this.execute(params, req, runtime), new ListGroupMemberResponse({}));
   }
 
+  /**
+   * @summary Queries the members of a group.
+   *
+   * @param request ListGroupMemberRequest
+   * @return ListGroupMemberResponse
+   */
   async listGroupMember(request: ListGroupMemberRequest): Promise<ListGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGroupMemberWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 列举用户或团队已分配的角色列表
+   *
+   * @param request ListIdentityRoleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIdentityRoleResponse
+   */
   async listIdentityRoleWithOptions(request: ListIdentityRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIdentityRoleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16330,12 +17651,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIdentityRoleResponse>(await this.execute(params, req, runtime), new ListIdentityRoleResponse({}));
   }
 
+  /**
+   * @summary 列举用户或团队已分配的角色列表
+   *
+   * @param request ListIdentityRoleRequest
+   * @return ListIdentityRoleResponse
+   */
   async listIdentityRole(request: ListIdentityRoleRequest): Promise<ListIdentityRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIdentityRoleWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
+   *
+   * @param request ListIdentityToBenefitPkgMappingRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIdentityToBenefitPkgMappingResponse
+   */
   async listIdentityToBenefitPkgMappingWithOptions(request: ListIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIdentityToBenefitPkgMappingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16369,12 +17704,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIdentityToBenefitPkgMappingResponse>(await this.execute(params, req, runtime), new ListIdentityToBenefitPkgMappingResponse({}));
   }
 
+  /**
+   * @summary Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
+   *
+   * @param request ListIdentityToBenefitPkgMappingRequest
+   * @return ListIdentityToBenefitPkgMappingResponse
+   */
   async listIdentityToBenefitPkgMapping(request: ListIdentityToBenefitPkgMappingRequest): Promise<ListIdentityToBenefitPkgMappingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIdentityToBenefitPkgMappingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the drives of the current user.
+   *
+   * @param request ListMyDrivesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMyDrivesResponse
+   */
   async listMyDrivesWithOptions(request: ListMyDrivesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMyDrivesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16404,12 +17753,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMyDrivesResponse>(await this.execute(params, req, runtime), new ListMyDrivesResponse({}));
   }
 
+  /**
+   * @summary Queries the drives of the current user.
+   *
+   * @param request ListMyDrivesRequest
+   * @return ListMyDrivesResponse
+   */
   async listMyDrives(request: ListMyDrivesRequest): Promise<ListMyDrivesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMyDrivesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the team drives that can be accessed by the authorized users.
+   *
+   * @param request ListMyGroupDriveRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMyGroupDriveResponse
+   */
   async listMyGroupDriveWithOptions(request: ListMyGroupDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMyGroupDriveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16439,12 +17802,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMyGroupDriveResponse>(await this.execute(params, req, runtime), new ListMyGroupDriveResponse({}));
   }
 
+  /**
+   * @summary Queries the team drives that can be accessed by the authorized users.
+   *
+   * @param request ListMyGroupDriveRequest
+   * @return ListMyGroupDriveResponse
+   */
   async listMyGroupDrive(request: ListMyGroupDriveRequest): Promise<ListMyGroupDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMyGroupDriveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
+   *
+   * @param request ListReceivedFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListReceivedFileResponse
+   */
   async listReceivedFileWithOptions(request: ListReceivedFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListReceivedFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16474,12 +17851,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListReceivedFileResponse>(await this.execute(params, req, runtime), new ListReceivedFileResponse({}));
   }
 
+  /**
+   * @summary Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
+   *
+   * @param request ListReceivedFileRequest
+   * @return ListReceivedFileResponse
+   */
   async listReceivedFile(request: ListReceivedFileRequest): Promise<ListReceivedFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listReceivedFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about files and folders in the recycle bin.
+   *
+   * @param request ListRecyclebinRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRecyclebinResponse
+   */
   async listRecyclebinWithOptions(request: ListRecyclebinRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRecyclebinResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16517,12 +17908,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRecyclebinResponse>(await this.execute(params, req, runtime), new ListRecyclebinResponse({}));
   }
 
+  /**
+   * @summary Queries the information about files and folders in the recycle bin.
+   *
+   * @param request ListRecyclebinRequest
+   * @return ListRecyclebinResponse
+   */
   async listRecyclebin(request: ListRecyclebinRequest): Promise<ListRecyclebinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRecyclebinWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the versions of a file.
+   *
+   * @param request ListRevisionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRevisionResponse
+   */
   async listRevisionWithOptions(request: ListRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRevisionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16564,6 +17969,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRevisionResponse>(await this.execute(params, req, runtime), new ListRevisionResponse({}));
   }
 
+  /**
+   * @summary Queries the versions of a file.
+   *
+   * @param request ListRevisionRequest
+   * @return ListRevisionResponse
+   */
   async listRevision(request: ListRevisionRequest): Promise<ListRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -16571,12 +17982,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is discontinued. To query shares, you can call the SearchShareLink operation.
-    *
-    * @param request ListShareLinkRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListShareLinkResponse
+   * @summary Queries shares.
+   *
+   * @description This operation is discontinued. To query shares, you can call the SearchShareLink operation.
+   *
+   * @param request ListShareLinkRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListShareLinkResponse
    */
   async listShareLinkWithOptions(request: ListShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShareLinkResponse> {
     Util.validateModel(request);
@@ -16624,10 +18037,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is discontinued. To query shares, you can call the SearchShareLink operation.
-    *
-    * @param request ListShareLinkRequest
-    * @return ListShareLinkResponse
+   * @summary Queries shares.
+   *
+   * @description This operation is discontinued. To query shares, you can call the SearchShareLink operation.
+   *
+   * @param request ListShareLinkRequest
+   * @return ListShareLinkResponse
    */
   async listShareLink(request: ListShareLinkRequest): Promise<ListShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16636,12 +18051,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
-    *
-    * @param request ListTagsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTagsResponse
+   * @summary Queries tags.
+   *
+   * @description You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
+   *
+   * @param request ListTagsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagsResponse
    */
   async listTagsWithOptions(request: ListTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagsResponse> {
     Util.validateModel(request);
@@ -16677,10 +18094,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
-    *
-    * @param request ListTagsRequest
-    * @return ListTagsResponse
+   * @summary Queries tags.
+   *
+   * @description You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
+   *
+   * @param request ListTagsRequest
+   * @return ListTagsResponse
    */
   async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16688,6 +18107,14 @@ export default class Client extends OpenApi {
     return await this.listTagsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the file parts that are uploaded.
+   *
+   * @param request ListUploadedPartsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUploadedPartsResponse
+   */
   async listUploadedPartsWithOptions(request: ListUploadedPartsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUploadedPartsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16733,12 +18160,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUploadedPartsResponse>(await this.execute(params, req, runtime), new ListUploadedPartsResponse({}));
   }
 
+  /**
+   * @summary Queries the file parts that are uploaded.
+   *
+   * @param request ListUploadedPartsRequest
+   * @return ListUploadedPartsResponse
+   */
   async listUploadedParts(request: ListUploadedPartsRequest): Promise<ListUploadedPartsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listUploadedPartsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries users.
+   *
+   * @param request ListUserRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserResponse
+   */
   async listUserWithOptions(request: ListUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16768,12 +18209,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserResponse>(await this.execute(params, req, runtime), new ListUserResponse({}));
   }
 
+  /**
+   * @summary Queries users.
+   *
+   * @param request ListUserRequest
+   * @return ListUserResponse
+   */
   async listUser(request: ListUserRequest): Promise<ListUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Moves files or folders.
+   *
+   * @param request MoveFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveFileResponse
+   */
   async moveFileWithOptions(request: MoveFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MoveFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16811,12 +18266,26 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveFileResponse>(await this.execute(params, req, runtime), new MoveFileResponse({}));
   }
 
+  /**
+   * @summary Moves files or folders.
+   *
+   * @param request MoveFileRequest
+   * @return MoveFileResponse
+   */
   async moveFile(request: MoveFileRequest): Promise<MoveFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.moveFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询凌霄订单价格
+   *
+   * @param request QueryOrderPriceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryOrderPriceResponse
+   */
   async queryOrderPriceWithOptions(request: QueryOrderPriceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryOrderPriceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16870,12 +18339,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryOrderPriceResponse>(await this.execute(params, req, runtime), new QueryOrderPriceResponse({}));
   }
 
+  /**
+   * @summary 查询凌霄订单价格
+   *
+   * @param request QueryOrderPriceRequest
+   * @return QueryOrderPriceResponse
+   */
   async queryOrderPrice(request: QueryOrderPriceRequest): Promise<QueryOrderPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryOrderPriceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 从人脸分组中的移除指定的文件
+   *
+   * @param request RemoveFaceGroupFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveFaceGroupFileResponse
+   */
   async removeFaceGroupFileWithOptions(request: RemoveFaceGroupFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveFaceGroupFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16909,12 +18392,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveFaceGroupFileResponse>(await this.execute(params, req, runtime), new RemoveFaceGroupFileResponse({}));
   }
 
+  /**
+   * @summary 从人脸分组中的移除指定的文件
+   *
+   * @param request RemoveFaceGroupFileRequest
+   * @return RemoveFaceGroupFileResponse
+   */
   async removeFaceGroupFile(request: RemoveFaceGroupFileRequest): Promise<RemoveFaceGroupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeFaceGroupFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Removes a member from a group.
+   *
+   * @param request RemoveGroupMemberRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveGroupMemberResponse
+   */
   async removeGroupMemberWithOptions(request: RemoveGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveGroupMemberResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16948,12 +18445,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveGroupMemberResponse>(await this.execute(params, req, runtime), new RemoveGroupMemberResponse({}));
   }
 
+  /**
+   * @summary Removes a member from a group.
+   *
+   * @param request RemoveGroupMemberRequest
+   * @return RemoveGroupMemberResponse
+   */
   async removeGroupMember(request: RemoveGroupMemberRequest): Promise<RemoveGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeGroupMemberWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 故事移除文件
+   *
+   * @param request RemoveStoryFilesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveStoryFilesResponse
+   */
   async removeStoryFilesWithOptions(request: RemoveStoryFilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveStoryFilesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16987,12 +18498,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveStoryFilesResponse>(await this.execute(params, req, runtime), new RemoveStoryFilesResponse({}));
   }
 
+  /**
+   * @summary 故事移除文件
+   *
+   * @param request RemoveStoryFilesRequest
+   * @return RemoveStoryFilesResponse
+   */
   async removeStoryFiles(request: RemoveStoryFilesRequest): Promise<RemoveStoryFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeStoryFilesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Restores a file or folder from the recycle bin.
+   *
+   * @param request RestoreFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestoreFileResponse
+   */
   async restoreFileWithOptions(request: RestoreFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestoreFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17022,12 +18547,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RestoreFileResponse>(await this.execute(params, req, runtime), new RestoreFileResponse({}));
   }
 
+  /**
+   * @summary Restores a file or folder from the recycle bin.
+   *
+   * @param request RestoreFileRequest
+   * @return RestoreFileResponse
+   */
   async restoreFile(request: RestoreFileRequest): Promise<RestoreFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.restoreFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Restores a historical version of a file. You cannot restore the latest version of a file.
+   *
+   * @param request RestoreRevisionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestoreRevisionResponse
+   */
   async restoreRevisionWithOptions(request: RestoreRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestoreRevisionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17061,12 +18600,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RestoreRevisionResponse>(await this.execute(params, req, runtime), new RestoreRevisionResponse({}));
   }
 
+  /**
+   * @summary Restores a historical version of a file. You cannot restore the latest version of a file.
+   *
+   * @param request RestoreRevisionRequest
+   * @return RestoreRevisionResponse
+   */
   async restoreRevision(request: RestoreRevisionRequest): Promise<RestoreRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.restoreRevisionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Scans files.
+   *
+   * @param request ScanFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ScanFileResponse
+   */
   async scanFileWithOptions(request: ScanFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScanFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17104,12 +18657,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ScanFileResponse>(await this.execute(params, req, runtime), new ScanFileResponse({}));
   }
 
+  /**
+   * @summary Scans files.
+   *
+   * @param request ScanFileRequest
+   * @return ScanFileResponse
+   */
   async scanFile(request: ScanFileRequest): Promise<ScanFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.scanFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries location-based groups based on specific locations.
+   *
+   * @param request SearchAddressGroupsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchAddressGroupsResponse
+   */
   async searchAddressGroupsWithOptions(request: SearchAddressGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchAddressGroupsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17159,19 +18726,29 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchAddressGroupsResponse>(await this.execute(params, req, runtime), new SearchAddressGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries location-based groups based on specific locations.
+   *
+   * @param request SearchAddressGroupsRequest
+   * @return SearchAddressGroupsResponse
+   */
   async searchAddressGroups(request: SearchAddressGroupsRequest): Promise<SearchAddressGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.searchAddressGroupsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Search domain with specified attributes
+   *
+   * @param request SearchDomainsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchDomainsResponse
+   */
   async searchDomainsWithOptions(request: SearchDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchDomainsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceId)) {
-      body["instance_id"] = request.instanceId;
-    }
-
     if (!Util.isUnset(request.limit)) {
       body["limit"] = request.limit;
     }
@@ -17206,12 +18783,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchDomainsResponse>(await this.execute(params, req, runtime), new SearchDomainsResponse({}));
   }
 
+  /**
+   * @summary Search domain with specified attributes
+   *
+   * @param request SearchDomainsRequest
+   * @return SearchDomainsResponse
+   */
   async searchDomains(request: SearchDomainsRequest): Promise<SearchDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.searchDomainsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries drives.
+   *
+   * @param request SearchDriveRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchDriveResponse
+   */
   async searchDriveWithOptions(request: SearchDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchDriveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17253,12 +18844,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchDriveResponse>(await this.execute(params, req, runtime), new SearchDriveResponse({}));
   }
 
+  /**
+   * @summary Queries drives.
+   *
+   * @param request SearchDriveRequest
+   * @return SearchDriveResponse
+   */
   async searchDrive(request: SearchDriveRequest): Promise<SearchDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.searchDriveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
+   *
+   * @param request SearchFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchFileResponse
+   */
   async searchFileWithOptions(request: SearchFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17308,12 +18913,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchFileResponse>(await this.execute(params, req, runtime), new SearchFileResponse({}));
   }
 
+  /**
+   * @summary Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
+   *
+   * @param request SearchFileRequest
+   * @return SearchFileResponse
+   */
   async searchFile(request: SearchFileRequest): Promise<SearchFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.searchFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries share URLs.
+   *
+   * @param request SearchShareLinkRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchShareLinkResponse
+   */
   async searchShareLinkWithOptions(request: SearchShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchShareLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17363,12 +18982,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchShareLinkResponse>(await this.execute(params, req, runtime), new SearchShareLinkResponse({}));
   }
 
+  /**
+   * @summary Queries share URLs.
+   *
+   * @param request SearchShareLinkRequest
+   * @return SearchShareLinkResponse
+   */
   async searchShareLink(request: SearchShareLinkRequest): Promise<SearchShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.searchShareLinkWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取相似图片聚类结果
+   *
+   * @param request SearchSimilarImageClustersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchSimilarImageClustersResponse
+   */
   async searchSimilarImageClustersWithOptions(request: SearchSimilarImageClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchSimilarImageClustersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17410,12 +19043,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchSimilarImageClustersResponse>(await this.execute(params, req, runtime), new SearchSimilarImageClustersResponse({}));
   }
 
+  /**
+   * @summary 获取相似图片聚类结果
+   *
+   * @param request SearchSimilarImageClustersRequest
+   * @return SearchSimilarImageClustersResponse
+   */
   async searchSimilarImageClusters(request: SearchSimilarImageClustersRequest): Promise<SearchSimilarImageClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.searchSimilarImageClustersWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询故事列表
+   *
+   * @param request SearchStoriesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchStoriesResponse
+   */
   async searchStoriesWithOptions(request: SearchStoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchStoriesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17505,12 +19152,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchStoriesResponse>(await this.execute(params, req, runtime), new SearchStoriesResponse({}));
   }
 
+  /**
+   * @summary 查询故事列表
+   *
+   * @param request SearchStoriesRequest
+   * @return SearchStoriesResponse
+   */
   async searchStories(request: SearchStoriesRequest): Promise<SearchStoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.searchStoriesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Searches for users.
+   *
+   * @param request SearchUserRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchUserResponse
+   */
   async searchUserWithOptions(request: SearchUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17568,6 +19229,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchUserResponse>(await this.execute(params, req, runtime), new SearchUserResponse({}));
   }
 
+  /**
+   * @summary Searches for users.
+   *
+   * @param request SearchUserRequest
+   * @return SearchUserResponse
+   */
   async searchUser(request: SearchUserRequest): Promise<SearchUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -17575,13 +19242,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).<props="intl">只发布国际站</props>
-    * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).<props="intl">只发布国际站</props>
-    *
-    * @param request TokenRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TokenResponse
+   * @summary Generates an access token based on Open Authorization (OAuth) 2.0.
+   *
+   * @description For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
+   * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).
+   *
+   * @param request TokenRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TokenResponse
    */
   async tokenWithOptions(request: TokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TokenResponse> {
     Util.validateModel(request);
@@ -17633,11 +19302,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).<props="intl">只发布国际站</props>
-    * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).<props="intl">只发布国际站</props>
-    *
-    * @param request TokenRequest
-    * @return TokenResponse
+   * @summary Generates an access token based on Open Authorization (OAuth) 2.0.
+   *
+   * @description For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
+   * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).
+   *
+   * @param request TokenRequest
+   * @return TokenResponse
    */
   async token(request: TokenRequest): Promise<TokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17645,6 +19316,14 @@ export default class Client extends OpenApi {
     return await this.tokenWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Moves a file or folder to the recycle bin.
+   *
+   * @param request TrashFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrashFileResponse
+   */
   async trashFileWithOptions(request: TrashFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TrashFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17674,12 +19353,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrashFileResponse>(await this.execute(params, req, runtime), new TrashFileResponse({}));
   }
 
+  /**
+   * @summary Moves a file or folder to the recycle bin.
+   *
+   * @param request TrashFileRequest
+   * @return TrashFileResponse
+   */
   async trashFile(request: TrashFileRequest): Promise<TrashFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.trashFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 取消账号绑定
+   *
+   * @param request UnLinkAccountRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnLinkAccountResponse
+   */
   async unLinkAccountWithOptions(request: UnLinkAccountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UnLinkAccountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17717,12 +19410,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UnLinkAccountResponse>(await this.execute(params, req, runtime), new UnLinkAccountResponse({}));
   }
 
+  /**
+   * @summary 取消账号绑定
+   *
+   * @param request UnLinkAccountRequest
+   * @return UnLinkAccountResponse
+   */
   async unLinkAccount(request: UnLinkAccountRequest): Promise<UnLinkAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.unLinkAccountWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Update domain information.
+   *
+   * @param request UpdateDomainRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDomainResponse
+   */
   async updateDomainWithOptions(request: UpdateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17776,12 +19483,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDomainResponse>(await this.execute(params, req, runtime), new UpdateDomainResponse({}));
   }
 
+  /**
+   * @summary Update domain information.
+   *
+   * @param request UpdateDomainRequest
+   * @return UpdateDomainResponse
+   */
   async updateDomain(request: UpdateDomainRequest): Promise<UpdateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDomainWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Modifies a drive.
+   *
+   * @param request UpdateDriveRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDriveResponse
+   */
   async updateDriveWithOptions(request: UpdateDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDriveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17827,12 +19548,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDriveResponse>(await this.execute(params, req, runtime), new UpdateDriveResponse({}));
   }
 
+  /**
+   * @summary Modifies a drive.
+   *
+   * @param request UpdateDriveRequest
+   * @return UpdateDriveResponse
+   */
   async updateDrive(request: UpdateDriveRequest): Promise<UpdateDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDriveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Updates a face-based group.
+   *
+   * @param request UpdateFacegroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFacegroupResponse
+   */
   async updateFacegroupWithOptions(request: UpdateFacegroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFacegroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17874,12 +19609,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFacegroupResponse>(await this.execute(params, req, runtime), new UpdateFacegroupResponse({}));
   }
 
+  /**
+   * @summary Updates a face-based group.
+   *
+   * @param request UpdateFacegroupRequest
+   * @return UpdateFacegroupResponse
+   */
   async updateFacegroup(request: UpdateFacegroupRequest): Promise<UpdateFacegroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateFacegroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Modifies the information about a file instead of the file data.
+   *
+   * @param request UpdateFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFileResponse
+   */
   async updateFileWithOptions(request: UpdateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17937,12 +19686,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFileResponse>(await this.execute(params, req, runtime), new UpdateFileResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about a file instead of the file data.
+   *
+   * @param request UpdateFileRequest
+   * @return UpdateFileResponse
+   */
   async updateFile(request: UpdateFileRequest): Promise<UpdateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateFileWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Modifies the information about a group.
+   *
+   * @param request UpdateGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGroupResponse
+   */
   async updateGroupWithOptions(request: UpdateGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17976,12 +19739,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGroupResponse>(await this.execute(params, req, runtime), new UpdateGroupResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about a group.
+   *
+   * @param request UpdateGroupRequest
+   * @return UpdateGroupResponse
+   */
   async updateGroup(request: UpdateGroupRequest): Promise<UpdateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+   *
+   * @param request UpdateIdentityToBenefitPkgMappingRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIdentityToBenefitPkgMappingResponse
+   */
   async updateIdentityToBenefitPkgMappingWithOptions(request: UpdateIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIdentityToBenefitPkgMappingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18023,12 +19800,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIdentityToBenefitPkgMappingResponse>(await this.execute(params, req, runtime), new UpdateIdentityToBenefitPkgMappingResponse({}));
   }
 
+  /**
+   * @summary Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+   *
+   * @param request UpdateIdentityToBenefitPkgMappingRequest
+   * @return UpdateIdentityToBenefitPkgMappingResponse
+   */
   async updateIdentityToBenefitPkgMapping(request: UpdateIdentityToBenefitPkgMappingRequest): Promise<UpdateIdentityToBenefitPkgMappingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateIdentityToBenefitPkgMappingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
+   *
+   * @param request UpdateRevisionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRevisionResponse
+   */
   async updateRevisionWithOptions(request: UpdateRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRevisionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18070,12 +19861,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRevisionResponse>(await this.execute(params, req, runtime), new UpdateRevisionResponse({}));
   }
 
+  /**
+   * @summary Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
+   *
+   * @param request UpdateRevisionRequest
+   * @return UpdateRevisionResponse
+   */
   async updateRevision(request: UpdateRevisionRequest): Promise<UpdateRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateRevisionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Modifies a share link.
+   *
+   * @param request UpdateShareLinkRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateShareLinkResponse
+   */
   async updateShareLinkWithOptions(request: UpdateShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateShareLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18165,12 +19970,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateShareLinkResponse>(await this.execute(params, req, runtime), new UpdateShareLinkResponse({}));
   }
 
+  /**
+   * @summary Modifies a share link.
+   *
+   * @param request UpdateShareLinkRequest
+   * @return UpdateShareLinkResponse
+   */
   async updateShareLink(request: UpdateShareLinkRequest): Promise<UpdateShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateShareLinkWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 更新故事
+   *
+   * @param request UpdateStoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateStoryResponse
+   */
   async updateStoryWithOptions(request: UpdateStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateStoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18212,12 +20031,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateStoryResponse>(await this.execute(params, req, runtime), new UpdateStoryResponse({}));
   }
 
+  /**
+   * @summary 更新故事
+   *
+   * @param request UpdateStoryRequest
+   * @return UpdateStoryResponse
+   */
   async updateStory(request: UpdateStoryRequest): Promise<UpdateStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateStoryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Modifies the information about a user.
+   *
+   * @param request UpdateUserRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserResponse
+   */
   async updateUserWithOptions(request: UpdateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18279,6 +20112,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserResponse>(await this.execute(params, req, runtime), new UpdateUserResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about a user.
+   *
+   * @param request UpdateUserRequest
+   * @return UpdateUserResponse
+   */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
