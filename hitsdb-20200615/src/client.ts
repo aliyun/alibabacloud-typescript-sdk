@@ -1224,6 +1224,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
   enableCdc?: boolean;
   enableCompute?: boolean;
   enableKms?: boolean;
+  enableLProxy?: boolean;
   enableLTS?: boolean;
   enableLsqlVersionV3?: boolean;
   enableMLCtrl?: boolean;
@@ -1280,6 +1281,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       enableCdc: 'EnableCdc',
       enableCompute: 'EnableCompute',
       enableKms: 'EnableKms',
+      enableLProxy: 'EnableLProxy',
       enableLTS: 'EnableLTS',
       enableLsqlVersionV3: 'EnableLsqlVersionV3',
       enableMLCtrl: 'EnableMLCtrl',
@@ -1339,6 +1341,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       enableCdc: 'boolean',
       enableCompute: 'boolean',
       enableKms: 'boolean',
+      enableLProxy: 'boolean',
       enableLTS: 'boolean',
       enableLsqlVersionV3: 'boolean',
       enableMLCtrl: 'boolean',
@@ -4333,7 +4336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The storage capacity of the disk of a single core node. This parameter is returned only for multi-zone instances.
+   * @summary Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
    *
    * @param request GetLindormInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -4384,7 +4387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The storage capacity of the disk of a single core node. This parameter is returned only for multi-zone instances.
+   * @summary Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
    *
    * @param request GetLindormInstanceRequest
    * @return GetLindormInstanceResponse
@@ -4605,7 +4608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tags associated with the specified Lindorm instances.
+   * @summary Queries the tags associated with the specified Lindorm instance.
    *
    * @param request ListTagResourcesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -4672,7 +4675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tags associated with the specified Lindorm instances.
+   * @summary Queries the tags associated with the specified Lindorm instance.
    *
    * @param request ListTagResourcesRequest
    * @return ListTagResourcesResponse
@@ -5103,7 +5106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables and disables the MySQL compatibility feature.
+   * @summary Enables or disables the MySQL compatibility feature for a Lindorm instance.
    *
    * @description Prerequisites
    * *   The LindormTable version of your instance is 2.6.0 or later.
@@ -5163,7 +5166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables and disables the MySQL compatibility feature.
+   * @summary Enables or disables the MySQL compatibility feature for a Lindorm instance.
    *
    * @description Prerequisites
    * *   The LindormTable version of your instance is 2.6.0 or later.
@@ -5253,7 +5256,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes a tag from an instance. If the tag is not associated with another instance, the tag is deleted.
+   * @summary Removes tags from a Lindorm instance.
+   *
+   * @description If a tag is not added to any Lindorm instance, it is deleted.
    *
    * @param request UntagResourcesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -5316,7 +5321,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes a tag from an instance. If the tag is not associated with another instance, the tag is deleted.
+   * @summary Removes tags from a Lindorm instance.
+   *
+   * @description If a tag is not added to any Lindorm instance, it is deleted.
    *
    * @param request UntagResourcesRequest
    * @return UntagResourcesResponse
