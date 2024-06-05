@@ -1582,6 +1582,7 @@ export class CreateFileSystemResponse extends $tea.Model {
 
 export class CreateFilesetRequest extends $tea.Model {
   clientToken?: string;
+  deletionProtection?: boolean;
   description?: string;
   dryRun?: boolean;
   fileSystemId?: string;
@@ -1589,6 +1590,7 @@ export class CreateFilesetRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      deletionProtection: 'DeletionProtection',
       description: 'Description',
       dryRun: 'DryRun',
       fileSystemId: 'FileSystemId',
@@ -1599,6 +1601,7 @@ export class CreateFilesetRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      deletionProtection: 'boolean',
       description: 'string',
       dryRun: 'boolean',
       fileSystemId: 'string',
@@ -4539,11 +4542,13 @@ export class DescribeLifecyclePoliciesResponse extends $tea.Model {
 }
 
 export class DescribeLogAnalysisRequest extends $tea.Model {
+  fileSystemType?: string;
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      fileSystemType: 'FileSystemType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -4552,6 +4557,7 @@ export class DescribeLogAnalysisRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fileSystemType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -6967,6 +6973,7 @@ export class ModifyFileSystemResponse extends $tea.Model {
 
 export class ModifyFilesetRequest extends $tea.Model {
   clientToken?: string;
+  deletionProtection?: boolean;
   description?: string;
   dryRun?: boolean;
   fileSystemId?: string;
@@ -6974,6 +6981,7 @@ export class ModifyFilesetRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      deletionProtection: 'DeletionProtection',
       description: 'Description',
       dryRun: 'DryRun',
       fileSystemId: 'FileSystemId',
@@ -6984,6 +6992,7 @@ export class ModifyFilesetRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      deletionProtection: 'boolean',
       description: 'string',
       dryRun: 'boolean',
       fileSystemId: 'string',
@@ -8781,6 +8790,7 @@ export class DescribeAutoSnapshotPoliciesResponseBodyAutoSnapshotPoliciesAutoSna
   autoSnapshotPolicyName?: string;
   createTime?: string;
   fileSystemNums?: number;
+  fileSystemType?: string;
   regionId?: string;
   repeatWeekdays?: string;
   retentionDays?: number;
@@ -8792,6 +8802,7 @@ export class DescribeAutoSnapshotPoliciesResponseBodyAutoSnapshotPoliciesAutoSna
       autoSnapshotPolicyName: 'AutoSnapshotPolicyName',
       createTime: 'CreateTime',
       fileSystemNums: 'FileSystemNums',
+      fileSystemType: 'FileSystemType',
       regionId: 'RegionId',
       repeatWeekdays: 'RepeatWeekdays',
       retentionDays: 'RetentionDays',
@@ -8806,6 +8817,7 @@ export class DescribeAutoSnapshotPoliciesResponseBodyAutoSnapshotPoliciesAutoSna
       autoSnapshotPolicyName: 'string',
       createTime: 'string',
       fileSystemNums: 'number',
+      fileSystemType: 'string',
       regionId: 'string',
       repeatWeekdays: 'string',
       retentionDays: 'number',
@@ -9139,6 +9151,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $t
   quotaType?: string;
   sizeLimit?: number;
   sizeReal?: number;
+  sizeRealInByte?: number;
   userId?: string;
   userType?: string;
   static names(): { [key: string]: string } {
@@ -9148,6 +9161,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $t
       quotaType: 'QuotaType',
       sizeLimit: 'SizeLimit',
       sizeReal: 'SizeReal',
+      sizeRealInByte: 'SizeRealInByte',
       userId: 'UserId',
       userType: 'UserType',
     };
@@ -9160,6 +9174,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $t
       quotaType: 'string',
       sizeLimit: 'number',
       sizeReal: 'number',
+      sizeRealInByte: 'number',
       userId: 'string',
       userType: 'string',
     };
@@ -9816,6 +9831,7 @@ export class DescribeFilesetsRequestFilters extends $tea.Model {
 
 export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
   createTime?: string;
+  deletionProtection?: boolean;
   description?: string;
   fileSystemPath?: string;
   fsetId?: string;
@@ -9824,6 +9840,7 @@ export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      deletionProtection: 'DeletionProtection',
       description: 'Description',
       fileSystemPath: 'FileSystemPath',
       fsetId: 'FsetId',
@@ -9835,6 +9852,7 @@ export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      deletionProtection: 'boolean',
       description: 'string',
       fileSystemPath: 'string',
       fsetId: 'string',
@@ -10347,11 +10365,13 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
   createTime?: string;
   description?: string;
   encryptType?: number;
+  fileSystemType?: string;
   progress?: string;
   remainTime?: number;
   retentionDays?: number;
   snapshotId?: string;
   snapshotName?: string;
+  snapshotType?: string;
   sourceFileSystemId?: string;
   sourceFileSystemSize?: number;
   sourceFileSystemVersion?: string;
@@ -10361,11 +10381,13 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
       createTime: 'CreateTime',
       description: 'Description',
       encryptType: 'EncryptType',
+      fileSystemType: 'FileSystemType',
       progress: 'Progress',
       remainTime: 'RemainTime',
       retentionDays: 'RetentionDays',
       snapshotId: 'SnapshotId',
       snapshotName: 'SnapshotName',
+      snapshotType: 'SnapshotType',
       sourceFileSystemId: 'SourceFileSystemId',
       sourceFileSystemSize: 'SourceFileSystemSize',
       sourceFileSystemVersion: 'SourceFileSystemVersion',
@@ -10378,11 +10400,13 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
       createTime: 'string',
       description: 'string',
       encryptType: 'number',
+      fileSystemType: 'string',
       progress: 'string',
       remainTime: 'number',
       retentionDays: 'number',
       snapshotId: 'string',
       snapshotName: 'string',
+      snapshotType: 'string',
       sourceFileSystemId: 'string',
       sourceFileSystemSize: 'number',
       sourceFileSystemVersion: 'string',
@@ -11030,11 +11054,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The API operation is available only for CPFS file systems.
-    *
-    * @param request AddClientToBlackListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddClientToBlackListResponse
+   * @description The API operation is available only for CPFS file systems.
+   *
+   * @param request AddClientToBlackListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddClientToBlackListResponse
    */
   async addClientToBlackListWithOptions(request: AddClientToBlackListRequest, runtime: $Util.RuntimeOptions): Promise<AddClientToBlackListResponse> {
     Util.validateModel(request);
@@ -11073,10 +11097,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The API operation is available only for CPFS file systems.
-    *
-    * @param request AddClientToBlackListRequest
-    * @return AddClientToBlackListResponse
+   * @description The API operation is available only for CPFS file systems.
+   *
+   * @param request AddClientToBlackListRequest
+   * @return AddClientToBlackListResponse
    */
   async addClientToBlackList(request: AddClientToBlackListRequest): Promise<AddClientToBlackListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11084,18 +11108,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Limits
-    * *   Each tag includes a TagKey and a TagValue.
-    * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. These placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
-    * *   You must specify a TagKey. You can leave a TagValue empty.
-    * *   A TagKey and TagValue are not case-sensitive.
-    * *   A TagKey can be a maximum of 64 characters in length. A TagValue can be a maximum of 128 characters in length.
-    * *   You can add a maximum of 10 tags to a file system at a time. If you add two tags with the same TagKey, the new tag added will overwrite the existing tag.
-    * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
-    *
-    * @param request AddTagsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddTagsResponse
+   * @description ## Limits
+   * *   Each tag includes a TagKey and a TagValue.
+   * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. These placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
+   * *   You must specify a TagKey. You can leave a TagValue empty.
+   * *   A TagKey and TagValue are not case-sensitive.
+   * *   A TagKey can be a maximum of 64 characters in length. A TagValue can be a maximum of 128 characters in length.
+   * *   You can add a maximum of 10 tags to a file system at a time. If you add two tags with the same TagKey, the new tag added will overwrite the existing tag.
+   * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
+   *
+   * @param request AddTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddTagsResponse
    */
   async addTagsWithOptions(request: AddTagsRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsResponse> {
     Util.validateModel(request);
@@ -11126,17 +11150,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Limits
-    * *   Each tag includes a TagKey and a TagValue.
-    * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. These placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
-    * *   You must specify a TagKey. You can leave a TagValue empty.
-    * *   A TagKey and TagValue are not case-sensitive.
-    * *   A TagKey can be a maximum of 64 characters in length. A TagValue can be a maximum of 128 characters in length.
-    * *   You can add a maximum of 10 tags to a file system at a time. If you add two tags with the same TagKey, the new tag added will overwrite the existing tag.
-    * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
-    *
-    * @param request AddTagsRequest
-    * @return AddTagsResponse
+   * @description ## Limits
+   * *   Each tag includes a TagKey and a TagValue.
+   * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. These placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
+   * *   You must specify a TagKey. You can leave a TagValue empty.
+   * *   A TagKey and TagValue are not case-sensitive.
+   * *   A TagKey can be a maximum of 64 characters in length. A TagValue can be a maximum of 128 characters in length.
+   * *   You can add a maximum of 10 tags to a file system at a time. If you add two tags with the same TagKey, the new tag added will overwrite the existing tag.
+   * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
+   *
+   * @param request AddTagsRequest
+   * @return AddTagsResponse
    */
   async addTags(request: AddTagsRequest): Promise<AddTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11144,15 +11168,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    * *   You can apply only one automatic snapshot policy to each file system.
-    * *   Each automatic snapshot policy can be applied to multiple file systems.
-    * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
-    *
-    * @param request ApplyAutoSnapshotPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ApplyAutoSnapshotPolicyResponse
+   * @summary Applies an automatic snapshot policy to one or more file systems.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   * *   You can apply only one automatic snapshot policy to each file system.
+   * *   Each automatic snapshot policy can be applied to multiple file systems.
+   * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
+   *
+   * @param request ApplyAutoSnapshotPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyAutoSnapshotPolicyResponse
    */
   async applyAutoSnapshotPolicyWithOptions(request: ApplyAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ApplyAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
@@ -11183,14 +11209,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    * *   You can apply only one automatic snapshot policy to each file system.
-    * *   Each automatic snapshot policy can be applied to multiple file systems.
-    * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
-    *
-    * @param request ApplyAutoSnapshotPolicyRequest
-    * @return ApplyAutoSnapshotPolicyResponse
+   * @summary Applies an automatic snapshot policy to one or more file systems.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   * *   You can apply only one automatic snapshot policy to each file system.
+   * *   Each automatic snapshot policy can be applied to multiple file systems.
+   * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
+   *
+   * @param request ApplyAutoSnapshotPolicyRequest
+   * @return ApplyAutoSnapshotPolicyResponse
    */
   async applyAutoSnapshotPolicy(request: ApplyAutoSnapshotPolicyRequest): Promise<ApplyAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11198,21 +11226,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-    * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
-    * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
-    * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](~~336901~~) operation to query the dataflow status.
-    * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](~~182246~~).
-    *     **
-    *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
-    * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
-    * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
-    * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
-    *
-    * @param request ApplyDataFlowAutoRefreshRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ApplyDataFlowAutoRefreshResponse
+   * @summary Adds AutoRefresh configurations to a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+   * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
+   * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
+   * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the dataflow status.
+   * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
+   *     **
+   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
+   * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+   * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+   * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+   *
+   * @param request ApplyDataFlowAutoRefreshRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyDataFlowAutoRefreshResponse
    */
   async applyDataFlowAutoRefreshWithOptions(request: ApplyDataFlowAutoRefreshRequest, runtime: $Util.RuntimeOptions): Promise<ApplyDataFlowAutoRefreshResponse> {
     Util.validateModel(request);
@@ -11263,20 +11293,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-    * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
-    * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
-    * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](~~336901~~) operation to query the dataflow status.
-    * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](~~182246~~).
-    *     **
-    *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
-    * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
-    * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
-    * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
-    *
-    * @param request ApplyDataFlowAutoRefreshRequest
-    * @return ApplyDataFlowAutoRefreshResponse
+   * @summary Adds AutoRefresh configurations to a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+   * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
+   * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
+   * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the dataflow status.
+   * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
+   *     **
+   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
+   * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+   * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+   * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+   *
+   * @param request ApplyDataFlowAutoRefreshRequest
+   * @return ApplyDataFlowAutoRefreshResponse
    */
   async applyDataFlowAutoRefresh(request: ApplyDataFlowAutoRefreshRequest): Promise<ApplyDataFlowAutoRefreshResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11284,12 +11316,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request CancelAutoSnapshotPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelAutoSnapshotPolicyResponse
+   * @summary Removes automatic snapshot policies from one or more file systems.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   *
+   * @param request CancelAutoSnapshotPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelAutoSnapshotPolicyResponse
    */
   async cancelAutoSnapshotPolicyWithOptions(request: CancelAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CancelAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
@@ -11316,11 +11350,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request CancelAutoSnapshotPolicyRequest
-    * @return CancelAutoSnapshotPolicyResponse
+   * @summary Removes automatic snapshot policies from one or more file systems.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   *
+   * @param request CancelAutoSnapshotPolicyRequest
+   * @return CancelAutoSnapshotPolicyResponse
    */
   async cancelAutoSnapshotPolicy(request: CancelAutoSnapshotPolicyRequest): Promise<CancelAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11328,14 +11364,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-    * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-    * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the AutoRefresh tasks.
-    *
-    * @param request CancelDataFlowAutoRefreshRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelDataFlowAutoRefreshResponse
+   * @summary Cancels the AutoRefresh configuration for a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+   * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
+   * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the AutoRefresh tasks.
+   *
+   * @param request CancelDataFlowAutoRefreshRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelDataFlowAutoRefreshResponse
    */
   async cancelDataFlowAutoRefreshWithOptions(request: CancelDataFlowAutoRefreshRequest, runtime: $Util.RuntimeOptions): Promise<CancelDataFlowAutoRefreshResponse> {
     Util.validateModel(request);
@@ -11378,13 +11416,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-    * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-    * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the AutoRefresh tasks.
-    *
-    * @param request CancelDataFlowAutoRefreshRequest
-    * @return CancelDataFlowAutoRefreshResponse
+   * @summary Cancels the AutoRefresh configuration for a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+   * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
+   * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the AutoRefresh tasks.
+   *
+   * @param request CancelDataFlowAutoRefreshRequest
+   * @return CancelDataFlowAutoRefreshResponse
    */
   async cancelDataFlowAutoRefresh(request: CancelDataFlowAutoRefreshRequest): Promise<CancelDataFlowAutoRefreshResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11392,14 +11432,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
-    * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
-    * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](~~2402275~~) operation.
-    *
-    * @param request CancelDataFlowTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelDataFlowTaskResponse
+   * @summary Cancels a dataflow task that is not running.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
+   * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
+   * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
+   *
+   * @param request CancelDataFlowTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelDataFlowTaskResponse
    */
   async cancelDataFlowTaskWithOptions(request: CancelDataFlowTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelDataFlowTaskResponse> {
     Util.validateModel(request);
@@ -11442,13 +11484,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
-    * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
-    * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](~~2402275~~) operation.
-    *
-    * @param request CancelDataFlowTaskRequest
-    * @return CancelDataFlowTaskResponse
+   * @summary Cancels a dataflow task that is not running.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
+   * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
+   * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
+   *
+   * @param request CancelDataFlowTaskRequest
+   * @return CancelDataFlowTaskResponse
    */
   async cancelDataFlowTask(request: CancelDataFlowTaskRequest): Promise<CancelDataFlowTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11456,11 +11500,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose file systems support the directory quota feature.
-    *
-    * @param request CancelDirQuotaRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelDirQuotaResponse
+   * @summary Cancels the directory quota of a file system.
+   *
+   * @description Only General-purpose file systems support the directory quota feature.
+   *
+   * @param request CancelDirQuotaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelDirQuotaResponse
    */
   async cancelDirQuotaWithOptions(request: CancelDirQuotaRequest, runtime: $Util.RuntimeOptions): Promise<CancelDirQuotaResponse> {
     Util.validateModel(request);
@@ -11499,10 +11545,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose file systems support the directory quota feature.
-    *
-    * @param request CancelDirQuotaRequest
-    * @return CancelDirQuotaResponse
+   * @summary Cancels the directory quota of a file system.
+   *
+   * @description Only General-purpose file systems support the directory quota feature.
+   *
+   * @param request CancelDirQuotaRequest
+   * @return CancelDirQuotaResponse
    */
   async cancelDirQuota(request: CancelDirQuotaRequest): Promise<CancelDirQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11510,11 +11558,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request CancelLifecycleRetrieveJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelLifecycleRetrieveJobResponse
+   * @summary Cancels a running data retrieval task.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request CancelLifecycleRetrieveJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelLifecycleRetrieveJobResponse
    */
   async cancelLifecycleRetrieveJobWithOptions(request: CancelLifecycleRetrieveJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelLifecycleRetrieveJobResponse> {
     Util.validateModel(request);
@@ -11541,10 +11591,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request CancelLifecycleRetrieveJobRequest
-    * @return CancelLifecycleRetrieveJobResponse
+   * @summary Cancels a running data retrieval task.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request CancelLifecycleRetrieveJobRequest
+   * @return CancelLifecycleRetrieveJobResponse
    */
   async cancelLifecycleRetrieveJob(request: CancelLifecycleRetrieveJobRequest): Promise<CancelLifecycleRetrieveJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11552,14 +11604,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
-    * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
-    * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
-    *
-    * @param request CancelRecycleBinJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelRecycleBinJobResponse
+   * @summary Cancels a running job of the recycle bin.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
+   * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
+   * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
+   *
+   * @param request CancelRecycleBinJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelRecycleBinJobResponse
    */
   async cancelRecycleBinJobWithOptions(request: CancelRecycleBinJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelRecycleBinJobResponse> {
     Util.validateModel(request);
@@ -11582,19 +11636,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
-    * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
-    * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
-    *
-    * @param request CancelRecycleBinJobRequest
-    * @return CancelRecycleBinJobResponse
+   * @summary Cancels a running job of the recycle bin.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
+   * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
+   * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
+   *
+   * @param request CancelRecycleBinJobRequest
+   * @return CancelRecycleBinJobResponse
    */
   async cancelRecycleBinJob(request: CancelRecycleBinJobRequest): Promise<CancelRecycleBinJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelRecycleBinJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 资源转组
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11631,11 +11694,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+   * @summary 资源转组
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a permission group.
+   *
+   * @param request CreateAccessGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccessGroupResponse
+   */
   async createAccessGroupWithOptions(request: CreateAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11672,11 +11748,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccessGroupResponse>(await this.callApi(params, req, runtime), new CreateAccessGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a permission group.
+   *
+   * @param request CreateAccessGroupRequest
+   * @return CreateAccessGroupResponse
+   */
   async createAccessGroup(request: CreateAccessGroupRequest): Promise<CreateAccessGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccessGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建接入点
+   *
+   * @param request CreateAccessPointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccessPointResponse
+   */
   async createAccessPointWithOptions(request: CreateAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessPointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11749,11 +11838,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccessPointResponse>(await this.callApi(params, req, runtime), new CreateAccessPointResponse({}));
   }
 
+  /**
+   * @summary 创建接入点
+   *
+   * @param request CreateAccessPointRequest
+   * @return CreateAccessPointResponse
+   */
   async createAccessPoint(request: CreateAccessPointRequest): Promise<CreateAccessPointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccessPointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a rule for a permission group.
+   *
+   * @param request CreateAccessRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccessRuleResponse
+   */
   async createAccessRuleWithOptions(request: CreateAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11802,26 +11904,34 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccessRuleResponse>(await this.callApi(params, req, runtime), new CreateAccessRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a rule for a permission group.
+   *
+   * @param request CreateAccessRuleRequest
+   * @return CreateAccessRuleResponse
+   */
   async createAccessRule(request: CreateAccessRuleRequest): Promise<CreateAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccessRuleWithOptions(request, runtime);
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
-    * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
-    * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
-    * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
-    * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
-    * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
-    * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
-    * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
-    *
-    * @param request CreateAutoSnapshotPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAutoSnapshotPolicyResponse
+   * @summary Creates an automatic snapshot policy.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support the snapshot feature.
+   * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
+   * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
+   * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
+   * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
+   * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
+   * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
+   * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
+   * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
+   *
+   * @param request CreateAutoSnapshotPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAutoSnapshotPolicyResponse
    */
   async createAutoSnapshotPolicyWithOptions(request: CreateAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
@@ -11864,19 +11974,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
-    * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
-    * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
-    * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
-    * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
-    * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
-    * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
-    * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
-    *
-    * @param request CreateAutoSnapshotPolicyRequest
-    * @return CreateAutoSnapshotPolicyResponse
+   * @summary Creates an automatic snapshot policy.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support the snapshot feature.
+   * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
+   * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
+   * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
+   * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
+   * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
+   * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
+   * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
+   * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
+   *
+   * @param request CreateAutoSnapshotPolicyRequest
+   * @return CreateAutoSnapshotPolicyResponse
    */
   async createAutoSnapshotPolicy(request: CreateAutoSnapshotPolicyRequest): Promise<CreateAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11884,45 +11996,47 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Billing
-    *     *   If you create a dataflow, you are charged for using the dataflow throughput. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
-    *     *   When you configure the AutoRefresh feature for a dataflow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](~~163752~~).
-    * *   Dataflow specifications
-    *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
-    *     *   When you create a dataflow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
-    *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-    * *   Fileset
-    *     *   The destination for a dataflow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
-    *     *   When you create a dataflow, the related fileset must already exist and cannot be nested with other filesets. Only one dataflow can be created in a fileset, which corresponds to one source storage.
-    *     *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
-    *     **
-    *     **Note** If data already exists in the fileset, after you create a dataflow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
-    * *   Source storage
-    *     *   The source storage is an OSS bucket. SourceStorage for a dataflow must be an OSS bucket. The prefix of an OSS bucket is not supported.
-    *     *   CPFS dataflows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-    *     *   If dataflows for multiple CPFS file systems or multiple dataflows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
-    *     *   Dataflows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-    *         **
-    *         **Note** Before you create a dataflow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created dataflow can access the data in the OSS bucket. When a dataflow is being used, do not delete or modify the tag. Otherwise, the dataflow for CPFS cannot access the data in the OSS bucket.
-    * *   AutoRefresh
-    *     *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
-    *     *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](~~182246~~).
-    *     *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a dataflow.
-    *     *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes `Misconfigured`. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
-    *     *   When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
-    *     **
-    *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly
-    * *   Permissions
-    *     When you create a dataflow, CPFS obtains two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](~~185138~~).
-    * *   Basic operations
-    *     *   Only CPFS V2.2.0 and later support dataflows.
-    *     *   You can create a dataflow only if the CPFS file system is in the Running state.
-    *     *   A maximum of 10 dataflows can be created for a CPFS file system.
-    *     *   It generally takes 2 to 5 minutes to create a dataflow. You can call the DescribeDataFlows operation to check whether the dataflow has been created.
-    *
-    * @param request CreateDataFlowRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDataFlowResponse
+   * @summary Creates a dataflow for a Cloud Parallel File Storage (CPFS) file system and source storage.
+   *
+   * @description *   Billing
+   *     *   If you create a dataflow, you are charged for using the dataflow throughput. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+   *     *   When you configure the AutoRefresh feature for a dataflow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](https://help.aliyun.com/document_detail/163752.html).
+   * *   Dataflow specifications
+   *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+   *     *   When you create a dataflow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
+   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+   * *   Fileset
+   *     *   The destination for a dataflow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
+   *     *   When you create a dataflow, the related fileset must already exist and cannot be nested with other filesets. Only one dataflow can be created in a fileset, which corresponds to one source storage.
+   *     *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
+   *     **
+   *     **Note** If data already exists in the fileset, after you create a dataflow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
+   * *   Source storage
+   *     *   The source storage is an OSS bucket. SourceStorage for a dataflow must be an OSS bucket. The prefix of an OSS bucket is not supported.
+   *     *   CPFS dataflows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
+   *     *   If dataflows for multiple CPFS file systems or multiple dataflows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
+   *     *   Dataflows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
+   *         **
+   *         **Note** Before you create a dataflow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created dataflow can access the data in the OSS bucket. When a dataflow is being used, do not delete or modify the tag. Otherwise, the dataflow for CPFS cannot access the data in the OSS bucket.
+   * *   AutoRefresh
+   *     *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+   *     *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
+   *     *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a dataflow.
+   *     *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes `Misconfigured`. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+   *     *   When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+   *     **
+   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly
+   * *   Permissions
+   *     When you create a dataflow, CPFS obtains two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
+   * *   Basic operations
+   *     *   Only CPFS V2.2.0 and later support dataflows.
+   *     *   You can create a dataflow only if the CPFS file system is in the Running state.
+   *     *   A maximum of 10 dataflows can be created for a CPFS file system.
+   *     *   It generally takes 2 to 5 minutes to create a dataflow. You can call the DescribeDataFlows operation to check whether the dataflow has been created.
+   *
+   * @param request CreateDataFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataFlowResponse
    */
   async createDataFlowWithOptions(request: CreateDataFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataFlowResponse> {
     Util.validateModel(request);
@@ -11997,44 +12111,46 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Billing
-    *     *   If you create a dataflow, you are charged for using the dataflow throughput. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
-    *     *   When you configure the AutoRefresh feature for a dataflow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](~~163752~~).
-    * *   Dataflow specifications
-    *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
-    *     *   When you create a dataflow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
-    *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-    * *   Fileset
-    *     *   The destination for a dataflow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
-    *     *   When you create a dataflow, the related fileset must already exist and cannot be nested with other filesets. Only one dataflow can be created in a fileset, which corresponds to one source storage.
-    *     *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
-    *     **
-    *     **Note** If data already exists in the fileset, after you create a dataflow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
-    * *   Source storage
-    *     *   The source storage is an OSS bucket. SourceStorage for a dataflow must be an OSS bucket. The prefix of an OSS bucket is not supported.
-    *     *   CPFS dataflows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-    *     *   If dataflows for multiple CPFS file systems or multiple dataflows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
-    *     *   Dataflows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-    *         **
-    *         **Note** Before you create a dataflow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created dataflow can access the data in the OSS bucket. When a dataflow is being used, do not delete or modify the tag. Otherwise, the dataflow for CPFS cannot access the data in the OSS bucket.
-    * *   AutoRefresh
-    *     *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
-    *     *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](~~182246~~).
-    *     *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a dataflow.
-    *     *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes `Misconfigured`. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
-    *     *   When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
-    *     **
-    *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly
-    * *   Permissions
-    *     When you create a dataflow, CPFS obtains two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](~~185138~~).
-    * *   Basic operations
-    *     *   Only CPFS V2.2.0 and later support dataflows.
-    *     *   You can create a dataflow only if the CPFS file system is in the Running state.
-    *     *   A maximum of 10 dataflows can be created for a CPFS file system.
-    *     *   It generally takes 2 to 5 minutes to create a dataflow. You can call the DescribeDataFlows operation to check whether the dataflow has been created.
-    *
-    * @param request CreateDataFlowRequest
-    * @return CreateDataFlowResponse
+   * @summary Creates a dataflow for a Cloud Parallel File Storage (CPFS) file system and source storage.
+   *
+   * @description *   Billing
+   *     *   If you create a dataflow, you are charged for using the dataflow throughput. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+   *     *   When you configure the AutoRefresh feature for a dataflow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](https://help.aliyun.com/document_detail/163752.html).
+   * *   Dataflow specifications
+   *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+   *     *   When you create a dataflow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
+   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+   * *   Fileset
+   *     *   The destination for a dataflow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
+   *     *   When you create a dataflow, the related fileset must already exist and cannot be nested with other filesets. Only one dataflow can be created in a fileset, which corresponds to one source storage.
+   *     *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
+   *     **
+   *     **Note** If data already exists in the fileset, after you create a dataflow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
+   * *   Source storage
+   *     *   The source storage is an OSS bucket. SourceStorage for a dataflow must be an OSS bucket. The prefix of an OSS bucket is not supported.
+   *     *   CPFS dataflows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
+   *     *   If dataflows for multiple CPFS file systems or multiple dataflows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
+   *     *   Dataflows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
+   *         **
+   *         **Note** Before you create a dataflow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created dataflow can access the data in the OSS bucket. When a dataflow is being used, do not delete or modify the tag. Otherwise, the dataflow for CPFS cannot access the data in the OSS bucket.
+   * *   AutoRefresh
+   *     *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+   *     *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
+   *     *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a dataflow.
+   *     *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes `Misconfigured`. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+   *     *   When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+   *     **
+   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly
+   * *   Permissions
+   *     When you create a dataflow, CPFS obtains two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
+   * *   Basic operations
+   *     *   Only CPFS V2.2.0 and later support dataflows.
+   *     *   You can create a dataflow only if the CPFS file system is in the Running state.
+   *     *   A maximum of 10 dataflows can be created for a CPFS file system.
+   *     *   It generally takes 2 to 5 minutes to create a dataflow. You can call the DescribeDataFlows operation to check whether the dataflow has been created.
+   *
+   * @param request CreateDataFlowRequest
+   * @return CreateDataFlowResponse
    */
   async createDataFlow(request: CreateDataFlowRequest): Promise<CreateDataFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12042,15 +12158,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Dataflow tasks can be created only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
-    * *   You can create a dataflow task only for a dataflow that is in the Running state.
-    * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](~~336914~~) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-    * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
-    *
-    * @param request CreateDataFlowTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDataFlowTaskResponse
+   * @summary Creates a dataflow task.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Dataflow tasks can be created only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+   * *   You can create a dataflow task only for a dataflow that is in the Running state.
+   * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/336914.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+   * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
+   *
+   * @param request CreateDataFlowTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataFlowTaskResponse
    */
   async createDataFlowTaskWithOptions(request: CreateDataFlowTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataFlowTaskResponse> {
     Util.validateModel(request);
@@ -12113,20 +12231,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Dataflow tasks can be created only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
-    * *   You can create a dataflow task only for a dataflow that is in the Running state.
-    * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](~~336914~~) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-    * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
-    *
-    * @param request CreateDataFlowTaskRequest
-    * @return CreateDataFlowTaskResponse
+   * @summary Creates a dataflow task.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Dataflow tasks can be created only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+   * *   You can create a dataflow task only for a dataflow that is in the Running state.
+   * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/336914.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+   * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
+   *
+   * @param request CreateDataFlowTaskRequest
+   * @return CreateDataFlowTaskResponse
    */
   async createDataFlowTask(request: CreateDataFlowTaskRequest): Promise<CreateDataFlowTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataFlowTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建目录
+   *
+   * @param request CreateDirRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDirResponse
+   */
   async createDirWithOptions(request: CreateDirRequest, runtime: $Util.RuntimeOptions): Promise<CreateDirResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12171,18 +12298,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDirResponse>(await this.callApi(params, req, runtime), new CreateDirResponse({}));
   }
 
+  /**
+   * @summary 创建目录
+   *
+   * @param request CreateDirRequest
+   * @return CreateDirResponse
+   */
   async createDir(request: CreateDirRequest): Promise<CreateDirResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDirWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is only available to some users.
-    * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
-    *
-    * @param request CreateFileRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateFileResponse
+   * @summary Creates a directory or file.
+   *
+   * @description *   This operation is only available to some users.
+   * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
+   *
+   * @param request CreateFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFileResponse
    */
   async createFileWithOptions(request: CreateFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileResponse> {
     Util.validateModel(request);
@@ -12225,11 +12360,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is only available to some users.
-    * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
-    *
-    * @param request CreateFileRequest
-    * @return CreateFileResponse
+   * @summary Creates a directory or file.
+   *
+   * @description *   This operation is only available to some users.
+   * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
+   *
+   * @param request CreateFileRequest
+   * @return CreateFileResponse
    */
   async createFile(request: CreateFileRequest): Promise<CreateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12237,13 +12374,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](~~178365~~) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
-    * *   Before you create a file system, you must complete real-name verification.
-    * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
-    *
-    * @param request CreateFileSystemRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateFileSystemResponse
+   * @summary Creates a file system.
+   *
+   * @description *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
+   * *   Before you create a file system, you must complete real-name verification.
+   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+   *
+   * @param request CreateFileSystemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFileSystemResponse
    */
   async createFileSystemWithOptions(request: CreateFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileSystemResponse> {
     Util.validateModel(request);
@@ -12334,12 +12473,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](~~178365~~) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
-    * *   Before you create a file system, you must complete real-name verification.
-    * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
-    *
-    * @param request CreateFileSystemRequest
-    * @return CreateFileSystemResponse
+   * @summary Creates a file system.
+   *
+   * @description *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
+   * *   Before you create a file system, you must complete real-name verification.
+   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+   *
+   * @param request CreateFileSystemRequest
+   * @return CreateFileSystemResponse
    */
   async createFileSystem(request: CreateFileSystemRequest): Promise<CreateFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12347,22 +12488,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
-    * *   A maximum of 10 filesets can be created for a CPFS file system.
-    * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
-    * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
-    * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
-    *
-    * @param request CreateFilesetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateFilesetResponse
+   * @summary Creates a fileset.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
+   * *   A maximum of 10 filesets can be created for a CPFS file system.
+   * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
+   * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
+   * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
+   *
+   * @param request CreateFilesetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFilesetResponse
    */
   async createFilesetWithOptions(request: CreateFilesetRequest, runtime: $Util.RuntimeOptions): Promise<CreateFilesetResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -12399,21 +12546,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
-    * *   A maximum of 10 filesets can be created for a CPFS file system.
-    * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
-    * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
-    * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
-    *
-    * @param request CreateFilesetRequest
-    * @return CreateFilesetResponse
+   * @summary Creates a fileset.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
+   * *   A maximum of 10 filesets can be created for a CPFS file system.
+   * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
+   * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
+   * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
+   *
+   * @param request CreateFilesetRequest
+   * @return CreateFilesetResponse
    */
   async createFileset(request: CreateFilesetRequest): Promise<CreateFilesetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFilesetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates LDAP configurations.
+   *
+   * @param request CreateLDAPConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLDAPConfigResponse
+   */
   async createLDAPConfigWithOptions(request: CreateLDAPConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateLDAPConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12450,18 +12606,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLDAPConfigResponse>(await this.callApi(params, req, runtime), new CreateLDAPConfigResponse({}));
   }
 
+  /**
+   * @summary Creates LDAP configurations.
+   *
+   * @param request CreateLDAPConfigRequest
+   * @return CreateLDAPConfigResponse
+   */
   async createLDAPConfig(request: CreateLDAPConfigRequest): Promise<CreateLDAPConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLDAPConfigWithOptions(request, runtime);
   }
 
   /**
-    * *   You can create lifecycle policies only for General-purpose NAS file systems.
-    * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
-    *
-    * @param request CreateLifecyclePolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLifecyclePolicyResponse
+   * @summary Creates a lifecycle policy.
+   *
+   * @description *   You can create lifecycle policies only for General-purpose NAS file systems.
+   * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+   *
+   * @param request CreateLifecyclePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLifecyclePolicyResponse
    */
   async createLifecyclePolicyWithOptions(request: CreateLifecyclePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateLifecyclePolicyResponse> {
     Util.validateModel(request);
@@ -12508,11 +12672,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can create lifecycle policies only for General-purpose NAS file systems.
-    * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
-    *
-    * @param request CreateLifecyclePolicyRequest
-    * @return CreateLifecyclePolicyResponse
+   * @summary Creates a lifecycle policy.
+   *
+   * @description *   You can create lifecycle policies only for General-purpose NAS file systems.
+   * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+   *
+   * @param request CreateLifecyclePolicyRequest
+   * @return CreateLifecyclePolicyResponse
    */
   async createLifecyclePolicy(request: CreateLifecyclePolicyRequest): Promise<CreateLifecyclePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12520,12 +12686,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
-    *
-    * @param request CreateLifecycleRetrieveJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLifecycleRetrieveJobResponse
+   * @summary Creates a data retrieval task.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
+   *
+   * @param request CreateLifecycleRetrieveJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLifecycleRetrieveJobResponse
    */
   async createLifecycleRetrieveJobWithOptions(request: CreateLifecycleRetrieveJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateLifecycleRetrieveJobResponse> {
     Util.validateModel(request);
@@ -12560,17 +12728,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
-    *
-    * @param request CreateLifecycleRetrieveJobRequest
-    * @return CreateLifecycleRetrieveJobResponse
+   * @summary Creates a data retrieval task.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
+   *
+   * @param request CreateLifecycleRetrieveJobRequest
+   * @return CreateLifecycleRetrieveJobResponse
    */
   async createLifecycleRetrieveJob(request: CreateLifecycleRetrieveJobRequest): Promise<CreateLifecycleRetrieveJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLifecycleRetrieveJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Dumps the logs of a General-purpose NAS file system to Simple Log Service.
+   *
+   * @param request CreateLogAnalysisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLogAnalysisResponse
+   */
   async createLogAnalysisWithOptions(request: CreateLogAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<CreateLogAnalysisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12599,18 +12776,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLogAnalysisResponse>(await this.callApi(params, req, runtime), new CreateLogAnalysisResponse({}));
   }
 
+  /**
+   * @summary Dumps the logs of a General-purpose NAS file system to Simple Log Service.
+   *
+   * @param request CreateLogAnalysisRequest
+   * @return CreateLogAnalysisResponse
+   */
   async createLogAnalysis(request: CreateLogAnalysisRequest): Promise<CreateLogAnalysisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLogAnalysisWithOptions(request, runtime);
   }
 
   /**
-    * *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-    * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
-    *
-    * @param request CreateMountTargetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateMountTargetResponse
+   * @summary Creates a mount target.
+   *
+   * @description *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+   *
+   * @param request CreateMountTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMountTargetResponse
    */
   async createMountTargetWithOptions(request: CreateMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<CreateMountTargetResponse> {
     Util.validateModel(request);
@@ -12665,11 +12850,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-    * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
-    *
-    * @param request CreateMountTargetRequest
-    * @return CreateMountTargetResponse
+   * @summary Creates a mount target.
+   *
+   * @description *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+   *
+   * @param request CreateMountTargetRequest
+   * @return CreateMountTargetResponse
    */
   async createMountTarget(request: CreateMountTargetRequest): Promise<CreateMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12677,18 +12864,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Prerequisites
-    *     A protocol service is created.
-    * *   Others
-    *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
-    *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
-    *     *   You can create a maximum of 10 export directories for a protocol service.
-    *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
-    *
-    * @param request CreateProtocolMountTargetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateProtocolMountTargetResponse
+   * @summary Creates an export directory for a protocol service.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Prerequisites
+   *     A protocol service is created.
+   * *   Others
+   *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
+   *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
+   *     *   You can create a maximum of 10 export directories for a protocol service.
+   *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
+   *
+   * @param request CreateProtocolMountTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProtocolMountTargetResponse
    */
   async createProtocolMountTargetWithOptions(request: CreateProtocolMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<CreateProtocolMountTargetResponse> {
     Util.validateModel(request);
@@ -12751,17 +12940,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Prerequisites
-    *     A protocol service is created.
-    * *   Others
-    *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
-    *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
-    *     *   You can create a maximum of 10 export directories for a protocol service.
-    *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
-    *
-    * @param request CreateProtocolMountTargetRequest
-    * @return CreateProtocolMountTargetResponse
+   * @summary Creates an export directory for a protocol service.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Prerequisites
+   *     A protocol service is created.
+   * *   Others
+   *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
+   *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
+   *     *   You can create a maximum of 10 export directories for a protocol service.
+   *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
+   *
+   * @param request CreateProtocolMountTargetRequest
+   * @return CreateProtocolMountTargetResponse
    */
   async createProtocolMountTarget(request: CreateProtocolMountTargetRequest): Promise<CreateProtocolMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12769,22 +12960,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
-    * *   Protocol service types
-    *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
-    *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](~~427175~~) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. General-purpose protocol services are provided free of charge.
-    *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
-    *        >   Note You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](~~111858~~). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
-    * *   Protocol type
-    *     Only NFSv3 is supported.
-    * *   Others
-    *     *   Only one protocol service can be created for a CPFS file system.
-    *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
-    *
-    * @param request CreateProtocolServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateProtocolServiceResponse
+   * @summary Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
+   *
+   * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
+   * *   Protocol service types
+   *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
+   *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](https://help.aliyun.com/document_detail/427175.html) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. General-purpose protocol services are provided free of charge.
+   *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
+   *        >   Note You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](https://help.aliyun.com/document_detail/111858.html). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
+   * *   Protocol type
+   *     Only NFSv3 is supported.
+   * *   Others
+   *     *   Only one protocol service can be created for a CPFS file system.
+   *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
+   *
+   * @param request CreateProtocolServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProtocolServiceResponse
    */
   async createProtocolServiceWithOptions(request: CreateProtocolServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateProtocolServiceResponse> {
     Util.validateModel(request);
@@ -12843,21 +13036,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
-    * *   Protocol service types
-    *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
-    *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](~~427175~~) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. General-purpose protocol services are provided free of charge.
-    *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
-    *        >   Note You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](~~111858~~). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
-    * *   Protocol type
-    *     Only NFSv3 is supported.
-    * *   Others
-    *     *   Only one protocol service can be created for a CPFS file system.
-    *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
-    *
-    * @param request CreateProtocolServiceRequest
-    * @return CreateProtocolServiceResponse
+   * @summary Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
+   *
+   * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
+   * *   Protocol service types
+   *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
+   *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](https://help.aliyun.com/document_detail/427175.html) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. General-purpose protocol services are provided free of charge.
+   *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
+   *        >   Note You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](https://help.aliyun.com/document_detail/111858.html). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
+   * *   Protocol type
+   *     Only NFSv3 is supported.
+   * *   Others
+   *     *   Only one protocol service can be created for a CPFS file system.
+   *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
+   *
+   * @param request CreateProtocolServiceRequest
+   * @return CreateProtocolServiceResponse
    */
   async createProtocolService(request: CreateProtocolServiceRequest): Promise<CreateProtocolServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12865,13 +13060,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   If you permanently delete a directory, the files in the directory are recursively cleared.
-    * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
-    *
-    * @param request CreateRecycleBinDeleteJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateRecycleBinDeleteJobResponse
+   * @summary Creates a job to permanently delete a file or directory from the recycle bin.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   If you permanently delete a directory, the files in the directory are recursively cleared.
+   * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
+   *
+   * @param request CreateRecycleBinDeleteJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRecycleBinDeleteJobResponse
    */
   async createRecycleBinDeleteJobWithOptions(request: CreateRecycleBinDeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRecycleBinDeleteJobResponse> {
     Util.validateModel(request);
@@ -12894,12 +13091,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   If you permanently delete a directory, the files in the directory are recursively cleared.
-    * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
-    *
-    * @param request CreateRecycleBinDeleteJobRequest
-    * @return CreateRecycleBinDeleteJobResponse
+   * @summary Creates a job to permanently delete a file or directory from the recycle bin.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   If you permanently delete a directory, the files in the directory are recursively cleared.
+   * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
+   *
+   * @param request CreateRecycleBinDeleteJobRequest
+   * @return CreateRecycleBinDeleteJobResponse
    */
   async createRecycleBinDeleteJob(request: CreateRecycleBinDeleteJobRequest): Promise<CreateRecycleBinDeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12907,15 +13106,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Usage notes
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
-    * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
-    * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
-    *
-    * @param request CreateRecycleBinRestoreJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateRecycleBinRestoreJobResponse
+   * @summary Restores a file or directory from the recycle bin.
+   *
+   * @description ### Usage notes
+   * *   Only General-purpose NAS file systems support this operation.
+   * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
+   * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
+   * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
+   *
+   * @param request CreateRecycleBinRestoreJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRecycleBinRestoreJobResponse
    */
   async createRecycleBinRestoreJobWithOptions(request: CreateRecycleBinRestoreJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRecycleBinRestoreJobResponse> {
     Util.validateModel(request);
@@ -12938,14 +13139,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Usage notes
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
-    * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
-    * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
-    *
-    * @param request CreateRecycleBinRestoreJobRequest
-    * @return CreateRecycleBinRestoreJobResponse
+   * @summary Restores a file or directory from the recycle bin.
+   *
+   * @description ### Usage notes
+   * *   Only General-purpose NAS file systems support this operation.
+   * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
+   * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
+   * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
+   *
+   * @param request CreateRecycleBinRestoreJobRequest
+   * @return CreateRecycleBinRestoreJobResponse
    */
   async createRecycleBinRestoreJob(request: CreateRecycleBinRestoreJobRequest): Promise<CreateRecycleBinRestoreJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12953,19 +13156,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/zh/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support the snapshot feature.
-    * *   You can create a maximum of 128 snapshots for a file system.
-    * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
-    * *   You can create only one snapshot for a file system at a time.
-    * *   If the file system expires when a snapshot is being created, the file system is released and the snapshot is deleted.
-    * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
-    * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
-    * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to an overdue payment. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
-    *
-    * @param request CreateSnapshotRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateSnapshotResponse
+   * @summary Creates a snapshot.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/zh/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support the snapshot feature.
+   * *   You can create a maximum of 128 snapshots for a file system.
+   * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
+   * *   You can create only one snapshot for a file system at a time.
+   * *   If the file system expires when a snapshot is being created, the file system is released and the snapshot is deleted.
+   * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
+   * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
+   * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to overdue payments. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
+   *
+   * @param request CreateSnapshotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSnapshotResponse
    */
   async createSnapshotWithOptions(request: CreateSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
     Util.validateModel(request);
@@ -13004,18 +13209,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/zh/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support the snapshot feature.
-    * *   You can create a maximum of 128 snapshots for a file system.
-    * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
-    * *   You can create only one snapshot for a file system at a time.
-    * *   If the file system expires when a snapshot is being created, the file system is released and the snapshot is deleted.
-    * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
-    * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
-    * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to an overdue payment. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
-    *
-    * @param request CreateSnapshotRequest
-    * @return CreateSnapshotResponse
+   * @summary Creates a snapshot.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/zh/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support the snapshot feature.
+   * *   You can create a maximum of 128 snapshots for a file system.
+   * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
+   * *   You can create only one snapshot for a file system at a time.
+   * *   If the file system expires when a snapshot is being created, the file system is released and the snapshot is deleted.
+   * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
+   * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
+   * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to overdue payments. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
+   *
+   * @param request CreateSnapshotRequest
+   * @return CreateSnapshotResponse
    */
   async createSnapshot(request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13023,11 +13230,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-    *
-    * @param request DeleteAccessGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAccessGroupResponse
+   * @summary Deletes a permission group.
+   *
+   * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+   *
+   * @param request DeleteAccessGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccessGroupResponse
    */
   async deleteAccessGroupWithOptions(request: DeleteAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessGroupResponse> {
     Util.validateModel(request);
@@ -13058,16 +13267,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-    *
-    * @param request DeleteAccessGroupRequest
-    * @return DeleteAccessGroupResponse
+   * @summary Deletes a permission group.
+   *
+   * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+   *
+   * @param request DeleteAccessGroupRequest
+   * @return DeleteAccessGroupResponse
    */
   async deleteAccessGroup(request: DeleteAccessGroupRequest): Promise<DeleteAccessGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccessGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除接入点
+   *
+   * @param request DeleteAccessPointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccessPointResponse
+   */
   async deleteAccessPointWithOptions(request: DeleteAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessPointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13096,17 +13314,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccessPointResponse>(await this.callApi(params, req, runtime), new DeleteAccessPointResponse({}));
   }
 
+  /**
+   * @summary 删除接入点
+   *
+   * @param request DeleteAccessPointRequest
+   * @return DeleteAccessPointResponse
+   */
   async deleteAccessPoint(request: DeleteAccessPointRequest): Promise<DeleteAccessPointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccessPointWithOptions(request, runtime);
   }
 
   /**
-    * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-    *
-    * @param request DeleteAccessRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAccessRuleResponse
+   * @summary Deletes a rule from a permission group.
+   *
+   * @description Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+   *
+   * @param request DeleteAccessRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccessRuleResponse
    */
   async deleteAccessRuleWithOptions(request: DeleteAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessRuleResponse> {
     Util.validateModel(request);
@@ -13141,10 +13367,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-    *
-    * @param request DeleteAccessRuleRequest
-    * @return DeleteAccessRuleResponse
+   * @summary Deletes a rule from a permission group.
+   *
+   * @description Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+   *
+   * @param request DeleteAccessRuleRequest
+   * @return DeleteAccessRuleResponse
    */
   async deleteAccessRule(request: DeleteAccessRuleRequest): Promise<DeleteAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13152,13 +13380,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
-    *
-    * @param request DeleteAutoSnapshotPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAutoSnapshotPolicyResponse
+   * @summary Deletes an automatic snapshot policy.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support the snapshot feature.
+   * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
+   *
+   * @param request DeleteAutoSnapshotPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAutoSnapshotPolicyResponse
    */
   async deleteAutoSnapshotPolicyWithOptions(request: DeleteAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
@@ -13185,12 +13415,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
-    *
-    * @param request DeleteAutoSnapshotPolicyRequest
-    * @return DeleteAutoSnapshotPolicyResponse
+   * @summary Deletes an automatic snapshot policy.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support the snapshot feature.
+   * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
+   *
+   * @param request DeleteAutoSnapshotPolicyRequest
+   * @return DeleteAutoSnapshotPolicyResponse
    */
   async deleteAutoSnapshotPolicy(request: DeleteAutoSnapshotPolicyRequest): Promise<DeleteAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13198,14 +13430,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
-    * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
-    * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
-    *
-    * @param request DeleteDataFlowRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDataFlowResponse
+   * @summary Deletes a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+   * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
+   * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
+   *
+   * @param request DeleteDataFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataFlowResponse
    */
   async deleteDataFlowWithOptions(request: DeleteDataFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataFlowResponse> {
     Util.validateModel(request);
@@ -13244,13 +13478,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
-    * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
-    * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
-    *
-    * @param request DeleteDataFlowRequest
-    * @return DeleteDataFlowResponse
+   * @summary Deletes a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+   * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
+   * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
+   *
+   * @param request DeleteDataFlowRequest
+   * @return DeleteDataFlowResponse
    */
   async deleteDataFlow(request: DeleteDataFlowRequest): Promise<DeleteDataFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13258,13 +13494,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you delete a file system, you must delete all mount targets of the file system.
-    * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
-    * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
-    *
-    * @param request DeleteFileSystemRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteFileSystemResponse
+   * @summary Deletes a file system.
+   *
+   * @description *   Before you delete a file system, you must delete all mount targets of the file system.
+   * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
+   * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
+   *
+   * @param request DeleteFileSystemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFileSystemResponse
    */
   async deleteFileSystemWithOptions(request: DeleteFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileSystemResponse> {
     Util.validateModel(request);
@@ -13291,12 +13529,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you delete a file system, you must delete all mount targets of the file system.
-    * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
-    * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
-    *
-    * @param request DeleteFileSystemRequest
-    * @return DeleteFileSystemResponse
+   * @summary Deletes a file system.
+   *
+   * @description *   Before you delete a file system, you must delete all mount targets of the file system.
+   * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
+   * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
+   *
+   * @param request DeleteFileSystemRequest
+   * @return DeleteFileSystemResponse
    */
   async deleteFileSystem(request: DeleteFileSystemRequest): Promise<DeleteFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13304,12 +13544,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
-    *
-    * @param request DeleteFilesetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteFilesetResponse
+   * @summary Deletes a fileset.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+   *
+   * @param request DeleteFilesetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFilesetResponse
    */
   async deleteFilesetWithOptions(request: DeleteFilesetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFilesetResponse> {
     Util.validateModel(request);
@@ -13348,17 +13590,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
-    *
-    * @param request DeleteFilesetRequest
-    * @return DeleteFilesetResponse
+   * @summary Deletes a fileset.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+   *
+   * @param request DeleteFilesetRequest
+   * @return DeleteFilesetResponse
    */
   async deleteFileset(request: DeleteFilesetRequest): Promise<DeleteFilesetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFilesetWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteLDAPConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLDAPConfigResponse
+   */
   async deleteLDAPConfigWithOptions(request: DeleteLDAPConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLDAPConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13383,17 +13632,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLDAPConfigResponse>(await this.callApi(params, req, runtime), new DeleteLDAPConfigResponse({}));
   }
 
+  /**
+   * @param request DeleteLDAPConfigRequest
+   * @return DeleteLDAPConfigResponse
+   */
   async deleteLDAPConfig(request: DeleteLDAPConfigRequest): Promise<DeleteLDAPConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLDAPConfigWithOptions(request, runtime);
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request DeleteLifecyclePolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteLifecyclePolicyResponse
+   * @summary Deletes a lifecycle policy.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request DeleteLifecyclePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLifecyclePolicyResponse
    */
   async deleteLifecyclePolicyWithOptions(request: DeleteLifecyclePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLifecyclePolicyResponse> {
     Util.validateModel(request);
@@ -13424,16 +13679,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request DeleteLifecyclePolicyRequest
-    * @return DeleteLifecyclePolicyResponse
+   * @summary Deletes a lifecycle policy.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request DeleteLifecyclePolicyRequest
+   * @return DeleteLifecyclePolicyResponse
    */
   async deleteLifecyclePolicy(request: DeleteLifecyclePolicyRequest): Promise<DeleteLifecyclePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLifecyclePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables log dumping for a General-purpose NAS file system.
+   *
+   * @param request DeleteLogAnalysisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLogAnalysisResponse
+   */
   async deleteLogAnalysisWithOptions(request: DeleteLogAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLogAnalysisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13462,17 +13726,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLogAnalysisResponse>(await this.callApi(params, req, runtime), new DeleteLogAnalysisResponse({}));
   }
 
+  /**
+   * @summary Disables log dumping for a General-purpose NAS file system.
+   *
+   * @param request DeleteLogAnalysisRequest
+   * @return DeleteLogAnalysisResponse
+   */
   async deleteLogAnalysis(request: DeleteLogAnalysisRequest): Promise<DeleteLogAnalysisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLogAnalysisWithOptions(request, runtime);
   }
 
   /**
-    * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
-    *
-    * @param request DeleteMountTargetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteMountTargetResponse
+   * @summary Deletes a mount target.
+   *
+   * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+   *
+   * @param request DeleteMountTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMountTargetResponse
    */
   async deleteMountTargetWithOptions(request: DeleteMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMountTargetResponse> {
     Util.validateModel(request);
@@ -13503,10 +13775,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
-    *
-    * @param request DeleteMountTargetRequest
-    * @return DeleteMountTargetResponse
+   * @summary Deletes a mount target.
+   *
+   * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+   *
+   * @param request DeleteMountTargetRequest
+   * @return DeleteMountTargetResponse
    */
   async deleteMountTarget(request: DeleteMountTargetRequest): Promise<DeleteMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13514,11 +13788,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    *
-    * @param request DeleteProtocolMountTargetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteProtocolMountTargetResponse
+   * @summary Deletes an export directory of a protocol service.
+   *
+   * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   *
+   * @param request DeleteProtocolMountTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteProtocolMountTargetResponse
    */
   async deleteProtocolMountTargetWithOptions(request: DeleteProtocolMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProtocolMountTargetResponse> {
     Util.validateModel(request);
@@ -13561,10 +13837,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    *
-    * @param request DeleteProtocolMountTargetRequest
-    * @return DeleteProtocolMountTargetResponse
+   * @summary Deletes an export directory of a protocol service.
+   *
+   * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   *
+   * @param request DeleteProtocolMountTargetRequest
+   * @return DeleteProtocolMountTargetResponse
    */
   async deleteProtocolMountTarget(request: DeleteProtocolMountTargetRequest): Promise<DeleteProtocolMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13572,12 +13850,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
-    * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
-    *
-    * @param request DeleteProtocolServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteProtocolServiceResponse
+   * @summary Deletes a protocol service of a Cloud Parallel File Storage (CPFS) file system.
+   *
+   * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+   * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
+   *
+   * @param request DeleteProtocolServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteProtocolServiceResponse
    */
   async deleteProtocolServiceWithOptions(request: DeleteProtocolServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProtocolServiceResponse> {
     Util.validateModel(request);
@@ -13616,11 +13896,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
-    * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
-    *
-    * @param request DeleteProtocolServiceRequest
-    * @return DeleteProtocolServiceResponse
+   * @summary Deletes a protocol service of a Cloud Parallel File Storage (CPFS) file system.
+   *
+   * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+   * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
+   *
+   * @param request DeleteProtocolServiceRequest
+   * @return DeleteProtocolServiceResponse
    */
   async deleteProtocolService(request: DeleteProtocolServiceRequest): Promise<DeleteProtocolServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13628,12 +13910,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request DeleteSnapshotRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteSnapshotResponse
+   * @summary Deletes a snapshot or cancels a snapshot that is being created.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   *
+   * @param request DeleteSnapshotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSnapshotResponse
    */
   async deleteSnapshotWithOptions(request: DeleteSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotResponse> {
     Util.validateModel(request);
@@ -13660,17 +13944,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request DeleteSnapshotRequest
-    * @return DeleteSnapshotResponse
+   * @summary Deletes a snapshot or cancels a snapshot that is being created.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   *
+   * @param request DeleteSnapshotRequest
+   * @return DeleteSnapshotResponse
    */
   async deleteSnapshot(request: DeleteSnapshotRequest): Promise<DeleteSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSnapshotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries permission groups.
+   *
+   * @param request DescribeAccessGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccessGroupsResponse
+   */
   async describeAccessGroupsWithOptions(request: DescribeAccessGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13711,11 +14004,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessGroupsResponse>(await this.callApi(params, req, runtime), new DescribeAccessGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries permission groups.
+   *
+   * @param request DescribeAccessGroupsRequest
+   * @return DescribeAccessGroupsResponse
+   */
   async describeAccessGroups(request: DescribeAccessGroupsRequest): Promise<DescribeAccessGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 接入点详情页
+   *
+   * @param request DescribeAccessPointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccessPointResponse
+   */
   async describeAccessPointWithOptions(request: DescribeAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessPointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13744,11 +14050,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessPointResponse>(await this.callApi(params, req, runtime), new DescribeAccessPointResponse({}));
   }
 
+  /**
+   * @summary 接入点详情页
+   *
+   * @param request DescribeAccessPointRequest
+   * @return DescribeAccessPointResponse
+   */
   async describeAccessPoint(request: DescribeAccessPointRequest): Promise<DescribeAccessPointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessPointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询接入点信息
+   *
+   * @param request DescribeAccessPointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccessPointsResponse
+   */
   async describeAccessPointsWithOptions(request: DescribeAccessPointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessPointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13785,11 +14104,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessPointsResponse>(await this.callApi(params, req, runtime), new DescribeAccessPointsResponse({}));
   }
 
+  /**
+   * @summary 查询接入点信息
+   *
+   * @param request DescribeAccessPointsRequest
+   * @return DescribeAccessPointsResponse
+   */
   async describeAccessPoints(request: DescribeAccessPointsRequest): Promise<DescribeAccessPointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessPointsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about rules in a permission group.
+   *
+   * @param request DescribeAccessRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccessRulesResponse
+   */
   async describeAccessRulesWithOptions(request: DescribeAccessRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13830,18 +14162,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessRulesResponse>(await this.callApi(params, req, runtime), new DescribeAccessRulesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about rules in a permission group.
+   *
+   * @param request DescribeAccessRulesRequest
+   * @return DescribeAccessRulesResponse
+   */
   async describeAccessRules(request: DescribeAccessRulesRequest): Promise<DescribeAccessRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessRulesWithOptions(request, runtime);
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request DescribeAutoSnapshotPoliciesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAutoSnapshotPoliciesResponse
+   * @summary Queries automatic snapshot policies.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   *
+   * @param request DescribeAutoSnapshotPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAutoSnapshotPoliciesResponse
    */
   async describeAutoSnapshotPoliciesWithOptions(request: DescribeAutoSnapshotPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoSnapshotPoliciesResponse> {
     Util.validateModel(request);
@@ -13880,11 +14220,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request DescribeAutoSnapshotPoliciesRequest
-    * @return DescribeAutoSnapshotPoliciesResponse
+   * @summary Queries automatic snapshot policies.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   *
+   * @param request DescribeAutoSnapshotPoliciesRequest
+   * @return DescribeAutoSnapshotPoliciesResponse
    */
   async describeAutoSnapshotPolicies(request: DescribeAutoSnapshotPoliciesRequest): Promise<DescribeAutoSnapshotPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13892,12 +14234,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request DescribeAutoSnapshotTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAutoSnapshotTasksResponse
+   * @summary Queries automatic snapshot tasks.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support the snapshot feature.
+   *
+   * @param request DescribeAutoSnapshotTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAutoSnapshotTasksResponse
    */
   async describeAutoSnapshotTasksWithOptions(request: DescribeAutoSnapshotTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoSnapshotTasksResponse> {
     Util.validateModel(request);
@@ -13940,11 +14284,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request DescribeAutoSnapshotTasksRequest
-    * @return DescribeAutoSnapshotTasksResponse
+   * @summary Queries automatic snapshot tasks.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support the snapshot feature.
+   *
+   * @param request DescribeAutoSnapshotTasksRequest
+   * @return DescribeAutoSnapshotTasksResponse
    */
   async describeAutoSnapshotTasks(request: DescribeAutoSnapshotTasksRequest): Promise<DescribeAutoSnapshotTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13952,11 +14298,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The API operation is available only for CPFS file systems.
-    *
-    * @param request DescribeBlackListClientsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBlackListClientsResponse
+   * @description The API operation is available only for CPFS file systems.
+   *
+   * @param request DescribeBlackListClientsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBlackListClientsResponse
    */
   async describeBlackListClientsWithOptions(request: DescribeBlackListClientsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBlackListClientsResponse> {
     Util.validateModel(request);
@@ -13991,10 +14337,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The API operation is available only for CPFS file systems.
-    *
-    * @param request DescribeBlackListClientsRequest
-    * @return DescribeBlackListClientsResponse
+   * @description The API operation is available only for CPFS file systems.
+   *
+   * @param request DescribeBlackListClientsRequest
+   * @return DescribeBlackListClientsResponse
    */
   async describeBlackListClients(request: DescribeBlackListClientsRequest): Promise<DescribeBlackListClientsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14002,13 +14348,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ###
-    * *
-    * *
-    *
-    * @param request DescribeDataFlowTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDataFlowTasksResponse
+   * @summary 查询数据流动任务
+   *
+   * @description ###
+   * *
+   * *
+   *
+   * @param request DescribeDataFlowTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataFlowTasksResponse
    */
   async describeDataFlowTasksWithOptions(request: DescribeDataFlowTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataFlowTasksResponse> {
     Util.validateModel(request);
@@ -14047,12 +14395,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ###
-    * *
-    * *
-    *
-    * @param request DescribeDataFlowTasksRequest
-    * @return DescribeDataFlowTasksResponse
+   * @summary 查询数据流动任务
+   *
+   * @description ###
+   * *
+   * *
+   *
+   * @param request DescribeDataFlowTasksRequest
+   * @return DescribeDataFlowTasksResponse
    */
   async describeDataFlowTasks(request: DescribeDataFlowTasksRequest): Promise<DescribeDataFlowTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14060,14 +14410,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-    * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath and Description support fuzzy match.
-    * *   Combined query is supported.
-    *
-    * @param request DescribeDataFlowsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDataFlowsResponse
+   * @summary Queries the dataflows of a CPFS file system.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+   * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath and Description support fuzzy match.
+   * *   Combined query is supported.
+   *
+   * @param request DescribeDataFlowsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataFlowsResponse
    */
   async describeDataFlowsWithOptions(request: DescribeDataFlowsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataFlowsResponse> {
     Util.validateModel(request);
@@ -14106,13 +14458,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-    * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath and Description support fuzzy match.
-    * *   Combined query is supported.
-    *
-    * @param request DescribeDataFlowsRequest
-    * @return DescribeDataFlowsResponse
+   * @summary Queries the dataflows of a CPFS file system.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+   * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath and Description support fuzzy match.
+   * *   Combined query is supported.
+   *
+   * @param request DescribeDataFlowsRequest
+   * @return DescribeDataFlowsResponse
    */
   async describeDataFlows(request: DescribeDataFlowsRequest): Promise<DescribeDataFlowsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14120,11 +14474,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support the directory quota feature.
-    *
-    * @param request DescribeDirQuotasRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDirQuotasResponse
+   * @summary Queries the directory quotas of a file system.
+   *
+   * @description Only General-purpose NAS file systems support the directory quota feature.
+   *
+   * @param request DescribeDirQuotasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDirQuotasResponse
    */
   async describeDirQuotasWithOptions(request: DescribeDirQuotasRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDirQuotasResponse> {
     Util.validateModel(request);
@@ -14163,16 +14519,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support the directory quota feature.
-    *
-    * @param request DescribeDirQuotasRequest
-    * @return DescribeDirQuotasResponse
+   * @summary Queries the directory quotas of a file system.
+   *
+   * @description Only General-purpose NAS file systems support the directory quota feature.
+   *
+   * @param request DescribeDirQuotasRequest
+   * @return DescribeDirQuotasResponse
    */
   async describeDirQuotas(request: DescribeDirQuotasRequest): Promise<DescribeDirQuotasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDirQuotasWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of file systems that are owned by the current account.
+   *
+   * @param request DescribeFileSystemStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFileSystemStatisticsResponse
+   */
   async describeFileSystemStatisticsWithOptions(request: DescribeFileSystemStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileSystemStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14201,11 +14566,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFileSystemStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeFileSystemStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of file systems that are owned by the current account.
+   *
+   * @param request DescribeFileSystemStatisticsRequest
+   * @return DescribeFileSystemStatisticsResponse
+   */
   async describeFileSystemStatistics(request: DescribeFileSystemStatisticsRequest): Promise<DescribeFileSystemStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFileSystemStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries file systems.
+   *
+   * @param request DescribeFileSystemsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFileSystemsResponse
+   */
   async describeFileSystemsWithOptions(request: DescribeFileSystemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileSystemsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14254,20 +14632,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFileSystemsResponse>(await this.callApi(params, req, runtime), new DescribeFileSystemsResponse({}));
   }
 
+  /**
+   * @summary Queries file systems.
+   *
+   * @param request DescribeFileSystemsRequest
+   * @return DescribeFileSystemsResponse
+   */
   async describeFileSystems(request: DescribeFileSystemsRequest): Promise<DescribeFileSystemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFileSystemsWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
-    * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
-    * *   Combined query is supported.
-    *
-    * @param request DescribeFilesetsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeFilesetsResponse
+   * @summary Queries the information about created filesets.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
+   * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
+   * *   Combined query is supported.
+   *
+   * @param request DescribeFilesetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFilesetsResponse
    */
   async describeFilesetsWithOptions(request: DescribeFilesetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFilesetsResponse> {
     Util.validateModel(request);
@@ -14306,13 +14692,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
-    * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
-    * *   Combined query is supported.
-    *
-    * @param request DescribeFilesetsRequest
-    * @return DescribeFilesetsResponse
+   * @summary Queries the information about created filesets.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
+   * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
+   * *   Combined query is supported.
+   *
+   * @param request DescribeFilesetsRequest
+   * @return DescribeFilesetsResponse
    */
   async describeFilesets(request: DescribeFilesetsRequest): Promise<DescribeFilesetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14320,11 +14708,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request DescribeLifecyclePoliciesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLifecyclePoliciesResponse
+   * @summary Queries lifecycle policies.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request DescribeLifecyclePoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLifecyclePoliciesResponse
    */
   async describeLifecyclePoliciesWithOptions(request: DescribeLifecyclePoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLifecyclePoliciesResponse> {
     Util.validateModel(request);
@@ -14347,19 +14737,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request DescribeLifecyclePoliciesRequest
-    * @return DescribeLifecyclePoliciesResponse
+   * @summary Queries lifecycle policies.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request DescribeLifecyclePoliciesRequest
+   * @return DescribeLifecyclePoliciesResponse
    */
   async describeLifecyclePolicies(request: DescribeLifecyclePoliciesRequest): Promise<DescribeLifecyclePoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLifecyclePoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the log dump information configured in log analysis.
+   *
+   * @param request DescribeLogAnalysisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogAnalysisResponse
+   */
   async describeLogAnalysisWithOptions(request: DescribeLogAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogAnalysisResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -14389,11 +14792,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogAnalysisResponse>(await this.callApi(params, req, runtime), new DescribeLogAnalysisResponse({}));
   }
 
+  /**
+   * @summary Queries the log dump information configured in log analysis.
+   *
+   * @param request DescribeLogAnalysisRequest
+   * @return DescribeLogAnalysisResponse
+   */
   async describeLogAnalysis(request: DescribeLogAnalysisRequest): Promise<DescribeLogAnalysisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogAnalysisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries mount targets.
+   *
+   * @param request DescribeMountTargetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMountTargetsResponse
+   */
   async describeMountTargetsWithOptions(request: DescribeMountTargetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMountTargetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14434,18 +14850,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMountTargetsResponse>(await this.callApi(params, req, runtime), new DescribeMountTargetsResponse({}));
   }
 
+  /**
+   * @summary Queries mount targets.
+   *
+   * @param request DescribeMountTargetsRequest
+   * @return DescribeMountTargetsResponse
+   */
   async describeMountTargets(request: DescribeMountTargetsRequest): Promise<DescribeMountTargetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMountTargetsWithOptions(request, runtime);
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
-    *
-    * @param request DescribeMountedClientsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeMountedClientsResponse
+   * @summary Queries the clients on which a file system is mounted.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
+   *
+   * @param request DescribeMountedClientsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMountedClientsResponse
    */
   async describeMountedClientsWithOptions(request: DescribeMountedClientsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMountedClientsResponse> {
     Util.validateModel(request);
@@ -14492,17 +14916,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
-    *
-    * @param request DescribeMountedClientsRequest
-    * @return DescribeMountedClientsResponse
+   * @summary Queries the clients on which a file system is mounted.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
+   *
+   * @param request DescribeMountedClientsRequest
+   * @return DescribeMountedClientsResponse
    */
   async describeMountedClients(request: DescribeMountedClientsRequest): Promise<DescribeMountedClientsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMountedClientsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether the NFS ACL feature is enabled for a file system.
+   *
+   * @param request DescribeNfsAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNfsAclResponse
+   */
   async describeNfsAclWithOptions(request: DescribeNfsAclRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNfsAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14527,17 +14960,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNfsAclResponse>(await this.callApi(params, req, runtime), new DescribeNfsAclResponse({}));
   }
 
+  /**
+   * @summary Queries whether the NFS ACL feature is enabled for a file system.
+   *
+   * @param request DescribeNfsAclRequest
+   * @return DescribeNfsAclResponse
+   */
   async describeNfsAcl(request: DescribeNfsAclRequest): Promise<DescribeNfsAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNfsAclWithOptions(request, runtime);
   }
 
   /**
-    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    *
-    * @param request DescribeProtocolMountTargetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeProtocolMountTargetResponse
+   * @summary Queries the export directories of a protocol service.
+   *
+   * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   *
+   * @param request DescribeProtocolMountTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProtocolMountTargetResponse
    */
   async describeProtocolMountTargetWithOptions(request: DescribeProtocolMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtocolMountTargetResponse> {
     Util.validateModel(request);
@@ -14580,10 +15021,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    *
-    * @param request DescribeProtocolMountTargetRequest
-    * @return DescribeProtocolMountTargetResponse
+   * @summary Queries the export directories of a protocol service.
+   *
+   * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   *
+   * @param request DescribeProtocolMountTargetRequest
+   * @return DescribeProtocolMountTargetResponse
    */
   async describeProtocolMountTarget(request: DescribeProtocolMountTargetRequest): Promise<DescribeProtocolMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14591,11 +15034,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    *
-    * @param request DescribeProtocolServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeProtocolServiceResponse
+   * @summary Queries the information about protocol services.
+   *
+   * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   *
+   * @param request DescribeProtocolServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProtocolServiceResponse
    */
   async describeProtocolServiceWithOptions(request: DescribeProtocolServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtocolServiceResponse> {
     Util.validateModel(request);
@@ -14646,16 +15091,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    *
-    * @param request DescribeProtocolServiceRequest
-    * @return DescribeProtocolServiceResponse
+   * @summary Queries the information about protocol services.
+   *
+   * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   *
+   * @param request DescribeProtocolServiceRequest
+   * @return DescribeProtocolServiceResponse
    */
   async describeProtocolService(request: DescribeProtocolServiceRequest): Promise<DescribeProtocolServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProtocolServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the regions in which Apsara File Storage NAS is available.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14688,11 +15142,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the regions in which Apsara File Storage NAS is available.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+   *
+   * @param request DescribeSmbAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSmbAclResponse
+   */
   async describeSmbAclWithOptions(request: DescribeSmbAclRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmbAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14717,18 +15184,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSmbAclResponse>(await this.callApi(params, req, runtime), new DescribeSmbAclResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+   *
+   * @param request DescribeSmbAclRequest
+   * @return DescribeSmbAclResponse
+   */
   async describeSmbAcl(request: DescribeSmbAclRequest): Promise<DescribeSmbAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSmbAclWithOptions(request, runtime);
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request DescribeSnapshotsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSnapshotsResponse
+   * @summary Queries the information about one or more snapshots of a file system.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   *
+   * @param request DescribeSnapshotsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSnapshotsResponse
    */
   async describeSnapshotsWithOptions(request: DescribeSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotsResponse> {
     Util.validateModel(request);
@@ -14783,17 +15258,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request DescribeSnapshotsRequest
-    * @return DescribeSnapshotsResponse
+   * @summary Queries the information about one or more snapshots of a file system.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   *
+   * @param request DescribeSnapshotsRequest
+   * @return DescribeSnapshotsResponse
    */
   async describeSnapshots(request: DescribeSnapshotsRequest): Promise<DescribeSnapshotsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnapshotsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeStoragePackages operation to query the list of storage plans.
+   *
+   * @param request DescribeStoragePackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeStoragePackagesResponse
+   */
   async describeStoragePackagesWithOptions(request: DescribeStoragePackagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStoragePackagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14830,11 +15314,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeStoragePackagesResponse>(await this.callApi(params, req, runtime), new DescribeStoragePackagesResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeStoragePackages operation to query the list of storage plans.
+   *
+   * @param request DescribeStoragePackagesRequest
+   * @return DescribeStoragePackagesResponse
+   */
   async describeStoragePackages(request: DescribeStoragePackagesRequest): Promise<DescribeStoragePackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeStoragePackagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all zones in a region and the file system types that are supported in each zone.
+   *
+   * @param request DescribeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14863,19 +15360,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * @summary Queries all zones in a region and the file system types that are supported in each zone.
+   *
+   * @param request DescribeZonesRequest
+   * @return DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
-    * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
-    *
-    * @param request DisableAndCleanRecycleBinRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DisableAndCleanRecycleBinResponse
+   * @summary Disables and empties the recycle bin of a General-purpose NAS file system.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
+   * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
+   *
+   * @param request DisableAndCleanRecycleBinRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableAndCleanRecycleBinResponse
    */
   async disableAndCleanRecycleBinWithOptions(request: DisableAndCleanRecycleBinRequest, runtime: $Util.RuntimeOptions): Promise<DisableAndCleanRecycleBinResponse> {
     Util.validateModel(request);
@@ -14898,18 +15403,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
-    * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
-    *
-    * @param request DisableAndCleanRecycleBinRequest
-    * @return DisableAndCleanRecycleBinResponse
+   * @summary Disables and empties the recycle bin of a General-purpose NAS file system.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
+   * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
+   *
+   * @param request DisableAndCleanRecycleBinRequest
+   * @return DisableAndCleanRecycleBinResponse
    */
   async disableAndCleanRecycleBin(request: DisableAndCleanRecycleBinRequest): Promise<DisableAndCleanRecycleBinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableAndCleanRecycleBinWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables the NFS ACL feature for a file system.
+   *
+   * @param request DisableNfsAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableNfsAclResponse
+   */
   async disableNfsAclWithOptions(request: DisableNfsAclRequest, runtime: $Util.RuntimeOptions): Promise<DisableNfsAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14934,11 +15448,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableNfsAclResponse>(await this.callApi(params, req, runtime), new DisableNfsAclResponse({}));
   }
 
+  /**
+   * @summary Disables the NFS ACL feature for a file system.
+   *
+   * @param request DisableNfsAclRequest
+   * @return DisableNfsAclResponse
+   */
   async disableNfsAcl(request: DisableNfsAclRequest): Promise<DisableNfsAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableNfsAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+   *
+   * @param request DisableSmbAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableSmbAclResponse
+   */
   async disableSmbAclWithOptions(request: DisableSmbAclRequest, runtime: $Util.RuntimeOptions): Promise<DisableSmbAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14963,11 +15490,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableSmbAclResponse>(await this.callApi(params, req, runtime), new DisableSmbAclResponse({}));
   }
 
+  /**
+   * @summary Disables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+   *
+   * @param request DisableSmbAclRequest
+   * @return DisableSmbAclResponse
+   */
   async disableSmbAcl(request: DisableSmbAclRequest): Promise<DisableSmbAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableSmbAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the NFS ACL feature for a file system.
+   *
+   * @param request EnableNfsAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableNfsAclResponse
+   */
   async enableNfsAclWithOptions(request: EnableNfsAclRequest, runtime: $Util.RuntimeOptions): Promise<EnableNfsAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14992,17 +15532,25 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableNfsAclResponse>(await this.callApi(params, req, runtime), new EnableNfsAclResponse({}));
   }
 
+  /**
+   * @summary Enables the NFS ACL feature for a file system.
+   *
+   * @param request EnableNfsAclRequest
+   * @return EnableNfsAclResponse
+   */
   async enableNfsAcl(request: EnableNfsAclRequest): Promise<EnableNfsAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableNfsAclWithOptions(request, runtime);
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request EnableRecycleBinRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return EnableRecycleBinResponse
+   * @summary Enables the recycle bin feature for a file system.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request EnableRecycleBinRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableRecycleBinResponse
    */
   async enableRecycleBinWithOptions(request: EnableRecycleBinRequest, runtime: $Util.RuntimeOptions): Promise<EnableRecycleBinResponse> {
     Util.validateModel(request);
@@ -15033,16 +15581,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request EnableRecycleBinRequest
-    * @return EnableRecycleBinResponse
+   * @summary Enables the recycle bin feature for a file system.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request EnableRecycleBinRequest
+   * @return EnableRecycleBinResponse
    */
   async enableRecycleBin(request: EnableRecycleBinRequest): Promise<EnableRecycleBinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableRecycleBinWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+   *
+   * @param request EnableSmbAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableSmbAclResponse
+   */
   async enableSmbAclWithOptions(request: EnableSmbAclRequest, runtime: $Util.RuntimeOptions): Promise<EnableSmbAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15075,17 +15632,25 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableSmbAclResponse>(await this.callApi(params, req, runtime), new EnableSmbAclResponse({}));
   }
 
+  /**
+   * @summary Enables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+   *
+   * @param request EnableSmbAclRequest
+   * @return EnableSmbAclResponse
+   */
   async enableSmbAcl(request: EnableSmbAclRequest): Promise<EnableSmbAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableSmbAclWithOptions(request, runtime);
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request GetDirectoryOrFilePropertiesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDirectoryOrFilePropertiesResponse
+   * @summary Queries whether a specified directory contains files stored in the IA storage medium or whether a specified file is stored in the IA storage medium.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request GetDirectoryOrFilePropertiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDirectoryOrFilePropertiesResponse
    */
   async getDirectoryOrFilePropertiesWithOptions(request: GetDirectoryOrFilePropertiesRequest, runtime: $Util.RuntimeOptions): Promise<GetDirectoryOrFilePropertiesResponse> {
     Util.validateModel(request);
@@ -15116,16 +15681,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request GetDirectoryOrFilePropertiesRequest
-    * @return GetDirectoryOrFilePropertiesResponse
+   * @summary Queries whether a specified directory contains files stored in the IA storage medium or whether a specified file is stored in the IA storage medium.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request GetDirectoryOrFilePropertiesRequest
+   * @return GetDirectoryOrFilePropertiesResponse
    */
   async getDirectoryOrFileProperties(request: GetDirectoryOrFilePropertiesRequest): Promise<GetDirectoryOrFilePropertiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDirectoryOrFilePropertiesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the recycle bin configurations of a General-purpose NAS file system.
+   *
+   * @param request GetRecycleBinAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRecycleBinAttributeResponse
+   */
   async getRecycleBinAttributeWithOptions(request: GetRecycleBinAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetRecycleBinAttributeResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -15146,17 +15720,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRecycleBinAttributeResponse>(await this.callApi(params, req, runtime), new GetRecycleBinAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the recycle bin configurations of a General-purpose NAS file system.
+   *
+   * @param request GetRecycleBinAttributeRequest
+   * @return GetRecycleBinAttributeResponse
+   */
   async getRecycleBinAttribute(request: GetRecycleBinAttributeRequest): Promise<GetRecycleBinAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRecycleBinAttributeWithOptions(request, runtime);
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request ListDirectoriesAndFilesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDirectoriesAndFilesResponse
+   * @summary Queries the infrequently-accessed files in a specified directory of a General-purpose NAS file system and the subdirectories that contain the files.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request ListDirectoriesAndFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDirectoriesAndFilesResponse
    */
   async listDirectoriesAndFilesWithOptions(request: ListDirectoriesAndFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListDirectoriesAndFilesResponse> {
     Util.validateModel(request);
@@ -15203,10 +15785,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request ListDirectoriesAndFilesRequest
-    * @return ListDirectoriesAndFilesResponse
+   * @summary Queries the infrequently-accessed files in a specified directory of a General-purpose NAS file system and the subdirectories that contain the files.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request ListDirectoriesAndFilesRequest
+   * @return ListDirectoriesAndFilesResponse
    */
   async listDirectoriesAndFiles(request: ListDirectoriesAndFilesRequest): Promise<ListDirectoriesAndFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15214,11 +15798,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request ListLifecycleRetrieveJobsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListLifecycleRetrieveJobsResponse
+   * @summary Queries data retrieval tasks.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request ListLifecycleRetrieveJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLifecycleRetrieveJobsResponse
    */
   async listLifecycleRetrieveJobsWithOptions(request: ListLifecycleRetrieveJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListLifecycleRetrieveJobsResponse> {
     Util.validateModel(request);
@@ -15261,10 +15847,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request ListLifecycleRetrieveJobsRequest
-    * @return ListLifecycleRetrieveJobsResponse
+   * @summary Queries data retrieval tasks.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request ListLifecycleRetrieveJobsRequest
+   * @return ListLifecycleRetrieveJobsResponse
    */
   async listLifecycleRetrieveJobs(request: ListLifecycleRetrieveJobsRequest): Promise<ListLifecycleRetrieveJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15272,11 +15860,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request ListRecentlyRecycledDirectoriesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListRecentlyRecycledDirectoriesResponse
+   * @summary Queries the directories that are recently deleted.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request ListRecentlyRecycledDirectoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRecentlyRecycledDirectoriesResponse
    */
   async listRecentlyRecycledDirectoriesWithOptions(request: ListRecentlyRecycledDirectoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListRecentlyRecycledDirectoriesResponse> {
     Util.validateModel(request);
@@ -15299,10 +15889,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request ListRecentlyRecycledDirectoriesRequest
-    * @return ListRecentlyRecycledDirectoriesResponse
+   * @summary Queries the directories that are recently deleted.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request ListRecentlyRecycledDirectoriesRequest
+   * @return ListRecentlyRecycledDirectoriesResponse
    */
   async listRecentlyRecycledDirectories(request: ListRecentlyRecycledDirectoriesRequest): Promise<ListRecentlyRecycledDirectoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15310,12 +15902,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   You can query a maximum of 50 jobs that are recently executed.
-    *
-    * @param request ListRecycleBinJobsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListRecycleBinJobsResponse
+   * @summary Queries the jobs of the recycle bin.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   You can query a maximum of 50 jobs that are recently executed.
+   *
+   * @param request ListRecycleBinJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRecycleBinJobsResponse
    */
   async listRecycleBinJobsWithOptions(request: ListRecycleBinJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListRecycleBinJobsResponse> {
     Util.validateModel(request);
@@ -15338,11 +15932,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only General-purpose NAS file systems support this operation.
-    * *   You can query a maximum of 50 jobs that are recently executed.
-    *
-    * @param request ListRecycleBinJobsRequest
-    * @return ListRecycleBinJobsResponse
+   * @summary Queries the jobs of the recycle bin.
+   *
+   * @description *   Only General-purpose NAS file systems support this operation.
+   * *   You can query a maximum of 50 jobs that are recently executed.
+   *
+   * @param request ListRecycleBinJobsRequest
+   * @return ListRecycleBinJobsResponse
    */
   async listRecycleBinJobs(request: ListRecycleBinJobsRequest): Promise<ListRecycleBinJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15350,11 +15946,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request ListRecycledDirectoriesAndFilesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListRecycledDirectoriesAndFilesResponse
+   * @summary Queries deleted files or directories.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request ListRecycledDirectoriesAndFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRecycledDirectoriesAndFilesResponse
    */
   async listRecycledDirectoriesAndFilesWithOptions(request: ListRecycledDirectoriesAndFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListRecycledDirectoriesAndFilesResponse> {
     Util.validateModel(request);
@@ -15377,16 +15975,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request ListRecycledDirectoriesAndFilesRequest
-    * @return ListRecycledDirectoriesAndFilesResponse
+   * @summary Queries deleted files or directories.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request ListRecycledDirectoriesAndFilesRequest
+   * @return ListRecycledDirectoriesAndFilesResponse
    */
   async listRecycledDirectoriesAndFiles(request: ListRecycledDirectoriesAndFilesRequest): Promise<ListRecycledDirectoriesAndFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRecycledDirectoriesAndFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries tags.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15423,17 +16030,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries tags.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-    *
-    * @param request ModifyAccessGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAccessGroupResponse
+   * @summary Modifies a permission group.
+   *
+   * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+   *
+   * @param request ModifyAccessGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccessGroupResponse
    */
   async modifyAccessGroupWithOptions(request: ModifyAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccessGroupResponse> {
     Util.validateModel(request);
@@ -15468,16 +16083,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-    *
-    * @param request ModifyAccessGroupRequest
-    * @return ModifyAccessGroupResponse
+   * @summary Modifies a permission group.
+   *
+   * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+   *
+   * @param request ModifyAccessGroupRequest
+   * @return ModifyAccessGroupResponse
    */
   async modifyAccessGroup(request: ModifyAccessGroupRequest): Promise<ModifyAccessGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccessGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改接入点信息
+   *
+   * @param request ModifyAccessPointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccessPointResponse
+   */
   async modifyAccessPointWithOptions(request: ModifyAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccessPointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15518,17 +16142,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccessPointResponse>(await this.callApi(params, req, runtime), new ModifyAccessPointResponse({}));
   }
 
+  /**
+   * @summary 修改接入点信息
+   *
+   * @param request ModifyAccessPointRequest
+   * @return ModifyAccessPointResponse
+   */
   async modifyAccessPoint(request: ModifyAccessPointRequest): Promise<ModifyAccessPointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccessPointWithOptions(request, runtime);
   }
 
   /**
-    * The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-    *
-    * @param request ModifyAccessRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAccessRuleResponse
+   * @summary Modifies a rule in a permission group.
+   *
+   * @description The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+   *
+   * @param request ModifyAccessRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccessRuleResponse
    */
   async modifyAccessRuleWithOptions(request: ModifyAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccessRuleResponse> {
     Util.validateModel(request);
@@ -15583,10 +16215,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-    *
-    * @param request ModifyAccessRuleRequest
-    * @return ModifyAccessRuleResponse
+   * @summary Modifies a rule in a permission group.
+   *
+   * @description The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+   *
+   * @param request ModifyAccessRuleRequest
+   * @return ModifyAccessRuleResponse
    */
   async modifyAccessRule(request: ModifyAccessRuleRequest): Promise<ModifyAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15594,12 +16228,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request ModifyAutoSnapshotPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAutoSnapshotPolicyResponse
+   * @summary An automatic snapshot policy is modified. After you modify an automatic snapshot policy that is applied to a file system, the modification immediately applies to subsequent snapshots that are created for the file system.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   *
+   * @param request ModifyAutoSnapshotPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAutoSnapshotPolicyResponse
    */
   async modifyAutoSnapshotPolicyWithOptions(request: ModifyAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
@@ -15642,11 +16278,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    *
-    * @param request ModifyAutoSnapshotPolicyRequest
-    * @return ModifyAutoSnapshotPolicyResponse
+   * @summary An automatic snapshot policy is modified. After you modify an automatic snapshot policy that is applied to a file system, the modification immediately applies to subsequent snapshots that are created for the file system.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   *
+   * @param request ModifyAutoSnapshotPolicyRequest
+   * @return ModifyAutoSnapshotPolicyResponse
    */
   async modifyAutoSnapshotPolicy(request: ModifyAutoSnapshotPolicyRequest): Promise<ModifyAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15654,19 +16292,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows.
-    * *   You can modify the attributes only of the dataflows that are in the `Running` state.
-    * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the dataflow to be modified.
-    * *   Data flow specifications:
-    *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
-    *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-    * *   Billing
-    *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
-    *
-    * @param request ModifyDataFlowRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDataFlowResponse
+   * @summary Modifies the attributes of a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows.
+   * *   You can modify the attributes only of the dataflows that are in the `Running` state.
+   * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the dataflow to be modified.
+   * *   Data flow specifications:
+   *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+   * *   Billing
+   *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+   *
+   * @param request ModifyDataFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDataFlowResponse
    */
   async modifyDataFlowWithOptions(request: ModifyDataFlowRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDataFlowResponse> {
     Util.validateModel(request);
@@ -15713,24 +16353,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows.
-    * *   You can modify the attributes only of the dataflows that are in the `Running` state.
-    * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the dataflow to be modified.
-    * *   Data flow specifications:
-    *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
-    *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-    * *   Billing
-    *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
-    *
-    * @param request ModifyDataFlowRequest
-    * @return ModifyDataFlowResponse
+   * @summary Modifies the attributes of a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows.
+   * *   You can modify the attributes only of the dataflows that are in the `Running` state.
+   * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the dataflow to be modified.
+   * *   Data flow specifications:
+   *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+   * *   Billing
+   *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+   *
+   * @param request ModifyDataFlowRequest
+   * @return ModifyDataFlowResponse
    */
   async modifyDataFlow(request: ModifyDataFlowRequest): Promise<ModifyDataFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDataFlowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改数据流动中的自动更新配置
+   *
+   * @param request ModifyDataFlowAutoRefreshRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDataFlowAutoRefreshResponse
+   */
   async modifyDataFlowAutoRefreshWithOptions(request: ModifyDataFlowAutoRefreshRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDataFlowAutoRefreshResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15775,11 +16424,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDataFlowAutoRefreshResponse>(await this.callApi(params, req, runtime), new ModifyDataFlowAutoRefreshResponse({}));
   }
 
+  /**
+   * @summary 修改数据流动中的自动更新配置
+   *
+   * @param request ModifyDataFlowAutoRefreshRequest
+   * @return ModifyDataFlowAutoRefreshResponse
+   */
   async modifyDataFlowAutoRefresh(request: ModifyDataFlowAutoRefreshRequest): Promise<ModifyDataFlowAutoRefreshResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDataFlowAutoRefreshWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of a file system.
+   *
+   * @param request ModifyFileSystemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyFileSystemResponse
+   */
   async modifyFileSystemWithOptions(request: ModifyFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFileSystemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15808,24 +16470,36 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyFileSystemResponse>(await this.callApi(params, req, runtime), new ModifyFileSystemResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of a file system.
+   *
+   * @param request ModifyFileSystemRequest
+   * @return ModifyFileSystemResponse
+   */
   async modifyFileSystem(request: ModifyFileSystemRequest): Promise<ModifyFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyFileSystemWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support fileset modification.
-    *
-    * @param request ModifyFilesetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyFilesetResponse
+   * @summary Modifies a fileset.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support fileset modification.
+   *
+   * @param request ModifyFilesetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyFilesetResponse
    */
   async modifyFilesetWithOptions(request: ModifyFilesetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFilesetResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -15862,11 +16536,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support fileset modification.
-    *
-    * @param request ModifyFilesetRequest
-    * @return ModifyFilesetResponse
+   * @summary Modifies a fileset.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support fileset modification.
+   *
+   * @param request ModifyFilesetRequest
+   * @return ModifyFilesetResponse
    */
   async modifyFileset(request: ModifyFilesetRequest): Promise<ModifyFilesetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15874,11 +16550,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * #
-    *
-    * @param request ModifyLDAPConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyLDAPConfigResponse
+   * @description #
+   *
+   * @param request ModifyLDAPConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLDAPConfigResponse
    */
   async modifyLDAPConfigWithOptions(request: ModifyLDAPConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLDAPConfigResponse> {
     Util.validateModel(request);
@@ -15917,10 +16593,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * #
-    *
-    * @param request ModifyLDAPConfigRequest
-    * @return ModifyLDAPConfigResponse
+   * @description #
+   *
+   * @param request ModifyLDAPConfigRequest
+   * @return ModifyLDAPConfigResponse
    */
   async modifyLDAPConfig(request: ModifyLDAPConfigRequest): Promise<ModifyLDAPConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15928,11 +16604,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request ModifyLifecyclePolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyLifecyclePolicyResponse
+   * @summary Modifies a lifecycle policy.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request ModifyLifecyclePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLifecyclePolicyResponse
    */
   async modifyLifecyclePolicyWithOptions(request: ModifyLifecyclePolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLifecyclePolicyResponse> {
     Util.validateModel(request);
@@ -15975,16 +16653,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request ModifyLifecyclePolicyRequest
-    * @return ModifyLifecyclePolicyResponse
+   * @summary Modifies a lifecycle policy.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request ModifyLifecyclePolicyRequest
+   * @return ModifyLifecyclePolicyResponse
    */
   async modifyLifecyclePolicy(request: ModifyLifecyclePolicyRequest): Promise<ModifyLifecyclePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLifecyclePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a mount target.
+   *
+   * @param request ModifyMountTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyMountTargetResponse
+   */
   async modifyMountTargetWithOptions(request: ModifyMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMountTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16025,17 +16712,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyMountTargetResponse>(await this.callApi(params, req, runtime), new ModifyMountTargetResponse({}));
   }
 
+  /**
+   * @summary Modifies a mount target.
+   *
+   * @param request ModifyMountTargetRequest
+   * @return ModifyMountTargetResponse
+   */
   async modifyMountTarget(request: ModifyMountTargetRequest): Promise<ModifyMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyMountTargetWithOptions(request, runtime);
   }
 
   /**
-    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    *
-    * @param request ModifyProtocolMountTargetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyProtocolMountTargetResponse
+   * @summary Modifies the export directory parameters of a protocol service. Only the description can be modified. The virtual private cloud (VPC) ID and vSwitch ID cannot be changed. To change these IDs, you must delete the export directory and create a new one.
+   *
+   * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   *
+   * @param request ModifyProtocolMountTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyProtocolMountTargetResponse
    */
   async modifyProtocolMountTargetWithOptions(request: ModifyProtocolMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtocolMountTargetResponse> {
     Util.validateModel(request);
@@ -16082,10 +16777,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    *
-    * @param request ModifyProtocolMountTargetRequest
-    * @return ModifyProtocolMountTargetResponse
+   * @summary Modifies the export directory parameters of a protocol service. Only the description can be modified. The virtual private cloud (VPC) ID and vSwitch ID cannot be changed. To change these IDs, you must delete the export directory and create a new one.
+   *
+   * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   *
+   * @param request ModifyProtocolMountTargetRequest
+   * @return ModifyProtocolMountTargetResponse
    */
   async modifyProtocolMountTarget(request: ModifyProtocolMountTargetRequest): Promise<ModifyProtocolMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16093,11 +16790,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    *
-    * @param request ModifyProtocolServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyProtocolServiceResponse
+   * @summary Modifies a protocol service. You can modify the description of a protocol service.
+   *
+   * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   *
+   * @param request ModifyProtocolServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyProtocolServiceResponse
    */
   async modifyProtocolServiceWithOptions(request: ModifyProtocolServiceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtocolServiceResponse> {
     Util.validateModel(request);
@@ -16140,16 +16839,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    *
-    * @param request ModifyProtocolServiceRequest
-    * @return ModifyProtocolServiceResponse
+   * @summary Modifies a protocol service. You can modify the description of a protocol service.
+   *
+   * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   *
+   * @param request ModifyProtocolServiceRequest
+   * @return ModifyProtocolServiceResponse
    */
   async modifyProtocolService(request: ModifyProtocolServiceRequest): Promise<ModifyProtocolServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyProtocolServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+   *
+   * @param request ModifySmbAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySmbAclResponse
+   */
   async modifySmbAclWithOptions(request: ModifySmbAclRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmbAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16202,11 +16910,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySmbAclResponse>(await this.callApi(params, req, runtime), new ModifySmbAclResponse({}));
   }
 
+  /**
+   * @summary Updates the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+   *
+   * @param request ModifySmbAclRequest
+   * @return ModifySmbAclResponse
+   */
   async modifySmbAcl(request: ModifySmbAclRequest): Promise<ModifySmbAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySmbAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Activates Apsara File Storage NAS.
+   *
+   * @param request OpenNASServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenNASServiceResponse
+   */
   async openNASServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<OpenNASServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -16223,17 +16944,22 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenNASServiceResponse>(await this.callApi(params, req, runtime), new OpenNASServiceResponse({}));
   }
 
+  /**
+   * @summary Activates Apsara File Storage NAS.
+   *
+   * @return OpenNASServiceResponse
+   */
   async openNASService(): Promise<OpenNASServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openNASServiceWithOptions(runtime);
   }
 
   /**
-    * The IP address of a client to remove from the blacklist.
-    *
-    * @param request RemoveClientFromBlackListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveClientFromBlackListResponse
+   * @description The IP address of a client to remove from the blacklist.
+   *
+   * @param request RemoveClientFromBlackListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveClientFromBlackListResponse
    */
   async removeClientFromBlackListWithOptions(request: RemoveClientFromBlackListRequest, runtime: $Util.RuntimeOptions): Promise<RemoveClientFromBlackListResponse> {
     Util.validateModel(request);
@@ -16272,10 +16998,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The IP address of a client to remove from the blacklist.
-    *
-    * @param request RemoveClientFromBlackListRequest
-    * @return RemoveClientFromBlackListResponse
+   * @description The IP address of a client to remove from the blacklist.
+   *
+   * @param request RemoveClientFromBlackListRequest
+   * @return RemoveClientFromBlackListResponse
    */
   async removeClientFromBlackList(request: RemoveClientFromBlackListRequest): Promise<RemoveClientFromBlackListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16283,11 +17009,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is returned.
-    *
-    * @param request RemoveTagsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveTagsResponse
+   * @description A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is returned.
+   *
+   * @param request RemoveTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveTagsResponse
    */
   async removeTagsWithOptions(request: RemoveTagsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTagsResponse> {
     Util.validateModel(request);
@@ -16318,10 +17044,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is returned.
-    *
-    * @param request RemoveTagsRequest
-    * @return RemoveTagsResponse
+   * @description A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is returned.
+   *
+   * @param request RemoveTagsRequest
+   * @return RemoveTagsResponse
    */
   async removeTags(request: RemoveTagsRequest): Promise<RemoveTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16329,14 +17055,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    * *   The file system must be in the Running state.
-    * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
-    *
-    * @param request ResetFileSystemRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResetFileSystemResponse
+   * @summary Rolls back a file system to a snapshot of the file system.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   * *   The file system must be in the Running state.
+   * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
+   *
+   * @param request ResetFileSystemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetFileSystemResponse
    */
   async resetFileSystemWithOptions(request: ResetFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<ResetFileSystemResponse> {
     Util.validateModel(request);
@@ -16367,13 +17095,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-    * *   Only advanced Extreme NAS file systems support this feature.
-    * *   The file system must be in the Running state.
-    * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
-    *
-    * @param request ResetFileSystemRequest
-    * @return ResetFileSystemResponse
+   * @summary Rolls back a file system to a snapshot of the file system.
+   *
+   * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   * *   Only advanced Extreme NAS file systems support this feature.
+   * *   The file system must be in the Running state.
+   * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
+   *
+   * @param request ResetFileSystemRequest
+   * @return ResetFileSystemResponse
    */
   async resetFileSystem(request: ResetFileSystemRequest): Promise<ResetFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16381,11 +17111,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request RetryLifecycleRetrieveJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RetryLifecycleRetrieveJobResponse
+   * @summary Retries failed a data retrieval task.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request RetryLifecycleRetrieveJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RetryLifecycleRetrieveJobResponse
    */
   async retryLifecycleRetrieveJobWithOptions(request: RetryLifecycleRetrieveJobRequest, runtime: $Util.RuntimeOptions): Promise<RetryLifecycleRetrieveJobResponse> {
     Util.validateModel(request);
@@ -16412,10 +17144,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request RetryLifecycleRetrieveJobRequest
-    * @return RetryLifecycleRetrieveJobResponse
+   * @summary Retries failed a data retrieval task.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request RetryLifecycleRetrieveJobRequest
+   * @return RetryLifecycleRetrieveJobResponse
    */
   async retryLifecycleRetrieveJob(request: RetryLifecycleRetrieveJobRequest): Promise<RetryLifecycleRetrieveJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16423,11 +17157,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NFS file systems support the directory quota feature.
-    *
-    * @param request SetDirQuotaRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetDirQuotaResponse
+   * @summary Creates a directory quota for a file system.
+   *
+   * @description Only General-purpose NFS file systems support the directory quota feature.
+   *
+   * @param request SetDirQuotaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDirQuotaResponse
    */
   async setDirQuotaWithOptions(request: SetDirQuotaRequest, runtime: $Util.RuntimeOptions): Promise<SetDirQuotaResponse> {
     Util.validateModel(request);
@@ -16478,10 +17214,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NFS file systems support the directory quota feature.
-    *
-    * @param request SetDirQuotaRequest
-    * @return SetDirQuotaResponse
+   * @summary Creates a directory quota for a file system.
+   *
+   * @description Only General-purpose NFS file systems support the directory quota feature.
+   *
+   * @param request SetDirQuotaRequest
+   * @return SetDirQuotaResponse
    */
   async setDirQuota(request: SetDirQuotaRequest): Promise<SetDirQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16489,15 +17227,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-    * *   You can enable the dataflows that are only in the `Stopped` state.
-    * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
-    * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](~~2402270~~) operation.
-    *
-    * @param request StartDataFlowRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartDataFlowResponse
+   * @summary Enables a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+   * *   You can enable the dataflows that are only in the `Stopped` state.
+   * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
+   * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
+   *
+   * @param request StartDataFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartDataFlowResponse
    */
   async startDataFlowWithOptions(request: StartDataFlowRequest, runtime: $Util.RuntimeOptions): Promise<StartDataFlowResponse> {
     Util.validateModel(request);
@@ -16536,14 +17276,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-    * *   You can enable the dataflows that are only in the `Stopped` state.
-    * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
-    * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](~~2402270~~) operation.
-    *
-    * @param request StartDataFlowRequest
-    * @return StartDataFlowResponse
+   * @summary Enables a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+   * *   You can enable the dataflows that are only in the `Stopped` state.
+   * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
+   * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
+   *
+   * @param request StartDataFlowRequest
+   * @return StartDataFlowResponse
    */
   async startDataFlow(request: StartDataFlowRequest): Promise<StartDataFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16551,16 +17293,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-    * *   You can disable only the dataflows that are in the `Running` state.
-    * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
-    * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
-    * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](~~2402271~~) operation to query the dataflow status.
-    *
-    * @param request StopDataFlowRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopDataFlowResponse
+   * @summary Disables a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+   * *   You can disable only the dataflows that are in the `Running` state.
+   * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
+   * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
+   * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402271.html) operation to query the dataflow status.
+   *
+   * @param request StopDataFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopDataFlowResponse
    */
   async stopDataFlowWithOptions(request: StopDataFlowRequest, runtime: $Util.RuntimeOptions): Promise<StopDataFlowResponse> {
     Util.validateModel(request);
@@ -16599,21 +17343,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-    * *   You can disable only the dataflows that are in the `Running` state.
-    * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
-    * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
-    * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](~~2402271~~) operation to query the dataflow status.
-    *
-    * @param request StopDataFlowRequest
-    * @return StopDataFlowResponse
+   * @summary Disables a dataflow.
+   *
+   * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+   * *   You can disable only the dataflows that are in the `Running` state.
+   * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
+   * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
+   * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402271.html) operation to query the dataflow status.
+   *
+   * @param request StopDataFlowRequest
+   * @return StopDataFlowResponse
    */
   async stopDataFlow(request: StopDataFlowRequest): Promise<StopDataFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDataFlowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates tags and binds the tags to file systems.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16646,11 +17399,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Creates tags and binds the tags to file systems.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from a file system.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16687,17 +17453,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from a file system.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request UpdateRecycleBinAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateRecycleBinAttributeResponse
+   * @summary Modifies the retention period of data in the recycle bin of a file system.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request UpdateRecycleBinAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRecycleBinAttributeResponse
    */
   async updateRecycleBinAttributeWithOptions(request: UpdateRecycleBinAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRecycleBinAttributeResponse> {
     Util.validateModel(request);
@@ -16720,10 +17494,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only General-purpose NAS file systems support this operation.
-    *
-    * @param request UpdateRecycleBinAttributeRequest
-    * @return UpdateRecycleBinAttributeResponse
+   * @summary Modifies the retention period of data in the recycle bin of a file system.
+   *
+   * @description Only General-purpose NAS file systems support this operation.
+   *
+   * @param request UpdateRecycleBinAttributeRequest
+   * @return UpdateRecycleBinAttributeResponse
    */
   async updateRecycleBinAttribute(request: UpdateRecycleBinAttributeRequest): Promise<UpdateRecycleBinAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16731,12 +17507,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
-    * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
-    *
-    * @param request UpgradeFileSystemRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeFileSystemResponse
+   * @summary Scales up an Extreme NAS file system or a Cloud Parallel File Storage (CPFS) file system.
+   *
+   * @description *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
+   * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
+   *
+   * @param request UpgradeFileSystemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeFileSystemResponse
    */
   async upgradeFileSystemWithOptions(request: UpgradeFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeFileSystemResponse> {
     Util.validateModel(request);
@@ -16775,11 +17553,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
-    * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
-    *
-    * @param request UpgradeFileSystemRequest
-    * @return UpgradeFileSystemResponse
+   * @summary Scales up an Extreme NAS file system or a Cloud Parallel File Storage (CPFS) file system.
+   *
+   * @description *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
+   * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
+   *
+   * @param request UpgradeFileSystemRequest
+   * @return UpgradeFileSystemResponse
    */
   async upgradeFileSystem(request: UpgradeFileSystemRequest): Promise<UpgradeFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
