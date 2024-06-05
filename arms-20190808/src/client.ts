@@ -89,6 +89,7 @@ export class GrafanaWorkspace extends $tea.Model {
   gmtCreate?: number;
   grafanaVersion?: string;
   grafanaWorkspaceDomain?: string;
+  grafanaWorkspaceDomainStatus?: string;
   grafanaWorkspaceEdition?: string;
   grafanaWorkspaceId?: string;
   grafanaWorkspaceIp?: string;
@@ -117,6 +118,7 @@ export class GrafanaWorkspace extends $tea.Model {
       gmtCreate: 'gmtCreate',
       grafanaVersion: 'grafanaVersion',
       grafanaWorkspaceDomain: 'grafanaWorkspaceDomain',
+      grafanaWorkspaceDomainStatus: 'grafanaWorkspaceDomainStatus',
       grafanaWorkspaceEdition: 'grafanaWorkspaceEdition',
       grafanaWorkspaceId: 'grafanaWorkspaceId',
       grafanaWorkspaceIp: 'grafanaWorkspaceIp',
@@ -148,6 +150,7 @@ export class GrafanaWorkspace extends $tea.Model {
       gmtCreate: 'number',
       grafanaVersion: 'string',
       grafanaWorkspaceDomain: 'string',
+      grafanaWorkspaceDomainStatus: 'string',
       grafanaWorkspaceEdition: 'string',
       grafanaWorkspaceId: 'string',
       grafanaWorkspaceIp: 'string',
