@@ -3992,6 +3992,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   isProxyLatestVersion?: boolean;
   lockMode?: string;
   maintainTime?: string;
+  orca?: string;
   payType?: string;
   provisionedIops?: string;
   proxyCpuCores?: string;
@@ -4002,8 +4003,11 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   regionId?: string;
   requestId?: string;
   resourceGroupId?: string;
+  restoreDataPoint?: string;
+  restoreType?: string;
   SQLSize?: number;
   serverlessType?: string;
+  sourceDBCluster?: string;
   standbyHAMode?: string;
   storageMax?: number;
   storagePayType?: string;
@@ -4050,6 +4054,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       isProxyLatestVersion: 'IsProxyLatestVersion',
       lockMode: 'LockMode',
       maintainTime: 'MaintainTime',
+      orca: 'Orca',
       payType: 'PayType',
       provisionedIops: 'ProvisionedIops',
       proxyCpuCores: 'ProxyCpuCores',
@@ -4060,8 +4065,11 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       regionId: 'RegionId',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
+      restoreDataPoint: 'RestoreDataPoint',
+      restoreType: 'RestoreType',
       SQLSize: 'SQLSize',
       serverlessType: 'ServerlessType',
+      sourceDBCluster: 'SourceDBCluster',
       standbyHAMode: 'StandbyHAMode',
       storageMax: 'StorageMax',
       storagePayType: 'StoragePayType',
@@ -4111,6 +4119,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       isProxyLatestVersion: 'boolean',
       lockMode: 'string',
       maintainTime: 'string',
+      orca: 'string',
       payType: 'string',
       provisionedIops: 'string',
       proxyCpuCores: 'string',
@@ -4121,8 +4130,11 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       regionId: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
+      restoreDataPoint: 'string',
+      restoreType: 'string',
       SQLSize: 'number',
       serverlessType: 'string',
+      sourceDBCluster: 'string',
       standbyHAMode: 'string',
       storageMax: 'number',
       storagePayType: 'string',
@@ -9320,7 +9332,9 @@ export class ModifyBackupPolicyResponse extends $tea.Model {
 export class ModifyDBClusterRequest extends $tea.Model {
   compressStorage?: string;
   DBClusterId?: string;
+  DBNodeCrashList?: string;
   dataSyncMode?: string;
+  faultInjectionType?: string;
   faultSimulateMode?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -9333,7 +9347,9 @@ export class ModifyDBClusterRequest extends $tea.Model {
     return {
       compressStorage: 'CompressStorage',
       DBClusterId: 'DBClusterId',
+      DBNodeCrashList: 'DBNodeCrashList',
       dataSyncMode: 'DataSyncMode',
+      faultInjectionType: 'FaultInjectionType',
       faultSimulateMode: 'FaultSimulateMode',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -9349,7 +9365,9 @@ export class ModifyDBClusterRequest extends $tea.Model {
     return {
       compressStorage: 'string',
       DBClusterId: 'string',
+      DBNodeCrashList: 'string',
       dataSyncMode: 'string',
+      faultInjectionType: 'string',
       faultSimulateMode: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -13938,6 +13956,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   maxConnections?: number;
   maxIOPS?: number;
   memorySize?: string;
+  orca?: string;
   remoteMemorySize?: string;
   sccMode?: string;
   serverWeight?: string;
@@ -13960,6 +13979,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       maxConnections: 'MaxConnections',
       maxIOPS: 'MaxIOPS',
       memorySize: 'MemorySize',
+      orca: 'Orca',
       remoteMemorySize: 'RemoteMemorySize',
       sccMode: 'SccMode',
       serverWeight: 'ServerWeight',
@@ -13985,6 +14005,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       maxConnections: 'number',
       maxIOPS: 'number',
       memorySize: 'string',
+      orca: 'string',
       remoteMemorySize: 'string',
       sccMode: 'string',
       serverWeight: 'string',
@@ -23971,8 +23992,16 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!Util.isUnset(request.DBNodeCrashList)) {
+      query["DBNodeCrashList"] = request.DBNodeCrashList;
+    }
+
     if (!Util.isUnset(request.dataSyncMode)) {
       query["DataSyncMode"] = request.dataSyncMode;
+    }
+
+    if (!Util.isUnset(request.faultInjectionType)) {
+      query["FaultInjectionType"] = request.faultInjectionType;
     }
 
     if (!Util.isUnset(request.faultSimulateMode)) {
