@@ -19334,6 +19334,7 @@ export class GetCampaignResponseBodyData extends $tea.Model {
   casesUncompletedAfterAttempt?: string;
   casesUncompletedAfterAttempted?: number;
   completionRate?: number;
+  contactFlowId?: string;
   maxAttemptCount?: number;
   minAttemptInterval?: number;
   name?: string;
@@ -19358,6 +19359,7 @@ export class GetCampaignResponseBodyData extends $tea.Model {
       casesUncompletedAfterAttempt: 'CasesUncompletedAfterAttempt',
       casesUncompletedAfterAttempted: 'CasesUncompletedAfterAttempted',
       completionRate: 'CompletionRate',
+      contactFlowId: 'ContactFlowId',
       maxAttemptCount: 'MaxAttemptCount',
       minAttemptInterval: 'MinAttemptInterval',
       name: 'Name',
@@ -19385,6 +19387,7 @@ export class GetCampaignResponseBodyData extends $tea.Model {
       casesUncompletedAfterAttempt: 'string',
       casesUncompletedAfterAttempted: 'number',
       completionRate: 'number',
+      contactFlowId: 'string',
       maxAttemptCount: 'number',
       minAttemptInterval: 'number',
       name: 'string',
@@ -22697,6 +22700,7 @@ export class ListCampaignsResponseBodyDataList extends $tea.Model {
   casesConnected?: number;
   casesUncompleted?: number;
   completionRate?: number;
+  contactFlowId?: string;
   maxAttemptCount?: number;
   minAttemptInterval?: number;
   name?: string;
@@ -22718,6 +22722,7 @@ export class ListCampaignsResponseBodyDataList extends $tea.Model {
       casesConnected: 'CasesConnected',
       casesUncompleted: 'CasesUncompleted',
       completionRate: 'CompletionRate',
+      contactFlowId: 'ContactFlowId',
       maxAttemptCount: 'MaxAttemptCount',
       minAttemptInterval: 'MinAttemptInterval',
       name: 'Name',
@@ -22742,6 +22747,7 @@ export class ListCampaignsResponseBodyDataList extends $tea.Model {
       casesConnected: 'number',
       casesUncompleted: 'number',
       completionRate: 'number',
+      contactFlowId: 'string',
       maxAttemptCount: 'number',
       minAttemptInterval: 'number',
       name: 'string',
@@ -28444,10 +28450,12 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
   averageRingTime?: number;
   averageTalkTime?: number;
   averageWorkTime?: number;
+  callsAbandoned?: number;
   callsAttendedTransferOut?: number;
   callsBlindTransferOut?: number;
   callsHandled?: number;
   callsOffered?: number;
+  callsOverflow?: string;
   callsQueuingCanceled?: string;
   callsQueuingFailure?: string;
   callsQueuingRerouted?: string;
@@ -28481,10 +28489,12 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       averageRingTime: 'AverageRingTime',
       averageTalkTime: 'AverageTalkTime',
       averageWorkTime: 'AverageWorkTime',
+      callsAbandoned: 'CallsAbandoned',
       callsAttendedTransferOut: 'CallsAttendedTransferOut',
       callsBlindTransferOut: 'CallsBlindTransferOut',
       callsHandled: 'CallsHandled',
       callsOffered: 'CallsOffered',
+      callsOverflow: 'CallsOverflow',
       callsQueuingCanceled: 'CallsQueuingCanceled',
       callsQueuingFailure: 'CallsQueuingFailure',
       callsQueuingRerouted: 'CallsQueuingRerouted',
@@ -28521,10 +28531,12 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       averageRingTime: 'number',
       averageTalkTime: 'number',
       averageWorkTime: 'number',
+      callsAbandoned: 'number',
       callsAttendedTransferOut: 'number',
       callsBlindTransferOut: 'number',
       callsHandled: 'number',
       callsOffered: 'number',
+      callsOverflow: 'string',
       callsQueuingCanceled: 'string',
       callsQueuingFailure: 'string',
       callsQueuingRerouted: 'string',
@@ -33432,12 +33444,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI CreateCustomCallTagging is deprecated, please use CCC::2020-07-01::CreateCustomCallTaggings instead.
+   *
    * @summary 创建呼入控制号码
    *
    * @param request CreateCustomCallTaggingRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return CreateCustomCallTaggingResponse
    */
+  // Deprecated
   async createCustomCallTaggingWithOptions(request: CreateCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomCallTaggingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33467,11 +33482,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI CreateCustomCallTagging is deprecated, please use CCC::2020-07-01::CreateCustomCallTaggings instead.
+   *
    * @summary 创建呼入控制号码
    *
    * @param request CreateCustomCallTaggingRequest
    * @return CreateCustomCallTaggingResponse
    */
+  // Deprecated
   async createCustomCallTagging(request: CreateCustomCallTaggingRequest): Promise<CreateCustomCallTaggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomCallTaggingWithOptions(request, runtime);
@@ -38006,12 +38024,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI ListLegacyAgentEventLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
+   *
    * @summary ListLegacyAgentEventLogs
    *
    * @param request ListLegacyAgentEventLogsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ListLegacyAgentEventLogsResponse
    */
+  // Deprecated
   async listLegacyAgentEventLogsWithOptions(request: ListLegacyAgentEventLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListLegacyAgentEventLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38057,23 +38078,29 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI ListLegacyAgentEventLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
+   *
    * @summary ListLegacyAgentEventLogs
    *
    * @param request ListLegacyAgentEventLogsRequest
    * @return ListLegacyAgentEventLogsResponse
    */
+  // Deprecated
   async listLegacyAgentEventLogs(request: ListLegacyAgentEventLogsRequest): Promise<ListLegacyAgentEventLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLegacyAgentEventLogsWithOptions(request, runtime);
   }
 
   /**
+   * @deprecated OpenAPI ListLegacyAgentStatusLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
+   *
    * @summary ListLegacyAgentStatusLogs
    *
    * @param request ListLegacyAgentStatusLogsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ListLegacyAgentStatusLogsResponse
    */
+  // Deprecated
   async listLegacyAgentStatusLogsWithOptions(request: ListLegacyAgentStatusLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListLegacyAgentStatusLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38119,11 +38146,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI ListLegacyAgentStatusLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
+   *
    * @summary ListLegacyAgentStatusLogs
    *
    * @param request ListLegacyAgentStatusLogsRequest
    * @return ListLegacyAgentStatusLogsResponse
    */
+  // Deprecated
   async listLegacyAgentStatusLogs(request: ListLegacyAgentStatusLogsRequest): Promise<ListLegacyAgentStatusLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLegacyAgentStatusLogsWithOptions(request, runtime);
