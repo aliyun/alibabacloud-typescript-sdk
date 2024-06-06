@@ -208,6 +208,50 @@ export class CooperationShop extends $tea.Model {
   }
 }
 
+export class CreateAliPayUrlRequest extends $tea.Model {
+  shopId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shopId: 'shopId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shopId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAliPayUrlResult extends $tea.Model {
+  accountId?: string;
+  memberId?: string;
+  zftWithholdSignUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      memberId: 'memberId',
+      zftWithholdSignUrl: 'zftWithholdSignUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      memberId: 'string',
+      zftWithholdSignUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeliveryInfo extends $tea.Model {
   displayName?: string;
   id?: string;
@@ -628,6 +672,47 @@ export class LogisticsOrderResult extends $tea.Model {
   }
 }
 
+export class MemberAccountRequest extends $tea.Model {
+  shopId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shopId: 'shopId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shopId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MemberAccountResult extends $tea.Model {
+  accountNo?: string[];
+  shopId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountNo: 'accountNo',
+      shopId: 'shopId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountNo: { 'type': 'array', 'itemType': 'string' },
+      shopId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Money extends $tea.Model {
   amount?: number;
   amountAsString?: string;
@@ -925,6 +1010,7 @@ export class Product extends $tea.Model {
   extendProperties?: ProductExtendProperty[];
   fuzzyQuantity?: string;
   images?: string[];
+  lmItemId?: string;
   picUrl?: string;
   productId?: string;
   productSpecs?: ProductSpec[];
@@ -950,6 +1036,7 @@ export class Product extends $tea.Model {
       extendProperties: 'extendProperties',
       fuzzyQuantity: 'fuzzyQuantity',
       images: 'images',
+      lmItemId: 'lmItemId',
       picUrl: 'picUrl',
       productId: 'productId',
       productSpecs: 'productSpecs',
@@ -978,6 +1065,7 @@ export class Product extends $tea.Model {
       extendProperties: { 'type': 'array', 'itemType': ProductExtendProperty },
       fuzzyQuantity: 'string',
       images: { 'type': 'array', 'itemType': 'string' },
+      lmItemId: 'string',
       picUrl: 'string',
       productId: 'string',
       productSpecs: { 'type': 'array', 'itemType': ProductSpec },
@@ -1151,6 +1239,7 @@ export class ProductSaleInfo extends $tea.Model {
   canSell?: boolean;
   divisionCode?: string;
   fuzzyQuantity?: string;
+  lmItemId?: string;
   productId?: string;
   productStatus?: string;
   quantity?: number;
@@ -1163,6 +1252,7 @@ export class ProductSaleInfo extends $tea.Model {
       canSell: 'canSell',
       divisionCode: 'divisionCode',
       fuzzyQuantity: 'fuzzyQuantity',
+      lmItemId: 'lmItemId',
       productId: 'productId',
       productStatus: 'productStatus',
       quantity: 'quantity',
@@ -1178,6 +1268,7 @@ export class ProductSaleInfo extends $tea.Model {
       canSell: 'boolean',
       divisionCode: 'string',
       fuzzyQuantity: 'string',
+      lmItemId: 'string',
       productId: 'string',
       productStatus: 'string',
       quantity: 'number',
@@ -1754,6 +1845,59 @@ export class Shop extends $tea.Model {
   }
 }
 
+export class ShopCreateRequest extends $tea.Model {
+  afterSaleDingTalkId?: string;
+  description?: string;
+  operatorDingTalkId?: string;
+  preSaleDingTalkId?: string;
+  shopName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      afterSaleDingTalkId: 'afterSaleDingTalkId',
+      description: 'description',
+      operatorDingTalkId: 'operatorDingTalkId',
+      preSaleDingTalkId: 'preSaleDingTalkId',
+      shopName: 'shopName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      afterSaleDingTalkId: 'string',
+      description: 'string',
+      operatorDingTalkId: 'string',
+      preSaleDingTalkId: 'string',
+      shopName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ShopCreateResult extends $tea.Model {
+  shopId?: string;
+  shopStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shopId: 'shopId',
+      shopStatus: 'shopStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shopId: 'string',
+      shopStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ShopPageDataResult extends $tea.Model {
   cooperationShops?: CooperationShop[];
   endDate?: string;
@@ -1811,6 +1955,47 @@ export class ShopPageResult extends $tea.Model {
       requestId: 'string',
       shopList: { 'type': 'array', 'itemType': ShopPageDataResult },
       total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ShopStatusChangeRequest extends $tea.Model {
+  shopId?: string;
+  shopStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shopId: 'shopId',
+      shopStatus: 'shopStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shopId: 'string',
+      shopStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ShopStatusChangeResult extends $tea.Model {
+  operate?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      operate: 'operate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operate: 'boolean',
     };
   }
 
