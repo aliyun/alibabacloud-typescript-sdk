@@ -1235,6 +1235,78 @@ export class CreateClusterResponse extends $tea.Model {
   }
 }
 
+export class CreateClusterDiagnosisRequest extends $tea.Model {
+  target?: { [key: string]: any };
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      target: 'target',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      target: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterDiagnosisResponseBody extends $tea.Model {
+  clusterId?: string;
+  diagnosisId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      diagnosisId: 'diagnosis_id',
+      requestId: 'request_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      diagnosisId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterDiagnosisResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateClusterDiagnosisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateClusterDiagnosisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterNodePoolRequest extends $tea.Model {
   autoScaling?: CreateClusterNodePoolRequestAutoScaling;
   count?: number;
@@ -5158,6 +5230,127 @@ export class GetClusterCheckResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetClusterCheckResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterDiagnosisCheckItemsResponseBody extends $tea.Model {
+  checkItems?: GetClusterDiagnosisCheckItemsResponseBodyCheckItems[];
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkItems: 'check_items',
+      code: 'code',
+      isSuccess: 'is_success',
+      requestId: 'request_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkItems: { 'type': 'array', 'itemType': GetClusterDiagnosisCheckItemsResponseBodyCheckItems },
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterDiagnosisCheckItemsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClusterDiagnosisCheckItemsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClusterDiagnosisCheckItemsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterDiagnosisResultResponseBody extends $tea.Model {
+  code?: number;
+  created?: string;
+  diagnosisId?: string;
+  finished?: string;
+  message?: string;
+  result?: string;
+  status?: number;
+  target?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      created: 'created',
+      diagnosisId: 'diagnosis_id',
+      finished: 'finished',
+      message: 'message',
+      result: 'result',
+      status: 'status',
+      target: 'target',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      created: 'string',
+      diagnosisId: 'string',
+      finished: 'string',
+      message: 'string',
+      result: 'string',
+      status: 'number',
+      target: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterDiagnosisResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClusterDiagnosisResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClusterDiagnosisResultResponseBody,
     };
   }
 
@@ -12318,6 +12511,46 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $tea.Model {
   }
 }
 
+export class GetClusterDiagnosisCheckItemsResponseBodyCheckItems extends $tea.Model {
+  desc?: string;
+  display?: string;
+  group?: string;
+  level?: string;
+  message?: string;
+  name?: string;
+  refer?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      display: 'display',
+      group: 'group',
+      level: 'level',
+      message: 'message',
+      name: 'name',
+      refer: 'refer',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      display: 'string',
+      group: 'string',
+      level: 'string',
+      message: 'string',
+      name: 'string',
+      refer: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetKubernetesTriggerResponseBody extends $tea.Model {
   id?: string;
   name?: string;
@@ -14447,7 +14680,56 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
+   * @summary 发起集群诊断
+   *
+   * @param request CreateClusterDiagnosisRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateClusterDiagnosisResponse
+   */
+  async createClusterDiagnosisWithOptions(clusterId: string, request: CreateClusterDiagnosisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateClusterDiagnosisResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.target)) {
+      body["target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateClusterDiagnosis",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/diagnosis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateClusterDiagnosisResponse>(await this.callApi(params, req, runtime), new CreateClusterDiagnosisResponse({}));
+  }
+
+  /**
+   * @summary 发起集群诊断
+   *
+   * @param request CreateClusterDiagnosisRequest
+   * @return CreateClusterDiagnosisResponse
+   */
+  async createClusterDiagnosis(clusterId: string, request: CreateClusterDiagnosisRequest): Promise<CreateClusterDiagnosisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createClusterDiagnosisWithOptions(clusterId, request, headers, runtime);
+  }
+
+  /**
+   * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\&M workload.
    *
    * @param request CreateClusterNodePoolRequest
    * @param headers map
@@ -14520,7 +14802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
+   * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\&M workload.
    *
    * @param request CreateClusterNodePoolRequest
    * @return CreateClusterNodePoolResponse
@@ -15908,7 +16190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call the DescribeClusterNodePools operation to query node pools in a Container Service for Kubernetes (ACK) cluster.
+   * @summary Queries node pools in a Container Service for Kubernetes (ACK) cluster.
    *
    * @param request DescribeClusterNodePoolsRequest
    * @param headers map
@@ -15941,7 +16223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call the DescribeClusterNodePools operation to query node pools in a Container Service for Kubernetes (ACK) cluster.
+   * @summary Queries node pools in a Container Service for Kubernetes (ACK) cluster.
    *
    * @param request DescribeClusterNodePoolsRequest
    * @return DescribeClusterNodePoolsResponse
@@ -17547,6 +17829,78 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getClusterCheckWithOptions(clusterId, checkId, headers, runtime);
+  }
+
+  /**
+   * @summary 获取集群诊断检查项
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterDiagnosisCheckItemsResponse
+   */
+  async getClusterDiagnosisCheckItemsWithOptions(clusterId: string, diagnosisId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterDiagnosisCheckItemsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClusterDiagnosisCheckItems",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/diagnosis/${OpenApiUtil.getEncodeParam(diagnosisId)}/check_items`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClusterDiagnosisCheckItemsResponse>(await this.callApi(params, req, runtime), new GetClusterDiagnosisCheckItemsResponse({}));
+  }
+
+  /**
+   * @summary 获取集群诊断检查项
+   *
+   * @return GetClusterDiagnosisCheckItemsResponse
+   */
+  async getClusterDiagnosisCheckItems(clusterId: string, diagnosisId: string): Promise<GetClusterDiagnosisCheckItemsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getClusterDiagnosisCheckItemsWithOptions(clusterId, diagnosisId, headers, runtime);
+  }
+
+  /**
+   * @summary 获取集群诊断结果
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterDiagnosisResultResponse
+   */
+  async getClusterDiagnosisResultWithOptions(clusterId: string, diagnosisId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterDiagnosisResultResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClusterDiagnosisResult",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/diagnosis/${OpenApiUtil.getEncodeParam(diagnosisId)}/result`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClusterDiagnosisResultResponse>(await this.callApi(params, req, runtime), new GetClusterDiagnosisResultResponse({}));
+  }
+
+  /**
+   * @summary 获取集群诊断结果
+   *
+   * @return GetClusterDiagnosisResultResponse
+   */
+  async getClusterDiagnosisResult(clusterId: string, diagnosisId: string): Promise<GetClusterDiagnosisResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getClusterDiagnosisResultWithOptions(clusterId, diagnosisId, headers, runtime);
   }
 
   /**
