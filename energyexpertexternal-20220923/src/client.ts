@@ -3,9 +3,14 @@
  *
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import OSS, * as $OSS from '@alicloud/oss-client';
+import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
+import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
+import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CarbonEmissionElecSummaryItem extends $tea.Model {
@@ -80,6 +85,34 @@ export class ConstituteItem extends $tea.Model {
       ratio: 'number',
       rawData: 'number',
       subConstituteItems: { 'type': 'array', 'itemType': ConstituteItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContentItem extends $tea.Model {
+  extInfo?: ContentItemExtInfo[];
+  score?: number;
+  text?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extInfo: 'extInfo',
+      score: 'score',
+      text: 'text',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extInfo: { 'type': 'array', 'itemType': ContentItemExtInfo },
+      score: 'number',
+      text: 'string',
+      type: 'string',
     };
   }
 
@@ -783,6 +816,72 @@ export class GetDeviceListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDeviceListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentAnalyzeResultRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'jobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentAnalyzeResultResponseBody extends $tea.Model {
+  data?: GetDocumentAnalyzeResultResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetDocumentAnalyzeResultResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentAnalyzeResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocumentAnalyzeResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDocumentAnalyzeResultResponseBody,
     };
   }
 
@@ -2305,6 +2404,181 @@ export class RecalculateCarbonEmissionResponse extends $tea.Model {
   }
 }
 
+export class SendDocumentAskQuestionRequest extends $tea.Model {
+  folderId?: string;
+  prompt?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      folderId: 'folderId',
+      prompt: 'prompt',
+      sessionId: 'sessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folderId: 'string',
+      prompt: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendDocumentAskQuestionResponseBody extends $tea.Model {
+  data?: SendDocumentAskQuestionResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SendDocumentAskQuestionResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendDocumentAskQuestionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendDocumentAskQuestionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendDocumentAskQuestionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocumentAnalyzeJobRequest extends $tea.Model {
+  fileUrl?: string;
+  folderId?: string;
+  ossUrl?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'fileUrl',
+      folderId: 'folderId',
+      ossUrl: 'ossUrl',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      folderId: 'string',
+      ossUrl: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocumentAnalyzeJobAdvanceRequest extends $tea.Model {
+  fileUrl?: string;
+  folderId?: string;
+  ossUrlObject?: Readable;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'fileUrl',
+      folderId: 'folderId',
+      ossUrlObject: 'ossUrl',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      folderId: 'string',
+      ossUrlObject: 'Readable',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocumentAnalyzeJobResponseBody extends $tea.Model {
+  data?: SubmitDocumentAnalyzeJobResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitDocumentAnalyzeJobResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocumentAnalyzeJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDocumentAnalyzeJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitDocumentAnalyzeJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConstituteItemEnvGasEmissions extends $tea.Model {
   carbonEmissionData?: number;
   gasEmissionData?: number;
@@ -2325,6 +2599,71 @@ export class ConstituteItemEnvGasEmissions extends $tea.Model {
       gasEmissionData: 'number',
       name: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContentItemExtInfoPos extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'x',
+      y: 'y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContentItemExtInfo extends $tea.Model {
+  alignment?: string;
+  index?: number;
+  level?: number;
+  pageNum?: number[];
+  pos?: ContentItemExtInfoPos[];
+  subType?: string;
+  text?: string;
+  type?: string;
+  uniqueId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alignment: 'alignment',
+      index: 'index',
+      level: 'level',
+      pageNum: 'pageNum',
+      pos: 'pos',
+      subType: 'subType',
+      text: 'text',
+      type: 'type',
+      uniqueId: 'uniqueId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alignment: 'string',
+      index: 'number',
+      level: 'number',
+      pageNum: { 'type': 'array', 'itemType': 'number' },
+      pos: { 'type': 'array', 'itemType': ContentItemExtInfoPos },
+      subType: 'string',
+      text: 'string',
+      type: 'string',
+      uniqueId: 'string',
     };
   }
 
@@ -2857,6 +3196,97 @@ export class GetDeviceListResponseBodyData extends $tea.Model {
       factoryId: 'string',
       httpCode: 'number',
       success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentAnalyzeResultResponseBodyDataKvListInfoContextConfidence extends $tea.Model {
+  keyConfidence?: number;
+  valueConfidence?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyConfidence: 'keyConfidence',
+      valueConfidence: 'valueConfidence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyConfidence: 'number',
+      valueConfidence: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentAnalyzeResultResponseBodyDataKvListInfoContext extends $tea.Model {
+  confidence?: GetDocumentAnalyzeResultResponseBodyDataKvListInfoContextConfidence;
+  key?: ContentItem[];
+  value?: ContentItem[];
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'confidence',
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: GetDocumentAnalyzeResultResponseBodyDataKvListInfoContextConfidence,
+      key: { 'type': 'array', 'itemType': ContentItem },
+      value: { 'type': 'array', 'itemType': ContentItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentAnalyzeResultResponseBodyDataKvListInfo extends $tea.Model {
+  context?: GetDocumentAnalyzeResultResponseBodyDataKvListInfoContext;
+  keyName?: string;
+  keyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      keyName: 'keyName',
+      keyValue: 'keyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: GetDocumentAnalyzeResultResponseBodyDataKvListInfoContext,
+      keyName: 'string',
+      keyValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentAnalyzeResultResponseBodyData extends $tea.Model {
+  kvListInfo?: GetDocumentAnalyzeResultResponseBodyDataKvListInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      kvListInfo: 'kvListInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kvListInfo: { 'type': 'array', 'itemType': GetDocumentAnalyzeResultResponseBodyDataKvListInfo },
     };
   }
 
@@ -4084,6 +4514,47 @@ export class PushItemDataRequestItems extends $tea.Model {
   }
 }
 
+export class SendDocumentAskQuestionResponseBodyData extends $tea.Model {
+  answer?: string;
+  document?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'answer',
+      document: 'document',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+      document: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocumentAnalyzeJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'jobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -4107,6 +4578,16 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Generate a report of the specified carbon footprint.
+   *
+   * @description Given a product ID, this API initiates a task to calculate the carbon footprint result for the corresponding product. The task\\"s status can be checked using the `IsCompleted` API. Following the generation of results, other result inquiry APIs can be accessed for display content.
+   *
+   * @param request GenerateResultRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateResultResponse
+   */
   async generateResultWithOptions(request: GenerateResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4140,12 +4621,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateResultResponse>(await this.callApi(params, req, runtime), new GenerateResultResponse({}));
   }
 
+  /**
+   * @summary Generate a report of the specified carbon footprint.
+   *
+   * @description Given a product ID, this API initiates a task to calculate the carbon footprint result for the corresponding product. The task\\"s status can be checked using the `IsCompleted` API. Following the generation of results, other result inquiry APIs can be accessed for display content.
+   *
+   * @param request GenerateResultRequest
+   * @return GenerateResultResponse
+   */
   async generateResult(request: GenerateResultRequest): Promise<GenerateResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.generateResultWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary This interface is used to obtain electrical constitute analysis data.
+   *
+   * @param request GetAreaElecConstituteRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAreaElecConstituteResponse
+   */
   async getAreaElecConstituteWithOptions(request: GetAreaElecConstituteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAreaElecConstituteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4175,12 +4672,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAreaElecConstituteResponse>(await this.callApi(params, req, runtime), new GetAreaElecConstituteResponse({}));
   }
 
+  /**
+   * @summary This interface is used to obtain electrical constitute analysis data.
+   *
+   * @param request GetAreaElecConstituteRequest
+   * @return GetAreaElecConstituteResponse
+   */
   async getAreaElecConstitute(request: GetAreaElecConstituteRequest): Promise<GetAreaElecConstituteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAreaElecConstituteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Get trends in carbon emissions.
+   *
+   * @param request GetCarbonEmissionTrendRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCarbonEmissionTrendResponse
+   */
   async getCarbonEmissionTrendWithOptions(request: GetCarbonEmissionTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCarbonEmissionTrendResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4222,12 +4733,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCarbonEmissionTrendResponse>(await this.callApi(params, req, runtime), new GetCarbonEmissionTrendResponse({}));
   }
 
+  /**
+   * @summary Get trends in carbon emissions.
+   *
+   * @param request GetCarbonEmissionTrendRequest
+   * @return GetCarbonEmissionTrendResponse
+   */
   async getCarbonEmissionTrend(request: GetCarbonEmissionTrendRequest): Promise<GetCarbonEmissionTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCarbonEmissionTrendWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary This interface is used to obtain the details category of a data item.
+   *
+   * @description - obtain data item detail list under the current enterprise.
+   *
+   * @param request GetDataItemListRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataItemListResponse
+   */
   async getDataItemListWithOptions(request: GetDataItemListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDataItemListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4253,12 +4780,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataItemListResponse>(await this.callApi(params, req, runtime), new GetDataItemListResponse({}));
   }
 
+  /**
+   * @summary This interface is used to obtain the details category of a data item.
+   *
+   * @description - obtain data item detail list under the current enterprise.
+   *
+   * @param request GetDataItemListRequest
+   * @return GetDataItemListResponse
+   */
   async getDataItemList(request: GetDataItemListRequest): Promise<GetDataItemListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDataItemListWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Obtain the data quality evaluation results DQR and DQI.
+   *
+   * @description This API returns the data quality evaluation results based on the user-provided product ID. It\\"s useful for understanding the data quality of the carbon emission factors for each inventory of the product.
+   *
+   * @param request GetDataQualityAnalysisRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataQualityAnalysisResponse
+   */
   async getDataQualityAnalysisWithOptions(request: GetDataQualityAnalysisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDataQualityAnalysisResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4296,6 +4841,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataQualityAnalysisResponse>(await this.callApi(params, req, runtime), new GetDataQualityAnalysisResponse({}));
   }
 
+  /**
+   * @summary Obtain the data quality evaluation results DQR and DQI.
+   *
+   * @description This API returns the data quality evaluation results based on the user-provided product ID. It\\"s useful for understanding the data quality of the carbon emission factors for each inventory of the product.
+   *
+   * @param request GetDataQualityAnalysisRequest
+   * @return GetDataQualityAnalysisResponse
+   */
   async getDataQualityAnalysis(request: GetDataQualityAnalysisRequest): Promise<GetDataQualityAnalysisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4303,13 +4856,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
-    * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
-    *
-    * @param request GetDeviceInfoRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDeviceInfoResponse
+   * @summary Queries the information about a device at a site that is activated by using an Alibaba Cloud account.
+   *
+   * @description *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
+   * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
+   * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+   * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89) 
+   * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+   *
+   * @param request GetDeviceInfoRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDeviceInfoResponse
    */
   async getDeviceInfoWithOptions(request: GetDeviceInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDeviceInfoResponse> {
     Util.validateModel(request);
@@ -4345,11 +4903,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
-    * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
-    *
-    * @param request GetDeviceInfoRequest
-    * @return GetDeviceInfoResponse
+   * @summary Queries the information about a device at a site that is activated by using an Alibaba Cloud account.
+   *
+   * @description *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
+   * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
+   * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+   * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89) 
+   * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+   *
+   * @param request GetDeviceInfoRequest
+   * @return GetDeviceInfoResponse
    */
   async getDeviceInfo(request: GetDeviceInfoRequest): Promise<GetDeviceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4358,13 +4921,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
-    * *   Virtual meters at the site are not returned.
-    *
-    * @param request GetDeviceListRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDeviceListResponse
+   * @summary Queries the devices of a site that is activated by using an Alibaba Cloud account.
+   *
+   * @description *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
+   * *   Virtual meters at the site are not returned.
+   * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+   * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89) 
+   * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+   *
+   * @param request GetDeviceListRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDeviceListResponse
    */
   async getDeviceListWithOptions(request: GetDeviceListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDeviceListResponse> {
     Util.validateModel(request);
@@ -4392,11 +4960,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
-    * *   Virtual meters at the site are not returned.
-    *
-    * @param request GetDeviceListRequest
-    * @return GetDeviceListResponse
+   * @summary Queries the devices of a site that is activated by using an Alibaba Cloud account.
+   *
+   * @description *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
+   * *   Virtual meters at the site are not returned.
+   * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+   * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89) 
+   * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+   *
+   * @param request GetDeviceListRequest
+   * @return GetDeviceListResponse
    */
   async getDeviceList(request: GetDeviceListRequest): Promise<GetDeviceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4404,6 +4977,59 @@ export default class Client extends OpenApi {
     return await this.getDeviceListWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取文档结果
+   *
+   * @param request GetDocumentAnalyzeResultRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDocumentAnalyzeResultResponse
+   */
+  async getDocumentAnalyzeResultWithOptions(request: GetDocumentAnalyzeResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDocumentAnalyzeResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["jobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDocumentAnalyzeResult",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aidoc/document/getDocumentAnalyzeResult`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDocumentAnalyzeResultResponse>(await this.callApi(params, req, runtime), new GetDocumentAnalyzeResultResponse({}));
+  }
+
+  /**
+   * @summary 获取文档结果
+   *
+   * @param request GetDocumentAnalyzeResultRequest
+   * @return GetDocumentAnalyzeResultResponse
+   */
+  async getDocumentAnalyzeResult(request: GetDocumentAnalyzeResultRequest): Promise<GetDocumentAnalyzeResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDocumentAnalyzeResultWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary This interface is used to obtain power composition analysis data.
+   *
+   * @param request GetElecConstituteRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetElecConstituteResponse
+   */
   async getElecConstituteWithOptions(request: GetElecConstituteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetElecConstituteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4433,12 +5059,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetElecConstituteResponse>(await this.callApi(params, req, runtime), new GetElecConstituteResponse({}));
   }
 
+  /**
+   * @summary This interface is used to obtain power composition analysis data.
+   *
+   * @param request GetElecConstituteRequest
+   * @return GetElecConstituteResponse
+   */
   async getElecConstitute(request: GetElecConstituteRequest): Promise<GetElecConstituteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getElecConstituteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary This interface is used to obtain power trend analysis data.
+   *
+   * @param request GetElecTrendRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetElecTrendResponse
+   */
   async getElecTrendWithOptions(request: GetElecTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetElecTrendResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4468,12 +5108,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetElecTrendResponse>(await this.callApi(params, req, runtime), new GetElecTrendResponse({}));
   }
 
+  /**
+   * @summary This interface is used to obtain power trend analysis data.
+   *
+   * @param request GetElecTrendRequest
+   * @return GetElecTrendResponse
+   */
   async getElecTrend(request: GetElecTrendRequest): Promise<GetElecTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getElecTrendWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Obtain the emission source composition.
+   *
+   * @param request GetEmissionSourceConstituteRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEmissionSourceConstituteResponse
+   */
   async getEmissionSourceConstituteWithOptions(request: GetEmissionSourceConstituteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmissionSourceConstituteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4511,12 +5165,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEmissionSourceConstituteResponse>(await this.callApi(params, req, runtime), new GetEmissionSourceConstituteResponse({}));
   }
 
+  /**
+   * @summary Obtain the emission source composition.
+   *
+   * @param request GetEmissionSourceConstituteRequest
+   * @return GetEmissionSourceConstituteResponse
+   */
   async getEmissionSourceConstitute(request: GetEmissionSourceConstituteRequest): Promise<GetEmissionSourceConstituteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getEmissionSourceConstituteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Get a summary of carbon emissions.
+   *
+   * @param request GetEmissionSummaryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEmissionSummaryResponse
+   */
   async getEmissionSummaryWithOptions(request: GetEmissionSummaryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmissionSummaryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4554,12 +5222,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEmissionSummaryResponse>(await this.callApi(params, req, runtime), new GetEmissionSummaryResponse({}));
   }
 
+  /**
+   * @summary Get a summary of carbon emissions.
+   *
+   * @param request GetEmissionSummaryRequest
+   * @return GetEmissionSummaryResponse
+   */
   async getEmissionSummary(request: GetEmissionSummaryRequest): Promise<GetEmissionSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getEmissionSummaryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Gets the result details of the environmental impact category.
+   *
+   * @description This API returns the emission amounts for various environmental impact categories at different levels for the given product ID. It helps understand the emission quantities for different environmental impact categories and inventories of the product.
+   *
+   * @param request GetEpdInventoryConstituteRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEpdInventoryConstituteResponse
+   */
   async getEpdInventoryConstituteWithOptions(request: GetEpdInventoryConstituteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEpdInventoryConstituteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4593,12 +5277,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEpdInventoryConstituteResponse>(await this.callApi(params, req, runtime), new GetEpdInventoryConstituteResponse({}));
   }
 
+  /**
+   * @summary Gets the result details of the environmental impact category.
+   *
+   * @description This API returns the emission amounts for various environmental impact categories at different levels for the given product ID. It helps understand the emission quantities for different environmental impact categories and inventories of the product.
+   *
+   * @param request GetEpdInventoryConstituteRequest
+   * @return GetEpdInventoryConstituteResponse
+   */
   async getEpdInventoryConstitute(request: GetEpdInventoryConstituteRequest): Promise<GetEpdInventoryConstituteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getEpdInventoryConstituteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Obtain the total amount of emissions for various environmental impacts.
+   *
+   * @description This API takes a product ID from the user and returns the summary of environmental impact generated for the product. This info helps understand the overall emissions for different environmental impact categories of the product.
+   *
+   * @param request GetEpdSummaryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEpdSummaryResponse
+   */
   async getEpdSummaryWithOptions(request: GetEpdSummaryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEpdSummaryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4632,12 +5334,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEpdSummaryResponse>(await this.callApi(params, req, runtime), new GetEpdSummaryResponse({}));
   }
 
+  /**
+   * @summary Obtain the total amount of emissions for various environmental impacts.
+   *
+   * @description This API takes a product ID from the user and returns the summary of environmental impact generated for the product. This info helps understand the overall emissions for different environmental impact categories of the product.
+   *
+   * @param request GetEpdSummaryRequest
+   * @return GetEpdSummaryResponse
+   */
   async getEpdSummary(request: GetEpdSummaryRequest): Promise<GetEpdSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getEpdSummaryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Get the list of product carbon footprints.
+   *
+   * @description With user-specified parameters such as enterprise code, current page, and page size, this API returns a list of matching product carbon footprints (or supply chain carbon footprints), including product names and product IDs. The product ID can be used as input parameters in other APIs to get the corresponding product\\"s detailed information.
+   *
+   * @param request GetFootprintListRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFootprintListResponse
+   */
   async getFootprintListWithOptions(request: GetFootprintListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFootprintListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4675,12 +5395,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFootprintListResponse>(await this.callApi(params, req, runtime), new GetFootprintListResponse({}));
   }
 
+  /**
+   * @summary Get the list of product carbon footprints.
+   *
+   * @description With user-specified parameters such as enterprise code, current page, and page size, this API returns a list of matching product carbon footprints (or supply chain carbon footprints), including product names and product IDs. The product ID can be used as input parameters in other APIs to get the corresponding product\\"s detailed information.
+   *
+   * @param request GetFootprintListRequest
+   * @return GetFootprintListResponse
+   */
   async getFootprintList(request: GetFootprintListRequest): Promise<GetFootprintListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFootprintListWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary This interface is used to obtain gas composition analysis.
+   *
+   * @param request GetGasConstituteRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGasConstituteResponse
+   */
   async getGasConstituteWithOptions(request: GetGasConstituteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGasConstituteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4718,12 +5454,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGasConstituteResponse>(await this.callApi(params, req, runtime), new GetGasConstituteResponse({}));
   }
 
+  /**
+   * @summary This interface is used to obtain gas composition analysis.
+   *
+   * @param request GetGasConstituteRequest
+   * @return GetGasConstituteResponse
+   */
   async getGasConstitute(request: GetGasConstituteRequest): Promise<GetGasConstituteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getGasConstituteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary obtain the active carbon reduction ranking list.
+   *
+   * @description This interface returns a list of proactive carbon reduction information given product ID. It\\"s used to understand the carbon reduction efforts at various levels of the product.
+   *
+   * @param request GetGwpBenchmarkListRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGwpBenchmarkListResponse
+   */
   async getGwpBenchmarkListWithOptions(request: GetGwpBenchmarkListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGwpBenchmarkListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4757,12 +5509,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGwpBenchmarkListResponse>(await this.callApi(params, req, runtime), new GetGwpBenchmarkListResponse({}));
   }
 
+  /**
+   * @summary obtain the active carbon reduction ranking list.
+   *
+   * @description This interface returns a list of proactive carbon reduction information given product ID. It\\"s used to understand the carbon reduction efforts at various levels of the product.
+   *
+   * @param request GetGwpBenchmarkListRequest
+   * @return GetGwpBenchmarkListResponse
+   */
   async getGwpBenchmarkList(request: GetGwpBenchmarkListRequest): Promise<GetGwpBenchmarkListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getGwpBenchmarkListWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary This API is to obtain the total amount of active carbon reduction.
+   *
+   * @description The API takes a product ID and returns data on the carbon emissions reduction along with a list of the top four contributors to carbon reduction. This info helps understand the total carbon reduction of the product and its main sources.
+   *
+   * @param request GetGwpBenchmarkSummaryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGwpBenchmarkSummaryResponse
+   */
   async getGwpBenchmarkSummaryWithOptions(request: GetGwpBenchmarkSummaryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGwpBenchmarkSummaryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4796,12 +5566,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGwpBenchmarkSummaryResponse>(await this.callApi(params, req, runtime), new GetGwpBenchmarkSummaryResponse({}));
   }
 
+  /**
+   * @summary This API is to obtain the total amount of active carbon reduction.
+   *
+   * @description The API takes a product ID and returns data on the carbon emissions reduction along with a list of the top four contributors to carbon reduction. This info helps understand the total carbon reduction of the product and its main sources.
+   *
+   * @param request GetGwpBenchmarkSummaryRequest
+   * @return GetGwpBenchmarkSummaryResponse
+   */
   async getGwpBenchmarkSummary(request: GetGwpBenchmarkSummaryRequest): Promise<GetGwpBenchmarkSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getGwpBenchmarkSummaryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
+   *
+   * @description Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
+   *
+   * @param request GetGwpInventoryConstituteRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGwpInventoryConstituteResponse
+   */
   async getGwpInventoryConstituteWithOptions(request: GetGwpInventoryConstituteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGwpInventoryConstituteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4835,12 +5623,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGwpInventoryConstituteResponse>(await this.callApi(params, req, runtime), new GetGwpInventoryConstituteResponse({}));
   }
 
+  /**
+   * @summary Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
+   *
+   * @description Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
+   *
+   * @param request GetGwpInventoryConstituteRequest
+   * @return GetGwpInventoryConstituteResponse
+   */
   async getGwpInventoryConstitute(request: GetGwpInventoryConstituteRequest): Promise<GetGwpInventoryConstituteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getGwpInventoryConstituteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary This API is used to obtain the total carbon footprint of a product and the top four types of carbon footprint contribution.
+   *
+   * @description Returns the total carbon footprint data for the user-specified product ID, along with details on the top four contributors to the carbon footprint, helping to understand the overall carbon footprint and its main components.
+   *
+   * @param request GetGwpInventorySummaryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGwpInventorySummaryResponse
+   */
   async getGwpInventorySummaryWithOptions(request: GetGwpInventorySummaryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGwpInventorySummaryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4874,12 +5680,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGwpInventorySummaryResponse>(await this.callApi(params, req, runtime), new GetGwpInventorySummaryResponse({}));
   }
 
+  /**
+   * @summary This API is used to obtain the total carbon footprint of a product and the top four types of carbon footprint contribution.
+   *
+   * @description Returns the total carbon footprint data for the user-specified product ID, along with details on the top four contributors to the carbon footprint, helping to understand the overall carbon footprint and its main components.
+   *
+   * @param request GetGwpInventorySummaryRequest
+   * @return GetGwpInventorySummaryResponse
+   */
   async getGwpInventorySummary(request: GetGwpInventorySummaryRequest): Promise<GetGwpInventorySummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getGwpInventorySummaryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Get the list of emissions in descending order under the specified environmental impact (methodType), specified aggregate level (group), and specified calculation mode (emissionType).
+   *
+   * @description This interface retrieves a descending order list of emissions for a specified product ID, environmental impact method, group level, and calculation method. It\\"s used to understand various environmental impact emission scenarios.
+   *
+   * @param request GetInventoryListRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInventoryListResponse
+   */
   async getInventoryListWithOptions(request: GetInventoryListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInventoryListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4925,6 +5749,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInventoryListResponse>(await this.callApi(params, req, runtime), new GetInventoryListResponse({}));
   }
 
+  /**
+   * @summary Get the list of emissions in descending order under the specified environmental impact (methodType), specified aggregate level (group), and specified calculation mode (emissionType).
+   *
+   * @description This interface retrieves a descending order list of emissions for a specified product ID, environmental impact method, group level, and calculation method. It\\"s used to understand various environmental impact emission scenarios.
+   *
+   * @param request GetInventoryListRequest
+   * @return GetInventoryListResponse
+   */
   async getInventoryList(request: GetInventoryListRequest): Promise<GetInventoryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4932,13 +5764,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can set multiple request parameters to filter query results. Specified parameters have logical AND relations. Parameters without assigned values are not used as filtering conditions.
-    * *   The x-acs-caller-uid header is used to check whether the activated service plan is the required service plan. If the verification is passed, the information about the organizations and sites that are activated by using the Alibaba Cloud account is returned. If the verification fails, a null value is returned.
-    * *   If activated organizations and sites exist, the data of the organizations and sites is returned. If no organization or site data exists, a null value is returned.
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetOrgAndFactoryResponse
+   * @summary Queries the organizations and sites that are activated by using an Alibaba Cloud account. You cannot call this operation to query the organizations or sites that have not been activated in the console.
+   *
+   * @description *   If an activated site exists, the information about the site and the organization to which the site belongs is returned. If no activated site exists, null is returned.
+   * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+   * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89) 
+   * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOrgAndFactoryResponse
    */
   async getOrgAndFactoryWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOrgAndFactoryResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -4959,11 +5794,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can set multiple request parameters to filter query results. Specified parameters have logical AND relations. Parameters without assigned values are not used as filtering conditions.
-    * *   The x-acs-caller-uid header is used to check whether the activated service plan is the required service plan. If the verification is passed, the information about the organizations and sites that are activated by using the Alibaba Cloud account is returned. If the verification fails, a null value is returned.
-    * *   If activated organizations and sites exist, the data of the organizations and sites is returned. If no organization or site data exists, a null value is returned.
-    *
-    * @return GetOrgAndFactoryResponse
+   * @summary Queries the organizations and sites that are activated by using an Alibaba Cloud account. You cannot call this operation to query the organizations or sites that have not been activated in the console.
+   *
+   * @description *   If an activated site exists, the information about the site and the organization to which the site belongs is returned. If no activated site exists, null is returned.
+   * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+   * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89) 
+   * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+   *
+   * @return GetOrgAndFactoryResponse
    */
   async getOrgAndFactory(): Promise<GetOrgAndFactoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4971,6 +5809,14 @@ export default class Client extends OpenApi {
     return await this.getOrgAndFactoryWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary This interface is used to obtain carbon inventory organization analysis data.
+   *
+   * @param request GetOrgConstituteRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOrgConstituteResponse
+   */
   async getOrgConstituteWithOptions(request: GetOrgConstituteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOrgConstituteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5008,12 +5854,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOrgConstituteResponse>(await this.callApi(params, req, runtime), new GetOrgConstituteResponse({}));
   }
 
+  /**
+   * @summary This interface is used to obtain carbon inventory organization analysis data.
+   *
+   * @param request GetOrgConstituteRequest
+   * @return GetOrgConstituteResponse
+   */
   async getOrgConstitute(request: GetOrgConstituteRequest): Promise<GetOrgConstituteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getOrgConstituteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains the oss address of the Product Carbon footprint Report.
+   *
+   * @description With the user-specified product ID, this interface retrieves detailed information and download links for previously generated PCR reports. To use it, two conditions must be met: 1) the result has already been generated; 2) the PCR report has been created.
+   *
+   * @param request GetPcrInfoRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPcrInfoResponse
+   */
   async getPcrInfoWithOptions(request: GetPcrInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPcrInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5047,12 +5909,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPcrInfoResponse>(await this.callApi(params, req, runtime), new GetPcrInfoResponse({}));
   }
 
+  /**
+   * @summary Obtains the oss address of the Product Carbon footprint Report.
+   *
+   * @description With the user-specified product ID, this interface retrieves detailed information and download links for previously generated PCR reports. To use it, two conditions must be met: 1) the result has already been generated; 2) the PCR report has been created.
+   *
+   * @param request GetPcrInfoRequest
+   * @return GetPcrInfoResponse
+   */
   async getPcrInfo(request: GetPcrInfoRequest): Promise<GetPcrInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPcrInfoWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Get carbon reduction recommendations.
+   *
+   * @description This API returns carbon reduction proposals based on the product ID. It\\"s useful for understanding optimization tips to reduce the carbon emissions associated with a product.
+   *
+   * @param request GetReductionProposalRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetReductionProposalResponse
+   */
   async getReductionProposalWithOptions(request: GetReductionProposalRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetReductionProposalResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5090,12 +5970,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetReductionProposalResponse>(await this.callApi(params, req, runtime), new GetReductionProposalResponse({}));
   }
 
+  /**
+   * @summary Get carbon reduction recommendations.
+   *
+   * @description This API returns carbon reduction proposals based on the product ID. It\\"s useful for understanding optimization tips to reduce the carbon emissions associated with a product.
+   *
+   * @param request GetReductionProposalRequest
+   * @return GetReductionProposalResponse
+   */
   async getReductionProposal(request: GetReductionProposalRequest): Promise<GetReductionProposalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getReductionProposalWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Check if the result generation is complete.
+   *
+   * @description This API checks the completion status of generating a report. It should be used before calling other result APIs, as they will only display content once the report generation is complete.
+   *
+   * @param request IsCompletedRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IsCompletedResponse
+   */
   async isCompletedWithOptions(request: IsCompletedRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<IsCompletedResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5129,12 +6027,28 @@ export default class Client extends OpenApi {
     return $tea.cast<IsCompletedResponse>(await this.callApi(params, req, runtime), new IsCompletedResponse({}));
   }
 
+  /**
+   * @summary Check if the result generation is complete.
+   *
+   * @description This API checks the completion status of generating a report. It should be used before calling other result APIs, as they will only display content once the report generation is complete.
+   *
+   * @param request IsCompletedRequest
+   * @return IsCompletedResponse
+   */
   async isCompleted(request: IsCompletedRequest): Promise<IsCompletedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.isCompletedWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary This interface is used to push device measuring point data, such as power meter voltage and other data.
+   *
+   * @param request PushDeviceDataRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushDeviceDataResponse
+   */
   async pushDeviceDataWithOptions(request: PushDeviceDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PushDeviceDataResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5164,6 +6078,12 @@ export default class Client extends OpenApi {
     return $tea.cast<PushDeviceDataResponse>(await this.callApi(params, req, runtime), new PushDeviceDataResponse({}));
   }
 
+  /**
+   * @summary This interface is used to push device measuring point data, such as power meter voltage and other data.
+   *
+   * @param request PushDeviceDataRequest
+   * @return PushDeviceDataResponse
+   */
   async pushDeviceData(request: PushDeviceDataRequest): Promise<PushDeviceDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5171,12 +6091,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * N/A.
-    *
-    * @param request PushItemDataRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PushItemDataResponse
+   * @summary This interface is used to push data items.
+   *
+   * @description - This interface is used for individual data item data.
+   * - Data items can link data to services such as carbon footprints and carbon inventories.
+   * - Depending on the platform configuration, active data on a yearly and monthly basis is supported.
+   *
+   * @param request PushItemDataRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushItemDataResponse
    */
   async pushItemDataWithOptions(request: PushItemDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PushItemDataResponse> {
     Util.validateModel(request);
@@ -5212,10 +6136,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * N/A.
-    *
-    * @param request PushItemDataRequest
-    * @return PushItemDataResponse
+   * @summary This interface is used to push data items.
+   *
+   * @description - This interface is used for individual data item data.
+   * - Data items can link data to services such as carbon footprints and carbon inventories.
+   * - Depending on the platform configuration, active data on a yearly and monthly basis is supported.
+   *
+   * @param request PushItemDataRequest
+   * @return PushItemDataResponse
    */
   async pushItemData(request: PushItemDataRequest): Promise<PushItemDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5223,6 +6151,16 @@ export default class Client extends OpenApi {
     return await this.pushItemDataWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Recalculate carbon emissions.
+   *
+   * @description - After uploading the data items, you need to call this interface to recalculate the carbon inventory data.
+   *
+   * @param request RecalculateCarbonEmissionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecalculateCarbonEmissionResponse
+   */
   async recalculateCarbonEmissionWithOptions(request: RecalculateCarbonEmissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RecalculateCarbonEmissionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5252,10 +6190,203 @@ export default class Client extends OpenApi {
     return $tea.cast<RecalculateCarbonEmissionResponse>(await this.callApi(params, req, runtime), new RecalculateCarbonEmissionResponse({}));
   }
 
+  /**
+   * @summary Recalculate carbon emissions.
+   *
+   * @description - After uploading the data items, you need to call this interface to recalculate the carbon inventory data.
+   *
+   * @param request RecalculateCarbonEmissionRequest
+   * @return RecalculateCarbonEmissionResponse
+   */
   async recalculateCarbonEmission(request: RecalculateCarbonEmissionRequest): Promise<RecalculateCarbonEmissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.recalculateCarbonEmissionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 在线文档问答
+   *
+   * @param request SendDocumentAskQuestionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SendDocumentAskQuestionResponse
+   */
+  async sendDocumentAskQuestionWithOptions(request: SendDocumentAskQuestionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SendDocumentAskQuestionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.folderId)) {
+      body["folderId"] = request.folderId;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendDocumentAskQuestion",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aidoc/document/sendDocumentAskQuestion`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SendDocumentAskQuestionResponse>(await this.callApi(params, req, runtime), new SendDocumentAskQuestionResponse({}));
+  }
+
+  /**
+   * @summary 在线文档问答
+   *
+   * @param request SendDocumentAskQuestionRequest
+   * @return SendDocumentAskQuestionResponse
+   */
+  async sendDocumentAskQuestion(request: SendDocumentAskQuestionRequest): Promise<SendDocumentAskQuestionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.sendDocumentAskQuestionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取文档结果
+   *
+   * @param request SubmitDocumentAnalyzeJobRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitDocumentAnalyzeJobResponse
+   */
+  async submitDocumentAnalyzeJobWithOptions(request: SubmitDocumentAnalyzeJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitDocumentAnalyzeJobResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileUrl)) {
+      query["fileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.folderId)) {
+      query["folderId"] = request.folderId;
+    }
+
+    if (!Util.isUnset(request.ossUrl)) {
+      query["ossUrl"] = request.ossUrl;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["templateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitDocumentAnalyzeJob",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aidoc/document/submitDocumentAnalyzeJob`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitDocumentAnalyzeJobResponse>(await this.callApi(params, req, runtime), new SubmitDocumentAnalyzeJobResponse({}));
+  }
+
+  /**
+   * @summary 获取文档结果
+   *
+   * @param request SubmitDocumentAnalyzeJobRequest
+   * @return SubmitDocumentAnalyzeJobResponse
+   */
+  async submitDocumentAnalyzeJob(request: SubmitDocumentAnalyzeJobRequest): Promise<SubmitDocumentAnalyzeJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitDocumentAnalyzeJobWithOptions(request, headers, runtime);
+  }
+
+  async submitDocumentAnalyzeJobAdvance(request: SubmitDocumentAnalyzeJobAdvanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitDocumentAnalyzeJobResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.empty(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "energyExpertExternal",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = new OSS(ossConfig);
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let submitDocumentAnalyzeJobReq = new SubmitDocumentAnalyzeJobRequest({ });
+    OpenApiUtil.convert(request, submitDocumentAnalyzeJobReq);
+    if (!Util.isUnset(request.ossUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.ossUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      submitDocumentAnalyzeJobReq.ossUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let submitDocumentAnalyzeJobResp = await this.submitDocumentAnalyzeJobWithOptions(submitDocumentAnalyzeJobReq, headers, runtime);
+    return submitDocumentAnalyzeJobResp;
   }
 
 }
