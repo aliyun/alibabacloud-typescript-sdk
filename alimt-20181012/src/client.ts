@@ -76,9 +76,9 @@ export class CreateAsyncTranslateResponseBody extends $tea.Model {
 }
 
 export class CreateAsyncTranslateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAsyncTranslateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAsyncTranslateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -194,9 +194,9 @@ export class CreateDocTranslateTaskResponseBody extends $tea.Model {
 }
 
 export class CreateDocTranslateTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDocTranslateTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDocTranslateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -278,9 +278,9 @@ export class CreateImageTranslateTaskResponseBody extends $tea.Model {
 }
 
 export class CreateImageTranslateTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateImageTranslateTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateImageTranslateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -350,9 +350,9 @@ export class GetAsyncTranslateResponseBody extends $tea.Model {
 }
 
 export class GetAsyncTranslateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAsyncTranslateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAsyncTranslateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -437,9 +437,9 @@ export class GetBatchTranslateResponseBody extends $tea.Model {
 }
 
 export class GetBatchTranslateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetBatchTranslateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBatchTranslateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -482,10 +482,12 @@ export class GetDetectLanguageRequest extends $tea.Model {
 
 export class GetDetectLanguageResponseBody extends $tea.Model {
   detectedLanguage?: string;
+  languageProbabilities?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       detectedLanguage: 'DetectedLanguage',
+      languageProbabilities: 'LanguageProbabilities',
       requestId: 'RequestId',
     };
   }
@@ -493,6 +495,7 @@ export class GetDetectLanguageResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       detectedLanguage: 'string',
+      languageProbabilities: 'string',
       requestId: 'string',
     };
   }
@@ -503,9 +506,9 @@ export class GetDetectLanguageResponseBody extends $tea.Model {
 }
 
 export class GetDetectLanguageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDetectLanguageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDetectLanguageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -584,9 +587,9 @@ export class GetDocTranslateTaskResponseBody extends $tea.Model {
 }
 
 export class GetDocTranslateTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDocTranslateTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocTranslateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -659,9 +662,9 @@ export class GetImageDiagnoseResponseBody extends $tea.Model {
 }
 
 export class GetImageDiagnoseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetImageDiagnoseResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetImageDiagnoseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -740,9 +743,9 @@ export class GetImageTranslateResponseBody extends $tea.Model {
 }
 
 export class GetImageTranslateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetImageTranslateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetImageTranslateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -812,9 +815,9 @@ export class GetImageTranslateTaskResponseBody extends $tea.Model {
 }
 
 export class GetImageTranslateTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetImageTranslateTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetImageTranslateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -896,9 +899,9 @@ export class GetTitleDiagnoseResponseBody extends $tea.Model {
 }
 
 export class GetTitleDiagnoseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTitleDiagnoseResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTitleDiagnoseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -986,9 +989,9 @@ export class GetTitleGenerateResponseBody extends $tea.Model {
 }
 
 export class GetTitleGenerateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTitleGenerateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTitleGenerateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1070,9 +1073,9 @@ export class GetTitleIntelligenceResponseBody extends $tea.Model {
 }
 
 export class GetTitleIntelligenceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTitleIntelligenceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTitleIntelligenceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1142,9 +1145,9 @@ export class GetTranslateImageBatchResultResponseBody extends $tea.Model {
 }
 
 export class GetTranslateImageBatchResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTranslateImageBatchResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTranslateImageBatchResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1223,9 +1226,9 @@ export class GetTranslateReportResponseBody extends $tea.Model {
 }
 
 export class GetTranslateReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTranslateReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTranslateReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1292,9 +1295,9 @@ export class OpenAlimtServiceResponseBody extends $tea.Model {
 }
 
 export class OpenAlimtServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OpenAlimtServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenAlimtServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1379,9 +1382,9 @@ export class TranslateResponseBody extends $tea.Model {
 }
 
 export class TranslateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TranslateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TranslateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1488,9 +1491,9 @@ export class TranslateCertificateResponseBody extends $tea.Model {
 }
 
 export class TranslateCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TranslateCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TranslateCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1575,9 +1578,9 @@ export class TranslateECommerceResponseBody extends $tea.Model {
 }
 
 export class TranslateECommerceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TranslateECommerceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TranslateECommerceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1662,9 +1665,9 @@ export class TranslateGeneralResponseBody extends $tea.Model {
 }
 
 export class TranslateGeneralResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TranslateGeneralResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TranslateGeneralResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1749,9 +1752,9 @@ export class TranslateImageResponseBody extends $tea.Model {
 }
 
 export class TranslateImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TranslateImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TranslateImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1836,9 +1839,9 @@ export class TranslateImageBatchResponseBody extends $tea.Model {
 }
 
 export class TranslateImageBatchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TranslateImageBatchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TranslateImageBatchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2208,10 +2211,12 @@ export class TranslateCertificateResponseBodyData extends $tea.Model {
 }
 
 export class TranslateECommerceResponseBodyData extends $tea.Model {
+  detectedLanguage?: string;
   translated?: string;
   wordCount?: string;
   static names(): { [key: string]: string } {
     return {
+      detectedLanguage: 'DetectedLanguage',
       translated: 'Translated',
       wordCount: 'WordCount',
     };
@@ -2219,6 +2224,7 @@ export class TranslateECommerceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      detectedLanguage: 'string',
       translated: 'string',
       wordCount: 'string',
     };
@@ -2378,6 +2384,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 大文本异步翻译，支持5000-50000字翻译
+   *
+   * @param request CreateAsyncTranslateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAsyncTranslateResponse
+   */
   async createAsyncTranslateWithOptions(request: CreateAsyncTranslateRequest, runtime: $Util.RuntimeOptions): Promise<CreateAsyncTranslateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2422,11 +2435,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAsyncTranslateResponse>(await this.callApi(params, req, runtime), new CreateAsyncTranslateResponse({}));
   }
 
+  /**
+   * @summary 大文本异步翻译，支持5000-50000字翻译
+   *
+   * @param request CreateAsyncTranslateRequest
+   * @return CreateAsyncTranslateResponse
+   */
   async createAsyncTranslate(request: CreateAsyncTranslateRequest): Promise<CreateAsyncTranslateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAsyncTranslateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateDocTranslateTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDocTranslateTaskResponse
+   */
   async createDocTranslateTaskWithOptions(request: CreateDocTranslateTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDocTranslateTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2471,6 +2495,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDocTranslateTaskResponse>(await this.callApi(params, req, runtime), new CreateDocTranslateTaskResponse({}));
   }
 
+  /**
+   * @param request CreateDocTranslateTaskRequest
+   * @return CreateDocTranslateTaskResponse
+   */
   async createDocTranslateTask(request: CreateDocTranslateTaskRequest): Promise<CreateDocTranslateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDocTranslateTaskWithOptions(request, runtime);
@@ -2483,7 +2511,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2507,12 +2535,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2550,6 +2579,11 @@ export default class Client extends OpenApi {
     return createDocTranslateTaskResp;
   }
 
+  /**
+   * @param request CreateImageTranslateTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateImageTranslateTaskResponse
+   */
   async createImageTranslateTaskWithOptions(request: CreateImageTranslateTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageTranslateTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2590,11 +2624,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImageTranslateTaskResponse>(await this.callApi(params, req, runtime), new CreateImageTranslateTaskResponse({}));
   }
 
+  /**
+   * @param request CreateImageTranslateTaskRequest
+   * @return CreateImageTranslateTaskResponse
+   */
   async createImageTranslateTask(request: CreateImageTranslateTaskRequest): Promise<CreateImageTranslateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageTranslateTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 大文本异步翻译，支持5000-50000字翻译
+   *
+   * @param request GetAsyncTranslateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAsyncTranslateResponse
+   */
   async getAsyncTranslateWithOptions(request: GetAsyncTranslateRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncTranslateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2619,11 +2664,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsyncTranslateResponse>(await this.callApi(params, req, runtime), new GetAsyncTranslateResponse({}));
   }
 
+  /**
+   * @summary 大文本异步翻译，支持5000-50000字翻译
+   *
+   * @param request GetAsyncTranslateRequest
+   * @return GetAsyncTranslateResponse
+   */
   async getAsyncTranslate(request: GetAsyncTranslateRequest): Promise<GetAsyncTranslateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAsyncTranslateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetBatchTranslateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBatchTranslateResponse
+   */
   async getBatchTranslateWithOptions(request: GetBatchTranslateRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchTranslateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2668,11 +2724,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBatchTranslateResponse>(await this.callApi(params, req, runtime), new GetBatchTranslateResponse({}));
   }
 
+  /**
+   * @param request GetBatchTranslateRequest
+   * @return GetBatchTranslateResponse
+   */
   async getBatchTranslate(request: GetBatchTranslateRequest): Promise<GetBatchTranslateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBatchTranslateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 语种识别
+   *
+   * @param request GetDetectLanguageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDetectLanguageResponse
+   */
   async getDetectLanguageWithOptions(request: GetDetectLanguageRequest, runtime: $Util.RuntimeOptions): Promise<GetDetectLanguageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2697,11 +2764,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDetectLanguageResponse>(await this.callApi(params, req, runtime), new GetDetectLanguageResponse({}));
   }
 
+  /**
+   * @summary 语种识别
+   *
+   * @param request GetDetectLanguageRequest
+   * @return GetDetectLanguageResponse
+   */
   async getDetectLanguage(request: GetDetectLanguageRequest): Promise<GetDetectLanguageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDetectLanguageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetDocTranslateTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDocTranslateTaskResponse
+   */
   async getDocTranslateTaskWithOptions(request: GetDocTranslateTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetDocTranslateTaskResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -2722,11 +2800,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDocTranslateTaskResponse>(await this.callApi(params, req, runtime), new GetDocTranslateTaskResponse({}));
   }
 
+  /**
+   * @param request GetDocTranslateTaskRequest
+   * @return GetDocTranslateTaskResponse
+   */
   async getDocTranslateTask(request: GetDocTranslateTaskRequest): Promise<GetDocTranslateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDocTranslateTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetImageDiagnoseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetImageDiagnoseResponse
+   */
   async getImageDiagnoseWithOptions(request: GetImageDiagnoseRequest, runtime: $Util.RuntimeOptions): Promise<GetImageDiagnoseResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2755,11 +2842,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetImageDiagnoseResponse>(await this.callApi(params, req, runtime), new GetImageDiagnoseResponse({}));
   }
 
+  /**
+   * @param request GetImageDiagnoseRequest
+   * @return GetImageDiagnoseResponse
+   */
   async getImageDiagnose(request: GetImageDiagnoseRequest): Promise<GetImageDiagnoseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getImageDiagnoseWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetImageTranslateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetImageTranslateResponse
+   */
   async getImageTranslateWithOptions(request: GetImageTranslateRequest, runtime: $Util.RuntimeOptions): Promise<GetImageTranslateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2796,11 +2892,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetImageTranslateResponse>(await this.callApi(params, req, runtime), new GetImageTranslateResponse({}));
   }
 
+  /**
+   * @param request GetImageTranslateRequest
+   * @return GetImageTranslateResponse
+   */
   async getImageTranslate(request: GetImageTranslateRequest): Promise<GetImageTranslateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getImageTranslateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetImageTranslateTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetImageTranslateTaskResponse
+   */
   async getImageTranslateTaskWithOptions(request: GetImageTranslateTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetImageTranslateTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2825,11 +2930,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetImageTranslateTaskResponse>(await this.callApi(params, req, runtime), new GetImageTranslateTaskResponse({}));
   }
 
+  /**
+   * @param request GetImageTranslateTaskRequest
+   * @return GetImageTranslateTaskResponse
+   */
   async getImageTranslateTask(request: GetImageTranslateTaskRequest): Promise<GetImageTranslateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getImageTranslateTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetTitleDiagnoseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTitleDiagnoseResponse
+   */
   async getTitleDiagnoseWithOptions(request: GetTitleDiagnoseRequest, runtime: $Util.RuntimeOptions): Promise<GetTitleDiagnoseResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2870,11 +2984,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTitleDiagnoseResponse>(await this.callApi(params, req, runtime), new GetTitleDiagnoseResponse({}));
   }
 
+  /**
+   * @param request GetTitleDiagnoseRequest
+   * @return GetTitleDiagnoseResponse
+   */
   async getTitleDiagnose(request: GetTitleDiagnoseRequest): Promise<GetTitleDiagnoseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTitleDiagnoseWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetTitleGenerateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTitleGenerateResponse
+   */
   async getTitleGenerateWithOptions(request: GetTitleGenerateRequest, runtime: $Util.RuntimeOptions): Promise<GetTitleGenerateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2923,11 +3046,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTitleGenerateResponse>(await this.callApi(params, req, runtime), new GetTitleGenerateResponse({}));
   }
 
+  /**
+   * @param request GetTitleGenerateRequest
+   * @return GetTitleGenerateResponse
+   */
   async getTitleGenerate(request: GetTitleGenerateRequest): Promise<GetTitleGenerateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTitleGenerateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetTitleIntelligenceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTitleIntelligenceResponse
+   */
   async getTitleIntelligenceWithOptions(request: GetTitleIntelligenceRequest, runtime: $Util.RuntimeOptions): Promise<GetTitleIntelligenceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2968,11 +3100,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTitleIntelligenceResponse>(await this.callApi(params, req, runtime), new GetTitleIntelligenceResponse({}));
   }
 
+  /**
+   * @param request GetTitleIntelligenceRequest
+   * @return GetTitleIntelligenceResponse
+   */
   async getTitleIntelligence(request: GetTitleIntelligenceRequest): Promise<GetTitleIntelligenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTitleIntelligenceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取图片批量翻译结果
+   *
+   * @param request GetTranslateImageBatchResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTranslateImageBatchResultResponse
+   */
   async getTranslateImageBatchResultWithOptions(request: GetTranslateImageBatchResultRequest, runtime: $Util.RuntimeOptions): Promise<GetTranslateImageBatchResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2997,11 +3140,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTranslateImageBatchResultResponse>(await this.callApi(params, req, runtime), new GetTranslateImageBatchResultResponse({}));
   }
 
+  /**
+   * @summary 获取图片批量翻译结果
+   *
+   * @param request GetTranslateImageBatchResultRequest
+   * @return GetTranslateImageBatchResultResponse
+   */
   async getTranslateImageBatchResult(request: GetTranslateImageBatchResultRequest): Promise<GetTranslateImageBatchResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTranslateImageBatchResultWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetTranslateReportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTranslateReportResponse
+   */
   async getTranslateReportWithOptions(request: GetTranslateReportRequest, runtime: $Util.RuntimeOptions): Promise<GetTranslateReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3038,11 +3192,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTranslateReportResponse>(await this.callApi(params, req, runtime), new GetTranslateReportResponse({}));
   }
 
+  /**
+   * @param request GetTranslateReportRequest
+   * @return GetTranslateReportResponse
+   */
   async getTranslateReport(request: GetTranslateReportRequest): Promise<GetTranslateReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTranslateReportWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开通服务
+   *
+   * @param request OpenAlimtServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenAlimtServiceResponse
+   */
   async openAlimtServiceWithOptions(request: OpenAlimtServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenAlimtServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3071,11 +3236,22 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenAlimtServiceResponse>(await this.callApi(params, req, runtime), new OpenAlimtServiceResponse({}));
   }
 
+  /**
+   * @summary 开通服务
+   *
+   * @param request OpenAlimtServiceRequest
+   * @return OpenAlimtServiceResponse
+   */
   async openAlimtService(request: OpenAlimtServiceRequest): Promise<OpenAlimtServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openAlimtServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TranslateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TranslateResponse
+   */
   async translateWithOptions(request: TranslateRequest, runtime: $Util.RuntimeOptions): Promise<TranslateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3122,11 +3298,20 @@ export default class Client extends OpenApi {
     return $tea.cast<TranslateResponse>(await this.callApi(params, req, runtime), new TranslateResponse({}));
   }
 
+  /**
+   * @param request TranslateRequest
+   * @return TranslateResponse
+   */
   async translate(request: TranslateRequest): Promise<TranslateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.translateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TranslateCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TranslateCertificateResponse
+   */
   async translateCertificateWithOptions(request: TranslateCertificateRequest, runtime: $Util.RuntimeOptions): Promise<TranslateCertificateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3167,6 +3352,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TranslateCertificateResponse>(await this.callApi(params, req, runtime), new TranslateCertificateResponse({}));
   }
 
+  /**
+   * @param request TranslateCertificateRequest
+   * @return TranslateCertificateResponse
+   */
   async translateCertificate(request: TranslateCertificateRequest): Promise<TranslateCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.translateCertificateWithOptions(request, runtime);
@@ -3179,7 +3368,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3203,12 +3392,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3247,11 +3437,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
-    *
-    * @param request TranslateECommerceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TranslateECommerceResponse
+   * @deprecated OpenAPI TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
+   *
+   * @param request TranslateECommerceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TranslateECommerceResponse
    */
   // Deprecated
   async translateECommerceWithOptions(request: TranslateECommerceRequest, runtime: $Util.RuntimeOptions): Promise<TranslateECommerceResponse> {
@@ -3301,10 +3491,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
-    *
-    * @param request TranslateECommerceRequest
-    * @return TranslateECommerceResponse
+   * @deprecated OpenAPI TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
+   *
+   * @param request TranslateECommerceRequest
+   * @return TranslateECommerceResponse
    */
   // Deprecated
   async translateECommerce(request: TranslateECommerceRequest): Promise<TranslateECommerceResponse> {
@@ -3312,6 +3502,11 @@ export default class Client extends OpenApi {
     return await this.translateECommerceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TranslateGeneralRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TranslateGeneralResponse
+   */
   async translateGeneralWithOptions(request: TranslateGeneralRequest, runtime: $Util.RuntimeOptions): Promise<TranslateGeneralResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3358,11 +3553,22 @@ export default class Client extends OpenApi {
     return $tea.cast<TranslateGeneralResponse>(await this.callApi(params, req, runtime), new TranslateGeneralResponse({}));
   }
 
+  /**
+   * @param request TranslateGeneralRequest
+   * @return TranslateGeneralResponse
+   */
   async translateGeneral(request: TranslateGeneralRequest): Promise<TranslateGeneralResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.translateGeneralWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 公有云图片翻译产品API
+   *
+   * @param request TranslateImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TranslateImageResponse
+   */
   async translateImageWithOptions(request: TranslateImageRequest, runtime: $Util.RuntimeOptions): Promise<TranslateImageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3407,11 +3613,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TranslateImageResponse>(await this.callApi(params, req, runtime), new TranslateImageResponse({}));
   }
 
+  /**
+   * @summary 公有云图片翻译产品API
+   *
+   * @param request TranslateImageRequest
+   * @return TranslateImageResponse
+   */
   async translateImage(request: TranslateImageRequest): Promise<TranslateImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.translateImageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量图片翻译接口
+   *
+   * @param request TranslateImageBatchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TranslateImageBatchResponse
+   */
   async translateImageBatchWithOptions(request: TranslateImageBatchRequest, runtime: $Util.RuntimeOptions): Promise<TranslateImageBatchResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3456,6 +3675,12 @@ export default class Client extends OpenApi {
     return $tea.cast<TranslateImageBatchResponse>(await this.callApi(params, req, runtime), new TranslateImageBatchResponse({}));
   }
 
+  /**
+   * @summary 批量图片翻译接口
+   *
+   * @param request TranslateImageBatchRequest
+   * @return TranslateImageBatchResponse
+   */
   async translateImageBatch(request: TranslateImageBatchRequest): Promise<TranslateImageBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.translateImageBatchWithOptions(request, runtime);
