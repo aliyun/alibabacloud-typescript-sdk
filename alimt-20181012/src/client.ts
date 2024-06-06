@@ -461,6 +461,93 @@ export class GetBatchTranslateResponse extends $tea.Model {
   }
 }
 
+export class GetBatchTranslateByVPCRequest extends $tea.Model {
+  apiType?: string;
+  formatType?: string;
+  scene?: string;
+  sourceLanguage?: string;
+  sourceText?: string;
+  targetLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiType: 'ApiType',
+      formatType: 'FormatType',
+      scene: 'Scene',
+      sourceLanguage: 'SourceLanguage',
+      sourceText: 'SourceText',
+      targetLanguage: 'TargetLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiType: 'string',
+      formatType: 'string',
+      scene: 'string',
+      sourceLanguage: 'string',
+      sourceText: 'string',
+      targetLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTranslateByVPCResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  translatedList?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      translatedList: 'TranslatedList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      translatedList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTranslateByVPCResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBatchTranslateByVPCResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBatchTranslateByVPCResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDetectLanguageRequest extends $tea.Model {
   sourceText?: string;
   static names(): { [key: string]: string } {
@@ -1689,6 +1776,93 @@ export class TranslateGeneralResponse extends $tea.Model {
   }
 }
 
+export class TranslateGeneralVpcRequest extends $tea.Model {
+  context?: string;
+  formatType?: string;
+  scene?: string;
+  sourceLanguage?: string;
+  sourceText?: string;
+  targetLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'Context',
+      formatType: 'FormatType',
+      scene: 'Scene',
+      sourceLanguage: 'SourceLanguage',
+      sourceText: 'SourceText',
+      targetLanguage: 'TargetLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: 'string',
+      formatType: 'string',
+      scene: 'string',
+      sourceLanguage: 'string',
+      sourceText: 'string',
+      targetLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TranslateGeneralVpcResponseBody extends $tea.Model {
+  code?: number;
+  data?: TranslateGeneralVpcResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: TranslateGeneralVpcResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TranslateGeneralVpcResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TranslateGeneralVpcResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TranslateGeneralVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TranslateImageRequest extends $tea.Model {
   ext?: string;
   field?: string;
@@ -2260,6 +2434,31 @@ export class TranslateGeneralResponseBodyData extends $tea.Model {
   }
 }
 
+export class TranslateGeneralVpcResponseBodyData extends $tea.Model {
+  detectedLanguage?: string;
+  translated?: string;
+  wordCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detectedLanguage: 'DetectedLanguage',
+      translated: 'Translated',
+      wordCount: 'WordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detectedLanguage: 'string',
+      translated: 'string',
+      wordCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TranslateImageResponseBodyData extends $tea.Model {
   finalImageUrl?: string;
   inPaintingUrl?: string;
@@ -2731,6 +2930,68 @@ export default class Client extends OpenApi {
   async getBatchTranslate(request: GetBatchTranslateRequest): Promise<GetBatchTranslateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBatchTranslateWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary GetBatchTranslateByVPC
+   *
+   * @param request GetBatchTranslateByVPCRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBatchTranslateByVPCResponse
+   */
+  async getBatchTranslateByVPCWithOptions(request: GetBatchTranslateByVPCRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchTranslateByVPCResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiType)) {
+      body["ApiType"] = request.apiType;
+    }
+
+    if (!Util.isUnset(request.formatType)) {
+      body["FormatType"] = request.formatType;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      body["Scene"] = request.scene;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.sourceText)) {
+      body["SourceText"] = request.sourceText;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBatchTranslateByVPC",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBatchTranslateByVPCResponse>(await this.callApi(params, req, runtime), new GetBatchTranslateByVPCResponse({}));
+  }
+
+  /**
+   * @summary GetBatchTranslateByVPC
+   *
+   * @param request GetBatchTranslateByVPCRequest
+   * @return GetBatchTranslateByVPCResponse
+   */
+  async getBatchTranslateByVPC(request: GetBatchTranslateByVPCRequest): Promise<GetBatchTranslateByVPCResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBatchTranslateByVPCWithOptions(request, runtime);
   }
 
   /**
@@ -3560,6 +3821,70 @@ export default class Client extends OpenApi {
   async translateGeneral(request: TranslateGeneralRequest): Promise<TranslateGeneralResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.translateGeneralWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary TranslateGeneralVpc
+   *
+   * @param request TranslateGeneralVpcRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TranslateGeneralVpcResponse
+   */
+  async translateGeneralVpcWithOptions(request: TranslateGeneralVpcRequest, runtime: $Util.RuntimeOptions): Promise<TranslateGeneralVpcResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.context)) {
+      query["Context"] = request.context;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.formatType)) {
+      body["FormatType"] = request.formatType;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      body["Scene"] = request.scene;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.sourceText)) {
+      body["SourceText"] = request.sourceText;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TranslateGeneralVpc",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TranslateGeneralVpcResponse>(await this.callApi(params, req, runtime), new TranslateGeneralVpcResponse({}));
+  }
+
+  /**
+   * @summary TranslateGeneralVpc
+   *
+   * @param request TranslateGeneralVpcRequest
+   * @return TranslateGeneralVpcResponse
+   */
+  async translateGeneralVpc(request: TranslateGeneralVpcRequest): Promise<TranslateGeneralVpcResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.translateGeneralVpcWithOptions(request, runtime);
   }
 
   /**
