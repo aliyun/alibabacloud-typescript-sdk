@@ -4170,6 +4170,72 @@ export class ListUsersResponse extends $tea.Model {
   }
 }
 
+export class RevokeUserSessionRequest extends $tea.Model {
+  externalIds?: string;
+  idpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalIds: 'ExternalIds',
+      idpId: 'IdpId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalIds: 'string',
+      idpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeUserSessionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeUserSessionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokeUserSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RevokeUserSessionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateClientUserRequest extends $tea.Model {
   departmentId?: string;
   description?: string;
@@ -10830,6 +10896,52 @@ export default class Client extends OpenApi {
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 吊销用户登录会话
+   *
+   * @param request RevokeUserSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeUserSessionResponse
+   */
+  async revokeUserSessionWithOptions(request: RevokeUserSessionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeUserSessionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.externalIds)) {
+      query["ExternalIds"] = request.externalIds;
+    }
+
+    if (!Util.isUnset(request.idpId)) {
+      query["IdpId"] = request.idpId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RevokeUserSession",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RevokeUserSessionResponse>(await this.callApi(params, req, runtime), new RevokeUserSessionResponse({}));
+  }
+
+  /**
+   * @summary 吊销用户登录会话
+   *
+   * @param request RevokeUserSessionRequest
+   * @return RevokeUserSessionResponse
+   */
+  async revokeUserSession(request: RevokeUserSessionRequest): Promise<RevokeUserSessionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.revokeUserSessionWithOptions(request, runtime);
   }
 
   /**
