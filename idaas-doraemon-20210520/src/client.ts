@@ -2124,6 +2124,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 创建认证器请求
+   *
+   * @param request CreateAuthenticatorRegistrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAuthenticatorRegistrationResponse
+   */
   async createAuthenticatorRegistrationWithOptions(request: CreateAuthenticatorRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthenticatorRegistrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2180,11 +2187,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAuthenticatorRegistrationResponse>(await this.callApi(params, req, runtime), new CreateAuthenticatorRegistrationResponse({}));
   }
 
+  /**
+   * @summary 创建认证器请求
+   *
+   * @param request CreateAuthenticatorRegistrationRequest
+   * @return CreateAuthenticatorRegistrationResponse
+   */
   async createAuthenticatorRegistration(request: CreateAuthenticatorRegistrationRequest): Promise<CreateAuthenticatorRegistrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAuthenticatorRegistrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建用户认证请求
+   *
+   * @param request CreateUserAuthenticateOptionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUserAuthenticateOptionsResponse
+   */
   async createUserAuthenticateOptionsWithOptions(request: CreateUserAuthenticateOptionsRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserAuthenticateOptionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2233,11 +2253,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserAuthenticateOptionsResponse>(await this.callApi(params, req, runtime), new CreateUserAuthenticateOptionsResponse({}));
   }
 
+  /**
+   * @summary 创建用户认证请求
+   *
+   * @param request CreateUserAuthenticateOptionsRequest
+   * @return CreateUserAuthenticateOptionsResponse
+   */
   async createUserAuthenticateOptions(request: CreateUserAuthenticateOptionsRequest): Promise<CreateUserAuthenticateOptionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUserAuthenticateOptionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除认证器
+   *
+   * @param request DeregisterAuthenticatorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeregisterAuthenticatorResponse
+   */
   async deregisterAuthenticatorWithOptions(request: DeregisterAuthenticatorRequest, runtime: $Util.RuntimeOptions): Promise<DeregisterAuthenticatorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2270,11 +2303,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeregisterAuthenticatorResponse>(await this.callApi(params, req, runtime), new DeregisterAuthenticatorResponse({}));
   }
 
+  /**
+   * @summary 删除认证器
+   *
+   * @param request DeregisterAuthenticatorRequest
+   * @return DeregisterAuthenticatorResponse
+   */
   async deregisterAuthenticator(request: DeregisterAuthenticatorRequest): Promise<DeregisterAuthenticatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deregisterAuthenticatorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取access_token
+   *
+   * @param request FetchAccessTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FetchAccessTokenResponse
+   */
   async fetchAccessTokenWithOptions(request: FetchAccessTokenRequest, runtime: $Util.RuntimeOptions): Promise<FetchAccessTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2319,11 +2365,24 @@ export default class Client extends OpenApi {
     return $tea.cast<FetchAccessTokenResponse>(await this.callApi(params, req, runtime), new FetchAccessTokenResponse({}));
   }
 
+  /**
+   * @summary 获取access_token
+   *
+   * @param request FetchAccessTokenRequest
+   * @return FetchAccessTokenResponse
+   */
   async fetchAccessToken(request: FetchAccessTokenRequest): Promise<FetchAccessTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fetchAccessTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询单个认证器
+   *
+   * @param request GetAuthenticatorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAuthenticatorResponse
+   */
   async getAuthenticatorWithOptions(request: GetAuthenticatorRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthenticatorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2356,11 +2415,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAuthenticatorResponse>(await this.callApi(params, req, runtime), new GetAuthenticatorResponse({}));
   }
 
+  /**
+   * @summary 查询单个认证器
+   *
+   * @param request GetAuthenticatorRequest
+   * @return GetAuthenticatorResponse
+   */
   async getAuthenticator(request: GetAuthenticatorRequest): Promise<GetAuthenticatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAuthenticatorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列表查询认证事件日志
+   *
+   * @param request ListAuthenticationLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAuthenticationLogsResponse
+   */
   async listAuthenticationLogsWithOptions(request: ListAuthenticationLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthenticationLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2421,11 +2493,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAuthenticationLogsResponse>(await this.callApi(params, req, runtime), new ListAuthenticationLogsResponse({}));
   }
 
+  /**
+   * @summary 列表查询认证事件日志
+   *
+   * @param request ListAuthenticationLogsRequest
+   * @return ListAuthenticationLogsResponse
+   */
   async listAuthenticationLogs(request: ListAuthenticationLogsRequest): Promise<ListAuthenticationLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAuthenticationLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列表查询认证器操作日志
+   *
+   * @param request ListAuthenticatorOpsLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAuthenticatorOpsLogsResponse
+   */
   async listAuthenticatorOpsLogsWithOptions(request: ListAuthenticatorOpsLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthenticatorOpsLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2478,11 +2563,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAuthenticatorOpsLogsResponse>(await this.callApi(params, req, runtime), new ListAuthenticatorOpsLogsResponse({}));
   }
 
+  /**
+   * @summary 列表查询认证器操作日志
+   *
+   * @param request ListAuthenticatorOpsLogsRequest
+   * @return ListAuthenticatorOpsLogsResponse
+   */
   async listAuthenticatorOpsLogs(request: ListAuthenticatorOpsLogsRequest): Promise<ListAuthenticatorOpsLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAuthenticatorOpsLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列表查询认证器
+   *
+   * @param request ListAuthenticatorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAuthenticatorsResponse
+   */
   async listAuthenticatorsWithOptions(request: ListAuthenticatorsRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthenticatorsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2523,11 +2621,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAuthenticatorsResponse>(await this.callApi(params, req, runtime), new ListAuthenticatorsResponse({}));
   }
 
+  /**
+   * @summary 列表查询认证器
+   *
+   * @param request ListAuthenticatorsRequest
+   * @return ListAuthenticatorsResponse
+   */
   async listAuthenticators(request: ListAuthenticatorsRequest): Promise<ListAuthenticatorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAuthenticatorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询按量计费订单列表
+   *
+   * @param request ListCostUnitOrdersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCostUnitOrdersResponse
+   */
   async listCostUnitOrdersWithOptions(request: ListCostUnitOrdersRequest, runtime: $Util.RuntimeOptions): Promise<ListCostUnitOrdersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2564,11 +2675,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCostUnitOrdersResponse>(await this.callApi(params, req, runtime), new ListCostUnitOrdersResponse({}));
   }
 
+  /**
+   * @summary 查询按量计费订单列表
+   *
+   * @param request ListCostUnitOrdersRequest
+   * @return ListCostUnitOrdersResponse
+   */
   async listCostUnitOrders(request: ListCostUnitOrdersRequest): Promise<ListCostUnitOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCostUnitOrdersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询用量消费统计记录列表
+   *
+   * @param request ListOrderConsumeStatisticRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOrderConsumeStatisticRecordsResponse
+   */
   async listOrderConsumeStatisticRecordsWithOptions(request: ListOrderConsumeStatisticRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListOrderConsumeStatisticRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2617,11 +2741,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOrderConsumeStatisticRecordsResponse>(await this.callApi(params, req, runtime), new ListOrderConsumeStatisticRecordsResponse({}));
   }
 
+  /**
+   * @summary 查询用量消费统计记录列表
+   *
+   * @param request ListOrderConsumeStatisticRecordsRequest
+   * @return ListOrderConsumeStatisticRecordsResponse
+   */
   async listOrderConsumeStatisticRecords(request: ListOrderConsumeStatisticRecordsRequest): Promise<ListOrderConsumeStatisticRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOrderConsumeStatisticRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 弱密码检测
+   *
+   * @param request ListPwnedPasswordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPwnedPasswordsResponse
+   */
   async listPwnedPasswordsWithOptions(request: ListPwnedPasswordsRequest, runtime: $Util.RuntimeOptions): Promise<ListPwnedPasswordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2646,11 +2783,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPwnedPasswordsResponse>(await this.callApi(params, req, runtime), new ListPwnedPasswordsResponse({}));
   }
 
+  /**
+   * @summary 弱密码检测
+   *
+   * @param request ListPwnedPasswordsRequest
+   * @return ListPwnedPasswordsResponse
+   */
   async listPwnedPasswords(request: ListPwnedPasswordsRequest): Promise<ListPwnedPasswordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPwnedPasswordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询应用用户
+   *
+   * @param request ListUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersResponse
+   */
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2679,11 +2829,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
+  /**
+   * @summary 查询应用用户
+   *
+   * @param request ListUsersRequest
+   * @return ListUsersResponse
+   */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 短信回执查询
+   *
+   * @param request QuerySmsReportsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySmsReportsResponse
+   */
   async querySmsReportsWithOptions(request: QuerySmsReportsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsReportsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -2704,11 +2867,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySmsReportsResponse>(await this.callApi(params, req, runtime), new QuerySmsReportsResponse({}));
   }
 
+  /**
+   * @summary 短信回执查询
+   *
+   * @param request QuerySmsReportsRequest
+   * @return QuerySmsReportsResponse
+   */
   async querySmsReports(request: QuerySmsReportsRequest): Promise<QuerySmsReportsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySmsReportsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 短信上行查询
+   *
+   * @param request QuerySmsUpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySmsUpsResponse
+   */
   async querySmsUpsWithOptions(runtime: $Util.RuntimeOptions): Promise<QuerySmsUpsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -2725,11 +2901,23 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySmsUpsResponse>(await this.callApi(params, req, runtime), new QuerySmsUpsResponse({}));
   }
 
+  /**
+   * @summary 短信上行查询
+   *
+   * @return QuerySmsUpsResponse
+   */
   async querySmsUps(): Promise<QuerySmsUpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySmsUpsWithOptions(runtime);
   }
 
+  /**
+   * @summary 注册认证器
+   *
+   * @param request RegisterAuthenticatorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RegisterAuthenticatorResponse
+   */
   async registerAuthenticatorWithOptions(request: RegisterAuthenticatorRequest, runtime: $Util.RuntimeOptions): Promise<RegisterAuthenticatorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2794,11 +2982,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RegisterAuthenticatorResponse>(await this.callApi(params, req, runtime), new RegisterAuthenticatorResponse({}));
   }
 
+  /**
+   * @summary 注册认证器
+   *
+   * @param request RegisterAuthenticatorRequest
+   * @return RegisterAuthenticatorResponse
+   */
   async registerAuthenticator(request: RegisterAuthenticatorRequest): Promise<RegisterAuthenticatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerAuthenticatorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 认证接口
+   *
+   * @param request ServiceInvokeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ServiceInvokeResponse
+   */
   async serviceInvokeWithOptions(request: ServiceInvokeRequest, runtime: $Util.RuntimeOptions): Promise<ServiceInvokeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2851,11 +3052,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ServiceInvokeResponse>(await this.callApi(params, req, runtime), new ServiceInvokeResponse({}));
   }
 
+  /**
+   * @summary 认证接口
+   *
+   * @param request ServiceInvokeRequest
+   * @return ServiceInvokeResponse
+   */
   async serviceInvoke(request: ServiceInvokeRequest): Promise<ServiceInvokeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.serviceInvokeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新认证器名字
+   *
+   * @param request UpdateAuthenticatorAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAuthenticatorAttributeResponse
+   */
   async updateAuthenticatorAttributeWithOptions(request: UpdateAuthenticatorAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAuthenticatorAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2892,11 +3106,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAuthenticatorAttributeResponse>(await this.callApi(params, req, runtime), new UpdateAuthenticatorAttributeResponse({}));
   }
 
+  /**
+   * @summary 更新认证器名字
+   *
+   * @param request UpdateAuthenticatorAttributeRequest
+   * @return UpdateAuthenticatorAttributeResponse
+   */
   async updateAuthenticatorAttribute(request: UpdateAuthenticatorAttributeRequest): Promise<UpdateAuthenticatorAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAuthenticatorAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 验证id_token
+   *
+   * @param request VerifyIdTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyIdTokenResponse
+   */
   async verifyIdTokenWithOptions(request: VerifyIdTokenRequest, runtime: $Util.RuntimeOptions): Promise<VerifyIdTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2925,11 +3152,24 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyIdTokenResponse>(await this.callApi(params, req, runtime), new VerifyIdTokenResponse({}));
   }
 
+  /**
+   * @summary 验证id_token
+   *
+   * @param request VerifyIdTokenRequest
+   * @return VerifyIdTokenResponse
+   */
   async verifyIdToken(request: VerifyIdTokenRequest): Promise<VerifyIdTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyIdTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 认证用户
+   *
+   * @param request VerifyUserAuthenticationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyUserAuthenticationResponse
+   */
   async verifyUserAuthenticationWithOptions(request: VerifyUserAuthenticationRequest, runtime: $Util.RuntimeOptions): Promise<VerifyUserAuthenticationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2998,6 +3238,12 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyUserAuthenticationResponse>(await this.callApi(params, req, runtime), new VerifyUserAuthenticationResponse({}));
   }
 
+  /**
+   * @summary 认证用户
+   *
+   * @param request VerifyUserAuthenticationRequest
+   * @return VerifyUserAuthenticationResponse
+   */
   async verifyUserAuthentication(request: VerifyUserAuthenticationRequest): Promise<VerifyUserAuthenticationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyUserAuthenticationWithOptions(request, runtime);
