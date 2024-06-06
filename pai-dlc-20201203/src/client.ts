@@ -1529,6 +1529,7 @@ export class Tensorboard extends $tea.Model {
   displayName?: string;
   duration?: string;
   gmtCreateTime?: string;
+  gmtFinishTime?: string;
   gmtModifyTime?: string;
   jobId?: string;
   reasonCode?: string;
@@ -1541,12 +1542,14 @@ export class Tensorboard extends $tea.Model {
   tensorboardSpec?: TensorboardSpec;
   tensorboardUrl?: string;
   userId?: string;
+  username?: string;
   static names(): { [key: string]: string } {
     return {
       dataSourceId: 'DataSourceId',
       displayName: 'DisplayName',
       duration: 'Duration',
       gmtCreateTime: 'GmtCreateTime',
+      gmtFinishTime: 'GmtFinishTime',
       gmtModifyTime: 'GmtModifyTime',
       jobId: 'JobId',
       reasonCode: 'ReasonCode',
@@ -1559,6 +1562,7 @@ export class Tensorboard extends $tea.Model {
       tensorboardSpec: 'TensorboardSpec',
       tensorboardUrl: 'TensorboardUrl',
       userId: 'UserId',
+      username: 'Username',
     };
   }
 
@@ -1568,6 +1572,7 @@ export class Tensorboard extends $tea.Model {
       displayName: 'string',
       duration: 'string',
       gmtCreateTime: 'string',
+      gmtFinishTime: 'string',
       gmtModifyTime: 'string',
       jobId: 'string',
       reasonCode: 'string',
@@ -1580,6 +1585,7 @@ export class Tensorboard extends $tea.Model {
       tensorboardSpec: TensorboardSpec,
       tensorboardUrl: 'string',
       userId: 'string',
+      username: 'string',
     };
   }
 
@@ -3264,6 +3270,8 @@ export class ListTensorboardsRequest extends $tea.Model {
   startTime?: string;
   status?: string;
   tensorboardId?: string;
+  userId?: string;
+  username?: string;
   verbose?: boolean;
   workspaceId?: string;
   static names(): { [key: string]: string } {
@@ -3282,6 +3290,8 @@ export class ListTensorboardsRequest extends $tea.Model {
       startTime: 'StartTime',
       status: 'Status',
       tensorboardId: 'TensorboardId',
+      userId: 'UserId',
+      username: 'Username',
       verbose: 'Verbose',
       workspaceId: 'WorkspaceId',
     };
@@ -3303,6 +3313,8 @@ export class ListTensorboardsRequest extends $tea.Model {
       startTime: 'string',
       status: 'string',
       tensorboardId: 'string',
+      userId: 'string',
+      username: 'string',
       verbose: 'boolean',
       workspaceId: 'string',
     };
@@ -4034,6 +4046,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 创建一个DLC作业
+   *
+   * @param request CreateJobRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateJobResponse
+   */
   async createJobWithOptions(request: CreateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4131,12 +4151,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
   }
 
+  /**
+   * @summary 创建一个DLC作业
+   *
+   * @param request CreateJobRequest
+   * @return CreateJobResponse
+   */
   async createJob(request: CreateJobRequest): Promise<CreateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createJobWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建一个Tensorboard
+   *
+   * @param request CreateTensorboardRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTensorboardResponse
+   */
   async createTensorboardWithOptions(request: CreateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTensorboardResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4226,12 +4260,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTensorboardResponse>(await this.callApi(params, req, runtime), new CreateTensorboardResponse({}));
   }
 
+  /**
+   * @summary 创建一个Tensorboard
+   *
+   * @param request CreateTensorboardRequest
+   * @return CreateTensorboardResponse
+   */
   async createTensorboard(request: CreateTensorboardRequest): Promise<CreateTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTensorboardWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 删除一个DLC作业
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteJobResponse
+   */
   async deleteJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteJobResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4250,12 +4297,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
   }
 
+  /**
+   * @summary 删除一个DLC作业
+   *
+   * @return DeleteJobResponse
+   */
   async deleteJob(JobId: string): Promise<DeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteJobWithOptions(JobId, headers, runtime);
   }
 
+  /**
+   * @summary 删除一个数据源配置
+   *
+   * @param request DeleteTensorboardRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTensorboardResponse
+   */
   async deleteTensorboardWithOptions(TensorboardId: string, request: DeleteTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTensorboardResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4281,12 +4341,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTensorboardResponse>(await this.callApi(params, req, runtime), new DeleteTensorboardResponse({}));
   }
 
+  /**
+   * @summary 删除一个数据源配置
+   *
+   * @param request DeleteTensorboardRequest
+   * @return DeleteTensorboardResponse
+   */
   async deleteTensorboard(TensorboardId: string, request: DeleteTensorboardRequest): Promise<DeleteTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取一个DLC作业详情
+   *
+   * @param request GetJobRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobResponse
+   */
   async getJobWithOptions(JobId: string, request: GetJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4312,12 +4386,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
   }
 
+  /**
+   * @summary 获取一个DLC作业详情
+   *
+   * @param request GetJobRequest
+   * @return GetJobResponse
+   */
   async getJob(JobId: string, request: GetJobRequest): Promise<GetJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobWithOptions(JobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取作业的事件
+   *
+   * @param request GetJobEventsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobEventsResponse
+   */
   async getJobEventsWithOptions(JobId: string, request: GetJobEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobEventsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4351,12 +4439,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobEventsResponse>(await this.callApi(params, req, runtime), new GetJobEventsResponse({}));
   }
 
+  /**
+   * @summary 获取作业的事件
+   *
+   * @param request GetJobEventsRequest
+   * @return GetJobEventsResponse
+   */
   async getJobEvents(JobId: string, request: GetJobEventsRequest): Promise<GetJobEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobEventsWithOptions(JobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取一个作业的资源监控指标
+   *
+   * @param request GetJobMetricsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobMetricsResponse
+   */
   async getJobMetricsWithOptions(JobId: string, request: GetJobMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobMetricsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4398,12 +4500,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobMetricsResponse>(await this.callApi(params, req, runtime), new GetJobMetricsResponse({}));
   }
 
+  /**
+   * @summary 获取一个作业的资源监控指标
+   *
+   * @param request GetJobMetricsRequest
+   * @return GetJobMetricsResponse
+   */
   async getJobMetrics(JobId: string, request: GetJobMetricsRequest): Promise<GetJobMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobMetricsWithOptions(JobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取DLC作业某次算力健康检测结果
+   *
+   * @param request GetJobSanityCheckResultRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobSanityCheckResultResponse
+   */
   async getJobSanityCheckResultWithOptions(JobId: string, request: GetJobSanityCheckResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobSanityCheckResultResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4437,12 +4553,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobSanityCheckResultResponse>(await this.callApi(params, req, runtime), new GetJobSanityCheckResultResponse({}));
   }
 
+  /**
+   * @summary 获取DLC作业某次算力健康检测结果
+   *
+   * @param request GetJobSanityCheckResultRequest
+   * @return GetJobSanityCheckResultResponse
+   */
   async getJobSanityCheckResult(JobId: string, request: GetJobSanityCheckResultRequest): Promise<GetJobSanityCheckResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobSanityCheckResultWithOptions(JobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取作业中一个运行实例的系统事件
+   *
+   * @param request GetPodEventsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPodEventsResponse
+   */
   async getPodEventsWithOptions(JobId: string, PodId: string, request: GetPodEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPodEventsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4480,12 +4610,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPodEventsResponse>(await this.callApi(params, req, runtime), new GetPodEventsResponse({}));
   }
 
+  /**
+   * @summary 获取作业中一个运行实例的系统事件
+   *
+   * @param request GetPodEventsRequest
+   * @return GetPodEventsResponse
+   */
   async getPodEvents(JobId: string, PodId: string, request: GetPodEventsRequest): Promise<GetPodEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPodEventsWithOptions(JobId, PodId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取作业中一个运行实例的日志
+   *
+   * @param request GetPodLogsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPodLogsResponse
+   */
   async getPodLogsWithOptions(JobId: string, PodId: string, request: GetPodLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPodLogsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4527,12 +4671,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPodLogsResponse>(await this.callApi(params, req, runtime), new GetPodLogsResponse({}));
   }
 
+  /**
+   * @summary 获取作业中一个运行实例的日志
+   *
+   * @param request GetPodLogsRequest
+   * @return GetPodLogsResponse
+   */
   async getPodLogs(JobId: string, PodId: string, request: GetPodLogsRequest): Promise<GetPodLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPodLogsWithOptions(JobId, PodId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取一个Tensorboard
+   *
+   * @param request GetTensorboardRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTensorboardResponse
+   */
   async getTensorboardWithOptions(TensorboardId: string, request: GetTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTensorboardResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4566,12 +4724,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTensorboardResponse>(await this.callApi(params, req, runtime), new GetTensorboardResponse({}));
   }
 
+  /**
+   * @summary 获取一个Tensorboard
+   *
+   * @param request GetTensorboardRequest
+   * @return GetTensorboardResponse
+   */
   async getTensorboard(TensorboardId: string, request: GetTensorboardRequest): Promise<GetTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
 
+  /**
+   * @summary Get the shared url for tensorboard
+   *
+   * @param request GetTensorboardSharedUrlRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTensorboardSharedUrlResponse
+   */
   async getTensorboardSharedUrlWithOptions(TensorboardId: string, request: GetTensorboardSharedUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTensorboardSharedUrlResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4597,12 +4769,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTensorboardSharedUrlResponse>(await this.callApi(params, req, runtime), new GetTensorboardSharedUrlResponse({}));
   }
 
+  /**
+   * @summary Get the shared url for tensorboard
+   *
+   * @param request GetTensorboardSharedUrlRequest
+   * @return GetTensorboardSharedUrlResponse
+   */
   async getTensorboardSharedUrl(TensorboardId: string, request: GetTensorboardSharedUrlRequest): Promise<GetTensorboardSharedUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTensorboardSharedUrlWithOptions(TensorboardId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取用户Token
+   *
+   * @param request GetTokenRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTokenResponse
+   */
   async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4636,12 +4822,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
   }
 
+  /**
+   * @summary 获取用户Token
+   *
+   * @param request GetTokenRequest
+   * @return GetTokenResponse
+   */
   async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTokenWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Get the url for accessing pod's terminal in k8s
+   *
+   * @param request GetWebTerminalRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetWebTerminalResponse
+   */
   async getWebTerminalWithOptions(JobId: string, PodId: string, request: GetWebTerminalRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWebTerminalResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4671,12 +4871,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWebTerminalResponse>(await this.callApi(params, req, runtime), new GetWebTerminalResponse({}));
   }
 
+  /**
+   * @summary Get the url for accessing pod's terminal in k8s
+   *
+   * @param request GetWebTerminalRequest
+   * @return GetWebTerminalResponse
+   */
   async getWebTerminal(JobId: string, PodId: string, request: GetWebTerminalRequest): Promise<GetWebTerminalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getWebTerminalWithOptions(JobId, PodId, request, headers, runtime);
   }
 
+  /**
+   * @summary ListEcsSpecs
+   *
+   * @param request ListEcsSpecsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEcsSpecsResponse
+   */
   async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsSpecsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4726,12 +4940,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
   }
 
+  /**
+   * @summary ListEcsSpecs
+   *
+   * @param request ListEcsSpecsRequest
+   * @return ListEcsSpecsResponse
+   */
   async listEcsSpecs(request: ListEcsSpecsRequest): Promise<ListEcsSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEcsSpecsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取某个DLC作业的多次算力健康检测结果
+   *
+   * @param request ListJobSanityCheckResultsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListJobSanityCheckResultsResponse
+   */
   async listJobSanityCheckResultsWithOptions(JobId: string, request: ListJobSanityCheckResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobSanityCheckResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4757,12 +4985,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListJobSanityCheckResultsResponse>(await this.callApi(params, req, runtime), new ListJobSanityCheckResultsResponse({}));
   }
 
+  /**
+   * @summary 获取某个DLC作业的多次算力健康检测结果
+   *
+   * @param request ListJobSanityCheckResultsRequest
+   * @return ListJobSanityCheckResultsResponse
+   */
   async listJobSanityCheckResults(JobId: string, request: ListJobSanityCheckResultsRequest): Promise<ListJobSanityCheckResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listJobSanityCheckResultsWithOptions(JobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 根据过滤条件获取DLC作业列表
+   *
+   * @param tmpReq ListJobsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListJobsResponse
+   */
   async listJobsWithOptions(tmpReq: ListJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListJobsShrinkRequest({ });
@@ -4874,12 +5116,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
   }
 
+  /**
+   * @summary 根据过滤条件获取DLC作业列表
+   *
+   * @param request ListJobsRequest
+   * @return ListJobsResponse
+   */
   async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listJobsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取Tensorboard
+   *
+   * @param request ListTensorboardsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTensorboardsResponse
+   */
   async listTensorboardsWithOptions(request: ListTensorboardsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTensorboardsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4939,6 +5195,14 @@ export default class Client extends OpenApi {
       query["TensorboardId"] = request.tensorboardId;
     }
 
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      query["Username"] = request.username;
+    }
+
     if (!Util.isUnset(request.verbose)) {
       query["Verbose"] = request.verbose;
     }
@@ -4965,12 +5229,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTensorboardsResponse>(await this.callApi(params, req, runtime), new ListTensorboardsResponse({}));
   }
 
+  /**
+   * @summary 获取Tensorboard
+   *
+   * @param request ListTensorboardsRequest
+   * @return ListTensorboardsResponse
+   */
   async listTensorboards(request: ListTensorboardsRequest): Promise<ListTensorboardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTensorboardsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 开始运行tensorboard
+   *
+   * @param request StartTensorboardRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartTensorboardResponse
+   */
   async startTensorboardWithOptions(TensorboardId: string, request: StartTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartTensorboardResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4996,12 +5274,25 @@ export default class Client extends OpenApi {
     return $tea.cast<StartTensorboardResponse>(await this.callApi(params, req, runtime), new StartTensorboardResponse({}));
   }
 
+  /**
+   * @summary 开始运行tensorboard
+   *
+   * @param request StartTensorboardRequest
+   * @return StartTensorboardResponse
+   */
   async startTensorboard(TensorboardId: string, request: StartTensorboardRequest): Promise<StartTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
 
+  /**
+   * @summary 停止一个DLC作业
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopJobResponse
+   */
   async stopJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopJobResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5020,12 +5311,25 @@ export default class Client extends OpenApi {
     return $tea.cast<StopJobResponse>(await this.callApi(params, req, runtime), new StopJobResponse({}));
   }
 
+  /**
+   * @summary 停止一个DLC作业
+   *
+   * @return StopJobResponse
+   */
   async stopJob(JobId: string): Promise<StopJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopJobWithOptions(JobId, headers, runtime);
   }
 
+  /**
+   * @summary 停止运行tensorboard
+   *
+   * @param request StopTensorboardRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopTensorboardResponse
+   */
   async stopTensorboardWithOptions(TensorboardId: string, request: StopTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopTensorboardResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5051,12 +5355,26 @@ export default class Client extends OpenApi {
     return $tea.cast<StopTensorboardResponse>(await this.callApi(params, req, runtime), new StopTensorboardResponse({}));
   }
 
+  /**
+   * @summary 停止运行tensorboard
+   *
+   * @param request StopTensorboardRequest
+   * @return StopTensorboardResponse
+   */
   async stopTensorboard(TensorboardId: string, request: StopTensorboardRequest): Promise<StopTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新一个Job
+   *
+   * @param request UpdateJobRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateJobResponse
+   */
   async updateJobWithOptions(JobId: string, request: UpdateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5082,12 +5400,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateJobResponse>(await this.callApi(params, req, runtime), new UpdateJobResponse({}));
   }
 
+  /**
+   * @summary 更新一个Job
+   *
+   * @param request UpdateJobRequest
+   * @return UpdateJobResponse
+   */
   async updateJob(JobId: string, request: UpdateJobRequest): Promise<UpdateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateJobWithOptions(JobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新tensorboard
+   *
+   * @param request UpdateTensorboardRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTensorboardResponse
+   */
   async updateTensorboardWithOptions(TensorboardId: string, request: UpdateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTensorboardResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5117,6 +5449,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTensorboardResponse>(await this.callApi(params, req, runtime), new UpdateTensorboardResponse({}));
   }
 
+  /**
+   * @summary 更新tensorboard
+   *
+   * @param request UpdateTensorboardRequest
+   * @return UpdateTensorboardResponse
+   */
   async updateTensorboard(TensorboardId: string, request: UpdateTensorboardRequest): Promise<UpdateTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
