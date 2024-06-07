@@ -465,6 +465,72 @@ export class CloneLaboratoryResponse extends $tea.Model {
   }
 }
 
+export class CloneTrafficControlTaskRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneTrafficControlTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  trafficControlTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trafficControlTaskId: 'TrafficControlTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trafficControlTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneTrafficControlTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneTrafficControlTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloneTrafficControlTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateABMetricRequest extends $tea.Model {
   definition?: string;
   description?: string;
@@ -1962,6 +2028,243 @@ export class CreateTableMetaResponse extends $tea.Model {
   }
 }
 
+export class CreateTrafficControlTargetRequest extends $tea.Model {
+  endTime?: string;
+  event?: string;
+  itemConditionArray?: string;
+  itemConditionExpress?: string;
+  itemConditionType?: string;
+  name?: string;
+  newProductRegulation?: boolean;
+  recallName?: string;
+  startTime?: string;
+  statisPeriod?: string;
+  status?: string;
+  toleranceValue?: number;
+  trafficControlTaskId?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      event: 'Event',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpress: 'ItemConditionExpress',
+      itemConditionType: 'ItemConditionType',
+      name: 'Name',
+      newProductRegulation: 'NewProductRegulation',
+      recallName: 'RecallName',
+      startTime: 'StartTime',
+      statisPeriod: 'StatisPeriod',
+      status: 'Status',
+      toleranceValue: 'ToleranceValue',
+      trafficControlTaskId: 'TrafficControlTaskId',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      event: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpress: 'string',
+      itemConditionType: 'string',
+      name: 'string',
+      newProductRegulation: 'boolean',
+      recallName: 'string',
+      startTime: 'string',
+      statisPeriod: 'string',
+      status: 'string',
+      toleranceValue: 'number',
+      trafficControlTaskId: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrafficControlTargetResponseBody extends $tea.Model {
+  requestId?: string;
+  trafficControlTargetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trafficControlTargetId: 'TrafficControlTargetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trafficControlTargetId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrafficControlTargetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTrafficControlTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTrafficControlTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrafficControlTaskRequest extends $tea.Model {
+  behaviorTableMetaId?: string;
+  controlGranularity?: string;
+  controlLogic?: string;
+  controlType?: string;
+  description?: string;
+  endTime?: string;
+  executionTime?: string;
+  instanceId?: string;
+  itemConditionArray?: string;
+  itemConditionExpress?: string;
+  itemConditionType?: string;
+  itemTableMetaId?: string;
+  name?: string;
+  sceneId?: string;
+  startTime?: string;
+  statisBehaviorConditionArray?: string;
+  statisBehaviorConditionExpress?: string;
+  statisBehaviorConditionType?: string;
+  trafficControlTargets?: CreateTrafficControlTaskRequestTrafficControlTargets[];
+  userConditionArray?: string;
+  userConditionExpress?: string;
+  userConditionType?: string;
+  userTableMetaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorTableMetaId: 'BehaviorTableMetaId',
+      controlGranularity: 'ControlGranularity',
+      controlLogic: 'ControlLogic',
+      controlType: 'ControlType',
+      description: 'Description',
+      endTime: 'EndTime',
+      executionTime: 'ExecutionTime',
+      instanceId: 'InstanceId',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpress: 'ItemConditionExpress',
+      itemConditionType: 'ItemConditionType',
+      itemTableMetaId: 'ItemTableMetaId',
+      name: 'Name',
+      sceneId: 'SceneId',
+      startTime: 'StartTime',
+      statisBehaviorConditionArray: 'StatisBehaviorConditionArray',
+      statisBehaviorConditionExpress: 'StatisBehaviorConditionExpress',
+      statisBehaviorConditionType: 'StatisBehaviorConditionType',
+      trafficControlTargets: 'TrafficControlTargets',
+      userConditionArray: 'UserConditionArray',
+      userConditionExpress: 'UserConditionExpress',
+      userConditionType: 'UserConditionType',
+      userTableMetaId: 'UserTableMetaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorTableMetaId: 'string',
+      controlGranularity: 'string',
+      controlLogic: 'string',
+      controlType: 'string',
+      description: 'string',
+      endTime: 'string',
+      executionTime: 'string',
+      instanceId: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpress: 'string',
+      itemConditionType: 'string',
+      itemTableMetaId: 'string',
+      name: 'string',
+      sceneId: 'string',
+      startTime: 'string',
+      statisBehaviorConditionArray: 'string',
+      statisBehaviorConditionExpress: 'string',
+      statisBehaviorConditionType: 'string',
+      trafficControlTargets: { 'type': 'array', 'itemType': CreateTrafficControlTaskRequestTrafficControlTargets },
+      userConditionArray: 'string',
+      userConditionExpress: 'string',
+      userConditionType: 'string',
+      userTableMetaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrafficControlTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  trafficControlTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trafficControlTaskId: 'TrafficControlTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trafficControlTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrafficControlTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTrafficControlTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTrafficControlTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DebugResourceRuleRequest extends $tea.Model {
   instanceId?: string;
   metricInfo?: { [key: string]: any };
@@ -2917,6 +3220,264 @@ export class DeleteTableMetaResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteTableMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTrafficControlTargetRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTrafficControlTargetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTrafficControlTargetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTrafficControlTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTrafficControlTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTrafficControlTaskRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTrafficControlTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTrafficControlTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTrafficControlTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTrafficControlTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTrafficControlTaskCodeRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTrafficControlTaskCodeResponseBody extends $tea.Model {
+  code?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTrafficControlTaskCodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateTrafficControlTaskCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateTrafficControlTaskCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTrafficControlTaskConfigRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTrafficControlTaskConfigResponseBody extends $tea.Model {
+  config?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTrafficControlTaskConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateTrafficControlTaskConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateTrafficControlTaskConfigResponseBody,
     };
   }
 
@@ -4408,6 +4969,348 @@ export class GetTableMetaResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetTableMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTargetRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTargetResponseBody extends $tea.Model {
+  endTime?: string;
+  event?: string;
+  gmtCreateTime?: string;
+  itemConditionArray?: string;
+  itemConditionExpress?: string;
+  itemConditionType?: string;
+  name?: string;
+  newProductRegulation?: boolean;
+  recallName?: string;
+  requestId?: string;
+  splitParts?: GetTrafficControlTargetResponseBodySplitParts;
+  startTime?: string;
+  statisPeriod?: string;
+  status?: string;
+  toleranceValue?: number;
+  trafficControlTargetId?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      event: 'Event',
+      gmtCreateTime: 'GmtCreateTime',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpress: 'ItemConditionExpress',
+      itemConditionType: 'ItemConditionType',
+      name: 'Name',
+      newProductRegulation: 'NewProductRegulation',
+      recallName: 'RecallName',
+      requestId: 'RequestId',
+      splitParts: 'SplitParts',
+      startTime: 'StartTime',
+      statisPeriod: 'StatisPeriod',
+      status: 'Status',
+      toleranceValue: 'ToleranceValue',
+      trafficControlTargetId: 'TrafficControlTargetId',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      event: 'string',
+      gmtCreateTime: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpress: 'string',
+      itemConditionType: 'string',
+      name: 'string',
+      newProductRegulation: 'boolean',
+      recallName: 'string',
+      requestId: 'string',
+      splitParts: GetTrafficControlTargetResponseBodySplitParts,
+      startTime: 'string',
+      statisPeriod: 'string',
+      status: 'string',
+      toleranceValue: 'number',
+      trafficControlTargetId: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTargetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTrafficControlTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTrafficControlTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTaskRequest extends $tea.Model {
+  controlTargetFilter?: string;
+  environment?: string;
+  instanceId?: string;
+  regionId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      controlTargetFilter: 'ControlTargetFilter',
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlTargetFilter: 'string',
+      environment: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTaskResponseBody extends $tea.Model {
+  behaviorTableMetaId?: string;
+  controlGranularity?: string;
+  controlLogic?: string;
+  controlType?: string;
+  description?: string;
+  endTime?: string;
+  everPublished?: boolean;
+  executionTime?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  itemConditionArray?: string;
+  itemConditionExpress?: string;
+  itemConditionType?: string;
+  itemTableMetaId?: string;
+  name?: string;
+  prepubStatus?: string;
+  productStatus?: string;
+  requestId?: string;
+  sceneId?: string;
+  sceneName?: string;
+  startTime?: string;
+  statisBehaviorConditionArray?: string;
+  statisBehaviorConditionExpress?: string;
+  statisBehaviorConditionType?: string;
+  trafficControlTargets?: GetTrafficControlTaskResponseBodyTrafficControlTargets[];
+  trafficControlTaskId?: string;
+  userConditionArray?: string;
+  userConditionExpress?: string;
+  userConditionType?: string;
+  userTableMetaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorTableMetaId: 'BehaviorTableMetaId',
+      controlGranularity: 'ControlGranularity',
+      controlLogic: 'ControlLogic',
+      controlType: 'ControlType',
+      description: 'Description',
+      endTime: 'EndTime',
+      everPublished: 'EverPublished',
+      executionTime: 'ExecutionTime',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpress: 'ItemConditionExpress',
+      itemConditionType: 'ItemConditionType',
+      itemTableMetaId: 'ItemTableMetaId',
+      name: 'Name',
+      prepubStatus: 'PrepubStatus',
+      productStatus: 'ProductStatus',
+      requestId: 'RequestId',
+      sceneId: 'SceneId',
+      sceneName: 'SceneName',
+      startTime: 'StartTime',
+      statisBehaviorConditionArray: 'StatisBehaviorConditionArray',
+      statisBehaviorConditionExpress: 'StatisBehaviorConditionExpress',
+      statisBehaviorConditionType: 'StatisBehaviorConditionType',
+      trafficControlTargets: 'TrafficControlTargets',
+      trafficControlTaskId: 'TrafficControlTaskId',
+      userConditionArray: 'UserConditionArray',
+      userConditionExpress: 'UserConditionExpress',
+      userConditionType: 'UserConditionType',
+      userTableMetaId: 'UserTableMetaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorTableMetaId: 'string',
+      controlGranularity: 'string',
+      controlLogic: 'string',
+      controlType: 'string',
+      description: 'string',
+      endTime: 'string',
+      everPublished: 'boolean',
+      executionTime: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpress: 'string',
+      itemConditionType: 'string',
+      itemTableMetaId: 'string',
+      name: 'string',
+      prepubStatus: 'string',
+      productStatus: 'string',
+      requestId: 'string',
+      sceneId: 'string',
+      sceneName: 'string',
+      startTime: 'string',
+      statisBehaviorConditionArray: 'string',
+      statisBehaviorConditionExpress: 'string',
+      statisBehaviorConditionType: 'string',
+      trafficControlTargets: { 'type': 'array', 'itemType': GetTrafficControlTaskResponseBodyTrafficControlTargets },
+      trafficControlTaskId: 'string',
+      userConditionArray: 'string',
+      userConditionExpress: 'string',
+      userConditionType: 'string',
+      userTableMetaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTrafficControlTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTrafficControlTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTaskTrafficRequest extends $tea.Model {
+  environment?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environment: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTaskTrafficResponseBody extends $tea.Model {
+  requestId?: string;
+  trafficControlTaskTraffic?: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trafficControlTaskTraffic: 'TrafficControlTaskTraffic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trafficControlTaskTraffic: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTaskTrafficResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTrafficControlTaskTrafficResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTrafficControlTaskTrafficResponseBody,
     };
   }
 
@@ -6019,6 +6922,201 @@ export class ListTableMetasResponse extends $tea.Model {
   }
 }
 
+export class ListTrafficControlTargetTrafficHistoryRequest extends $tea.Model {
+  endTime?: string;
+  environment?: string;
+  experimentGroupId?: string;
+  experimentId?: string;
+  instanceId?: string;
+  itemId?: string;
+  startTime?: string;
+  threshold?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      environment: 'Environment',
+      experimentGroupId: 'ExperimentGroupId',
+      experimentId: 'ExperimentId',
+      instanceId: 'InstanceId',
+      itemId: 'ItemId',
+      startTime: 'StartTime',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      environment: 'string',
+      experimentGroupId: 'string',
+      experimentId: 'string',
+      instanceId: 'string',
+      itemId: 'string',
+      startTime: 'string',
+      threshold: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrafficControlTargetTrafficHistoryResponseBody extends $tea.Model {
+  requestId?: string;
+  totalCount?: string;
+  trafficControlTaskTrafficHistories?: ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      trafficControlTaskTrafficHistories: 'TrafficControlTaskTrafficHistories',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalCount: 'string',
+      trafficControlTaskTrafficHistories: { 'type': 'array', 'itemType': ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrafficControlTargetTrafficHistoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTrafficControlTargetTrafficHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTrafficControlTargetTrafficHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrafficControlTasksRequest extends $tea.Model {
+  all?: boolean;
+  controlTargetFilter?: string;
+  environment?: string;
+  instanceId?: string;
+  name?: string;
+  order?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  sceneId?: string;
+  sortBy?: string;
+  status?: string;
+  trafficControlTaskId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      controlTargetFilter: 'ControlTargetFilter',
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sceneId: 'SceneId',
+      sortBy: 'SortBy',
+      status: 'Status',
+      trafficControlTaskId: 'TrafficControlTaskId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      controlTargetFilter: 'string',
+      environment: 'string',
+      instanceId: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      sceneId: 'string',
+      sortBy: 'string',
+      status: 'string',
+      trafficControlTaskId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrafficControlTasksResponseBody extends $tea.Model {
+  requestId?: string;
+  totalCount?: string;
+  trafficControlTasks?: ListTrafficControlTasksResponseBodyTrafficControlTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      trafficControlTasks: 'TrafficControlTasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalCount: 'string',
+      trafficControlTasks: { 'type': 'array', 'itemType': ListTrafficControlTasksResponseBodyTrafficControlTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrafficControlTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTrafficControlTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTrafficControlTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OfflineExperimentRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
@@ -6572,6 +7670,72 @@ export class PushResourceRuleResponse extends $tea.Model {
   }
 }
 
+export class ReleaseTrafficControlTaskRequest extends $tea.Model {
+  environment?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environment: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseTrafficControlTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseTrafficControlTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseTrafficControlTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseTrafficControlTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReportABMetricGroupRequest extends $tea.Model {
   baseExperimentId?: string;
   dimensionFields?: string;
@@ -6660,6 +7824,339 @@ export class ReportABMetricGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReportABMetricGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SplitTrafficControlTargetRequest extends $tea.Model {
+  environment?: string;
+  instanceId?: string;
+  setValues?: number[];
+  timePoints?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+      setValues: 'SetValues',
+      timePoints: 'TimePoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environment: 'string',
+      instanceId: 'string',
+      setValues: { 'type': 'array', 'itemType': 'number' },
+      timePoints: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SplitTrafficControlTargetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SplitTrafficControlTargetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SplitTrafficControlTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SplitTrafficControlTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTrafficControlTargetRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTrafficControlTargetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTrafficControlTargetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartTrafficControlTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartTrafficControlTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTrafficControlTaskRequest extends $tea.Model {
+  environment?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environment: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTrafficControlTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTrafficControlTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartTrafficControlTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartTrafficControlTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTrafficControlTargetRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTrafficControlTargetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTrafficControlTargetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopTrafficControlTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopTrafficControlTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTrafficControlTaskRequest extends $tea.Model {
+  regionId?: string;
+  environment?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      environment: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTrafficControlTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTrafficControlTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopTrafficControlTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopTrafficControlTaskResponseBody,
     };
   }
 
@@ -8018,6 +9515,309 @@ export class UpdateTableMetaResponse extends $tea.Model {
   }
 }
 
+export class UpdateTrafficControlTargetRequest extends $tea.Model {
+  endTime?: string;
+  event?: string;
+  itemConditionArray?: string;
+  itemConditionExpress?: string;
+  itemConditionType?: string;
+  name?: string;
+  newProductRegulation?: boolean;
+  recallName?: string;
+  startTime?: string;
+  statisPeriod?: string;
+  status?: string;
+  toleranceValue?: number;
+  value?: number;
+  newParam3?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      event: 'Event',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpress: 'ItemConditionExpress',
+      itemConditionType: 'ItemConditionType',
+      name: 'Name',
+      newProductRegulation: 'NewProductRegulation',
+      recallName: 'RecallName',
+      startTime: 'StartTime',
+      statisPeriod: 'StatisPeriod',
+      status: 'Status',
+      toleranceValue: 'ToleranceValue',
+      value: 'Value',
+      newParam3: 'new-param-3',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      event: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpress: 'string',
+      itemConditionType: 'string',
+      name: 'string',
+      newProductRegulation: 'boolean',
+      recallName: 'string',
+      startTime: 'string',
+      statisPeriod: 'string',
+      status: 'string',
+      toleranceValue: 'number',
+      value: 'number',
+      newParam3: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTrafficControlTargetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTrafficControlTargetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTrafficControlTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTrafficControlTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTrafficControlTaskRequest extends $tea.Model {
+  behaviorTableMetaId?: string;
+  controlGranularity?: string;
+  controlLogic?: string;
+  controlType?: string;
+  description?: string;
+  endTime?: string;
+  executionTime?: string;
+  instanceId?: string;
+  itemConditionArray?: string;
+  itemConditionExpress?: string;
+  itemConditionType?: string;
+  itemTableMetaId?: string;
+  name?: string;
+  sceneId?: string;
+  startTime?: string;
+  statisBaeaviorConditionArray?: string;
+  statisBehaviorConditionExpress?: string;
+  statisBehaviorConditionType?: string;
+  trafficControlTargets?: UpdateTrafficControlTaskRequestTrafficControlTargets[];
+  userConditionArray?: string;
+  userConditionExpress?: string;
+  userConditionType?: string;
+  userTableMetaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorTableMetaId: 'BehaviorTableMetaId',
+      controlGranularity: 'ControlGranularity',
+      controlLogic: 'ControlLogic',
+      controlType: 'ControlType',
+      description: 'Description',
+      endTime: 'EndTime',
+      executionTime: 'ExecutionTime',
+      instanceId: 'InstanceId',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpress: 'ItemConditionExpress',
+      itemConditionType: 'ItemConditionType',
+      itemTableMetaId: 'ItemTableMetaId',
+      name: 'Name',
+      sceneId: 'SceneId',
+      startTime: 'StartTime',
+      statisBaeaviorConditionArray: 'StatisBaeaviorConditionArray',
+      statisBehaviorConditionExpress: 'StatisBehaviorConditionExpress',
+      statisBehaviorConditionType: 'StatisBehaviorConditionType',
+      trafficControlTargets: 'TrafficControlTargets',
+      userConditionArray: 'UserConditionArray',
+      userConditionExpress: 'UserConditionExpress',
+      userConditionType: 'UserConditionType',
+      userTableMetaId: 'UserTableMetaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorTableMetaId: 'string',
+      controlGranularity: 'string',
+      controlLogic: 'string',
+      controlType: 'string',
+      description: 'string',
+      endTime: 'string',
+      executionTime: 'string',
+      instanceId: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpress: 'string',
+      itemConditionType: 'string',
+      itemTableMetaId: 'string',
+      name: 'string',
+      sceneId: 'string',
+      startTime: 'string',
+      statisBaeaviorConditionArray: 'string',
+      statisBehaviorConditionExpress: 'string',
+      statisBehaviorConditionType: 'string',
+      trafficControlTargets: { 'type': 'array', 'itemType': UpdateTrafficControlTaskRequestTrafficControlTargets },
+      userConditionArray: 'string',
+      userConditionExpress: 'string',
+      userConditionType: 'string',
+      userTableMetaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTrafficControlTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTrafficControlTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTrafficControlTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTrafficControlTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTrafficControlTaskTrafficRequest extends $tea.Model {
+  environment?: string;
+  instanceId?: string;
+  traffics?: UpdateTrafficControlTaskTrafficRequestTraffics[];
+  newParam3?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+      traffics: 'Traffics',
+      newParam3: 'new-param-3',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environment: 'string',
+      instanceId: 'string',
+      traffics: { 'type': 'array', 'itemType': UpdateTrafficControlTaskTrafficRequestTraffics },
+      newParam3: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTrafficControlTaskTrafficResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTrafficControlTaskTrafficResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTrafficControlTaskTrafficResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTrafficControlTaskTrafficResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadRecommendationDataRequest extends $tea.Model {
   regionId?: string;
   content?: UploadRecommendationDataRequestContent[];
@@ -8194,6 +9994,61 @@ export class CreateTableMetaRequestFields extends $tea.Model {
       meaning: 'string',
       name: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrafficControlTaskRequestTrafficControlTargets extends $tea.Model {
+  endTime?: string;
+  event?: string;
+  itemConditionArray?: string;
+  itemConditionExpress?: string;
+  itemConditionType?: string;
+  name?: string;
+  newProductRegulation?: boolean;
+  recallName?: string;
+  startTime?: string;
+  statisPeriod?: string;
+  status?: string;
+  toleranceValue?: number;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      event: 'Event',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpress: 'ItemConditionExpress',
+      itemConditionType: 'ItemConditionType',
+      name: 'Name',
+      newProductRegulation: 'NewProductRegulation',
+      recallName: 'RecallName',
+      startTime: 'StartTime',
+      statisPeriod: 'StatisPeriod',
+      status: 'Status',
+      toleranceValue: 'ToleranceValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      event: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpress: 'string',
+      itemConditionType: 'string',
+      name: 'string',
+      newProductRegulation: 'boolean',
+      recallName: 'string',
+      startTime: 'string',
+      statisPeriod: 'string',
+      status: 'string',
+      toleranceValue: 'number',
+      value: 'number',
     };
   }
 
@@ -8406,6 +10261,161 @@ export class GetTableMetaResponseBodyFields extends $tea.Model {
       meaning: 'string',
       name: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTargetResponseBodySplitParts extends $tea.Model {
+  setValues?: number[];
+  timePoints?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      setValues: 'SetValues',
+      timePoints: 'TimePoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      setValues: { 'type': 'array', 'itemType': 'number' },
+      timePoints: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts extends $tea.Model {
+  setPoints?: number[];
+  timePoints?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      setPoints: 'SetPoints',
+      timePoints: 'TimePoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      setPoints: { 'type': 'array', 'itemType': 'number' },
+      timePoints: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $tea.Model {
+  endTime?: string;
+  event?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  itemConditionArray?: string;
+  itemConditionExpress?: string;
+  itemConditionType?: string;
+  name?: string;
+  newProductRegulation?: boolean;
+  recallName?: string;
+  splitParts?: GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts;
+  startTime?: string;
+  statisPeriod?: string;
+  status?: string;
+  toleranceValue?: number;
+  trafficControlTargetId?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      event: 'Event',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpress: 'ItemConditionExpress',
+      itemConditionType: 'ItemConditionType',
+      name: 'Name',
+      newProductRegulation: 'NewProductRegulation',
+      recallName: 'RecallName',
+      splitParts: 'SplitParts',
+      startTime: 'StartTime',
+      statisPeriod: 'StatisPeriod',
+      status: 'Status',
+      toleranceValue: 'ToleranceValue',
+      trafficControlTargetId: 'TrafficControlTargetId',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      event: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpress: 'string',
+      itemConditionType: 'string',
+      name: 'string',
+      newProductRegulation: 'boolean',
+      recallName: 'string',
+      splitParts: GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts,
+      startTime: 'string',
+      statisPeriod: 'string',
+      status: 'string',
+      toleranceValue: 'number',
+      trafficControlTargetId: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics extends $tea.Model {
+  data?: { [key: string]: any }[];
+  trafficContorlTargetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      trafficContorlTargetId: 'TrafficContorlTargetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      trafficContorlTargetId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic extends $tea.Model {
+  targetTraffics?: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics[];
+  taskTraffics?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      targetTraffics: 'TargetTraffics',
+      taskTraffics: 'TaskTraffics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetTraffics: { 'type': 'array', 'itemType': GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics },
+      taskTraffics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -9535,6 +11545,232 @@ export class ListTableMetasResponseBodyTableMetas extends $tea.Model {
   }
 }
 
+export class ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories extends $tea.Model {
+  experimentId?: string;
+  itemId?: string;
+  recordTime?: string;
+  trafficControlTargetAimTraffic?: string;
+  trafficControlTargetTraffic?: string;
+  trafficControlTaskTraffic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      experimentId: 'ExperimentId',
+      itemId: 'ItemId',
+      recordTime: 'RecordTime',
+      trafficControlTargetAimTraffic: 'TrafficControlTargetAimTraffic',
+      trafficControlTargetTraffic: 'TrafficControlTargetTraffic',
+      trafficControlTaskTraffic: 'TrafficControlTaskTraffic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      experimentId: 'string',
+      itemId: 'string',
+      recordTime: 'string',
+      trafficControlTargetAimTraffic: 'string',
+      trafficControlTargetTraffic: 'string',
+      trafficControlTaskTraffic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts extends $tea.Model {
+  setValues?: number[];
+  timePoints?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      setValues: 'SetValues',
+      timePoints: 'TimePoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      setValues: { 'type': 'array', 'itemType': 'number' },
+      timePoints: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets extends $tea.Model {
+  endTime?: string;
+  event?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  itemConditionArray?: string;
+  itemConditionExpress?: string;
+  itemConditionType?: string;
+  name?: string;
+  newProductRegulation?: boolean;
+  recallName?: string;
+  splitParts?: ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts;
+  startTime?: string;
+  statisPeriod?: string;
+  status?: string;
+  toleranceValue?: number;
+  trafficControlTargetId?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      event: 'Event',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpress: 'ItemConditionExpress',
+      itemConditionType: 'ItemConditionType',
+      name: 'Name',
+      newProductRegulation: 'NewProductRegulation',
+      recallName: 'RecallName',
+      splitParts: 'SplitParts',
+      startTime: 'StartTime',
+      statisPeriod: 'StatisPeriod',
+      status: 'Status',
+      toleranceValue: 'ToleranceValue',
+      trafficControlTargetId: 'TrafficControlTargetId',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      event: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpress: 'string',
+      itemConditionType: 'string',
+      name: 'string',
+      newProductRegulation: 'boolean',
+      recallName: 'string',
+      splitParts: ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts,
+      startTime: 'string',
+      statisPeriod: 'string',
+      status: 'string',
+      toleranceValue: 'number',
+      trafficControlTargetId: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $tea.Model {
+  behaviorTableMetaId?: string;
+  controlGranularity?: string;
+  controlLogic?: string;
+  controlType?: string;
+  description?: string;
+  endTime?: string;
+  everPublished?: boolean;
+  executionTime?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  itemConditionArray?: string;
+  itemConditionExpress?: string;
+  itemConditionType?: string;
+  itemTableMetaId?: string;
+  name?: string;
+  prepubStatus?: string;
+  productStatus?: string;
+  sceneId?: string;
+  sceneName?: string;
+  startTime?: string;
+  statisBahaviorConditionExpress?: string;
+  statisBehaviorConditionArray?: string;
+  statisBehaviorConditionType?: string;
+  trafficControlTargets?: ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets[];
+  trafficControlTaskId?: string;
+  userConditionArray?: string;
+  userConditionExpress?: string;
+  userConditionType?: string;
+  userTableMetaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorTableMetaId: 'BehaviorTableMetaId',
+      controlGranularity: 'ControlGranularity',
+      controlLogic: 'ControlLogic',
+      controlType: 'ControlType',
+      description: 'Description',
+      endTime: 'EndTime',
+      everPublished: 'EverPublished',
+      executionTime: 'ExecutionTime',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpress: 'ItemConditionExpress',
+      itemConditionType: 'ItemConditionType',
+      itemTableMetaId: 'ItemTableMetaId',
+      name: 'Name',
+      prepubStatus: 'PrepubStatus',
+      productStatus: 'ProductStatus',
+      sceneId: 'SceneId',
+      sceneName: 'SceneName',
+      startTime: 'StartTime',
+      statisBahaviorConditionExpress: 'StatisBahaviorConditionExpress',
+      statisBehaviorConditionArray: 'StatisBehaviorConditionArray',
+      statisBehaviorConditionType: 'StatisBehaviorConditionType',
+      trafficControlTargets: 'TrafficControlTargets',
+      trafficControlTaskId: 'TrafficControlTaskId',
+      userConditionArray: 'UserConditionArray',
+      userConditionExpress: 'UserConditionExpress',
+      userConditionType: 'UserConditionType',
+      userTableMetaId: 'UserTableMetaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorTableMetaId: 'string',
+      controlGranularity: 'string',
+      controlLogic: 'string',
+      controlType: 'string',
+      description: 'string',
+      endTime: 'string',
+      everPublished: 'boolean',
+      executionTime: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpress: 'string',
+      itemConditionType: 'string',
+      itemTableMetaId: 'string',
+      name: 'string',
+      prepubStatus: 'string',
+      productStatus: 'string',
+      sceneId: 'string',
+      sceneName: 'string',
+      startTime: 'string',
+      statisBahaviorConditionExpress: 'string',
+      statisBehaviorConditionArray: 'string',
+      statisBehaviorConditionType: 'string',
+      trafficControlTargets: { 'type': 'array', 'itemType': ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets },
+      trafficControlTaskId: 'string',
+      userConditionArray: 'string',
+      userConditionExpress: 'string',
+      userConditionType: 'string',
+      userTableMetaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PushResourceRuleResponseBodyRuleItems extends $tea.Model {
   description?: string;
   maxValue?: string;
@@ -9622,6 +11858,95 @@ export class UpdateTableMetaRequestFields extends $tea.Model {
   }
 }
 
+export class UpdateTrafficControlTaskRequestTrafficControlTargets extends $tea.Model {
+  endTime?: string;
+  event?: string;
+  itemConditionArray?: string;
+  itemConditionExpress?: string;
+  itemConditionType?: string;
+  name?: string;
+  newProductRegulation?: boolean;
+  recallName?: string;
+  startTime?: string;
+  statisPeriod?: string;
+  status?: string;
+  toleranceValue?: number;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      event: 'Event',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpress: 'ItemConditionExpress',
+      itemConditionType: 'ItemConditionType',
+      name: 'Name',
+      newProductRegulation: 'NewProductRegulation',
+      recallName: 'RecallName',
+      startTime: 'StartTime',
+      statisPeriod: 'StatisPeriod',
+      status: 'Status',
+      toleranceValue: 'ToleranceValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      event: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpress: 'string',
+      itemConditionType: 'string',
+      name: 'string',
+      newProductRegulation: 'boolean',
+      recallName: 'string',
+      startTime: 'string',
+      statisPeriod: 'string',
+      status: 'string',
+      toleranceValue: 'number',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTrafficControlTaskTrafficRequestTraffics extends $tea.Model {
+  itemOrExperimentId?: string;
+  recordTime?: string;
+  trafficControlTargetAimTraffic?: number;
+  trafficControlTargetId?: string;
+  trafficControlTargetTraffic?: number;
+  trafficControlTaskTraffic?: number;
+  static names(): { [key: string]: string } {
+    return {
+      itemOrExperimentId: 'ItemOrExperimentId',
+      recordTime: 'RecordTime',
+      trafficControlTargetAimTraffic: 'TrafficControlTargetAimTraffic',
+      trafficControlTargetId: 'TrafficControlTargetId',
+      trafficControlTargetTraffic: 'TrafficControlTargetTraffic',
+      trafficControlTaskTraffic: 'TrafficControlTaskTraffic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemOrExperimentId: 'string',
+      recordTime: 'string',
+      trafficControlTargetAimTraffic: 'number',
+      trafficControlTargetId: 'string',
+      trafficControlTargetTraffic: 'number',
+      trafficControlTaskTraffic: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadRecommendationDataRequestContent extends $tea.Model {
   fields?: string;
   operationType?: string;
@@ -9667,6 +11992,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 特征一致性检查数据回流。
+   *
+   * @param request BackflowFeatureConsistencyCheckJobDataRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BackflowFeatureConsistencyCheckJobDataResponse
+   */
   async backflowFeatureConsistencyCheckJobDataWithOptions(request: BackflowFeatureConsistencyCheckJobDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BackflowFeatureConsistencyCheckJobDataResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9728,12 +12061,26 @@ export default class Client extends OpenApi {
     return $tea.cast<BackflowFeatureConsistencyCheckJobDataResponse>(await this.callApi(params, req, runtime), new BackflowFeatureConsistencyCheckJobDataResponse({}));
   }
 
+  /**
+   * @summary 特征一致性检查数据回流。
+   *
+   * @param request BackflowFeatureConsistencyCheckJobDataRequest
+   * @return BackflowFeatureConsistencyCheckJobDataResponse
+   */
   async backflowFeatureConsistencyCheckJobData(request: BackflowFeatureConsistencyCheckJobDataRequest): Promise<BackflowFeatureConsistencyCheckJobDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.backflowFeatureConsistencyCheckJobDataWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 检测实例下配置的资源的连接状态。
+   *
+   * @param request CheckInstanceResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckInstanceResourcesResponse
+   */
   async checkInstanceResourcesWithOptions(InstanceId: string, request: CheckInstanceResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckInstanceResourcesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9763,12 +12110,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckInstanceResourcesResponse>(await this.callApi(params, req, runtime), new CheckInstanceResourcesResponse({}));
   }
 
+  /**
+   * @summary 检测实例下配置的资源的连接状态。
+   *
+   * @param request CheckInstanceResourcesRequest
+   * @return CheckInstanceResourcesResponse
+   */
   async checkInstanceResources(InstanceId: string, request: CheckInstanceResourcesRequest): Promise<CheckInstanceResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.checkInstanceResourcesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 克隆实验。
+   *
+   * @param request CloneExperimentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneExperimentResponse
+   */
   async cloneExperimentWithOptions(ExperimentId: string, request: CloneExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneExperimentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9794,12 +12155,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CloneExperimentResponse>(await this.callApi(params, req, runtime), new CloneExperimentResponse({}));
   }
 
+  /**
+   * @summary 克隆实验。
+   *
+   * @param request CloneExperimentRequest
+   * @return CloneExperimentResponse
+   */
   async cloneExperiment(ExperimentId: string, request: CloneExperimentRequest): Promise<CloneExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cloneExperimentWithOptions(ExperimentId, request, headers, runtime);
   }
 
+  /**
+   * @summary 克隆实验组，并克隆实验组下的所有实验至新的实验组中。
+   *
+   * @param request CloneExperimentGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneExperimentGroupResponse
+   */
   async cloneExperimentGroupWithOptions(ExperimentGroupId: string, request: CloneExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneExperimentGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9833,12 +12208,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CloneExperimentGroupResponse>(await this.callApi(params, req, runtime), new CloneExperimentGroupResponse({}));
   }
 
+  /**
+   * @summary 克隆实验组，并克隆实验组下的所有实验至新的实验组中。
+   *
+   * @param request CloneExperimentGroupRequest
+   * @return CloneExperimentGroupResponse
+   */
   async cloneExperimentGroup(ExperimentGroupId: string, request: CloneExperimentGroupRequest): Promise<CloneExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cloneExperimentGroupWithOptions(ExperimentGroupId, request, headers, runtime);
   }
 
+  /**
+   * @summary 克隆特征一致性检查配置。
+   *
+   * @param request CloneFeatureConsistencyCheckJobConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneFeatureConsistencyCheckJobConfigResponse
+   */
   async cloneFeatureConsistencyCheckJobConfigWithOptions(SourceFeatureConsistencyCheckJobConfigId: string, request: CloneFeatureConsistencyCheckJobConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneFeatureConsistencyCheckJobConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9864,12 +12253,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CloneFeatureConsistencyCheckJobConfigResponse>(await this.callApi(params, req, runtime), new CloneFeatureConsistencyCheckJobConfigResponse({}));
   }
 
+  /**
+   * @summary 克隆特征一致性检查配置。
+   *
+   * @param request CloneFeatureConsistencyCheckJobConfigRequest
+   * @return CloneFeatureConsistencyCheckJobConfigResponse
+   */
   async cloneFeatureConsistencyCheckJobConfig(SourceFeatureConsistencyCheckJobConfigId: string, request: CloneFeatureConsistencyCheckJobConfigRequest): Promise<CloneFeatureConsistencyCheckJobConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cloneFeatureConsistencyCheckJobConfigWithOptions(SourceFeatureConsistencyCheckJobConfigId, request, headers, runtime);
   }
 
+  /**
+   * @summary 克隆实验室。
+   *
+   * @param request CloneLaboratoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneLaboratoryResponse
+   */
   async cloneLaboratoryWithOptions(LaboratoryId: string, request: CloneLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneLaboratoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9903,12 +12306,71 @@ export default class Client extends OpenApi {
     return $tea.cast<CloneLaboratoryResponse>(await this.callApi(params, req, runtime), new CloneLaboratoryResponse({}));
   }
 
+  /**
+   * @summary 克隆实验室。
+   *
+   * @param request CloneLaboratoryRequest
+   * @return CloneLaboratoryResponse
+   */
   async cloneLaboratory(LaboratoryId: string, request: CloneLaboratoryRequest): Promise<CloneLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cloneLaboratoryWithOptions(LaboratoryId, request, headers, runtime);
   }
 
+  /**
+   * @summary 克隆流量调控任务
+   *
+   * @param request CloneTrafficControlTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneTrafficControlTaskResponse
+   */
+  async cloneTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: CloneTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneTrafficControlTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CloneTrafficControlTask",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/clone`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CloneTrafficControlTaskResponse>(await this.callApi(params, req, runtime), new CloneTrafficControlTaskResponse({}));
+  }
+
+  /**
+   * @summary 克隆流量调控任务
+   *
+   * @param request CloneTrafficControlTaskRequest
+   * @return CloneTrafficControlTaskResponse
+   */
+  async cloneTrafficControlTask(TrafficControlTaskId: string, request: CloneTrafficControlTaskRequest): Promise<CloneTrafficControlTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cloneTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 创建AB test实验指标
+   *
+   * @param request CreateABMetricRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateABMetricResponse
+   */
   async createABMetricWithOptions(request: CreateABMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateABMetricResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9982,12 +12444,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateABMetricResponse>(await this.callApi(params, req, runtime), new CreateABMetricResponse({}));
   }
 
+  /**
+   * @summary 创建AB test实验指标
+   *
+   * @param request CreateABMetricRequest
+   * @return CreateABMetricResponse
+   */
   async createABMetric(request: CreateABMetricRequest): Promise<CreateABMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createABMetricWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建指标组
+   *
+   * @param request CreateABMetricGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateABMetricGroupResponse
+   */
   async createABMetricGroupWithOptions(request: CreateABMetricGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateABMetricGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10033,12 +12509,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateABMetricGroupResponse>(await this.callApi(params, req, runtime), new CreateABMetricGroupResponse({}));
   }
 
+  /**
+   * @summary 创建指标组
+   *
+   * @param request CreateABMetricGroupRequest
+   * @return CreateABMetricGroupResponse
+   */
   async createABMetricGroup(request: CreateABMetricGroupRequest): Promise<CreateABMetricGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createABMetricGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建AB指标的计算任务。
+   *
+   * @param request CreateCalculationJobsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCalculationJobsResponse
+   */
   async createCalculationJobsWithOptions(request: CreateCalculationJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCalculationJobsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10076,12 +12566,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCalculationJobsResponse>(await this.callApi(params, req, runtime), new CreateCalculationJobsResponse({}));
   }
 
+  /**
+   * @summary 创建AB指标的计算任务。
+   *
+   * @param request CreateCalculationJobsRequest
+   * @return CreateCalculationJobsResponse
+   */
   async createCalculationJobs(request: CreateCalculationJobsRequest): Promise<CreateCalculationJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCalculationJobsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建人群。
+   *
+   * @param request CreateCrowdRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCrowdResponse
+   */
   async createCrowdWithOptions(request: CreateCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCrowdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10127,12 +12631,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCrowdResponse>(await this.callApi(params, req, runtime), new CreateCrowdResponse({}));
   }
 
+  /**
+   * @summary 创建人群。
+   *
+   * @param request CreateCrowdRequest
+   * @return CreateCrowdResponse
+   */
   async createCrowd(request: CreateCrowdRequest): Promise<CreateCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCrowdWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建实验。
+   *
+   * @param request CreateExperimentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateExperimentResponse
+   */
   async createExperimentWithOptions(request: CreateExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateExperimentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10190,12 +12708,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateExperimentResponse>(await this.callApi(params, req, runtime), new CreateExperimentResponse({}));
   }
 
+  /**
+   * @summary 创建实验。
+   *
+   * @param request CreateExperimentRequest
+   * @return CreateExperimentResponse
+   */
   async createExperiment(request: CreateExperimentRequest): Promise<CreateExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createExperimentWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建实验组。
+   *
+   * @param request CreateExperimentGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateExperimentGroupResponse
+   */
   async createExperimentGroupWithOptions(request: CreateExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateExperimentGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10277,12 +12809,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateExperimentGroupResponse>(await this.callApi(params, req, runtime), new CreateExperimentGroupResponse({}));
   }
 
+  /**
+   * @summary 创建实验组。
+   *
+   * @param request CreateExperimentGroupRequest
+   * @return CreateExperimentGroupResponse
+   */
   async createExperimentGroup(request: CreateExperimentGroupRequest): Promise<CreateExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createExperimentGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建特征一致性检查任务。
+   *
+   * @param request CreateFeatureConsistencyCheckJobRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFeatureConsistencyCheckJobResponse
+   */
   async createFeatureConsistencyCheckJobWithOptions(request: CreateFeatureConsistencyCheckJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFeatureConsistencyCheckJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10320,12 +12866,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFeatureConsistencyCheckJobResponse>(await this.callApi(params, req, runtime), new CreateFeatureConsistencyCheckJobResponse({}));
   }
 
+  /**
+   * @summary 创建特征一致性检查任务。
+   *
+   * @param request CreateFeatureConsistencyCheckJobRequest
+   * @return CreateFeatureConsistencyCheckJobResponse
+   */
   async createFeatureConsistencyCheckJob(request: CreateFeatureConsistencyCheckJobRequest): Promise<CreateFeatureConsistencyCheckJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createFeatureConsistencyCheckJobWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建特征一致性检查配置。
+   *
+   * @param request CreateFeatureConsistencyCheckJobConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFeatureConsistencyCheckJobConfigResponse
+   */
   async createFeatureConsistencyCheckJobConfigWithOptions(request: CreateFeatureConsistencyCheckJobConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFeatureConsistencyCheckJobConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10475,12 +13035,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFeatureConsistencyCheckJobConfigResponse>(await this.callApi(params, req, runtime), new CreateFeatureConsistencyCheckJobConfigResponse({}));
   }
 
+  /**
+   * @summary 创建特征一致性检查配置。
+   *
+   * @param request CreateFeatureConsistencyCheckJobConfigRequest
+   * @return CreateFeatureConsistencyCheckJobConfigResponse
+   */
   async createFeatureConsistencyCheckJobConfig(request: CreateFeatureConsistencyCheckJobConfigRequest): Promise<CreateFeatureConsistencyCheckJobConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createFeatureConsistencyCheckJobConfigWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 为指定实例配置创建新的配置资源
+   *
+   * @param request CreateInstanceResourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResourceResponse
+   */
   async createInstanceResourceWithOptions(InstanceId: string, request: CreateInstanceResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10518,12 +13092,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceResourceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResourceResponse({}));
   }
 
+  /**
+   * @summary 为指定实例配置创建新的配置资源
+   *
+   * @param request CreateInstanceResourceRequest
+   * @return CreateInstanceResourceResponse
+   */
   async createInstanceResource(InstanceId: string, request: CreateInstanceResourceRequest): Promise<CreateInstanceResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceResourceWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建实验室
+   *
+   * @param request CreateLaboratoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLaboratoryResponse
+   */
   async createLaboratoryWithOptions(request: CreateLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLaboratoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10593,12 +13181,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLaboratoryResponse>(await this.callApi(params, req, runtime), new CreateLaboratoryResponse({}));
   }
 
+  /**
+   * @summary 创建实验室
+   *
+   * @param request CreateLaboratoryRequest
+   * @return CreateLaboratoryResponse
+   */
   async createLaboratory(request: CreateLaboratoryRequest): Promise<CreateLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createLaboratoryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建层。
+   *
+   * @param request CreateLayerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLayerResponse
+   */
   async createLayerWithOptions(request: CreateLayerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLayerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10636,12 +13238,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLayerResponse>(await this.callApi(params, req, runtime), new CreateLayerResponse({}));
   }
 
+  /**
+   * @summary 创建层。
+   *
+   * @param request CreateLayerRequest
+   * @return CreateLayerResponse
+   */
   async createLayer(request: CreateLayerRequest): Promise<CreateLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createLayerWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建参数。
+   *
+   * @param request CreateParamRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateParamResponse
+   */
   async createParamWithOptions(request: CreateParamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateParamResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10683,12 +13299,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateParamResponse>(await this.callApi(params, req, runtime), new CreateParamResponse({}));
   }
 
+  /**
+   * @summary 创建参数。
+   *
+   * @param request CreateParamRequest
+   * @return CreateParamResponse
+   */
   async createParam(request: CreateParamRequest): Promise<CreateParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createParamWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建资源规则
+   *
+   * @param request CreateResourceRuleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateResourceRuleResponse
+   */
   async createResourceRuleWithOptions(request: CreateResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10742,12 +13372,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateResourceRuleResponse>(await this.callApi(params, req, runtime), new CreateResourceRuleResponse({}));
   }
 
+  /**
+   * @summary 创建资源规则
+   *
+   * @param request CreateResourceRuleRequest
+   * @return CreateResourceRuleResponse
+   */
   async createResourceRule(request: CreateResourceRuleRequest): Promise<CreateResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createResourceRuleWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建资源规则条目
+   *
+   * @param request CreateResourceRuleItemRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateResourceRuleItemResponse
+   */
   async createResourceRuleItemWithOptions(ResourceRuleId: string, request: CreateResourceRuleItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceRuleItemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10793,12 +13437,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateResourceRuleItemResponse>(await this.callApi(params, req, runtime), new CreateResourceRuleItemResponse({}));
   }
 
+  /**
+   * @summary 创建资源规则条目
+   *
+   * @param request CreateResourceRuleItemRequest
+   * @return CreateResourceRuleItemResponse
+   */
   async createResourceRuleItem(ResourceRuleId: string, request: CreateResourceRuleItemRequest): Promise<CreateResourceRuleItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createResourceRuleItemWithOptions(ResourceRuleId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建场景
+   *
+   * @param request CreateSceneRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSceneResponse
+   */
   async createSceneWithOptions(request: CreateSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSceneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10836,12 +13494,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSceneResponse>(await this.callApi(params, req, runtime), new CreateSceneResponse({}));
   }
 
+  /**
+   * @summary 创建场景
+   *
+   * @param request CreateSceneRequest
+   * @return CreateSceneResponse
+   */
   async createScene(request: CreateSceneRequest): Promise<CreateSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createSceneWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 在指定人群下创建子人群。
+   *
+   * @param request CreateSubCrowdRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSubCrowdResponse
+   */
   async createSubCrowdWithOptions(CrowdId: string, request: CreateSubCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSubCrowdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10875,12 +13547,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSubCrowdResponse>(await this.callApi(params, req, runtime), new CreateSubCrowdResponse({}));
   }
 
+  /**
+   * @summary 在指定人群下创建子人群。
+   *
+   * @param request CreateSubCrowdRequest
+   * @return CreateSubCrowdResponse
+   */
   async createSubCrowd(CrowdId: string, request: CreateSubCrowdRequest): Promise<CreateSubCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createSubCrowdWithOptions(CrowdId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建数据表。
+   *
+   * @param request CreateTableMetaRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTableMetaResponse
+   */
   async createTableMetaWithOptions(request: CreateTableMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTableMetaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10930,12 +13616,256 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTableMetaResponse>(await this.callApi(params, req, runtime), new CreateTableMetaResponse({}));
   }
 
+  /**
+   * @summary 创建数据表。
+   *
+   * @param request CreateTableMetaRequest
+   * @return CreateTableMetaResponse
+   */
   async createTableMeta(request: CreateTableMetaRequest): Promise<CreateTableMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTableMetaWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建流量调控目标
+   *
+   * @param request CreateTrafficControlTargetRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTrafficControlTargetResponse
+   */
+  async createTrafficControlTargetWithOptions(request: CreateTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTrafficControlTargetResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.event)) {
+      body["Event"] = request.event;
+    }
+
+    if (!Util.isUnset(request.itemConditionArray)) {
+      body["ItemConditionArray"] = request.itemConditionArray;
+    }
+
+    if (!Util.isUnset(request.itemConditionExpress)) {
+      body["ItemConditionExpress"] = request.itemConditionExpress;
+    }
+
+    if (!Util.isUnset(request.itemConditionType)) {
+      body["ItemConditionType"] = request.itemConditionType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.newProductRegulation)) {
+      body["NewProductRegulation"] = request.newProductRegulation;
+    }
+
+    if (!Util.isUnset(request.recallName)) {
+      body["RecallName"] = request.recallName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.statisPeriod)) {
+      body["StatisPeriod"] = request.statisPeriod;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.toleranceValue)) {
+      body["ToleranceValue"] = request.toleranceValue;
+    }
+
+    if (!Util.isUnset(request.trafficControlTaskId)) {
+      body["TrafficControlTaskId"] = request.trafficControlTaskId;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      body["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTrafficControlTarget",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltargets`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTrafficControlTargetResponse>(await this.callApi(params, req, runtime), new CreateTrafficControlTargetResponse({}));
+  }
+
+  /**
+   * @summary 创建流量调控目标
+   *
+   * @param request CreateTrafficControlTargetRequest
+   * @return CreateTrafficControlTargetResponse
+   */
+  async createTrafficControlTarget(request: CreateTrafficControlTargetRequest): Promise<CreateTrafficControlTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTrafficControlTargetWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 创建流量调控任务
+   *
+   * @param request CreateTrafficControlTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTrafficControlTaskResponse
+   */
+  async createTrafficControlTaskWithOptions(request: CreateTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTrafficControlTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.behaviorTableMetaId)) {
+      body["BehaviorTableMetaId"] = request.behaviorTableMetaId;
+    }
+
+    if (!Util.isUnset(request.controlGranularity)) {
+      body["ControlGranularity"] = request.controlGranularity;
+    }
+
+    if (!Util.isUnset(request.controlLogic)) {
+      body["ControlLogic"] = request.controlLogic;
+    }
+
+    if (!Util.isUnset(request.controlType)) {
+      body["ControlType"] = request.controlType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.executionTime)) {
+      body["ExecutionTime"] = request.executionTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.itemConditionArray)) {
+      body["ItemConditionArray"] = request.itemConditionArray;
+    }
+
+    if (!Util.isUnset(request.itemConditionExpress)) {
+      body["ItemConditionExpress"] = request.itemConditionExpress;
+    }
+
+    if (!Util.isUnset(request.itemConditionType)) {
+      body["ItemConditionType"] = request.itemConditionType;
+    }
+
+    if (!Util.isUnset(request.itemTableMetaId)) {
+      body["ItemTableMetaId"] = request.itemTableMetaId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.statisBehaviorConditionArray)) {
+      body["StatisBehaviorConditionArray"] = request.statisBehaviorConditionArray;
+    }
+
+    if (!Util.isUnset(request.statisBehaviorConditionExpress)) {
+      body["StatisBehaviorConditionExpress"] = request.statisBehaviorConditionExpress;
+    }
+
+    if (!Util.isUnset(request.statisBehaviorConditionType)) {
+      body["StatisBehaviorConditionType"] = request.statisBehaviorConditionType;
+    }
+
+    if (!Util.isUnset(request.trafficControlTargets)) {
+      body["TrafficControlTargets"] = request.trafficControlTargets;
+    }
+
+    if (!Util.isUnset(request.userConditionArray)) {
+      body["UserConditionArray"] = request.userConditionArray;
+    }
+
+    if (!Util.isUnset(request.userConditionExpress)) {
+      body["UserConditionExpress"] = request.userConditionExpress;
+    }
+
+    if (!Util.isUnset(request.userConditionType)) {
+      body["UserConditionType"] = request.userConditionType;
+    }
+
+    if (!Util.isUnset(request.userTableMetaId)) {
+      body["UserTableMetaId"] = request.userTableMetaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTrafficControlTask",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTrafficControlTaskResponse>(await this.callApi(params, req, runtime), new CreateTrafficControlTaskResponse({}));
+  }
+
+  /**
+   * @summary 创建流量调控任务
+   *
+   * @param request CreateTrafficControlTaskRequest
+   * @return CreateTrafficControlTaskResponse
+   */
+  async createTrafficControlTask(request: CreateTrafficControlTaskRequest): Promise<CreateTrafficControlTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTrafficControlTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 对指定资源规则中的计算公式进行调试
+   *
+   * @param tmpReq DebugResourceRuleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DebugResourceRuleResponse
+   */
   async debugResourceRuleWithOptions(ResourceRuleId: string, tmpReq: DebugResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DebugResourceRuleResponse> {
     Util.validateModel(tmpReq);
     let request = new DebugResourceRuleShrinkRequest({ });
@@ -10975,12 +13905,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DebugResourceRuleResponse>(await this.callApi(params, req, runtime), new DebugResourceRuleResponse({}));
   }
 
+  /**
+   * @summary 对指定资源规则中的计算公式进行调试
+   *
+   * @param request DebugResourceRuleRequest
+   * @return DebugResourceRuleResponse
+   */
   async debugResourceRule(ResourceRuleId: string, request: DebugResourceRuleRequest): Promise<DebugResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.debugResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除指定AB实验指标。
+   *
+   * @param request DeleteABMetricRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteABMetricResponse
+   */
   async deleteABMetricWithOptions(ABMetricId: string, request: DeleteABMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteABMetricResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11006,12 +13950,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteABMetricResponse>(await this.callApi(params, req, runtime), new DeleteABMetricResponse({}));
   }
 
+  /**
+   * @summary 删除指定AB实验指标。
+   *
+   * @param request DeleteABMetricRequest
+   * @return DeleteABMetricResponse
+   */
   async deleteABMetric(ABMetricId: string, request: DeleteABMetricRequest): Promise<DeleteABMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteABMetricWithOptions(ABMetricId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除AB实验指标组。
+   *
+   * @param request DeleteABMetricGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteABMetricGroupResponse
+   */
   async deleteABMetricGroupWithOptions(ABMetricGroupId: string, request: DeleteABMetricGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteABMetricGroupResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11037,12 +13995,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteABMetricGroupResponse>(await this.callApi(params, req, runtime), new DeleteABMetricGroupResponse({}));
   }
 
+  /**
+   * @summary 删除AB实验指标组。
+   *
+   * @param request DeleteABMetricGroupRequest
+   * @return DeleteABMetricGroupResponse
+   */
   async deleteABMetricGroup(ABMetricGroupId: string, request: DeleteABMetricGroupRequest): Promise<DeleteABMetricGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteABMetricGroupWithOptions(ABMetricGroupId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除指定人群。
+   *
+   * @param request DeleteCrowdRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCrowdResponse
+   */
   async deleteCrowdWithOptions(CrowdId: string, request: DeleteCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCrowdResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11068,12 +14040,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCrowdResponse>(await this.callApi(params, req, runtime), new DeleteCrowdResponse({}));
   }
 
+  /**
+   * @summary 删除指定人群。
+   *
+   * @param request DeleteCrowdRequest
+   * @return DeleteCrowdResponse
+   */
   async deleteCrowd(CrowdId: string, request: DeleteCrowdRequest): Promise<DeleteCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCrowdWithOptions(CrowdId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除实验。
+   *
+   * @param request DeleteExperimentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteExperimentResponse
+   */
   async deleteExperimentWithOptions(ExperimentId: string, request: DeleteExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteExperimentResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11099,12 +14085,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteExperimentResponse>(await this.callApi(params, req, runtime), new DeleteExperimentResponse({}));
   }
 
+  /**
+   * @summary 删除实验。
+   *
+   * @param request DeleteExperimentRequest
+   * @return DeleteExperimentResponse
+   */
   async deleteExperiment(ExperimentId: string, request: DeleteExperimentRequest): Promise<DeleteExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteExperimentWithOptions(ExperimentId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除指定实验组。
+   *
+   * @param request DeleteExperimentGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteExperimentGroupResponse
+   */
   async deleteExperimentGroupWithOptions(ExperimentGroupId: string, request: DeleteExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteExperimentGroupResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11130,12 +14130,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteExperimentGroupResponse>(await this.callApi(params, req, runtime), new DeleteExperimentGroupResponse({}));
   }
 
+  /**
+   * @summary 删除指定实验组。
+   *
+   * @param request DeleteExperimentGroupRequest
+   * @return DeleteExperimentGroupResponse
+   */
   async deleteExperimentGroup(ExperimentGroupId: string, request: DeleteExperimentGroupRequest): Promise<DeleteExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteExperimentGroupWithOptions(ExperimentGroupId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除指定实例下的指定配置资源。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResourceResponse
+   */
   async deleteInstanceResourceWithOptions(InstanceId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -11154,12 +14167,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResourceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResourceResponse({}));
   }
 
+  /**
+   * @summary 删除指定实例下的指定配置资源。
+   *
+   * @return DeleteInstanceResourceResponse
+   */
   async deleteInstanceResource(InstanceId: string, ResourceId: string): Promise<DeleteInstanceResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceResourceWithOptions(InstanceId, ResourceId, headers, runtime);
   }
 
+  /**
+   * @summary 删除实验室。
+   *
+   * @param request DeleteLaboratoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLaboratoryResponse
+   */
   async deleteLaboratoryWithOptions(LaboratoryId: string, request: DeleteLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLaboratoryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11185,12 +14211,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLaboratoryResponse>(await this.callApi(params, req, runtime), new DeleteLaboratoryResponse({}));
   }
 
+  /**
+   * @summary 删除实验室。
+   *
+   * @param request DeleteLaboratoryRequest
+   * @return DeleteLaboratoryResponse
+   */
   async deleteLaboratory(LaboratoryId: string, request: DeleteLaboratoryRequest): Promise<DeleteLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteLaboratoryWithOptions(LaboratoryId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除层。
+   *
+   * @param request DeleteLayerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLayerResponse
+   */
   async deleteLayerWithOptions(LayerId: string, request: DeleteLayerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLayerResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11216,12 +14256,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLayerResponse>(await this.callApi(params, req, runtime), new DeleteLayerResponse({}));
   }
 
+  /**
+   * @summary 删除层。
+   *
+   * @param request DeleteLayerRequest
+   * @return DeleteLayerResponse
+   */
   async deleteLayer(LayerId: string, request: DeleteLayerRequest): Promise<DeleteLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteLayerWithOptions(LayerId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除指定参数。
+   *
+   * @param request DeleteParamRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteParamResponse
+   */
   async deleteParamWithOptions(ParamId: string, request: DeleteParamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteParamResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11247,12 +14301,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteParamResponse>(await this.callApi(params, req, runtime), new DeleteParamResponse({}));
   }
 
+  /**
+   * @summary 删除指定参数。
+   *
+   * @param request DeleteParamRequest
+   * @return DeleteParamResponse
+   */
   async deleteParam(ParamId: string, request: DeleteParamRequest): Promise<DeleteParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteParamWithOptions(ParamId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除资源规则
+   *
+   * @param request DeleteResourceRuleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteResourceRuleResponse
+   */
   async deleteResourceRuleWithOptions(ResourceRuleId: string, request: DeleteResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceRuleResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11278,12 +14346,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteResourceRuleResponse>(await this.callApi(params, req, runtime), new DeleteResourceRuleResponse({}));
   }
 
+  /**
+   * @summary 删除资源规则
+   *
+   * @param request DeleteResourceRuleRequest
+   * @return DeleteResourceRuleResponse
+   */
   async deleteResourceRule(ResourceRuleId: string, request: DeleteResourceRuleRequest): Promise<DeleteResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除资源规则条目
+   *
+   * @param request DeleteResourceRuleItemRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteResourceRuleItemResponse
+   */
   async deleteResourceRuleItemWithOptions(ResourceRuleId: string, ResourceRuleItemId: string, request: DeleteResourceRuleItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceRuleItemResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11309,12 +14391,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteResourceRuleItemResponse>(await this.callApi(params, req, runtime), new DeleteResourceRuleItemResponse({}));
   }
 
+  /**
+   * @summary 删除资源规则条目
+   *
+   * @param request DeleteResourceRuleItemRequest
+   * @return DeleteResourceRuleItemResponse
+   */
   async deleteResourceRuleItem(ResourceRuleId: string, ResourceRuleItemId: string, request: DeleteResourceRuleItemRequest): Promise<DeleteResourceRuleItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceRuleItemWithOptions(ResourceRuleId, ResourceRuleItemId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除场景
+   *
+   * @param request DeleteSceneRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSceneResponse
+   */
   async deleteSceneWithOptions(SceneId: string, request: DeleteSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSceneResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11340,12 +14436,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSceneResponse>(await this.callApi(params, req, runtime), new DeleteSceneResponse({}));
   }
 
+  /**
+   * @summary 删除场景
+   *
+   * @param request DeleteSceneRequest
+   * @return DeleteSceneResponse
+   */
   async deleteScene(SceneId: string, request: DeleteSceneRequest): Promise<DeleteSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteSceneWithOptions(SceneId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除指定人群下的指定子人群。
+   *
+   * @param request DeleteSubCrowdRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSubCrowdResponse
+   */
   async deleteSubCrowdWithOptions(CrowdId: string, SubCrowdId: string, request: DeleteSubCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSubCrowdResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11371,12 +14481,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSubCrowdResponse>(await this.callApi(params, req, runtime), new DeleteSubCrowdResponse({}));
   }
 
+  /**
+   * @summary 删除指定人群下的指定子人群。
+   *
+   * @param request DeleteSubCrowdRequest
+   * @return DeleteSubCrowdResponse
+   */
   async deleteSubCrowd(CrowdId: string, SubCrowdId: string, request: DeleteSubCrowdRequest): Promise<DeleteSubCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteSubCrowdWithOptions(CrowdId, SubCrowdId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除数据表。
+   *
+   * @param request DeleteTableMetaRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTableMetaResponse
+   */
   async deleteTableMetaWithOptions(TableMetaId: string, request: DeleteTableMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTableMetaResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11402,12 +14526,206 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTableMetaResponse>(await this.callApi(params, req, runtime), new DeleteTableMetaResponse({}));
   }
 
+  /**
+   * @summary 删除数据表。
+   *
+   * @param request DeleteTableMetaRequest
+   * @return DeleteTableMetaResponse
+   */
   async deleteTableMeta(TableMetaId: string, request: DeleteTableMetaRequest): Promise<DeleteTableMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTableMetaWithOptions(TableMetaId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新流量调控目标
+   *
+   * @param request DeleteTrafficControlTargetRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTrafficControlTargetResponse
+   */
+  async deleteTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: DeleteTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficControlTargetResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTrafficControlTarget",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltargets/${OpenApiUtil.getEncodeParam(TrafficControlTargetId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTrafficControlTargetResponse>(await this.callApi(params, req, runtime), new DeleteTrafficControlTargetResponse({}));
+  }
+
+  /**
+   * @summary 更新流量调控目标
+   *
+   * @param request DeleteTrafficControlTargetRequest
+   * @return DeleteTrafficControlTargetResponse
+   */
+  async deleteTrafficControlTarget(TrafficControlTargetId: string, request: DeleteTrafficControlTargetRequest): Promise<DeleteTrafficControlTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 删除指定的流量调控任务
+   *
+   * @param request DeleteTrafficControlTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTrafficControlTaskResponse
+   */
+  async deleteTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: DeleteTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficControlTaskResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTrafficControlTask",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTrafficControlTaskResponse>(await this.callApi(params, req, runtime), new DeleteTrafficControlTaskResponse({}));
+  }
+
+  /**
+   * @summary 删除指定的流量调控任务
+   *
+   * @param request DeleteTrafficControlTaskRequest
+   * @return DeleteTrafficControlTaskResponse
+   */
+  async deleteTrafficControlTask(TrafficControlTaskId: string, request: DeleteTrafficControlTaskRequest): Promise<DeleteTrafficControlTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 产生流量调控的相关代码
+   *
+   * @param request GenerateTrafficControlTaskCodeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateTrafficControlTaskCodeResponse
+   */
+  async generateTrafficControlTaskCodeWithOptions(TrafficControlTaskId: string, request: GenerateTrafficControlTaskCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateTrafficControlTaskCodeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateTrafficControlTaskCode",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/code`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateTrafficControlTaskCodeResponse>(await this.callApi(params, req, runtime), new GenerateTrafficControlTaskCodeResponse({}));
+  }
+
+  /**
+   * @summary 产生流量调控的相关代码
+   *
+   * @param request GenerateTrafficControlTaskCodeRequest
+   * @return GenerateTrafficControlTaskCodeResponse
+   */
+  async generateTrafficControlTaskCode(TrafficControlTaskId: string, request: GenerateTrafficControlTaskCodeRequest): Promise<GenerateTrafficControlTaskCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generateTrafficControlTaskCodeWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 产生流量调控的相关召回配置
+   *
+   * @param request GenerateTrafficControlTaskConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateTrafficControlTaskConfigResponse
+   */
+  async generateTrafficControlTaskConfigWithOptions(TrafficControlTaskId: string, request: GenerateTrafficControlTaskConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateTrafficControlTaskConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateTrafficControlTaskConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/config`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateTrafficControlTaskConfigResponse>(await this.callApi(params, req, runtime), new GenerateTrafficControlTaskConfigResponse({}));
+  }
+
+  /**
+   * @summary 产生流量调控的相关召回配置
+   *
+   * @param request GenerateTrafficControlTaskConfigRequest
+   * @return GenerateTrafficControlTaskConfigResponse
+   */
+  async generateTrafficControlTaskConfig(TrafficControlTaskId: string, request: GenerateTrafficControlTaskConfigRequest): Promise<GenerateTrafficControlTaskConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generateTrafficControlTaskConfigWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取AB Test实验指标详细信息。
+   *
+   * @param request GetABMetricRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetABMetricResponse
+   */
   async getABMetricWithOptions(ABMetricId: string, request: GetABMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetABMetricResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11433,12 +14751,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetABMetricResponse>(await this.callApi(params, req, runtime), new GetABMetricResponse({}));
   }
 
+  /**
+   * @summary 获取AB Test实验指标详细信息。
+   *
+   * @param request GetABMetricRequest
+   * @return GetABMetricResponse
+   */
   async getABMetric(ABMetricId: string, request: GetABMetricRequest): Promise<GetABMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getABMetricWithOptions(ABMetricId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取AB实验指标组详细信息。
+   *
+   * @param request GetABMetricGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetABMetricGroupResponse
+   */
   async getABMetricGroupWithOptions(ABMetricGroupId: string, request: GetABMetricGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetABMetricGroupResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11464,12 +14796,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetABMetricGroupResponse>(await this.callApi(params, req, runtime), new GetABMetricGroupResponse({}));
   }
 
+  /**
+   * @summary 获取AB实验指标组详细信息。
+   *
+   * @param request GetABMetricGroupRequest
+   * @return GetABMetricGroupResponse
+   */
   async getABMetricGroup(ABMetricGroupId: string, request: GetABMetricGroupRequest): Promise<GetABMetricGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getABMetricGroupWithOptions(ABMetricGroupId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取指定计算任务详细信息。
+   *
+   * @param request GetCalculationJobRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCalculationJobResponse
+   */
   async getCalculationJobWithOptions(CalculationJobId: string, request: GetCalculationJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCalculationJobResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11495,12 +14841,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCalculationJobResponse>(await this.callApi(params, req, runtime), new GetCalculationJobResponse({}));
   }
 
+  /**
+   * @summary 获取指定计算任务详细信息。
+   *
+   * @param request GetCalculationJobRequest
+   * @return GetCalculationJobResponse
+   */
   async getCalculationJob(CalculationJobId: string, request: GetCalculationJobRequest): Promise<GetCalculationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCalculationJobWithOptions(CalculationJobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取实验详细信息。
+   *
+   * @param request GetExperimentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetExperimentResponse
+   */
   async getExperimentWithOptions(ExperimentId: string, request: GetExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetExperimentResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11526,12 +14886,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetExperimentResponse>(await this.callApi(params, req, runtime), new GetExperimentResponse({}));
   }
 
+  /**
+   * @summary 获取实验详细信息。
+   *
+   * @param request GetExperimentRequest
+   * @return GetExperimentResponse
+   */
   async getExperiment(ExperimentId: string, request: GetExperimentRequest): Promise<GetExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getExperimentWithOptions(ExperimentId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取指定实验组详细信息。
+   *
+   * @param request GetExperimentGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetExperimentGroupResponse
+   */
   async getExperimentGroupWithOptions(ExperimentGroupId: string, request: GetExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetExperimentGroupResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11557,12 +14931,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetExperimentGroupResponse>(await this.callApi(params, req, runtime), new GetExperimentGroupResponse({}));
   }
 
+  /**
+   * @summary 获取指定实验组详细信息。
+   *
+   * @param request GetExperimentGroupRequest
+   * @return GetExperimentGroupResponse
+   */
   async getExperimentGroup(ExperimentGroupId: string, request: GetExperimentGroupRequest): Promise<GetExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getExperimentGroupWithOptions(ExperimentGroupId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征一致性检查任务详细信息。
+   *
+   * @param request GetFeatureConsistencyCheckJobRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFeatureConsistencyCheckJobResponse
+   */
   async getFeatureConsistencyCheckJobWithOptions(FeatureConsistencyCheckJobId: string, request: GetFeatureConsistencyCheckJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFeatureConsistencyCheckJobResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11588,12 +14976,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFeatureConsistencyCheckJobResponse>(await this.callApi(params, req, runtime), new GetFeatureConsistencyCheckJobResponse({}));
   }
 
+  /**
+   * @summary 获取特征一致性检查任务详细信息。
+   *
+   * @param request GetFeatureConsistencyCheckJobRequest
+   * @return GetFeatureConsistencyCheckJobResponse
+   */
   async getFeatureConsistencyCheckJob(FeatureConsistencyCheckJobId: string, request: GetFeatureConsistencyCheckJobRequest): Promise<GetFeatureConsistencyCheckJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFeatureConsistencyCheckJobWithOptions(FeatureConsistencyCheckJobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征一致性检测配置详情。
+   *
+   * @param request GetFeatureConsistencyCheckJobConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFeatureConsistencyCheckJobConfigResponse
+   */
   async getFeatureConsistencyCheckJobConfigWithOptions(FeatureConsistencyCheckJobConfigId: string, request: GetFeatureConsistencyCheckJobConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFeatureConsistencyCheckJobConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11619,12 +15021,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFeatureConsistencyCheckJobConfigResponse>(await this.callApi(params, req, runtime), new GetFeatureConsistencyCheckJobConfigResponse({}));
   }
 
+  /**
+   * @summary 获取特征一致性检测配置详情。
+   *
+   * @param request GetFeatureConsistencyCheckJobConfigRequest
+   * @return GetFeatureConsistencyCheckJobConfigResponse
+   */
   async getFeatureConsistencyCheckJobConfig(FeatureConsistencyCheckJobConfigId: string, request: GetFeatureConsistencyCheckJobConfigRequest): Promise<GetFeatureConsistencyCheckJobConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFeatureConsistencyCheckJobConfigWithOptions(FeatureConsistencyCheckJobConfigId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取指定推荐全链路深度定制开发平台实例信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceResponse
+   */
   async getInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -11643,12 +15058,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
   }
 
+  /**
+   * @summary 获取指定推荐全链路深度定制开发平台实例信息。
+   *
+   * @return GetInstanceResponse
+   */
   async getInstance(InstanceId: string): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 获取指定实例下指定资源的详细信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceResourceResponse
+   */
   async getInstanceResourceWithOptions(InstanceId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -11667,12 +15094,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceResourceResponse>(await this.callApi(params, req, runtime), new GetInstanceResourceResponse({}));
   }
 
+  /**
+   * @summary 获取指定实例下指定资源的详细信息。
+   *
+   * @return GetInstanceResourceResponse
+   */
   async getInstanceResource(InstanceId: string, ResourceId: string): Promise<GetInstanceResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceResourceWithOptions(InstanceId, ResourceId, headers, runtime);
   }
 
+  /**
+   * @summary 获取数据源下指定表的详细信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceResourceTableResponse
+   */
   async getInstanceResourceTableWithOptions(InstanceId: string, ResourceId: string, TableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResourceTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -11691,12 +15130,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceResourceTableResponse>(await this.callApi(params, req, runtime), new GetInstanceResourceTableResponse({}));
   }
 
+  /**
+   * @summary 获取数据源下指定表的详细信息。
+   *
+   * @return GetInstanceResourceTableResponse
+   */
   async getInstanceResourceTable(InstanceId: string, ResourceId: string, TableName: string): Promise<GetInstanceResourceTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceResourceTableWithOptions(InstanceId, ResourceId, TableName, headers, runtime);
   }
 
+  /**
+   * @summary 获取实验室详细信息。
+   *
+   * @param request GetLaboratoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLaboratoryResponse
+   */
   async getLaboratoryWithOptions(LaboratoryId: string, request: GetLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLaboratoryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11722,12 +15174,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLaboratoryResponse>(await this.callApi(params, req, runtime), new GetLaboratoryResponse({}));
   }
 
+  /**
+   * @summary 获取实验室详细信息。
+   *
+   * @param request GetLaboratoryRequest
+   * @return GetLaboratoryResponse
+   */
   async getLaboratory(LaboratoryId: string, request: GetLaboratoryRequest): Promise<GetLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLaboratoryWithOptions(LaboratoryId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取层详细信息。
+   *
+   * @param request GetLayerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLayerResponse
+   */
   async getLayerWithOptions(LayerId: string, request: GetLayerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11753,12 +15219,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLayerResponse>(await this.callApi(params, req, runtime), new GetLayerResponse({}));
   }
 
+  /**
+   * @summary 获取层详细信息。
+   *
+   * @param request GetLayerRequest
+   * @return GetLayerResponse
+   */
   async getLayer(LayerId: string, request: GetLayerRequest): Promise<GetLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLayerWithOptions(LayerId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取资源规则详细信息
+   *
+   * @param request GetResourceRuleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetResourceRuleResponse
+   */
   async getResourceRuleWithOptions(ResourceRuleId: string, request: GetResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceRuleResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11784,12 +15264,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResourceRuleResponse>(await this.callApi(params, req, runtime), new GetResourceRuleResponse({}));
   }
 
+  /**
+   * @summary 获取资源规则详细信息
+   *
+   * @param request GetResourceRuleRequest
+   * @return GetResourceRuleResponse
+   */
   async getResourceRule(ResourceRuleId: string, request: GetResourceRuleRequest): Promise<GetResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取场景详细信息
+   *
+   * @param request GetSceneRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSceneResponse
+   */
   async getSceneWithOptions(SceneId: string, request: GetSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSceneResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11815,12 +15309,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSceneResponse>(await this.callApi(params, req, runtime), new GetSceneResponse({}));
   }
 
+  /**
+   * @summary 获取场景详细信息
+   *
+   * @param request GetSceneRequest
+   * @return GetSceneResponse
+   */
   async getScene(SceneId: string, request: GetSceneRequest): Promise<GetSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSceneWithOptions(SceneId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取指定人群下的指定子人群的详细信息。
+   *
+   * @param request GetSubCrowdRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSubCrowdResponse
+   */
   async getSubCrowdWithOptions(CrowdId: string, SubCrowdId: string, request: GetSubCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSubCrowdResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11846,12 +15354,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSubCrowdResponse>(await this.callApi(params, req, runtime), new GetSubCrowdResponse({}));
   }
 
+  /**
+   * @summary 获取指定人群下的指定子人群的详细信息。
+   *
+   * @param request GetSubCrowdRequest
+   * @return GetSubCrowdResponse
+   */
   async getSubCrowd(CrowdId: string, SubCrowdId: string, request: GetSubCrowdRequest): Promise<GetSubCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSubCrowdWithOptions(CrowdId, SubCrowdId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取数据表详细信息。
+   *
+   * @param request GetTableMetaRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTableMetaResponse
+   */
   async getTableMetaWithOptions(TableMetaId: string, request: GetTableMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTableMetaResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11877,12 +15399,181 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTableMetaResponse>(await this.callApi(params, req, runtime), new GetTableMetaResponse({}));
   }
 
+  /**
+   * @summary 获取数据表详细信息。
+   *
+   * @param request GetTableMetaRequest
+   * @return GetTableMetaResponse
+   */
   async getTableMeta(TableMetaId: string, request: GetTableMetaRequest): Promise<GetTableMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTableMetaWithOptions(TableMetaId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取流量调控目标详情
+   *
+   * @param request GetTrafficControlTargetRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTrafficControlTargetResponse
+   */
+  async getTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: GetTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTrafficControlTargetResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTrafficControlTarget",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltargets/${OpenApiUtil.getEncodeParam(TrafficControlTargetId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTrafficControlTargetResponse>(await this.callApi(params, req, runtime), new GetTrafficControlTargetResponse({}));
+  }
+
+  /**
+   * @summary 获取流量调控目标详情
+   *
+   * @param request GetTrafficControlTargetRequest
+   * @return GetTrafficControlTargetResponse
+   */
+  async getTrafficControlTarget(TrafficControlTargetId: string, request: GetTrafficControlTargetRequest): Promise<GetTrafficControlTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取流量调控任务详情
+   *
+   * @param request GetTrafficControlTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTrafficControlTaskResponse
+   */
+  async getTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: GetTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTrafficControlTaskResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.controlTargetFilter)) {
+      query["ControlTargetFilter"] = request.controlTargetFilter;
+    }
+
+    if (!Util.isUnset(request.environment)) {
+      query["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.version)) {
+      query["Version"] = request.version;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTrafficControlTask",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTrafficControlTaskResponse>(await this.callApi(params, req, runtime), new GetTrafficControlTaskResponse({}));
+  }
+
+  /**
+   * @summary 获取流量调控任务详情
+   *
+   * @param request GetTrafficControlTaskRequest
+   * @return GetTrafficControlTaskResponse
+   */
+  async getTrafficControlTask(TrafficControlTaskId: string, request: GetTrafficControlTaskRequest): Promise<GetTrafficControlTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取流量调控任务的流量详情
+   *
+   * @param request GetTrafficControlTaskTrafficRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTrafficControlTaskTrafficResponse
+   */
+  async getTrafficControlTaskTrafficWithOptions(TrafficControlTaskId: string, request: GetTrafficControlTaskTrafficRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTrafficControlTaskTrafficResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.environment)) {
+      query["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTrafficControlTaskTraffic",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/traffic`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTrafficControlTaskTrafficResponse>(await this.callApi(params, req, runtime), new GetTrafficControlTaskTrafficResponse({}));
+  }
+
+  /**
+   * @summary 获取流量调控任务的流量详情
+   *
+   * @param request GetTrafficControlTaskTrafficRequest
+   * @return GetTrafficControlTaskTrafficResponse
+   */
+  async getTrafficControlTaskTraffic(TrafficControlTaskId: string, request: GetTrafficControlTaskTrafficRequest): Promise<GetTrafficControlTaskTrafficResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTrafficControlTaskTrafficWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取AB Test实验指标组列表。
+   *
+   * @param request ListABMetricGroupsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListABMetricGroupsResponse
+   */
   async listABMetricGroupsWithOptions(request: ListABMetricGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListABMetricGroupsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11932,12 +15623,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListABMetricGroupsResponse>(await this.callApi(params, req, runtime), new ListABMetricGroupsResponse({}));
   }
 
+  /**
+   * @summary 获取AB Test实验指标组列表。
+   *
+   * @param request ListABMetricGroupsRequest
+   * @return ListABMetricGroupsResponse
+   */
   async listABMetricGroups(request: ListABMetricGroupsRequest): Promise<ListABMetricGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listABMetricGroupsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取AB Test实验指标列表。
+   *
+   * @param request ListABMetricsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListABMetricsResponse
+   */
   async listABMetricsWithOptions(request: ListABMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListABMetricsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11991,12 +15696,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListABMetricsResponse>(await this.callApi(params, req, runtime), new ListABMetricsResponse({}));
   }
 
+  /**
+   * @summary 获取AB Test实验指标列表。
+   *
+   * @param request ListABMetricsRequest
+   * @return ListABMetricsResponse
+   */
   async listABMetrics(request: ListABMetricsRequest): Promise<ListABMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listABMetricsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取计算任务列表。
+   *
+   * @param request ListCalculationJobsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCalculationJobsResponse
+   */
   async listCalculationJobsWithOptions(request: ListCalculationJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCalculationJobsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12038,12 +15757,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCalculationJobsResponse>(await this.callApi(params, req, runtime), new ListCalculationJobsResponse({}));
   }
 
+  /**
+   * @summary 获取计算任务列表。
+   *
+   * @param request ListCalculationJobsRequest
+   * @return ListCalculationJobsResponse
+   */
   async listCalculationJobs(request: ListCalculationJobsRequest): Promise<ListCalculationJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCalculationJobsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取人群下的所有用户。
+   *
+   * @param request ListCrowdUsersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCrowdUsersResponse
+   */
   async listCrowdUsersWithOptions(CrowdId: string, request: ListCrowdUsersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCrowdUsersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12069,12 +15802,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCrowdUsersResponse>(await this.callApi(params, req, runtime), new ListCrowdUsersResponse({}));
   }
 
+  /**
+   * @summary 获取人群下的所有用户。
+   *
+   * @param request ListCrowdUsersRequest
+   * @return ListCrowdUsersResponse
+   */
   async listCrowdUsers(CrowdId: string, request: ListCrowdUsersRequest): Promise<ListCrowdUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCrowdUsersWithOptions(CrowdId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取人群列表。
+   *
+   * @param request ListCrowdsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCrowdsResponse
+   */
   async listCrowdsWithOptions(request: ListCrowdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCrowdsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12100,12 +15847,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCrowdsResponse>(await this.callApi(params, req, runtime), new ListCrowdsResponse({}));
   }
 
+  /**
+   * @summary 获取人群列表。
+   *
+   * @param request ListCrowdsRequest
+   * @return ListCrowdsResponse
+   */
   async listCrowds(request: ListCrowdsRequest): Promise<ListCrowdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCrowdsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取实验组列表。
+   *
+   * @param request ListExperimentGroupsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExperimentGroupsResponse
+   */
   async listExperimentGroupsWithOptions(request: ListExperimentGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExperimentGroupsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12143,12 +15904,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExperimentGroupsResponse>(await this.callApi(params, req, runtime), new ListExperimentGroupsResponse({}));
   }
 
+  /**
+   * @summary 获取实验组列表。
+   *
+   * @param request ListExperimentGroupsRequest
+   * @return ListExperimentGroupsResponse
+   */
   async listExperimentGroups(request: ListExperimentGroupsRequest): Promise<ListExperimentGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listExperimentGroupsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取实验列表。
+   *
+   * @param request ListExperimentsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExperimentsResponse
+   */
   async listExperimentsWithOptions(request: ListExperimentsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExperimentsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12186,12 +15961,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExperimentsResponse>(await this.callApi(params, req, runtime), new ListExperimentsResponse({}));
   }
 
+  /**
+   * @summary 获取实验列表。
+   *
+   * @param request ListExperimentsRequest
+   * @return ListExperimentsResponse
+   */
   async listExperiments(request: ListExperimentsRequest): Promise<ListExperimentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listExperimentsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征一致性检查配置列表。
+   *
+   * @param request ListFeatureConsistencyCheckJobConfigsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFeatureConsistencyCheckJobConfigsResponse
+   */
   async listFeatureConsistencyCheckJobConfigsWithOptions(request: ListFeatureConsistencyCheckJobConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureConsistencyCheckJobConfigsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12233,12 +16022,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFeatureConsistencyCheckJobConfigsResponse>(await this.callApi(params, req, runtime), new ListFeatureConsistencyCheckJobConfigsResponse({}));
   }
 
+  /**
+   * @summary 获取特征一致性检查配置列表。
+   *
+   * @param request ListFeatureConsistencyCheckJobConfigsRequest
+   * @return ListFeatureConsistencyCheckJobConfigsResponse
+   */
   async listFeatureConsistencyCheckJobConfigs(request: ListFeatureConsistencyCheckJobConfigsRequest): Promise<ListFeatureConsistencyCheckJobConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFeatureConsistencyCheckJobConfigsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征一致性检查任务的特征报表/比对结果。
+   *
+   * @param request ListFeatureConsistencyCheckJobFeatureReportsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFeatureConsistencyCheckJobFeatureReportsResponse
+   */
   async listFeatureConsistencyCheckJobFeatureReportsWithOptions(FeatureConsistencyCheckJobId: string, request: ListFeatureConsistencyCheckJobFeatureReportsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureConsistencyCheckJobFeatureReportsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12276,12 +16079,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFeatureConsistencyCheckJobFeatureReportsResponse>(await this.callApi(params, req, runtime), new ListFeatureConsistencyCheckJobFeatureReportsResponse({}));
   }
 
+  /**
+   * @summary 获取特征一致性检查任务的特征报表/比对结果。
+   *
+   * @param request ListFeatureConsistencyCheckJobFeatureReportsRequest
+   * @return ListFeatureConsistencyCheckJobFeatureReportsResponse
+   */
   async listFeatureConsistencyCheckJobFeatureReports(FeatureConsistencyCheckJobId: string, request: ListFeatureConsistencyCheckJobFeatureReportsRequest): Promise<ListFeatureConsistencyCheckJobFeatureReportsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFeatureConsistencyCheckJobFeatureReportsWithOptions(FeatureConsistencyCheckJobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征一致性检查任务分数报表/比对结果。
+   *
+   * @param tmpReq ListFeatureConsistencyCheckJobScoreReportsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFeatureConsistencyCheckJobScoreReportsResponse
+   */
   async listFeatureConsistencyCheckJobScoreReportsWithOptions(FeatureConsistencyCheckJobId: string, tmpReq: ListFeatureConsistencyCheckJobScoreReportsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureConsistencyCheckJobScoreReportsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListFeatureConsistencyCheckJobScoreReportsShrinkRequest({ });
@@ -12317,12 +16134,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFeatureConsistencyCheckJobScoreReportsResponse>(await this.callApi(params, req, runtime), new ListFeatureConsistencyCheckJobScoreReportsResponse({}));
   }
 
+  /**
+   * @summary 获取特征一致性检查任务分数报表/比对结果。
+   *
+   * @param request ListFeatureConsistencyCheckJobScoreReportsRequest
+   * @return ListFeatureConsistencyCheckJobScoreReportsResponse
+   */
   async listFeatureConsistencyCheckJobScoreReports(FeatureConsistencyCheckJobId: string, request: ListFeatureConsistencyCheckJobScoreReportsRequest): Promise<ListFeatureConsistencyCheckJobScoreReportsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFeatureConsistencyCheckJobScoreReportsWithOptions(FeatureConsistencyCheckJobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征一致性检查任务列表。
+   *
+   * @param request ListFeatureConsistencyCheckJobsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFeatureConsistencyCheckJobsResponse
+   */
   async listFeatureConsistencyCheckJobsWithOptions(request: ListFeatureConsistencyCheckJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureConsistencyCheckJobsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12368,12 +16199,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFeatureConsistencyCheckJobsResponse>(await this.callApi(params, req, runtime), new ListFeatureConsistencyCheckJobsResponse({}));
   }
 
+  /**
+   * @summary 获取特征一致性检查任务列表。
+   *
+   * @param request ListFeatureConsistencyCheckJobsRequest
+   * @return ListFeatureConsistencyCheckJobsResponse
+   */
   async listFeatureConsistencyCheckJobs(request: ListFeatureConsistencyCheckJobsRequest): Promise<ListFeatureConsistencyCheckJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFeatureConsistencyCheckJobsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取实例下配置的资源列表。
+   *
+   * @param request ListInstanceResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceResourcesResponse
+   */
   async listInstanceResourcesWithOptions(InstanceId: string, request: ListInstanceResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12407,12 +16252,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ListInstanceResourcesResponse({}));
   }
 
+  /**
+   * @summary 获取实例下配置的资源列表。
+   *
+   * @param request ListInstanceResourcesRequest
+   * @return ListInstanceResourcesResponse
+   */
   async listInstanceResources(InstanceId: string, request: ListInstanceResourcesRequest): Promise<ListInstanceResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstanceResourcesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取推荐全链路深度定制开发平台实例信息列表。
+   *
+   * @param request ListInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
+   */
   async listInstancesWithOptions(request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12458,12 +16317,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
+  /**
+   * @summary 获取推荐全链路深度定制开发平台实例信息列表。
+   *
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
+   */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取实验室列表。
+   *
+   * @param request ListLaboratoriesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLaboratoriesResponse
+   */
   async listLaboratoriesWithOptions(request: ListLaboratoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLaboratoriesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12501,12 +16374,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLaboratoriesResponse>(await this.callApi(params, req, runtime), new ListLaboratoriesResponse({}));
   }
 
+  /**
+   * @summary 获取实验室列表。
+   *
+   * @param request ListLaboratoriesRequest
+   * @return ListLaboratoriesResponse
+   */
   async listLaboratories(request: ListLaboratoriesRequest): Promise<ListLaboratoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLaboratoriesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取层列表。
+   *
+   * @param request ListLayersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLayersResponse
+   */
   async listLayersWithOptions(request: ListLayersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12536,12 +16423,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLayersResponse>(await this.callApi(params, req, runtime), new ListLayersResponse({}));
   }
 
+  /**
+   * @summary 获取层列表。
+   *
+   * @param request ListLayersRequest
+   * @return ListLayersResponse
+   */
   async listLayers(request: ListLayersRequest): Promise<ListLayersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLayersWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取参数列表。
+   *
+   * @param request ListParamsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListParamsResponse
+   */
   async listParamsWithOptions(request: ListParamsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListParamsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12587,12 +16488,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListParamsResponse>(await this.callApi(params, req, runtime), new ListParamsResponse({}));
   }
 
+  /**
+   * @summary 获取参数列表。
+   *
+   * @param request ListParamsRequest
+   * @return ListParamsResponse
+   */
   async listParams(request: ListParamsRequest): Promise<ListParamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listParamsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取资源规则列表
+   *
+   * @param request ListResourceRulesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListResourceRulesResponse
+   */
   async listResourceRulesWithOptions(request: ListResourceRulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceRulesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12646,12 +16561,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceRulesResponse>(await this.callApi(params, req, runtime), new ListResourceRulesResponse({}));
   }
 
+  /**
+   * @summary 获取资源规则列表
+   *
+   * @param request ListResourceRulesRequest
+   * @return ListResourceRulesResponse
+   */
   async listResourceRules(request: ListResourceRulesRequest): Promise<ListResourceRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listResourceRulesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取场景列表
+   *
+   * @param request ListScenesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListScenesResponse
+   */
   async listScenesWithOptions(request: ListScenesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListScenesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12681,12 +16610,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListScenesResponse>(await this.callApi(params, req, runtime), new ListScenesResponse({}));
   }
 
+  /**
+   * @summary 获取场景列表
+   *
+   * @param request ListScenesRequest
+   * @return ListScenesResponse
+   */
   async listScenes(request: ListScenesRequest): Promise<ListScenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listScenesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取人群下的所有子人群。
+   *
+   * @param request ListSubCrowdsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSubCrowdsResponse
+   */
   async listSubCrowdsWithOptions(CrowdId: string, request: ListSubCrowdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSubCrowdsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12712,12 +16655,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSubCrowdsResponse>(await this.callApi(params, req, runtime), new ListSubCrowdsResponse({}));
   }
 
+  /**
+   * @summary 获取人群下的所有子人群。
+   *
+   * @param request ListSubCrowdsRequest
+   * @return ListSubCrowdsResponse
+   */
   async listSubCrowds(CrowdId: string, request: ListSubCrowdsRequest): Promise<ListSubCrowdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSubCrowdsWithOptions(CrowdId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取数据表列表。
+   *
+   * @param request ListTableMetasRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTableMetasResponse
+   */
   async listTableMetasWithOptions(request: ListTableMetasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTableMetasResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12763,12 +16720,192 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTableMetasResponse>(await this.callApi(params, req, runtime), new ListTableMetasResponse({}));
   }
 
+  /**
+   * @summary 获取数据表列表。
+   *
+   * @param request ListTableMetasRequest
+   * @return ListTableMetasResponse
+   */
   async listTableMetas(request: ListTableMetasRequest): Promise<ListTableMetasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTableMetasWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取流量调控任务流量变更的历史列表
+   *
+   * @param request ListTrafficControlTargetTrafficHistoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTrafficControlTargetTrafficHistoryResponse
+   */
+  async listTrafficControlTargetTrafficHistoryWithOptions(TrafficControlTargetId: string, request: ListTrafficControlTargetTrafficHistoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTrafficControlTargetTrafficHistoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.environment)) {
+      query["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.experimentGroupId)) {
+      query["ExperimentGroupId"] = request.experimentGroupId;
+    }
+
+    if (!Util.isUnset(request.experimentId)) {
+      query["ExperimentId"] = request.experimentId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.itemId)) {
+      query["ItemId"] = request.itemId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTrafficControlTargetTrafficHistory",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltargets/${OpenApiUtil.getEncodeParam(TrafficControlTargetId)}/action/traffichistory`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTrafficControlTargetTrafficHistoryResponse>(await this.callApi(params, req, runtime), new ListTrafficControlTargetTrafficHistoryResponse({}));
+  }
+
+  /**
+   * @summary 获取流量调控任务流量变更的历史列表
+   *
+   * @param request ListTrafficControlTargetTrafficHistoryRequest
+   * @return ListTrafficControlTargetTrafficHistoryResponse
+   */
+  async listTrafficControlTargetTrafficHistory(TrafficControlTargetId: string, request: ListTrafficControlTargetTrafficHistoryRequest): Promise<ListTrafficControlTargetTrafficHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTrafficControlTargetTrafficHistoryWithOptions(TrafficControlTargetId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取流量调控列表
+   *
+   * @param request ListTrafficControlTasksRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTrafficControlTasksResponse
+   */
+  async listTrafficControlTasksWithOptions(request: ListTrafficControlTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTrafficControlTasksResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.controlTargetFilter)) {
+      query["ControlTargetFilter"] = request.controlTargetFilter;
+    }
+
+    if (!Util.isUnset(request.environment)) {
+      query["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.trafficControlTaskId)) {
+      query["TrafficControlTaskId"] = request.trafficControlTaskId;
+    }
+
+    if (!Util.isUnset(request.version)) {
+      query["Version"] = request.version;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTrafficControlTasks",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTrafficControlTasksResponse>(await this.callApi(params, req, runtime), new ListTrafficControlTasksResponse({}));
+  }
+
+  /**
+   * @summary 获取流量调控列表
+   *
+   * @param request ListTrafficControlTasksRequest
+   * @return ListTrafficControlTasksResponse
+   */
+  async listTrafficControlTasks(request: ListTrafficControlTasksRequest): Promise<ListTrafficControlTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTrafficControlTasksWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 上线实验。
+   *
+   * @param request OfflineExperimentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OfflineExperimentResponse
+   */
   async offlineExperimentWithOptions(ExperimentId: string, request: OfflineExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OfflineExperimentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12794,12 +16931,26 @@ export default class Client extends OpenApi {
     return $tea.cast<OfflineExperimentResponse>(await this.callApi(params, req, runtime), new OfflineExperimentResponse({}));
   }
 
+  /**
+   * @summary 上线实验。
+   *
+   * @param request OfflineExperimentRequest
+   * @return OfflineExperimentResponse
+   */
   async offlineExperiment(ExperimentId: string, request: OfflineExperimentRequest): Promise<OfflineExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.offlineExperimentWithOptions(ExperimentId, request, headers, runtime);
   }
 
+  /**
+   * @summary 下线实验组。
+   *
+   * @param request OfflineExperimentGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OfflineExperimentGroupResponse
+   */
   async offlineExperimentGroupWithOptions(ExperimentGroupId: string, request: OfflineExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OfflineExperimentGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12825,12 +16976,26 @@ export default class Client extends OpenApi {
     return $tea.cast<OfflineExperimentGroupResponse>(await this.callApi(params, req, runtime), new OfflineExperimentGroupResponse({}));
   }
 
+  /**
+   * @summary 下线实验组。
+   *
+   * @param request OfflineExperimentGroupRequest
+   * @return OfflineExperimentGroupResponse
+   */
   async offlineExperimentGroup(ExperimentGroupId: string, request: OfflineExperimentGroupRequest): Promise<OfflineExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.offlineExperimentGroupWithOptions(ExperimentGroupId, request, headers, runtime);
   }
 
+  /**
+   * @summary 下线实验室。
+   *
+   * @param request OfflineLaboratoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OfflineLaboratoryResponse
+   */
   async offlineLaboratoryWithOptions(LaboratoryId: string, request: OfflineLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OfflineLaboratoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12856,12 +17021,26 @@ export default class Client extends OpenApi {
     return $tea.cast<OfflineLaboratoryResponse>(await this.callApi(params, req, runtime), new OfflineLaboratoryResponse({}));
   }
 
+  /**
+   * @summary 下线实验室。
+   *
+   * @param request OfflineLaboratoryRequest
+   * @return OfflineLaboratoryResponse
+   */
   async offlineLaboratory(LaboratoryId: string, request: OfflineLaboratoryRequest): Promise<OfflineLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.offlineLaboratoryWithOptions(LaboratoryId, request, headers, runtime);
   }
 
+  /**
+   * @summary 上线实验
+   *
+   * @param request OnlineExperimentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OnlineExperimentResponse
+   */
   async onlineExperimentWithOptions(ExperimentId: string, request: OnlineExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OnlineExperimentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12887,12 +17066,26 @@ export default class Client extends OpenApi {
     return $tea.cast<OnlineExperimentResponse>(await this.callApi(params, req, runtime), new OnlineExperimentResponse({}));
   }
 
+  /**
+   * @summary 上线实验
+   *
+   * @param request OnlineExperimentRequest
+   * @return OnlineExperimentResponse
+   */
   async onlineExperiment(ExperimentId: string, request: OnlineExperimentRequest): Promise<OnlineExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.onlineExperimentWithOptions(ExperimentId, request, headers, runtime);
   }
 
+  /**
+   * @summary 上线实验组。
+   *
+   * @param request OnlineExperimentGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OnlineExperimentGroupResponse
+   */
   async onlineExperimentGroupWithOptions(ExperimentGroupId: string, request: OnlineExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OnlineExperimentGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12918,12 +17111,26 @@ export default class Client extends OpenApi {
     return $tea.cast<OnlineExperimentGroupResponse>(await this.callApi(params, req, runtime), new OnlineExperimentGroupResponse({}));
   }
 
+  /**
+   * @summary 上线实验组。
+   *
+   * @param request OnlineExperimentGroupRequest
+   * @return OnlineExperimentGroupResponse
+   */
   async onlineExperimentGroup(ExperimentGroupId: string, request: OnlineExperimentGroupRequest): Promise<OnlineExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.onlineExperimentGroupWithOptions(ExperimentGroupId, request, headers, runtime);
   }
 
+  /**
+   * @summary 上线实验室。
+   *
+   * @param request OnlineLaboratoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OnlineLaboratoryResponse
+   */
   async onlineLaboratoryWithOptions(LaboratoryId: string, request: OnlineLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OnlineLaboratoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12949,12 +17156,26 @@ export default class Client extends OpenApi {
     return $tea.cast<OnlineLaboratoryResponse>(await this.callApi(params, req, runtime), new OnlineLaboratoryResponse({}));
   }
 
+  /**
+   * @summary 上线实验室。
+   *
+   * @param request OnlineLaboratoryRequest
+   * @return OnlineLaboratoryResponse
+   */
   async onlineLaboratory(LaboratoryId: string, request: OnlineLaboratoryRequest): Promise<OnlineLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.onlineLaboratoryWithOptions(LaboratoryId, request, headers, runtime);
   }
 
+  /**
+   * @summary 推全。
+   *
+   * @param request PushAllExperimentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushAllExperimentResponse
+   */
   async pushAllExperimentWithOptions(ExperimentId: string, request: PushAllExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PushAllExperimentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12980,12 +17201,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PushAllExperimentResponse>(await this.callApi(params, req, runtime), new PushAllExperimentResponse({}));
   }
 
+  /**
+   * @summary 推全。
+   *
+   * @param request PushAllExperimentRequest
+   * @return PushAllExperimentResponse
+   */
   async pushAllExperiment(ExperimentId: string, request: PushAllExperimentRequest): Promise<PushAllExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.pushAllExperimentWithOptions(ExperimentId, request, headers, runtime);
   }
 
+  /**
+   * @summary 推送指标到指定资源规则
+   *
+   * @param tmpReq PushResourceRuleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushResourceRuleResponse
+   */
   async pushResourceRuleWithOptions(ResourceRuleId: string, tmpReq: PushResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PushResourceRuleResponse> {
     Util.validateModel(tmpReq);
     let request = new PushResourceRuleShrinkRequest({ });
@@ -13021,12 +17256,75 @@ export default class Client extends OpenApi {
     return $tea.cast<PushResourceRuleResponse>(await this.callApi(params, req, runtime), new PushResourceRuleResponse({}));
   }
 
+  /**
+   * @summary 推送指标到指定资源规则
+   *
+   * @param request PushResourceRuleRequest
+   * @return PushResourceRuleResponse
+   */
   async pushResourceRule(ResourceRuleId: string, request: PushResourceRuleRequest): Promise<PushResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.pushResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
   }
 
+  /**
+   * @summary 发布流量调控任务
+   *
+   * @param request ReleaseTrafficControlTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseTrafficControlTaskResponse
+   */
+  async releaseTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: ReleaseTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReleaseTrafficControlTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.environment)) {
+      body["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseTrafficControlTask",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/release`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseTrafficControlTaskResponse>(await this.callApi(params, req, runtime), new ReleaseTrafficControlTaskResponse({}));
+  }
+
+  /**
+   * @summary 发布流量调控任务
+   *
+   * @param request ReleaseTrafficControlTaskRequest
+   * @return ReleaseTrafficControlTaskResponse
+   */
+  async releaseTrafficControlTask(TrafficControlTaskId: string, request: ReleaseTrafficControlTaskRequest): Promise<ReleaseTrafficControlTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.releaseTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 对指标组进行报表。
+   *
+   * @param request ReportABMetricGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReportABMetricGroupResponse
+   */
   async reportABMetricGroupWithOptions(ABMetricGroupId: string, request: ReportABMetricGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReportABMetricGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13088,12 +17386,277 @@ export default class Client extends OpenApi {
     return $tea.cast<ReportABMetricGroupResponse>(await this.callApi(params, req, runtime), new ReportABMetricGroupResponse({}));
   }
 
+  /**
+   * @summary 对指标组进行报表。
+   *
+   * @param request ReportABMetricGroupRequest
+   * @return ReportABMetricGroupResponse
+   */
   async reportABMetricGroup(ABMetricGroupId: string, request: ReportABMetricGroupRequest): Promise<ReportABMetricGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.reportABMetricGroupWithOptions(ABMetricGroupId, request, headers, runtime);
   }
 
+  /**
+   * @summary 拆分流量调控目标
+   *
+   * @param request SplitTrafficControlTargetRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SplitTrafficControlTargetResponse
+   */
+  async splitTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: SplitTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SplitTrafficControlTargetResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.environment)) {
+      body["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.setValues)) {
+      body["SetValues"] = request.setValues;
+    }
+
+    if (!Util.isUnset(request.timePoints)) {
+      body["TimePoints"] = request.timePoints;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SplitTrafficControlTarget",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltargets/${OpenApiUtil.getEncodeParam(TrafficControlTargetId)}/action/split`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SplitTrafficControlTargetResponse>(await this.callApi(params, req, runtime), new SplitTrafficControlTargetResponse({}));
+  }
+
+  /**
+   * @summary 拆分流量调控目标
+   *
+   * @param request SplitTrafficControlTargetRequest
+   * @return SplitTrafficControlTargetResponse
+   */
+  async splitTrafficControlTarget(TrafficControlTargetId: string, request: SplitTrafficControlTargetRequest): Promise<SplitTrafficControlTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.splitTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 开启流量调控目标
+   *
+   * @param request StartTrafficControlTargetRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartTrafficControlTargetResponse
+   */
+  async startTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: StartTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartTrafficControlTargetResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartTrafficControlTarget",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltargets/${OpenApiUtil.getEncodeParam(TrafficControlTargetId)}/action/start`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartTrafficControlTargetResponse>(await this.callApi(params, req, runtime), new StartTrafficControlTargetResponse({}));
+  }
+
+  /**
+   * @summary 开启流量调控目标
+   *
+   * @param request StartTrafficControlTargetRequest
+   * @return StartTrafficControlTargetResponse
+   */
+  async startTrafficControlTarget(TrafficControlTargetId: string, request: StartTrafficControlTargetRequest): Promise<StartTrafficControlTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 开启流量调控任务
+   *
+   * @param request StartTrafficControlTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartTrafficControlTaskResponse
+   */
+  async startTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: StartTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartTrafficControlTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.environment)) {
+      body["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartTrafficControlTask",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/start`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartTrafficControlTaskResponse>(await this.callApi(params, req, runtime), new StartTrafficControlTaskResponse({}));
+  }
+
+  /**
+   * @summary 开启流量调控任务
+   *
+   * @param request StartTrafficControlTaskRequest
+   * @return StartTrafficControlTaskResponse
+   */
+  async startTrafficControlTask(TrafficControlTaskId: string, request: StartTrafficControlTaskRequest): Promise<StartTrafficControlTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 停止流量调控目标
+   *
+   * @param request StopTrafficControlTargetRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopTrafficControlTargetResponse
+   */
+  async stopTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: StopTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopTrafficControlTargetResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopTrafficControlTarget",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltargets/${OpenApiUtil.getEncodeParam(TrafficControlTargetId)}/action/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopTrafficControlTargetResponse>(await this.callApi(params, req, runtime), new StopTrafficControlTargetResponse({}));
+  }
+
+  /**
+   * @summary 停止流量调控目标
+   *
+   * @param request StopTrafficControlTargetRequest
+   * @return StopTrafficControlTargetResponse
+   */
+  async stopTrafficControlTarget(TrafficControlTargetId: string, request: StopTrafficControlTargetRequest): Promise<StopTrafficControlTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 停止流量调控任务
+   *
+   * @param request StopTrafficControlTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopTrafficControlTaskResponse
+   */
+  async stopTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: StopTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopTrafficControlTaskResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.environment)) {
+      body["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopTrafficControlTask",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopTrafficControlTaskResponse>(await this.callApi(params, req, runtime), new StopTrafficControlTaskResponse({}));
+  }
+
+  /**
+   * @summary 停止流量调控任务
+   *
+   * @param request StopTrafficControlTaskRequest
+   * @return StopTrafficControlTaskResponse
+   */
+  async stopTrafficControlTask(TrafficControlTaskId: string, request: StopTrafficControlTaskRequest): Promise<StopTrafficControlTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 同步特征一致性检测任务重放日志。
+   *
+   * @param request SyncFeatureConsistencyCheckJobReplayLogRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SyncFeatureConsistencyCheckJobReplayLogResponse
+   */
   async syncFeatureConsistencyCheckJobReplayLogWithOptions(request: SyncFeatureConsistencyCheckJobReplayLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SyncFeatureConsistencyCheckJobReplayLogResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13155,12 +17718,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SyncFeatureConsistencyCheckJobReplayLogResponse>(await this.callApi(params, req, runtime), new SyncFeatureConsistencyCheckJobReplayLogResponse({}));
   }
 
+  /**
+   * @summary 同步特征一致性检测任务重放日志。
+   *
+   * @param request SyncFeatureConsistencyCheckJobReplayLogRequest
+   * @return SyncFeatureConsistencyCheckJobReplayLogResponse
+   */
   async syncFeatureConsistencyCheckJobReplayLog(request: SyncFeatureConsistencyCheckJobReplayLogRequest): Promise<SyncFeatureConsistencyCheckJobReplayLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.syncFeatureConsistencyCheckJobReplayLogWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 取消指定特征一致性检查正在运行中的任务。
+   *
+   * @param request TerminateFeatureConsistencyCheckJobRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TerminateFeatureConsistencyCheckJobResponse
+   */
   async terminateFeatureConsistencyCheckJobWithOptions(FeatureConsistencyCheckJobId: string, request: TerminateFeatureConsistencyCheckJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TerminateFeatureConsistencyCheckJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13186,12 +17763,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TerminateFeatureConsistencyCheckJobResponse>(await this.callApi(params, req, runtime), new TerminateFeatureConsistencyCheckJobResponse({}));
   }
 
+  /**
+   * @summary 取消指定特征一致性检查正在运行中的任务。
+   *
+   * @param request TerminateFeatureConsistencyCheckJobRequest
+   * @return TerminateFeatureConsistencyCheckJobResponse
+   */
   async terminateFeatureConsistencyCheckJob(FeatureConsistencyCheckJobId: string, request: TerminateFeatureConsistencyCheckJobRequest): Promise<TerminateFeatureConsistencyCheckJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.terminateFeatureConsistencyCheckJobWithOptions(FeatureConsistencyCheckJobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新AB Test实验指标。
+   *
+   * @param request UpdateABMetricRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateABMetricResponse
+   */
   async updateABMetricWithOptions(ABMetricId: string, request: UpdateABMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateABMetricResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13265,12 +17856,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateABMetricResponse>(await this.callApi(params, req, runtime), new UpdateABMetricResponse({}));
   }
 
+  /**
+   * @summary 更新AB Test实验指标。
+   *
+   * @param request UpdateABMetricRequest
+   * @return UpdateABMetricResponse
+   */
   async updateABMetric(ABMetricId: string, request: UpdateABMetricRequest): Promise<UpdateABMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateABMetricWithOptions(ABMetricId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新AB test实验指标组。
+   *
+   * @param request UpdateABMetricGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateABMetricGroupResponse
+   */
   async updateABMetricGroupWithOptions(ABMetricGroupId: string, request: UpdateABMetricGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateABMetricGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13316,12 +17921,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateABMetricGroupResponse>(await this.callApi(params, req, runtime), new UpdateABMetricGroupResponse({}));
   }
 
+  /**
+   * @summary 更新AB test实验指标组。
+   *
+   * @param request UpdateABMetricGroupRequest
+   * @return UpdateABMetricGroupResponse
+   */
   async updateABMetricGroup(ABMetricGroupId: string, request: UpdateABMetricGroupRequest): Promise<UpdateABMetricGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateABMetricGroupWithOptions(ABMetricGroupId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新指定人群。
+   *
+   * @param request UpdateCrowdRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCrowdResponse
+   */
   async updateCrowdWithOptions(CrowdId: string, request: UpdateCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCrowdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13355,12 +17974,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCrowdResponse>(await this.callApi(params, req, runtime), new UpdateCrowdResponse({}));
   }
 
+  /**
+   * @summary 更新指定人群。
+   *
+   * @param request UpdateCrowdRequest
+   * @return UpdateCrowdResponse
+   */
   async updateCrowd(CrowdId: string, request: UpdateCrowdRequest): Promise<UpdateCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCrowdWithOptions(CrowdId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新实验。
+   *
+   * @param request UpdateExperimentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateExperimentResponse
+   */
   async updateExperimentWithOptions(ExperimentId: string, request: UpdateExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateExperimentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13414,12 +18047,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateExperimentResponse>(await this.callApi(params, req, runtime), new UpdateExperimentResponse({}));
   }
 
+  /**
+   * @summary 更新实验。
+   *
+   * @param request UpdateExperimentRequest
+   * @return UpdateExperimentResponse
+   */
   async updateExperiment(ExperimentId: string, request: UpdateExperimentRequest): Promise<UpdateExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateExperimentWithOptions(ExperimentId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新指定实验组。
+   *
+   * @param request UpdateExperimentGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateExperimentGroupResponse
+   */
   async updateExperimentGroupWithOptions(ExperimentGroupId: string, request: UpdateExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateExperimentGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13501,12 +18148,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateExperimentGroupResponse>(await this.callApi(params, req, runtime), new UpdateExperimentGroupResponse({}));
   }
 
+  /**
+   * @summary 更新指定实验组。
+   *
+   * @param request UpdateExperimentGroupRequest
+   * @return UpdateExperimentGroupResponse
+   */
   async updateExperimentGroup(ExperimentGroupId: string, request: UpdateExperimentGroupRequest): Promise<UpdateExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateExperimentGroupWithOptions(ExperimentGroupId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新特征一致性检查配置信息。
+   *
+   * @param request UpdateFeatureConsistencyCheckJobConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFeatureConsistencyCheckJobConfigResponse
+   */
   async updateFeatureConsistencyCheckJobConfigWithOptions(FeatureConsistencyCheckJobConfigId: string, request: UpdateFeatureConsistencyCheckJobConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFeatureConsistencyCheckJobConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13656,12 +18317,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFeatureConsistencyCheckJobConfigResponse>(await this.callApi(params, req, runtime), new UpdateFeatureConsistencyCheckJobConfigResponse({}));
   }
 
+  /**
+   * @summary 更新特征一致性检查配置信息。
+   *
+   * @param request UpdateFeatureConsistencyCheckJobConfigRequest
+   * @return UpdateFeatureConsistencyCheckJobConfigResponse
+   */
   async updateFeatureConsistencyCheckJobConfig(FeatureConsistencyCheckJobConfigId: string, request: UpdateFeatureConsistencyCheckJobConfigRequest): Promise<UpdateFeatureConsistencyCheckJobConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateFeatureConsistencyCheckJobConfigWithOptions(FeatureConsistencyCheckJobConfigId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新指定实例下指定资源的信息。
+   *
+   * @param request UpdateInstanceResourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceResourceResponse
+   */
   async updateInstanceResourceWithOptions(InstanceId: string, ResourceId: string, request: UpdateInstanceResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13691,12 +18366,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceResourceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResourceResponse({}));
   }
 
+  /**
+   * @summary 更新指定实例下指定资源的信息。
+   *
+   * @param request UpdateInstanceResourceRequest
+   * @return UpdateInstanceResourceResponse
+   */
   async updateInstanceResource(InstanceId: string, ResourceId: string, request: UpdateInstanceResourceRequest): Promise<UpdateInstanceResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceResourceWithOptions(InstanceId, ResourceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新实验室。
+   *
+   * @param request UpdateLaboratoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLaboratoryResponse
+   */
   async updateLaboratoryWithOptions(LaboratoryId: string, request: UpdateLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLaboratoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13762,12 +18451,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLaboratoryResponse>(await this.callApi(params, req, runtime), new UpdateLaboratoryResponse({}));
   }
 
+  /**
+   * @summary 更新实验室。
+   *
+   * @param request UpdateLaboratoryRequest
+   * @return UpdateLaboratoryResponse
+   */
   async updateLaboratory(LaboratoryId: string, request: UpdateLaboratoryRequest): Promise<UpdateLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateLaboratoryWithOptions(LaboratoryId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新层。
+   *
+   * @param request UpdateLayerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLayerResponse
+   */
   async updateLayerWithOptions(LayerId: string, request: UpdateLayerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLayerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13801,12 +18504,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLayerResponse>(await this.callApi(params, req, runtime), new UpdateLayerResponse({}));
   }
 
+  /**
+   * @summary 更新层。
+   *
+   * @param request UpdateLayerRequest
+   * @return UpdateLayerResponse
+   */
   async updateLayer(LayerId: string, request: UpdateLayerRequest): Promise<UpdateLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateLayerWithOptions(LayerId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新参数。
+   *
+   * @param request UpdateParamRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateParamResponse
+   */
   async updateParamWithOptions(ParamId: string, request: UpdateParamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateParamResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13836,12 +18553,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateParamResponse>(await this.callApi(params, req, runtime), new UpdateParamResponse({}));
   }
 
+  /**
+   * @summary 更新参数。
+   *
+   * @param request UpdateParamRequest
+   * @return UpdateParamResponse
+   */
   async updateParam(ParamId: string, request: UpdateParamRequest): Promise<UpdateParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateParamWithOptions(ParamId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取资源规则列表
+   *
+   * @param request UpdateResourceRuleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateResourceRuleResponse
+   */
   async updateResourceRuleWithOptions(ResourceRuleId: string, request: UpdateResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13891,12 +18622,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateResourceRuleResponse>(await this.callApi(params, req, runtime), new UpdateResourceRuleResponse({}));
   }
 
+  /**
+   * @summary 获取资源规则列表
+   *
+   * @param request UpdateResourceRuleRequest
+   * @return UpdateResourceRuleResponse
+   */
   async updateResourceRule(ResourceRuleId: string, request: UpdateResourceRuleRequest): Promise<UpdateResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新资源规则条目
+   *
+   * @param request UpdateResourceRuleItemRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateResourceRuleItemResponse
+   */
   async updateResourceRuleItemWithOptions(ResourceRuleId: string, ResourceRuleItemId: string, request: UpdateResourceRuleItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceRuleItemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13942,12 +18687,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateResourceRuleItemResponse>(await this.callApi(params, req, runtime), new UpdateResourceRuleItemResponse({}));
   }
 
+  /**
+   * @summary 更新资源规则条目
+   *
+   * @param request UpdateResourceRuleItemRequest
+   * @return UpdateResourceRuleItemResponse
+   */
   async updateResourceRuleItem(ResourceRuleId: string, ResourceRuleItemId: string, request: UpdateResourceRuleItemRequest): Promise<UpdateResourceRuleItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourceRuleItemWithOptions(ResourceRuleId, ResourceRuleItemId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新场景
+   *
+   * @param request UpdateSceneRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSceneResponse
+   */
   async updateSceneWithOptions(SceneId: string, request: UpdateSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSceneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13985,12 +18744,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSceneResponse>(await this.callApi(params, req, runtime), new UpdateSceneResponse({}));
   }
 
+  /**
+   * @summary 更新场景
+   *
+   * @param request UpdateSceneRequest
+   * @return UpdateSceneResponse
+   */
   async updateScene(SceneId: string, request: UpdateSceneRequest): Promise<UpdateSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateSceneWithOptions(SceneId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取数据表详细信息。
+   *
+   * @param request UpdateTableMetaRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTableMetaResponse
+   */
   async updateTableMetaWithOptions(TableMetaId: string, request: UpdateTableMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTableMetaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14040,12 +18813,317 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTableMetaResponse>(await this.callApi(params, req, runtime), new UpdateTableMetaResponse({}));
   }
 
+  /**
+   * @summary 获取数据表详细信息。
+   *
+   * @param request UpdateTableMetaRequest
+   * @return UpdateTableMetaResponse
+   */
   async updateTableMeta(TableMetaId: string, request: UpdateTableMetaRequest): Promise<UpdateTableMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTableMetaWithOptions(TableMetaId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新流量调控目标
+   *
+   * @param request UpdateTrafficControlTargetRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTrafficControlTargetResponse
+   */
+  async updateTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: UpdateTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficControlTargetResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.newParam3)) {
+      query["new-param-3"] = request.newParam3;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.event)) {
+      body["Event"] = request.event;
+    }
+
+    if (!Util.isUnset(request.itemConditionArray)) {
+      body["ItemConditionArray"] = request.itemConditionArray;
+    }
+
+    if (!Util.isUnset(request.itemConditionExpress)) {
+      body["ItemConditionExpress"] = request.itemConditionExpress;
+    }
+
+    if (!Util.isUnset(request.itemConditionType)) {
+      body["ItemConditionType"] = request.itemConditionType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.newProductRegulation)) {
+      body["NewProductRegulation"] = request.newProductRegulation;
+    }
+
+    if (!Util.isUnset(request.recallName)) {
+      body["RecallName"] = request.recallName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.statisPeriod)) {
+      body["StatisPeriod"] = request.statisPeriod;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.toleranceValue)) {
+      body["ToleranceValue"] = request.toleranceValue;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      body["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTrafficControlTarget",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltargets/${OpenApiUtil.getEncodeParam(TrafficControlTargetId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTrafficControlTargetResponse>(await this.callApi(params, req, runtime), new UpdateTrafficControlTargetResponse({}));
+  }
+
+  /**
+   * @summary 更新流量调控目标
+   *
+   * @param request UpdateTrafficControlTargetRequest
+   * @return UpdateTrafficControlTargetResponse
+   */
+  async updateTrafficControlTarget(TrafficControlTargetId: string, request: UpdateTrafficControlTargetRequest): Promise<UpdateTrafficControlTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 更新流量调控任务
+   *
+   * @param request UpdateTrafficControlTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTrafficControlTaskResponse
+   */
+  async updateTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: UpdateTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficControlTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.behaviorTableMetaId)) {
+      body["BehaviorTableMetaId"] = request.behaviorTableMetaId;
+    }
+
+    if (!Util.isUnset(request.controlGranularity)) {
+      body["ControlGranularity"] = request.controlGranularity;
+    }
+
+    if (!Util.isUnset(request.controlLogic)) {
+      body["ControlLogic"] = request.controlLogic;
+    }
+
+    if (!Util.isUnset(request.controlType)) {
+      body["ControlType"] = request.controlType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.executionTime)) {
+      body["ExecutionTime"] = request.executionTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.itemConditionArray)) {
+      body["ItemConditionArray"] = request.itemConditionArray;
+    }
+
+    if (!Util.isUnset(request.itemConditionExpress)) {
+      body["ItemConditionExpress"] = request.itemConditionExpress;
+    }
+
+    if (!Util.isUnset(request.itemConditionType)) {
+      body["ItemConditionType"] = request.itemConditionType;
+    }
+
+    if (!Util.isUnset(request.itemTableMetaId)) {
+      body["ItemTableMetaId"] = request.itemTableMetaId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.statisBaeaviorConditionArray)) {
+      body["StatisBaeaviorConditionArray"] = request.statisBaeaviorConditionArray;
+    }
+
+    if (!Util.isUnset(request.statisBehaviorConditionExpress)) {
+      body["StatisBehaviorConditionExpress"] = request.statisBehaviorConditionExpress;
+    }
+
+    if (!Util.isUnset(request.statisBehaviorConditionType)) {
+      body["StatisBehaviorConditionType"] = request.statisBehaviorConditionType;
+    }
+
+    if (!Util.isUnset(request.trafficControlTargets)) {
+      body["TrafficControlTargets"] = request.trafficControlTargets;
+    }
+
+    if (!Util.isUnset(request.userConditionArray)) {
+      body["UserConditionArray"] = request.userConditionArray;
+    }
+
+    if (!Util.isUnset(request.userConditionExpress)) {
+      body["UserConditionExpress"] = request.userConditionExpress;
+    }
+
+    if (!Util.isUnset(request.userConditionType)) {
+      body["UserConditionType"] = request.userConditionType;
+    }
+
+    if (!Util.isUnset(request.userTableMetaId)) {
+      body["UserTableMetaId"] = request.userTableMetaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTrafficControlTask",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTrafficControlTaskResponse>(await this.callApi(params, req, runtime), new UpdateTrafficControlTaskResponse({}));
+  }
+
+  /**
+   * @summary 更新流量调控任务
+   *
+   * @param request UpdateTrafficControlTaskRequest
+   * @return UpdateTrafficControlTaskResponse
+   */
+  async updateTrafficControlTask(TrafficControlTaskId: string, request: UpdateTrafficControlTaskRequest): Promise<UpdateTrafficControlTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 更新流量调控任务的流量参数
+   *
+   * @param request UpdateTrafficControlTaskTrafficRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTrafficControlTaskTrafficResponse
+   */
+  async updateTrafficControlTaskTrafficWithOptions(TrafficControlTaskId: string, request: UpdateTrafficControlTaskTrafficRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficControlTaskTrafficResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.newParam3)) {
+      query["new-param-3"] = request.newParam3;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.environment)) {
+      body["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.traffics)) {
+      body["Traffics"] = request.traffics;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTrafficControlTaskTraffic",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/traffic`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTrafficControlTaskTrafficResponse>(await this.callApi(params, req, runtime), new UpdateTrafficControlTaskTrafficResponse({}));
+  }
+
+  /**
+   * @summary 更新流量调控任务的流量参数
+   *
+   * @param request UpdateTrafficControlTaskTrafficRequest
+   * @return UpdateTrafficControlTaskTrafficResponse
+   */
+  async updateTrafficControlTaskTraffic(TrafficControlTaskId: string, request: UpdateTrafficControlTaskTrafficRequest): Promise<UpdateTrafficControlTaskTrafficResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTrafficControlTaskTrafficWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 上传数据
+   *
+   * @param request UploadRecommendationDataRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadRecommendationDataResponse
+   */
   async uploadRecommendationDataWithOptions(request: UploadRecommendationDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UploadRecommendationDataResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -14081,6 +19159,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadRecommendationDataResponse>(await this.callApi(params, req, runtime), new UploadRecommendationDataResponse({}));
   }
 
+  /**
+   * @summary 上传数据
+   *
+   * @param request UploadRecommendationDataRequest
+   * @return UploadRecommendationDataResponse
+   */
   async uploadRecommendationData(request: UploadRecommendationDataRequest): Promise<UploadRecommendationDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
