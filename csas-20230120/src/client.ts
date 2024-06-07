@@ -1255,6 +1255,69 @@ export class DeleteRegistrationPoliciesResponse extends $tea.Model {
   }
 }
 
+export class DeleteUserDevicesRequest extends $tea.Model {
+  deviceTags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      deviceTags: 'DeviceTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceTags: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserDevicesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserDevicesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUserDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteUserDevicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteUserGroupRequest extends $tea.Model {
   userGroupId?: string;
   static names(): { [key: string]: string } {
@@ -1398,6 +1461,114 @@ export class DetachApplication2ConnectorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetachApplication2ConnectorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportUserDevicesRequest extends $tea.Model {
+  appStatuses?: string[];
+  department?: string;
+  deviceBelong?: string;
+  deviceStatuses?: string[];
+  deviceTags?: string[];
+  deviceTypes?: string[];
+  dlpStatuses?: string[];
+  hostname?: string;
+  iaStatuses?: string[];
+  mac?: string;
+  nacStatuses?: string[];
+  paStatuses?: string[];
+  saseUserId?: string;
+  sharingStatus?: boolean;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appStatuses: 'AppStatuses',
+      department: 'Department',
+      deviceBelong: 'DeviceBelong',
+      deviceStatuses: 'DeviceStatuses',
+      deviceTags: 'DeviceTags',
+      deviceTypes: 'DeviceTypes',
+      dlpStatuses: 'DlpStatuses',
+      hostname: 'Hostname',
+      iaStatuses: 'IaStatuses',
+      mac: 'Mac',
+      nacStatuses: 'NacStatuses',
+      paStatuses: 'PaStatuses',
+      saseUserId: 'SaseUserId',
+      sharingStatus: 'SharingStatus',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appStatuses: { 'type': 'array', 'itemType': 'string' },
+      department: 'string',
+      deviceBelong: 'string',
+      deviceStatuses: { 'type': 'array', 'itemType': 'string' },
+      deviceTags: { 'type': 'array', 'itemType': 'string' },
+      deviceTypes: { 'type': 'array', 'itemType': 'string' },
+      dlpStatuses: { 'type': 'array', 'itemType': 'string' },
+      hostname: 'string',
+      iaStatuses: { 'type': 'array', 'itemType': 'string' },
+      mac: 'string',
+      nacStatuses: { 'type': 'array', 'itemType': 'string' },
+      paStatuses: { 'type': 'array', 'itemType': 'string' },
+      saseUserId: 'string',
+      sharingStatus: 'boolean',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportUserDevicesResponseBody extends $tea.Model {
+  requestId?: string;
+  signedUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      signedUrl: 'SignedUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      signedUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportUserDevicesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportUserDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportUserDevicesResponseBody,
     };
   }
 
@@ -9409,6 +9580,53 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 批量删除用户非在线设备
+   *
+   * @param request DeleteUserDevicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserDevicesResponse
+   */
+  async deleteUserDevicesWithOptions(request: DeleteUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserDevicesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceTags)) {
+      bodyFlat["DeviceTags"] = request.deviceTags;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteUserDevices",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteUserDevicesResponse>(await this.callApi(params, req, runtime), new DeleteUserDevicesResponse({}));
+  }
+
+  /**
+   * @summary 批量删除用户非在线设备
+   *
+   * @param request DeleteUserDevicesRequest
+   * @return DeleteUserDevicesResponse
+   */
+  async deleteUserDevices(request: DeleteUserDevicesRequest): Promise<DeleteUserDevicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteUserDevicesWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 删除用户组
    *
    * @param request DeleteUserGroupRequest
@@ -9500,6 +9718,109 @@ export default class Client extends OpenApi {
   async detachApplication2Connector(request: DetachApplication2ConnectorRequest): Promise<DetachApplication2ConnectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachApplication2ConnectorWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 批量查询用户设备列表
+   *
+   * @param request ExportUserDevicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportUserDevicesResponse
+   */
+  async exportUserDevicesWithOptions(request: ExportUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ExportUserDevicesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appStatuses)) {
+      bodyFlat["AppStatuses"] = request.appStatuses;
+    }
+
+    if (!Util.isUnset(request.department)) {
+      body["Department"] = request.department;
+    }
+
+    if (!Util.isUnset(request.deviceBelong)) {
+      body["DeviceBelong"] = request.deviceBelong;
+    }
+
+    if (!Util.isUnset(request.deviceStatuses)) {
+      bodyFlat["DeviceStatuses"] = request.deviceStatuses;
+    }
+
+    if (!Util.isUnset(request.deviceTags)) {
+      bodyFlat["DeviceTags"] = request.deviceTags;
+    }
+
+    if (!Util.isUnset(request.deviceTypes)) {
+      bodyFlat["DeviceTypes"] = request.deviceTypes;
+    }
+
+    if (!Util.isUnset(request.dlpStatuses)) {
+      bodyFlat["DlpStatuses"] = request.dlpStatuses;
+    }
+
+    if (!Util.isUnset(request.hostname)) {
+      body["Hostname"] = request.hostname;
+    }
+
+    if (!Util.isUnset(request.iaStatuses)) {
+      bodyFlat["IaStatuses"] = request.iaStatuses;
+    }
+
+    if (!Util.isUnset(request.mac)) {
+      body["Mac"] = request.mac;
+    }
+
+    if (!Util.isUnset(request.nacStatuses)) {
+      bodyFlat["NacStatuses"] = request.nacStatuses;
+    }
+
+    if (!Util.isUnset(request.paStatuses)) {
+      bodyFlat["PaStatuses"] = request.paStatuses;
+    }
+
+    if (!Util.isUnset(request.saseUserId)) {
+      body["SaseUserId"] = request.saseUserId;
+    }
+
+    if (!Util.isUnset(request.sharingStatus)) {
+      body["SharingStatus"] = request.sharingStatus;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      body["Username"] = request.username;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportUserDevices",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportUserDevicesResponse>(await this.callApi(params, req, runtime), new ExportUserDevicesResponse({}));
+  }
+
+  /**
+   * @summary 批量查询用户设备列表
+   *
+   * @param request ExportUserDevicesRequest
+   * @return ExportUserDevicesResponse
+   */
+  async exportUserDevices(request: ExportUserDevicesRequest): Promise<ExportUserDevicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportUserDevicesWithOptions(request, runtime);
   }
 
   /**
