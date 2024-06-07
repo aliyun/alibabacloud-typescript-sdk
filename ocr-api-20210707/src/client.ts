@@ -249,7 +249,7 @@ export class RecognizeAllTextRequest extends $tea.Model {
   internationalIdCardConfig?: RecognizeAllTextRequestInternationalIdCardConfig;
   multiLanConfig?: RecognizeAllTextRequestMultiLanConfig;
   outputBarCode?: boolean;
-  outputCoordinate?: Buffer;
+  outputCoordinate?: string;
   outputFigure?: boolean;
   outputKVExcel?: boolean;
   outputOricoord?: boolean;
@@ -290,7 +290,7 @@ export class RecognizeAllTextRequest extends $tea.Model {
       internationalIdCardConfig: RecognizeAllTextRequestInternationalIdCardConfig,
       multiLanConfig: RecognizeAllTextRequestMultiLanConfig,
       outputBarCode: 'boolean',
-      outputCoordinate: 'Buffer',
+      outputCoordinate: 'string',
       outputFigure: 'boolean',
       outputKVExcel: 'boolean',
       outputOricoord: 'boolean',
@@ -316,7 +316,7 @@ export class RecognizeAllTextShrinkRequest extends $tea.Model {
   internationalIdCardConfigShrink?: string;
   multiLanConfigShrink?: string;
   outputBarCode?: boolean;
-  outputCoordinate?: Buffer;
+  outputCoordinate?: string;
   outputFigure?: boolean;
   outputKVExcel?: boolean;
   outputOricoord?: boolean;
@@ -357,7 +357,7 @@ export class RecognizeAllTextShrinkRequest extends $tea.Model {
       internationalIdCardConfigShrink: 'string',
       multiLanConfigShrink: 'string',
       outputBarCode: 'boolean',
-      outputCoordinate: 'Buffer',
+      outputCoordinate: 'string',
       outputFigure: 'boolean',
       outputKVExcel: 'boolean',
       outputOricoord: 'boolean',
@@ -7385,6 +7385,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 全文识别高精版
+   *
+   * @param request RecognizeAdvancedRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeAdvancedResponse
+   */
   async recognizeAdvancedWithOptions(request: RecognizeAdvancedRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAdvancedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7443,11 +7450,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeAdvancedResponse>(await this.callApi(params, req, runtime), new RecognizeAdvancedResponse({}));
   }
 
+  /**
+   * @summary 全文识别高精版
+   *
+   * @param request RecognizeAdvancedRequest
+   * @return RecognizeAdvancedResponse
+   */
   async recognizeAdvanced(request: RecognizeAdvancedRequest): Promise<RecognizeAdvancedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeAdvancedWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 航空行程单
+   *
+   * @param request RecognizeAirItineraryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeAirItineraryResponse
+   */
   async recognizeAirItineraryWithOptions(request: RecognizeAirItineraryRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAirItineraryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7474,11 +7494,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeAirItineraryResponse>(await this.callApi(params, req, runtime), new RecognizeAirItineraryResponse({}));
   }
 
+  /**
+   * @summary 航空行程单
+   *
+   * @param request RecognizeAirItineraryRequest
+   * @return RecognizeAirItineraryResponse
+   */
   async recognizeAirItinerary(request: RecognizeAirItineraryRequest): Promise<RecognizeAirItineraryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeAirItineraryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 统一Api
+   *
+   * @param tmpReq RecognizeAllTextRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeAllTextResponse
+   */
   async recognizeAllTextWithOptions(tmpReq: RecognizeAllTextRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAllTextResponse> {
     Util.validateModel(tmpReq);
     let request = new RecognizeAllTextShrinkRequest({ });
@@ -7591,11 +7624,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeAllTextResponse>(await this.callApi(params, req, runtime), new RecognizeAllTextResponse({}));
   }
 
+  /**
+   * @summary 统一Api
+   *
+   * @param request RecognizeAllTextRequest
+   * @return RecognizeAllTextResponse
+   */
   async recognizeAllText(request: RecognizeAllTextRequest): Promise<RecognizeAllTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeAllTextWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 银承汇票识别
+   *
+   * @param request RecognizeBankAcceptanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeBankAcceptanceResponse
+   */
   async recognizeBankAcceptanceWithOptions(request: RecognizeBankAcceptanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankAcceptanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7622,11 +7668,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeBankAcceptanceResponse>(await this.callApi(params, req, runtime), new RecognizeBankAcceptanceResponse({}));
   }
 
+  /**
+   * @summary 银承汇票识别
+   *
+   * @param request RecognizeBankAcceptanceRequest
+   * @return RecognizeBankAcceptanceResponse
+   */
   async recognizeBankAcceptance(request: RecognizeBankAcceptanceRequest): Promise<RecognizeBankAcceptanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeBankAcceptanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 银行开户许可证识别
+   *
+   * @param request RecognizeBankAccountLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeBankAccountLicenseResponse
+   */
   async recognizeBankAccountLicenseWithOptions(request: RecognizeBankAccountLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankAccountLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7653,11 +7712,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeBankAccountLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeBankAccountLicenseResponse({}));
   }
 
+  /**
+   * @summary 银行开户许可证识别
+   *
+   * @param request RecognizeBankAccountLicenseRequest
+   * @return RecognizeBankAccountLicenseResponse
+   */
   async recognizeBankAccountLicense(request: RecognizeBankAccountLicenseRequest): Promise<RecognizeBankAccountLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeBankAccountLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 银行卡识别
+   *
+   * @param request RecognizeBankCardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeBankCardResponse
+   */
   async recognizeBankCardWithOptions(request: RecognizeBankCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankCardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7684,11 +7756,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeBankCardResponse>(await this.callApi(params, req, runtime), new RecognizeBankCardResponse({}));
   }
 
+  /**
+   * @summary 银行卡识别
+   *
+   * @param request RecognizeBankCardRequest
+   * @return RecognizeBankCardResponse
+   */
   async recognizeBankCard(request: RecognizeBankCardRequest): Promise<RecognizeBankCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeBankCardWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 电商图片文字识别
+   *
+   * @param request RecognizeBasicRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeBasicResponse
+   */
   async recognizeBasicWithOptions(request: RecognizeBasicRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBasicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7719,11 +7804,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeBasicResponse>(await this.callApi(params, req, runtime), new RecognizeBasicResponse({}));
   }
 
+  /**
+   * @summary 电商图片文字识别
+   *
+   * @param request RecognizeBasicRequest
+   * @return RecognizeBasicResponse
+   */
   async recognizeBasic(request: RecognizeBasicRequest): Promise<RecognizeBasicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeBasicWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 出生证明
+   *
+   * @param request RecognizeBirthCertificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeBirthCertificationResponse
+   */
   async recognizeBirthCertificationWithOptions(request: RecognizeBirthCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBirthCertificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7750,11 +7848,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeBirthCertificationResponse>(await this.callApi(params, req, runtime), new RecognizeBirthCertificationResponse({}));
   }
 
+  /**
+   * @summary 出生证明
+   *
+   * @param request RecognizeBirthCertificationRequest
+   * @return RecognizeBirthCertificationResponse
+   */
   async recognizeBirthCertification(request: RecognizeBirthCertificationRequest): Promise<RecognizeBirthCertificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeBirthCertificationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 客运车船票识别
+   *
+   * @param request RecognizeBusShipTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeBusShipTicketResponse
+   */
   async recognizeBusShipTicketWithOptions(request: RecognizeBusShipTicketRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusShipTicketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7781,11 +7892,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeBusShipTicketResponse>(await this.callApi(params, req, runtime), new RecognizeBusShipTicketResponse({}));
   }
 
+  /**
+   * @summary 客运车船票识别
+   *
+   * @param request RecognizeBusShipTicketRequest
+   * @return RecognizeBusShipTicketResponse
+   */
   async recognizeBusShipTicket(request: RecognizeBusShipTicketRequest): Promise<RecognizeBusShipTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeBusShipTicketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 营业执照识别
+   *
+   * @param request RecognizeBusinessLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeBusinessLicenseResponse
+   */
   async recognizeBusinessLicenseWithOptions(request: RecognizeBusinessLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7812,11 +7936,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeBusinessLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeBusinessLicenseResponse({}));
   }
 
+  /**
+   * @summary 营业执照识别
+   *
+   * @param request RecognizeBusinessLicenseRequest
+   * @return RecognizeBusinessLicenseResponse
+   */
   async recognizeBusinessLicense(request: RecognizeBusinessLicenseRequest): Promise<RecognizeBusinessLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeBusinessLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 机动车销售发票
+   *
+   * @param request RecognizeCarInvoiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeCarInvoiceResponse
+   */
   async recognizeCarInvoiceWithOptions(request: RecognizeCarInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCarInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7843,11 +7980,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeCarInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeCarInvoiceResponse({}));
   }
 
+  /**
+   * @summary 机动车销售发票
+   *
+   * @param request RecognizeCarInvoiceRequest
+   * @return RecognizeCarInvoiceResponse
+   */
   async recognizeCarInvoice(request: RecognizeCarInvoiceRequest): Promise<RecognizeCarInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeCarInvoiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 车牌识别
+   *
+   * @param request RecognizeCarNumberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeCarNumberResponse
+   */
   async recognizeCarNumberWithOptions(request: RecognizeCarNumberRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCarNumberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7874,11 +8024,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeCarNumberResponse>(await this.callApi(params, req, runtime), new RecognizeCarNumberResponse({}));
   }
 
+  /**
+   * @summary 车牌识别
+   *
+   * @param request RecognizeCarNumberRequest
+   * @return RecognizeCarNumberResponse
+   */
   async recognizeCarNumber(request: RecognizeCarNumberRequest): Promise<RecognizeCarNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeCarNumberWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 车辆vin码识别
+   *
+   * @param request RecognizeCarVinCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeCarVinCodeResponse
+   */
   async recognizeCarVinCodeWithOptions(request: RecognizeCarVinCodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCarVinCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7905,11 +8068,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeCarVinCodeResponse>(await this.callApi(params, req, runtime), new RecognizeCarVinCodeResponse({}));
   }
 
+  /**
+   * @summary 车辆vin码识别
+   *
+   * @param request RecognizeCarVinCodeRequest
+   * @return RecognizeCarVinCodeResponse
+   */
   async recognizeCarVinCode(request: RecognizeCarVinCodeRequest): Promise<RecognizeCarVinCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeCarVinCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 中国护照识别
+   *
+   * @param request RecognizeChinesePassportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeChinesePassportResponse
+   */
   async recognizeChinesePassportWithOptions(request: RecognizeChinesePassportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeChinesePassportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7940,11 +8116,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeChinesePassportResponse>(await this.callApi(params, req, runtime), new RecognizeChinesePassportResponse({}));
   }
 
+  /**
+   * @summary 中国护照识别
+   *
+   * @param request RecognizeChinesePassportRequest
+   * @return RecognizeChinesePassportResponse
+   */
   async recognizeChinesePassport(request: RecognizeChinesePassportRequest): Promise<RecognizeChinesePassportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeChinesePassportWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 通用机打发票识别
+   *
+   * @param request RecognizeCommonPrintedInvoiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeCommonPrintedInvoiceResponse
+   */
   async recognizeCommonPrintedInvoiceWithOptions(request: RecognizeCommonPrintedInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCommonPrintedInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7971,11 +8160,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeCommonPrintedInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeCommonPrintedInvoiceResponse({}));
   }
 
+  /**
+   * @summary 通用机打发票识别
+   *
+   * @param request RecognizeCommonPrintedInvoiceRequest
+   * @return RecognizeCommonPrintedInvoiceResponse
+   */
   async recognizeCommonPrintedInvoice(request: RecognizeCommonPrintedInvoiceRequest): Promise<RecognizeCommonPrintedInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeCommonPrintedInvoiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 化妆品生产许可证识别
+   *
+   * @param request RecognizeCosmeticProduceLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeCosmeticProduceLicenseResponse
+   */
   async recognizeCosmeticProduceLicenseWithOptions(request: RecognizeCosmeticProduceLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCosmeticProduceLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8002,11 +8204,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeCosmeticProduceLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeCosmeticProduceLicenseResponse({}));
   }
 
+  /**
+   * @summary 化妆品生产许可证识别
+   *
+   * @param request RecognizeCosmeticProduceLicenseRequest
+   * @return RecognizeCosmeticProduceLicenseResponse
+   */
   async recognizeCosmeticProduceLicense(request: RecognizeCosmeticProduceLicenseRequest): Promise<RecognizeCosmeticProduceLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeCosmeticProduceLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 核算检测报告识别
+   *
+   * @param request RecognizeCovidTestReportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeCovidTestReportResponse
+   */
   async recognizeCovidTestReportWithOptions(request: RecognizeCovidTestReportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCovidTestReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8037,11 +8252,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeCovidTestReportResponse>(await this.callApi(params, req, runtime), new RecognizeCovidTestReportResponse({}));
   }
 
+  /**
+   * @summary 核算检测报告识别
+   *
+   * @param request RecognizeCovidTestReportRequest
+   * @return RecognizeCovidTestReportResponse
+   */
   async recognizeCovidTestReport(request: RecognizeCovidTestReportRequest): Promise<RecognizeCovidTestReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeCovidTestReportWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 第二类医疗器械经营备案凭证
+   *
+   * @param request RecognizeCtwoMedicalDeviceManageLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeCtwoMedicalDeviceManageLicenseResponse
+   */
   async recognizeCtwoMedicalDeviceManageLicenseWithOptions(request: RecognizeCtwoMedicalDeviceManageLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCtwoMedicalDeviceManageLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8068,11 +8296,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeCtwoMedicalDeviceManageLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeCtwoMedicalDeviceManageLicenseResponse({}));
   }
 
+  /**
+   * @summary 第二类医疗器械经营备案凭证
+   *
+   * @param request RecognizeCtwoMedicalDeviceManageLicenseRequest
+   * @return RecognizeCtwoMedicalDeviceManageLicenseResponse
+   */
   async recognizeCtwoMedicalDeviceManageLicense(request: RecognizeCtwoMedicalDeviceManageLicenseRequest): Promise<RecognizeCtwoMedicalDeviceManageLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeCtwoMedicalDeviceManageLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档结构化识别
+   *
+   * @param request RecognizeDocumentStructureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeDocumentStructureResponse
+   */
   async recognizeDocumentStructureWithOptions(request: RecognizeDocumentStructureRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDocumentStructureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8135,11 +8376,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeDocumentStructureResponse>(await this.callApi(params, req, runtime), new RecognizeDocumentStructureResponse({}));
   }
 
+  /**
+   * @summary 文档结构化识别
+   *
+   * @param request RecognizeDocumentStructureRequest
+   * @return RecognizeDocumentStructureResponse
+   */
   async recognizeDocumentStructure(request: RecognizeDocumentStructureRequest): Promise<RecognizeDocumentStructureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeDocumentStructureWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 驾驶证识别
+   *
+   * @param request RecognizeDrivingLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeDrivingLicenseResponse
+   */
   async recognizeDrivingLicenseWithOptions(request: RecognizeDrivingLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDrivingLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8166,11 +8420,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeDrivingLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeDrivingLicenseResponse({}));
   }
 
+  /**
+   * @summary 驾驶证识别
+   *
+   * @param request RecognizeDrivingLicenseRequest
+   * @return RecognizeDrivingLicenseResponse
+   */
   async recognizeDrivingLicense(request: RecognizeDrivingLicenseRequest): Promise<RecognizeDrivingLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeDrivingLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 印刷体数学公式识别
+   *
+   * @param request RecognizeEduFormulaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeEduFormulaResponse
+   */
   async recognizeEduFormulaWithOptions(request: RecognizeEduFormulaRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduFormulaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8197,11 +8464,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeEduFormulaResponse>(await this.callApi(params, req, runtime), new RecognizeEduFormulaResponse({}));
   }
 
+  /**
+   * @summary 印刷体数学公式识别
+   *
+   * @param request RecognizeEduFormulaRequest
+   * @return RecognizeEduFormulaResponse
+   */
   async recognizeEduFormula(request: RecognizeEduFormulaRequest): Promise<RecognizeEduFormulaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeEduFormulaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 口算判题
+   *
+   * @param request RecognizeEduOralCalculationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeEduOralCalculationResponse
+   */
   async recognizeEduOralCalculationWithOptions(request: RecognizeEduOralCalculationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduOralCalculationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8228,11 +8508,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeEduOralCalculationResponse>(await this.callApi(params, req, runtime), new RecognizeEduOralCalculationResponse({}));
   }
 
+  /**
+   * @summary 口算判题
+   *
+   * @param request RecognizeEduOralCalculationRequest
+   * @return RecognizeEduOralCalculationResponse
+   */
   async recognizeEduOralCalculation(request: RecognizeEduOralCalculationRequest): Promise<RecognizeEduOralCalculationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeEduOralCalculationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 试卷切题识别
+   *
+   * @param request RecognizeEduPaperCutRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeEduPaperCutResponse
+   */
   async recognizeEduPaperCutWithOptions(request: RecognizeEduPaperCutRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduPaperCutResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8271,11 +8564,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeEduPaperCutResponse>(await this.callApi(params, req, runtime), new RecognizeEduPaperCutResponse({}));
   }
 
+  /**
+   * @summary 试卷切题识别
+   *
+   * @param request RecognizeEduPaperCutRequest
+   * @return RecognizeEduPaperCutResponse
+   */
   async recognizeEduPaperCut(request: RecognizeEduPaperCutRequest): Promise<RecognizeEduPaperCutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeEduPaperCutWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 整页试卷识别
+   *
+   * @param request RecognizeEduPaperOcrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeEduPaperOcrResponse
+   */
   async recognizeEduPaperOcrWithOptions(request: RecognizeEduPaperOcrRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduPaperOcrResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8314,11 +8620,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeEduPaperOcrResponse>(await this.callApi(params, req, runtime), new RecognizeEduPaperOcrResponse({}));
   }
 
+  /**
+   * @summary 整页试卷识别
+   *
+   * @param request RecognizeEduPaperOcrRequest
+   * @return RecognizeEduPaperOcrResponse
+   */
   async recognizeEduPaperOcr(request: RecognizeEduPaperOcrRequest): Promise<RecognizeEduPaperOcrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeEduPaperOcrWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 精细版结构化切题
+   *
+   * @param request RecognizeEduPaperStructedRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeEduPaperStructedResponse
+   */
   async recognizeEduPaperStructedWithOptions(request: RecognizeEduPaperStructedRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduPaperStructedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8353,11 +8672,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeEduPaperStructedResponse>(await this.callApi(params, req, runtime), new RecognizeEduPaperStructedResponse({}));
   }
 
+  /**
+   * @summary 精细版结构化切题
+   *
+   * @param request RecognizeEduPaperStructedRequest
+   * @return RecognizeEduPaperStructedResponse
+   */
   async recognizeEduPaperStructed(request: RecognizeEduPaperStructedRequest): Promise<RecognizeEduPaperStructedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeEduPaperStructedWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 题目识别
+   *
+   * @param request RecognizeEduQuestionOcrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeEduQuestionOcrResponse
+   */
   async recognizeEduQuestionOcrWithOptions(request: RecognizeEduQuestionOcrRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduQuestionOcrResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8388,11 +8720,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeEduQuestionOcrResponse>(await this.callApi(params, req, runtime), new RecognizeEduQuestionOcrResponse({}));
   }
 
+  /**
+   * @summary 题目识别
+   *
+   * @param request RecognizeEduQuestionOcrRequest
+   * @return RecognizeEduQuestionOcrResponse
+   */
   async recognizeEduQuestionOcr(request: RecognizeEduQuestionOcrRequest): Promise<RecognizeEduQuestionOcrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeEduQuestionOcrWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 英语专项识别
+   *
+   * @param request RecognizeEnglishRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeEnglishResponse
+   */
   async recognizeEnglishWithOptions(request: RecognizeEnglishRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEnglishResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8427,11 +8772,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeEnglishResponse>(await this.callApi(params, req, runtime), new RecognizeEnglishResponse({}));
   }
 
+  /**
+   * @summary 英语专项识别
+   *
+   * @param request RecognizeEnglishRequest
+   * @return RecognizeEnglishResponse
+   */
   async recognizeEnglish(request: RecognizeEnglishRequest): Promise<RecognizeEnglishResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeEnglishWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 不动产权证
+   *
+   * @param request RecognizeEstateCertificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeEstateCertificationResponse
+   */
   async recognizeEstateCertificationWithOptions(request: RecognizeEstateCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEstateCertificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8458,11 +8816,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeEstateCertificationResponse>(await this.callApi(params, req, runtime), new RecognizeEstateCertificationResponse({}));
   }
 
+  /**
+   * @summary 不动产权证
+   *
+   * @param request RecognizeEstateCertificationRequest
+   * @return RecognizeEstateCertificationResponse
+   */
   async recognizeEstateCertification(request: RecognizeEstateCertificationRequest): Promise<RecognizeEstateCertificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeEstateCertificationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 来往港澳台通行证识别
+   *
+   * @param request RecognizeExitEntryPermitToHKRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeExitEntryPermitToHKResponse
+   */
   async recognizeExitEntryPermitToHKWithOptions(request: RecognizeExitEntryPermitToHKRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExitEntryPermitToHKResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8493,11 +8864,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeExitEntryPermitToHKResponse>(await this.callApi(params, req, runtime), new RecognizeExitEntryPermitToHKResponse({}));
   }
 
+  /**
+   * @summary 来往港澳台通行证识别
+   *
+   * @param request RecognizeExitEntryPermitToHKRequest
+   * @return RecognizeExitEntryPermitToHKResponse
+   */
   async recognizeExitEntryPermitToHK(request: RecognizeExitEntryPermitToHKRequest): Promise<RecognizeExitEntryPermitToHKResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeExitEntryPermitToHKWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 来往大陆(内地)通行证识别
+   *
+   * @param request RecognizeExitEntryPermitToMainlandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeExitEntryPermitToMainlandResponse
+   */
   async recognizeExitEntryPermitToMainlandWithOptions(request: RecognizeExitEntryPermitToMainlandRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExitEntryPermitToMainlandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8528,11 +8912,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeExitEntryPermitToMainlandResponse>(await this.callApi(params, req, runtime), new RecognizeExitEntryPermitToMainlandResponse({}));
   }
 
+  /**
+   * @summary 来往大陆(内地)通行证识别
+   *
+   * @param request RecognizeExitEntryPermitToMainlandRequest
+   * @return RecognizeExitEntryPermitToMainlandResponse
+   */
   async recognizeExitEntryPermitToMainland(request: RecognizeExitEntryPermitToMainlandRequest): Promise<RecognizeExitEntryPermitToMainlandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeExitEntryPermitToMainlandWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 食品经营许可证
+   *
+   * @param request RecognizeFoodManageLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeFoodManageLicenseResponse
+   */
   async recognizeFoodManageLicenseWithOptions(request: RecognizeFoodManageLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeFoodManageLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8559,11 +8956,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeFoodManageLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeFoodManageLicenseResponse({}));
   }
 
+  /**
+   * @summary 食品经营许可证
+   *
+   * @param request RecognizeFoodManageLicenseRequest
+   * @return RecognizeFoodManageLicenseResponse
+   */
   async recognizeFoodManageLicense(request: RecognizeFoodManageLicenseRequest): Promise<RecognizeFoodManageLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeFoodManageLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 食品生产许可证
+   *
+   * @param request RecognizeFoodProduceLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeFoodProduceLicenseResponse
+   */
   async recognizeFoodProduceLicenseWithOptions(request: RecognizeFoodProduceLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeFoodProduceLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8590,11 +9000,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeFoodProduceLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeFoodProduceLicenseResponse({}));
   }
 
+  /**
+   * @summary 食品生产许可证
+   *
+   * @param request RecognizeFoodProduceLicenseRequest
+   * @return RecognizeFoodProduceLicenseResponse
+   */
   async recognizeFoodProduceLicense(request: RecognizeFoodProduceLicenseRequest): Promise<RecognizeFoodProduceLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeFoodProduceLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 通用文字识别
+   *
+   * @param request RecognizeGeneralRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeGeneralResponse
+   */
   async recognizeGeneralWithOptions(request: RecognizeGeneralRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeGeneralResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8621,11 +9044,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeGeneralResponse>(await this.callApi(params, req, runtime), new RecognizeGeneralResponse({}));
   }
 
+  /**
+   * @summary 通用文字识别
+   *
+   * @param request RecognizeGeneralRequest
+   * @return RecognizeGeneralResponse
+   */
   async recognizeGeneral(request: RecognizeGeneralRequest): Promise<RecognizeGeneralResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeGeneralWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 香港身份证识别
+   *
+   * @param request RecognizeHKIdcardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeHKIdcardResponse
+   */
   async recognizeHKIdcardWithOptions(request: RecognizeHKIdcardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHKIdcardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8652,11 +9088,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeHKIdcardResponse>(await this.callApi(params, req, runtime), new RecognizeHKIdcardResponse({}));
   }
 
+  /**
+   * @summary 香港身份证识别
+   *
+   * @param request RecognizeHKIdcardRequest
+   * @return RecognizeHKIdcardResponse
+   */
   async recognizeHKIdcard(request: RecognizeHKIdcardRequest): Promise<RecognizeHKIdcardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeHKIdcardWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 通用手写体识别
+   *
+   * @param request RecognizeHandwritingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeHandwritingResponse
+   */
   async recognizeHandwritingWithOptions(request: RecognizeHandwritingRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHandwritingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8703,11 +9152,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeHandwritingResponse>(await this.callApi(params, req, runtime), new RecognizeHandwritingResponse({}));
   }
 
+  /**
+   * @summary 通用手写体识别
+   *
+   * @param request RecognizeHandwritingRequest
+   * @return RecognizeHandwritingResponse
+   */
   async recognizeHandwriting(request: RecognizeHandwritingRequest): Promise<RecognizeHandwritingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeHandwritingWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 防疫健康码识别
+   *
+   * @param request RecognizeHealthCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeHealthCodeResponse
+   */
   async recognizeHealthCodeWithOptions(request: RecognizeHealthCodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHealthCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8734,11 +9196,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeHealthCodeResponse>(await this.callApi(params, req, runtime), new RecognizeHealthCodeResponse({}));
   }
 
+  /**
+   * @summary 防疫健康码识别
+   *
+   * @param request RecognizeHealthCodeRequest
+   * @return RecognizeHealthCodeResponse
+   */
   async recognizeHealthCode(request: RecognizeHealthCodeRequest): Promise<RecognizeHealthCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeHealthCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 酒店流水识别
+   *
+   * @param request RecognizeHotelConsumeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeHotelConsumeResponse
+   */
   async recognizeHotelConsumeWithOptions(request: RecognizeHotelConsumeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHotelConsumeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8765,11 +9240,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeHotelConsumeResponse>(await this.callApi(params, req, runtime), new RecognizeHotelConsumeResponse({}));
   }
 
+  /**
+   * @summary 酒店流水识别
+   *
+   * @param request RecognizeHotelConsumeRequest
+   * @return RecognizeHotelConsumeResponse
+   */
   async recognizeHotelConsume(request: RecognizeHotelConsumeRequest): Promise<RecognizeHotelConsumeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeHotelConsumeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 户口本识别
+   *
+   * @param request RecognizeHouseholdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeHouseholdResponse
+   */
   async recognizeHouseholdWithOptions(request: RecognizeHouseholdRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHouseholdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8800,11 +9288,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeHouseholdResponse>(await this.callApi(params, req, runtime), new RecognizeHouseholdResponse({}));
   }
 
+  /**
+   * @summary 户口本识别
+   *
+   * @param request RecognizeHouseholdRequest
+   * @return RecognizeHouseholdResponse
+   */
   async recognizeHousehold(request: RecognizeHouseholdRequest): Promise<RecognizeHouseholdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeHouseholdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 身份证识别
+   *
+   * @param request RecognizeIdcardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeIdcardResponse
+   */
   async recognizeIdcardWithOptions(request: RecognizeIdcardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeIdcardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8839,11 +9340,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeIdcardResponse>(await this.callApi(params, req, runtime), new RecognizeIdcardResponse({}));
   }
 
+  /**
+   * @summary 身份证识别
+   *
+   * @param request RecognizeIdcardRequest
+   * @return RecognizeIdcardResponse
+   */
   async recognizeIdcard(request: RecognizeIdcardRequest): Promise<RecognizeIdcardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeIdcardWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 国际营业执照识别
+   *
+   * @param request RecognizeInternationalBusinessLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeInternationalBusinessLicenseResponse
+   */
   async recognizeInternationalBusinessLicenseWithOptions(request: RecognizeInternationalBusinessLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeInternationalBusinessLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8874,11 +9388,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeInternationalBusinessLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeInternationalBusinessLicenseResponse({}));
   }
 
+  /**
+   * @summary 国际营业执照识别
+   *
+   * @param request RecognizeInternationalBusinessLicenseRequest
+   * @return RecognizeInternationalBusinessLicenseResponse
+   */
   async recognizeInternationalBusinessLicense(request: RecognizeInternationalBusinessLicenseRequest): Promise<RecognizeInternationalBusinessLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeInternationalBusinessLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 国际身份证识别
+   *
+   * @param request RecognizeInternationalIdcardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeInternationalIdcardResponse
+   */
   async recognizeInternationalIdcardWithOptions(request: RecognizeInternationalIdcardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeInternationalIdcardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8909,11 +9436,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeInternationalIdcardResponse>(await this.callApi(params, req, runtime), new RecognizeInternationalIdcardResponse({}));
   }
 
+  /**
+   * @summary 国际身份证识别
+   *
+   * @param request RecognizeInternationalIdcardRequest
+   * @return RecognizeInternationalIdcardResponse
+   */
   async recognizeInternationalIdcard(request: RecognizeInternationalIdcardRequest): Promise<RecognizeInternationalIdcardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeInternationalIdcardWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 增值税发票识别
+   *
+   * @param request RecognizeInvoiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeInvoiceResponse
+   */
   async recognizeInvoiceWithOptions(request: RecognizeInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8944,11 +9484,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeInvoiceResponse({}));
   }
 
+  /**
+   * @summary 增值税发票识别
+   *
+   * @param request RecognizeInvoiceRequest
+   * @return RecognizeInvoiceResponse
+   */
   async recognizeInvoice(request: RecognizeInvoiceRequest): Promise<RecognizeInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeInvoiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 日语识别
+   *
+   * @param request RecognizeJanpaneseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeJanpaneseResponse
+   */
   async recognizeJanpaneseWithOptions(request: RecognizeJanpaneseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeJanpaneseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8987,11 +9540,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeJanpaneseResponse>(await this.callApi(params, req, runtime), new RecognizeJanpaneseResponse({}));
   }
 
+  /**
+   * @summary 日语识别
+   *
+   * @param request RecognizeJanpaneseRequest
+   * @return RecognizeJanpaneseResponse
+   */
   async recognizeJanpanese(request: RecognizeJanpaneseRequest): Promise<RecognizeJanpaneseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeJanpaneseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 韩语识别
+   *
+   * @param request RecognizeKoreanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeKoreanResponse
+   */
   async recognizeKoreanWithOptions(request: RecognizeKoreanRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeKoreanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9030,11 +9596,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeKoreanResponse>(await this.callApi(params, req, runtime), new RecognizeKoreanResponse({}));
   }
 
+  /**
+   * @summary 韩语识别
+   *
+   * @param request RecognizeKoreanRequest
+   * @return RecognizeKoreanResponse
+   */
   async recognizeKorean(request: RecognizeKoreanRequest): Promise<RecognizeKoreanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeKoreanWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 拉丁语识别
+   *
+   * @param request RecognizeLatinRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeLatinResponse
+   */
   async recognizeLatinWithOptions(request: RecognizeLatinRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeLatinResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9073,11 +9652,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeLatinResponse>(await this.callApi(params, req, runtime), new RecognizeLatinResponse({}));
   }
 
+  /**
+   * @summary 拉丁语识别
+   *
+   * @param request RecognizeLatinRequest
+   * @return RecognizeLatinResponse
+   */
   async recognizeLatin(request: RecognizeLatinRequest): Promise<RecognizeLatinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeLatinWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 医疗器械经营许可证
+   *
+   * @param request RecognizeMedicalDeviceManageLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeMedicalDeviceManageLicenseResponse
+   */
   async recognizeMedicalDeviceManageLicenseWithOptions(request: RecognizeMedicalDeviceManageLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMedicalDeviceManageLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9104,11 +9696,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeMedicalDeviceManageLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeMedicalDeviceManageLicenseResponse({}));
   }
 
+  /**
+   * @summary 医疗器械经营许可证
+   *
+   * @param request RecognizeMedicalDeviceManageLicenseRequest
+   * @return RecognizeMedicalDeviceManageLicenseResponse
+   */
   async recognizeMedicalDeviceManageLicense(request: RecognizeMedicalDeviceManageLicenseRequest): Promise<RecognizeMedicalDeviceManageLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeMedicalDeviceManageLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 医疗器械生产许可证
+   *
+   * @param request RecognizeMedicalDeviceProduceLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeMedicalDeviceProduceLicenseResponse
+   */
   async recognizeMedicalDeviceProduceLicenseWithOptions(request: RecognizeMedicalDeviceProduceLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMedicalDeviceProduceLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9135,11 +9740,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeMedicalDeviceProduceLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeMedicalDeviceProduceLicenseResponse({}));
   }
 
+  /**
+   * @summary 医疗器械生产许可证
+   *
+   * @param request RecognizeMedicalDeviceProduceLicenseRequest
+   * @return RecognizeMedicalDeviceProduceLicenseResponse
+   */
   async recognizeMedicalDeviceProduceLicense(request: RecognizeMedicalDeviceProduceLicenseRequest): Promise<RecognizeMedicalDeviceProduceLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeMedicalDeviceProduceLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 混贴发票识别
+   *
+   * @param request RecognizeMixedInvoicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeMixedInvoicesResponse
+   */
   async recognizeMixedInvoicesWithOptions(request: RecognizeMixedInvoicesRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMixedInvoicesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9174,11 +9792,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeMixedInvoicesResponse>(await this.callApi(params, req, runtime), new RecognizeMixedInvoicesResponse({}));
   }
 
+  /**
+   * @summary 混贴发票识别
+   *
+   * @param request RecognizeMixedInvoicesRequest
+   * @return RecognizeMixedInvoicesResponse
+   */
   async recognizeMixedInvoices(request: RecognizeMixedInvoicesRequest): Promise<RecognizeMixedInvoicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeMixedInvoicesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 通用多语言识别
+   *
+   * @param tmpReq RecognizeMultiLanguageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeMultiLanguageResponse
+   */
   async recognizeMultiLanguageWithOptions(tmpReq: RecognizeMultiLanguageRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMultiLanguageResponse> {
     Util.validateModel(tmpReq);
     let request = new RecognizeMultiLanguageShrinkRequest({ });
@@ -9231,11 +9862,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeMultiLanguageResponse>(await this.callApi(params, req, runtime), new RecognizeMultiLanguageResponse({}));
   }
 
+  /**
+   * @summary 通用多语言识别
+   *
+   * @param request RecognizeMultiLanguageRequest
+   * @return RecognizeMultiLanguageResponse
+   */
   async recognizeMultiLanguage(request: RecognizeMultiLanguageRequest): Promise<RecognizeMultiLanguageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeMultiLanguageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 非税收入票据识别
+   *
+   * @param request RecognizeNonTaxInvoiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeNonTaxInvoiceResponse
+   */
   async recognizeNonTaxInvoiceWithOptions(request: RecognizeNonTaxInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeNonTaxInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9262,11 +9906,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeNonTaxInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeNonTaxInvoiceResponse({}));
   }
 
+  /**
+   * @summary 非税收入票据识别
+   *
+   * @param request RecognizeNonTaxInvoiceRequest
+   * @return RecognizeNonTaxInvoiceResponse
+   */
   async recognizeNonTaxInvoice(request: RecognizeNonTaxInvoiceRequest): Promise<RecognizeNonTaxInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeNonTaxInvoiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 护照识别
+   *
+   * @param request RecognizePassportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizePassportResponse
+   */
   async recognizePassportWithOptions(request: RecognizePassportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePassportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9293,11 +9950,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizePassportResponse>(await this.callApi(params, req, runtime), new RecognizePassportResponse({}));
   }
 
+  /**
+   * @summary 护照识别
+   *
+   * @param request RecognizePassportRequest
+   * @return RecognizePassportResponse
+   */
   async recognizePassport(request: RecognizePassportRequest): Promise<RecognizePassportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizePassportWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 支付详情页识别
+   *
+   * @param request RecognizePaymentRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizePaymentRecordResponse
+   */
   async recognizePaymentRecordWithOptions(request: RecognizePaymentRecordRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePaymentRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9324,11 +9994,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizePaymentRecordResponse>(await this.callApi(params, req, runtime), new RecognizePaymentRecordResponse({}));
   }
 
+  /**
+   * @summary 支付详情页识别
+   *
+   * @param request RecognizePaymentRecordRequest
+   * @return RecognizePaymentRecordResponse
+   */
   async recognizePaymentRecord(request: RecognizePaymentRecordRequest): Promise<RecognizePaymentRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizePaymentRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 电商订单页识别
+   *
+   * @param request RecognizePurchaseRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizePurchaseRecordResponse
+   */
   async recognizePurchaseRecordWithOptions(request: RecognizePurchaseRecordRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePurchaseRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9359,11 +10042,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizePurchaseRecordResponse>(await this.callApi(params, req, runtime), new RecognizePurchaseRecordResponse({}));
   }
 
+  /**
+   * @summary 电商订单页识别
+   *
+   * @param request RecognizePurchaseRecordRequest
+   * @return RecognizePurchaseRecordResponse
+   */
   async recognizePurchaseRecord(request: RecognizePurchaseRecordRequest): Promise<RecognizePurchaseRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizePurchaseRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 定额发票
+   *
+   * @param request RecognizeQuotaInvoiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeQuotaInvoiceResponse
+   */
   async recognizeQuotaInvoiceWithOptions(request: RecognizeQuotaInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeQuotaInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9390,11 +10086,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeQuotaInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeQuotaInvoiceResponse({}));
   }
 
+  /**
+   * @summary 定额发票
+   *
+   * @param request RecognizeQuotaInvoiceRequest
+   * @return RecognizeQuotaInvoiceResponse
+   */
   async recognizeQuotaInvoice(request: RecognizeQuotaInvoiceRequest): Promise<RecognizeQuotaInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeQuotaInvoiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 网约车行程单识别
+   *
+   * @param request RecognizeRideHailingItineraryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeRideHailingItineraryResponse
+   */
   async recognizeRideHailingItineraryWithOptions(request: RecognizeRideHailingItineraryRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeRideHailingItineraryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9421,11 +10130,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeRideHailingItineraryResponse>(await this.callApi(params, req, runtime), new RecognizeRideHailingItineraryResponse({}));
   }
 
+  /**
+   * @summary 网约车行程单识别
+   *
+   * @param request RecognizeRideHailingItineraryRequest
+   * @return RecognizeRideHailingItineraryResponse
+   */
   async recognizeRideHailingItinerary(request: RecognizeRideHailingItineraryRequest): Promise<RecognizeRideHailingItineraryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeRideHailingItineraryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 增值税发票卷票
+   *
+   * @param request RecognizeRollTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeRollTicketResponse
+   */
   async recognizeRollTicketWithOptions(request: RecognizeRollTicketRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeRollTicketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9452,11 +10174,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeRollTicketResponse>(await this.callApi(params, req, runtime), new RecognizeRollTicketResponse({}));
   }
 
+  /**
+   * @summary 增值税发票卷票
+   *
+   * @param request RecognizeRollTicketRequest
+   * @return RecognizeRollTicketResponse
+   */
   async recognizeRollTicket(request: RecognizeRollTicketRequest): Promise<RecognizeRollTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeRollTicketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 俄语识别
+   *
+   * @param request RecognizeRussianRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeRussianResponse
+   */
   async recognizeRussianWithOptions(request: RecognizeRussianRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeRussianResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9495,11 +10230,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeRussianResponse>(await this.callApi(params, req, runtime), new RecognizeRussianResponse({}));
   }
 
+  /**
+   * @summary 俄语识别
+   *
+   * @param request RecognizeRussianRequest
+   * @return RecognizeRussianResponse
+   */
   async recognizeRussian(request: RecognizeRussianRequest): Promise<RecognizeRussianResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeRussianWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 购物小票识别
+   *
+   * @param request RecognizeShoppingReceiptRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeShoppingReceiptResponse
+   */
   async recognizeShoppingReceiptWithOptions(request: RecognizeShoppingReceiptRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeShoppingReceiptResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9526,11 +10274,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeShoppingReceiptResponse>(await this.callApi(params, req, runtime), new RecognizeShoppingReceiptResponse({}));
   }
 
+  /**
+   * @summary 购物小票识别
+   *
+   * @param request RecognizeShoppingReceiptRequest
+   * @return RecognizeShoppingReceiptResponse
+   */
   async recognizeShoppingReceipt(request: RecognizeShoppingReceiptRequest): Promise<RecognizeShoppingReceiptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeShoppingReceiptWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 社会保障卡识别
+   *
+   * @param request RecognizeSocialSecurityCardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeSocialSecurityCardResponse
+   */
   async recognizeSocialSecurityCardWithOptions(request: RecognizeSocialSecurityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeSocialSecurityCardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9557,11 +10318,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeSocialSecurityCardResponse>(await this.callApi(params, req, runtime), new RecognizeSocialSecurityCardResponse({}));
   }
 
+  /**
+   * @summary 社会保障卡识别
+   *
+   * @param request RecognizeSocialSecurityCardRequest
+   * @return RecognizeSocialSecurityCardResponse
+   */
   async recognizeSocialSecurityCard(request: RecognizeSocialSecurityCardRequest): Promise<RecognizeSocialSecurityCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeSocialSecurityCardWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 社保卡识别
+   *
+   * @param request RecognizeSocialSecurityCardVersionIIRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeSocialSecurityCardVersionIIResponse
+   */
   async recognizeSocialSecurityCardVersionIIWithOptions(request: RecognizeSocialSecurityCardVersionIIRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeSocialSecurityCardVersionIIResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9588,11 +10362,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeSocialSecurityCardVersionIIResponse>(await this.callApi(params, req, runtime), new RecognizeSocialSecurityCardVersionIIResponse({}));
   }
 
+  /**
+   * @summary 社保卡识别
+   *
+   * @param request RecognizeSocialSecurityCardVersionIIRequest
+   * @return RecognizeSocialSecurityCardVersionIIResponse
+   */
   async recognizeSocialSecurityCardVersionII(request: RecognizeSocialSecurityCardVersionIIRequest): Promise<RecognizeSocialSecurityCardVersionIIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeSocialSecurityCardVersionIIWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 表格识别
+   *
+   * @param request RecognizeTableOcrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeTableOcrResponse
+   */
   async recognizeTableOcrWithOptions(request: RecognizeTableOcrRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableOcrResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9635,11 +10422,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeTableOcrResponse>(await this.callApi(params, req, runtime), new RecognizeTableOcrResponse({}));
   }
 
+  /**
+   * @summary 表格识别
+   *
+   * @param request RecognizeTableOcrRequest
+   * @return RecognizeTableOcrResponse
+   */
   async recognizeTableOcr(request: RecognizeTableOcrRequest): Promise<RecognizeTableOcrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeTableOcrWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 税收完税证明识别
+   *
+   * @param request RecognizeTaxClearanceCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeTaxClearanceCertificateResponse
+   */
   async recognizeTaxClearanceCertificateWithOptions(request: RecognizeTaxClearanceCertificateRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTaxClearanceCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9666,11 +10466,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeTaxClearanceCertificateResponse>(await this.callApi(params, req, runtime), new RecognizeTaxClearanceCertificateResponse({}));
   }
 
+  /**
+   * @summary 税收完税证明识别
+   *
+   * @param request RecognizeTaxClearanceCertificateRequest
+   * @return RecognizeTaxClearanceCertificateResponse
+   */
   async recognizeTaxClearanceCertificate(request: RecognizeTaxClearanceCertificateRequest): Promise<RecognizeTaxClearanceCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeTaxClearanceCertificateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 出租车发票
+   *
+   * @param request RecognizeTaxiInvoiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeTaxiInvoiceResponse
+   */
   async recognizeTaxiInvoiceWithOptions(request: RecognizeTaxiInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTaxiInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9697,11 +10510,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeTaxiInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeTaxiInvoiceResponse({}));
   }
 
+  /**
+   * @summary 出租车发票
+   *
+   * @param request RecognizeTaxiInvoiceRequest
+   * @return RecognizeTaxiInvoiceResponse
+   */
   async recognizeTaxiInvoice(request: RecognizeTaxiInvoiceRequest): Promise<RecognizeTaxiInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeTaxiInvoiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 泰语识别
+   *
+   * @param request RecognizeThaiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeThaiResponse
+   */
   async recognizeThaiWithOptions(request: RecognizeThaiRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeThaiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9740,11 +10566,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeThaiResponse>(await this.callApi(params, req, runtime), new RecognizeThaiResponse({}));
   }
 
+  /**
+   * @summary 泰语识别
+   *
+   * @param request RecognizeThaiRequest
+   * @return RecognizeThaiResponse
+   */
   async recognizeThai(request: RecognizeThaiRequest): Promise<RecognizeThaiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeThaiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 过路过桥费发票识别
+   *
+   * @param request RecognizeTollInvoiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeTollInvoiceResponse
+   */
   async recognizeTollInvoiceWithOptions(request: RecognizeTollInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTollInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9771,11 +10610,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeTollInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeTollInvoiceResponse({}));
   }
 
+  /**
+   * @summary 过路过桥费发票识别
+   *
+   * @param request RecognizeTollInvoiceRequest
+   * @return RecognizeTollInvoiceResponse
+   */
   async recognizeTollInvoice(request: RecognizeTollInvoiceRequest): Promise<RecognizeTollInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeTollInvoiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 商标注册证
+   *
+   * @param request RecognizeTradeMarkCertificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeTradeMarkCertificationResponse
+   */
   async recognizeTradeMarkCertificationWithOptions(request: RecognizeTradeMarkCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTradeMarkCertificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9802,11 +10654,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeTradeMarkCertificationResponse>(await this.callApi(params, req, runtime), new RecognizeTradeMarkCertificationResponse({}));
   }
 
+  /**
+   * @summary 商标注册证
+   *
+   * @param request RecognizeTradeMarkCertificationRequest
+   * @return RecognizeTradeMarkCertificationResponse
+   */
   async recognizeTradeMarkCertification(request: RecognizeTradeMarkCertificationRequest): Promise<RecognizeTradeMarkCertificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeTradeMarkCertificationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 火车票
+   *
+   * @param request RecognizeTrainInvoiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeTrainInvoiceResponse
+   */
   async recognizeTrainInvoiceWithOptions(request: RecognizeTrainInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTrainInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9833,11 +10698,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeTrainInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeTrainInvoiceResponse({}));
   }
 
+  /**
+   * @summary 火车票
+   *
+   * @param request RecognizeTrainInvoiceRequest
+   * @return RecognizeTrainInvoiceResponse
+   */
   async recognizeTrainInvoice(request: RecognizeTrainInvoiceRequest): Promise<RecognizeTrainInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeTrainInvoiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 二手车统一销售发票识别
+   *
+   * @param request RecognizeUsedCarInvoiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeUsedCarInvoiceResponse
+   */
   async recognizeUsedCarInvoiceWithOptions(request: RecognizeUsedCarInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeUsedCarInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9864,11 +10742,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeUsedCarInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeUsedCarInvoiceResponse({}));
   }
 
+  /**
+   * @summary 二手车统一销售发票识别
+   *
+   * @param request RecognizeUsedCarInvoiceRequest
+   * @return RecognizeUsedCarInvoiceResponse
+   */
   async recognizeUsedCarInvoice(request: RecognizeUsedCarInvoiceRequest): Promise<RecognizeUsedCarInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeUsedCarInvoiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 车辆合格证识别
+   *
+   * @param request RecognizeVehicleCertificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeVehicleCertificationResponse
+   */
   async recognizeVehicleCertificationWithOptions(request: RecognizeVehicleCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehicleCertificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9895,11 +10786,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeVehicleCertificationResponse>(await this.callApi(params, req, runtime), new RecognizeVehicleCertificationResponse({}));
   }
 
+  /**
+   * @summary 车辆合格证识别
+   *
+   * @param request RecognizeVehicleCertificationRequest
+   * @return RecognizeVehicleCertificationResponse
+   */
   async recognizeVehicleCertification(request: RecognizeVehicleCertificationRequest): Promise<RecognizeVehicleCertificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeVehicleCertificationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 行驶证识别
+   *
+   * @param request RecognizeVehicleLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeVehicleLicenseResponse
+   */
   async recognizeVehicleLicenseWithOptions(request: RecognizeVehicleLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehicleLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9926,11 +10830,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeVehicleLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeVehicleLicenseResponse({}));
   }
 
+  /**
+   * @summary 行驶证识别
+   *
+   * @param request RecognizeVehicleLicenseRequest
+   * @return RecognizeVehicleLicenseResponse
+   */
   async recognizeVehicleLicense(request: RecognizeVehicleLicenseRequest): Promise<RecognizeVehicleLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeVehicleLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 机动车注册登记证识别
+   *
+   * @param request RecognizeVehicleRegistrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeVehicleRegistrationResponse
+   */
   async recognizeVehicleRegistrationWithOptions(request: RecognizeVehicleRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehicleRegistrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9957,11 +10874,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeVehicleRegistrationResponse>(await this.callApi(params, req, runtime), new RecognizeVehicleRegistrationResponse({}));
   }
 
+  /**
+   * @summary 机动车注册登记证识别
+   *
+   * @param request RecognizeVehicleRegistrationRequest
+   * @return RecognizeVehicleRegistrationResponse
+   */
   async recognizeVehicleRegistration(request: RecognizeVehicleRegistrationRequest): Promise<RecognizeVehicleRegistrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeVehicleRegistrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 电子面单识别
+   *
+   * @param request RecognizeWaybillRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeWaybillResponse
+   */
   async recognizeWaybillWithOptions(request: RecognizeWaybillRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeWaybillResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9988,11 +10918,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecognizeWaybillResponse>(await this.callApi(params, req, runtime), new RecognizeWaybillResponse({}));
   }
 
+  /**
+   * @summary 电子面单识别
+   *
+   * @param request RecognizeWaybillRequest
+   * @return RecognizeWaybillResponse
+   */
   async recognizeWaybill(request: RecognizeWaybillRequest): Promise<RecognizeWaybillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeWaybillWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 营业执照核验
+   *
+   * @param request VerifyBusinessLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyBusinessLicenseResponse
+   */
   async verifyBusinessLicenseWithOptions(request: VerifyBusinessLicenseRequest, runtime: $Util.RuntimeOptions): Promise<VerifyBusinessLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10025,11 +10968,24 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyBusinessLicenseResponse>(await this.callApi(params, req, runtime), new VerifyBusinessLicenseResponse({}));
   }
 
+  /**
+   * @summary 营业执照核验
+   *
+   * @param request VerifyBusinessLicenseRequest
+   * @return VerifyBusinessLicenseResponse
+   */
   async verifyBusinessLicense(request: VerifyBusinessLicenseRequest): Promise<VerifyBusinessLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyBusinessLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 增值税发票核验
+   *
+   * @param request VerifyVATInvoiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyVATInvoiceResponse
+   */
   async verifyVATInvoiceWithOptions(request: VerifyVATInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<VerifyVATInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10074,6 +11030,12 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyVATInvoiceResponse>(await this.callApi(params, req, runtime), new VerifyVATInvoiceResponse({}));
   }
 
+  /**
+   * @summary 增值税发票核验
+   *
+   * @param request VerifyVATInvoiceRequest
+   * @return VerifyVATInvoiceResponse
+   */
   async verifyVATInvoice(request: VerifyVATInvoiceRequest): Promise<VerifyVATInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyVATInvoiceWithOptions(request, runtime);
