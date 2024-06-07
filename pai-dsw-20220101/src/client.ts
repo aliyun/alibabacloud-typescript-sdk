@@ -1398,6 +1398,108 @@ export class GetLifecycleResponse extends $tea.Model {
   }
 }
 
+export class GetMetricsRequest extends $tea.Model {
+  dimensions?: string;
+  endTime?: string;
+  length?: string;
+  metricName?: string;
+  namespace?: string;
+  nextToken?: string;
+  period?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimensions: 'Dimensions',
+      endTime: 'EndTime',
+      length: 'Length',
+      metricName: 'MetricName',
+      namespace: 'Namespace',
+      nextToken: 'NextToken',
+      period: 'Period',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensions: 'string',
+      endTime: 'string',
+      length: 'string',
+      metricName: 'string',
+      namespace: 'string',
+      nextToken: 'string',
+      period: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetricsResponseBody extends $tea.Model {
+  code?: string;
+  dataPoints?: string;
+  message?: string;
+  nextToken?: string;
+  period?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataPoints: 'DataPoints',
+      message: 'Message',
+      nextToken: 'NextToken',
+      period: 'Period',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      dataPoints: 'string',
+      message: 'string',
+      nextToken: 'string',
+      period: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetricsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMetricsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMetricsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceGroupStatisticsRequest extends $tea.Model {
   endTime?: string;
   resourceId?: string;
@@ -4455,6 +4557,79 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLifecycleWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取metrics数据
+   *
+   * @param request GetMetricsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetricsResponse
+   */
+  async getMetricsWithOptions(InstanceId: string, request: GetMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMetricsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dimensions)) {
+      query["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.length)) {
+      query["Length"] = request.length;
+    }
+
+    if (!Util.isUnset(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMetrics",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instance/${OpenApiUtil.getEncodeParam(InstanceId)}/cms/metrics`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMetricsResponse>(await this.callApi(params, req, runtime), new GetMetricsResponse({}));
+  }
+
+  /**
+   * @summary 获取metrics数据
+   *
+   * @param request GetMetricsRequest
+   * @return GetMetricsResponse
+   */
+  async getMetrics(InstanceId: string, request: GetMetricsRequest): Promise<GetMetricsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMetricsWithOptions(InstanceId, request, headers, runtime);
   }
 
   /**
