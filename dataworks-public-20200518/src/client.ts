@@ -18072,6 +18072,93 @@ export class ListManualDagInstancesResponse extends $tea.Model {
   }
 }
 
+export class ListMeasureDataRequest extends $tea.Model {
+  componentCode?: string;
+  domainCode?: string;
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      componentCode: 'ComponentCode',
+      domainCode: 'DomainCode',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentCode: 'string',
+      domainCode: 'string',
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMeasureDataResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  measureDatas?: ListMeasureDataResponseBodyMeasureDatas[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      measureDatas: 'MeasureDatas',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      measureDatas: { 'type': 'array', 'itemType': ListMeasureDataResponseBodyMeasureDatas },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMeasureDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMeasureDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMeasureDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMetaCollectionEntitiesRequest extends $tea.Model {
   collectionQualifiedName?: string;
   entityType?: string;
@@ -38083,6 +38170,37 @@ export class ListManualDagInstancesResponseBodyInstances extends $tea.Model {
   }
 }
 
+export class ListMeasureDataResponseBodyMeasureDatas extends $tea.Model {
+  componentCode?: string;
+  domainCode?: string;
+  endTime?: number;
+  startTime?: number;
+  usage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      componentCode: 'ComponentCode',
+      domainCode: 'DomainCode',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentCode: 'string',
+      domainCode: 'string',
+      endTime: 'number',
+      startTime: 'number',
+      usage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMetaCollectionEntitiesResponseBodyData extends $tea.Model {
   entityList?: Entity[];
   nextToken?: string;
@@ -52819,6 +52937,60 @@ export default class Client extends OpenApi {
   async listManualDagInstances(request: ListManualDagInstancesRequest): Promise<ListManualDagInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listManualDagInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询DataWorks计量数据
+   *
+   * @param request ListMeasureDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMeasureDataResponse
+   */
+  async listMeasureDataWithOptions(request: ListMeasureDataRequest, runtime: $Util.RuntimeOptions): Promise<ListMeasureDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.componentCode)) {
+      query["ComponentCode"] = request.componentCode;
+    }
+
+    if (!Util.isUnset(request.domainCode)) {
+      query["DomainCode"] = request.domainCode;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMeasureData",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMeasureDataResponse>(await this.callApi(params, req, runtime), new ListMeasureDataResponse({}));
+  }
+
+  /**
+   * @summary 查询DataWorks计量数据
+   *
+   * @param request ListMeasureDataRequest
+   * @return ListMeasureDataResponse
+   */
+  async listMeasureData(request: ListMeasureDataRequest): Promise<ListMeasureDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMeasureDataWithOptions(request, runtime);
   }
 
   /**
