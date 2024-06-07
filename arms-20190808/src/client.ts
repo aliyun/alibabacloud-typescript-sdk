@@ -5501,12 +5501,14 @@ export class DelAuthTokenResponse extends $tea.Model {
 }
 
 export class DeleteAddonReleaseRequest extends $tea.Model {
+  addonName?: string;
   environmentId?: string;
   force?: boolean;
   regionId?: string;
   releaseName?: string;
   static names(): { [key: string]: string } {
     return {
+      addonName: 'AddonName',
       environmentId: 'EnvironmentId',
       force: 'Force',
       regionId: 'RegionId',
@@ -5516,6 +5518,7 @@ export class DeleteAddonReleaseRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addonName: 'string',
       environmentId: 'string',
       force: 'boolean',
       regionId: 'string',
@@ -29262,10 +29265,12 @@ export class ListAddonsResponseBodyDataDashboards extends $tea.Model {
 }
 
 export class ListAddonsResponseBodyDataEnvironmentsDependencies extends $tea.Model {
+  clusterTypes?: string[];
   features?: { [key: string]: boolean };
   services?: string[];
   static names(): { [key: string]: string } {
     return {
+      clusterTypes: 'ClusterTypes',
       features: 'Features',
       services: 'Services',
     };
@@ -29273,6 +29278,7 @@ export class ListAddonsResponseBodyDataEnvironmentsDependencies extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      clusterTypes: { 'type': 'array', 'itemType': 'string' },
       features: { 'type': 'map', 'keyType': 'string', 'valueType': 'boolean' },
       services: { 'type': 'array', 'itemType': 'string' },
     };
@@ -38039,6 +38045,10 @@ export default class Client extends OpenApi {
   async deleteAddonReleaseWithOptions(request: DeleteAddonReleaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAddonReleaseResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.addonName)) {
+      query["AddonName"] = request.addonName;
+    }
+
     if (!Util.isUnset(request.environmentId)) {
       query["EnvironmentId"] = request.environmentId;
     }
