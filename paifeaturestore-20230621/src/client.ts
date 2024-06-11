@@ -2738,6 +2738,91 @@ export class ListFeatureViewFieldRelationshipsResponse extends $tea.Model {
   }
 }
 
+export class ListFeatureViewOnlineFeaturesRequest extends $tea.Model {
+  joinIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      joinIds: 'JoinIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      joinIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFeatureViewOnlineFeaturesShrinkRequest extends $tea.Model {
+  joinIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      joinIdsShrink: 'JoinIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      joinIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFeatureViewOnlineFeaturesResponseBody extends $tea.Model {
+  onlineFeatures?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      onlineFeatures: 'OnlineFeatures',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onlineFeatures: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFeatureViewOnlineFeaturesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFeatureViewOnlineFeaturesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFeatureViewOnlineFeaturesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFeatureViewRelationshipsResponseBody extends $tea.Model {
   relationships?: ListFeatureViewRelationshipsResponseBodyRelationships[];
   requestId?: string;
@@ -5734,6 +5819,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 切换生效的热点数据的版本。
+   *
+   * @param request ChangeProjectFeatureEntityHotIdVersionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeProjectFeatureEntityHotIdVersionResponse
+   */
   async changeProjectFeatureEntityHotIdVersionWithOptions(InstanceId: string, ProjectId: string, FeatureEntityName: string, request: ChangeProjectFeatureEntityHotIdVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeProjectFeatureEntityHotIdVersionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5759,12 +5852,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeProjectFeatureEntityHotIdVersionResponse>(await this.callApi(params, req, runtime), new ChangeProjectFeatureEntityHotIdVersionResponse({}));
   }
 
+  /**
+   * @summary 切换生效的热点数据的版本。
+   *
+   * @param request ChangeProjectFeatureEntityHotIdVersionRequest
+   * @return ChangeProjectFeatureEntityHotIdVersionResponse
+   */
   async changeProjectFeatureEntityHotIdVersion(InstanceId: string, ProjectId: string, FeatureEntityName: string, request: ChangeProjectFeatureEntityHotIdVersionRequest): Promise<ChangeProjectFeatureEntityHotIdVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.changeProjectFeatureEntityHotIdVersionWithOptions(InstanceId, ProjectId, FeatureEntityName, request, headers, runtime);
   }
 
+  /**
+   * @summary 检测资源连接状态。
+   *
+   * @param request CheckInstanceDatasourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckInstanceDatasourceResponse
+   */
   async checkInstanceDatasourceWithOptions(InstanceId: string, request: CheckInstanceDatasourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckInstanceDatasourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5798,12 +5905,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckInstanceDatasourceResponse>(await this.callApi(params, req, runtime), new CheckInstanceDatasourceResponse({}));
   }
 
+  /**
+   * @summary 检测资源连接状态。
+   *
+   * @param request CheckInstanceDatasourceRequest
+   * @return CheckInstanceDatasourceResponse
+   */
   async checkInstanceDatasource(InstanceId: string, request: CheckInstanceDatasourceRequest): Promise<CheckInstanceDatasourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.checkInstanceDatasourceWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建数据源。
+   *
+   * @param request CreateDatasourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDatasourceResponse
+   */
   async createDatasourceWithOptions(InstanceId: string, request: CreateDatasourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDatasourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5845,12 +5966,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatasourceResponse>(await this.callApi(params, req, runtime), new CreateDatasourceResponse({}));
   }
 
+  /**
+   * @summary 创建数据源。
+   *
+   * @param request CreateDatasourceRequest
+   * @return CreateDatasourceResponse
+   */
   async createDatasource(InstanceId: string, request: CreateDatasourceRequest): Promise<CreateDatasourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createDatasourceWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建特征实体
+   *
+   * @param request CreateFeatureEntityRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFeatureEntityResponse
+   */
   async createFeatureEntityWithOptions(InstanceId: string, request: CreateFeatureEntityRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFeatureEntityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5884,12 +6019,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFeatureEntityResponse>(await this.callApi(params, req, runtime), new CreateFeatureEntityResponse({}));
   }
 
+  /**
+   * @summary 创建特征实体
+   *
+   * @param request CreateFeatureEntityRequest
+   * @return CreateFeatureEntityResponse
+   */
   async createFeatureEntity(InstanceId: string, request: CreateFeatureEntityRequest): Promise<CreateFeatureEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createFeatureEntityWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建特征视图。
+   *
+   * @param request CreateFeatureViewRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFeatureViewResponse
+   */
   async createFeatureViewWithOptions(InstanceId: string, request: CreateFeatureViewRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFeatureViewResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5963,12 +6112,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFeatureViewResponse>(await this.callApi(params, req, runtime), new CreateFeatureViewResponse({}));
   }
 
+  /**
+   * @summary 创建特征视图。
+   *
+   * @param request CreateFeatureViewRequest
+   * @return CreateFeatureViewResponse
+   */
   async createFeatureView(InstanceId: string, request: CreateFeatureViewRequest): Promise<CreateFeatureViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createFeatureViewWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建Feature Store实例。
+   *
+   * @param request CreateInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
+   */
   async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5994,12 +6157,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
+  /**
+   * @summary 创建Feature Store实例。
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
+   */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建label表
+   *
+   * @param request CreateLabelTableRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLabelTableResponse
+   */
   async createLabelTableWithOptions(InstanceId: string, request: CreateLabelTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLabelTableResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6037,12 +6214,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLabelTableResponse>(await this.callApi(params, req, runtime), new CreateLabelTableResponse({}));
   }
 
+  /**
+   * @summary 创建label表
+   *
+   * @param request CreateLabelTableRequest
+   * @return CreateLabelTableResponse
+   */
   async createLabelTable(InstanceId: string, request: CreateLabelTableRequest): Promise<CreateLabelTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createLabelTableWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建模型特征。
+   *
+   * @param request CreateModelFeatureRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateModelFeatureResponse
+   */
   async createModelFeatureWithOptions(InstanceId: string, request: CreateModelFeatureRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateModelFeatureResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6084,12 +6275,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateModelFeatureResponse>(await this.callApi(params, req, runtime), new CreateModelFeatureResponse({}));
   }
 
+  /**
+   * @summary 创建模型特征。
+   *
+   * @param request CreateModelFeatureRequest
+   * @return CreateModelFeatureResponse
+   */
   async createModelFeature(InstanceId: string, request: CreateModelFeatureRequest): Promise<CreateModelFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createModelFeatureWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建训练样本FG表。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateModelFeatureTrainingSetFGTableResponse
+   */
   async createModelFeatureTrainingSetFGTableWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateModelFeatureTrainingSetFGTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6108,12 +6312,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateModelFeatureTrainingSetFGTableResponse>(await this.callApi(params, req, runtime), new CreateModelFeatureTrainingSetFGTableResponse({}));
   }
 
+  /**
+   * @summary 创建训练样本FG表。
+   *
+   * @return CreateModelFeatureTrainingSetFGTableResponse
+   */
   async createModelFeatureTrainingSetFGTable(InstanceId: string, ModelFeatureId: string): Promise<CreateModelFeatureTrainingSetFGTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createModelFeatureTrainingSetFGTableWithOptions(InstanceId, ModelFeatureId, headers, runtime);
   }
 
+  /**
+   * @summary 创建FeatureStore项目
+   *
+   * @param request CreateProjectRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProjectResponse
+   */
   async createProjectWithOptions(InstanceId: string, request: CreateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6159,12 +6376,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
   }
 
+  /**
+   * @summary 创建FeatureStore项目
+   *
+   * @param request CreateProjectRequest
+   * @return CreateProjectResponse
+   */
   async createProject(InstanceId: string, request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createProjectWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建feature store服务账户角色
+   *
+   * @param request CreateServiceIdentityRoleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceIdentityRoleResponse
+   */
   async createServiceIdentityRoleWithOptions(request: CreateServiceIdentityRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceIdentityRoleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6190,12 +6421,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceIdentityRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceIdentityRoleResponse({}));
   }
 
+  /**
+   * @summary 创建feature store服务账户角色
+   *
+   * @param request CreateServiceIdentityRoleRequest
+   * @return CreateServiceIdentityRoleResponse
+   */
   async createServiceIdentityRole(request: CreateServiceIdentityRoleRequest): Promise<CreateServiceIdentityRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceIdentityRoleWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 删除指定数据源。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDatasourceResponse
+   */
   async deleteDatasourceWithOptions(InstanceId: string, DatasourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDatasourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6214,12 +6458,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatasourceResponse>(await this.callApi(params, req, runtime), new DeleteDatasourceResponse({}));
   }
 
+  /**
+   * @summary 删除指定数据源。
+   *
+   * @return DeleteDatasourceResponse
+   */
   async deleteDatasource(InstanceId: string, DatasourceId: string): Promise<DeleteDatasourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDatasourceWithOptions(InstanceId, DatasourceId, headers, runtime);
   }
 
+  /**
+   * @summary 删除指定特征实体
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFeatureEntityResponse
+   */
   async deleteFeatureEntityWithOptions(InstanceId: string, FeatureEntityId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFeatureEntityResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6238,12 +6494,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFeatureEntityResponse>(await this.callApi(params, req, runtime), new DeleteFeatureEntityResponse({}));
   }
 
+  /**
+   * @summary 删除指定特征实体
+   *
+   * @return DeleteFeatureEntityResponse
+   */
   async deleteFeatureEntity(InstanceId: string, FeatureEntityId: string): Promise<DeleteFeatureEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFeatureEntityWithOptions(InstanceId, FeatureEntityId, headers, runtime);
   }
 
+  /**
+   * @summary 删除指定特征视图。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFeatureViewResponse
+   */
   async deleteFeatureViewWithOptions(InstanceId: string, FeatureViewId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFeatureViewResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6262,12 +6530,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFeatureViewResponse>(await this.callApi(params, req, runtime), new DeleteFeatureViewResponse({}));
   }
 
+  /**
+   * @summary 删除指定特征视图。
+   *
+   * @return DeleteFeatureViewResponse
+   */
   async deleteFeatureView(InstanceId: string, FeatureViewId: string): Promise<DeleteFeatureViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFeatureViewWithOptions(InstanceId, FeatureViewId, headers, runtime);
   }
 
+  /**
+   * @summary 删除label表
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLabelTableResponse
+   */
   async deleteLabelTableWithOptions(InstanceId: string, LabelTableId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLabelTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6286,12 +6566,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLabelTableResponse>(await this.callApi(params, req, runtime), new DeleteLabelTableResponse({}));
   }
 
+  /**
+   * @summary 删除label表
+   *
+   * @return DeleteLabelTableResponse
+   */
   async deleteLabelTable(InstanceId: string, LabelTableId: string): Promise<DeleteLabelTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteLabelTableWithOptions(InstanceId, LabelTableId, headers, runtime);
   }
 
+  /**
+   * @summary 删除指定模型特征。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteModelFeatureResponse
+   */
   async deleteModelFeatureWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteModelFeatureResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6310,12 +6602,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteModelFeatureResponse>(await this.callApi(params, req, runtime), new DeleteModelFeatureResponse({}));
   }
 
+  /**
+   * @summary 删除指定模型特征。
+   *
+   * @return DeleteModelFeatureResponse
+   */
   async deleteModelFeature(InstanceId: string, ModelFeatureId: string): Promise<DeleteModelFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteModelFeatureWithOptions(InstanceId, ModelFeatureId, headers, runtime);
   }
 
+  /**
+   * @summary 删除指定Feature Store项目。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteProjectResponse
+   */
   async deleteProjectWithOptions(InstanceId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6334,12 +6638,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
   }
 
+  /**
+   * @summary 删除指定Feature Store项目。
+   *
+   * @return DeleteProjectResponse
+   */
   async deleteProject(InstanceId: string, ProjectId: string): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProjectWithOptions(InstanceId, ProjectId, headers, runtime);
   }
 
+  /**
+   * @summary 导出训练样本FG表。
+   *
+   * @param request ExportModelFeatureTrainingSetFGTableRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportModelFeatureTrainingSetFGTableResponse
+   */
   async exportModelFeatureTrainingSetFGTableWithOptions(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetFGTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExportModelFeatureTrainingSetFGTableResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6365,12 +6682,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportModelFeatureTrainingSetFGTableResponse>(await this.callApi(params, req, runtime), new ExportModelFeatureTrainingSetFGTableResponse({}));
   }
 
+  /**
+   * @summary 导出训练样本FG表。
+   *
+   * @param request ExportModelFeatureTrainingSetFGTableRequest
+   * @return ExportModelFeatureTrainingSetFGTableResponse
+   */
   async exportModelFeatureTrainingSetFGTable(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetFGTableRequest): Promise<ExportModelFeatureTrainingSetFGTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.exportModelFeatureTrainingSetFGTableWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
   }
 
+  /**
+   * @summary 导出训练集表。
+   *
+   * @param request ExportModelFeatureTrainingSetTableRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportModelFeatureTrainingSetTableResponse
+   */
   async exportModelFeatureTrainingSetTableWithOptions(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExportModelFeatureTrainingSetTableResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6404,12 +6735,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportModelFeatureTrainingSetTableResponse>(await this.callApi(params, req, runtime), new ExportModelFeatureTrainingSetTableResponse({}));
   }
 
+  /**
+   * @summary 导出训练集表。
+   *
+   * @param request ExportModelFeatureTrainingSetTableRequest
+   * @return ExportModelFeatureTrainingSetTableResponse
+   */
   async exportModelFeatureTrainingSetTable(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetTableRequest): Promise<ExportModelFeatureTrainingSetTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.exportModelFeatureTrainingSetTableWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取数据源详细信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDatasourceResponse
+   */
   async getDatasourceWithOptions(InstanceId: string, DatasourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDatasourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6428,12 +6772,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDatasourceResponse>(await this.callApi(params, req, runtime), new GetDatasourceResponse({}));
   }
 
+  /**
+   * @summary 获取数据源详细信息。
+   *
+   * @return GetDatasourceResponse
+   */
   async getDatasource(InstanceId: string, DatasourceId: string): Promise<GetDatasourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDatasourceWithOptions(InstanceId, DatasourceId, headers, runtime);
   }
 
+  /**
+   * @summary 获取数据源下指定表的详细信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDatasourceTableResponse
+   */
   async getDatasourceTableWithOptions(InstanceId: string, DatasourceId: string, TableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDatasourceTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6452,12 +6808,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDatasourceTableResponse>(await this.callApi(params, req, runtime), new GetDatasourceTableResponse({}));
   }
 
+  /**
+   * @summary 获取数据源下指定表的详细信息。
+   *
+   * @return GetDatasourceTableResponse
+   */
   async getDatasourceTable(InstanceId: string, DatasourceId: string, TableName: string): Promise<GetDatasourceTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDatasourceTableWithOptions(InstanceId, DatasourceId, TableName, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征实体详细信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFeatureEntityResponse
+   */
   async getFeatureEntityWithOptions(InstanceId: string, FeatureEntityId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFeatureEntityResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6476,12 +6844,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFeatureEntityResponse>(await this.callApi(params, req, runtime), new GetFeatureEntityResponse({}));
   }
 
+  /**
+   * @summary 获取特征实体详细信息
+   *
+   * @return GetFeatureEntityResponse
+   */
   async getFeatureEntity(InstanceId: string, FeatureEntityId: string): Promise<GetFeatureEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFeatureEntityWithOptions(InstanceId, FeatureEntityId, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征视图详细信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFeatureViewResponse
+   */
   async getFeatureViewWithOptions(InstanceId: string, FeatureViewId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFeatureViewResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6500,12 +6880,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFeatureViewResponse>(await this.callApi(params, req, runtime), new GetFeatureViewResponse({}));
   }
 
+  /**
+   * @summary 获取特征视图详细信息。
+   *
+   * @return GetFeatureViewResponse
+   */
   async getFeatureView(InstanceId: string, FeatureViewId: string): Promise<GetFeatureViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFeatureViewWithOptions(InstanceId, FeatureViewId, headers, runtime);
   }
 
+  /**
+   * @summary 获取实例详细信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceResponse
+   */
   async getInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6524,12 +6916,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
   }
 
+  /**
+   * @summary 获取实例详细信息
+   *
+   * @return GetInstanceResponse
+   */
   async getInstance(InstanceId: string): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceWithOptions(InstanceId, headers, runtime);
   }
 
+  /**
+   * @summary 获取Label表详细信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLabelTableResponse
+   */
   async getLabelTableWithOptions(InstanceId: string, LabelTableId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLabelTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6548,12 +6952,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLabelTableResponse>(await this.callApi(params, req, runtime), new GetLabelTableResponse({}));
   }
 
+  /**
+   * @summary 获取Label表详细信息。
+   *
+   * @return GetLabelTableResponse
+   */
   async getLabelTable(InstanceId: string, LabelTableId: string): Promise<GetLabelTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLabelTableWithOptions(InstanceId, LabelTableId, headers, runtime);
   }
 
+  /**
+   * @summary 获取模型特征详情。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetModelFeatureResponse
+   */
   async getModelFeatureWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetModelFeatureResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6572,12 +6988,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetModelFeatureResponse>(await this.callApi(params, req, runtime), new GetModelFeatureResponse({}));
   }
 
+  /**
+   * @summary 获取模型特征详情。
+   *
+   * @return GetModelFeatureResponse
+   */
   async getModelFeature(InstanceId: string, ModelFeatureId: string): Promise<GetModelFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getModelFeatureWithOptions(InstanceId, ModelFeatureId, headers, runtime);
   }
 
+  /**
+   * @summary 获取模型特征的FG特征配置信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetModelFeatureFGFeatureResponse
+   */
   async getModelFeatureFGFeatureWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetModelFeatureFGFeatureResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6596,12 +7024,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetModelFeatureFGFeatureResponse>(await this.callApi(params, req, runtime), new GetModelFeatureFGFeatureResponse({}));
   }
 
+  /**
+   * @summary 获取模型特征的FG特征配置信息。
+   *
+   * @return GetModelFeatureFGFeatureResponse
+   */
   async getModelFeatureFGFeature(InstanceId: string, ModelFeatureId: string): Promise<GetModelFeatureFGFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getModelFeatureFGFeatureWithOptions(InstanceId, ModelFeatureId, headers, runtime);
   }
 
+  /**
+   * @summary 获取模型特征的fg.json文件配置信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetModelFeatureFGInfoResponse
+   */
   async getModelFeatureFGInfoWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetModelFeatureFGInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6620,12 +7060,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetModelFeatureFGInfoResponse>(await this.callApi(params, req, runtime), new GetModelFeatureFGInfoResponse({}));
   }
 
+  /**
+   * @summary 获取模型特征的fg.json文件配置信息。
+   *
+   * @return GetModelFeatureFGInfoResponse
+   */
   async getModelFeatureFGInfo(InstanceId: string, ModelFeatureId: string): Promise<GetModelFeatureFGInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getModelFeatureFGInfoWithOptions(InstanceId, ModelFeatureId, headers, runtime);
   }
 
+  /**
+   * @summary 获取指定Feature Store项目详细信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProjectResponse
+   */
   async getProjectWithOptions(InstanceId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6644,12 +7096,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
   }
 
+  /**
+   * @summary 获取指定Feature Store项目详细信息。
+   *
+   * @return GetProjectResponse
+   */
   async getProject(InstanceId: string, ProjectId: string): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProjectWithOptions(InstanceId, ProjectId, headers, runtime);
   }
 
+  /**
+   * @summary 获取项目下特征实体详细信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProjectFeatureEntityResponse
+   */
   async getProjectFeatureEntityWithOptions(InstanceId: string, ProjectId: string, FeatureEntityName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectFeatureEntityResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6668,12 +7132,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectFeatureEntityResponse>(await this.callApi(params, req, runtime), new GetProjectFeatureEntityResponse({}));
   }
 
+  /**
+   * @summary 获取项目下特征实体详细信息
+   *
+   * @return GetProjectFeatureEntityResponse
+   */
   async getProjectFeatureEntity(InstanceId: string, ProjectId: string, FeatureEntityName: string): Promise<GetProjectFeatureEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProjectFeatureEntityWithOptions(InstanceId, ProjectId, FeatureEntityName, headers, runtime);
   }
 
+  /**
+   * @summary 获取项目下，指定特征实体指定的热点数据。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProjectFeatureEntityHotIdsResponse
+   */
   async getProjectFeatureEntityHotIdsWithOptions(InstanceId: string, ProjectId: string, NextSeqNumber: string, FeatureEntityName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectFeatureEntityHotIdsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6692,12 +7168,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectFeatureEntityHotIdsResponse>(await this.callApi(params, req, runtime), new GetProjectFeatureEntityHotIdsResponse({}));
   }
 
+  /**
+   * @summary 获取项目下，指定特征实体指定的热点数据。
+   *
+   * @return GetProjectFeatureEntityHotIdsResponse
+   */
   async getProjectFeatureEntityHotIds(InstanceId: string, ProjectId: string, NextSeqNumber: string, FeatureEntityName: string): Promise<GetProjectFeatureEntityHotIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProjectFeatureEntityHotIdsWithOptions(InstanceId, ProjectId, NextSeqNumber, FeatureEntityName, headers, runtime);
   }
 
+  /**
+   * @summary 获取项目下特征视图详细信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProjectFeatureViewResponse
+   */
   async getProjectFeatureViewWithOptions(InstanceId: string, ProjectId: string, FeatureViewName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectFeatureViewResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6716,12 +7204,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectFeatureViewResponse>(await this.callApi(params, req, runtime), new GetProjectFeatureViewResponse({}));
   }
 
+  /**
+   * @summary 获取项目下特征视图详细信息。
+   *
+   * @return GetProjectFeatureViewResponse
+   */
   async getProjectFeatureView(InstanceId: string, ProjectId: string, FeatureViewName: string): Promise<GetProjectFeatureViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProjectFeatureViewWithOptions(InstanceId, ProjectId, FeatureViewName, headers, runtime);
   }
 
+  /**
+   * @summary 获取项目下指定模型特征的详细信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProjectModelFeatureResponse
+   */
   async getProjectModelFeatureWithOptions(InstanceId: string, ProjectId: string, ModelFeatureName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectModelFeatureResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6740,12 +7240,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectModelFeatureResponse>(await this.callApi(params, req, runtime), new GetProjectModelFeatureResponse({}));
   }
 
+  /**
+   * @summary 获取项目下指定模型特征的详细信息。
+   *
+   * @return GetProjectModelFeatureResponse
+   */
   async getProjectModelFeature(InstanceId: string, ProjectId: string, ModelFeatureName: string): Promise<GetProjectModelFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProjectModelFeatureWithOptions(InstanceId, ProjectId, ModelFeatureName, headers, runtime);
   }
 
+  /**
+   * @summary 获取feature store服务账户角色。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceIdentityRoleResponse
+   */
   async getServiceIdentityRoleWithOptions(RoleName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceIdentityRoleResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6764,12 +7276,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceIdentityRoleResponse>(await this.callApi(params, req, runtime), new GetServiceIdentityRoleResponse({}));
   }
 
+  /**
+   * @summary 获取feature store服务账户角色。
+   *
+   * @return GetServiceIdentityRoleResponse
+   */
   async getServiceIdentityRole(RoleName: string): Promise<GetServiceIdentityRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getServiceIdentityRoleWithOptions(RoleName, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务详情
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskResponse
+   */
   async getTaskWithOptions(InstanceId: string, TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6788,12 +7312,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
   }
 
+  /**
+   * @summary 获取任务详情
+   *
+   * @return GetTaskResponse
+   */
   async getTask(InstanceId: string, TaskId: string): Promise<GetTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTaskWithOptions(InstanceId, TaskId, headers, runtime);
   }
 
+  /**
+   * @summary 获取数据源下所有表。
+   *
+   * @param request ListDatasourceTablesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDatasourceTablesResponse
+   */
   async listDatasourceTablesWithOptions(InstanceId: string, DatasourceId: string, request: ListDatasourceTablesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDatasourceTablesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6819,12 +7356,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatasourceTablesResponse>(await this.callApi(params, req, runtime), new ListDatasourceTablesResponse({}));
   }
 
+  /**
+   * @summary 获取数据源下所有表。
+   *
+   * @param request ListDatasourceTablesRequest
+   * @return ListDatasourceTablesResponse
+   */
   async listDatasourceTables(InstanceId: string, DatasourceId: string, request: ListDatasourceTablesRequest): Promise<ListDatasourceTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDatasourceTablesWithOptions(InstanceId, DatasourceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取数据源列表。
+   *
+   * @param request ListDatasourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDatasourcesResponse
+   */
   async listDatasourcesWithOptions(InstanceId: string, request: ListDatasourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDatasourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6874,12 +7425,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatasourcesResponse>(await this.callApi(params, req, runtime), new ListDatasourcesResponse({}));
   }
 
+  /**
+   * @summary 获取数据源列表。
+   *
+   * @param request ListDatasourcesRequest
+   * @return ListDatasourcesResponse
+   */
   async listDatasources(InstanceId: string, request: ListDatasourcesRequest): Promise<ListDatasourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDatasourcesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建特征实体列表
+   *
+   * @param tmpReq ListFeatureEntitiesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFeatureEntitiesResponse
+   */
   async listFeatureEntitiesWithOptions(InstanceId: string, tmpReq: ListFeatureEntitiesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureEntitiesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListFeatureEntitiesShrinkRequest({ });
@@ -6939,12 +7504,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFeatureEntitiesResponse>(await this.callApi(params, req, runtime), new ListFeatureEntitiesResponse({}));
   }
 
+  /**
+   * @summary 创建特征实体列表
+   *
+   * @param request ListFeatureEntitiesRequest
+   * @return ListFeatureEntitiesResponse
+   */
   async listFeatureEntities(InstanceId: string, request: ListFeatureEntitiesRequest): Promise<ListFeatureEntitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFeatureEntitiesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征字段血缘关系。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFeatureViewFieldRelationshipsResponse
+   */
   async listFeatureViewFieldRelationshipsWithOptions(InstanceId: string, FeatureViewId: string, FieldName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureViewFieldRelationshipsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6963,12 +7541,75 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFeatureViewFieldRelationshipsResponse>(await this.callApi(params, req, runtime), new ListFeatureViewFieldRelationshipsResponse({}));
   }
 
+  /**
+   * @summary 获取特征字段血缘关系。
+   *
+   * @return ListFeatureViewFieldRelationshipsResponse
+   */
   async listFeatureViewFieldRelationships(InstanceId: string, FeatureViewId: string, FieldName: string): Promise<ListFeatureViewFieldRelationshipsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFeatureViewFieldRelationshipsWithOptions(InstanceId, FeatureViewId, FieldName, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征视图下的在线特征数据。
+   *
+   * @param tmpReq ListFeatureViewOnlineFeaturesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFeatureViewOnlineFeaturesResponse
+   */
+  async listFeatureViewOnlineFeaturesWithOptions(InstanceId: string, FeatureViewId: string, tmpReq: ListFeatureViewOnlineFeaturesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureViewOnlineFeaturesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListFeatureViewOnlineFeaturesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.joinIds)) {
+      request.joinIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.joinIds, "JoinIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.joinIdsShrink)) {
+      query["JoinIds"] = request.joinIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFeatureViewOnlineFeatures",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/featureviews/${OpenApiUtil.getEncodeParam(FeatureViewId)}/onlinefeatures`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFeatureViewOnlineFeaturesResponse>(await this.callApi(params, req, runtime), new ListFeatureViewOnlineFeaturesResponse({}));
+  }
+
+  /**
+   * @summary 获取特征视图下的在线特征数据。
+   *
+   * @param request ListFeatureViewOnlineFeaturesRequest
+   * @return ListFeatureViewOnlineFeaturesResponse
+   */
+  async listFeatureViewOnlineFeatures(InstanceId: string, FeatureViewId: string, request: ListFeatureViewOnlineFeaturesRequest): Promise<ListFeatureViewOnlineFeaturesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFeatureViewOnlineFeaturesWithOptions(InstanceId, FeatureViewId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取特征视图血缘关系。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFeatureViewRelationshipsResponse
+   */
   async listFeatureViewRelationshipsWithOptions(InstanceId: string, FeatureViewId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureViewRelationshipsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6987,12 +7628,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFeatureViewRelationshipsResponse>(await this.callApi(params, req, runtime), new ListFeatureViewRelationshipsResponse({}));
   }
 
+  /**
+   * @summary 获取特征视图血缘关系。
+   *
+   * @return ListFeatureViewRelationshipsResponse
+   */
   async listFeatureViewRelationships(InstanceId: string, FeatureViewId: string): Promise<ListFeatureViewRelationshipsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFeatureViewRelationshipsWithOptions(InstanceId, FeatureViewId, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征视图列表。
+   *
+   * @param tmpReq ListFeatureViewsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFeatureViewsResponse
+   */
   async listFeatureViewsWithOptions(InstanceId: string, tmpReq: ListFeatureViewsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureViewsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListFeatureViewsShrinkRequest({ });
@@ -7064,12 +7718,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFeatureViewsResponse>(await this.callApi(params, req, runtime), new ListFeatureViewsResponse({}));
   }
 
+  /**
+   * @summary 获取特征视图列表。
+   *
+   * @param request ListFeatureViewsRequest
+   * @return ListFeatureViewsResponse
+   */
   async listFeatureViews(InstanceId: string, request: ListFeatureViewsRequest): Promise<ListFeatureViewsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFeatureViewsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取Feature Store实例列表。
+   *
+   * @param request ListInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
+   */
   async listInstancesWithOptions(request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7111,12 +7779,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
+  /**
+   * @summary 获取Feature Store实例列表。
+   *
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
+   */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取Label表列表。
+   *
+   * @param tmpReq ListLabelTablesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLabelTablesResponse
+   */
   async listLabelTablesWithOptions(InstanceId: string, tmpReq: ListLabelTablesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLabelTablesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListLabelTablesShrinkRequest({ });
@@ -7176,12 +7858,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLabelTablesResponse>(await this.callApi(params, req, runtime), new ListLabelTablesResponse({}));
   }
 
+  /**
+   * @summary 获取Label表列表。
+   *
+   * @param request ListLabelTablesRequest
+   * @return ListLabelTablesResponse
+   */
   async listLabelTables(InstanceId: string, request: ListLabelTablesRequest): Promise<ListLabelTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLabelTablesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取注册FG特征时模型特征下可选的所有特征。
+   *
+   * @param request ListModelFeatureAvailableFeaturesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListModelFeatureAvailableFeaturesResponse
+   */
   async listModelFeatureAvailableFeaturesWithOptions(InstanceId: string, ModelFeatureId: string, request: ListModelFeatureAvailableFeaturesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListModelFeatureAvailableFeaturesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7207,12 +7903,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListModelFeatureAvailableFeaturesResponse>(await this.callApi(params, req, runtime), new ListModelFeatureAvailableFeaturesResponse({}));
   }
 
+  /**
+   * @summary 获取注册FG特征时模型特征下可选的所有特征。
+   *
+   * @param request ListModelFeatureAvailableFeaturesRequest
+   * @return ListModelFeatureAvailableFeaturesResponse
+   */
   async listModelFeatureAvailableFeatures(InstanceId: string, ModelFeatureId: string, request: ListModelFeatureAvailableFeaturesRequest): Promise<ListModelFeatureAvailableFeaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listModelFeatureAvailableFeaturesWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取模型特征列表。
+   *
+   * @param tmpReq ListModelFeaturesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListModelFeaturesResponse
+   */
   async listModelFeaturesWithOptions(InstanceId: string, tmpReq: ListModelFeaturesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListModelFeaturesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListModelFeaturesShrinkRequest({ });
@@ -7272,12 +7982,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListModelFeaturesResponse>(await this.callApi(params, req, runtime), new ListModelFeaturesResponse({}));
   }
 
+  /**
+   * @summary 获取模型特征列表。
+   *
+   * @param request ListModelFeaturesRequest
+   * @return ListModelFeaturesResponse
+   */
   async listModelFeatures(InstanceId: string, request: ListModelFeaturesRequest): Promise<ListModelFeaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listModelFeaturesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取项目下特征视图的所有创建人。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectFeatureViewOwnersResponse
+   */
   async listProjectFeatureViewOwnersWithOptions(InstanceId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectFeatureViewOwnersResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7296,12 +8019,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectFeatureViewOwnersResponse>(await this.callApi(params, req, runtime), new ListProjectFeatureViewOwnersResponse({}));
   }
 
+  /**
+   * @summary 获取项目下特征视图的所有创建人。
+   *
+   * @return ListProjectFeatureViewOwnersResponse
+   */
   async listProjectFeatureViewOwners(InstanceId: string, ProjectId: string): Promise<ListProjectFeatureViewOwnersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProjectFeatureViewOwnersWithOptions(InstanceId, ProjectId, headers, runtime);
   }
 
+  /**
+   * @summary 获取项目下特征视图的所有标签。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectFeatureViewTagsResponse
+   */
   async listProjectFeatureViewTagsWithOptions(InstanceId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectFeatureViewTagsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7320,12 +8055,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectFeatureViewTagsResponse>(await this.callApi(params, req, runtime), new ListProjectFeatureViewTagsResponse({}));
   }
 
+  /**
+   * @summary 获取项目下特征视图的所有标签。
+   *
+   * @return ListProjectFeatureViewTagsResponse
+   */
   async listProjectFeatureViewTags(InstanceId: string, ProjectId: string): Promise<ListProjectFeatureViewTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProjectFeatureViewTagsWithOptions(InstanceId, ProjectId, headers, runtime);
   }
 
+  /**
+   * @summary 获取项目下的所有特征视图、特征信息。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectFeatureViewsResponse
+   */
   async listProjectFeatureViewsWithOptions(InstanceId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectFeatureViewsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7344,12 +8091,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectFeatureViewsResponse>(await this.callApi(params, req, runtime), new ListProjectFeatureViewsResponse({}));
   }
 
+  /**
+   * @summary 获取项目下的所有特征视图、特征信息。
+   *
+   * @return ListProjectFeatureViewsResponse
+   */
   async listProjectFeatureViews(InstanceId: string, ProjectId: string): Promise<ListProjectFeatureViewsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProjectFeatureViewsWithOptions(InstanceId, ProjectId, headers, runtime);
   }
 
+  /**
+   * @summary 获取Feature Store项目列表。
+   *
+   * @param tmpReq ListProjectsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectsResponse
+   */
   async listProjectsWithOptions(InstanceId: string, tmpReq: ListProjectsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListProjectsShrinkRequest({ });
@@ -7409,12 +8169,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
   }
 
+  /**
+   * @summary 获取Feature Store项目列表。
+   *
+   * @param request ListProjectsRequest
+   * @return ListProjectsResponse
+   */
   async listProjects(InstanceId: string, request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProjectsWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务日志列表
+   *
+   * @param request ListTaskLogsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTaskLogsResponse
+   */
   async listTaskLogsWithOptions(InstanceId: string, TaskId: string, request: ListTaskLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTaskLogsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7444,12 +8218,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskLogsResponse>(await this.callApi(params, req, runtime), new ListTaskLogsResponse({}));
   }
 
+  /**
+   * @summary 获取任务日志列表
+   *
+   * @param request ListTaskLogsRequest
+   * @return ListTaskLogsResponse
+   */
   async listTaskLogs(InstanceId: string, TaskId: string, request: ListTaskLogsRequest): Promise<ListTaskLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTaskLogsWithOptions(InstanceId, TaskId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务列表
+   *
+   * @param tmpReq ListTasksRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTasksResponse
+   */
   async listTasksWithOptions(InstanceId: string, tmpReq: ListTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTasksShrinkRequest({ });
@@ -7509,12 +8297,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
   }
 
+  /**
+   * @summary 获取任务列表
+   *
+   * @param request ListTasksRequest
+   * @return ListTasksResponse
+   */
   async listTasks(InstanceId: string, request: ListTasksRequest): Promise<ListTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTasksWithOptions(InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 将特征视图的离线数据发布/同步到线上。
+   *
+   * @param request PublishFeatureViewTableRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishFeatureViewTableResponse
+   */
   async publishFeatureViewTableWithOptions(InstanceId: string, FeatureViewId: string, request: PublishFeatureViewTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishFeatureViewTableResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7556,12 +8358,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishFeatureViewTableResponse>(await this.callApi(params, req, runtime), new PublishFeatureViewTableResponse({}));
   }
 
+  /**
+   * @summary 将特征视图的离线数据发布/同步到线上。
+   *
+   * @param request PublishFeatureViewTableRequest
+   * @return PublishFeatureViewTableResponse
+   */
   async publishFeatureViewTable(InstanceId: string, FeatureViewId: string, request: PublishFeatureViewTableRequest): Promise<PublishFeatureViewTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.publishFeatureViewTableWithOptions(InstanceId, FeatureViewId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新数据源信息。
+   *
+   * @param request UpdateDatasourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDatasourceResponse
+   */
   async updateDatasourceWithOptions(InstanceId: string, DatasourceId: string, request: UpdateDatasourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDatasourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7595,12 +8411,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDatasourceResponse>(await this.callApi(params, req, runtime), new UpdateDatasourceResponse({}));
   }
 
+  /**
+   * @summary 更新数据源信息。
+   *
+   * @param request UpdateDatasourceRequest
+   * @return UpdateDatasourceResponse
+   */
   async updateDatasource(InstanceId: string, DatasourceId: string, request: UpdateDatasourceRequest): Promise<UpdateDatasourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDatasourceWithOptions(InstanceId, DatasourceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新label表。
+   *
+   * @param request UpdateLabelTableRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLabelTableResponse
+   */
   async updateLabelTableWithOptions(InstanceId: string, LabelTableId: string, request: UpdateLabelTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLabelTableResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7634,12 +8464,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLabelTableResponse>(await this.callApi(params, req, runtime), new UpdateLabelTableResponse({}));
   }
 
+  /**
+   * @summary 更新label表。
+   *
+   * @param request UpdateLabelTableRequest
+   * @return UpdateLabelTableResponse
+   */
   async updateLabelTable(InstanceId: string, LabelTableId: string, request: UpdateLabelTableRequest): Promise<UpdateLabelTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateLabelTableWithOptions(InstanceId, LabelTableId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新模型特征。
+   *
+   * @param request UpdateModelFeatureRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateModelFeatureResponse
+   */
   async updateModelFeatureWithOptions(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateModelFeatureResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7673,12 +8517,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateModelFeatureResponse>(await this.callApi(params, req, runtime), new UpdateModelFeatureResponse({}));
   }
 
+  /**
+   * @summary 更新模型特征。
+   *
+   * @param request UpdateModelFeatureRequest
+   * @return UpdateModelFeatureResponse
+   */
   async updateModelFeature(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureRequest): Promise<UpdateModelFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModelFeatureWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新模型特征的FG特征配置信息。
+   *
+   * @param request UpdateModelFeatureFGFeatureRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateModelFeatureFGFeatureResponse
+   */
   async updateModelFeatureFGFeatureWithOptions(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGFeatureRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateModelFeatureFGFeatureResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7716,12 +8574,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateModelFeatureFGFeatureResponse>(await this.callApi(params, req, runtime), new UpdateModelFeatureFGFeatureResponse({}));
   }
 
+  /**
+   * @summary 更新模型特征的FG特征配置信息。
+   *
+   * @param request UpdateModelFeatureFGFeatureRequest
+   * @return UpdateModelFeatureFGFeatureResponse
+   */
   async updateModelFeatureFGFeature(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGFeatureRequest): Promise<UpdateModelFeatureFGFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModelFeatureFGFeatureWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新模型特征的fg.json文件配置信息。
+   *
+   * @param request UpdateModelFeatureFGInfoRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateModelFeatureFGInfoResponse
+   */
   async updateModelFeatureFGInfoWithOptions(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateModelFeatureFGInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7747,12 +8619,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateModelFeatureFGInfoResponse>(await this.callApi(params, req, runtime), new UpdateModelFeatureFGInfoResponse({}));
   }
 
+  /**
+   * @summary 更新模型特征的fg.json文件配置信息。
+   *
+   * @param request UpdateModelFeatureFGInfoRequest
+   * @return UpdateModelFeatureFGInfoResponse
+   */
   async updateModelFeatureFGInfo(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGInfoRequest): Promise<UpdateModelFeatureFGInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModelFeatureFGInfoWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新指定Feature Store项目信息。
+   *
+   * @param request UpdateProjectRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateProjectResponse
+   */
   async updateProjectWithOptions(InstanceId: string, ProjectId: string, request: UpdateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7782,12 +8668,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProjectResponse>(await this.callApi(params, req, runtime), new UpdateProjectResponse({}));
   }
 
+  /**
+   * @summary 更新指定Feature Store项目信息。
+   *
+   * @param request UpdateProjectRequest
+   * @return UpdateProjectResponse
+   */
   async updateProject(InstanceId: string, ProjectId: string, request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateProjectWithOptions(InstanceId, ProjectId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取特征视图血缘关系。
+   *
+   * @param request WriteFeatureViewTableRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return WriteFeatureViewTableResponse
+   */
   async writeFeatureViewTableWithOptions(InstanceId: string, FeatureViewId: string, request: WriteFeatureViewTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<WriteFeatureViewTableResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7821,12 +8721,26 @@ export default class Client extends OpenApi {
     return $tea.cast<WriteFeatureViewTableResponse>(await this.callApi(params, req, runtime), new WriteFeatureViewTableResponse({}));
   }
 
+  /**
+   * @summary 获取特征视图血缘关系。
+   *
+   * @param request WriteFeatureViewTableRequest
+   * @return WriteFeatureViewTableResponse
+   */
   async writeFeatureViewTable(InstanceId: string, FeatureViewId: string, request: WriteFeatureViewTableRequest): Promise<WriteFeatureViewTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.writeFeatureViewTableWithOptions(InstanceId, FeatureViewId, request, headers, runtime);
   }
 
+  /**
+   * @summary 向指定项目下的特征实体写入热点数据。
+   *
+   * @param request WriteProjectFeatureEntityHotIdsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return WriteProjectFeatureEntityHotIdsResponse
+   */
   async writeProjectFeatureEntityHotIdsWithOptions(InstanceId: string, ProjectId: string, FeatureEntityName: string, request: WriteProjectFeatureEntityHotIdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<WriteProjectFeatureEntityHotIdsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7856,6 +8770,12 @@ export default class Client extends OpenApi {
     return $tea.cast<WriteProjectFeatureEntityHotIdsResponse>(await this.callApi(params, req, runtime), new WriteProjectFeatureEntityHotIdsResponse({}));
   }
 
+  /**
+   * @summary 向指定项目下的特征实体写入热点数据。
+   *
+   * @param request WriteProjectFeatureEntityHotIdsRequest
+   * @return WriteProjectFeatureEntityHotIdsResponse
+   */
   async writeProjectFeatureEntityHotIds(InstanceId: string, ProjectId: string, FeatureEntityName: string, request: WriteProjectFeatureEntityHotIdsRequest): Promise<WriteProjectFeatureEntityHotIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
