@@ -25281,6 +25281,75 @@ export class DescribeVulConfigResponse extends $tea.Model {
   }
 }
 
+export class DescribeVulDefendCountStatisticsRequest extends $tea.Model {
+  vulType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vulType: 'VulType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vulType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulDefendCountStatisticsResponseBody extends $tea.Model {
+  raspDefendedCount?: number;
+  raspDefensibleCount?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      raspDefendedCount: 'RaspDefendedCount',
+      raspDefensibleCount: 'RaspDefensibleCount',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      raspDefendedCount: 'number',
+      raspDefensibleCount: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulDefendCountStatisticsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVulDefendCountStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVulDefendCountStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVulDetailsRequest extends $tea.Model {
   aliasName?: string;
   lang?: string;
@@ -25629,13 +25698,17 @@ export class DescribeVulListPageRequest extends $tea.Model {
   currentPage?: number;
   cveId?: string;
   pageSize?: number;
+  raspDefend?: number;
   vulNameLike?: string;
+  vulType?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
       cveId: 'CveId',
       pageSize: 'PageSize',
+      raspDefend: 'RaspDefend',
       vulNameLike: 'VulNameLike',
+      vulType: 'VulType',
     };
   }
 
@@ -25644,7 +25717,9 @@ export class DescribeVulListPageRequest extends $tea.Model {
       currentPage: 'number',
       cveId: 'string',
       pageSize: 'number',
+      raspDefend: 'number',
       vulNameLike: 'string',
+      vulType: 'string',
     };
   }
 
@@ -25695,6 +25770,62 @@ export class DescribeVulListPageResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeVulListPageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulMetaCountStatisticsResponseBody extends $tea.Model {
+  appCount?: number;
+  cveCount?: number;
+  raspDefendCount?: number;
+  requestId?: string;
+  sysCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appCount: 'AppCount',
+      cveCount: 'CveCount',
+      raspDefendCount: 'RaspDefendCount',
+      requestId: 'RequestId',
+      sysCount: 'SysCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCount: 'number',
+      cveCount: 'number',
+      raspDefendCount: 'number',
+      requestId: 'string',
+      sysCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulMetaCountStatisticsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVulMetaCountStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVulMetaCountStatisticsResponseBody,
     };
   }
 
@@ -34024,6 +34155,7 @@ export class HandleSecurityEventsRequest extends $tea.Model {
   operationCode?: string;
   operationParams?: string;
   remark?: string;
+  resourceDirectoryAccountId?: number;
   securityEventIds?: string[];
   sourceIp?: string;
   static names(): { [key: string]: string } {
@@ -34033,6 +34165,7 @@ export class HandleSecurityEventsRequest extends $tea.Model {
       operationCode: 'OperationCode',
       operationParams: 'OperationParams',
       remark: 'Remark',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       securityEventIds: 'SecurityEventIds',
       sourceIp: 'SourceIp',
     };
@@ -34045,6 +34178,7 @@ export class HandleSecurityEventsRequest extends $tea.Model {
       operationCode: 'string',
       operationParams: 'string',
       remark: 'string',
+      resourceDirectoryAccountId: 'number',
       securityEventIds: { 'type': 'array', 'itemType': 'string' },
       sourceIp: 'string',
     };
@@ -58410,26 +58544,32 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
   aliYunInstanceCount?: number;
   awsInstanceCount?: number;
   azureInstanceCount?: number;
+  exposedInstanceCoreCount?: number;
   exposedInstanceCount?: number;
   generalAssetCount?: number;
   groupCount?: number;
   huaweiInstanceCount?: number;
   idcInstanceCount?: number;
   importantAssetCount?: number;
+  instanceCoreCount?: number;
   instanceCount?: number;
   instanceSyncTaskCount?: number;
+  newInstanceCoreCount?: number;
   newInstanceCount?: number;
   noRiskInstanceCount?: number;
+  notRunningStatusCoreCount?: number;
   notRunningStatusCount?: number;
   offlineInstanceCount?: number;
   outMachineInstanceCount?: number;
   pauseInstanceCount?: number;
   regionCount?: number;
+  riskInstanceCoreCount?: number;
   riskInstanceCount?: number;
   tencentInstanceCount?: number;
   testAssetCount?: number;
   tripartiteInstanceCount?: number;
   unKnowStatusInstanceCount?: number;
+  unprotectedInstanceCoreCount?: number;
   unprotectedInstanceCount?: number;
   vpcCount?: number;
   static names(): { [key: string]: string } {
@@ -58437,26 +58577,32 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
       aliYunInstanceCount: 'AliYunInstanceCount',
       awsInstanceCount: 'AwsInstanceCount',
       azureInstanceCount: 'AzureInstanceCount',
+      exposedInstanceCoreCount: 'ExposedInstanceCoreCount',
       exposedInstanceCount: 'ExposedInstanceCount',
       generalAssetCount: 'GeneralAssetCount',
       groupCount: 'GroupCount',
       huaweiInstanceCount: 'HuaweiInstanceCount',
       idcInstanceCount: 'IdcInstanceCount',
       importantAssetCount: 'ImportantAssetCount',
+      instanceCoreCount: 'InstanceCoreCount',
       instanceCount: 'InstanceCount',
       instanceSyncTaskCount: 'InstanceSyncTaskCount',
+      newInstanceCoreCount: 'NewInstanceCoreCount',
       newInstanceCount: 'NewInstanceCount',
       noRiskInstanceCount: 'NoRiskInstanceCount',
+      notRunningStatusCoreCount: 'NotRunningStatusCoreCount',
       notRunningStatusCount: 'NotRunningStatusCount',
       offlineInstanceCount: 'OfflineInstanceCount',
       outMachineInstanceCount: 'OutMachineInstanceCount',
       pauseInstanceCount: 'PauseInstanceCount',
       regionCount: 'RegionCount',
+      riskInstanceCoreCount: 'RiskInstanceCoreCount',
       riskInstanceCount: 'RiskInstanceCount',
       tencentInstanceCount: 'TencentInstanceCount',
       testAssetCount: 'TestAssetCount',
       tripartiteInstanceCount: 'TripartiteInstanceCount',
       unKnowStatusInstanceCount: 'UnKnowStatusInstanceCount',
+      unprotectedInstanceCoreCount: 'UnprotectedInstanceCoreCount',
       unprotectedInstanceCount: 'UnprotectedInstanceCount',
       vpcCount: 'VpcCount',
     };
@@ -58467,26 +58613,32 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
       aliYunInstanceCount: 'number',
       awsInstanceCount: 'number',
       azureInstanceCount: 'number',
+      exposedInstanceCoreCount: 'number',
       exposedInstanceCount: 'number',
       generalAssetCount: 'number',
       groupCount: 'number',
       huaweiInstanceCount: 'number',
       idcInstanceCount: 'number',
       importantAssetCount: 'number',
+      instanceCoreCount: 'number',
       instanceCount: 'number',
       instanceSyncTaskCount: 'number',
+      newInstanceCoreCount: 'number',
       newInstanceCount: 'number',
       noRiskInstanceCount: 'number',
+      notRunningStatusCoreCount: 'number',
       notRunningStatusCount: 'number',
       offlineInstanceCount: 'number',
       outMachineInstanceCount: 'number',
       pauseInstanceCount: 'number',
       regionCount: 'number',
+      riskInstanceCoreCount: 'number',
       riskInstanceCount: 'number',
       tencentInstanceCount: 'number',
       testAssetCount: 'number',
       tripartiteInstanceCount: 'number',
       unKnowStatusInstanceCount: 'number',
+      unprotectedInstanceCoreCount: 'number',
       unprotectedInstanceCount: 'number',
       vpcCount: 'number',
     };
@@ -58671,6 +58823,7 @@ export class DescribeGroupedInstancesResponseBodyInstances extends $tea.Model {
   authVersionCheckCount?: number;
   fieldAliasName?: string;
   groupFlag?: number;
+  instanceCoreCount?: number;
   instanceCount?: string;
   os?: string;
   riskInstanceCount?: string;
@@ -58681,6 +58834,7 @@ export class DescribeGroupedInstancesResponseBodyInstances extends $tea.Model {
       authVersionCheckCount: 'AuthVersionCheckCount',
       fieldAliasName: 'FieldAliasName',
       groupFlag: 'GroupFlag',
+      instanceCoreCount: 'InstanceCoreCount',
       instanceCount: 'InstanceCount',
       os: 'Os',
       riskInstanceCount: 'RiskInstanceCount',
@@ -58694,6 +58848,7 @@ export class DescribeGroupedInstancesResponseBodyInstances extends $tea.Model {
       authVersionCheckCount: 'number',
       fieldAliasName: 'string',
       groupFlag: 'number',
+      instanceCoreCount: 'number',
       instanceCount: 'string',
       os: 'string',
       riskInstanceCount: 'string',
@@ -65268,6 +65423,8 @@ export class DescribeUserBaselineAuthorizationResponseBodyUserBaselineAuthorizat
 }
 
 export class DescribeUuidsByVulNamesResponseBodyMachineInfoStatistics extends $tea.Model {
+  internetIp?: string;
+  intranetIp?: string;
   machineInstanceId?: string;
   machineIp?: string;
   machineName?: string;
@@ -65276,6 +65433,8 @@ export class DescribeUuidsByVulNamesResponseBodyMachineInfoStatistics extends $t
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
       machineInstanceId: 'MachineInstanceId',
       machineIp: 'MachineIp',
       machineName: 'MachineName',
@@ -65287,6 +65446,8 @@ export class DescribeUuidsByVulNamesResponseBodyMachineInfoStatistics extends $t
 
   static types(): { [key: string]: any } {
     return {
+      internetIp: 'string',
+      intranetIp: 'string',
       machineInstanceId: 'string',
       machineIp: 'string',
       machineName: 'string',
@@ -96846,6 +97007,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询漏洞rasp防御统计
+   *
+   * @param request DescribeVulDefendCountStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulDefendCountStatisticsResponse
+   */
+  async describeVulDefendCountStatisticsWithOptions(request: DescribeVulDefendCountStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulDefendCountStatisticsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.vulType)) {
+      query["VulType"] = request.vulType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVulDefendCountStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVulDefendCountStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeVulDefendCountStatisticsResponse({}));
+  }
+
+  /**
+   * @summary 查询漏洞rasp防御统计
+   *
+   * @param request DescribeVulDefendCountStatisticsRequest
+   * @return DescribeVulDefendCountStatisticsResponse
+   */
+  async describeVulDefendCountStatistics(request: DescribeVulDefendCountStatisticsRequest): Promise<DescribeVulDefendCountStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVulDefendCountStatisticsWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Queries the details about a vulnerability.
    *
    * @param request DescribeVulDetailsRequest
@@ -97114,8 +97317,16 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.raspDefend)) {
+      query["RaspDefend"] = request.raspDefend;
+    }
+
     if (!Util.isUnset(request.vulNameLike)) {
       query["VulNameLike"] = request.vulNameLike;
+    }
+
+    if (!Util.isUnset(request.vulType)) {
+      query["VulType"] = request.vulType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -97144,6 +97355,39 @@ export default class Client extends OpenApi {
   async describeVulListPage(request: DescribeVulListPageRequest): Promise<DescribeVulListPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulListPageWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询漏洞库信息统计
+   *
+   * @param request DescribeVulMetaCountStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulMetaCountStatisticsResponse
+   */
+  async describeVulMetaCountStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeVulMetaCountStatisticsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeVulMetaCountStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVulMetaCountStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeVulMetaCountStatisticsResponse({}));
+  }
+
+  /**
+   * @summary 查询漏洞库信息统计
+   *
+   * @return DescribeVulMetaCountStatisticsResponse
+   */
+  async describeVulMetaCountStatistics(): Promise<DescribeVulMetaCountStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVulMetaCountStatisticsWithOptions(runtime);
   }
 
   /**
@@ -102623,6 +102867,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.remark)) {
       query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!Util.isUnset(request.securityEventIds)) {
