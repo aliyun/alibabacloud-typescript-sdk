@@ -13,6 +13,112 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DeleteSymRecordsRequest extends $tea.Model {
+  appVersions?: string[];
+  dataSourceId?: string;
+  fileType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appVersions: 'appVersions',
+      dataSourceId: 'dataSourceId',
+      fileType: 'fileType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appVersions: { 'type': 'array', 'itemType': 'string' },
+      dataSourceId: 'string',
+      fileType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSymRecordsShrinkRequest extends $tea.Model {
+  appVersionsShrink?: string;
+  dataSourceId?: string;
+  fileType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appVersionsShrink: 'appVersions',
+      dataSourceId: 'dataSourceId',
+      fileType: 'fileType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appVersionsShrink: 'string',
+      dataSourceId: 'string',
+      fileType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSymRecordsResponseBody extends $tea.Model {
+  code?: number;
+  msg?: string;
+  num?: number;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      msg: 'msg',
+      num: 'num',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      msg: 'string',
+      num: 'number',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSymRecordsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSymRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSymRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetH5PageTrendRequest extends $tea.Model {
   appVersion?: string;
   dataSourceId?: string;
@@ -1095,6 +1201,65 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * @summary 删除符号表记录
+   *
+   * @param tmpReq DeleteSymRecordsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSymRecordsResponse
+   */
+  async deleteSymRecordsWithOptions(tmpReq: DeleteSymRecordsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSymRecordsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteSymRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.appVersions)) {
+      request.appVersionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appVersions, "appVersions", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appVersionsShrink)) {
+      body["appVersions"] = request.appVersionsShrink;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      body["dataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.fileType)) {
+      body["fileType"] = request.fileType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSymRecords",
+      version: "2022-02-14",
+      protocol: "HTTPS",
+      pathname: `/deleteSymRecords`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSymRecordsResponse>(await this.callApi(params, req, runtime), new DeleteSymRecordsResponse({}));
+  }
+
+  /**
+   * @summary 删除符号表记录
+   *
+   * @param request DeleteSymRecordsRequest
+   * @return DeleteSymRecordsResponse
+   */
+  async deleteSymRecords(request: DeleteSymRecordsRequest): Promise<DeleteSymRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSymRecordsWithOptions(request, headers, runtime);
   }
 
   /**
