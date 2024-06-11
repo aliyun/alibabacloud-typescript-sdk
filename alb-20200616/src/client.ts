@@ -6707,14 +6707,40 @@ export class CancelShiftLoadBalancerZonesRequestZoneMappings extends $tea.Model 
   }
 }
 
+export class CreateAScriptsRequestAScriptsExtAttributes extends $tea.Model {
+  attributeKey?: string;
+  attributeValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributeKey: 'AttributeKey',
+      attributeValue: 'AttributeValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeKey: 'string',
+      attributeValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAScriptsRequestAScripts extends $tea.Model {
   AScriptName?: string;
   enabled?: boolean;
+  extAttributeEnabled?: boolean;
+  extAttributes?: CreateAScriptsRequestAScriptsExtAttributes[];
   scriptContent?: string;
   static names(): { [key: string]: string } {
     return {
       AScriptName: 'AScriptName',
       enabled: 'Enabled',
+      extAttributeEnabled: 'ExtAttributeEnabled',
+      extAttributes: 'ExtAttributes',
       scriptContent: 'ScriptContent',
     };
   }
@@ -6723,6 +6749,8 @@ export class CreateAScriptsRequestAScripts extends $tea.Model {
     return {
       AScriptName: 'string',
       enabled: 'boolean',
+      extAttributeEnabled: 'boolean',
+      extAttributes: { 'type': 'array', 'itemType': CreateAScriptsRequestAScriptsExtAttributes },
       scriptContent: 'string',
     };
   }
@@ -11765,16 +11793,42 @@ export class UnTagResourcesRequestTag extends $tea.Model {
   }
 }
 
+export class UpdateAScriptsRequestAScriptsExtAttributes extends $tea.Model {
+  attributeKey?: string;
+  attributeValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributeKey: 'AttributeKey',
+      attributeValue: 'AttributeValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeKey: 'string',
+      attributeValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAScriptsRequestAScripts extends $tea.Model {
   AScriptId?: string;
   AScriptName?: string;
   enabled?: boolean;
+  extAttributeEnabled?: boolean;
+  extAttributes?: UpdateAScriptsRequestAScriptsExtAttributes[];
   scriptContent?: string;
   static names(): { [key: string]: string } {
     return {
       AScriptId: 'AScriptId',
       AScriptName: 'AScriptName',
       enabled: 'Enabled',
+      extAttributeEnabled: 'ExtAttributeEnabled',
+      extAttributes: 'ExtAttributes',
       scriptContent: 'ScriptContent',
     };
   }
@@ -11784,6 +11838,8 @@ export class UpdateAScriptsRequestAScripts extends $tea.Model {
       AScriptId: 'string',
       AScriptName: 'string',
       enabled: 'boolean',
+      extAttributeEnabled: 'boolean',
+      extAttributes: { 'type': 'array', 'itemType': UpdateAScriptsRequestAScriptsExtAttributes },
       scriptContent: 'string',
     };
   }
