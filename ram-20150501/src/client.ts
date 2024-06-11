@@ -50,9 +50,9 @@ export class AddUserToGroupResponseBody extends $tea.Model {
 }
 
 export class AddUserToGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddUserToGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddUserToGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -119,9 +119,9 @@ export class AttachPolicyToGroupResponseBody extends $tea.Model {
 }
 
 export class AttachPolicyToGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachPolicyToGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachPolicyToGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -188,9 +188,9 @@ export class AttachPolicyToRoleResponseBody extends $tea.Model {
 }
 
 export class AttachPolicyToRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachPolicyToRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachPolicyToRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -257,9 +257,9 @@ export class AttachPolicyToUserResponseBody extends $tea.Model {
 }
 
 export class AttachPolicyToUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachPolicyToUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachPolicyToUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -329,9 +329,9 @@ export class BindMFADeviceResponseBody extends $tea.Model {
 }
 
 export class BindMFADeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BindMFADeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindMFADeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -395,9 +395,9 @@ export class ChangePasswordResponseBody extends $tea.Model {
 }
 
 export class ChangePasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangePasswordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangePasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -439,9 +439,9 @@ export class ClearAccountAliasResponseBody extends $tea.Model {
 }
 
 export class ClearAccountAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ClearAccountAliasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClearAccountAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -505,9 +505,9 @@ export class CreateAccessKeyResponseBody extends $tea.Model {
 }
 
 export class CreateAccessKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAccessKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAccessKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -574,9 +574,9 @@ export class CreateGroupResponseBody extends $tea.Model {
 }
 
 export class CreateGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -649,9 +649,9 @@ export class CreateLoginProfileResponseBody extends $tea.Model {
 }
 
 export class CreateLoginProfileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLoginProfileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLoginProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -721,9 +721,9 @@ export class CreatePolicyResponseBody extends $tea.Model {
 }
 
 export class CreatePolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -796,9 +796,9 @@ export class CreatePolicyVersionResponseBody extends $tea.Model {
 }
 
 export class CreatePolicyVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePolicyVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePolicyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -871,9 +871,9 @@ export class CreateRoleResponseBody extends $tea.Model {
 }
 
 export class CreateRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -949,9 +949,9 @@ export class CreateUserResponseBody extends $tea.Model {
 }
 
 export class CreateUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1015,9 +1015,9 @@ export class CreateVirtualMFADeviceResponseBody extends $tea.Model {
 }
 
 export class CreateVirtualMFADeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVirtualMFADeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVirtualMFADeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1031,6 +1031,72 @@ export class CreateVirtualMFADeviceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateVirtualMFADeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecodeDiagnosticMessageRequest extends $tea.Model {
+  encodedDiagnosticMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodedDiagnosticMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecodeDiagnosticMessageResponseBody extends $tea.Model {
+  decodedDiagnosticMessage?: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessage;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      decodedDiagnosticMessage: 'DecodedDiagnosticMessage',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      decodedDiagnosticMessage: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessage,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecodeDiagnosticMessageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DecodeDiagnosticMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DecodeDiagnosticMessageResponseBody,
     };
   }
 
@@ -1081,9 +1147,9 @@ export class DeleteAccessKeyResponseBody extends $tea.Model {
 }
 
 export class DeleteAccessKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAccessKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccessKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1144,9 +1210,9 @@ export class DeleteGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1207,9 +1273,9 @@ export class DeleteLoginProfileResponseBody extends $tea.Model {
 }
 
 export class DeleteLoginProfileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLoginProfileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLoginProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1270,9 +1336,9 @@ export class DeletePolicyResponseBody extends $tea.Model {
 }
 
 export class DeletePolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1336,9 +1402,9 @@ export class DeletePolicyVersionResponseBody extends $tea.Model {
 }
 
 export class DeletePolicyVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePolicyVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePolicyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1399,9 +1465,9 @@ export class DeleteRoleResponseBody extends $tea.Model {
 }
 
 export class DeleteRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1462,9 +1528,9 @@ export class DeleteUserResponseBody extends $tea.Model {
 }
 
 export class DeleteUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1525,9 +1591,9 @@ export class DeleteVirtualMFADeviceResponseBody extends $tea.Model {
 }
 
 export class DeleteVirtualMFADeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVirtualMFADeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVirtualMFADeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1594,9 +1660,9 @@ export class DetachPolicyFromGroupResponseBody extends $tea.Model {
 }
 
 export class DetachPolicyFromGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachPolicyFromGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachPolicyFromGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1663,9 +1729,9 @@ export class DetachPolicyFromRoleResponseBody extends $tea.Model {
 }
 
 export class DetachPolicyFromRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachPolicyFromRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachPolicyFromRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1732,9 +1798,9 @@ export class DetachPolicyFromUserResponseBody extends $tea.Model {
 }
 
 export class DetachPolicyFromUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachPolicyFromUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachPolicyFromUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1801,9 +1867,9 @@ export class GetAccessKeyLastUsedResponseBody extends $tea.Model {
 }
 
 export class GetAccessKeyLastUsedResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccessKeyLastUsedResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccessKeyLastUsedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1848,9 +1914,9 @@ export class GetAccountAliasResponseBody extends $tea.Model {
 }
 
 export class GetAccountAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccountAliasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1914,9 +1980,9 @@ export class GetGroupResponseBody extends $tea.Model {
 }
 
 export class GetGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1980,9 +2046,9 @@ export class GetLoginProfileResponseBody extends $tea.Model {
 }
 
 export class GetLoginProfileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLoginProfileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLoginProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2027,9 +2093,9 @@ export class GetPasswordPolicyResponseBody extends $tea.Model {
 }
 
 export class GetPasswordPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPasswordPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPasswordPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2099,9 +2165,9 @@ export class GetPolicyResponseBody extends $tea.Model {
 }
 
 export class GetPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2171,9 +2237,9 @@ export class GetPolicyVersionResponseBody extends $tea.Model {
 }
 
 export class GetPolicyVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPolicyVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPolicyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2237,9 +2303,9 @@ export class GetRoleResponseBody extends $tea.Model {
 }
 
 export class GetRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2284,9 +2350,9 @@ export class GetSecurityPreferenceResponseBody extends $tea.Model {
 }
 
 export class GetSecurityPreferenceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSecurityPreferenceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSecurityPreferenceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2350,9 +2416,9 @@ export class GetUserResponseBody extends $tea.Model {
 }
 
 export class GetUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2416,9 +2482,9 @@ export class GetUserMFAInfoResponseBody extends $tea.Model {
 }
 
 export class GetUserMFAInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserMFAInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserMFAInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2482,9 +2548,9 @@ export class ListAccessKeysResponseBody extends $tea.Model {
 }
 
 export class ListAccessKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAccessKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccessKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2557,9 +2623,9 @@ export class ListEntitiesForPolicyResponseBody extends $tea.Model {
 }
 
 export class ListEntitiesForPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEntitiesForPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEntitiesForPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2632,9 +2698,9 @@ export class ListGroupsResponseBody extends $tea.Model {
 }
 
 export class ListGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2698,9 +2764,9 @@ export class ListGroupsForUserResponseBody extends $tea.Model {
 }
 
 export class ListGroupsForUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListGroupsForUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGroupsForUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2776,9 +2842,9 @@ export class ListPoliciesResponseBody extends $tea.Model {
 }
 
 export class ListPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2842,9 +2908,9 @@ export class ListPoliciesForGroupResponseBody extends $tea.Model {
 }
 
 export class ListPoliciesForGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPoliciesForGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPoliciesForGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2908,9 +2974,9 @@ export class ListPoliciesForRoleResponseBody extends $tea.Model {
 }
 
 export class ListPoliciesForRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPoliciesForRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPoliciesForRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2974,9 +3040,9 @@ export class ListPoliciesForUserResponseBody extends $tea.Model {
 }
 
 export class ListPoliciesForUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPoliciesForUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPoliciesForUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3043,9 +3109,9 @@ export class ListPolicyVersionsResponseBody extends $tea.Model {
 }
 
 export class ListPolicyVersionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPolicyVersionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPolicyVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3118,9 +3184,9 @@ export class ListRolesResponseBody extends $tea.Model {
 }
 
 export class ListRolesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRolesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRolesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3193,9 +3259,9 @@ export class ListUsersResponseBody extends $tea.Model {
 }
 
 export class ListUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUsersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3271,9 +3337,9 @@ export class ListUsersForGroupResponseBody extends $tea.Model {
 }
 
 export class ListUsersForGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUsersForGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUsersForGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3318,9 +3384,9 @@ export class ListVirtualMFADevicesResponseBody extends $tea.Model {
 }
 
 export class ListVirtualMFADevicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVirtualMFADevicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVirtualMFADevicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3384,9 +3450,9 @@ export class RemoveUserFromGroupResponseBody extends $tea.Model {
 }
 
 export class RemoveUserFromGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveUserFromGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveUserFromGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3447,9 +3513,9 @@ export class SetAccountAliasResponseBody extends $tea.Model {
 }
 
 export class SetAccountAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetAccountAliasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetAccountAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3513,9 +3579,9 @@ export class SetDefaultPolicyVersionResponseBody extends $tea.Model {
 }
 
 export class SetDefaultPolicyVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetDefaultPolicyVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDefaultPolicyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3603,9 +3669,9 @@ export class SetPasswordPolicyResponseBody extends $tea.Model {
 }
 
 export class SetPasswordPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetPasswordPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetPasswordPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3687,9 +3753,9 @@ export class SetSecurityPreferenceResponseBody extends $tea.Model {
 }
 
 export class SetSecurityPreferenceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetSecurityPreferenceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetSecurityPreferenceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3753,9 +3819,9 @@ export class UnbindMFADeviceResponseBody extends $tea.Model {
 }
 
 export class UnbindMFADeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindMFADeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindMFADeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3822,9 +3888,9 @@ export class UpdateAccessKeyResponseBody extends $tea.Model {
 }
 
 export class UpdateAccessKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAccessKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAccessKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3894,9 +3960,9 @@ export class UpdateGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3966,9 +4032,9 @@ export class UpdateLoginProfileResponseBody extends $tea.Model {
 }
 
 export class UpdateLoginProfileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLoginProfileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLoginProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4035,9 +4101,9 @@ export class UpdatePolicyDescriptionResponseBody extends $tea.Model {
 }
 
 export class UpdatePolicyDescriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePolicyDescriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePolicyDescriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4110,9 +4176,9 @@ export class UpdateRoleResponseBody extends $tea.Model {
 }
 
 export class UpdateRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4191,9 +4257,9 @@ export class UpdateUserResponseBody extends $tea.Model {
 }
 
 export class UpdateUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4449,6 +4515,124 @@ export class CreateVirtualMFADeviceResponseBodyVirtualMFADevice extends $tea.Mod
       base32StringSeed: 'string',
       QRCodePNG: 'string',
       serialNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthConditions extends $tea.Model {
+  conditionKey?: string;
+  conditionValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      conditionKey: 'ConditionKey',
+      conditionValues: 'ConditionValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionKey: 'string',
+      conditionValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthPrincipal extends $tea.Model {
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageMatchedPolicies extends $tea.Model {
+  attachedEntityType?: string;
+  attachedScope?: string;
+  effect?: string;
+  policyIdentifier?: string;
+  policyType?: string;
+  policyVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachedEntityType: 'AttachedEntityType',
+      attachedScope: 'AttachedScope',
+      effect: 'Effect',
+      policyIdentifier: 'PolicyIdentifier',
+      policyType: 'PolicyType',
+      policyVersion: 'PolicyVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachedEntityType: 'string',
+      attachedScope: 'string',
+      effect: 'string',
+      policyIdentifier: 'string',
+      policyType: 'string',
+      policyVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessage extends $tea.Model {
+  authAction?: string;
+  authConditions?: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthConditions[];
+  authPrincipal?: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthPrincipal;
+  authResource?: string;
+  explicitDeny?: boolean;
+  matchedPolicies?: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageMatchedPolicies[];
+  noPermissionPolicyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authConditions: 'AuthConditions',
+      authPrincipal: 'AuthPrincipal',
+      authResource: 'AuthResource',
+      explicitDeny: 'ExplicitDeny',
+      matchedPolicies: 'MatchedPolicies',
+      noPermissionPolicyType: 'NoPermissionPolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authConditions: { 'type': 'array', 'itemType': DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthConditions },
+      authPrincipal: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthPrincipal,
+      authResource: 'string',
+      explicitDeny: 'boolean',
+      matchedPolicies: { 'type': 'array', 'itemType': DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageMatchedPolicies },
+      noPermissionPolicyType: 'string',
     };
   }
 
@@ -5998,6 +6182,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Adds a RAM user to a RAM user group.
+   *
+   * @param request AddUserToGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserToGroupResponse
+   */
   async addUserToGroupWithOptions(request: AddUserToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6026,11 +6217,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserToGroupResponse>(await this.callApi(params, req, runtime), new AddUserToGroupResponse({}));
   }
 
+  /**
+   * @summary Adds a RAM user to a RAM user group.
+   *
+   * @param request AddUserToGroupRequest
+   * @return AddUserToGroupResponse
+   */
   async addUserToGroup(request: AddUserToGroupRequest): Promise<AddUserToGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserToGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Attaches a policy to a RAM user group.
+   *
+   * @param request AttachPolicyToGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachPolicyToGroupResponse
+   */
   async attachPolicyToGroupWithOptions(request: AttachPolicyToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyToGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6063,11 +6267,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachPolicyToGroupResponse>(await this.callApi(params, req, runtime), new AttachPolicyToGroupResponse({}));
   }
 
+  /**
+   * @summary Attaches a policy to a RAM user group.
+   *
+   * @param request AttachPolicyToGroupRequest
+   * @return AttachPolicyToGroupResponse
+   */
   async attachPolicyToGroup(request: AttachPolicyToGroupRequest): Promise<AttachPolicyToGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachPolicyToGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Attaches a policy to a RAM role.
+   *
+   * @param request AttachPolicyToRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachPolicyToRoleResponse
+   */
   async attachPolicyToRoleWithOptions(request: AttachPolicyToRoleRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyToRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6100,11 +6317,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachPolicyToRoleResponse>(await this.callApi(params, req, runtime), new AttachPolicyToRoleResponse({}));
   }
 
+  /**
+   * @summary Attaches a policy to a RAM role.
+   *
+   * @param request AttachPolicyToRoleRequest
+   * @return AttachPolicyToRoleResponse
+   */
   async attachPolicyToRole(request: AttachPolicyToRoleRequest): Promise<AttachPolicyToRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachPolicyToRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Attaches a policy to a RAM user.
+   *
+   * @param request AttachPolicyToUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachPolicyToUserResponse
+   */
   async attachPolicyToUserWithOptions(request: AttachPolicyToUserRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyToUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6137,11 +6367,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachPolicyToUserResponse>(await this.callApi(params, req, runtime), new AttachPolicyToUserResponse({}));
   }
 
+  /**
+   * @summary Attaches a policy to a RAM user.
+   *
+   * @param request AttachPolicyToUserRequest
+   * @return AttachPolicyToUserResponse
+   */
   async attachPolicyToUser(request: AttachPolicyToUserRequest): Promise<AttachPolicyToUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachPolicyToUserWithOptions(request, runtime);
   }
 
+  /**
+   * @param request BindMFADeviceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindMFADeviceResponse
+   */
   async bindMFADeviceWithOptions(request: BindMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<BindMFADeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6178,11 +6419,22 @@ export default class Client extends OpenApi {
     return $tea.cast<BindMFADeviceResponse>(await this.callApi(params, req, runtime), new BindMFADeviceResponse({}));
   }
 
+  /**
+   * @param request BindMFADeviceRequest
+   * @return BindMFADeviceResponse
+   */
   async bindMFADevice(request: BindMFADeviceRequest): Promise<BindMFADeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindMFADeviceWithOptions(request, runtime);
   }
 
+  /**
+   * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
+   *
+   * @param request ChangePasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangePasswordResponse
+   */
   async changePasswordWithOptions(request: ChangePasswordRequest, runtime: $Util.RuntimeOptions): Promise<ChangePasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6211,11 +6463,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
   }
 
+  /**
+   * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
+   *
+   * @param request ChangePasswordRequest
+   * @return ChangePasswordResponse
+   */
   async changePassword(request: ChangePasswordRequest): Promise<ChangePasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changePasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ClearAccountAliasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ClearAccountAliasResponse
+   */
   async clearAccountAliasWithOptions(runtime: $Util.RuntimeOptions): Promise<ClearAccountAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -6232,11 +6495,19 @@ export default class Client extends OpenApi {
     return $tea.cast<ClearAccountAliasResponse>(await this.callApi(params, req, runtime), new ClearAccountAliasResponse({}));
   }
 
+  /**
+   * @return ClearAccountAliasResponse
+   */
   async clearAccountAlias(): Promise<ClearAccountAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.clearAccountAliasWithOptions(runtime);
   }
 
+  /**
+   * @param request CreateAccessKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccessKeyResponse
+   */
   async createAccessKeyWithOptions(request: CreateAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6261,11 +6532,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccessKeyResponse>(await this.callApi(params, req, runtime), new CreateAccessKeyResponse({}));
   }
 
+  /**
+   * @param request CreateAccessKeyRequest
+   * @return CreateAccessKeyResponse
+   */
   async createAccessKey(request: CreateAccessKeyRequest): Promise<CreateAccessKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccessKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a RAM user group.
+   *
+   * @param request CreateGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGroupResponse
+   */
   async createGroupWithOptions(request: CreateGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6294,11 +6576,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGroupResponse>(await this.callApi(params, req, runtime), new CreateGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a RAM user group.
+   *
+   * @param request CreateGroupRequest
+   * @return CreateGroupResponse
+   */
   async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables console logon for a RAM user.
+   *
+   * @param request CreateLoginProfileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoginProfileResponse
+   */
   async createLoginProfileWithOptions(request: CreateLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoginProfileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6335,11 +6630,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLoginProfileResponse>(await this.callApi(params, req, runtime), new CreateLoginProfileResponse({}));
   }
 
+  /**
+   * @summary Enables console logon for a RAM user.
+   *
+   * @param request CreateLoginProfileRequest
+   * @return CreateLoginProfileResponse
+   */
   async createLoginProfile(request: CreateLoginProfileRequest): Promise<CreateLoginProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLoginProfileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a custom policy.
+   *
+   * @description For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
+   * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
+   *
+   * @param request CreatePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePolicyResponse
+   */
   async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6372,11 +6683,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
   }
 
+  /**
+   * @summary Creates a custom policy.
+   *
+   * @description For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
+   * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
+   *
+   * @param request CreatePolicyRequest
+   * @return CreatePolicyResponse
+   */
   async createPolicy(request: CreatePolicyRequest): Promise<CreatePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreatePolicyVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePolicyVersionResponse
+   */
   async createPolicyVersionWithOptions(request: CreatePolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6413,11 +6738,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePolicyVersionResponse>(await this.callApi(params, req, runtime), new CreatePolicyVersionResponse({}));
   }
 
+  /**
+   * @param request CreatePolicyVersionRequest
+   * @return CreatePolicyVersionResponse
+   */
   async createPolicyVersion(request: CreatePolicyVersionRequest): Promise<CreatePolicyVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPolicyVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a RAM role.
+   *
+   * @description ## Description
+   * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+   *
+   * @param request CreateRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRoleResponse
+   */
   async createRoleWithOptions(request: CreateRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6454,11 +6793,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRoleResponse>(await this.callApi(params, req, runtime), new CreateRoleResponse({}));
   }
 
+  /**
+   * @summary Creates a RAM role.
+   *
+   * @description ## Description
+   * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+   *
+   * @param request CreateRoleRequest
+   * @return CreateRoleResponse
+   */
   async createRole(request: CreateRoleRequest): Promise<CreateRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a Resource Access Management (RAM) user.
+   *
+   * @description This topic provides an example on how to create a RAM user named `alice`.
+   *
+   * @param request CreateUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUserResponse
+   */
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6499,11 +6856,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
   }
 
+  /**
+   * @summary Creates a Resource Access Management (RAM) user.
+   *
+   * @description This topic provides an example on how to create a RAM user named `alice`.
+   *
+   * @param request CreateUserRequest
+   * @return CreateUserResponse
+   */
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUserWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateVirtualMFADeviceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVirtualMFADeviceResponse
+   */
   async createVirtualMFADeviceWithOptions(request: CreateVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualMFADeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6528,11 +6898,62 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new CreateVirtualMFADeviceResponse({}));
   }
 
+  /**
+   * @param request CreateVirtualMFADeviceRequest
+   * @return CreateVirtualMFADeviceResponse
+   */
   async createVirtualMFADevice(request: CreateVirtualMFADeviceRequest): Promise<CreateVirtualMFADeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVirtualMFADeviceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+   *
+   * @param request DecodeDiagnosticMessageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DecodeDiagnosticMessageResponse
+   */
+  async decodeDiagnosticMessageWithOptions(request: DecodeDiagnosticMessageRequest, runtime: $Util.RuntimeOptions): Promise<DecodeDiagnosticMessageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.encodedDiagnosticMessage)) {
+      query["EncodedDiagnosticMessage"] = request.encodedDiagnosticMessage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DecodeDiagnosticMessage",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DecodeDiagnosticMessageResponse>(await this.callApi(params, req, runtime), new DecodeDiagnosticMessageResponse({}));
+  }
+
+  /**
+   * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+   *
+   * @param request DecodeDiagnosticMessageRequest
+   * @return DecodeDiagnosticMessageResponse
+   */
+  async decodeDiagnosticMessage(request: DecodeDiagnosticMessageRequest): Promise<DecodeDiagnosticMessageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.decodeDiagnosticMessageWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DeleteAccessKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccessKeyResponse
+   */
   async deleteAccessKeyWithOptions(request: DeleteAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6561,11 +6982,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccessKeyResponse>(await this.callApi(params, req, runtime), new DeleteAccessKeyResponse({}));
   }
 
+  /**
+   * @param request DeleteAccessKeyRequest
+   * @return DeleteAccessKeyResponse
+   */
   async deleteAccessKey(request: DeleteAccessKeyRequest): Promise<DeleteAccessKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccessKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+   *
+   * @param request DeleteGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGroupResponse
+   */
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6590,11 +7022,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
   }
 
+  /**
+   * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+   *
+   * @param request DeleteGroupRequest
+   * @return DeleteGroupResponse
+   */
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteLoginProfileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLoginProfileResponse
+   */
   async deleteLoginProfileWithOptions(request: DeleteLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoginProfileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6619,11 +7062,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLoginProfileResponse>(await this.callApi(params, req, runtime), new DeleteLoginProfileResponse({}));
   }
 
+  /**
+   * @param request DeleteLoginProfileRequest
+   * @return DeleteLoginProfileResponse
+   */
   async deleteLoginProfile(request: DeleteLoginProfileRequest): Promise<DeleteLoginProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLoginProfileWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeletePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePolicyResponse
+   */
   async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6648,11 +7100,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
   }
 
+  /**
+   * @param request DeletePolicyRequest
+   * @return DeletePolicyResponse
+   */
   async deletePolicy(request: DeletePolicyRequest): Promise<DeletePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeletePolicyVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePolicyVersionResponse
+   */
   async deletePolicyVersionWithOptions(request: DeletePolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6681,11 +7142,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePolicyVersionResponse>(await this.callApi(params, req, runtime), new DeletePolicyVersionResponse({}));
   }
 
+  /**
+   * @param request DeletePolicyVersionRequest
+   * @return DeletePolicyVersionResponse
+   */
   async deletePolicyVersion(request: DeletePolicyVersionRequest): Promise<DeletePolicyVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePolicyVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRoleResponse
+   */
   async deleteRoleWithOptions(request: DeleteRoleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6710,11 +7180,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRoleResponse>(await this.callApi(params, req, runtime), new DeleteRoleResponse({}));
   }
 
+  /**
+   * @param request DeleteRoleRequest
+   * @return DeleteRoleResponse
+   */
   async deleteRole(request: DeleteRoleRequest): Promise<DeleteRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @description Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
+   *
+   * @param request DeleteUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserResponse
+   */
   async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6739,11 +7220,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
   }
 
+  /**
+   * @description Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
+   *
+   * @param request DeleteUserRequest
+   * @return DeleteUserResponse
+   */
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteVirtualMFADeviceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVirtualMFADeviceResponse
+   */
   async deleteVirtualMFADeviceWithOptions(request: DeleteVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualMFADeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6768,11 +7260,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualMFADeviceResponse({}));
   }
 
+  /**
+   * @param request DeleteVirtualMFADeviceRequest
+   * @return DeleteVirtualMFADeviceResponse
+   */
   async deleteVirtualMFADevice(request: DeleteVirtualMFADeviceRequest): Promise<DeleteVirtualMFADeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVirtualMFADeviceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Detaches a policy from a RAM user group.
+   *
+   * @param request DetachPolicyFromGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachPolicyFromGroupResponse
+   */
   async detachPolicyFromGroupWithOptions(request: DetachPolicyFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyFromGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6805,11 +7308,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachPolicyFromGroupResponse>(await this.callApi(params, req, runtime), new DetachPolicyFromGroupResponse({}));
   }
 
+  /**
+   * @summary Detaches a policy from a RAM user group.
+   *
+   * @param request DetachPolicyFromGroupRequest
+   * @return DetachPolicyFromGroupResponse
+   */
   async detachPolicyFromGroup(request: DetachPolicyFromGroupRequest): Promise<DetachPolicyFromGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachPolicyFromGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Detaches a policy from a RAM role.
+   *
+   * @param request DetachPolicyFromRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachPolicyFromRoleResponse
+   */
   async detachPolicyFromRoleWithOptions(request: DetachPolicyFromRoleRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyFromRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6842,11 +7358,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachPolicyFromRoleResponse>(await this.callApi(params, req, runtime), new DetachPolicyFromRoleResponse({}));
   }
 
+  /**
+   * @summary Detaches a policy from a RAM role.
+   *
+   * @param request DetachPolicyFromRoleRequest
+   * @return DetachPolicyFromRoleResponse
+   */
   async detachPolicyFromRole(request: DetachPolicyFromRoleRequest): Promise<DetachPolicyFromRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachPolicyFromRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Detaches a policy from a RAM user.
+   *
+   * @param request DetachPolicyFromUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachPolicyFromUserResponse
+   */
   async detachPolicyFromUserWithOptions(request: DetachPolicyFromUserRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyFromUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6879,11 +7408,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachPolicyFromUserResponse>(await this.callApi(params, req, runtime), new DetachPolicyFromUserResponse({}));
   }
 
+  /**
+   * @summary Detaches a policy from a RAM user.
+   *
+   * @param request DetachPolicyFromUserRequest
+   * @return DetachPolicyFromUserResponse
+   */
   async detachPolicyFromUser(request: DetachPolicyFromUserRequest): Promise<DetachPolicyFromUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachPolicyFromUserWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetAccessKeyLastUsedRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAccessKeyLastUsedResponse
+   */
   async getAccessKeyLastUsedWithOptions(request: GetAccessKeyLastUsedRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6912,11 +7452,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAccessKeyLastUsedResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedResponse({}));
   }
 
+  /**
+   * @param request GetAccessKeyLastUsedRequest
+   * @return GetAccessKeyLastUsedResponse
+   */
   async getAccessKeyLastUsed(request: GetAccessKeyLastUsedRequest): Promise<GetAccessKeyLastUsedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetAccountAliasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAccountAliasResponse
+   */
   async getAccountAliasWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -6933,11 +7482,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAccountAliasResponse>(await this.callApi(params, req, runtime), new GetAccountAliasResponse({}));
   }
 
+  /**
+   * @return GetAccountAliasResponse
+   */
   async getAccountAlias(): Promise<GetAccountAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccountAliasWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the information of a RAM user group.
+   *
+   * @param request GetGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGroupResponse
+   */
   async getGroupWithOptions(request: GetGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6962,11 +7521,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGroupResponse>(await this.callApi(params, req, runtime), new GetGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the information of a RAM user group.
+   *
+   * @param request GetGroupRequest
+   * @return GetGroupResponse
+   */
   async getGroup(request: GetGroupRequest): Promise<GetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetLoginProfileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLoginProfileResponse
+   */
   async getLoginProfileWithOptions(request: GetLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginProfileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6991,11 +7561,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLoginProfileResponse>(await this.callApi(params, req, runtime), new GetLoginProfileResponse({}));
   }
 
+  /**
+   * @param request GetLoginProfileRequest
+   * @return GetLoginProfileResponse
+   */
   async getLoginProfile(request: GetLoginProfileRequest): Promise<GetLoginProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLoginProfileWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetPasswordPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPasswordPolicyResponse
+   */
   async getPasswordPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<GetPasswordPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -7012,11 +7591,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new GetPasswordPolicyResponse({}));
   }
 
+  /**
+   * @return GetPasswordPolicyResponse
+   */
   async getPasswordPolicy(): Promise<GetPasswordPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPasswordPolicyWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the information of a policy.
+   *
+   * @param request GetPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPolicyResponse
+   */
   async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7045,11 +7634,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPolicyResponse>(await this.callApi(params, req, runtime), new GetPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries the information of a policy.
+   *
+   * @param request GetPolicyRequest
+   * @return GetPolicyResponse
+   */
   async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of a policy version.
+   *
+   * @param request GetPolicyVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPolicyVersionResponse
+   */
   async getPolicyVersionWithOptions(request: GetPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7082,11 +7684,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPolicyVersionResponse>(await this.callApi(params, req, runtime), new GetPolicyVersionResponse({}));
   }
 
+  /**
+   * @summary Queries the information of a policy version.
+   *
+   * @param request GetPolicyVersionRequest
+   * @return GetPolicyVersionResponse
+   */
   async getPolicyVersion(request: GetPolicyVersionRequest): Promise<GetPolicyVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPolicyVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information of a RAM role.
+   *
+   * @param request GetRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRoleResponse
+   */
   async getRoleWithOptions(request: GetRoleRequest, runtime: $Util.RuntimeOptions): Promise<GetRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7111,11 +7726,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRoleResponse>(await this.callApi(params, req, runtime), new GetRoleResponse({}));
   }
 
+  /**
+   * @summary Queries information of a RAM role.
+   *
+   * @param request GetRoleRequest
+   * @return GetRoleResponse
+   */
   async getRole(request: GetRoleRequest): Promise<GetRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetSecurityPreferenceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSecurityPreferenceResponse
+   */
   async getSecurityPreferenceWithOptions(runtime: $Util.RuntimeOptions): Promise<GetSecurityPreferenceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -7132,11 +7758,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new GetSecurityPreferenceResponse({}));
   }
 
+  /**
+   * @return GetSecurityPreferenceResponse
+   */
   async getSecurityPreference(): Promise<GetSecurityPreferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSecurityPreferenceWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the information about a RAM user.
+   *
+   * @description This topic provides an example on how to query the information about the RAM user `alice`.
+   *
+   * @param request GetUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserResponse
+   */
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7161,11 +7799,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a RAM user.
+   *
+   * @description This topic provides an example on how to query the information about the RAM user `alice`.
+   *
+   * @param request GetUserRequest
+   * @return GetUserResponse
+   */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetUserMFAInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserMFAInfoResponse
+   */
   async getUserMFAInfoWithOptions(request: GetUserMFAInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetUserMFAInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7190,11 +7841,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserMFAInfoResponse>(await this.callApi(params, req, runtime), new GetUserMFAInfoResponse({}));
   }
 
+  /**
+   * @param request GetUserMFAInfoRequest
+   * @return GetUserMFAInfoResponse
+   */
   async getUserMFAInfo(request: GetUserMFAInfoRequest): Promise<GetUserMFAInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserMFAInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of all AccessKey pairs that belong to a RAM user.
+   *
+   * @param request ListAccessKeysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAccessKeysResponse
+   */
   async listAccessKeysWithOptions(request: ListAccessKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7219,11 +7881,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAccessKeysResponse>(await this.callApi(params, req, runtime), new ListAccessKeysResponse({}));
   }
 
+  /**
+   * @summary Queries the list of all AccessKey pairs that belong to a RAM user.
+   *
+   * @param request ListAccessKeysRequest
+   * @return ListAccessKeysResponse
+   */
   async listAccessKeys(request: ListAccessKeysRequest): Promise<ListAccessKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAccessKeysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the entities to which a policy is attached.
+   *
+   * @param request ListEntitiesForPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEntitiesForPolicyResponse
+   */
   async listEntitiesForPolicyWithOptions(request: ListEntitiesForPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListEntitiesForPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7252,11 +7927,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEntitiesForPolicyResponse>(await this.callApi(params, req, runtime), new ListEntitiesForPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries the entities to which a policy is attached.
+   *
+   * @param request ListEntitiesForPolicyRequest
+   * @return ListEntitiesForPolicyResponse
+   */
   async listEntitiesForPolicy(request: ListEntitiesForPolicyRequest): Promise<ListEntitiesForPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEntitiesForPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries RAM user groups.
+   *
+   * @param request ListGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupsResponse
+   */
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7285,11 +7973,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries RAM user groups.
+   *
+   * @param request ListGroupsRequest
+   * @return ListGroupsResponse
+   */
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+   *
+   * @description This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+   *
+   * @param request ListGroupsForUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupsForUserResponse
+   */
   async listGroupsForUserWithOptions(request: ListGroupsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsForUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7314,11 +8017,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupsForUserResponse>(await this.callApi(params, req, runtime), new ListGroupsForUserResponse({}));
   }
 
+  /**
+   * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+   *
+   * @description This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+   *
+   * @param request ListGroupsForUserRequest
+   * @return ListGroupsForUserResponse
+   */
   async listGroupsForUser(request: ListGroupsForUserRequest): Promise<ListGroupsForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupsForUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of policies.
+   *
+   * @param request ListPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPoliciesResponse
+   */
   async listPoliciesWithOptions(request: ListPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7351,11 +8069,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPoliciesResponse>(await this.callApi(params, req, runtime), new ListPoliciesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of policies.
+   *
+   * @param request ListPoliciesRequest
+   * @return ListPoliciesResponse
+   */
   async listPolicies(request: ListPoliciesRequest): Promise<ListPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the policies that are attached to a RAM user group.
+   *
+   * @param request ListPoliciesForGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPoliciesForGroupResponse
+   */
   async listPoliciesForGroupWithOptions(request: ListPoliciesForGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesForGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7380,11 +8111,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPoliciesForGroupResponse>(await this.callApi(params, req, runtime), new ListPoliciesForGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the policies that are attached to a RAM user group.
+   *
+   * @param request ListPoliciesForGroupRequest
+   * @return ListPoliciesForGroupResponse
+   */
   async listPoliciesForGroup(request: ListPoliciesForGroupRequest): Promise<ListPoliciesForGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPoliciesForGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the policies that are attached to a RAM role.
+   *
+   * @param request ListPoliciesForRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPoliciesForRoleResponse
+   */
   async listPoliciesForRoleWithOptions(request: ListPoliciesForRoleRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesForRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7409,11 +8153,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPoliciesForRoleResponse>(await this.callApi(params, req, runtime), new ListPoliciesForRoleResponse({}));
   }
 
+  /**
+   * @summary Queries the policies that are attached to a RAM role.
+   *
+   * @param request ListPoliciesForRoleRequest
+   * @return ListPoliciesForRoleResponse
+   */
   async listPoliciesForRole(request: ListPoliciesForRoleRequest): Promise<ListPoliciesForRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPoliciesForRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the policies that are attached to a RAM user.
+   *
+   * @description > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
+   *
+   * @param request ListPoliciesForUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPoliciesForUserResponse
+   */
   async listPoliciesForUserWithOptions(request: ListPoliciesForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesForUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7438,11 +8197,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPoliciesForUserResponse>(await this.callApi(params, req, runtime), new ListPoliciesForUserResponse({}));
   }
 
+  /**
+   * @summary Queries the policies that are attached to a RAM user.
+   *
+   * @description > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
+   *
+   * @param request ListPoliciesForUserRequest
+   * @return ListPoliciesForUserResponse
+   */
   async listPoliciesForUser(request: ListPoliciesForUserRequest): Promise<ListPoliciesForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPoliciesForUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the versions of a policy.
+   *
+   * @param request ListPolicyVersionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPolicyVersionsResponse
+   */
   async listPolicyVersionsWithOptions(request: ListPolicyVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicyVersionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7471,11 +8245,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPolicyVersionsResponse>(await this.callApi(params, req, runtime), new ListPolicyVersionsResponse({}));
   }
 
+  /**
+   * @summary Queries the versions of a policy.
+   *
+   * @param request ListPolicyVersionsRequest
+   * @return ListPolicyVersionsResponse
+   */
   async listPolicyVersions(request: ListPolicyVersionsRequest): Promise<ListPolicyVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPolicyVersionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of all RAM roles.
+   *
+   * @param request ListRolesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRolesResponse
+   */
   async listRolesWithOptions(request: ListRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListRolesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7504,11 +8291,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRolesResponse>(await this.callApi(params, req, runtime), new ListRolesResponse({}));
   }
 
+  /**
+   * @summary Queries the list of all RAM roles.
+   *
+   * @param request ListRolesRequest
+   * @return ListRolesResponse
+   */
   async listRoles(request: ListRolesRequest): Promise<ListRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRolesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about all RAM users.
+   *
+   * @param request ListUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersResponse
+   */
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7537,11 +8337,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
+  /**
+   * @summary Queries the information about all RAM users.
+   *
+   * @param request ListUsersRequest
+   * @return ListUsersResponse
+   */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListUsersForGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersForGroupResponse
+   */
   async listUsersForGroupWithOptions(request: ListUsersForGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersForGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7574,11 +8385,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersForGroupResponse>(await this.callApi(params, req, runtime), new ListUsersForGroupResponse({}));
   }
 
+  /**
+   * @param request ListUsersForGroupRequest
+   * @return ListUsersForGroupResponse
+   */
   async listUsersForGroup(request: ListUsersForGroupRequest): Promise<ListUsersForGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersForGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of all multi-factor authentication (MFA) devices.
+   *
+   * @param request ListVirtualMFADevicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVirtualMFADevicesResponse
+   */
   async listVirtualMFADevicesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListVirtualMFADevicesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -7595,11 +8417,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVirtualMFADevicesResponse>(await this.callApi(params, req, runtime), new ListVirtualMFADevicesResponse({}));
   }
 
+  /**
+   * @summary Queries the list of all multi-factor authentication (MFA) devices.
+   *
+   * @return ListVirtualMFADevicesResponse
+   */
   async listVirtualMFADevices(): Promise<ListVirtualMFADevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVirtualMFADevicesWithOptions(runtime);
   }
 
+  /**
+   * @param request RemoveUserFromGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveUserFromGroupResponse
+   */
   async removeUserFromGroupWithOptions(request: RemoveUserFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7628,11 +8460,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveUserFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveUserFromGroupResponse({}));
   }
 
+  /**
+   * @param request RemoveUserFromGroupRequest
+   * @return RemoveUserFromGroupResponse
+   */
   async removeUserFromGroup(request: RemoveUserFromGroupRequest): Promise<RemoveUserFromGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeUserFromGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to specify an alias for an Alibaba Cloud account.
+   *
+   * @param request SetAccountAliasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetAccountAliasResponse
+   */
   async setAccountAliasWithOptions(request: SetAccountAliasRequest, runtime: $Util.RuntimeOptions): Promise<SetAccountAliasResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7657,11 +8500,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetAccountAliasResponse>(await this.callApi(params, req, runtime), new SetAccountAliasResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to specify an alias for an Alibaba Cloud account.
+   *
+   * @param request SetAccountAliasRequest
+   * @return SetAccountAliasResponse
+   */
   async setAccountAlias(request: SetAccountAliasRequest): Promise<SetAccountAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAccountAliasWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sets the default version of a policy.
+   *
+   * @param request SetDefaultPolicyVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDefaultPolicyVersionResponse
+   */
   async setDefaultPolicyVersionWithOptions(request: SetDefaultPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultPolicyVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7690,11 +8546,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDefaultPolicyVersionResponse>(await this.callApi(params, req, runtime), new SetDefaultPolicyVersionResponse({}));
   }
 
+  /**
+   * @summary Sets the default version of a policy.
+   *
+   * @param request SetDefaultPolicyVersionRequest
+   * @return SetDefaultPolicyVersionResponse
+   */
   async setDefaultPolicyVersion(request: SetDefaultPolicyVersionRequest): Promise<SetDefaultPolicyVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDefaultPolicyVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetPasswordPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetPasswordPolicyResponse
+   */
   async setPasswordPolicyWithOptions(request: SetPasswordPolicyRequest, runtime: $Util.RuntimeOptions): Promise<SetPasswordPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7751,11 +8618,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new SetPasswordPolicyResponse({}));
   }
 
+  /**
+   * @param request SetPasswordPolicyRequest
+   * @return SetPasswordPolicyResponse
+   */
   async setPasswordPolicy(request: SetPasswordPolicyRequest): Promise<SetPasswordPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPasswordPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetSecurityPreferenceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetSecurityPreferenceResponse
+   */
   async setSecurityPreferenceWithOptions(request: SetSecurityPreferenceRequest, runtime: $Util.RuntimeOptions): Promise<SetSecurityPreferenceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7804,11 +8680,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new SetSecurityPreferenceResponse({}));
   }
 
+  /**
+   * @param request SetSecurityPreferenceRequest
+   * @return SetSecurityPreferenceResponse
+   */
   async setSecurityPreference(request: SetSecurityPreferenceRequest): Promise<SetSecurityPreferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setSecurityPreferenceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UnbindMFADeviceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnbindMFADeviceResponse
+   */
   async unbindMFADeviceWithOptions(request: UnbindMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnbindMFADeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7833,11 +8718,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindMFADeviceResponse>(await this.callApi(params, req, runtime), new UnbindMFADeviceResponse({}));
   }
 
+  /**
+   * @param request UnbindMFADeviceRequest
+   * @return UnbindMFADeviceResponse
+   */
   async unbindMFADevice(request: UnbindMFADeviceRequest): Promise<UnbindMFADeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindMFADeviceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateAccessKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAccessKeyResponse
+   */
   async updateAccessKeyWithOptions(request: UpdateAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccessKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7870,11 +8764,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAccessKeyResponse>(await this.callApi(params, req, runtime), new UpdateAccessKeyResponse({}));
   }
 
+  /**
+   * @param request UpdateAccessKeyRequest
+   * @return UpdateAccessKeyResponse
+   */
   async updateAccessKey(request: UpdateAccessKeyRequest): Promise<UpdateAccessKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAccessKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a RAM user group.
+   *
+   * @param request UpdateGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGroupResponse
+   */
   async updateGroupWithOptions(request: UpdateGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7907,11 +8812,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGroupResponse>(await this.callApi(params, req, runtime), new UpdateGroupResponse({}));
   }
 
+  /**
+   * @summary Modifies a RAM user group.
+   *
+   * @param request UpdateGroupRequest
+   * @return UpdateGroupResponse
+   */
   async updateGroup(request: UpdateGroupRequest): Promise<UpdateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateLoginProfileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLoginProfileResponse
+   */
   async updateLoginProfileWithOptions(request: UpdateLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoginProfileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7948,11 +8864,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLoginProfileResponse>(await this.callApi(params, req, runtime), new UpdateLoginProfileResponse({}));
   }
 
+  /**
+   * @param request UpdateLoginProfileRequest
+   * @return UpdateLoginProfileResponse
+   */
   async updateLoginProfile(request: UpdateLoginProfileRequest): Promise<UpdateLoginProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateLoginProfileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of a custom policy.
+   *
+   * @description You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
+   *
+   * @param request UpdatePolicyDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePolicyDescriptionResponse
+   */
   async updatePolicyDescriptionWithOptions(request: UpdatePolicyDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePolicyDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7981,11 +8910,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePolicyDescriptionResponse>(await this.callApi(params, req, runtime), new UpdatePolicyDescriptionResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of a custom policy.
+   *
+   * @description You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
+   *
+   * @param request UpdatePolicyDescriptionRequest
+   * @return UpdatePolicyDescriptionResponse
+   */
   async updatePolicyDescription(request: UpdatePolicyDescriptionRequest): Promise<UpdatePolicyDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePolicyDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the description of a RAM role.
+   *
+   * @description This topic provides an example to show how to change the description of ECSAdmin to ECS administrator.
+   *
+   * @param request UpdateRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRoleResponse
+   */
   async updateRoleWithOptions(request: UpdateRoleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8022,11 +8968,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRoleResponse>(await this.callApi(params, req, runtime), new UpdateRoleResponse({}));
   }
 
+  /**
+   * @summary Changes the description of a RAM role.
+   *
+   * @description This topic provides an example to show how to change the description of ECSAdmin to ECS administrator.
+   *
+   * @param request UpdateRoleRequest
+   * @return UpdateRoleResponse
+   */
   async updateRole(request: UpdateRoleRequest): Promise<UpdateRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @description This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
+   *
+   * @param request UpdateUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserResponse
+   */
   async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8071,6 +9032,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
   }
 
+  /**
+   * @description This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
+   *
+   * @param request UpdateUserRequest
+   * @return UpdateUserResponse
+   */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserWithOptions(request, runtime);

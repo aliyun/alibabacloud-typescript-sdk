@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/ram20150501",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -12,17 +12,17 @@
   "author": "Alibaba Cloud SDK",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@types/node": "^12.12.26",
+    "@types/node": "^16.0.0",
     "nyc": "^15.0.0",
     "source-map-support": "^0.5.16",
-    "ts-node": "^8.6.2",
-    "typescript": "^3.7.5"
+    "ts-node": "^10.0.0",
+    "typescript": "^5"
   },
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
-    "@alicloud/tea-util": "^1.4.4",
-    "@alicloud/openapi-client": "^0.4.1",
-    "@alicloud/openapi-util": "^0.2.9",
+    "@alicloud/tea-util": "^1.4.8",
+    "@alicloud/openapi-client": "^0.4.9",
+    "@alicloud/openapi-util": "^0.3.2",
     "@alicloud/endpoint-util": "^0.0.1"
   },
   "files": [
