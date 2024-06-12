@@ -3512,6 +3512,121 @@ export class ApplyQueryResponse extends $tea.Model {
   }
 }
 
+export class ApplyTripTaskExecuteHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyTripTaskExecuteRequest extends $tea.Model {
+  actionFrom?: string;
+  comment?: string;
+  taskAction?: string;
+  taskId?: number;
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionFrom: 'action_from',
+      comment: 'comment',
+      taskAction: 'task_action',
+      taskId: 'task_id',
+      userId: 'user_id',
+      userName: 'user_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionFrom: 'string',
+      comment: 'string',
+      taskAction: 'string',
+      taskId: 'number',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyTripTaskExecuteResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: boolean;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyTripTaskExecuteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyTripTaskExecuteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyTripTaskExecuteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BaseCityInfoSearchHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripAccessToken?: string;
@@ -4723,11 +4838,13 @@ export class CommonApplyQueryHeaders extends $tea.Model {
 export class CommonApplyQueryRequest extends $tea.Model {
   applyId?: number;
   bizCategory?: number;
+  businessInstanceId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
       bizCategory: 'biz_category',
+      businessInstanceId: 'business_instance_id',
       userId: 'user_id',
     };
   }
@@ -4736,6 +4853,7 @@ export class CommonApplyQueryRequest extends $tea.Model {
     return {
       applyId: 'number',
       bizCategory: 'number',
+      businessInstanceId: 'string',
       userId: 'string',
     };
   }
@@ -7793,15 +7911,18 @@ export class FlightExceedApplyQueryHeaders extends $tea.Model {
 
 export class FlightExceedApplyQueryRequest extends $tea.Model {
   applyId?: number;
+  businessInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
+      businessInstanceId: 'business_instance_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       applyId: 'number',
+      businessInstanceId: 'string',
     };
   }
 
@@ -12120,15 +12241,18 @@ export class HotelExceedApplyQueryHeaders extends $tea.Model {
 
 export class HotelExceedApplyQueryRequest extends $tea.Model {
   applyId?: number;
+  businessInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
+      businessInstanceId: 'business_instance_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       applyId: 'number',
+      businessInstanceId: 'string',
     };
   }
 
@@ -20590,15 +20714,18 @@ export class TrainExceedApplyQueryHeaders extends $tea.Model {
 
 export class TrainExceedApplyQueryRequest extends $tea.Model {
   applyId?: number;
+  businessInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
+      businessInstanceId: 'business_instance_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       applyId: 'number',
+      businessInstanceId: 'string',
     };
   }
 
@@ -22693,6 +22820,330 @@ export class TravelStandardQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TravelStandardQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripBusinessInstanceQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripBusinessInstanceQueryRequest extends $tea.Model {
+  businessInstanceId?: string;
+  thirdBusinessId?: string;
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessInstanceId: 'business_instance_id',
+      thirdBusinessId: 'third_business_id',
+      userId: 'user_id',
+      userName: 'user_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessInstanceId: 'string',
+      thirdBusinessId: 'string',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripBusinessInstanceQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TripBusinessInstanceQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TripBusinessInstanceQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripBusinessInstanceQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TripBusinessInstanceQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TripBusinessInstanceQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripCCInfoQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripCCInfoQueryRequest extends $tea.Model {
+  businessInstanceId?: string;
+  nodeId?: string;
+  thirdBusinessId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessInstanceId: 'business_instance_id',
+      nodeId: 'node_id',
+      thirdBusinessId: 'third_business_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessInstanceId: 'string',
+      nodeId: 'string',
+      thirdBusinessId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripCCInfoQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TripCCInfoQueryResponseBodyModule[];
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: { 'type': 'array', 'itemType': TripCCInfoQueryResponseBodyModule },
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripCCInfoQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TripCCInfoQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TripCCInfoQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripTaskQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripTaskQueryRequest extends $tea.Model {
+  businessInstanceId?: string;
+  thirdBusinessId?: string;
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessInstanceId: 'business_instance_id',
+      thirdBusinessId: 'third_business_id',
+      userId: 'user_id',
+      userName: 'user_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessInstanceId: 'string',
+      thirdBusinessId: 'string',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripTaskQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TripTaskQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TripTaskQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripTaskQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TripTaskQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TripTaskQueryResponseBody,
     };
   }
 
@@ -28226,6 +28677,7 @@ export class CommonApplyQueryResponseBodyModule extends $tea.Model {
   thirdpartId?: string;
   tripCause?: string;
   userId?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
@@ -28239,6 +28691,7 @@ export class CommonApplyQueryResponseBodyModule extends $tea.Model {
       thirdpartId: 'thirdpart_id',
       tripCause: 'trip_cause',
       userId: 'user_id',
+      userName: 'user_name',
     };
   }
 
@@ -28255,6 +28708,7 @@ export class CommonApplyQueryResponseBodyModule extends $tea.Model {
       thirdpartId: 'string',
       tripCause: 'string',
       userId: 'string',
+      userName: 'string',
     };
   }
 
@@ -30407,6 +30861,7 @@ export class FlightExceedApplyQueryResponseBodyModule extends $tea.Model {
   thirdpartApplyId?: string;
   thirdpartCorpId?: string;
   userId?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
@@ -30423,6 +30878,7 @@ export class FlightExceedApplyQueryResponseBodyModule extends $tea.Model {
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartCorpId: 'thirdpart_corp_id',
       userId: 'user_id',
+      userName: 'user_name',
     };
   }
 
@@ -30442,6 +30898,7 @@ export class FlightExceedApplyQueryResponseBodyModule extends $tea.Model {
       thirdpartApplyId: 'string',
       thirdpartCorpId: 'string',
       userId: 'string',
+      userName: 'string',
     };
   }
 
@@ -42230,6 +42687,7 @@ export class HotelExceedApplyQueryResponseBodyModule extends $tea.Model {
   thirdpartApplyId?: string;
   thirdpartCorpId?: string;
   userId?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
@@ -42244,6 +42702,7 @@ export class HotelExceedApplyQueryResponseBodyModule extends $tea.Model {
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartCorpId: 'thirdpart_corp_id',
       userId: 'user_id',
+      userName: 'user_name',
     };
   }
 
@@ -42261,6 +42720,7 @@ export class HotelExceedApplyQueryResponseBodyModule extends $tea.Model {
       thirdpartApplyId: 'string',
       thirdpartCorpId: 'string',
       userId: 'string',
+      userName: 'string',
     };
   }
 
@@ -53239,6 +53699,7 @@ export class TrainExceedApplyQueryResponseBodyModule extends $tea.Model {
   thirdpartApplyId?: string;
   thirdpartCorpId?: string;
   userId?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
@@ -53253,6 +53714,7 @@ export class TrainExceedApplyQueryResponseBodyModule extends $tea.Model {
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartCorpId: 'thirdpart_corp_id',
       userId: 'user_id',
+      userName: 'user_name',
     };
   }
 
@@ -53270,6 +53732,7 @@ export class TrainExceedApplyQueryResponseBodyModule extends $tea.Model {
       thirdpartApplyId: 'string',
       thirdpartCorpId: 'string',
       userId: 'string',
+      userName: 'string',
     };
   }
 
@@ -56661,6 +57124,167 @@ export class TravelStandardQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class TripBusinessInstanceQueryResponseBodyModule extends $tea.Model {
+  creator?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creator: 'creator',
+      gmtCreate: 'gmt_create',
+      gmtModified: 'gmt_modified',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creator: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripCCInfoQueryResponseBodyModule extends $tea.Model {
+  notifier?: string;
+  notifyStartTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      notifier: 'notifier',
+      notifyStartTime: 'notify_start_time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notifier: 'string',
+      notifyStartTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripTaskQueryResponseBodyModuleRecordTasks extends $tea.Model {
+  actioner?: string;
+  attributes?: string;
+  gmtCreate?: number;
+  gmtFinished?: number;
+  id?: number;
+  nodeId?: string;
+  outResult?: string;
+  owner?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actioner: 'actioner',
+      attributes: 'attributes',
+      gmtCreate: 'gmt_create',
+      gmtFinished: 'gmt_finished',
+      id: 'id',
+      nodeId: 'node_id',
+      outResult: 'out_result',
+      owner: 'owner',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actioner: 'string',
+      attributes: 'string',
+      gmtCreate: 'number',
+      gmtFinished: 'number',
+      id: 'number',
+      nodeId: 'string',
+      outResult: 'string',
+      owner: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripTaskQueryResponseBodyModuleRunningTasks extends $tea.Model {
+  actioner?: string;
+  attributes?: string;
+  gmtCreate?: number;
+  gmtFinished?: number;
+  id?: number;
+  nodeId?: string;
+  outResult?: string;
+  owner?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actioner: 'actioner',
+      attributes: 'attributes',
+      gmtCreate: 'gmt_create',
+      gmtFinished: 'gmt_finished',
+      id: 'id',
+      nodeId: 'node_id',
+      outResult: 'out_result',
+      owner: 'owner',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actioner: 'string',
+      attributes: 'string',
+      gmtCreate: 'number',
+      gmtFinished: 'number',
+      id: 'number',
+      nodeId: 'string',
+      outResult: 'string',
+      owner: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TripTaskQueryResponseBodyModule extends $tea.Model {
+  needRefresh?: boolean;
+  recordTasks?: TripTaskQueryResponseBodyModuleRecordTasks[];
+  runningTasks?: TripTaskQueryResponseBodyModuleRunningTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      needRefresh: 'needRefresh',
+      recordTasks: 'record_tasks',
+      runningTasks: 'running_tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      needRefresh: 'boolean',
+      recordTasks: { 'type': 'array', 'itemType': TripTaskQueryResponseBodyModuleRecordTasks },
+      runningTasks: { 'type': 'array', 'itemType': TripTaskQueryResponseBodyModuleRunningTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UserQueryResponseBodyModuleItems extends $tea.Model {
   employeeNick?: string;
   leaveStatus?: number;
@@ -58231,6 +58855,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 执行审批任务
+   *
+   * @param request ApplyTripTaskExecuteRequest
+   * @param headers ApplyTripTaskExecuteHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyTripTaskExecuteResponse
+   */
+  async applyTripTaskExecuteWithOptions(request: ApplyTripTaskExecuteRequest, headers: ApplyTripTaskExecuteHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyTripTaskExecuteResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.actionFrom)) {
+      body["action_from"] = request.actionFrom;
+    }
+
+    if (!Util.isUnset(request.comment)) {
+      body["comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.taskAction)) {
+      body["task_action"] = request.taskAction;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["task_id"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      body["user_name"] = request.userName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyTripTaskExecute",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/apply/v1/trip-task/action/execute`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyTripTaskExecuteResponse>(await this.callApi(params, req, runtime), new ApplyTripTaskExecuteResponse({}));
+  }
+
+  /**
+   * @summary 执行审批任务
+   *
+   * @param request ApplyTripTaskExecuteRequest
+   * @return ApplyTripTaskExecuteResponse
+   */
+  async applyTripTaskExecute(request: ApplyTripTaskExecuteRequest): Promise<ApplyTripTaskExecuteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ApplyTripTaskExecuteHeaders({ });
+    return await this.applyTripTaskExecuteWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @summary 搜索国内/国际（港澳台）城市基础行政区划数据
    *
    * @param request BaseCityInfoSearchRequest
@@ -58964,6 +59662,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.bizCategory)) {
       query["biz_category"] = request.bizCategory;
+    }
+
+    if (!Util.isUnset(request.businessInstanceId)) {
+      query["business_instance_id"] = request.businessInstanceId;
     }
 
     if (!Util.isUnset(request.userId)) {
@@ -60748,6 +61450,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
       query["apply_id"] = request.applyId;
+    }
+
+    if (!Util.isUnset(request.businessInstanceId)) {
+      query["business_instance_id"] = request.businessInstanceId;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -63312,6 +64018,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
       query["apply_id"] = request.applyId;
+    }
+
+    if (!Util.isUnset(request.businessInstanceId)) {
+      query["business_instance_id"] = request.businessInstanceId;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -68271,6 +68981,10 @@ export default class Client extends OpenApi {
       query["apply_id"] = request.applyId;
     }
 
+    if (!Util.isUnset(request.businessInstanceId)) {
+      query["business_instance_id"] = request.businessInstanceId;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -69508,6 +70222,200 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TravelStandardQueryHeaders({ });
     return await this.travelStandardQueryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询业务流程
+   *
+   * @param request TripBusinessInstanceQueryRequest
+   * @param headers TripBusinessInstanceQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TripBusinessInstanceQueryResponse
+   */
+  async tripBusinessInstanceQueryWithOptions(request: TripBusinessInstanceQueryRequest, headers: TripBusinessInstanceQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TripBusinessInstanceQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.businessInstanceId)) {
+      query["business_instance_id"] = request.businessInstanceId;
+    }
+
+    if (!Util.isUnset(request.thirdBusinessId)) {
+      query["third_business_id"] = request.thirdBusinessId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["user_id"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["user_name"] = request.userName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TripBusinessInstanceQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/apply/v1/business`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TripBusinessInstanceQueryResponse>(await this.callApi(params, req, runtime), new TripBusinessInstanceQueryResponse({}));
+  }
+
+  /**
+   * @summary 查询业务流程
+   *
+   * @param request TripBusinessInstanceQueryRequest
+   * @return TripBusinessInstanceQueryResponse
+   */
+  async tripBusinessInstanceQuery(request: TripBusinessInstanceQueryRequest): Promise<TripBusinessInstanceQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TripBusinessInstanceQueryHeaders({ });
+    return await this.tripBusinessInstanceQueryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询抄送信息
+   *
+   * @param request TripCCInfoQueryRequest
+   * @param headers TripCCInfoQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TripCCInfoQueryResponse
+   */
+  async tripCCInfoQueryWithOptions(request: TripCCInfoQueryRequest, headers: TripCCInfoQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TripCCInfoQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.businessInstanceId)) {
+      query["business_instance_id"] = request.businessInstanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      query["node_id"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.thirdBusinessId)) {
+      query["third_business_id"] = request.thirdBusinessId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TripCCInfoQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/apply/v1/cc`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TripCCInfoQueryResponse>(await this.callApi(params, req, runtime), new TripCCInfoQueryResponse({}));
+  }
+
+  /**
+   * @summary 查询抄送信息
+   *
+   * @param request TripCCInfoQueryRequest
+   * @return TripCCInfoQueryResponse
+   */
+  async tripCCInfoQuery(request: TripCCInfoQueryRequest): Promise<TripCCInfoQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TripCCInfoQueryHeaders({ });
+    return await this.tripCCInfoQueryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询审批任务列表
+   *
+   * @param request TripTaskQueryRequest
+   * @param headers TripTaskQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TripTaskQueryResponse
+   */
+  async tripTaskQueryWithOptions(request: TripTaskQueryRequest, headers: TripTaskQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TripTaskQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.businessInstanceId)) {
+      query["business_instance_id"] = request.businessInstanceId;
+    }
+
+    if (!Util.isUnset(request.thirdBusinessId)) {
+      query["third_business_id"] = request.thirdBusinessId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["user_id"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["user_name"] = request.userName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TripTaskQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/apply/v1/tasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TripTaskQueryResponse>(await this.callApi(params, req, runtime), new TripTaskQueryResponse({}));
+  }
+
+  /**
+   * @summary 查询审批任务列表
+   *
+   * @param request TripTaskQueryRequest
+   * @return TripTaskQueryResponse
+   */
+  async tripTaskQuery(request: TripTaskQueryRequest): Promise<TripTaskQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TripTaskQueryHeaders({ });
+    return await this.tripTaskQueryWithOptions(request, headers, runtime);
   }
 
   /**
