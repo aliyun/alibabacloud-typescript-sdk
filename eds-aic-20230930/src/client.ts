@@ -299,6 +299,195 @@ export class CheckResourceStockResponse extends $tea.Model {
   }
 }
 
+export class CreateAndroidInstanceGroupRequest extends $tea.Model {
+  autoPay?: boolean;
+  autoRenew?: boolean;
+  bizRegionId?: string;
+  chargeType?: string;
+  imageId?: string;
+  instanceGroupName?: string;
+  instanceGroupSpec?: string;
+  numberOfInstances?: number;
+  officeSiteId?: string;
+  period?: number;
+  periodUnit?: string;
+  policyGroupId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      bizRegionId: 'BizRegionId',
+      chargeType: 'ChargeType',
+      imageId: 'ImageId',
+      instanceGroupName: 'InstanceGroupName',
+      instanceGroupSpec: 'InstanceGroupSpec',
+      numberOfInstances: 'NumberOfInstances',
+      officeSiteId: 'OfficeSiteId',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      policyGroupId: 'PolicyGroupId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      bizRegionId: 'string',
+      chargeType: 'string',
+      imageId: 'string',
+      instanceGroupName: 'string',
+      instanceGroupSpec: 'string',
+      numberOfInstances: 'number',
+      officeSiteId: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      policyGroupId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndroidInstanceGroupResponseBody extends $tea.Model {
+  instanceGroupIds?: string[];
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceGroupIds: 'InstanceGroupIds',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndroidInstanceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAndroidInstanceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAndroidInstanceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppRequest extends $tea.Model {
+  appName?: string;
+  description?: string;
+  fileName?: string;
+  filePath?: string;
+  iconUrl?: string;
+  installParam?: string;
+  ossAppUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      description: 'Description',
+      fileName: 'FileName',
+      filePath: 'FilePath',
+      iconUrl: 'IconUrl',
+      installParam: 'InstallParam',
+      ossAppUrl: 'OssAppUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      description: 'string',
+      fileName: 'string',
+      filePath: 'string',
+      iconUrl: 'string',
+      installParam: 'string',
+      ossAppUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppResponseBody extends $tea.Model {
+  appId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomImageRequest extends $tea.Model {
   description?: string;
   imageName?: string;
@@ -1039,6 +1228,93 @@ export class DescribeAndroidInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAndroidInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsRequest extends $tea.Model {
+  appIdList?: string[];
+  appName?: string;
+  installationStatus?: string;
+  maxResults?: number;
+  nextToken?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appIdList: 'AppIdList',
+      appName: 'AppName',
+      installationStatus: 'InstallationStatus',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appIdList: { 'type': 'array', 'itemType': 'string' },
+      appName: 'string',
+      installationStatus: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsResponseBody extends $tea.Model {
+  data?: DescribeAppsResponseBodyData[];
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeAppsResponseBodyData },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAppsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppsResponseBody,
     };
   }
 
@@ -3408,6 +3684,52 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
   }
 }
 
+export class DescribeAppsResponseBodyData extends $tea.Model {
+  androidAppVersion?: string;
+  appId?: number;
+  appName?: string;
+  description?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  iconUrl?: string;
+  installationStatus?: string;
+  instanceGroupList?: string[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      androidAppVersion: 'AndroidAppVersion',
+      appId: 'AppId',
+      appName: 'AppName',
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      iconUrl: 'IconUrl',
+      installationStatus: 'InstallationStatus',
+      instanceGroupList: 'InstanceGroupList',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      androidAppVersion: 'string',
+      appId: 'number',
+      appName: 'string',
+      description: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      iconUrl: 'string',
+      installationStatus: 'string',
+      instanceGroupList: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackupFilesResponseBodyData extends $tea.Model {
   androidInstanceId?: string;
   androidInstanceName?: string;
@@ -3972,6 +4294,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 创建安卓实例组
+   *
+   * @param request CreateAndroidInstanceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAndroidInstanceGroupResponse
+   */
+  async createAndroidInstanceGroupWithOptions(request: CreateAndroidInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAndroidInstanceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.instanceGroupName)) {
+      query["InstanceGroupName"] = request.instanceGroupName;
+    }
+
+    if (!Util.isUnset(request.instanceGroupSpec)) {
+      query["InstanceGroupSpec"] = request.instanceGroupSpec;
+    }
+
+    if (!Util.isUnset(request.numberOfInstances)) {
+      query["NumberOfInstances"] = request.numberOfInstances;
+    }
+
+    if (!Util.isUnset(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.policyGroupId)) {
+      query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAndroidInstanceGroup",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAndroidInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateAndroidInstanceGroupResponse({}));
+  }
+
+  /**
+   * @summary 创建安卓实例组
+   *
+   * @param request CreateAndroidInstanceGroupRequest
+   * @return CreateAndroidInstanceGroupResponse
+   */
+  async createAndroidInstanceGroup(request: CreateAndroidInstanceGroupRequest): Promise<CreateAndroidInstanceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAndroidInstanceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request CreateAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppResponse
+   */
+  async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.iconUrl)) {
+      query["IconUrl"] = request.iconUrl;
+    }
+
+    if (!Util.isUnset(request.installParam)) {
+      query["InstallParam"] = request.installParam;
+    }
+
+    if (!Util.isUnset(request.ossAppUrl)) {
+      query["OssAppUrl"] = request.ossAppUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateApp",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAppResponse>(await this.callApi(params, req, runtime), new CreateAppResponse({}));
+  }
+
+  /**
+   * @param request CreateAppRequest
+   * @return CreateAppResponse
+   */
+  async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAppWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 创建自定义镜像
    *
    * @param request CreateCustomImageRequest
@@ -4487,6 +4961,68 @@ export default class Client extends OpenApi {
   async describeAndroidInstances(request: DescribeAndroidInstancesRequest): Promise<DescribeAndroidInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAndroidInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询app
+   *
+   * @param request DescribeAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppsResponse
+   */
+  async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appIdList)) {
+      query["AppIdList"] = request.appIdList;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.installationStatus)) {
+      query["InstallationStatus"] = request.installationStatus;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApps",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppsResponse>(await this.callApi(params, req, runtime), new DescribeAppsResponse({}));
+  }
+
+  /**
+   * @summary 查询app
+   *
+   * @param request DescribeAppsRequest
+   * @return DescribeAppsResponse
+   */
+  async describeApps(request: DescribeAppsRequest): Promise<DescribeAppsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppsWithOptions(request, runtime);
   }
 
   /**
