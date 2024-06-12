@@ -13318,6 +13318,93 @@ export class ListGatewaySlbResponse extends $tea.Model {
   }
 }
 
+export class ListGatewayZoneRequest extends $tea.Model {
+  acceptLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayZoneResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListGatewayZoneResponseBodyData[];
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListGatewayZoneResponseBodyData },
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayZoneResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGatewayZoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGatewayZoneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceCountRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterType?: string;
@@ -21780,6 +21867,7 @@ export class UpdatePluginConfigRequest extends $tea.Model {
   gmtModified?: string;
   id?: number;
   pluginId?: number;
+  resourceIdList?: number[];
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -21792,6 +21880,7 @@ export class UpdatePluginConfigRequest extends $tea.Model {
       gmtModified: 'GmtModified',
       id: 'Id',
       pluginId: 'PluginId',
+      resourceIdList: 'ResourceIdList',
     };
   }
 
@@ -21807,6 +21896,56 @@ export class UpdatePluginConfigRequest extends $tea.Model {
       gmtModified: 'string',
       id: 'number',
       pluginId: 'number',
+      resourceIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePluginConfigShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  config?: string;
+  configLevel?: number;
+  enable?: boolean;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  pluginId?: number;
+  resourceIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      config: 'Config',
+      configLevel: 'ConfigLevel',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      pluginId: 'PluginId',
+      resourceIdListShrink: 'ResourceIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      config: 'string',
+      configLevel: 'number',
+      enable: 'boolean',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      pluginId: 'number',
+      resourceIdListShrink: 'string',
     };
   }
 
@@ -26757,6 +26896,28 @@ export class GetNacosHistoryConfigResponseBodyConfiguration extends $tea.Model {
   }
 }
 
+export class GetPluginConfigResponseBodyDataGatewayConfigListResourceList extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPluginConfigResponseBodyDataGatewayConfigList extends $tea.Model {
   config?: string;
   configLevel?: number;
@@ -26767,6 +26928,7 @@ export class GetPluginConfigResponseBodyDataGatewayConfigList extends $tea.Model
   gmtModified?: string;
   id?: number;
   pluginId?: number;
+  resourceList?: GetPluginConfigResponseBodyDataGatewayConfigListResourceList[];
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
@@ -26778,6 +26940,7 @@ export class GetPluginConfigResponseBodyDataGatewayConfigList extends $tea.Model
       gmtModified: 'GmtModified',
       id: 'Id',
       pluginId: 'PluginId',
+      resourceList: 'ResourceList',
     };
   }
 
@@ -26792,6 +26955,7 @@ export class GetPluginConfigResponseBodyDataGatewayConfigList extends $tea.Model
       gmtModified: 'string',
       id: 'number',
       pluginId: 'number',
+      resourceList: { 'type': 'array', 'itemType': GetPluginConfigResponseBodyDataGatewayConfigListResourceList },
     };
   }
 
@@ -26803,7 +26967,10 @@ export class GetPluginConfigResponseBodyDataGatewayConfigList extends $tea.Model
 export class GetPluginConfigResponseBodyData extends $tea.Model {
   category?: number;
   configCheck?: string;
+  configExample?: string;
+  domainConfigStartIndex?: number;
   gatewayConfigList?: GetPluginConfigResponseBodyDataGatewayConfigList[];
+  gatewayConfigStartIndex?: number;
   id?: number;
   imageName?: string;
   mode?: number;
@@ -26814,6 +26981,7 @@ export class GetPluginConfigResponseBodyData extends $tea.Model {
   publishState?: number;
   readme?: string;
   readmeEn?: string;
+  routeConfigStartIndex?: number;
   status?: string;
   summary?: string;
   type?: number;
@@ -26824,7 +26992,10 @@ export class GetPluginConfigResponseBodyData extends $tea.Model {
     return {
       category: 'Category',
       configCheck: 'ConfigCheck',
+      configExample: 'ConfigExample',
+      domainConfigStartIndex: 'DomainConfigStartIndex',
       gatewayConfigList: 'GatewayConfigList',
+      gatewayConfigStartIndex: 'GatewayConfigStartIndex',
       id: 'Id',
       imageName: 'ImageName',
       mode: 'Mode',
@@ -26835,6 +27006,7 @@ export class GetPluginConfigResponseBodyData extends $tea.Model {
       publishState: 'PublishState',
       readme: 'Readme',
       readmeEn: 'ReadmeEn',
+      routeConfigStartIndex: 'RouteConfigStartIndex',
       status: 'Status',
       summary: 'Summary',
       type: 'Type',
@@ -26848,7 +27020,10 @@ export class GetPluginConfigResponseBodyData extends $tea.Model {
     return {
       category: 'number',
       configCheck: 'string',
+      configExample: 'string',
+      domainConfigStartIndex: 'number',
       gatewayConfigList: { 'type': 'array', 'itemType': GetPluginConfigResponseBodyDataGatewayConfigList },
+      gatewayConfigStartIndex: 'number',
       id: 'number',
       imageName: 'string',
       mode: 'number',
@@ -26859,6 +27034,7 @@ export class GetPluginConfigResponseBodyData extends $tea.Model {
       publishState: 'number',
       readme: 'string',
       readmeEn: 'string',
+      routeConfigStartIndex: 'number',
       status: 'string',
       summary: 'string',
       type: 'number',
@@ -30922,6 +31098,28 @@ export class ListGatewaySlbResponseBodyData extends $tea.Model {
       VServerGroupId: 'string',
       VServiceList: { 'type': 'array', 'itemType': ListGatewaySlbResponseBodyDataVServiceList },
       vsMetaInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayZoneResponseBodyData extends $tea.Model {
+  localName?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -42855,6 +43053,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 获取网关可用区列表
+   *
+   * @param request ListGatewayZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayZoneResponse
+   */
+  async listGatewayZoneWithOptions(request: ListGatewayZoneRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayZoneResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGatewayZone",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGatewayZoneResponse>(await this.callApi(params, req, runtime), new ListGatewayZoneResponse({}));
+  }
+
+  /**
+   * @summary 获取网关可用区列表
+   *
+   * @param request ListGatewayZoneRequest
+   * @return ListGatewayZoneResponse
+   */
+  async listGatewayZone(request: ListGatewayZoneRequest): Promise<ListGatewayZoneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGatewayZoneWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Displays the number of nodes that can be deployed for an instance.
    *
    * @param request ListInstanceCountRequest
@@ -48281,12 +48521,18 @@ export default class Client extends OpenApi {
   /**
    * @summary Updates the configuration of a plug-in.
    *
-   * @param request UpdatePluginConfigRequest
+   * @param tmpReq UpdatePluginConfigRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return UpdatePluginConfigResponse
    */
-  async updatePluginConfigWithOptions(request: UpdatePluginConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePluginConfigResponse> {
-    Util.validateModel(request);
+  async updatePluginConfigWithOptions(tmpReq: UpdatePluginConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePluginConfigResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdatePluginConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.resourceIdList)) {
+      request.resourceIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceIdList, "ResourceIdList", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -48326,6 +48572,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pluginId)) {
       query["PluginId"] = request.pluginId;
+    }
+
+    if (!Util.isUnset(request.resourceIdListShrink)) {
+      query["ResourceIdList"] = request.resourceIdListShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
