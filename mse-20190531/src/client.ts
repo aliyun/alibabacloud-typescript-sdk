@@ -18209,6 +18209,7 @@ export class UpdateClusterSpecResponse extends $tea.Model {
 
 export class UpdateConfigRequest extends $tea.Model {
   acceptLanguage?: string;
+  authEnabled?: boolean;
   autopurgePurgeInterval?: string;
   autopurgeSnapRetainCount?: string;
   clusterId?: string;
@@ -18216,6 +18217,7 @@ export class UpdateConfigRequest extends $tea.Model {
   configSecretEnabled?: boolean;
   configType?: string;
   consoleUIEnabled?: boolean;
+  enable4lw?: boolean;
   eurekaSupported?: boolean;
   extendedTypesEnable?: string;
   initLimit?: string;
@@ -18237,6 +18239,7 @@ export class UpdateConfigRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      authEnabled: 'AuthEnabled',
       autopurgePurgeInterval: 'AutopurgePurgeInterval',
       autopurgeSnapRetainCount: 'AutopurgeSnapRetainCount',
       clusterId: 'ClusterId',
@@ -18244,6 +18247,7 @@ export class UpdateConfigRequest extends $tea.Model {
       configSecretEnabled: 'ConfigSecretEnabled',
       configType: 'ConfigType',
       consoleUIEnabled: 'ConsoleUIEnabled',
+      enable4lw: 'Enable4lw',
       eurekaSupported: 'EurekaSupported',
       extendedTypesEnable: 'ExtendedTypesEnable',
       initLimit: 'InitLimit',
@@ -18268,6 +18272,7 @@ export class UpdateConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      authEnabled: 'boolean',
       autopurgePurgeInterval: 'string',
       autopurgeSnapRetainCount: 'string',
       clusterId: 'string',
@@ -18275,6 +18280,7 @@ export class UpdateConfigRequest extends $tea.Model {
       configSecretEnabled: 'boolean',
       configType: 'string',
       consoleUIEnabled: 'boolean',
+      enable4lw: 'boolean',
       eurekaSupported: 'boolean',
       extendedTypesEnable: 'string',
       initLimit: 'string',
@@ -32676,6 +32682,7 @@ export class QueryConfigResponseBodyDataNacosRunningEnv extends $tea.Model {
 }
 
 export class QueryConfigResponseBodyData extends $tea.Model {
+  authEnabled?: boolean;
   autopurgePurgeInterval?: string;
   autopurgeSnapRetainCount?: string;
   clusterName?: string;
@@ -32685,6 +32692,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
   configSecretEnabled?: boolean;
   configSecretSupported?: boolean;
   consoleUIEnabled?: boolean;
+  enable4lw?: boolean;
   eurekaSupported?: boolean;
   extendedTypesEnable?: boolean;
   initLimit?: string;
@@ -32709,6 +32717,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      authEnabled: 'AuthEnabled',
       autopurgePurgeInterval: 'AutopurgePurgeInterval',
       autopurgeSnapRetainCount: 'AutopurgeSnapRetainCount',
       clusterName: 'ClusterName',
@@ -32718,6 +32727,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       configSecretEnabled: 'ConfigSecretEnabled',
       configSecretSupported: 'ConfigSecretSupported',
       consoleUIEnabled: 'ConsoleUIEnabled',
+      enable4lw: 'Enable4lw',
       eurekaSupported: 'EurekaSupported',
       extendedTypesEnable: 'ExtendedTypesEnable',
       initLimit: 'InitLimit',
@@ -32745,6 +32755,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authEnabled: 'boolean',
       autopurgePurgeInterval: 'string',
       autopurgeSnapRetainCount: 'string',
       clusterName: 'string',
@@ -32754,6 +32765,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       configSecretEnabled: 'boolean',
       configSecretSupported: 'boolean',
       consoleUIEnabled: 'boolean',
+      enable4lw: 'boolean',
       eurekaSupported: 'boolean',
       extendedTypesEnable: 'boolean',
       initLimit: 'string',
@@ -46094,6 +46106,10 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!Util.isUnset(request.authEnabled)) {
+      query["AuthEnabled"] = request.authEnabled;
+    }
+
     if (!Util.isUnset(request.autopurgePurgeInterval)) {
       query["AutopurgePurgeInterval"] = request.autopurgePurgeInterval;
     }
@@ -46120,6 +46136,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.consoleUIEnabled)) {
       query["ConsoleUIEnabled"] = request.consoleUIEnabled;
+    }
+
+    if (!Util.isUnset(request.enable4lw)) {
+      query["Enable4lw"] = request.enable4lw;
     }
 
     if (!Util.isUnset(request.eurekaSupported)) {
