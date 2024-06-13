@@ -1712,6 +1712,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
   returnUrl?: string;
   sceneId?: number;
   suitableType?: string;
+  uiCustomUrl?: string;
   userId?: string;
   validityDate?: string;
   voluntaryCustomizedContent?: string;
@@ -1747,6 +1748,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       returnUrl: 'ReturnUrl',
       sceneId: 'SceneId',
       suitableType: 'SuitableType',
+      uiCustomUrl: 'UiCustomUrl',
       userId: 'UserId',
       validityDate: 'ValidityDate',
       voluntaryCustomizedContent: 'VoluntaryCustomizedContent',
@@ -1785,6 +1787,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       returnUrl: 'string',
       sceneId: 'number',
       suitableType: 'string',
+      uiCustomUrl: 'string',
       userId: 'string',
       validityDate: 'string',
       voluntaryCustomizedContent: 'string',
@@ -4807,6 +4810,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.suitableType)) {
       query["SuitableType"] = request.suitableType;
+    }
+
+    if (!Util.isUnset(request.uiCustomUrl)) {
+      query["UiCustomUrl"] = request.uiCustomUrl;
     }
 
     if (!Util.isUnset(request.userId)) {
