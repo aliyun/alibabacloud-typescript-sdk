@@ -18170,6 +18170,7 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
   cenId?: string;
   chargeType?: string;
   creationTime?: string;
+  orderType?: string;
   resourceType?: string;
   status?: string;
   tags?: ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachmentsTags[];
@@ -18187,6 +18188,7 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
       cenId: 'CenId',
       chargeType: 'ChargeType',
       creationTime: 'CreationTime',
+      orderType: 'OrderType',
       resourceType: 'ResourceType',
       status: 'Status',
       tags: 'Tags',
@@ -18207,6 +18209,7 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
       cenId: 'string',
       chargeType: 'string',
       creationTime: 'string',
+      orderType: 'string',
       resourceType: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachmentsTags },
