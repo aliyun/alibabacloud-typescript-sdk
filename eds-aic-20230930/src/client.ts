@@ -8,6 +8,28 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DataImageRegionDistributeMapValue extends $tea.Model {
+  distributeStatus?: string;
+  progress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      distributeStatus: 'DistributeStatus',
+      progress: 'Progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributeStatus: 'string',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachKeyPairRequest extends $tea.Model {
   instanceIds?: string[];
   keyPairId?: string;
@@ -1428,6 +1450,93 @@ export class DescribeBackupFilesResponse extends $tea.Model {
   }
 }
 
+export class DescribeImageListRequest extends $tea.Model {
+  imageId?: string;
+  imageName?: string;
+  imageType?: string;
+  maxResults?: number;
+  nextToken?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageType: 'ImageType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      imageName: 'string',
+      imageType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageListResponseBody extends $tea.Model {
+  data?: DescribeImageListResponseBodyData[];
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeImageListResponseBodyData },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImageListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeImageListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInvocationsRequest extends $tea.Model {
   instanceIds?: string[];
   invocationId?: string;
@@ -2636,6 +2745,69 @@ export class ModifyPolicyGroupResponse extends $tea.Model {
   }
 }
 
+export class RebootAndroidInstancesInGroupRequest extends $tea.Model {
+  androidInstanceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      androidInstanceIds: 'AndroidInstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootAndroidInstancesInGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootAndroidInstancesInGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebootAndroidInstancesInGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RebootAndroidInstancesInGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecoveryFileRequest extends $tea.Model {
   androidInstanceIdList?: string[];
   backupFileId?: string;
@@ -3126,6 +3298,69 @@ export class StartAndroidInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartAndroidInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAndroidInstanceRequest extends $tea.Model {
+  androidInstanceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      androidInstanceIds: 'AndroidInstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAndroidInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAndroidInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopAndroidInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopAndroidInstanceResponseBody,
     };
   }
 
@@ -3783,6 +4018,58 @@ export class DescribeBackupFilesResponseBodyData extends $tea.Model {
       status: 'string',
       uploadEndpoint: 'string',
       uploadType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageListResponseBodyData extends $tea.Model {
+  aliUid?: number;
+  description?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  imageId?: string;
+  imageName?: string;
+  imageRegionDistributeMap?: { [key: string]: DataImageRegionDistributeMapValue };
+  imageRegionList?: string[];
+  imageType?: string;
+  language?: string;
+  status?: string;
+  systemType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageRegionDistributeMap: 'ImageRegionDistributeMap',
+      imageRegionList: 'ImageRegionList',
+      imageType: 'ImageType',
+      language: 'Language',
+      status: 'Status',
+      systemType: 'SystemType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      description: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageRegionDistributeMap: { 'type': 'map', 'keyType': 'string', 'valueType': DataImageRegionDistributeMapValue },
+      imageRegionList: { 'type': 'array', 'itemType': 'string' },
+      imageType: 'string',
+      language: 'string',
+      status: 'string',
+      systemType: 'string',
     };
   }
 
@@ -5104,6 +5391,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request DescribeImageListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageListResponse
+   */
+  async describeImageListWithOptions(request: DescribeImageListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.imageName)) {
+      body["ImageName"] = request.imageName;
+    }
+
+    if (!Util.isUnset(request.imageType)) {
+      body["ImageType"] = request.imageType;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeImageList",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageListResponse>(await this.callApi(params, req, runtime), new DescribeImageListResponse({}));
+  }
+
+  /**
+   * @param request DescribeImageListRequest
+   * @return DescribeImageListResponse
+   */
+  async describeImageList(request: DescribeImageListRequest): Promise<DescribeImageListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeImageListWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 查询命令结果
    *
    * @param request DescribeInvocationsRequest
@@ -5941,6 +6286,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 重启安卓实例
+   *
+   * @param request RebootAndroidInstancesInGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebootAndroidInstancesInGroupResponse
+   */
+  async rebootAndroidInstancesInGroupWithOptions(request: RebootAndroidInstancesInGroupRequest, runtime: $Util.RuntimeOptions): Promise<RebootAndroidInstancesInGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.androidInstanceIds)) {
+      query["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RebootAndroidInstancesInGroup",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RebootAndroidInstancesInGroupResponse>(await this.callApi(params, req, runtime), new RebootAndroidInstancesInGroupResponse({}));
+  }
+
+  /**
+   * @summary 重启安卓实例
+   *
+   * @param request RebootAndroidInstancesInGroupRequest
+   * @return RebootAndroidInstancesInGroupResponse
+   */
+  async rebootAndroidInstancesInGroup(request: RebootAndroidInstancesInGroupRequest): Promise<RebootAndroidInstancesInGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rebootAndroidInstancesInGroupWithOptions(request, runtime);
+  }
+
+  /**
    * @param request RecoveryFileRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return RecoveryFileResponse
@@ -6280,6 +6667,48 @@ export default class Client extends OpenApi {
   async startAndroidInstance(request: StartAndroidInstanceRequest): Promise<StartAndroidInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startAndroidInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 实例关机
+   *
+   * @param request StopAndroidInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopAndroidInstanceResponse
+   */
+  async stopAndroidInstanceWithOptions(request: StopAndroidInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopAndroidInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.androidInstanceIds)) {
+      query["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopAndroidInstance",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopAndroidInstanceResponse>(await this.callApi(params, req, runtime), new StopAndroidInstanceResponse({}));
+  }
+
+  /**
+   * @summary 实例关机
+   *
+   * @param request StopAndroidInstanceRequest
+   * @return StopAndroidInstanceResponse
+   */
+  async stopAndroidInstance(request: StopAndroidInstanceRequest): Promise<StopAndroidInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopAndroidInstanceWithOptions(request, runtime);
   }
 
   /**
