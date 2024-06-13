@@ -21062,6 +21062,47 @@ export class DescribeAuthorizedApisResponseBodyAuthorizedApis extends $tea.Model
   }
 }
 
+export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag extends $tea.Model {
+  tagInfo?: DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      tagInfo: 'TagInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagInfo: { 'type': 'array', 'itemType': DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp extends $tea.Model {
   appDescription?: string;
   appId?: number;
@@ -21073,6 +21114,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
   operator?: string;
   stageAlias?: string;
   stageName?: string;
+  tag?: DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag;
   static names(): { [key: string]: string } {
     return {
       appDescription: 'AppDescription',
@@ -21085,6 +21127,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
       operator: 'Operator',
       stageAlias: 'StageAlias',
       stageName: 'StageName',
+      tag: 'Tag',
     };
   }
 
@@ -21100,6 +21143,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
       operator: 'string',
       stageAlias: 'string',
       stageName: 'string',
+      tag: DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag,
     };
   }
 
@@ -27666,7 +27710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建网关实例
+   * @summary Creates an API Gateway instance.
    *
    * @param request CreateInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -27749,7 +27793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建网关实例
+   * @summary Creates an API Gateway instance.
    *
    * @param request CreateInstanceRequest
    * @return CreateInstanceResponse
@@ -30812,6 +30856,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the APIs with which an application is associated.
+   *
    * @param request DescribeApisByAppRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeApisByAppResponse
@@ -30873,6 +30919,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the APIs with which an application is associated.
+   *
    * @param request DescribeApisByAppRequest
    * @return DescribeApisByAppResponse
    */
@@ -32476,6 +32524,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the historical versions of an API.
+   *
    * @param request DescribeHistoryApisRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeHistoryApisResponse
@@ -32529,6 +32579,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the historical versions of an API.
+   *
    * @param request DescribeHistoryApisRequest
    * @return DescribeHistoryApisResponse
    */
@@ -33558,7 +33610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据查询查询绑定的API列表
+   * @summary Queries the APIs to which a specified plug-in is bound.
    *
    * @param request DescribePluginApisRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -33625,7 +33677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据查询查询绑定的API列表
+   * @summary Queries the APIs to which a specified plug-in is bound.
    *
    * @param request DescribePluginApisRequest
    * @return DescribePluginApisResponse
@@ -38441,9 +38493,6 @@ export default class Client extends OpenApi {
   /**
    * @summary Binds a signature key to APIs.
    *
-   * @description *   This API is intended for API providers.
-   * *   This operation allows you to bind a signature key to an API. You can bind signature keys for up to 100 APIs at a time.
-   *
    * @param request SetSignatureApisRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return SetSignatureApisResponse
@@ -38490,9 +38539,6 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Binds a signature key to APIs.
-   *
-   * @description *   This API is intended for API providers.
-   * *   This operation allows you to bind a signature key to an API. You can bind signature keys for up to 100 APIs at a time.
    *
    * @param request SetSignatureApisRequest
    * @return SetSignatureApisResponse
