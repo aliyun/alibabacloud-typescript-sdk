@@ -190,6 +190,8 @@ export class ReferenceTag extends $tea.Model {
 }
 
 export class Text extends $tea.Model {
+  agentId?: string;
+  agentName?: string;
   desc?: string;
   gmtCreate?: string;
   gmtModified?: string;
@@ -208,6 +210,8 @@ export class Text extends $tea.Model {
   userNameModified?: string;
   static names(): { [key: string]: string } {
     return {
+      agentId: 'agentId',
+      agentName: 'agentName',
       desc: 'desc',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
@@ -229,6 +233,8 @@ export class Text extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentId: 'string',
+      agentName: 'string',
       desc: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
@@ -301,6 +307,8 @@ export class TextResult extends $tea.Model {
 }
 
 export class TextTask extends $tea.Model {
+  agentId?: string;
+  agentName?: string;
   contentRequirement?: string;
   gmtCreate?: string;
   gmtModified?: string;
@@ -315,10 +323,13 @@ export class TextTask extends $tea.Model {
   textModeType?: string;
   textTaskId?: number;
   textTaskStatus?: string;
+  texts?: Text;
   theme?: string;
   themeDesc?: string;
   static names(): { [key: string]: string } {
     return {
+      agentId: 'agentId',
+      agentName: 'agentName',
       contentRequirement: 'contentRequirement',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
@@ -333,6 +344,7 @@ export class TextTask extends $tea.Model {
       textModeType: 'textModeType',
       textTaskId: 'textTaskId',
       textTaskStatus: 'textTaskStatus',
+      texts: 'texts',
       theme: 'theme',
       themeDesc: 'themeDesc',
     };
@@ -340,6 +352,8 @@ export class TextTask extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentId: 'string',
+      agentName: 'string',
       contentRequirement: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
@@ -354,6 +368,7 @@ export class TextTask extends $tea.Model {
       textModeType: 'string',
       textTaskId: 'number',
       textTaskStatus: 'string',
+      texts: Text,
       theme: 'string',
       themeDesc: 'string',
     };
@@ -365,6 +380,7 @@ export class TextTask extends $tea.Model {
 }
 
 export class TextTaskCreateCmd extends $tea.Model {
+  agentId?: string;
   contentRequirement?: string;
   idempotentId?: string;
   industry?: string;
@@ -380,6 +396,7 @@ export class TextTaskCreateCmd extends $tea.Model {
   themes?: string[];
   static names(): { [key: string]: string } {
     return {
+      agentId: 'agentId',
       contentRequirement: 'contentRequirement',
       idempotentId: 'idempotentId',
       industry: 'industry',
@@ -398,6 +415,7 @@ export class TextTaskCreateCmd extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentId: 'string',
       contentRequirement: 'string',
       idempotentId: 'string',
       industry: 'string',
