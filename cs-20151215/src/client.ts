@@ -4539,6 +4539,53 @@ export class DescribePolicyInstancesStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeResourcesDeleteProtectionRequest extends $tea.Model {
+  namespace?: string;
+  resources?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'namespace',
+      resources: 'resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
+      resources: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourcesDeleteProtectionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeResourcesDeleteProtectionResponseBody[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': DescribeResourcesDeleteProtectionResponseBody },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSubaccountK8sClusterUserConfigRequest extends $tea.Model {
   privateIpAddress?: boolean;
   temporaryDurationMinutes?: number;
@@ -8037,6 +8084,90 @@ export class UpdateK8sClusterUserConfigExpireResponse extends $tea.Model {
   }
 }
 
+export class UpdateResourcesDeleteProtectionRequest extends $tea.Model {
+  enable?: boolean;
+  namespace?: string;
+  resourceType?: string;
+  resources?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      namespace: 'namespace',
+      resourceType: 'resource_type',
+      resources: 'resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      namespace: 'string',
+      resourceType: 'string',
+      resources: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourcesDeleteProtectionResponseBody extends $tea.Model {
+  namespace?: string;
+  protection?: string;
+  requestId?: string;
+  resourceType?: string;
+  resources?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'namespace',
+      protection: 'protection',
+      requestId: 'requestId',
+      resourceType: 'resource_type',
+      resources: 'resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
+      protection: 'string',
+      requestId: 'string',
+      resourceType: 'string',
+      resources: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourcesDeleteProtectionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateResourcesDeleteProtectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateResourcesDeleteProtectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTemplateRequest extends $tea.Model {
   description?: string;
   name?: string;
@@ -9304,7 +9435,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   imageId?: string;
   imageType?: string;
   instanceChargeType?: string;
-  instancePatterns?: InstancePatterns;
+  instancePatterns?: InstancePatterns[];
   instanceTypes?: string[];
   internetChargeType?: string;
   internetMaxBandwidthOut?: number;
@@ -9401,7 +9532,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       imageId: 'string',
       imageType: 'string',
       instanceChargeType: 'string',
-      instancePatterns: InstancePatterns,
+      instancePatterns: { 'type': 'array', 'itemType': InstancePatterns },
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
       internetMaxBandwidthOut: 'number',
@@ -10091,7 +10222,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   imageId?: string;
   imageType?: string;
   instanceChargeType?: string;
-  instancePatterns?: InstancePatterns;
+  instancePatterns?: InstancePatterns[];
   instanceTypes?: string[];
   internetChargeType?: string;
   internetMaxBandwidthOut?: number;
@@ -10192,7 +10323,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       imageId: 'string',
       imageType: 'string',
       instanceChargeType: 'string',
-      instancePatterns: InstancePatterns,
+      instancePatterns: { 'type': 'array', 'itemType': InstancePatterns },
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
       internetMaxBandwidthOut: 'number',
@@ -10649,7 +10780,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   imageId?: string;
   imageType?: string;
   instanceChargeType?: string;
-  instancePatterns?: InstancePatterns;
+  instancePatterns?: InstancePatterns[];
   instanceTypes?: string[];
   internetChargeType?: string;
   internetMaxBandwidthOut?: number;
@@ -10750,7 +10881,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       imageId: 'string',
       imageType: 'string',
       instanceChargeType: 'string',
-      instancePatterns: InstancePatterns,
+      instancePatterns: { 'type': 'array', 'itemType': InstancePatterns },
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
       internetMaxBandwidthOut: 'number',
@@ -12141,6 +12272,34 @@ export class DescribePolicyInstancesStatusResponseBodyPolicyInstances extends $t
   }
 }
 
+export class DescribeResourcesDeleteProtectionResponseBody extends $tea.Model {
+  name?: string;
+  namespace?: string;
+  resource?: string;
+  protection?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      namespace: 'namespace',
+      resource: 'resource',
+      protection: 'protection',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      namespace: 'string',
+      resource: 'string',
+      protection: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTaskInfoResponseBodyError extends $tea.Model {
   code?: string;
   message?: string;
@@ -13319,7 +13478,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   imageId?: string;
   imageType?: string;
   instanceChargeType?: string;
-  instancePatterns?: InstancePatterns;
+  instancePatterns?: InstancePatterns[];
   instanceTypes?: string[];
   internetChargeType?: string;
   internetMaxBandwidthOut?: number;
@@ -13402,7 +13561,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       imageId: 'string',
       imageType: 'string',
       instanceChargeType: 'string',
-      instancePatterns: InstancePatterns,
+      instancePatterns: { 'type': 'array', 'itemType': InstancePatterns },
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
       internetMaxBandwidthOut: 'number',
@@ -17311,6 +17470,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 修改资源删除保护配置
+   *
+   * @param request DescribeResourcesDeleteProtectionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourcesDeleteProtectionResponse
+   */
+  async describeResourcesDeleteProtectionWithOptions(ClusterId: string, ResourceType: string, request: DescribeResourcesDeleteProtectionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourcesDeleteProtectionResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespace)) {
+      query["namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.resources)) {
+      query["resources"] = request.resources;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeResourcesDeleteProtection",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/resources/${OpenApiUtil.getEncodeParam(ResourceType)}/protection`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<DescribeResourcesDeleteProtectionResponse>(await this.callApi(params, req, runtime), new DescribeResourcesDeleteProtectionResponse({}));
+  }
+
+  /**
+   * @summary 修改资源删除保护配置
+   *
+   * @param request DescribeResourcesDeleteProtectionRequest
+   * @return DescribeResourcesDeleteProtectionResponse
+   */
+  async describeResourcesDeleteProtection(ClusterId: string, ResourceType: string, request: DescribeResourcesDeleteProtectionRequest): Promise<DescribeResourcesDeleteProtectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeResourcesDeleteProtectionWithOptions(ClusterId, ResourceType, request, headers, runtime);
+  }
+
+  /**
    * @summary Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
    *
    * @description **
@@ -20371,6 +20579,63 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateK8sClusterUserConfigExpireWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 修改资源删除保护配置
+   *
+   * @param request UpdateResourcesDeleteProtectionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateResourcesDeleteProtectionResponse
+   */
+  async updateResourcesDeleteProtectionWithOptions(ClusterId: string, request: UpdateResourcesDeleteProtectionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourcesDeleteProtectionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["resource_type"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.resources)) {
+      body["resources"] = request.resources;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateResourcesDeleteProtection",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/resources/protection`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateResourcesDeleteProtectionResponse>(await this.callApi(params, req, runtime), new UpdateResourcesDeleteProtectionResponse({}));
+  }
+
+  /**
+   * @summary 修改资源删除保护配置
+   *
+   * @param request UpdateResourcesDeleteProtectionRequest
+   * @return UpdateResourcesDeleteProtectionResponse
+   */
+  async updateResourcesDeleteProtection(ClusterId: string, request: UpdateResourcesDeleteProtectionRequest): Promise<UpdateResourcesDeleteProtectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateResourcesDeleteProtectionWithOptions(ClusterId, request, headers, runtime);
   }
 
   /**
