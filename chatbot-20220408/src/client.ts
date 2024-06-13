@@ -4000,6 +4000,84 @@ export class GetAsyncResultResponse extends $tea.Model {
   }
 }
 
+export class GetBotSessionDataRequest extends $tea.Model {
+  agentKey?: string;
+  endTime?: string;
+  robotInstanceId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      endTime: 'EndTime',
+      robotInstanceId: 'RobotInstanceId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      endTime: 'string',
+      robotInstanceId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBotSessionDataResponseBody extends $tea.Model {
+  costTime?: string;
+  datas?: { [key: string]: any }[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      datas: 'Datas',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'string',
+      datas: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBotSessionDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBotSessionDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBotSessionDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstancePublishTaskStateRequest extends $tea.Model {
   agentKey?: string;
   id?: number;
@@ -11450,6 +11528,60 @@ export default class Client extends OpenApi {
   async getAsyncResult(request: GetAsyncResultRequest): Promise<GetAsyncResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAsyncResultWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询机器人接待人次和对话轮次
+   *
+   * @param request GetBotSessionDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBotSessionDataResponse
+   */
+  async getBotSessionDataWithOptions(request: GetBotSessionDataRequest, runtime: $Util.RuntimeOptions): Promise<GetBotSessionDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBotSessionData",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBotSessionDataResponse>(await this.callApi(params, req, runtime), new GetBotSessionDataResponse({}));
+  }
+
+  /**
+   * @summary 查询机器人接待人次和对话轮次
+   *
+   * @param request GetBotSessionDataRequest
+   * @return GetBotSessionDataResponse
+   */
+  async getBotSessionData(request: GetBotSessionDataRequest): Promise<GetBotSessionDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBotSessionDataWithOptions(request, runtime);
   }
 
   /**
