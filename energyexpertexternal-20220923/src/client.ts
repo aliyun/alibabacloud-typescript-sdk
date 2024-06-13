@@ -2477,24 +2477,24 @@ export class SendDocumentAskQuestionResponse extends $tea.Model {
 }
 
 export class SubmitDocumentAnalyzeJobRequest extends $tea.Model {
+  fileName?: string;
   fileUrl?: string;
   folderId?: string;
-  ossUrl?: string;
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      fileName: 'fileName',
       fileUrl: 'fileUrl',
       folderId: 'folderId',
-      ossUrl: 'ossUrl',
       templateId: 'templateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fileName: 'string',
       fileUrl: 'string',
       folderId: 'string',
-      ossUrl: 'string',
       templateId: 'string',
     };
   }
@@ -2505,24 +2505,24 @@ export class SubmitDocumentAnalyzeJobRequest extends $tea.Model {
 }
 
 export class SubmitDocumentAnalyzeJobAdvanceRequest extends $tea.Model {
-  fileUrl?: string;
+  fileName?: string;
+  fileUrlObject?: Readable;
   folderId?: string;
-  ossUrlObject?: Readable;
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      fileUrl: 'fileUrl',
+      fileName: 'fileName',
+      fileUrlObject: 'fileUrl',
       folderId: 'folderId',
-      ossUrlObject: 'ossUrl',
       templateId: 'templateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileUrl: 'string',
+      fileName: 'string',
+      fileUrlObject: 'Readable',
       folderId: 'string',
-      ossUrlObject: 'Readable',
       templateId: 'string',
     };
   }
@@ -6268,16 +6268,16 @@ export default class Client extends OpenApi {
   async submitDocumentAnalyzeJobWithOptions(request: SubmitDocumentAnalyzeJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitDocumentAnalyzeJobResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
     if (!Util.isUnset(request.fileUrl)) {
       query["fileUrl"] = request.fileUrl;
     }
 
     if (!Util.isUnset(request.folderId)) {
       query["folderId"] = request.folderId;
-    }
-
-    if (!Util.isUnset(request.ossUrl)) {
-      query["ossUrl"] = request.ossUrl;
     }
 
     if (!Util.isUnset(request.templateId)) {
@@ -6359,14 +6359,14 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let submitDocumentAnalyzeJobReq = new SubmitDocumentAnalyzeJobRequest({ });
     OpenApiUtil.convert(request, submitDocumentAnalyzeJobReq);
-    if (!Util.isUnset(request.ossUrlObject)) {
+    if (!Util.isUnset(request.fileUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.body.accessKeyId;
       ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
         filename: authResponse.body.objectKey,
-        content: request.ossUrlObject,
+        content: request.fileUrlObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
@@ -6382,7 +6382,7 @@ export default class Client extends OpenApi {
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      submitDocumentAnalyzeJobReq.ossUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+      submitDocumentAnalyzeJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let submitDocumentAnalyzeJobResp = await this.submitDocumentAnalyzeJobWithOptions(submitDocumentAnalyzeJobReq, headers, runtime);
