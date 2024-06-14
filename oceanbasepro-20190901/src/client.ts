@@ -3601,10 +3601,12 @@ export class DescribeDatabasesResponse extends $tea.Model {
 
 export class DescribeInstanceRequest extends $tea.Model {
   instanceId?: string;
+  maxConnectionLimit?: string;
   pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      maxConnectionLimit: 'MaxConnectionLimit',
       pageNumber: 'PageNumber',
     };
   }
@@ -3612,6 +3614,7 @@ export class DescribeInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      maxConnectionLimit: 'string',
       pageNumber: 'number',
     };
   }
@@ -6849,6 +6852,75 @@ export class DescribeTenantMetricsResponse extends $tea.Model {
   }
 }
 
+export class DescribeTenantReadableScnRequest extends $tea.Model {
+  instanceId?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTenantReadableScnResponseBody extends $tea.Model {
+  data?: DescribeTenantReadableScnResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeTenantReadableScnResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTenantReadableScnResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTenantReadableScnResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTenantReadableScnResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTenantSecurityConfigsRequest extends $tea.Model {
   checkId?: string;
   instanceId?: string;
@@ -8886,12 +8958,82 @@ export class ModifyInstanceNodeNumResponse extends $tea.Model {
   }
 }
 
+export class ModifyInstanceSSLRequest extends $tea.Model {
+  enableSSL?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableSSL: 'EnableSSL',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSSL: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceSSLResponseBody extends $tea.Model {
+  instanceSSL?: ModifyInstanceSSLResponseBodyInstanceSSL;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceSSL: 'InstanceSSL',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceSSL: ModifyInstanceSSLResponseBodyInstanceSSL,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceSSLResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceSSLResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyInstanceSSLResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyInstanceSpecRequest extends $tea.Model {
   diskSize?: number;
   diskType?: string;
   dryRun?: boolean;
   instanceClass?: string;
   instanceId?: string;
+  upgradeSpecNative?: boolean;
   static names(): { [key: string]: string } {
     return {
       diskSize: 'DiskSize',
@@ -8899,6 +9041,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       dryRun: 'DryRun',
       instanceClass: 'InstanceClass',
       instanceId: 'InstanceId',
+      upgradeSpecNative: 'UpgradeSpecNative',
     };
   }
 
@@ -8909,6 +9052,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       dryRun: 'boolean',
       instanceClass: 'string',
       instanceId: 'string',
+      upgradeSpecNative: 'boolean',
     };
   }
 
@@ -14241,6 +14385,7 @@ export class DescribeInstanceResponseBodyInstanceTenantCreatable extends $tea.Mo
 }
 
 export class DescribeInstanceResponseBodyInstance extends $tea.Model {
+  allowModifyInternetAddressConnectionLimit?: boolean;
   autoRenewal?: boolean;
   autoUpgradeObVersion?: boolean;
   availableZones?: string[];
@@ -14280,6 +14425,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
   resource?: DescribeInstanceResponseBodyInstanceResource;
   series?: string;
   sharedUnitNumLimit?: number;
+  specType?: string;
   status?: string;
   tenantCreatable?: DescribeInstanceResponseBodyInstanceTenantCreatable;
   unitSpec?: string;
@@ -14287,6 +14433,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
   zones?: string[];
   static names(): { [key: string]: string } {
     return {
+      allowModifyInternetAddressConnectionLimit: 'AllowModifyInternetAddressConnectionLimit',
       autoRenewal: 'AutoRenewal',
       autoUpgradeObVersion: 'AutoUpgradeObVersion',
       availableZones: 'AvailableZones',
@@ -14326,6 +14473,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       resource: 'Resource',
       series: 'Series',
       sharedUnitNumLimit: 'SharedUnitNumLimit',
+      specType: 'SpecType',
       status: 'Status',
       tenantCreatable: 'TenantCreatable',
       unitSpec: 'UnitSpec',
@@ -14336,6 +14484,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowModifyInternetAddressConnectionLimit: 'boolean',
       autoRenewal: 'boolean',
       autoUpgradeObVersion: 'boolean',
       availableZones: { 'type': 'array', 'itemType': 'string' },
@@ -14375,6 +14524,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       resource: DescribeInstanceResponseBodyInstanceResource,
       series: 'string',
       sharedUnitNumLimit: 'number',
+      specType: 'string',
       status: 'string',
       tenantCreatable: DescribeInstanceResponseBodyInstanceTenantCreatable,
       unitSpec: 'string',
@@ -14537,6 +14687,137 @@ export class DescribeInstanceTagsResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResourceCpu extends $tea.Model {
+  totalCpu?: number;
+  usedCpu?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalCpu: 'TotalCpu',
+      usedCpu: 'UsedCpu',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCpu: 'number',
+      usedCpu: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResourceDiskSize extends $tea.Model {
+  totalDiskSize?: number;
+  usedDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalDiskSize: 'TotalDiskSize',
+      usedDiskSize: 'UsedDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalDiskSize: 'number',
+      usedDiskSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResourceMemory extends $tea.Model {
+  totalMemory?: number;
+  usedMemory?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalMemory: 'TotalMemory',
+      usedMemory: 'UsedMemory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalMemory: 'number',
+      usedMemory: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResource extends $tea.Model {
+  cpu?: DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResourceCpu;
+  diskSize?: DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResourceDiskSize;
+  memory?: DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResourceMemory;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      diskSize: 'DiskSize',
+      memory: 'Memory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResourceCpu,
+      diskSize: DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResourceDiskSize,
+      memory: DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResourceMemory,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTopologyResponseBodyInstanceTopologyReplicas extends $tea.Model {
+  logicalZone?: string;
+  nodeNum?: number;
+  replicaResource?: DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResource;
+  replicaType?: string;
+  status?: string;
+  zoneLogicalId?: number;
+  zoneLogicalName?: string;
+  zoneRegionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logicalZone: 'LogicalZone',
+      nodeNum: 'NodeNum',
+      replicaResource: 'ReplicaResource',
+      replicaType: 'ReplicaType',
+      status: 'Status',
+      zoneLogicalId: 'ZoneLogicalId',
+      zoneLogicalName: 'ZoneLogicalName',
+      zoneRegionName: 'ZoneRegionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicalZone: 'string',
+      nodeNum: 'number',
+      replicaResource: DescribeInstanceTopologyResponseBodyInstanceTopologyReplicasReplicaResource,
+      replicaType: 'string',
+      status: 'string',
+      zoneLogicalId: 'number',
+      zoneLogicalName: 'string',
+      zoneRegionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZonesUnits extends $tea.Model {
   enableCancelMigrateUnit?: boolean;
   enableMigrateUnit?: boolean;
@@ -14585,12 +14866,16 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZo
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZones extends $tea.Model {
   isPrimaryTenantZone?: boolean;
+  logicalZone?: string;
+  replicaType?: string;
   tenantZoneId?: string;
   tenantZoneRole?: string;
   units?: DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZonesUnits[];
   static names(): { [key: string]: string } {
     return {
       isPrimaryTenantZone: 'IsPrimaryTenantZone',
+      logicalZone: 'LogicalZone',
+      replicaType: 'ReplicaType',
       tenantZoneId: 'TenantZoneId',
       tenantZoneRole: 'TenantZoneRole',
       units: 'Units',
@@ -14600,6 +14885,8 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZo
   static types(): { [key: string]: any } {
     return {
       isPrimaryTenantZone: 'boolean',
+      logicalZone: 'string',
+      replicaType: 'string',
       tenantZoneId: 'string',
       tenantZoneRole: 'string',
       units: { 'type': 'array', 'itemType': DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZonesUnits },
@@ -14615,11 +14902,14 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenants extends
   primaryZoneDeployType?: string;
   tenantCpu?: number;
   tenantDeployType?: string;
+  tenantDiskSize?: number;
   tenantId?: string;
   tenantMemory?: number;
   tenantMode?: string;
   tenantName?: string;
   tenantStatus?: string;
+  tenantUnitCpu?: number;
+  tenantUnitMemory?: number;
   tenantUnitNum?: number;
   tenantZones?: DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZones[];
   static names(): { [key: string]: string } {
@@ -14627,11 +14917,14 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenants extends
       primaryZoneDeployType: 'PrimaryZoneDeployType',
       tenantCpu: 'TenantCpu',
       tenantDeployType: 'TenantDeployType',
+      tenantDiskSize: 'TenantDiskSize',
       tenantId: 'TenantId',
       tenantMemory: 'TenantMemory',
       tenantMode: 'TenantMode',
       tenantName: 'TenantName',
       tenantStatus: 'TenantStatus',
+      tenantUnitCpu: 'TenantUnitCpu',
+      tenantUnitMemory: 'TenantUnitMemory',
       tenantUnitNum: 'TenantUnitNum',
       tenantZones: 'TenantZones',
     };
@@ -14642,11 +14935,14 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenants extends
       primaryZoneDeployType: 'string',
       tenantCpu: 'number',
       tenantDeployType: 'string',
+      tenantDiskSize: 'number',
       tenantId: 'string',
       tenantMemory: 'number',
       tenantMode: 'string',
       tenantName: 'string',
       tenantStatus: 'string',
+      tenantUnitCpu: 'number',
+      tenantUnitMemory: 'number',
       tenantUnitNum: 'number',
       tenantZones: { 'type': 'array', 'itemType': DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZones },
     };
@@ -14750,6 +15046,7 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeR
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodes extends $tea.Model {
   fullCopyId?: number;
+  logicalZone?: string;
   nodeCopyId?: number;
   nodeId?: string;
   nodeResource?: DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource[];
@@ -14759,6 +15056,7 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodes exte
   static names(): { [key: string]: string } {
     return {
       fullCopyId: 'FullCopyId',
+      logicalZone: 'LogicalZone',
       nodeCopyId: 'NodeCopyId',
       nodeId: 'NodeId',
       nodeResource: 'NodeResource',
@@ -14771,6 +15069,7 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodes exte
   static types(): { [key: string]: any } {
     return {
       fullCopyId: 'number',
+      logicalZone: 'string',
       nodeCopyId: 'number',
       nodeId: 'string',
       nodeResource: { 'type': 'array', 'itemType': DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource },
@@ -14858,10 +15157,12 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZones extends $
 }
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopology extends $tea.Model {
+  replicas?: DescribeInstanceTopologyResponseBodyInstanceTopologyReplicas[];
   tenants?: DescribeInstanceTopologyResponseBodyInstanceTopologyTenants[];
   zones?: DescribeInstanceTopologyResponseBodyInstanceTopologyZones[];
   static names(): { [key: string]: string } {
     return {
+      replicas: 'Replicas',
       tenants: 'Tenants',
       zones: 'Zones',
     };
@@ -14869,6 +15170,7 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopology extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      replicas: { 'type': 'array', 'itemType': DescribeInstanceTopologyResponseBodyInstanceTopologyReplicas },
       tenants: { 'type': 'array', 'itemType': DescribeInstanceTopologyResponseBodyInstanceTopologyTenants },
       zones: { 'type': 'array', 'itemType': DescribeInstanceTopologyResponseBodyInstanceTopologyZones },
     };
@@ -15086,6 +15388,7 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
   resource?: DescribeInstancesResponseBodyInstancesResource;
   resourceGroupId?: string;
   series?: string;
+  specType?: string;
   state?: string;
   usedDiskSize?: number;
   version?: string;
@@ -15118,6 +15421,7 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       resource: 'Resource',
       resourceGroupId: 'ResourceGroupId',
       series: 'Series',
+      specType: 'SpecType',
       state: 'State',
       usedDiskSize: 'UsedDiskSize',
       version: 'Version',
@@ -15153,6 +15457,7 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       resource: DescribeInstancesResponseBodyInstancesResource,
       resourceGroupId: 'string',
       series: 'string',
+      specType: 'string',
       state: 'string',
       usedDiskSize: 'number',
       version: 'string',
@@ -20712,19 +21017,26 @@ export class DescribeTenantResponseBodyTenantReadOnlyResource extends $tea.Model
 
 export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Model {
   addressType?: string;
+  connectionLogicalZones?: string[];
   connectionReplicaType?: string;
   connectionZones?: string[];
   enableTransactionSplit?: boolean;
   internetAddress?: string;
   internetAddressStatus?: string;
+  internetMaxConnectionLimit?: number;
+  internetMaxConnectionNum?: number;
   internetPort?: number;
+  internetRpcPort?: number;
   intranetAddress?: string;
   intranetAddressMasterZoneId?: string;
   intranetAddressSlaveZoneId?: string;
   intranetAddressStatus?: string;
   intranetPort?: number;
+  intranetRpcPort?: number;
+  maxConnectionLimit?: number;
   maxConnectionNum?: number;
   parallelQueryDegree?: number;
+  proxyClusterId?: string;
   tenantEndpointId?: string;
   transactionSplit?: boolean;
   vSwitchId?: string;
@@ -20732,19 +21044,26 @@ export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Mode
   static names(): { [key: string]: string } {
     return {
       addressType: 'AddressType',
+      connectionLogicalZones: 'ConnectionLogicalZones',
       connectionReplicaType: 'ConnectionReplicaType',
       connectionZones: 'ConnectionZones',
       enableTransactionSplit: 'EnableTransactionSplit',
       internetAddress: 'InternetAddress',
       internetAddressStatus: 'InternetAddressStatus',
+      internetMaxConnectionLimit: 'InternetMaxConnectionLimit',
+      internetMaxConnectionNum: 'InternetMaxConnectionNum',
       internetPort: 'InternetPort',
+      internetRpcPort: 'InternetRpcPort',
       intranetAddress: 'IntranetAddress',
       intranetAddressMasterZoneId: 'IntranetAddressMasterZoneId',
       intranetAddressSlaveZoneId: 'IntranetAddressSlaveZoneId',
       intranetAddressStatus: 'IntranetAddressStatus',
       intranetPort: 'IntranetPort',
+      intranetRpcPort: 'IntranetRpcPort',
+      maxConnectionLimit: 'MaxConnectionLimit',
       maxConnectionNum: 'MaxConnectionNum',
       parallelQueryDegree: 'ParallelQueryDegree',
+      proxyClusterId: 'ProxyClusterId',
       tenantEndpointId: 'TenantEndpointId',
       transactionSplit: 'TransactionSplit',
       vSwitchId: 'VSwitchId',
@@ -20755,19 +21074,26 @@ export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       addressType: 'string',
+      connectionLogicalZones: { 'type': 'array', 'itemType': 'string' },
       connectionReplicaType: 'string',
       connectionZones: { 'type': 'array', 'itemType': 'string' },
       enableTransactionSplit: 'boolean',
       internetAddress: 'string',
       internetAddressStatus: 'string',
+      internetMaxConnectionLimit: 'number',
+      internetMaxConnectionNum: 'number',
       internetPort: 'number',
+      internetRpcPort: 'number',
       intranetAddress: 'string',
       intranetAddressMasterZoneId: 'string',
       intranetAddressSlaveZoneId: 'string',
       intranetAddressStatus: 'string',
       intranetPort: 'number',
+      intranetRpcPort: 'number',
+      maxConnectionLimit: 'number',
       maxConnectionNum: 'number',
       parallelQueryDegree: 'number',
+      proxyClusterId: 'string',
       tenantEndpointId: 'string',
       transactionSplit: 'boolean',
       vSwitchId: 'string',
@@ -21017,6 +21343,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
   primaryZone?: string;
   primaryZoneDeployType?: string;
   readOnlyResource?: DescribeTenantResponseBodyTenantReadOnlyResource;
+  recycleBinStatus?: string;
   series?: string;
   status?: string;
   tenantConnections?: DescribeTenantResponseBodyTenantTenantConnections[];
@@ -21054,6 +21381,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       primaryZone: 'PrimaryZone',
       primaryZoneDeployType: 'PrimaryZoneDeployType',
       readOnlyResource: 'ReadOnlyResource',
+      recycleBinStatus: 'RecycleBinStatus',
       series: 'Series',
       status: 'Status',
       tenantConnections: 'TenantConnections',
@@ -21094,6 +21422,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       primaryZone: 'string',
       primaryZoneDeployType: 'string',
       readOnlyResource: DescribeTenantResponseBodyTenantReadOnlyResource,
+      recycleBinStatus: 'string',
       series: 'string',
       status: 'string',
       tenantConnections: { 'type': 'array', 'itemType': DescribeTenantResponseBodyTenantTenantConnections },
@@ -21145,6 +21474,25 @@ export class DescribeTenantEncryptionResponseBodyTenantEncryptions extends $tea.
       tenantMode: 'string',
       tenantName: 'string',
       tenantStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTenantReadableScnResponseBodyData extends $tea.Model {
+  readableScn?: number;
+  static names(): { [key: string]: string } {
+    return {
+      readableScn: 'ReadableScn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      readableScn: 'number',
     };
   }
 
@@ -24195,6 +24543,28 @@ export class ModifyInstanceNodeNumResponseBodyData extends $tea.Model {
   }
 }
 
+export class ModifyInstanceSSLResponseBodyInstanceSSL extends $tea.Model {
+  enableSSL?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableSSL: 'EnableSSL',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSSL: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyInstanceSpecResponseBodyData extends $tea.Model {
   dryRunResult?: boolean;
   orderId?: string;
@@ -26119,6 +26489,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary You can call this operation to create a tag.
+   *
    * @param request CreateTagValueRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return CreateTagValueResponse
@@ -26156,6 +26528,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary You can call this operation to create a tag.
+   *
    * @param request CreateTagValueRequest
    * @return CreateTagValueResponse
    */
@@ -27494,6 +27868,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.maxConnectionLimit)) {
+      body["MaxConnectionLimit"] = request.maxConnectionLimit;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -29791,6 +30169,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询租户同步位点信息
+   *
+   * @param request DescribeTenantReadableScnRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTenantReadableScnResponse
+   */
+  async describeTenantReadableScnWithOptions(request: DescribeTenantReadableScnRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantReadableScnResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTenantReadableScn",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTenantReadableScnResponse>(await this.callApi(params, req, runtime), new DescribeTenantReadableScnResponse({}));
+  }
+
+  /**
+   * @summary 查询租户同步位点信息
+   *
+   * @param request DescribeTenantReadableScnRequest
+   * @return DescribeTenantReadableScnResponse
+   */
+  async describeTenantReadableScn(request: DescribeTenantReadableScnRequest): Promise<DescribeTenantReadableScnResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTenantReadableScnWithOptions(request, runtime);
+  }
+
+  /**
    * @summary You can call this operation to query security check items of an OceanBase Database tenant.
    *
    * @param request DescribeTenantSecurityConfigsRequest
@@ -29887,7 +30311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to view tenant tags.
+   * @summary You can call this operation to query the tags of tenants in a cluster.
    *
    * @param request DescribeTenantTagsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -29926,7 +30350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to view tenant tags.
+   * @summary You can call this operation to query the tags of tenants in a cluster.
    *
    * @param request DescribeTenantTagsRequest
    * @return DescribeTenantTagsResponse
@@ -31023,6 +31447,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary You can call this operation to modify the Secure Sockets Layer (SSL) setting for an OceanBase cluster instance.
+   *
+   * @description There is currently no authorization information disclosed in the API.
+   *
+   * @param request ModifyInstanceSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceSSLResponse
+   */
+  async modifyInstanceSSLWithOptions(request: ModifyInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSSLResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enableSSL)) {
+      body["EnableSSL"] = request.enableSSL;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyInstanceSSL",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceSSLResponse>(await this.callApi(params, req, runtime), new ModifyInstanceSSLResponse({}));
+  }
+
+  /**
+   * @summary You can call this operation to modify the Secure Sockets Layer (SSL) setting for an OceanBase cluster instance.
+   *
+   * @description There is currently no authorization information disclosed in the API.
+   *
+   * @param request ModifyInstanceSSLRequest
+   * @return ModifyInstanceSSLResponse
+   */
+  async modifyInstanceSSL(request: ModifyInstanceSSLRequest): Promise<ModifyInstanceSSLResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInstanceSSLWithOptions(request, runtime);
+  }
+
+  /**
    * @summary You can call this operation to modify the cluster specifications and storage space.
    *
    * @param request ModifyInstanceSpecRequest
@@ -31050,6 +31524,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.upgradeSpecNative)) {
+      body["UpgradeSpecNative"] = request.upgradeSpecNative;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -31081,7 +31559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The returned response.
+   * @summary You can call this operation to modify the tags of a cluster.
    *
    * @param request ModifyInstanceTagsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -31116,7 +31594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The returned response.
+   * @summary You can call this operation to modify the tags of a cluster.
    *
    * @param request ModifyInstanceTagsRequest
    * @return ModifyInstanceTagsResponse
@@ -31625,7 +32103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify tenant tags.
+   * @summary You can call this operation to modify the tags of a tenant.
    *
    * @param request ModifyTenantTagsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -31664,7 +32142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify tenant tags.
+   * @summary You can call this operation to modify the tags of a tenant.
    *
    * @param request ModifyTenantTagsRequest
    * @return ModifyTenantTagsResponse
