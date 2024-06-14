@@ -4568,6 +4568,124 @@ export class PostISConvRewriterResponse extends $tea.Model {
   }
 }
 
+export class PostISRerankRequest extends $tea.Model {
+  algorithm?: string;
+  debug?: boolean;
+  input?: { [key: string]: any };
+  model?: string;
+  parameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      debug: 'Debug',
+      input: 'Input',
+      model: 'Model',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      debug: 'boolean',
+      input: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      model: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostISRerankShrinkRequest extends $tea.Model {
+  algorithm?: string;
+  debug?: boolean;
+  inputShrink?: string;
+  model?: string;
+  parametersShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      debug: 'Debug',
+      inputShrink: 'Input',
+      model: 'Model',
+      parametersShrink: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      debug: 'boolean',
+      inputShrink: 'string',
+      model: 'string',
+      parametersShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostISRerankResponseBody extends $tea.Model {
+  data?: { [key: string]: any };
+  debugInfo?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      debugInfo: 'DebugInfo',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      debugInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostISRerankResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PostISRerankResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PostISRerankResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PostISRetrieveRouterRequest extends $tea.Model {
   algorithm?: string;
   debug?: boolean;
@@ -8464,6 +8582,74 @@ export default class Client extends OpenApi {
   async postISConvRewriter(request: PostISConvRewriterRequest): Promise<PostISConvRewriterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.postISConvRewriterWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 通用排序模型
+   *
+   * @param tmpReq PostISRerankRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PostISRerankResponse
+   */
+  async postISRerankWithOptions(tmpReq: PostISRerankRequest, runtime: $Util.RuntimeOptions): Promise<PostISRerankResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PostISRerankShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.algorithm)) {
+      body["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.debug)) {
+      body["Debug"] = request.debug;
+    }
+
+    if (!Util.isUnset(request.inputShrink)) {
+      body["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      body["Parameters"] = request.parametersShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PostISRerank",
+      version: "2020-06-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PostISRerankResponse>(await this.callApi(params, req, runtime), new PostISRerankResponse({}));
+  }
+
+  /**
+   * @summary 通用排序模型
+   *
+   * @param request PostISRerankRequest
+   * @return PostISRerankResponse
+   */
+  async postISRerank(request: PostISRerankRequest): Promise<PostISRerankResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.postISRerankWithOptions(request, runtime);
   }
 
   /**
