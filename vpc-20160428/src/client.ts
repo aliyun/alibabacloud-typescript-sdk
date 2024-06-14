@@ -11411,6 +11411,7 @@ export class DeleteIpsecServerResponse extends $tea.Model {
 export class DeleteIpv4GatewayRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
+  internetMode?: string;
   ipv4GatewayId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -11421,6 +11422,7 @@ export class DeleteIpv4GatewayRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      internetMode: 'InternetMode',
       ipv4GatewayId: 'Ipv4GatewayId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -11434,6 +11436,7 @@ export class DeleteIpv4GatewayRequest extends $tea.Model {
     return {
       clientToken: 'string',
       dryRun: 'boolean',
+      internetMode: 'string',
       ipv4GatewayId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -61542,6 +61545,10 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
+    if (!Util.isUnset(request.internetMode)) {
+      query["InternetMode"] = request.internetMode;
+    }
+
     if (!Util.isUnset(request.ipv4GatewayId)) {
       query["Ipv4GatewayId"] = request.ipv4GatewayId;
     }
@@ -67776,12 +67783,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI DescribeRouteTables is deprecated, please use Vpc::2016-04-28::DescribeRouteTableList instead.
+   *
    * @summary Queries route tables.
    *
    * @param request DescribeRouteTablesRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeRouteTablesResponse
    */
+  // Deprecated
   async describeRouteTablesWithOptions(request: DescribeRouteTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouteTablesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67859,11 +67869,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI DescribeRouteTables is deprecated, please use Vpc::2016-04-28::DescribeRouteTableList instead.
+   *
    * @summary Queries route tables.
    *
    * @param request DescribeRouteTablesRequest
    * @return DescribeRouteTablesResponse
    */
+  // Deprecated
   async describeRouteTables(request: DescribeRouteTablesRequest): Promise<DescribeRouteTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRouteTablesWithOptions(request, runtime);
