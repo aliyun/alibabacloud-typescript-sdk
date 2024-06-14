@@ -548,19 +548,25 @@ export class CreateTaskRequestParametersCustomPrompt extends $tea.Model {
 }
 
 export class CreateTaskRequestParametersExtraParams extends $tea.Model {
+  domainEducationEnabled?: boolean;
   maxKeywords?: number;
   nfixEnabled?: boolean;
+  ocrAuxiliaryEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
+      domainEducationEnabled: 'DomainEducationEnabled',
       maxKeywords: 'MaxKeywords',
       nfixEnabled: 'NfixEnabled',
+      ocrAuxiliaryEnabled: 'OcrAuxiliaryEnabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainEducationEnabled: 'boolean',
       maxKeywords: 'number',
       nfixEnabled: 'boolean',
+      ocrAuxiliaryEnabled: 'boolean',
     };
   }
 
