@@ -2994,6 +2994,81 @@ export class DescribeAlarmsResponse extends $tea.Model {
   }
 }
 
+export class DescribeAlertConfigurationRequest extends $tea.Model {
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  scalingGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      scalingGroupId: 'ScalingGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      scalingGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertConfigurationResponseBody extends $tea.Model {
+  requestId?: string;
+  scaleStatuses?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      scaleStatuses: 'ScaleStatuses',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      scaleStatuses: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertConfigurationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAlertConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAlertConfigurationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEciScalingConfigurationDetailRequest extends $tea.Model {
   outputFormat?: string;
   regionId?: string;
@@ -6115,6 +6190,81 @@ export class ModifyAlarmResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyAlarmResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAlertConfigurationRequest extends $tea.Model {
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  scaleStatuses?: string[];
+  scalingGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      scaleStatuses: 'ScaleStatuses',
+      scalingGroupId: 'ScalingGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      scaleStatuses: { 'type': 'array', 'itemType': 'string' },
+      scalingGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAlertConfigurationResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAlertConfigurationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAlertConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAlertConfigurationResponseBody,
     };
   }
 
@@ -19095,6 +19245,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request DescribeAlertConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAlertConfigurationResponse
+   */
+  async describeAlertConfigurationWithOptions(request: DescribeAlertConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlertConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.scalingGroupId)) {
+      query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAlertConfiguration",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAlertConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeAlertConfigurationResponse({}));
+  }
+
+  /**
+   * @param request DescribeAlertConfigurationRequest
+   * @return DescribeAlertConfigurationResponse
+   */
+  async describeAlertConfiguration(request: DescribeAlertConfigurationRequest): Promise<DescribeAlertConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAlertConfigurationWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Queries scaling configurations of the Elastic Container Instance type to learn the scaling configuration details. This allows you to select an appropriate template when you create elastic container instances. If you set OutputFormat to yaml, the output is a Kubernetes Deployment file in the YAML format.
    *
    * @param request DescribeEciScalingConfigurationDetailRequest
@@ -21562,6 +21762,60 @@ export default class Client extends OpenApi {
   async modifyAlarm(request: ModifyAlarmRequest): Promise<ModifyAlarmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAlarmWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ModifyAlertConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAlertConfigurationResponse
+   */
+  async modifyAlertConfigurationWithOptions(request: ModifyAlertConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAlertConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.scaleStatuses)) {
+      query["ScaleStatuses"] = request.scaleStatuses;
+    }
+
+    if (!Util.isUnset(request.scalingGroupId)) {
+      query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAlertConfiguration",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAlertConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyAlertConfigurationResponse({}));
+  }
+
+  /**
+   * @param request ModifyAlertConfigurationRequest
+   * @return ModifyAlertConfigurationResponse
+   */
+  async modifyAlertConfiguration(request: ModifyAlertConfigurationRequest): Promise<ModifyAlertConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAlertConfigurationWithOptions(request, runtime);
   }
 
   /**
