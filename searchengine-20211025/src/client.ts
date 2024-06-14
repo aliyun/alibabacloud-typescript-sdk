@@ -33,6 +33,28 @@ export class ErrorResponse extends $tea.Model {
   }
 }
 
+export class ResultClusterValue extends $tea.Model {
+  buildParallelNum?: number;
+  mergeParallelNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      buildParallelNum: 'buildParallelNum',
+      mergeParallelNum: 'mergeParallelNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildParallelNum: 'number',
+      mergeParallelNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VariablesValue extends $tea.Model {
   disableModify?: boolean;
   isModify?: boolean;
@@ -62,6 +84,37 @@ export class VariablesValue extends $tea.Model {
       templateValue: 'string',
       type: 'string',
       funcValue: VariablesValueFuncValue,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FilesConfigVariablesValue extends $tea.Model {
+  description?: string;
+  disableModify?: boolean;
+  isModify?: boolean;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      disableModify: 'disableModify',
+      isModify: 'isModify',
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      disableModify: 'boolean',
+      isModify: 'boolean',
+      type: 'string',
+      value: 'string',
     };
   }
 
@@ -317,21 +370,25 @@ export class CreateDataSourceResponse extends $tea.Model {
 }
 
 export class CreateIndexRequest extends $tea.Model {
+  buildParallelNum?: number;
   content?: string;
   dataSource?: string;
   dataSourceInfo?: CreateIndexRequestDataSourceInfo;
   domain?: string;
   extend?: { [key: string]: any };
+  mergeParallelNum?: number;
   name?: string;
   partition?: number;
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
+      buildParallelNum: 'buildParallelNum',
       content: 'content',
       dataSource: 'dataSource',
       dataSourceInfo: 'dataSourceInfo',
       domain: 'domain',
       extend: 'extend',
+      mergeParallelNum: 'mergeParallelNum',
       name: 'name',
       partition: 'partition',
       dryRun: 'dryRun',
@@ -340,11 +397,13 @@ export class CreateIndexRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      buildParallelNum: 'number',
       content: 'string',
       dataSource: 'string',
       dataSourceInfo: CreateIndexRequestDataSourceInfo,
       domain: 'string',
       extend: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      mergeParallelNum: 'number',
       name: 'string',
       partition: 'number',
       dryRun: 'boolean',
@@ -1794,11 +1853,13 @@ export class ListAdvanceConfigDirResponse extends $tea.Model {
 export class ListAdvanceConfigsRequest extends $tea.Model {
   dataSourceName?: string;
   indexName?: string;
+  newMode?: boolean;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       dataSourceName: 'dataSourceName',
       indexName: 'indexName',
+      newMode: 'newMode',
       type: 'type',
     };
   }
@@ -1807,6 +1868,7 @@ export class ListAdvanceConfigsRequest extends $tea.Model {
     return {
       dataSourceName: 'string',
       indexName: 'string',
+      newMode: 'boolean',
       type: 'string',
     };
   }
@@ -3610,16 +3672,19 @@ export class ModifyTableResponse extends $tea.Model {
 }
 
 export class PublishAdvanceConfigRequest extends $tea.Model {
-  body?: { [key: string]: any };
+  desc?: string;
+  files?: PublishAdvanceConfigRequestFiles[];
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      desc: 'desc',
+      files: 'files',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      desc: 'string',
+      files: { 'type': 'array', 'itemType': PublishAdvanceConfigRequestFiles },
     };
   }
 
@@ -3935,6 +4000,100 @@ export class RemoveClusterResponse extends $tea.Model {
   }
 }
 
+export class StartIndexResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartIndexResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopIndexResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopIndexResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopTaskResponseBody extends $tea.Model {
   requestId?: string;
   result?: { [key: string]: any };
@@ -4078,15 +4237,18 @@ export class VariablesValueFuncValue extends $tea.Model {
 
 export class CreateClusterRequestDataNode extends $tea.Model {
   number?: number;
+  partition?: string;
   static names(): { [key: string]: string } {
     return {
       number: 'number',
+      partition: 'partition',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       number: 'number',
+      partition: 'string',
     };
   }
 
@@ -4256,6 +4418,7 @@ export class CreateIndexRequestDataSourceInfo extends $tea.Model {
   dataTimeSec?: number;
   domain?: string;
   name?: string;
+  processParallelNum?: number;
   processPartitionCount?: number;
   saroConfig?: CreateIndexRequestDataSourceInfoSaroConfig;
   type?: string;
@@ -4266,6 +4429,7 @@ export class CreateIndexRequestDataSourceInfo extends $tea.Model {
       dataTimeSec: 'dataTimeSec',
       domain: 'domain',
       name: 'name',
+      processParallelNum: 'processParallelNum',
       processPartitionCount: 'processPartitionCount',
       saroConfig: 'saroConfig',
       type: 'type',
@@ -4279,6 +4443,7 @@ export class CreateIndexRequestDataSourceInfo extends $tea.Model {
       dataTimeSec: 'number',
       domain: 'string',
       name: 'string',
+      processParallelNum: 'number',
       processPartitionCount: 'number',
       saroConfig: CreateIndexRequestDataSourceInfoSaroConfig,
       type: 'string',
@@ -4733,7 +4898,9 @@ export class GetClusterResponseBodyResultQueryNode extends $tea.Model {
 }
 
 export class GetClusterResponseBodyResult extends $tea.Model {
+  config?: { [key: string]: {[key: string]: any} };
   configUpdateTime?: string;
+  createTime?: string;
   currentAdvanceConfigVersion?: string;
   currentOnlineConfigVersion?: string;
   dataNode?: GetClusterResponseBodyResultDataNode;
@@ -4745,7 +4912,9 @@ export class GetClusterResponseBodyResult extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      config: 'config',
       configUpdateTime: 'configUpdateTime',
+      createTime: 'createTime',
       currentAdvanceConfigVersion: 'currentAdvanceConfigVersion',
       currentOnlineConfigVersion: 'currentOnlineConfigVersion',
       dataNode: 'dataNode',
@@ -4760,7 +4929,9 @@ export class GetClusterResponseBodyResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
       configUpdateTime: 'string',
+      createTime: 'string',
       currentAdvanceConfigVersion: 'string',
       currentOnlineConfigVersion: 'string',
       dataNode: GetClusterResponseBodyResultDataNode,
@@ -5625,6 +5796,7 @@ export class GetIndexResponseBodyResultDataSourceInfo extends $tea.Model {
   config?: GetIndexResponseBodyResultDataSourceInfoConfig;
   domain?: string;
   name?: string;
+  processParallelNum?: number;
   processPartitionCount?: number;
   saroConfig?: GetIndexResponseBodyResultDataSourceInfoSaroConfig;
   type?: string;
@@ -5634,6 +5806,7 @@ export class GetIndexResponseBodyResultDataSourceInfo extends $tea.Model {
       config: 'config',
       domain: 'domain',
       name: 'name',
+      processParallelNum: 'processParallelNum',
       processPartitionCount: 'processPartitionCount',
       saroConfig: 'saroConfig',
       type: 'type',
@@ -5646,6 +5819,7 @@ export class GetIndexResponseBodyResultDataSourceInfo extends $tea.Model {
       config: GetIndexResponseBodyResultDataSourceInfoConfig,
       domain: 'string',
       name: 'string',
+      processParallelNum: 'number',
       processPartitionCount: 'number',
       saroConfig: GetIndexResponseBodyResultDataSourceInfoSaroConfig,
       type: 'string',
@@ -5720,6 +5894,9 @@ export class GetIndexResponseBodyResultVersions extends $tea.Model {
 }
 
 export class GetIndexResponseBodyResult extends $tea.Model {
+  cluster?: { [key: string]: ResultClusterValue };
+  config?: { [key: string]: {[key: string]: any} };
+  configWhenBuild?: { [key: string]: {[key: string]: any} };
   content?: string;
   dataSource?: string;
   dataSourceInfo?: GetIndexResponseBodyResultDataSourceInfo;
@@ -5735,6 +5912,9 @@ export class GetIndexResponseBodyResult extends $tea.Model {
   versions?: GetIndexResponseBodyResultVersions[];
   static names(): { [key: string]: string } {
     return {
+      cluster: 'cluster',
+      config: 'config',
+      configWhenBuild: 'configWhenBuild',
       content: 'content',
       dataSource: 'dataSource',
       dataSourceInfo: 'dataSourceInfo',
@@ -5753,6 +5933,9 @@ export class GetIndexResponseBodyResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cluster: { 'type': 'map', 'keyType': 'string', 'valueType': ResultClusterValue },
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
+      configWhenBuild: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
       content: 'string',
       dataSource: 'string',
       dataSourceInfo: GetIndexResponseBodyResultDataSourceInfo,
@@ -6280,8 +6463,10 @@ export class ListAdvanceConfigsResponseBodyResultFiles extends $tea.Model {
 }
 
 export class ListAdvanceConfigsResponseBodyResult extends $tea.Model {
+  advanceConfigType?: string;
   content?: string;
   contentType?: string;
+  creator?: string;
   desc?: string;
   files?: ListAdvanceConfigsResponseBodyResultFiles[];
   name?: string;
@@ -6289,8 +6474,10 @@ export class ListAdvanceConfigsResponseBodyResult extends $tea.Model {
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      advanceConfigType: 'advanceConfigType',
       content: 'content',
       contentType: 'contentType',
+      creator: 'creator',
       desc: 'desc',
       files: 'files',
       name: 'name',
@@ -6301,8 +6488,10 @@ export class ListAdvanceConfigsResponseBodyResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      advanceConfigType: 'string',
       content: 'string',
       contentType: 'string',
+      creator: 'string',
       desc: 'string',
       files: { 'type': 'array', 'itemType': ListAdvanceConfigsResponseBodyResultFiles },
       name: 'string',
@@ -6491,7 +6680,9 @@ export class ListClustersResponseBodyResultQueryNode extends $tea.Model {
 }
 
 export class ListClustersResponseBodyResult extends $tea.Model {
+  config?: { [key: string]: {[key: string]: any} };
   configUpdateTime?: string;
+  createTime?: string;
   currentAdvanceConfigVersion?: string;
   currentOfflineDictConfigVersion?: string;
   currentOnlineConfigVersion?: string;
@@ -6507,7 +6698,9 @@ export class ListClustersResponseBodyResult extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      config: 'config',
       configUpdateTime: 'configUpdateTime',
+      createTime: 'createTime',
       currentAdvanceConfigVersion: 'currentAdvanceConfigVersion',
       currentOfflineDictConfigVersion: 'currentOfflineDictConfigVersion',
       currentOnlineConfigVersion: 'currentOnlineConfigVersion',
@@ -6526,7 +6719,9 @@ export class ListClustersResponseBodyResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
       configUpdateTime: 'string',
+      createTime: 'string',
       currentAdvanceConfigVersion: 'string',
       currentOfflineDictConfigVersion: 'string',
       currentOnlineConfigVersion: 'string',
@@ -7484,6 +7679,62 @@ export class ModifyTableRequestVectorIndex extends $tea.Model {
   }
 }
 
+export class PublishAdvanceConfigRequestFilesConfig extends $tea.Model {
+  content?: string;
+  variables?: { [key: string]: FilesConfigVariablesValue };
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      variables: 'variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      variables: { 'type': 'map', 'keyType': 'string', 'valueType': FilesConfigVariablesValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishAdvanceConfigRequestFiles extends $tea.Model {
+  config?: PublishAdvanceConfigRequestFilesConfig;
+  dirName?: string;
+  fileName?: string;
+  operateType?: string;
+  ossPath?: string;
+  parentFullPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+      dirName: 'dirName',
+      fileName: 'fileName',
+      operateType: 'operateType',
+      ossPath: 'ossPath',
+      parentFullPath: 'parentFullPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: PublishAdvanceConfigRequestFilesConfig,
+      dirName: 'string',
+      fileName: 'string',
+      operateType: 'string',
+      ossPath: 'string',
+      parentFullPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceRequestComponents extends $tea.Model {
   code?: string;
   value?: string;
@@ -7579,15 +7830,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     POST
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/actions/build-index
-    *
-    * @param request BuildIndexRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return BuildIndexResponse
+   * @summary Triggers reindexing.
+   *
+   * @description ## Method
+   *     POST
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/actions/build-index
+   *
+   * @param request BuildIndexRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BuildIndexResponse
    */
   async buildIndexWithOptions(instanceId: string, request: BuildIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BuildIndexResponse> {
     Util.validateModel(request);
@@ -7639,13 +7892,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     POST
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/actions/build-index
-    *
-    * @param request BuildIndexRequest
-    * @return BuildIndexResponse
+   * @summary Triggers reindexing.
+   *
+   * @description ## Method
+   *     POST
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/actions/build-index
+   *
+   * @param request BuildIndexRequest
+   * @return BuildIndexResponse
    */
   async buildIndex(instanceId: string, request: BuildIndexRequest): Promise<BuildIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7654,15 +7909,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `POST`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/clusters`
-    *
-    * @param request CreateClusterRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateClusterResponse
+   * @summary Creates a cluster.
+   *
+   * @description ### Method
+   * `POST`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/clusters`
+   *
+   * @param request CreateClusterRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateClusterResponse
    */
   async createClusterWithOptions(instanceId: string, request: CreateClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
@@ -7706,13 +7963,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `POST`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/clusters`
-    *
-    * @param request CreateClusterRequest
-    * @return CreateClusterResponse
+   * @summary Creates a cluster.
+   *
+   * @description ### Method
+   * `POST`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/clusters`
+   *
+   * @param request CreateClusterRequest
+   * @return CreateClusterResponse
    */
   async createCluster(instanceId: string, request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7720,6 +7979,14 @@ export default class Client extends OpenApi {
     return await this.createClusterWithOptions(instanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Creates data sources.
+   *
+   * @param request CreateDataSourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataSourceResponse
+   */
   async createDataSourceWithOptions(instanceId: string, request: CreateDataSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDataSourceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7771,6 +8038,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataSourceResponse>(await this.callApi(params, req, runtime), new CreateDataSourceResponse({}));
   }
 
+  /**
+   * @summary Creates data sources.
+   *
+   * @param request CreateDataSourceRequest
+   * @return CreateDataSourceResponse
+   */
   async createDataSource(instanceId: string, request: CreateDataSourceRequest): Promise<CreateDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7778,19 +8051,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * POST
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/indexes
-    * ```
-    *
-    * @param request CreateIndexRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateIndexResponse
+   * @summary Creates an index.
+   *
+   * @description ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/indexes
+   * ```
+   *
+   * @param request CreateIndexRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIndexResponse
    */
   async createIndexWithOptions(instanceId: string, request: CreateIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIndexResponse> {
     Util.validateModel(request);
@@ -7800,6 +8075,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.buildParallelNum)) {
+      body["buildParallelNum"] = request.buildParallelNum;
+    }
+
     if (!Util.isUnset(request.content)) {
       body["content"] = request.content;
     }
@@ -7818,6 +8097,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.extend)) {
       body["extend"] = request.extend;
+    }
+
+    if (!Util.isUnset(request.mergeParallelNum)) {
+      body["mergeParallelNum"] = request.mergeParallelNum;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -7848,17 +8131,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * POST
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/indexes
-    * ```
-    *
-    * @param request CreateIndexRequest
-    * @return CreateIndexResponse
+   * @summary Creates an index.
+   *
+   * @description ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/indexes
+   * ```
+   *
+   * @param request CreateIndexRequest
+   * @return CreateIndexResponse
    */
   async createIndex(instanceId: string, request: CreateIndexRequest): Promise<CreateIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7867,15 +8152,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `POST`
-    * ### URI
-    * `/api/instances?dryRun=false`
-    *
-    * @param request CreateInstanceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateInstanceResponse
+   * @summary Creates a Havenask instance.
+   *
+   * @description ### Method
+   * `POST`
+   * ### URI
+   * `/api/instances?dryRun=false`
+   *
+   * @param request CreateInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -7911,13 +8198,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `POST`
-    * ### URI
-    * `/api/instances?dryRun=false`
-    *
-    * @param request CreateInstanceRequest
-    * @return CreateInstanceResponse
+   * @summary Creates a Havenask instance.
+   *
+   * @description ### Method
+   * `POST`
+   * ### URI
+   * `/api/instances?dryRun=false`
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7925,6 +8214,14 @@ export default class Client extends OpenApi {
     return await this.createInstanceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建索引V2
+   *
+   * @param request CreateTableRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTableResponse
+   */
   async createTableWithOptions(instanceId: string, request: CreateTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTableResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7988,6 +8285,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTableResponse>(await this.callApi(params, req, runtime), new CreateTableResponse({}));
   }
 
+  /**
+   * @summary 创建索引V2
+   *
+   * @param request CreateTableRequest
+   * @return CreateTableResponse
+   */
   async createTable(instanceId: string, request: CreateTableRequest): Promise<CreateTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7995,14 +8298,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     DELETE
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAdvanceConfigResponse
+   * @summary Deletes the details about advanced configurations.
+   *
+   * @description ## Method
+   *     DELETE
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAdvanceConfigResponse
    */
   async deleteAdvanceConfigWithOptions(instanceId: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAdvanceConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8023,12 +8328,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     DELETE
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-    *
-    * @return DeleteAdvanceConfigResponse
+   * @summary Deletes the details about advanced configurations.
+   *
+   * @description ## Method
+   *     DELETE
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+   *
+   * @return DeleteAdvanceConfigResponse
    */
   async deleteAdvanceConfig(instanceId: string, configName: string): Promise<DeleteAdvanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8037,14 +8344,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * `DELETE`
-    * ## URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDataSourceResponse
+   * @summary Deletes a specified data source.
+   *
+   * @description ## Method
+   * `DELETE`
+   * ## URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataSourceResponse
    */
   async deleteDataSourceWithOptions(instanceId: string, dataSourceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDataSourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8065,12 +8374,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * `DELETE`
-    * ## URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-    *
-    * @return DeleteDataSourceResponse
+   * @summary Deletes a specified data source.
+   *
+   * @description ## Method
+   * `DELETE`
+   * ## URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+   *
+   * @return DeleteDataSourceResponse
    */
   async deleteDataSource(instanceId: string, dataSourceName: string): Promise<DeleteDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8079,15 +8390,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     DELETE
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
-    *
-    * @param request DeleteIndexRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIndexResponse
+   * @summary Deletes an index.
+   *
+   * @description ## Method
+   *     DELETE
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
+   *
+   * @param request DeleteIndexRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIndexResponse
    */
   async deleteIndexWithOptions(instanceId: string, indexName: string, request: DeleteIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexResponse> {
     Util.validateModel(request);
@@ -8119,13 +8432,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     DELETE
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
-    *
-    * @param request DeleteIndexRequest
-    * @return DeleteIndexResponse
+   * @summary Deletes an index.
+   *
+   * @description ## Method
+   *     DELETE
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
+   *
+   * @param request DeleteIndexRequest
+   * @return DeleteIndexResponse
    */
   async deleteIndex(instanceId: string, indexName: string, request: DeleteIndexRequest): Promise<DeleteIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8134,14 +8449,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     DELETE
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIndexVersionResponse
+   * @summary Deletes the version of an index.
+   *
+   * @description ## Method
+   *     DELETE
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIndexVersionResponse
    */
   async deleteIndexVersionWithOptions(instanceId: string, indexName: string, versionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8162,12 +8479,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     DELETE
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
-    *
-    * @return DeleteIndexVersionResponse
+   * @summary Deletes the version of an index.
+   *
+   * @description ## Method
+   *     DELETE
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
+   *
+   * @return DeleteIndexVersionResponse
    */
   async deleteIndexVersion(instanceId: string, indexName: string, versionName: string): Promise<DeleteIndexVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8176,14 +8495,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `DELETE`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}`
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteInstanceResponse
+   * @summary Deletes a specified instance.
+   *
+   * @description ### Method
+   * `DELETE`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}`
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
    */
   async deleteInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8204,12 +8525,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `DELETE`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}`
-    *
-    * @return DeleteInstanceResponse
+   * @summary Deletes a specified instance.
+   *
+   * @description ### Method
+   * `DELETE`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}`
+   *
+   * @return DeleteInstanceResponse
    */
   async deleteInstance(instanceId: string): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8217,6 +8540,13 @@ export default class Client extends OpenApi {
     return await this.deleteInstanceWithOptions(instanceId, headers, runtime);
   }
 
+  /**
+   * @summary 删除索引表V2
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTableResponse
+   */
   async deleteTableWithOptions(instanceId: string, tableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8235,12 +8565,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTableResponse>(await this.callApi(params, req, runtime), new DeleteTableResponse({}));
   }
 
+  /**
+   * @summary 删除索引表V2
+   *
+   * @return DeleteTableResponse
+   */
   async deleteTable(instanceId: string, tableName: string): Promise<DeleteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTableWithOptions(instanceId, tableName, headers, runtime);
   }
 
+  /**
+   * @param request DescribeRegionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8266,6 +8607,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8273,18 +8618,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * \\### Method
-    * ```java
-    * PUT
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
-    * ```
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ForceSwitchResponse
+   * @summary Performs a forced switchover.
+   *
+   * @description \\### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
+   * ```
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ForceSwitchResponse
    */
   async forceSwitchWithOptions(instanceId: string, fsmId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ForceSwitchResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8305,16 +8652,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * \\### Method
-    * ```java
-    * PUT
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
-    * ```
-    *
-    * @return ForceSwitchResponse
+   * @summary Performs a forced switchover.
+   *
+   * @description \\### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
+   * ```
+   *
+   * @return ForceSwitchResponse
    */
   async forceSwitch(instanceId: string, fsmId: string): Promise<ForceSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8323,15 +8672,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     GET
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-    *
-    * @param request GetAdvanceConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAdvanceConfigResponse
+   * @summary Queries the information about a dictionary.
+   *
+   * @description ## Method
+   *     GET
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+   *
+   * @param request GetAdvanceConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAdvanceConfigResponse
    */
   async getAdvanceConfigWithOptions(instanceId: string, configName: string, request: GetAdvanceConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAdvanceConfigResponse> {
     Util.validateModel(request);
@@ -8359,13 +8710,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     GET
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-    *
-    * @param request GetAdvanceConfigRequest
-    * @return GetAdvanceConfigResponse
+   * @summary Queries the information about a dictionary.
+   *
+   * @description ## Method
+   *     GET
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+   *
+   * @param request GetAdvanceConfigRequest
+   * @return GetAdvanceConfigResponse
    */
   async getAdvanceConfig(instanceId: string, configName: string, request: GetAdvanceConfigRequest): Promise<GetAdvanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8374,15 +8727,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     GET
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-    *
-    * @param request GetAdvanceConfigFileRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAdvanceConfigFileResponse
+   * @summary Obtains the information in a specified advanced configuration file.
+   *
+   * @description ## Method
+   *     GET
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+   *
+   * @param request GetAdvanceConfigFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAdvanceConfigFileResponse
    */
   async getAdvanceConfigFileWithOptions(instanceId: string, configName: string, request: GetAdvanceConfigFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAdvanceConfigFileResponse> {
     Util.validateModel(request);
@@ -8410,13 +8765,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     GET
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-    *
-    * @param request GetAdvanceConfigFileRequest
-    * @return GetAdvanceConfigFileResponse
+   * @summary Obtains the information in a specified advanced configuration file.
+   *
+   * @description ## Method
+   *     GET
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+   *
+   * @param request GetAdvanceConfigFileRequest
+   * @return GetAdvanceConfigFileResponse
    */
   async getAdvanceConfigFile(instanceId: string, configName: string, request: GetAdvanceConfigFileRequest): Promise<GetAdvanceConfigFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8425,14 +8782,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetClusterResponse
+   * @summary Queries the details of a cluster.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterResponse
    */
   async getClusterWithOptions(instanceId: string, clusterName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8453,12 +8812,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`
-    *
-    * @return GetClusterResponse
+   * @summary Queries the details of a cluster.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`
+   *
+   * @return GetClusterResponse
    */
   async getCluster(instanceId: string, clusterName: string): Promise<GetClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8467,14 +8828,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * GET
-    * ### URI
-    * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetClusterRunTimeInfoResponse
+   * @summary Queries the runtime information about a specified cluster.
+   *
+   * @description ### Method
+   * GET
+   * ### URI
+   * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterRunTimeInfoResponse
    */
   async getClusterRunTimeInfoWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterRunTimeInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8495,12 +8858,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * GET
-    * ### URI
-    * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
-    *
-    * @return GetClusterRunTimeInfoResponse
+   * @summary Queries the runtime information about a specified cluster.
+   *
+   * @description ### Method
+   * GET
+   * ### URI
+   * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
+   *
+   * @return GetClusterRunTimeInfoResponse
    */
   async getClusterRunTimeInfo(instanceId: string): Promise<GetClusterRunTimeInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8509,14 +8874,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDataSourceResponse
+   * @summary Obtains a data source.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataSourceResponse
    */
   async getDataSourceWithOptions(instanceId: string, dataSourceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDataSourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8537,12 +8904,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-    *
-    * @return GetDataSourceResponse
+   * @summary Obtains a data source.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+   *
+   * @return GetDataSourceResponse
    */
   async getDataSource(instanceId: string, dataSourceName: string): Promise<GetDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8550,6 +8919,13 @@ export default class Client extends OpenApi {
     return await this.getDataSourceWithOptions(instanceId, dataSourceName, headers, runtime);
   }
 
+  /**
+   * @summary 获取数据源部署信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataSourceDeployResponse
+   */
   async getDataSourceDeployWithOptions(instanceId: string, deployName: string, dataSourceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDataSourceDeployResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8568,6 +8944,11 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataSourceDeployResponse>(await this.callApi(params, req, runtime), new GetDataSourceDeployResponse({}));
   }
 
+  /**
+   * @summary 获取数据源部署信息
+   *
+   * @return GetDataSourceDeployResponse
+   */
   async getDataSourceDeploy(instanceId: string, deployName: string, dataSourceName: string): Promise<GetDataSourceDeployResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8575,16 +8956,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * GET
-    * ## URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/deploy-graph
-    * ```
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDeployGraphResponse
+   * @summary Displays the overview of the deployment.
+   *
+   * @description ## Method
+   * GET
+   * ## URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/deploy-graph
+   * ```
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDeployGraphResponse
    */
   async getDeployGraphWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDeployGraphResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8605,14 +8988,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * GET
-    * ## URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/deploy-graph
-    * ```
-    *
-    * @return GetDeployGraphResponse
+   * @summary Displays the overview of the deployment.
+   *
+   * @description ## Method
+   * GET
+   * ## URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/deploy-graph
+   * ```
+   *
+   * @return GetDeployGraphResponse
    */
   async getDeployGraph(instanceId: string): Promise<GetDeployGraphResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8621,15 +9006,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     GET
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-    *
-    * @param request GetFileRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetFileResponse
+   * @summary Queries details about the version information of an index table.
+   *
+   * @description ## Method
+   *     GET
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+   *
+   * @param request GetFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileResponse
    */
   async getFileWithOptions(instanceId: string, indexName: string, versionName: string, request: GetFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFileResponse> {
     Util.validateModel(request);
@@ -8657,13 +9044,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     GET
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-    *
-    * @param request GetFileRequest
-    * @return GetFileResponse
+   * @summary Queries details about the version information of an index table.
+   *
+   * @description ## Method
+   *     GET
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+   *
+   * @param request GetFileRequest
+   * @return GetFileResponse
    */
   async getFile(instanceId: string, indexName: string, versionName: string, request: GetFileRequest): Promise<GetFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8671,6 +9060,13 @@ export default class Client extends OpenApi {
     return await this.getFileWithOptions(instanceId, indexName, versionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about an index version.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIndexResponse
+   */
   async getIndexWithOptions(instanceId: string, indexName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIndexResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8689,6 +9085,11 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIndexResponse>(await this.callApi(params, req, runtime), new GetIndexResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an index version.
+   *
+   * @return GetIndexResponse
+   */
   async getIndex(instanceId: string, indexName: string): Promise<GetIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8696,14 +9097,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     GET
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetIndexVersionResponse
+   * @summary Obtains the information about index versions that the current index version can be rolled back to.
+   *
+   * @description ## Method
+   *     GET
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIndexVersionResponse
    */
   async getIndexVersionWithOptions(instanceId: string, clusterName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIndexVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8724,12 +9127,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     GET
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-    *
-    * @return GetIndexVersionResponse
+   * @summary Obtains the information about index versions that the current index version can be rolled back to.
+   *
+   * @description ## Method
+   *     GET
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
+   *
+   * @return GetIndexVersionResponse
    */
   async getIndexVersion(instanceId: string, clusterName: string): Promise<GetIndexVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8738,14 +9143,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}`
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetInstanceResponse
+   * @summary Queries the details of an instance based on a specified instance ID.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}`
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceResponse
    */
   async getInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8766,12 +9173,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}`
-    *
-    * @return GetInstanceResponse
+   * @summary Queries the details of an instance based on a specified instance ID.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}`
+   *
+   * @return GetInstanceResponse
    */
   async getInstance(instanceId: string): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8779,6 +9188,14 @@ export default class Client extends OpenApi {
     return await this.getInstanceWithOptions(instanceId, headers, runtime);
   }
 
+  /**
+   * @summary Gets the configuration information of a node.
+   *
+   * @param request GetNodeConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNodeConfigResponse
+   */
   async getNodeConfigWithOptions(instanceId: string, request: GetNodeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetNodeConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8812,12 +9229,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNodeConfigResponse>(await this.callApi(params, req, runtime), new GetNodeConfigResponse({}));
   }
 
+  /**
+   * @summary Gets the configuration information of a node.
+   *
+   * @param request GetNodeConfigRequest
+   * @return GetNodeConfigResponse
+   */
   async getNodeConfig(instanceId: string, request: GetNodeConfigRequest): Promise<GetNodeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getNodeConfigWithOptions(instanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取索引表信息V2
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTableResponse
+   */
   async getTableWithOptions(instanceId: string, tableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8836,12 +9266,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTableResponse>(await this.callApi(params, req, runtime), new GetTableResponse({}));
   }
 
+  /**
+   * @summary 获取索引表信息V2
+   *
+   * @return GetTableResponse
+   */
   async getTable(instanceId: string, tableName: string): Promise<GetTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTableWithOptions(instanceId, tableName, headers, runtime);
   }
 
+  /**
+   * @summary 根据generationId获取某个索引版本状态V2
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTableGenerationResponse
+   */
   async getTableGenerationWithOptions(instanceId: string, tableName: string, generationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTableGenerationResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8860,6 +9302,11 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTableGenerationResponse>(await this.callApi(params, req, runtime), new GetTableGenerationResponse({}));
   }
 
+  /**
+   * @summary 根据generationId获取某个索引版本状态V2
+   *
+   * @return GetTableGenerationResponse
+   */
   async getTableGeneration(instanceId: string, tableName: string, generationId: string): Promise<GetTableGenerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8867,15 +9314,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * `GET`
-    * ## URI
-    * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
-    *
-    * @param request ListAdvanceConfigDirRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListAdvanceConfigDirResponse
+   * @summary Obtains the file list in an advanced configuration directory.
+   *
+   * @description ## Method
+   * `GET`
+   * ## URI
+   * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
+   *
+   * @param request ListAdvanceConfigDirRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAdvanceConfigDirResponse
    */
   async listAdvanceConfigDirWithOptions(instanceId: string, configName: string, request: ListAdvanceConfigDirRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAdvanceConfigDirResponse> {
     Util.validateModel(request);
@@ -8903,13 +9352,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * `GET`
-    * ## URI
-    * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
-    *
-    * @param request ListAdvanceConfigDirRequest
-    * @return ListAdvanceConfigDirResponse
+   * @summary Obtains the file list in an advanced configuration directory.
+   *
+   * @description ## Method
+   * `GET`
+   * ## URI
+   * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
+   *
+   * @param request ListAdvanceConfigDirRequest
+   * @return ListAdvanceConfigDirResponse
    */
   async listAdvanceConfigDir(instanceId: string, configName: string, request: ListAdvanceConfigDirRequest): Promise<ListAdvanceConfigDirResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8918,13 +9369,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Sample requests
-    * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
-    *
-    * @param request ListAdvanceConfigsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListAdvanceConfigsResponse
+   * @summary Obtains a list of advanced configurations.
+   *
+   * @description ## Sample requests
+   * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+   *
+   * @param request ListAdvanceConfigsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAdvanceConfigsResponse
    */
   async listAdvanceConfigsWithOptions(instanceId: string, request: ListAdvanceConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAdvanceConfigsResponse> {
     Util.validateModel(request);
@@ -8935,6 +9388,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.indexName)) {
       query["indexName"] = request.indexName;
+    }
+
+    if (!Util.isUnset(request.newMode)) {
+      query["newMode"] = request.newMode;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -8960,11 +9417,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Sample requests
-    * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
-    *
-    * @param request ListAdvanceConfigsRequest
-    * @return ListAdvanceConfigsResponse
+   * @summary Obtains a list of advanced configurations.
+   *
+   * @description ## Sample requests
+   * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+   *
+   * @param request ListAdvanceConfigsRequest
+   * @return ListAdvanceConfigsResponse
    */
   async listAdvanceConfigs(instanceId: string, request: ListAdvanceConfigsRequest): Promise<ListAdvanceConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8973,14 +9432,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * GET
-    * ### URI
-    * /openapi/ha3/instances/{instanceId}/cluster-names
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListClusterNamesResponse
+   * @summary Queries cluster names.
+   *
+   * @description ### Method
+   * GET
+   * ### URI
+   * /openapi/ha3/instances/{instanceId}/cluster-names
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterNamesResponse
    */
   async listClusterNamesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterNamesResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -9001,12 +9462,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * GET
-    * ### URI
-    * /openapi/ha3/instances/{instanceId}/cluster-names
-    *
-    * @return ListClusterNamesResponse
+   * @summary Queries cluster names.
+   *
+   * @description ### Method
+   * GET
+   * ### URI
+   * /openapi/ha3/instances/{instanceId}/cluster-names
+   *
+   * @return ListClusterNamesResponse
    */
   async listClusterNames(): Promise<ListClusterNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9015,18 +9478,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * GET
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/cluster-tasks
-    * ```
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListClusterTasksResponse
+   * @summary Displays cluster tasks .
+   *
+   * @description ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/cluster-tasks
+   * ```
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterTasksResponse
    */
   async listClusterTasksWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterTasksResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -9047,16 +9512,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * GET
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/cluster-tasks
-    * ```
-    *
-    * @return ListClusterTasksResponse
+   * @summary Displays cluster tasks .
+   *
+   * @description ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/cluster-tasks
+   * ```
+   *
+   * @return ListClusterTasksResponse
    */
   async listClusterTasks(instanceId: string): Promise<ListClusterTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9065,18 +9532,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * GET
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/clusters
-    * ```
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListClustersResponse
+   * @summary Queries the list of clusters.
+   *
+   * @description ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/clusters
+   * ```
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClustersResponse
    */
   async listClustersWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClustersResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -9097,16 +9566,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * GET
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/clusters
-    * ```
-    *
-    * @return ListClustersResponse
+   * @summary Queries the list of clusters.
+   *
+   * @description ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/clusters
+   * ```
+   *
+   * @return ListClustersResponse
    */
   async listClusters(instanceId: string): Promise<ListClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9115,14 +9586,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * `GET`
-    * ## URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDataSourceSchemasResponse
+   * @summary Obtains the schema information of a specified data source.
+   *
+   * @description ## Method
+   * `GET`
+   * ## URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataSourceSchemasResponse
    */
   async listDataSourceSchemasWithOptions(instanceId: string, dataSourceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataSourceSchemasResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -9143,12 +9616,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * `GET`
-    * ## URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
-    *
-    * @return ListDataSourceSchemasResponse
+   * @summary Obtains the schema information of a specified data source.
+   *
+   * @description ## Method
+   * `GET`
+   * ## URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
+   *
+   * @return ListDataSourceSchemasResponse
    */
   async listDataSourceSchemas(instanceId: string, dataSourceName: string): Promise<ListDataSourceSchemasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9157,18 +9632,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * GET
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/data-source-tasks
-    * ```
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDataSourceTasksResponse
+   * @summary Displays data source tasks.
+   *
+   * @description ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-source-tasks
+   * ```
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataSourceTasksResponse
    */
   async listDataSourceTasksWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataSourceTasksResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -9189,16 +9666,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * GET
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/data-source-tasks
-    * ```
-    *
-    * @return ListDataSourceTasksResponse
+   * @summary Displays data source tasks.
+   *
+   * @description ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-source-tasks
+   * ```
+   *
+   * @return ListDataSourceTasksResponse
    */
   async listDataSourceTasks(instanceId: string): Promise<ListDataSourceTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9207,14 +9686,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * `GET`
-    * ## URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources`
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDataSourcesResponse
+   * @summary Obtains the list of data sources.
+   *
+   * @description ## Method
+   * `GET`
+   * ## URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources`
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataSourcesResponse
    */
   async listDataSourcesWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataSourcesResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -9235,12 +9716,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * `GET`
-    * ## URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources`
-    *
-    * @return ListDataSourcesResponse
+   * @summary Obtains the list of data sources.
+   *
+   * @description ## Method
+   * `GET`
+   * ## URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources`
+   *
+   * @return ListDataSourcesResponse
    */
   async listDataSources(instanceId: string): Promise<ListDataSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9249,15 +9732,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
-    *
-    * @param request ListDateSourceGenerationsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDateSourceGenerationsResponse
+   * @summary Obtains the data restoration version of a data source.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
+   *
+   * @param request ListDateSourceGenerationsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDateSourceGenerationsResponse
    */
   async listDateSourceGenerationsWithOptions(instanceId: string, dataSourceName: string, request: ListDateSourceGenerationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDateSourceGenerationsResponse> {
     Util.validateModel(request);
@@ -9289,13 +9774,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
-    *
-    * @param request ListDateSourceGenerationsRequest
-    * @return ListDateSourceGenerationsResponse
+   * @summary Obtains the data restoration version of a data source.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
+   *
+   * @param request ListDateSourceGenerationsRequest
+   * @return ListDateSourceGenerationsResponse
    */
   async listDateSourceGenerations(instanceId: string, dataSourceName: string, request: ListDateSourceGenerationsRequest): Promise<ListDateSourceGenerationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9304,15 +9791,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     GET
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes
-    *
-    * @param request ListIndexesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListIndexesResponse
+   * @summary Obtains the index list.
+   *
+   * @description ## Method
+   *     GET
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes
+   *
+   * @param request ListIndexesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIndexesResponse
    */
   async listIndexesWithOptions(instanceId: string, request: ListIndexesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndexesResponse> {
     Util.validateModel(request);
@@ -9340,13 +9829,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     GET
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes
-    *
-    * @param request ListIndexesRequest
-    * @return ListIndexesResponse
+   * @summary Obtains the index list.
+   *
+   * @description ## Method
+   *     GET
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes
+   *
+   * @param request ListIndexesRequest
+   * @return ListIndexesResponse
    */
   async listIndexes(instanceId: string, request: ListIndexesRequest): Promise<ListIndexesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9355,15 +9846,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`
-    *
-    * @param request ListInstanceSpecsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListInstanceSpecsResponse
+   * @summary Queries instances.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`
+   *
+   * @param request ListInstanceSpecsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceSpecsResponse
    */
   async listInstanceSpecsWithOptions(instanceId: string, request: ListInstanceSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceSpecsResponse> {
     Util.validateModel(request);
@@ -9391,13 +9884,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`
-    *
-    * @param request ListInstanceSpecsRequest
-    * @return ListInstanceSpecsResponse
+   * @summary Queries instances.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`
+   *
+   * @param request ListInstanceSpecsRequest
+   * @return ListInstanceSpecsResponse
    */
   async listInstanceSpecs(instanceId: string, request: ListInstanceSpecsRequest): Promise<ListInstanceSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9406,15 +9901,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/[code]/instances`
-    *
-    * @param tmpReq ListInstancesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListInstancesResponse
+   * @summary Queries instances.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/[code]/instances`
+   *
+   * @param tmpReq ListInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
    */
   async listInstancesWithOptions(tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(tmpReq);
@@ -9472,13 +9969,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/[code]/instances`
-    *
-    * @param request ListInstancesRequest
-    * @return ListInstancesResponse
+   * @summary Queries instances.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/[code]/instances`
+   *
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
    */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9487,19 +9986,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * GET
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
-    * ```
-    *
-    * @param request ListOnlineConfigsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListOnlineConfigsResponse
+   * @summary Obtains the details of online configurations.
+   *
+   * @description ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
+   * ```
+   *
+   * @param request ListOnlineConfigsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOnlineConfigsResponse
    */
   async listOnlineConfigsWithOptions(instanceId: string, nodeName: string, request: ListOnlineConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListOnlineConfigsResponse> {
     Util.validateModel(request);
@@ -9527,17 +10028,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * GET
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
-    * ```
-    *
-    * @param request ListOnlineConfigsRequest
-    * @return ListOnlineConfigsResponse
+   * @summary Obtains the details of online configurations.
+   *
+   * @description ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
+   * ```
+   *
+   * @param request ListOnlineConfigsRequest
+   * @return ListOnlineConfigsResponse
    */
   async listOnlineConfigs(instanceId: string, nodeName: string, request: ListOnlineConfigsRequest): Promise<ListOnlineConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9546,15 +10049,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
-    *
-    * @param request ListQueryResultRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListQueryResultResponse
+   * @summary Queries the query result.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
+   *
+   * @param request ListQueryResultRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQueryResultResponse
    */
   async listQueryResultWithOptions(instanceId: string, request: ListQueryResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListQueryResultResponse> {
     Util.validateModel(request);
@@ -9586,13 +10091,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `GET`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
-    *
-    * @param request ListQueryResultRequest
-    * @return ListQueryResultResponse
+   * @summary Queries the query result.
+   *
+   * @description ### Method
+   * `GET`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
+   *
+   * @param request ListQueryResultRequest
+   * @return ListQueryResultResponse
    */
   async listQueryResult(instanceId: string, request: ListQueryResultRequest): Promise<ListQueryResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9600,6 +10107,13 @@ export default class Client extends OpenApi {
     return await this.listQueryResultWithOptions(instanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取索引generation列表V2
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTableGenerationsResponse
+   */
   async listTableGenerationsWithOptions(instanceId: string, tableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTableGenerationsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -9618,12 +10132,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTableGenerationsResponse>(await this.callApi(params, req, runtime), new ListTableGenerationsResponse({}));
   }
 
+  /**
+   * @summary 获取索引generation列表V2
+   *
+   * @return ListTableGenerationsResponse
+   */
   async listTableGenerations(instanceId: string, tableName: string): Promise<ListTableGenerationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTableGenerationsWithOptions(instanceId, tableName, headers, runtime);
   }
 
+  /**
+   * @summary 获取索引列表V2
+   *
+   * @param request ListTablesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTablesResponse
+   */
   async listTablesWithOptions(instanceId: string, request: ListTablesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTablesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -9649,6 +10176,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTablesResponse>(await this.callApi(params, req, runtime), new ListTablesResponse({}));
   }
 
+  /**
+   * @summary 获取索引列表V2
+   *
+   * @param request ListTablesRequest
+   * @return ListTablesResponse
+   */
   async listTables(instanceId: string, request: ListTablesRequest): Promise<ListTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -9656,15 +10189,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     put
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-    *
-    * @param request ModifyAdvanceConfigFileRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAdvanceConfigFileResponse
+   * @summary Modifies the advanced configurations.
+   *
+   * @description ## Method
+   *     put
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+   *
+   * @param request ModifyAdvanceConfigFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAdvanceConfigFileResponse
    */
   async modifyAdvanceConfigFileWithOptions(instanceId: string, configName: string, request: ModifyAdvanceConfigFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyAdvanceConfigFileResponse> {
     Util.validateModel(request);
@@ -9702,13 +10237,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     put
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-    *
-    * @param request ModifyAdvanceConfigFileRequest
-    * @return ModifyAdvanceConfigFileResponse
+   * @summary Modifies the advanced configurations.
+   *
+   * @description ## Method
+   *     put
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+   *
+   * @param request ModifyAdvanceConfigFileRequest
+   * @return ModifyAdvanceConfigFileResponse
    */
   async modifyAdvanceConfigFile(instanceId: string, configName: string, request: ModifyAdvanceConfigFileRequest): Promise<ModifyAdvanceConfigFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9717,15 +10254,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `PUT`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
-    *
-    * @param request ModifyClusterDescRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyClusterDescResponse
+   * @summary Modifies the description of a specified cluster.
+   *
+   * @description ### Method
+   * `PUT`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
+   *
+   * @param request ModifyClusterDescRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClusterDescResponse
    */
   async modifyClusterDescWithOptions(instanceId: string, clusterName: string, request: ModifyClusterDescRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterDescResponse> {
     Util.validateModel(request);
@@ -9753,13 +10292,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `PUT`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
-    *
-    * @param request ModifyClusterDescRequest
-    * @return ModifyClusterDescResponse
+   * @summary Modifies the description of a specified cluster.
+   *
+   * @description ### Method
+   * `PUT`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
+   *
+   * @param request ModifyClusterDescRequest
+   * @return ModifyClusterDescResponse
    */
   async modifyClusterDesc(instanceId: string, clusterName: string, request: ModifyClusterDescRequest): Promise<ModifyClusterDescResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9768,13 +10309,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Request syntax
-    *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
-    *
-    * @param request ModifyClusterOfflineConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyClusterOfflineConfigResponse
+   * @summary Modifies the configuration information of a cluster.
+   *
+   * @description ## Request syntax
+   *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+   *
+   * @param request ModifyClusterOfflineConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClusterOfflineConfigResponse
    */
   async modifyClusterOfflineConfigWithOptions(instanceId: string, request: ModifyClusterOfflineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterOfflineConfigResponse> {
     Util.validateModel(request);
@@ -9834,11 +10377,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Request syntax
-    *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
-    *
-    * @param request ModifyClusterOfflineConfigRequest
-    * @return ModifyClusterOfflineConfigResponse
+   * @summary Modifies the configuration information of a cluster.
+   *
+   * @description ## Request syntax
+   *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+   *
+   * @param request ModifyClusterOfflineConfigRequest
+   * @return ModifyClusterOfflineConfigResponse
    */
   async modifyClusterOfflineConfig(instanceId: string, request: ModifyClusterOfflineConfigRequest): Promise<ModifyClusterOfflineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9847,15 +10392,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `PUT`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/cluster-online-config`
-    *
-    * @param request ModifyClusterOnlineConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyClusterOnlineConfigResponse
+   * @summary Modifies the online configurations of a cluster.
+   *
+   * @description ### Method
+   * `PUT`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/cluster-online-config`
+   *
+   * @param request ModifyClusterOnlineConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClusterOnlineConfigResponse
    */
   async modifyClusterOnlineConfigWithOptions(instanceId: string, request: ModifyClusterOnlineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterOnlineConfigResponse> {
     Util.validateModel(request);
@@ -9887,13 +10434,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `PUT`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/cluster-online-config`
-    *
-    * @param request ModifyClusterOnlineConfigRequest
-    * @return ModifyClusterOnlineConfigResponse
+   * @summary Modifies the online configurations of a cluster.
+   *
+   * @description ### Method
+   * `PUT`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/cluster-online-config`
+   *
+   * @param request ModifyClusterOnlineConfigRequest
+   * @return ModifyClusterOnlineConfigResponse
    */
   async modifyClusterOnlineConfig(instanceId: string, request: ModifyClusterOnlineConfigRequest): Promise<ModifyClusterOnlineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9902,15 +10451,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * `PUT`
-    * ## URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-    *
-    * @param request ModifyDataSourceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDataSourceResponse
+   * @summary Modifies a data source.
+   *
+   * @description ## Method
+   * `PUT`
+   * ## URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+   *
+   * @param request ModifyDataSourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDataSourceResponse
    */
   async modifyDataSourceWithOptions(instanceId: string, dataSourceName: string, request: ModifyDataSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyDataSourceResponse> {
     Util.validateModel(request);
@@ -9944,13 +10495,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * `PUT`
-    * ## URI
-    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-    *
-    * @param request ModifyDataSourceRequest
-    * @return ModifyDataSourceResponse
+   * @summary Modifies a data source.
+   *
+   * @description ## Method
+   * `PUT`
+   * ## URI
+   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+   *
+   * @param request ModifyDataSourceRequest
+   * @return ModifyDataSourceResponse
    */
   async modifyDataSource(instanceId: string, dataSourceName: string, request: ModifyDataSourceRequest): Promise<ModifyDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9959,15 +10512,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     PUT
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-    *
-    * @param request ModifyFileRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyFileResponse
+   * @summary Modifies a file.
+   *
+   * @description ## Method
+   *     PUT
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+   *
+   * @param request ModifyFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyFileResponse
    */
   async modifyFileWithOptions(instanceId: string, indexName: string, versionName: string, request: ModifyFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyFileResponse> {
     Util.validateModel(request);
@@ -10005,13 +10560,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     PUT
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-    *
-    * @param request ModifyFileRequest
-    * @return ModifyFileResponse
+   * @summary Modifies a file.
+   *
+   * @description ## Method
+   *     PUT
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+   *
+   * @param request ModifyFileRequest
+   * @return ModifyFileResponse
    */
   async modifyFile(instanceId: string, indexName: string, versionName: string, request: ModifyFileRequest): Promise<ModifyFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10020,15 +10577,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `PUT`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/index-partition`
-    *
-    * @param request ModifyIndexPartitionRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyIndexPartitionResponse
+   * @summary Modifies the information about index partitions.
+   *
+   * @description ### Method
+   * `PUT`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/index-partition`
+   *
+   * @param request ModifyIndexPartitionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIndexPartitionResponse
    */
   async modifyIndexPartitionWithOptions(instanceId: string, request: ModifyIndexPartitionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyIndexPartitionResponse> {
     Util.validateModel(request);
@@ -10068,13 +10627,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `PUT`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/index-partition`
-    *
-    * @param request ModifyIndexPartitionRequest
-    * @return ModifyIndexPartitionResponse
+   * @summary Modifies the information about index partitions.
+   *
+   * @description ### Method
+   * `PUT`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/index-partition`
+   *
+   * @param request ModifyIndexPartitionRequest
+   * @return ModifyIndexPartitionResponse
    */
   async modifyIndexPartition(instanceId: string, request: ModifyIndexPartitionRequest): Promise<ModifyIndexPartitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10083,15 +10644,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     PUT
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-    *
-    * @param request ModifyIndexVersionRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyIndexVersionResponse
+   * @summary Modifies the index version of a cluster (an index version rollback).
+   *
+   * @description ## Method
+   *     PUT
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
+   *
+   * @param request ModifyIndexVersionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIndexVersionResponse
    */
   async modifyIndexVersionWithOptions(instanceId: string, clusterName: string, request: ModifyIndexVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyIndexVersionResponse> {
     Util.validateModel(request);
@@ -10114,13 +10677,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     PUT
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-    *
-    * @param request ModifyIndexVersionRequest
-    * @return ModifyIndexVersionResponse
+   * @summary Modifies the index version of a cluster (an index version rollback).
+   *
+   * @description ## Method
+   *     PUT
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
+   *
+   * @param request ModifyIndexVersionRequest
+   * @return ModifyIndexVersionResponse
    */
   async modifyIndexVersion(instanceId: string, clusterName: string, request: ModifyIndexVersionRequest): Promise<ModifyIndexVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10129,19 +10694,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * PUT
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
-    * ```
-    *
-    * @param request ModifyNodeConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyNodeConfigResponse
+   * @summary Modifies the configurations of a node.
+   *
+   * @description ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
+   * ```
+   *
+   * @param request ModifyNodeConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNodeConfigResponse
    */
   async modifyNodeConfigWithOptions(instanceId: string, request: ModifyNodeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyNodeConfigResponse> {
     Util.validateModel(request);
@@ -10207,17 +10774,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * PUT
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
-    * ```
-    *
-    * @param request ModifyNodeConfigRequest
-    * @return ModifyNodeConfigResponse
+   * @summary Modifies the configurations of a node.
+   *
+   * @description ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
+   * ```
+   *
+   * @param request ModifyNodeConfigRequest
+   * @return ModifyNodeConfigResponse
    */
   async modifyNodeConfig(instanceId: string, request: ModifyNodeConfigRequest): Promise<ModifyNodeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10226,19 +10795,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * put
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
-    * ```
-    *
-    * @param request ModifyOnlineConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyOnlineConfigResponse
+   * @summary Modifies online configurations.
+   *
+   * @description ### Method
+   * ```java
+   * put
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
+   * ```
+   *
+   * @param request ModifyOnlineConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyOnlineConfigResponse
    */
   async modifyOnlineConfigWithOptions(instanceId: string, nodeName: string, indexName: string, request: ModifyOnlineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyOnlineConfigResponse> {
     Util.validateModel(request);
@@ -10266,17 +10837,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * put
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
-    * ```
-    *
-    * @param request ModifyOnlineConfigRequest
-    * @return ModifyOnlineConfigResponse
+   * @summary Modifies online configurations.
+   *
+   * @description ### Method
+   * ```java
+   * put
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
+   * ```
+   *
+   * @param request ModifyOnlineConfigRequest
+   * @return ModifyOnlineConfigResponse
    */
   async modifyOnlineConfig(instanceId: string, nodeName: string, indexName: string, request: ModifyOnlineConfigRequest): Promise<ModifyOnlineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10285,15 +10858,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `PUT`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/password`
-    *
-    * @param request ModifyPasswordRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyPasswordResponse
+   * @summary 修改实例的密码
+   *
+   * @description ### Method
+   * `PUT`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/password`
+   *
+   * @param request ModifyPasswordRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPasswordResponse
    */
   async modifyPasswordWithOptions(instanceId: string, request: ModifyPasswordRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyPasswordResponse> {
     Util.validateModel(request);
@@ -10325,13 +10900,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `PUT`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/password`
-    *
-    * @param request ModifyPasswordRequest
-    * @return ModifyPasswordResponse
+   * @summary 修改实例的密码
+   *
+   * @description ### Method
+   * `PUT`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/password`
+   *
+   * @param request ModifyPasswordRequest
+   * @return ModifyPasswordResponse
    */
   async modifyPassword(instanceId: string, request: ModifyPasswordRequest): Promise<ModifyPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10339,6 +10916,14 @@ export default class Client extends OpenApi {
     return await this.modifyPasswordWithOptions(instanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 修改索引V2
+   *
+   * @param request ModifyTableRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTableResponse
+   */
   async modifyTableWithOptions(instanceId: string, tableName: string, request: ModifyTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyTableResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -10394,6 +10979,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTableResponse>(await this.callApi(params, req, runtime), new ModifyTableResponse({}));
   }
 
+  /**
+   * @summary 修改索引V2
+   *
+   * @param request ModifyTableRequest
+   * @return ModifyTableResponse
+   */
   async modifyTable(instanceId: string, tableName: string, request: ModifyTableRequest): Promise<ModifyTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10401,25 +10992,31 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * ~~~
-    * POST
-    * ~~~
-    * ## URI
-    * ~~~
-    * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
-    * ~~~
-    *
-    * @param request PublishAdvanceConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PublishAdvanceConfigResponse
+   * @summary Publishes a version of advanced configurations.
+   *
+   * @description ## Method
+   * ~~~
+   * POST
+   * ~~~
+   * ## URI
+   * ~~~
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
+   * ~~~
+   *
+   * @param request PublishAdvanceConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishAdvanceConfigResponse
    */
   async publishAdvanceConfigWithOptions(instanceId: string, configName: string, request: PublishAdvanceConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishAdvanceConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.body)) {
-      body["body"] = request.body;
+    if (!Util.isUnset(request.desc)) {
+      body["desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.files)) {
+      body["files"] = request.files;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10441,17 +11038,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    * ~~~
-    * POST
-    * ~~~
-    * ## URI
-    * ~~~
-    * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
-    * ~~~
-    *
-    * @param request PublishAdvanceConfigRequest
-    * @return PublishAdvanceConfigResponse
+   * @summary Publishes a version of advanced configurations.
+   *
+   * @description ## Method
+   * ~~~
+   * POST
+   * ~~~
+   * ## URI
+   * ~~~
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
+   * ~~~
+   *
+   * @param request PublishAdvanceConfigRequest
+   * @return PublishAdvanceConfigResponse
    */
   async publishAdvanceConfig(instanceId: string, configName: string, request: PublishAdvanceConfigRequest): Promise<PublishAdvanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10460,15 +11059,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     POST
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
-    *
-    * @param request PublishIndexVersionRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PublishIndexVersionResponse
+   * @summary Publishes a specified index version.
+   *
+   * @description ## Method
+   *     POST
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+   *
+   * @param request PublishIndexVersionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishIndexVersionResponse
    */
   async publishIndexVersionWithOptions(instanceId: string, indexName: string, request: PublishIndexVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishIndexVersionResponse> {
     Util.validateModel(request);
@@ -10496,13 +11097,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Method
-    *     POST
-    * ## URI
-    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
-    *
-    * @param request PublishIndexVersionRequest
-    * @return PublishIndexVersionResponse
+   * @summary Publishes a specified index version.
+   *
+   * @description ## Method
+   *     POST
+   * ## URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+   *
+   * @param request PublishIndexVersionRequest
+   * @return PublishIndexVersionResponse
    */
   async publishIndexVersion(instanceId: string, indexName: string, request: PublishIndexVersionRequest): Promise<PublishIndexVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10511,15 +11114,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `POST`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/recover-index`
-    *
-    * @param request RecoverIndexRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RecoverIndexResponse
+   * @summary Restores data from an index.
+   *
+   * @description ### Method
+   * `POST`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/recover-index`
+   *
+   * @param request RecoverIndexRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecoverIndexResponse
    */
   async recoverIndexWithOptions(instanceId: string, request: RecoverIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RecoverIndexResponse> {
     Util.validateModel(request);
@@ -10559,13 +11164,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `POST`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}/recover-index`
-    *
-    * @param request RecoverIndexRequest
-    * @return RecoverIndexResponse
+   * @summary Restores data from an index.
+   *
+   * @description ### Method
+   * `POST`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}/recover-index`
+   *
+   * @param request RecoverIndexRequest
+   * @return RecoverIndexResponse
    */
   async recoverIndex(instanceId: string, request: RecoverIndexRequest): Promise<RecoverIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10573,6 +11180,14 @@ export default class Client extends OpenApi {
     return await this.recoverIndexWithOptions(instanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 索引重建V2
+   *
+   * @param request ReindexRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReindexResponse
+   */
   async reindexWithOptions(instanceId: string, tableName: string, request: ReindexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReindexResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10606,6 +11221,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ReindexResponse>(await this.callApi(params, req, runtime), new ReindexResponse({}));
   }
 
+  /**
+   * @summary 索引重建V2
+   *
+   * @param request ReindexRequest
+   * @return ReindexResponse
+   */
   async reindex(instanceId: string, tableName: string, request: ReindexRequest): Promise<ReindexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10613,18 +11234,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * DELETE
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
-    * ```
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveClusterResponse
+   * @summary Deletes a cluster.
+   *
+   * @description ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
+   * ```
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveClusterResponse
    */
   async removeClusterWithOptions(instanceId: string, clusterName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveClusterResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -10645,16 +11268,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * DELETE
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
-    * ```
-    *
-    * @return RemoveClusterResponse
+   * @summary Deletes a cluster.
+   *
+   * @description ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
+   * ```
+   *
+   * @return RemoveClusterResponse
    */
   async removeCluster(instanceId: string, clusterName: string): Promise<RemoveClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10663,18 +11288,84 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * PUT
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
-    * ```
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopTaskResponse
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartIndexResponse
+   */
+  async startIndexWithOptions(instanceId: string, indexName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartIndexResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StartIndex",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/indexes/${OpenApiUtil.getEncodeParam(indexName)}/startIndex`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartIndexResponse>(await this.callApi(params, req, runtime), new StartIndexResponse({}));
+  }
+
+  /**
+   * @return StartIndexResponse
+   */
+  async startIndex(instanceId: string, indexName: string): Promise<StartIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startIndexWithOptions(instanceId, indexName, headers, runtime);
+  }
+
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopIndexResponse
+   */
+  async stopIndexWithOptions(instanceId: string, indexName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopIndexResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StopIndex",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/indexes/${OpenApiUtil.getEncodeParam(indexName)}/stopIndex`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopIndexResponse>(await this.callApi(params, req, runtime), new StopIndexResponse({}));
+  }
+
+  /**
+   * @return StopIndexResponse
+   */
+  async stopIndex(instanceId: string, indexName: string): Promise<StopIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopIndexWithOptions(instanceId, indexName, headers, runtime);
+  }
+
+  /**
+   * @summary Stops an FSM task.
+   *
+   * @description ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
+   * ```
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopTaskResponse
    */
   async stopTaskWithOptions(instanceId: string, fsmId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -10695,16 +11386,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ```java
-    * PUT
-    * ```
-    * ### URI
-    * ```java
-    * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
-    * ```
-    *
-    * @return StopTaskResponse
+   * @summary Stops an FSM task.
+   *
+   * @description ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
+   * ```
+   *
+   * @return StopTaskResponse
    */
   async stopTask(instanceId: string, fsmId: string): Promise<StopTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10713,15 +11406,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `PUT`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}`
-    *
-    * @param request UpdateInstanceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateInstanceResponse
+   * @summary Modifies the configuration of a specified instance.
+   *
+   * @description ### Method
+   * `PUT`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}`
+   *
+   * @param request UpdateInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceResponse
    */
   async updateInstanceWithOptions(instanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
@@ -10757,13 +11452,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * `PUT`
-    * ### URI
-    * `/openapi/ha3/instances/{instanceId}`
-    *
-    * @param request UpdateInstanceRequest
-    * @return UpdateInstanceResponse
+   * @summary Modifies the configuration of a specified instance.
+   *
+   * @description ### Method
+   * `PUT`
+   * ### URI
+   * `/openapi/ha3/instances/{instanceId}`
+   *
+   * @param request UpdateInstanceRequest
+   * @return UpdateInstanceResponse
    */
   async updateInstance(instanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
