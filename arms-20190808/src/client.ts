@@ -3327,6 +3327,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
   environmentType?: string;
   feePackage?: string;
   grafanaWorkspaceId?: string;
+  initEnvironment?: boolean;
   managedType?: string;
   prometheusInstanceId?: string;
   regionId?: string;
@@ -3341,6 +3342,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
       environmentType: 'EnvironmentType',
       feePackage: 'FeePackage',
       grafanaWorkspaceId: 'GrafanaWorkspaceId',
+      initEnvironment: 'InitEnvironment',
       managedType: 'ManagedType',
       prometheusInstanceId: 'PrometheusInstanceId',
       regionId: 'RegionId',
@@ -3358,6 +3360,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
       environmentType: 'string',
       feePackage: 'string',
       grafanaWorkspaceId: 'string',
+      initEnvironment: 'boolean',
       managedType: 'string',
       prometheusInstanceId: 'string',
       regionId: 'string',
@@ -36393,6 +36396,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.grafanaWorkspaceId)) {
       query["GrafanaWorkspaceId"] = request.grafanaWorkspaceId;
+    }
+
+    if (!Util.isUnset(request.initEnvironment)) {
+      query["InitEnvironment"] = request.initEnvironment;
     }
 
     if (!Util.isUnset(request.managedType)) {
