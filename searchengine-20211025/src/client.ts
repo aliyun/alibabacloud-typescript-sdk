@@ -55,6 +55,37 @@ export class ResultClusterValue extends $tea.Model {
   }
 }
 
+export class ResultValue extends $tea.Model {
+  pauseAll?: boolean;
+  pauseIndex?: boolean;
+  pauseIndexBatch?: boolean;
+  pauseBiz?: boolean;
+  pauseRuntime?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      pauseAll: 'pauseAll',
+      pauseIndex: 'pauseIndex',
+      pauseIndexBatch: 'pauseIndexBatch',
+      pauseBiz: 'pauseBiz',
+      pauseRuntime: 'pauseRuntime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pauseAll: 'boolean',
+      pauseIndex: 'boolean',
+      pauseIndexBatch: 'boolean',
+      pauseBiz: 'boolean',
+      pauseRuntime: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VariablesValue extends $tea.Model {
   disableModify?: boolean;
   isModify?: boolean;
@@ -92,7 +123,91 @@ export class VariablesValue extends $tea.Model {
   }
 }
 
+export class ConfigValue extends $tea.Model {
+  desc?: string;
+  files?: ConfigValueFiles[];
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      files: 'files',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      files: { 'type': 'array', 'itemType': ConfigValueFiles },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BodyValue extends $tea.Model {
+  pauseAll?: boolean;
+  pauseIndex?: boolean;
+  pauseIndexBatch?: boolean;
+  pauseBiz?: boolean;
+  pauseRuntime?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      pauseAll: 'pauseAll',
+      pauseIndex: 'pauseIndex',
+      pauseIndexBatch: 'pauseIndexBatch',
+      pauseBiz: 'pauseBiz',
+      pauseRuntime: 'pauseRuntime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pauseAll: 'boolean',
+      pauseIndex: 'boolean',
+      pauseIndexBatch: 'boolean',
+      pauseBiz: 'boolean',
+      pauseRuntime: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FilesConfigVariablesValue extends $tea.Model {
+  description?: string;
+  disableModify?: boolean;
+  isModify?: boolean;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      disableModify: 'disableModify',
+      isModify: 'isModify',
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      disableModify: 'boolean',
+      isModify: 'boolean',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigValueFilesConfigVariablesValue extends $tea.Model {
   description?: string;
   disableModify?: boolean;
   isModify?: boolean;
@@ -277,6 +392,147 @@ export class CreateClusterResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigDirRequest extends $tea.Model {
+  dirName?: string;
+  parentFullPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dirName: 'dirName',
+      parentFullPath: 'parentFullPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dirName: 'string',
+      parentFullPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigDirResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigDirResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConfigDirResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateConfigDirResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigFileRequest extends $tea.Model {
+  fileName?: string;
+  ossPath?: string;
+  parentFullPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'fileName',
+      ossPath: 'ossPath',
+      parentFullPath: 'parentFullPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      ossPath: 'string',
+      parentFullPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigFileResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConfigFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateConfigFileResponseBody,
     };
   }
 
@@ -534,6 +790,53 @@ export class CreateInstanceResponse extends $tea.Model {
   }
 }
 
+export class CreatePublicUrlResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePublicUrlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePublicUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePublicUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTableRequest extends $tea.Model {
   dataProcessConfig?: CreateTableRequestDataProcessConfig[];
   dataProcessorCount?: number;
@@ -666,6 +969,144 @@ export class DeleteAdvanceConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteAdvanceConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigDirRequest extends $tea.Model {
+  dirName?: string;
+  parentFullPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dirName: 'dirName',
+      parentFullPath: 'parentFullPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dirName: 'string',
+      parentFullPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigDirResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigDirResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConfigDirResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteConfigDirResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigFileRequest extends $tea.Model {
+  fileName?: string;
+  parentFullPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'fileName',
+      parentFullPath: 'parentFullPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      parentFullPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigFileResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConfigFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteConfigFileResponseBody,
     };
   }
 
@@ -876,6 +1317,53 @@ export class DeleteInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePublicUrlResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePublicUrlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePublicUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePublicUrlResponseBody,
     };
   }
 
@@ -1516,6 +2004,53 @@ export class GetIndexResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIndexOnlineStrategyResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetIndexOnlineStrategyResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetIndexOnlineStrategyResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIndexOnlineStrategyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIndexOnlineStrategyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIndexOnlineStrategyResponseBody,
     };
   }
 
@@ -2276,6 +2811,56 @@ export class ListDateSourceGenerationsResponse extends $tea.Model {
   }
 }
 
+export class ListIndexRecoverRecordsResponseBody extends $tea.Model {
+  desc?: string;
+  finishedTime?: string;
+  generationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      finishedTime: 'finishedTime',
+      generationId: 'generationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      finishedTime: 'string',
+      generationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndexRecoverRecordsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIndexRecoverRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIndexRecoverRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIndexesRequest extends $tea.Model {
   newMode?: boolean;
   static names(): { [key: string]: string } {
@@ -2598,6 +3183,125 @@ export class ListOnlineConfigsResponse extends $tea.Model {
   }
 }
 
+export class ListPausePolicysResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: ResultValue };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': ResultValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPausePolicysResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPausePolicysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPausePolicysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPostQueryResultRequest extends $tea.Model {
+  address?: string;
+  body?: { [key: string]: any };
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      body: 'body',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPostQueryResultResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: any;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPostQueryResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPostQueryResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPostQueryResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListQueryResultRequest extends $tea.Model {
   query?: string;
   sql?: string;
@@ -2656,6 +3360,165 @@ export class ListQueryResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListQueryResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRestQueryResultRequest extends $tea.Model {
+  address?: string;
+  indexName?: string;
+  query?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      indexName: 'indexName',
+      query: 'query',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      indexName: 'string',
+      query: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRestQueryResultResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: any;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRestQueryResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRestQueryResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRestQueryResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchemasRequest extends $tea.Model {
+  accessKey?: string;
+  accessSecret?: string;
+  endpoint?: string;
+  namespace?: string;
+  partition?: string;
+  project?: string;
+  table?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'accessKey',
+      accessSecret: 'accessSecret',
+      endpoint: 'endpoint',
+      namespace: 'namespace',
+      partition: 'partition',
+      project: 'project',
+      table: 'table',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      accessSecret: 'string',
+      endpoint: 'string',
+      namespace: 'string',
+      partition: 'string',
+      project: 'string',
+      table: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchemasResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: any;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchemasResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSchemasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSchemasResponseBody,
     };
   }
 
@@ -2769,6 +3632,234 @@ export class ListTablesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTablesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksRequest extends $tea.Model {
+  end?: number;
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'end',
+      start: 'start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'number',
+      start: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: any;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVectorQueryResultRequest extends $tea.Model {
+  address?: string;
+  body?: { [key: string]: any };
+  queryType?: string;
+  vectorQueryType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      body: 'body',
+      queryType: 'queryType',
+      vectorQueryType: 'vectorQueryType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      queryType: 'string',
+      vectorQueryType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVectorQueryResultResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: any;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVectorQueryResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVectorQueryResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVectorQueryResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAdvanceConfigRequest extends $tea.Model {
+  content?: string;
+  contentType?: string;
+  desc?: string;
+  files?: ModifyAdvanceConfigRequestFiles[];
+  name?: string;
+  status?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      contentType: 'contentType',
+      desc: 'desc',
+      files: 'files',
+      name: 'name',
+      status: 'status',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      contentType: 'string',
+      desc: 'string',
+      files: { 'type': 'array', 'itemType': ModifyAdvanceConfigRequestFiles },
+      name: 'string',
+      status: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAdvanceConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAdvanceConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAdvanceConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAdvanceConfigResponseBody,
     };
   }
 
@@ -3143,6 +4234,90 @@ export class ModifyDataSourceResponse extends $tea.Model {
   }
 }
 
+export class ModifyDataSourceDeployRequest extends $tea.Model {
+  autoBuildIndex?: boolean;
+  extend?: ModifyDataSourceDeployRequestExtend;
+  processor?: ModifyDataSourceDeployRequestProcessor;
+  storage?: ModifyDataSourceDeployRequestStorage;
+  swift?: ModifyDataSourceDeployRequestSwift;
+  dryRun?: boolean;
+  generationId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoBuildIndex: 'autoBuildIndex',
+      extend: 'extend',
+      processor: 'processor',
+      storage: 'storage',
+      swift: 'swift',
+      dryRun: 'dryRun',
+      generationId: 'generationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoBuildIndex: 'boolean',
+      extend: ModifyDataSourceDeployRequestExtend,
+      processor: ModifyDataSourceDeployRequestProcessor,
+      storage: ModifyDataSourceDeployRequestStorage,
+      swift: ModifyDataSourceDeployRequestSwift,
+      dryRun: 'boolean',
+      generationId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataSourceDeployResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataSourceDeployResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDataSourceDeployResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDataSourceDeployResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyFileRequest extends $tea.Model {
   content?: string;
   partition?: number;
@@ -3207,6 +4382,174 @@ export class ModifyFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyIndexRequest extends $tea.Model {
+  buildParallelNum?: number;
+  cluster?: { [key: string]: {[key: string]: any} };
+  clusterConfigName?: string;
+  config?: { [key: string]: ConfigValue };
+  content?: string;
+  dataSource?: string;
+  dataSourceInfo?: ModifyIndexRequestDataSourceInfo;
+  description?: string;
+  domain?: string;
+  mergeParallelNum?: number;
+  partition?: number;
+  pushMode?: string;
+  dryRun?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      buildParallelNum: 'buildParallelNum',
+      cluster: 'cluster',
+      clusterConfigName: 'clusterConfigName',
+      config: 'config',
+      content: 'content',
+      dataSource: 'dataSource',
+      dataSourceInfo: 'dataSourceInfo',
+      description: 'description',
+      domain: 'domain',
+      mergeParallelNum: 'mergeParallelNum',
+      partition: 'partition',
+      pushMode: 'pushMode',
+      dryRun: 'dryRun',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildParallelNum: 'number',
+      cluster: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
+      clusterConfigName: 'string',
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': ConfigValue },
+      content: 'string',
+      dataSource: 'string',
+      dataSourceInfo: ModifyIndexRequestDataSourceInfo,
+      description: 'string',
+      domain: 'string',
+      mergeParallelNum: 'number',
+      partition: 'number',
+      pushMode: 'string',
+      dryRun: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyIndexResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: any;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyIndexResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyIndexOnlineStrategyRequest extends $tea.Model {
+  changeRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      changeRate: 'changeRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeRate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyIndexOnlineStrategyResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyIndexOnlineStrategyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyIndexOnlineStrategyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyIndexOnlineStrategyResponseBody,
     };
   }
 
@@ -3584,6 +4927,138 @@ export class ModifyPasswordResponse extends $tea.Model {
   }
 }
 
+export class ModifyPausePolicyRequest extends $tea.Model {
+  body?: { [key: string]: BodyValue };
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': BodyValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPausePolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPausePolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPausePolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyPausePolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPublicUrlIpListRequest extends $tea.Model {
+  body?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPublicUrlIpListResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPublicUrlIpListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPublicUrlIpListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyPublicUrlIpListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyTableRequest extends $tea.Model {
   dataProcessConfig?: ModifyTableRequestDataProcessConfig[];
   dataSource?: ModifyTableRequestDataSource;
@@ -3798,6 +5273,75 @@ export class PublishIndexVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PublishIndexVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushDocumentsRequest extends $tea.Model {
+  body?: any[];
+  pkField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      pkField: 'pkField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: { 'type': 'array', 'itemType': 'any' },
+      pkField: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushDocumentsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushDocumentsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushDocumentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PushDocumentsResponseBody,
     };
   }
 
@@ -4227,6 +5771,59 @@ export class VariablesValueFuncValue extends $tea.Model {
     return {
       funcClassName: 'string',
       template: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigValueFilesConfig extends $tea.Model {
+  content?: string;
+  variables?: { [key: string]: ConfigValueFilesConfigVariablesValue };
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      variables: 'variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      variables: { 'type': 'map', 'keyType': 'string', 'valueType': ConfigValueFilesConfigVariablesValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigValueFiles extends $tea.Model {
+  operateType?: string;
+  parentFullPath?: string;
+  fileName?: string;
+  config?: ConfigValueFilesConfig;
+  dirName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operateType: 'operateType',
+      parentFullPath: 'parentFullPath',
+      fileName: 'fileName',
+      config: 'config',
+      dirName: 'dirName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operateType: 'string',
+      parentFullPath: 'string',
+      fileName: 'string',
+      config: ConfigValueFilesConfig,
+      dirName: 'string',
     };
   }
 
@@ -5957,6 +7554,25 @@ export class GetIndexResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetIndexOnlineStrategyResponseBodyResult extends $tea.Model {
+  changeRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      changeRate: 'changeRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeRate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetIndexVersionResponseBodyResultIndexVersions extends $tea.Model {
   buildDeployId?: string;
   currentVersion?: number;
@@ -7415,6 +9031,348 @@ export class ListTablesResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ModifyAdvanceConfigRequestFiles extends $tea.Model {
+  fullPathName?: string;
+  isDir?: boolean;
+  isTemplate?: boolean;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fullPathName: 'fullPathName',
+      isDir: 'isDir',
+      isTemplate: 'isTemplate',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fullPathName: 'string',
+      isDir: 'boolean',
+      isTemplate: 'boolean',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataSourceDeployRequestExtendHdfs extends $tea.Model {
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataSourceDeployRequestExtendOdps extends $tea.Model {
+  partitions?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      partitions: 'partitions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      partitions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataSourceDeployRequestExtendOss extends $tea.Model {
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataSourceDeployRequestExtendSaro extends $tea.Model {
+  path?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'path',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataSourceDeployRequestExtend extends $tea.Model {
+  hdfs?: ModifyDataSourceDeployRequestExtendHdfs;
+  odps?: ModifyDataSourceDeployRequestExtendOdps;
+  oss?: ModifyDataSourceDeployRequestExtendOss;
+  saro?: ModifyDataSourceDeployRequestExtendSaro;
+  static names(): { [key: string]: string } {
+    return {
+      hdfs: 'hdfs',
+      odps: 'odps',
+      oss: 'oss',
+      saro: 'saro',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hdfs: ModifyDataSourceDeployRequestExtendHdfs,
+      odps: ModifyDataSourceDeployRequestExtendOdps,
+      oss: ModifyDataSourceDeployRequestExtendOss,
+      saro: ModifyDataSourceDeployRequestExtendSaro,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataSourceDeployRequestProcessor extends $tea.Model {
+  args?: string;
+  resource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'args',
+      resource: 'resource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      resource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataSourceDeployRequestStorage extends $tea.Model {
+  accessKey?: string;
+  accessSecret?: string;
+  bucket?: string;
+  endpoint?: string;
+  namespace?: string;
+  ossPath?: string;
+  partition?: string;
+  path?: string;
+  project?: string;
+  table?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'accessKey',
+      accessSecret: 'accessSecret',
+      bucket: 'bucket',
+      endpoint: 'endpoint',
+      namespace: 'namespace',
+      ossPath: 'ossPath',
+      partition: 'partition',
+      path: 'path',
+      project: 'project',
+      table: 'table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      accessSecret: 'string',
+      bucket: 'string',
+      endpoint: 'string',
+      namespace: 'string',
+      ossPath: 'string',
+      partition: 'string',
+      path: 'string',
+      project: 'string',
+      table: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataSourceDeployRequestSwift extends $tea.Model {
+  topic?: string;
+  zk?: string;
+  static names(): { [key: string]: string } {
+    return {
+      topic: 'topic',
+      zk: 'zk',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      topic: 'string',
+      zk: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyIndexRequestDataSourceInfoConfig extends $tea.Model {
+  accessKey?: string;
+  accessSecret?: string;
+  bucket?: string;
+  endpoint?: string;
+  namespace?: string;
+  ossPath?: string;
+  partition?: string;
+  path?: string;
+  project?: string;
+  table?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'accessKey',
+      accessSecret: 'accessSecret',
+      bucket: 'bucket',
+      endpoint: 'endpoint',
+      namespace: 'namespace',
+      ossPath: 'ossPath',
+      partition: 'partition',
+      path: 'path',
+      project: 'project',
+      table: 'table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      accessSecret: 'string',
+      bucket: 'string',
+      endpoint: 'string',
+      namespace: 'string',
+      ossPath: 'string',
+      partition: 'string',
+      path: 'string',
+      project: 'string',
+      table: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyIndexRequestDataSourceInfoSaroConfig extends $tea.Model {
+  namespace?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'namespace',
+      tableName: 'tableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyIndexRequestDataSourceInfo extends $tea.Model {
+  autoBuildIndex?: boolean;
+  buildMode?: string;
+  config?: ModifyIndexRequestDataSourceInfoConfig;
+  dataTimeSec?: number;
+  domain?: string;
+  generation?: number;
+  name?: string;
+  processParallelNum?: number;
+  processPartitionCount?: number;
+  saroConfig?: ModifyIndexRequestDataSourceInfoSaroConfig;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoBuildIndex: 'autoBuildIndex',
+      buildMode: 'buildMode',
+      config: 'config',
+      dataTimeSec: 'dataTimeSec',
+      domain: 'domain',
+      generation: 'generation',
+      name: 'name',
+      processParallelNum: 'processParallelNum',
+      processPartitionCount: 'processPartitionCount',
+      saroConfig: 'saroConfig',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoBuildIndex: 'boolean',
+      buildMode: 'string',
+      config: ModifyIndexRequestDataSourceInfoConfig,
+      dataTimeSec: 'number',
+      domain: 'string',
+      generation: 'number',
+      name: 'string',
+      processParallelNum: 'number',
+      processPartitionCount: 'number',
+      saroConfig: ModifyIndexRequestDataSourceInfoSaroConfig,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyIndexPartitionRequestIndexInfos extends $tea.Model {
   indexName?: string;
   parallelNum?: number;
@@ -7980,6 +9938,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request CreateConfigDirRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateConfigDirResponse
+   */
+  async createConfigDirWithOptions(instanceId: string, configName: string, request: CreateConfigDirRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConfigDirResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dirName)) {
+      body["dirName"] = request.dirName;
+    }
+
+    if (!Util.isUnset(request.parentFullPath)) {
+      body["parentFullPath"] = request.parentFullPath;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateConfigDir",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/advanced-configs/${OpenApiUtil.getEncodeParam(configName)}/dir`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateConfigDirResponse>(await this.callApi(params, req, runtime), new CreateConfigDirResponse({}));
+  }
+
+  /**
+   * @param request CreateConfigDirRequest
+   * @return CreateConfigDirResponse
+   */
+  async createConfigDir(instanceId: string, configName: string, request: CreateConfigDirRequest): Promise<CreateConfigDirResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createConfigDirWithOptions(instanceId, configName, request, headers, runtime);
+  }
+
+  /**
+   * @param request CreateConfigFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateConfigFileResponse
+   */
+  async createConfigFileWithOptions(instanceId: string, configName: string, request: CreateConfigFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConfigFileResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileName)) {
+      body["fileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.ossPath)) {
+      body["ossPath"] = request.ossPath;
+    }
+
+    if (!Util.isUnset(request.parentFullPath)) {
+      body["parentFullPath"] = request.parentFullPath;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateConfigFile",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/advanced-configs/${OpenApiUtil.getEncodeParam(configName)}/file`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateConfigFileResponse>(await this.callApi(params, req, runtime), new CreateConfigFileResponse({}));
+  }
+
+  /**
+   * @param request CreateConfigFileRequest
+   * @return CreateConfigFileResponse
+   */
+  async createConfigFile(instanceId: string, configName: string, request: CreateConfigFileRequest): Promise<CreateConfigFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createConfigFileWithOptions(instanceId, configName, request, headers, runtime);
+  }
+
+  /**
    * @summary Creates data sources.
    *
    * @param request CreateDataSourceRequest
@@ -8215,6 +10267,42 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 开通公网域名
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePublicUrlResponse
+   */
+  async createPublicUrlWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePublicUrlResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePublicUrl",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/public-url`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePublicUrlResponse>(await this.callApi(params, req, runtime), new CreatePublicUrlResponse({}));
+  }
+
+  /**
+   * @summary 开通公网域名
+   *
+   * @return CreatePublicUrlResponse
+   */
+  async createPublicUrl(instanceId: string): Promise<CreatePublicUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPublicUrlWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
    * @summary 创建索引V2
    *
    * @param request CreateTableRequest
@@ -8341,6 +10429,96 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAdvanceConfigWithOptions(instanceId, configName, headers, runtime);
+  }
+
+  /**
+   * @param request DeleteConfigDirRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteConfigDirResponse
+   */
+  async deleteConfigDirWithOptions(instanceId: string, configName: string, request: DeleteConfigDirRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConfigDirResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dirName)) {
+      query["dirName"] = request.dirName;
+    }
+
+    if (!Util.isUnset(request.parentFullPath)) {
+      query["parentFullPath"] = request.parentFullPath;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteConfigDir",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/advanced-configs/${OpenApiUtil.getEncodeParam(configName)}/dir`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteConfigDirResponse>(await this.callApi(params, req, runtime), new DeleteConfigDirResponse({}));
+  }
+
+  /**
+   * @param request DeleteConfigDirRequest
+   * @return DeleteConfigDirResponse
+   */
+  async deleteConfigDir(instanceId: string, configName: string, request: DeleteConfigDirRequest): Promise<DeleteConfigDirResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConfigDirWithOptions(instanceId, configName, request, headers, runtime);
+  }
+
+  /**
+   * @param request DeleteConfigFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteConfigFileResponse
+   */
+  async deleteConfigFileWithOptions(instanceId: string, configName: string, request: DeleteConfigFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConfigFileResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.parentFullPath)) {
+      query["parentFullPath"] = request.parentFullPath;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteConfigFile",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/advanced-configs/${OpenApiUtil.getEncodeParam(configName)}/file`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteConfigFileResponse>(await this.callApi(params, req, runtime), new DeleteConfigFileResponse({}));
+  }
+
+  /**
+   * @param request DeleteConfigFileRequest
+   * @return DeleteConfigFileResponse
+   */
+  async deleteConfigFile(instanceId: string, configName: string, request: DeleteConfigFileRequest): Promise<DeleteConfigFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConfigFileWithOptions(instanceId, configName, request, headers, runtime);
   }
 
   /**
@@ -8538,6 +10716,42 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * @summary 删除公网域名
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePublicUrlResponse
+   */
+  async deletePublicUrlWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePublicUrlResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePublicUrl",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/public-url`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePublicUrlResponse>(await this.callApi(params, req, runtime), new DeletePublicUrlResponse({}));
+  }
+
+  /**
+   * @summary 删除公网域名
+   *
+   * @return DeletePublicUrlResponse
+   */
+  async deletePublicUrl(instanceId: string): Promise<DeletePublicUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deletePublicUrlWithOptions(instanceId, headers, runtime);
   }
 
   /**
@@ -9094,6 +11308,42 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIndexWithOptions(instanceId, indexName, headers, runtime);
+  }
+
+  /**
+   * @summary 获取索引在线生效策略
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIndexOnlineStrategyResponse
+   */
+  async getIndexOnlineStrategyWithOptions(instanceId: string, dataSourceName: string, deployName: string, indexName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIndexOnlineStrategyResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIndexOnlineStrategy",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/data-sources/${OpenApiUtil.getEncodeParam(dataSourceName)}/deploys/${OpenApiUtil.getEncodeParam(deployName)}/indexes/${OpenApiUtil.getEncodeParam(indexName)}/online-strategy`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIndexOnlineStrategyResponse>(await this.callApi(params, req, runtime), new GetIndexOnlineStrategyResponse({}));
+  }
+
+  /**
+   * @summary 获取索引在线生效策略
+   *
+   * @return GetIndexOnlineStrategyResponse
+   */
+  async getIndexOnlineStrategy(instanceId: string, dataSourceName: string, deployName: string, indexName: string): Promise<GetIndexOnlineStrategyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getIndexOnlineStrategyWithOptions(instanceId, dataSourceName, deployName, indexName, headers, runtime);
   }
 
   /**
@@ -9791,6 +12041,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIndexRecoverRecordsResponse
+   */
+  async listIndexRecoverRecordsWithOptions(indexName: string, instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndexRecoverRecordsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIndexRecoverRecords",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/indexes/${OpenApiUtil.getEncodeParam(indexName)}/actions/list-recover-records`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIndexRecoverRecordsResponse>(await this.callApi(params, req, runtime), new ListIndexRecoverRecordsResponse({}));
+  }
+
+  /**
+   * @return ListIndexRecoverRecordsResponse
+   */
+  async listIndexRecoverRecords(indexName: string, instanceId: string): Promise<ListIndexRecoverRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIndexRecoverRecordsWithOptions(indexName, instanceId, headers, runtime);
+  }
+
+  /**
    * @summary Obtains the index list.
    *
    * @description ## Method
@@ -10049,6 +12331,89 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPausePolicysResponse
+   */
+  async listPausePolicysWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPausePolicysResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPausePolicys",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/pause-policies`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPausePolicysResponse>(await this.callApi(params, req, runtime), new ListPausePolicysResponse({}));
+  }
+
+  /**
+   * @return ListPausePolicysResponse
+   */
+  async listPausePolicys(instanceId: string): Promise<ListPausePolicysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPausePolicysWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * @param request ListPostQueryResultRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPostQueryResultResponse
+   */
+  async listPostQueryResultWithOptions(instanceId: string, request: ListPostQueryResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPostQueryResultResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.address)) {
+      query["address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["body"] = request.body;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPostQueryResult",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPostQueryResultResponse>(await this.callApi(params, req, runtime), new ListPostQueryResultResponse({}));
+  }
+
+  /**
+   * @param request ListPostQueryResultRequest
+   * @return ListPostQueryResultResponse
+   */
+  async listPostQueryResult(instanceId: string, request: ListPostQueryResultRequest): Promise<ListPostQueryResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPostQueryResultWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * @summary Queries the query result.
    *
    * @description ### Method
@@ -10105,6 +12470,130 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listQueryResultWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * @param request ListRestQueryResultRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRestQueryResultResponse
+   */
+  async listRestQueryResultWithOptions(instanceId: string, request: ListRestQueryResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRestQueryResultResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.address)) {
+      query["address"] = request.address;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.indexName)) {
+      body["indexName"] = request.indexName;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["query"] = request.query;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRestQueryResult",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/rest-query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRestQueryResultResponse>(await this.callApi(params, req, runtime), new ListRestQueryResultResponse({}));
+  }
+
+  /**
+   * @param request ListRestQueryResultRequest
+   * @return ListRestQueryResultResponse
+   */
+  async listRestQueryResult(instanceId: string, request: ListRestQueryResultRequest): Promise<ListRestQueryResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRestQueryResultWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 通过数据源配置获取schema信息
+   *
+   * @param request ListSchemasRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSchemasResponse
+   */
+  async listSchemasWithOptions(instanceId: string, request: ListSchemasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSchemasResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessKey)) {
+      query["accessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.accessSecret)) {
+      query["accessSecret"] = request.accessSecret;
+    }
+
+    if (!Util.isUnset(request.endpoint)) {
+      query["endpoint"] = request.endpoint;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.partition)) {
+      query["partition"] = request.partition;
+    }
+
+    if (!Util.isUnset(request.project)) {
+      query["project"] = request.project;
+    }
+
+    if (!Util.isUnset(request.table)) {
+      query["table"] = request.table;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSchemas",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/schemas`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSchemasResponse>(await this.callApi(params, req, runtime), new ListSchemasResponse({}));
+  }
+
+  /**
+   * @summary 通过数据源配置获取schema信息
+   *
+   * @param request ListSchemasRequest
+   * @return ListSchemasResponse
+   */
+  async listSchemas(instanceId: string, request: ListSchemasRequest): Promise<ListSchemasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSchemasWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -10186,6 +12675,175 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTablesWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取集群任务列表（数据源+集群）
+   *
+   * @param request ListTasksRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTasksResponse
+   */
+  async listTasksWithOptions(instanceId: string, request: ListTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.end)) {
+      query["end"] = request.end;
+    }
+
+    if (!Util.isUnset(request.start)) {
+      query["start"] = request.start;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTasks",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/tasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
+  }
+
+  /**
+   * @summary 获取集群任务列表（数据源+集群）
+   *
+   * @param request ListTasksRequest
+   * @return ListTasksResponse
+   */
+  async listTasks(instanceId: string, request: ListTasksRequest): Promise<ListTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTasksWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * @param request ListVectorQueryResultRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVectorQueryResultResponse
+   */
+  async listVectorQueryResultWithOptions(instanceId: string, request: ListVectorQueryResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVectorQueryResultResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.address)) {
+      query["address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.queryType)) {
+      query["queryType"] = request.queryType;
+    }
+
+    if (!Util.isUnset(request.vectorQueryType)) {
+      query["vectorQueryType"] = request.vectorQueryType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["body"] = request.body;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVectorQueryResult",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/vector-query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVectorQueryResultResponse>(await this.callApi(params, req, runtime), new ListVectorQueryResultResponse({}));
+  }
+
+  /**
+   * @param request ListVectorQueryResultRequest
+   * @return ListVectorQueryResultResponse
+   */
+  async listVectorQueryResult(instanceId: string, request: ListVectorQueryResultRequest): Promise<ListVectorQueryResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listVectorQueryResultWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * @param request ModifyAdvanceConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAdvanceConfigResponse
+   */
+  async modifyAdvanceConfigWithOptions(instanceId: string, configName: string, request: ModifyAdvanceConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyAdvanceConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.contentType)) {
+      body["contentType"] = request.contentType;
+    }
+
+    if (!Util.isUnset(request.desc)) {
+      body["desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.files)) {
+      body["files"] = request.files;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.updateTime)) {
+      body["updateTime"] = request.updateTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAdvanceConfig",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/advanced-configs/${OpenApiUtil.getEncodeParam(configName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAdvanceConfigResponse>(await this.callApi(params, req, runtime), new ModifyAdvanceConfigResponse({}));
+  }
+
+  /**
+   * @param request ModifyAdvanceConfigRequest
+   * @return ModifyAdvanceConfigResponse
+   */
+  async modifyAdvanceConfig(instanceId: string, configName: string, request: ModifyAdvanceConfigRequest): Promise<ModifyAdvanceConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyAdvanceConfigWithOptions(instanceId, configName, request, headers, runtime);
   }
 
   /**
@@ -10512,6 +13170,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 修改数据源部署信息
+   *
+   * @param request ModifyDataSourceDeployRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDataSourceDeployResponse
+   */
+  async modifyDataSourceDeployWithOptions(instanceId: string, deployName: string, dataSourceName: string, request: ModifyDataSourceDeployRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyDataSourceDeployResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.generationId)) {
+      query["generationId"] = request.generationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoBuildIndex)) {
+      body["autoBuildIndex"] = request.autoBuildIndex;
+    }
+
+    if (!Util.isUnset(request.extend)) {
+      body["extend"] = request.extend;
+    }
+
+    if (!Util.isUnset(request.processor)) {
+      body["processor"] = request.processor;
+    }
+
+    if (!Util.isUnset(request.storage)) {
+      body["storage"] = request.storage;
+    }
+
+    if (!Util.isUnset(request.swift)) {
+      body["swift"] = request.swift;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDataSourceDeploy",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/data-sources/${OpenApiUtil.getEncodeParam(dataSourceName)}/deploys/${OpenApiUtil.getEncodeParam(deployName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDataSourceDeployResponse>(await this.callApi(params, req, runtime), new ModifyDataSourceDeployResponse({}));
+  }
+
+  /**
+   * @summary 修改数据源部署信息
+   *
+   * @param request ModifyDataSourceDeployRequest
+   * @return ModifyDataSourceDeployResponse
+   */
+  async modifyDataSourceDeploy(instanceId: string, deployName: string, dataSourceName: string, request: ModifyDataSourceDeployRequest): Promise<ModifyDataSourceDeployResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyDataSourceDeployWithOptions(instanceId, deployName, dataSourceName, request, headers, runtime);
+  }
+
+  /**
    * @summary Modifies a file.
    *
    * @description ## Method
@@ -10574,6 +13303,142 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modifyFileWithOptions(instanceId, indexName, versionName, request, headers, runtime);
+  }
+
+  /**
+   * @param request ModifyIndexRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIndexResponse
+   */
+  async modifyIndexWithOptions(instanceId: string, indexName: string, request: ModifyIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyIndexResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.buildParallelNum)) {
+      body["buildParallelNum"] = request.buildParallelNum;
+    }
+
+    if (!Util.isUnset(request.cluster)) {
+      body["cluster"] = request.cluster;
+    }
+
+    if (!Util.isUnset(request.clusterConfigName)) {
+      body["clusterConfigName"] = request.clusterConfigName;
+    }
+
+    if (!Util.isUnset(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.dataSource)) {
+      body["dataSource"] = request.dataSource;
+    }
+
+    if (!Util.isUnset(request.dataSourceInfo)) {
+      body["dataSourceInfo"] = request.dataSourceInfo;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      body["domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.mergeParallelNum)) {
+      body["mergeParallelNum"] = request.mergeParallelNum;
+    }
+
+    if (!Util.isUnset(request.partition)) {
+      body["partition"] = request.partition;
+    }
+
+    if (!Util.isUnset(request.pushMode)) {
+      body["pushMode"] = request.pushMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyIndex",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/indexes/${OpenApiUtil.getEncodeParam(indexName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyIndexResponse>(await this.callApi(params, req, runtime), new ModifyIndexResponse({}));
+  }
+
+  /**
+   * @param request ModifyIndexRequest
+   * @return ModifyIndexResponse
+   */
+  async modifyIndex(instanceId: string, indexName: string, request: ModifyIndexRequest): Promise<ModifyIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyIndexWithOptions(instanceId, indexName, request, headers, runtime);
+  }
+
+  /**
+   * @summary 修改索引在线策略
+   *
+   * @param request ModifyIndexOnlineStrategyRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIndexOnlineStrategyResponse
+   */
+  async modifyIndexOnlineStrategyWithOptions(instanceId: string, dataSourceName: string, deployName: string, indexName: string, request: ModifyIndexOnlineStrategyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyIndexOnlineStrategyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.changeRate)) {
+      body["changeRate"] = request.changeRate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyIndexOnlineStrategy",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/data-sources/${OpenApiUtil.getEncodeParam(dataSourceName)}/deploys/${OpenApiUtil.getEncodeParam(deployName)}/indexes/${OpenApiUtil.getEncodeParam(indexName)}/online-strategy`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyIndexOnlineStrategyResponse>(await this.callApi(params, req, runtime), new ModifyIndexOnlineStrategyResponse({}));
+  }
+
+  /**
+   * @summary 修改索引在线策略
+   *
+   * @param request ModifyIndexOnlineStrategyRequest
+   * @return ModifyIndexOnlineStrategyResponse
+   */
+  async modifyIndexOnlineStrategy(instanceId: string, dataSourceName: string, deployName: string, indexName: string, request: ModifyIndexOnlineStrategyRequest): Promise<ModifyIndexOnlineStrategyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyIndexOnlineStrategyWithOptions(instanceId, dataSourceName, deployName, indexName, request, headers, runtime);
   }
 
   /**
@@ -10917,6 +13782,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request ModifyPausePolicyRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPausePolicyResponse
+   */
+  async modifyPausePolicyWithOptions(instanceId: string, request: ModifyPausePolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyPausePolicyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["body"] = request.body;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyPausePolicy",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/pause-policies`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyPausePolicyResponse>(await this.callApi(params, req, runtime), new ModifyPausePolicyResponse({}));
+  }
+
+  /**
+   * @param request ModifyPausePolicyRequest
+   * @return ModifyPausePolicyResponse
+   */
+  async modifyPausePolicy(instanceId: string, request: ModifyPausePolicyRequest): Promise<ModifyPausePolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyPausePolicyWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 修改公网域名访问白名单
+   *
+   * @param request ModifyPublicUrlIpListRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPublicUrlIpListResponse
+   */
+  async modifyPublicUrlIpListWithOptions(instanceId: string, request: ModifyPublicUrlIpListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyPublicUrlIpListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["body"] = request.body;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyPublicUrlIpList",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/public-url-ip-list`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyPublicUrlIpListResponse>(await this.callApi(params, req, runtime), new ModifyPublicUrlIpListResponse({}));
+  }
+
+  /**
+   * @summary 修改公网域名访问白名单
+   *
+   * @param request ModifyPublicUrlIpListRequest
+   * @return ModifyPublicUrlIpListResponse
+   */
+  async modifyPublicUrlIpList(instanceId: string, request: ModifyPublicUrlIpListRequest): Promise<ModifyPublicUrlIpListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyPublicUrlIpListWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * @summary 修改索引V2
    *
    * @param request ModifyTableRequest
@@ -11111,6 +14062,48 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.publishIndexVersionWithOptions(instanceId, indexName, request, headers, runtime);
+  }
+
+  /**
+   * @param request PushDocumentsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushDocumentsResponse
+   */
+  async pushDocumentsWithOptions(instanceId: string, dataSourceName: string, request: PushDocumentsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PushDocumentsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pkField)) {
+      query["pkField"] = request.pkField;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "PushDocuments",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/data-sources/${OpenApiUtil.getEncodeParam(dataSourceName)}/actions/bulk`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PushDocumentsResponse>(await this.callApi(params, req, runtime), new PushDocumentsResponse({}));
+  }
+
+  /**
+   * @param request PushDocumentsRequest
+   * @return PushDocumentsResponse
+   */
+  async pushDocuments(instanceId: string, dataSourceName: string, request: PushDocumentsRequest): Promise<PushDocumentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.pushDocumentsWithOptions(instanceId, dataSourceName, request, headers, runtime);
   }
 
   /**
