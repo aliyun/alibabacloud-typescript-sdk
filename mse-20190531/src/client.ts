@@ -7016,6 +7016,99 @@ export class DeleteZnodeResponse extends $tea.Model {
   }
 }
 
+export class EnableProxyProtocolRequest extends $tea.Model {
+  acceptLanguage?: string;
+  enableProxyProtocol?: boolean;
+  gatewayUniqueId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      enableProxyProtocol: 'EnableProxyProtocol',
+      gatewayUniqueId: 'GatewayUniqueId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      enableProxyProtocol: 'boolean',
+      gatewayUniqueId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableProxyProtocolResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableProxyProtocolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableProxyProtocolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableProxyProtocolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportNacosConfigRequest extends $tea.Model {
   acceptLanguage?: string;
   appName?: string;
@@ -39142,6 +39235,56 @@ export default class Client extends OpenApi {
   async deleteZnode(request: DeleteZnodeRequest): Promise<DeleteZnodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteZnodeWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Proxy Protocol开关
+   *
+   * @param request EnableProxyProtocolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableProxyProtocolResponse
+   */
+  async enableProxyProtocolWithOptions(request: EnableProxyProtocolRequest, runtime: $Util.RuntimeOptions): Promise<EnableProxyProtocolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.enableProxyProtocol)) {
+      query["EnableProxyProtocol"] = request.enableProxyProtocol;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableProxyProtocol",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableProxyProtocolResponse>(await this.callApi(params, req, runtime), new EnableProxyProtocolResponse({}));
+  }
+
+  /**
+   * @summary Proxy Protocol开关
+   *
+   * @param request EnableProxyProtocolRequest
+   * @return EnableProxyProtocolResponse
+   */
+  async enableProxyProtocol(request: EnableProxyProtocolRequest): Promise<EnableProxyProtocolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableProxyProtocolWithOptions(request, runtime);
   }
 
   /**
