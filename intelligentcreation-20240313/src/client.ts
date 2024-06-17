@@ -323,7 +323,7 @@ export class TextTask extends $tea.Model {
   textModeType?: string;
   textTaskId?: number;
   textTaskStatus?: string;
-  texts?: Text;
+  texts?: Text[];
   theme?: string;
   themeDesc?: string;
   static names(): { [key: string]: string } {
@@ -368,7 +368,7 @@ export class TextTask extends $tea.Model {
       textModeType: 'string',
       textTaskId: 'number',
       textTaskStatus: 'string',
-      texts: Text,
+      texts: { 'type': 'array', 'itemType': Text },
       theme: 'string',
       themeDesc: 'string',
     };
