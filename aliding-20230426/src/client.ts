@@ -2440,6 +2440,150 @@ export class ClearDataResponse extends $tea.Model {
   }
 }
 
+export class CloseVideoConferenceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: CloseVideoConferenceHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: CloseVideoConferenceHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseVideoConferenceShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseVideoConferenceRequest extends $tea.Model {
+  tenantContext?: CloseVideoConferenceRequestTenantContext;
+  conferenceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+      conferenceId: 'conferenceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: CloseVideoConferenceRequestTenantContext,
+      conferenceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseVideoConferenceShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  conferenceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+      conferenceId: 'conferenceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+      conferenceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseVideoConferenceResponseBody extends $tea.Model {
+  cause?: string;
+  code?: number;
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cause: 'cause',
+      code: 'code',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cause: 'string',
+      code: 'number',
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseVideoConferenceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloseVideoConferenceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloseVideoConferenceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CommentListReportHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: CommentListReportHeadersAccountContext;
@@ -19794,6 +19938,318 @@ export class QueryMeetingRoomListResponse extends $tea.Model {
   }
 }
 
+export class QueryMinutesSummaryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: QueryMinutesSummaryHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: QueryMinutesSummaryHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryRequest extends $tea.Model {
+  tenantContext?: QueryMinutesSummaryRequestTenantContext;
+  conferenceId?: string;
+  summaryTypeList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+      conferenceId: 'conferenceId',
+      summaryTypeList: 'summaryTypeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: QueryMinutesSummaryRequestTenantContext,
+      conferenceId: 'string',
+      summaryTypeList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  conferenceId?: string;
+  summaryTypeListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+      conferenceId: 'conferenceId',
+      summaryTypeListShrink: 'summaryTypeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+      conferenceId: 'string',
+      summaryTypeListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryResponseBody extends $tea.Model {
+  requestId?: string;
+  summary?: QueryMinutesSummaryResponseBodySummary;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      summary: 'summary',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      summary: QueryMinutesSummaryResponseBodySummary,
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMinutesSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryMinutesSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: QueryMinutesTextHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: QueryMinutesTextHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextRequest extends $tea.Model {
+  tenantContext?: QueryMinutesTextRequestTenantContext;
+  conferenceId?: string;
+  direction?: string;
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+      conferenceId: 'conferenceId',
+      direction: 'direction',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: QueryMinutesTextRequestTenantContext,
+      conferenceId: 'string',
+      direction: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  conferenceId?: string;
+  direction?: string;
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+      conferenceId: 'conferenceId',
+      direction: 'direction',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+      conferenceId: 'string',
+      direction: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextResponseBody extends $tea.Model {
+  hasMore?: boolean;
+  nextToken?: string;
+  paragraphList?: QueryMinutesTextResponseBodyParagraphList[];
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hasMore: 'hasMore',
+      nextToken: 'nextToken',
+      paragraphList: 'paragraphList',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasMore: 'boolean',
+      nextToken: 'string',
+      paragraphList: { 'type': 'array', 'itemType': QueryMinutesTextResponseBodyParagraphList },
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMinutesTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryMinutesTextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryOrgHonorsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: QueryOrgHonorsHeadersAccountContext;
@@ -28307,6 +28763,44 @@ export class ClearDataHeadersAccountContext extends $tea.Model {
 }
 
 export class ClearDataRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseVideoConferenceHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseVideoConferenceRequestTenantContext extends $tea.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39201,6 +39695,364 @@ export class QueryMeetingRoomListResponseBodyResult extends $tea.Model {
   }
 }
 
+export class QueryMinutesSummaryHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryResponseBodySummaryActions extends $tea.Model {
+  end?: number;
+  id?: number;
+  sentenceId?: number;
+  start?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      id: 'Id',
+      sentenceId: 'SentenceId',
+      start: 'Start',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'number',
+      id: 'number',
+      sentenceId: 'number',
+      start: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryResponseBodySummaryAutoChapters extends $tea.Model {
+  end?: number;
+  headline?: string;
+  id?: number;
+  start?: number;
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      headline: 'Headline',
+      id: 'Id',
+      start: 'Start',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'number',
+      headline: 'string',
+      id: 'number',
+      start: 'number',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryResponseBodySummaryConversationalSummary extends $tea.Model {
+  speakerId?: string;
+  speakerName?: string;
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      speakerId: 'SpeakerId',
+      speakerName: 'SpeakerName',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      speakerId: 'string',
+      speakerName: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryResponseBodySummaryKeySentences extends $tea.Model {
+  end?: number;
+  id?: number;
+  sentenceId?: number;
+  start?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      id: 'Id',
+      sentenceId: 'SentenceId',
+      start: 'Start',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'number',
+      id: 'number',
+      sentenceId: 'number',
+      start: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary extends $tea.Model {
+  answer?: string;
+  question?: string;
+  sentenceIdsOfAnswer?: number[];
+  sentenceIdsOfQuestion?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'Answer',
+      question: 'Question',
+      sentenceIdsOfAnswer: 'SentenceIdsOfAnswer',
+      sentenceIdsOfQuestion: 'SentenceIdsOfQuestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+      question: 'string',
+      sentenceIdsOfAnswer: { 'type': 'array', 'itemType': 'number' },
+      sentenceIdsOfQuestion: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesSummaryResponseBodySummary extends $tea.Model {
+  actions?: QueryMinutesSummaryResponseBodySummaryActions;
+  autoChapters?: QueryMinutesSummaryResponseBodySummaryAutoChapters[];
+  conversationalSummary?: QueryMinutesSummaryResponseBodySummaryConversationalSummary[];
+  keySentences?: QueryMinutesSummaryResponseBodySummaryKeySentences;
+  keywords?: string[];
+  paragraphSummary?: string;
+  questionsAnsweringSummary?: QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary[];
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'Actions',
+      autoChapters: 'AutoChapters',
+      conversationalSummary: 'ConversationalSummary',
+      keySentences: 'KeySentences',
+      keywords: 'Keywords',
+      paragraphSummary: 'ParagraphSummary',
+      questionsAnsweringSummary: 'QuestionsAnsweringSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: QueryMinutesSummaryResponseBodySummaryActions,
+      autoChapters: { 'type': 'array', 'itemType': QueryMinutesSummaryResponseBodySummaryAutoChapters },
+      conversationalSummary: { 'type': 'array', 'itemType': QueryMinutesSummaryResponseBodySummaryConversationalSummary },
+      keySentences: QueryMinutesSummaryResponseBodySummaryKeySentences,
+      keywords: { 'type': 'array', 'itemType': 'string' },
+      paragraphSummary: 'string',
+      questionsAnsweringSummary: { 'type': 'array', 'itemType': QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextResponseBodyParagraphListSentenceListWordList extends $tea.Model {
+  endTime?: number;
+  startTime?: number;
+  word?: string;
+  wordId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      word: 'Word',
+      wordId: 'WordId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+      word: 'string',
+      wordId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextResponseBodyParagraphListSentenceList extends $tea.Model {
+  endTime?: number;
+  sentence?: string;
+  startTime?: number;
+  userId?: string;
+  wordList?: QueryMinutesTextResponseBodyParagraphListSentenceListWordList[];
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      sentence: 'Sentence',
+      startTime: 'StartTime',
+      userId: 'UserId',
+      wordList: 'WordList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      sentence: 'string',
+      startTime: 'number',
+      userId: 'string',
+      wordList: { 'type': 'array', 'itemType': QueryMinutesTextResponseBodyParagraphListSentenceListWordList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextResponseBodyParagraphList extends $tea.Model {
+  endTime?: number;
+  nickName?: string;
+  paragraph?: string;
+  paragraphId?: number;
+  recordId?: number;
+  sentenceList?: QueryMinutesTextResponseBodyParagraphListSentenceList[];
+  startTime?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      nickName: 'NickName',
+      paragraph: 'Paragraph',
+      paragraphId: 'ParagraphId',
+      recordId: 'RecordId',
+      sentenceList: 'SentenceList',
+      startTime: 'StartTime',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      nickName: 'string',
+      paragraph: 'string',
+      paragraphId: 'number',
+      recordId: 'number',
+      sentenceList: { 'type': 'array', 'itemType': QueryMinutesTextResponseBodyParagraphListSentenceList },
+      startTime: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryOrgHonorsHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -43198,6 +44050,76 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ClearDataHeaders({ });
     return await this.clearDataWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 关闭视频会议
+   *
+   * @param tmpReq CloseVideoConferenceRequest
+   * @param tmpHeader CloseVideoConferenceHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloseVideoConferenceResponse
+   */
+  async closeVideoConferenceWithOptions(tmpReq: CloseVideoConferenceRequest, tmpHeader: CloseVideoConferenceHeaders, runtime: $Util.RuntimeOptions): Promise<CloseVideoConferenceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CloseVideoConferenceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new CloseVideoConferenceShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CloseVideoConference",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/closeVideoConference`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CloseVideoConferenceResponse>(await this.callApi(params, req, runtime), new CloseVideoConferenceResponse({}));
+  }
+
+  /**
+   * @summary 关闭视频会议
+   *
+   * @param request CloseVideoConferenceRequest
+   * @return CloseVideoConferenceResponse
+   */
+  async closeVideoConference(request: CloseVideoConferenceRequest): Promise<CloseVideoConferenceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CloseVideoConferenceHeaders({ });
+    return await this.closeVideoConferenceWithOptions(request, headers, runtime);
   }
 
   /**
@@ -52602,6 +53524,166 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new QueryMeetingRoomListHeaders({ });
     return await this.queryMeetingRoomListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询会议闪记智能纪要
+   *
+   * @param tmpReq QueryMinutesSummaryRequest
+   * @param tmpHeader QueryMinutesSummaryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMinutesSummaryResponse
+   */
+  async queryMinutesSummaryWithOptions(tmpReq: QueryMinutesSummaryRequest, tmpHeader: QueryMinutesSummaryHeaders, runtime: $Util.RuntimeOptions): Promise<QueryMinutesSummaryResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryMinutesSummaryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new QueryMinutesSummaryShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.summaryTypeList)) {
+      request.summaryTypeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.summaryTypeList, "summaryTypeList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.summaryTypeListShrink)) {
+      body["summaryTypeList"] = request.summaryTypeListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryMinutesSummary",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/queryMinutesSummary`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMinutesSummaryResponse>(await this.callApi(params, req, runtime), new QueryMinutesSummaryResponse({}));
+  }
+
+  /**
+   * @summary 查询会议闪记智能纪要
+   *
+   * @param request QueryMinutesSummaryRequest
+   * @return QueryMinutesSummaryResponse
+   */
+  async queryMinutesSummary(request: QueryMinutesSummaryRequest): Promise<QueryMinutesSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryMinutesSummaryHeaders({ });
+    return await this.queryMinutesSummaryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询会议闪记的文本信息
+   *
+   * @param tmpReq QueryMinutesTextRequest
+   * @param tmpHeader QueryMinutesTextHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMinutesTextResponse
+   */
+  async queryMinutesTextWithOptions(tmpReq: QueryMinutesTextRequest, tmpHeader: QueryMinutesTextHeaders, runtime: $Util.RuntimeOptions): Promise<QueryMinutesTextResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryMinutesTextShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new QueryMinutesTextShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      body["direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["nextToken"] = request.nextToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryMinutesText",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/queryMinutesText`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMinutesTextResponse>(await this.callApi(params, req, runtime), new QueryMinutesTextResponse({}));
+  }
+
+  /**
+   * @summary 查询会议闪记的文本信息
+   *
+   * @param request QueryMinutesTextRequest
+   * @return QueryMinutesTextResponse
+   */
+  async queryMinutesText(request: QueryMinutesTextRequest): Promise<QueryMinutesTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryMinutesTextHeaders({ });
+    return await this.queryMinutesTextWithOptions(request, headers, runtime);
   }
 
   /**
