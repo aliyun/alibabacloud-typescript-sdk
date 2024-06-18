@@ -14773,27 +14773,39 @@ export class DescribeApplicationScalingRulesResponseBodyData extends $tea.Model 
 }
 
 export class DescribeApplicationSlbsResponseBodyDataInternet extends $tea.Model {
+  cookie?: string;
+  cookieTimeout?: number;
   httpsCaCertId?: string;
   httpsCertId?: string;
   port?: number;
   protocol?: string;
+  stickySession?: boolean;
+  stickySessionType?: string;
   targetPort?: number;
   static names(): { [key: string]: string } {
     return {
+      cookie: 'Cookie',
+      cookieTimeout: 'CookieTimeout',
       httpsCaCertId: 'HttpsCaCertId',
       httpsCertId: 'HttpsCertId',
       port: 'Port',
       protocol: 'Protocol',
+      stickySession: 'StickySession',
+      stickySessionType: 'StickySessionType',
       targetPort: 'TargetPort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cookie: 'string',
+      cookieTimeout: 'number',
       httpsCaCertId: 'string',
       httpsCertId: 'string',
       port: 'number',
       protocol: 'string',
+      stickySession: 'boolean',
+      stickySessionType: 'string',
       targetPort: 'number',
     };
   }
@@ -14804,27 +14816,39 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $tea.Model 
 }
 
 export class DescribeApplicationSlbsResponseBodyDataIntranet extends $tea.Model {
+  cookie?: string;
+  cookieTimeout?: number;
   httpsCaCertId?: string;
   httpsCertId?: string;
   port?: number;
   protocol?: string;
+  stickySession?: boolean;
+  stickySessionType?: string;
   targetPort?: number;
   static names(): { [key: string]: string } {
     return {
+      cookie: 'Cookie',
+      cookieTimeout: 'CookieTimeout',
       httpsCaCertId: 'HttpsCaCertId',
       httpsCertId: 'HttpsCertId',
       port: 'Port',
       protocol: 'Protocol',
+      stickySession: 'StickySession',
+      stickySessionType: 'StickySessionType',
       targetPort: 'TargetPort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cookie: 'string',
+      cookieTimeout: 'number',
       httpsCaCertId: 'string',
       httpsCertId: 'string',
       port: 'number',
       protocol: 'string',
+      stickySession: 'boolean',
+      stickySessionType: 'string',
       targetPort: 'number',
     };
   }
