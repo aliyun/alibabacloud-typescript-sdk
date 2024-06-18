@@ -39786,13 +39786,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   * @summary Creates an endpoint for an instance that runs RDS Cluster Edition.
    *
-   * @description ### Supported database engine
+   * @description ### [](#)Supported database engines
    * MySQL
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-   * [Add a read-only endpoint for a cluster](https://help.aliyun.com/document_detail/464132.html)
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Create a read-only endpoint for a cluster](https://help.aliyun.com/document_detail/464132.html)
    *
    * @param tmpReq CreateDBInstanceEndpointRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -39873,13 +39873,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   * @summary Creates an endpoint for an instance that runs RDS Cluster Edition.
    *
-   * @description ### Supported database engine
+   * @description ### [](#)Supported database engines
    * MySQL
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-   * [Add a read-only endpoint for a cluster](https://help.aliyun.com/document_detail/464132.html)
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * [Create a read-only endpoint for a cluster](https://help.aliyun.com/document_detail/464132.html)
    *
    * @param request CreateDBInstanceEndpointRequest
    * @return CreateDBInstanceEndpointResponse
@@ -39890,13 +39890,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a public endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   * @summary Creates a public endpoint for an instance that runs RDS Cluster Edition.
    *
-   * @description ### Supported database engine
+   * @description ### [](#)Supported database engine
    * MySQL
-   * ### Precautions
+   * ### [](#)Precautions
    * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
-   * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
+   * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Each type of endpoint can contain an internal endpoint and a public endpoint.
    *
    * @param request CreateDBInstanceEndpointAddressRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -39955,13 +39955,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a public endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   * @summary Creates a public endpoint for an instance that runs RDS Cluster Edition.
    *
-   * @description ### Supported database engine
+   * @description ### [](#)Supported database engine
    * MySQL
-   * ### Precautions
+   * ### [](#)Precautions
    * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
-   * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
+   * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Each type of endpoint can contain an internal endpoint and a public endpoint.
    *
    * @param request CreateDBInstanceEndpointAddressRequest
    * @return CreateDBInstanceEndpointAddressResponse
@@ -40404,14 +40404,14 @@ export default class Client extends OpenApi {
   /**
    * @summary Restores data to a new instance across regions.
    *
-   * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
+   * @description >  Before restoration, you can call the CheckCreateDdrDBInstance operation to check whether a cross-region backup set can be used for cross-region restoration.
    * ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
    * *   SQL Server
    * ### [](#)References
-   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
    *
@@ -40562,14 +40562,14 @@ export default class Client extends OpenApi {
   /**
    * @summary Restores data to a new instance across regions.
    *
-   * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
+   * @description >  Before restoration, you can call the CheckCreateDdrDBInstance operation to check whether a cross-region backup set can be used for cross-region restoration.
    * ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
    * *   SQL Server
    * ### [](#)References
-   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
    *
@@ -42302,12 +42302,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   * @summary Deletes an endpoint for an instance that runs RDS Cluster Edition.
    *
-   * @description ### Supported database engine
+   * @description ### [](#)Supported database engines
    * MySQL
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
    * [Delete the read-only endpoint of an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464133.html)
    *
    * @param request DeleteDBInstanceEndpointRequest
@@ -42351,12 +42351,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   * @summary Deletes an endpoint for an instance that runs RDS Cluster Edition.
    *
-   * @description ### Supported database engine
+   * @description ### [](#)Supported database engines
    * MySQL
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * ### [](#)References
+   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
    * [Delete the read-only endpoint of an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464133.html)
    *
    * @param request DeleteDBInstanceEndpointRequest
@@ -42368,12 +42368,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Releases the public endpoint of an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL cluster instance that runs RDS Cluster Edition.
+   * @summary Releases the public endpoint of an instance that runs RDS Cluster Edition.
    *
-   * @description ### Supported database engine
+   * @description ### [](#)Supported database engines
    * MySQL
-   * ### Precautions
-   * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
+   * ### [](#)Precautions
+   * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can directly delete the type of endpoint.
    *
    * @param request DeleteDBInstanceEndpointAddressRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -42422,12 +42422,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Releases the public endpoint of an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL cluster instance that runs RDS Cluster Edition.
+   * @summary Releases the public endpoint of an instance that runs RDS Cluster Edition.
    *
-   * @description ### Supported database engine
+   * @description ### [](#)Supported database engines
    * MySQL
-   * ### Precautions
-   * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
+   * ### [](#)Precautions
+   * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can directly delete the type of endpoint.
    *
    * @param request DeleteDBInstanceEndpointAddressRequest
    * @return DeleteDBInstanceEndpointAddressResponse
@@ -42438,13 +42438,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   * @summary Deletes a node from an instance that runs RDS Cluster Edition.
    *
-   * @description ### Supported database engine
-   * MySQL
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Delete a node from an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464130.html)
    *
    * @param tmpReq DeleteDBNodesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -42509,13 +42510,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   * @summary Deletes a node from an instance that runs RDS Cluster Edition.
    *
-   * @description ### Supported database engine
-   * MySQL
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+   * @description ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * ### [](#)References
+   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Delete a node from an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464130.html)
    *
    * @param request DeleteDBNodesRequest
    * @return DeleteDBNodesResponse
@@ -45864,10 +45866,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the endpoints of an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   * @summary Queries the information about the endpoints of an instance that runs RDS Cluster Edition.
    *
-   * @description ### [](#)Supported database engines
-   * RDS MySQL
+   * @description ### [](#)Supported database engine
+   * MySQL
    *
    * @param request DescribeDBInstanceEndpointsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -45910,10 +45912,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the endpoints of an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   * @summary Queries the information about the endpoints of an instance that runs RDS Cluster Edition.
    *
-   * @description ### [](#)Supported database engines
-   * RDS MySQL
+   * @description ### [](#)Supported database engine
+   * MySQL
    *
    * @param request DescribeDBInstanceEndpointsRequest
    * @return DescribeDBInstanceEndpointsResponse
@@ -52806,7 +52808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of vSwitches that are available in a virtual private cloud (VPC).
+   * @summary Queries the details of VSwitch that are available in a virtual private cloud (VPC).
    *
    * @description ### Supported database engines
    * *   MySQL
@@ -52887,7 +52889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of vSwitches that are available in a virtual private cloud (VPC).
+   * @summary Queries the details of VSwitch that are available in a virtual private cloud (VPC).
    *
    * @description ### Supported database engines
    * *   MySQL
@@ -55728,10 +55730,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the weight of an endpoint for an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   * @summary Modifies the weight of an endpoint for an instance that runs RDS Cluster Edition.
    *
-   * @description ### [](#)Supported database engines
-   * RDS MySQL
+   * @description ### [](#)Supported database engine
+   * MySQL
    *
    * @param tmpReq ModifyDBInstanceEndpointRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -55788,10 +55790,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the weight of an endpoint for an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+   * @summary Modifies the weight of an endpoint for an instance that runs RDS Cluster Edition.
    *
-   * @description ### [](#)Supported database engines
-   * RDS MySQL
+   * @description ### [](#)Supported database engine
+   * MySQL
    *
    * @param request ModifyDBInstanceEndpointRequest
    * @return ModifyDBInstanceEndpointResponse
@@ -55802,7 +55804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information about the endpoint of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   * @summary Modifies the information about the endpoint of an instance that runs RDS Cluster Edition.
    *
    * @description ### [](#)Supported database engines
    * MySQL
@@ -55875,7 +55877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information about the endpoint of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   * @summary Modifies the information about the endpoint of an instance that runs RDS Cluster Edition.
    *
    * @description ### [](#)Supported database engines
    * MySQL
@@ -57660,8 +57662,11 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies the property settings of an ApsaraDB RDS for SQL Server instance.
    *
-   * @description ### [](#)Supported database engine
+   * @description ### [](#)Supported database engines
    * *   SQL Server
+   * ### [](#)References
+   * You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+   * > : Before you call this operation, read the preceding topics and make sure that you fully understand the prerequisites and impacts of this operation.
    *
    * @param request ModifyDatabaseConfigRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -57722,8 +57727,11 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies the property settings of an ApsaraDB RDS for SQL Server instance.
    *
-   * @description ### [](#)Supported database engine
+   * @description ### [](#)Supported database engines
    * *   SQL Server
+   * ### [](#)References
+   * You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+   * > : Before you call this operation, read the preceding topics and make sure that you fully understand the prerequisites and impacts of this operation.
    *
    * @param request ModifyDatabaseConfigRequest
    * @return ModifyDatabaseConfigResponse
@@ -58866,12 +58874,13 @@ export default class Client extends OpenApi {
   /**
    * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance.
    *
-   * @description ### Supported database engines
+   * @description ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
    * *   SQL Server
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * >  If DAS Enterprise Edition is supported in the region in which the instance resides, the most recent version of DAS Enterprise Edition is enabled when you call the operation to enable the SQL Audit feature for the instance. For more information about the database engines and regions supported by each version of DAS Enterprise Edition, see [Supported databases and regions](https://help.aliyun.com/document_detail/156204.html).
+   * ### [](#)References
+   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
    * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/476574.html)
    * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96766.html)
    * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95712.html)
@@ -58931,12 +58940,13 @@ export default class Client extends OpenApi {
   /**
    * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance.
    *
-   * @description ### Supported database engines
+   * @description ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
    * *   SQL Server
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * >  If DAS Enterprise Edition is supported in the region in which the instance resides, the most recent version of DAS Enterprise Edition is enabled when you call the operation to enable the SQL Audit feature for the instance. For more information about the database engines and regions supported by each version of DAS Enterprise Edition, see [Supported databases and regions](https://help.aliyun.com/document_detail/156204.html).
+   * ### [](#)References
+   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
    * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/476574.html)
    * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96766.html)
    * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95712.html)
