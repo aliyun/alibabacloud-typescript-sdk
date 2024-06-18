@@ -431,6 +431,7 @@ export class CreatePrivateAccessPolicyRequest extends $tea.Model {
   applicationType?: string;
   customUserAttributes?: CreatePrivateAccessPolicyRequestCustomUserAttributes[];
   description?: string;
+  deviceAttributeAction?: string;
   deviceAttributeId?: string;
   name?: string;
   policyAction?: string;
@@ -445,6 +446,7 @@ export class CreatePrivateAccessPolicyRequest extends $tea.Model {
       applicationType: 'ApplicationType',
       customUserAttributes: 'CustomUserAttributes',
       description: 'Description',
+      deviceAttributeAction: 'DeviceAttributeAction',
       deviceAttributeId: 'DeviceAttributeId',
       name: 'Name',
       policyAction: 'PolicyAction',
@@ -462,6 +464,7 @@ export class CreatePrivateAccessPolicyRequest extends $tea.Model {
       applicationType: 'string',
       customUserAttributes: { 'type': 'array', 'itemType': CreatePrivateAccessPolicyRequestCustomUserAttributes },
       description: 'string',
+      deviceAttributeAction: 'string',
       deviceAttributeId: 'string',
       name: 'string',
       policyAction: 'string',
@@ -4940,6 +4943,7 @@ export class UpdatePrivateAccessPolicyRequest extends $tea.Model {
   applicationType?: string;
   customUserAttributes?: UpdatePrivateAccessPolicyRequestCustomUserAttributes[];
   description?: string;
+  deviceAttributeAction?: string;
   deviceAttributeId?: string;
   modifyType?: string;
   policyAction?: string;
@@ -4955,6 +4959,7 @@ export class UpdatePrivateAccessPolicyRequest extends $tea.Model {
       applicationType: 'ApplicationType',
       customUserAttributes: 'CustomUserAttributes',
       description: 'Description',
+      deviceAttributeAction: 'DeviceAttributeAction',
       deviceAttributeId: 'DeviceAttributeId',
       modifyType: 'ModifyType',
       policyAction: 'PolicyAction',
@@ -4973,6 +4978,7 @@ export class UpdatePrivateAccessPolicyRequest extends $tea.Model {
       applicationType: 'string',
       customUserAttributes: { 'type': 'array', 'itemType': UpdatePrivateAccessPolicyRequestCustomUserAttributes },
       description: 'string',
+      deviceAttributeAction: 'string',
       deviceAttributeId: 'string',
       modifyType: 'string',
       policyAction: 'string',
@@ -6008,6 +6014,7 @@ export class GetPrivateAccessPolicyResponseBodyPolicy extends $tea.Model {
   createTime?: string;
   customUserAttributes?: GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes[];
   description?: string;
+  deviceAttributeAction?: string;
   deviceAttributeId?: string;
   name?: string;
   policyAction?: string;
@@ -6024,6 +6031,7 @@ export class GetPrivateAccessPolicyResponseBodyPolicy extends $tea.Model {
       createTime: 'CreateTime',
       customUserAttributes: 'CustomUserAttributes',
       description: 'Description',
+      deviceAttributeAction: 'DeviceAttributeAction',
       deviceAttributeId: 'DeviceAttributeId',
       name: 'Name',
       policyAction: 'PolicyAction',
@@ -6043,6 +6051,7 @@ export class GetPrivateAccessPolicyResponseBodyPolicy extends $tea.Model {
       createTime: 'string',
       customUserAttributes: { 'type': 'array', 'itemType': GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes },
       description: 'string',
+      deviceAttributeAction: 'string',
       deviceAttributeId: 'string',
       name: 'string',
       policyAction: 'string',
@@ -7352,6 +7361,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $tea.Model {
   createTime?: string;
   customUserAttributes?: ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes[];
   description?: string;
+  deviceAttributeAction?: string;
   deviceAttributeId?: string;
   name?: string;
   policyAction?: string;
@@ -7368,6 +7378,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $tea.Model {
       createTime: 'CreateTime',
       customUserAttributes: 'CustomUserAttributes',
       description: 'Description',
+      deviceAttributeAction: 'DeviceAttributeAction',
       deviceAttributeId: 'DeviceAttributeId',
       name: 'Name',
       policyAction: 'PolicyAction',
@@ -7387,6 +7398,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $tea.Model {
       createTime: 'string',
       customUserAttributes: { 'type': 'array', 'itemType': ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes },
       description: 'string',
+      deviceAttributeAction: 'string',
       deviceAttributeId: 'string',
       name: 'string',
       policyAction: 'string',
@@ -9012,6 +9024,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.deviceAttributeAction)) {
+      body["DeviceAttributeAction"] = request.deviceAttributeAction;
     }
 
     if (!Util.isUnset(request.deviceAttributeId)) {
@@ -11711,6 +11727,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.deviceAttributeAction)) {
+      body["DeviceAttributeAction"] = request.deviceAttributeAction;
     }
 
     if (!Util.isUnset(request.deviceAttributeId)) {
