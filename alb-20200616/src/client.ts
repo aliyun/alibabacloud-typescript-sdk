@@ -3174,6 +3174,7 @@ export class GetLoadBalancerAttributeResponseBody extends $tea.Model {
   regionId?: string;
   requestId?: string;
   resourceGroupId?: string;
+  securityGroupIds?: string[];
   tags?: GetLoadBalancerAttributeResponseBodyTags[];
   vpcId?: string;
   zoneMappings?: GetLoadBalancerAttributeResponseBodyZoneMappings[];
@@ -3199,6 +3200,7 @@ export class GetLoadBalancerAttributeResponseBody extends $tea.Model {
       regionId: 'RegionId',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
+      securityGroupIds: 'SecurityGroupIds',
       tags: 'Tags',
       vpcId: 'VpcId',
       zoneMappings: 'ZoneMappings',
@@ -3227,6 +3229,7 @@ export class GetLoadBalancerAttributeResponseBody extends $tea.Model {
       regionId: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': GetLoadBalancerAttributeResponseBodyTags },
       vpcId: 'string',
       zoneMappings: { 'type': 'array', 'itemType': GetLoadBalancerAttributeResponseBodyZoneMappings },
@@ -4793,6 +4796,156 @@ export class ListTagValuesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagValuesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LoadBalancerJoinSecurityGroupRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  loadBalancerId?: string;
+  securityGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      loadBalancerId: 'LoadBalancerId',
+      securityGroupIds: 'SecurityGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      loadBalancerId: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LoadBalancerJoinSecurityGroupResponseBody extends $tea.Model {
+  jobId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LoadBalancerJoinSecurityGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LoadBalancerJoinSecurityGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LoadBalancerJoinSecurityGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LoadBalancerLeaveSecurityGroupRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  loadBalancerId?: string;
+  securityGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      loadBalancerId: 'LoadBalancerId',
+      securityGroupIds: 'SecurityGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      loadBalancerId: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LoadBalancerLeaveSecurityGroupResponseBody extends $tea.Model {
+  jobId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LoadBalancerLeaveSecurityGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LoadBalancerLeaveSecurityGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LoadBalancerLeaveSecurityGroupResponseBody,
     };
   }
 
@@ -17236,6 +17389,114 @@ export default class Client extends OpenApi {
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 创建访问控制信息
+   *
+   * @param request LoadBalancerJoinSecurityGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LoadBalancerJoinSecurityGroupResponse
+   */
+  async loadBalancerJoinSecurityGroupWithOptions(request: LoadBalancerJoinSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<LoadBalancerJoinSecurityGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.securityGroupIds)) {
+      query["SecurityGroupIds"] = request.securityGroupIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "LoadBalancerJoinSecurityGroup",
+      version: "2020-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LoadBalancerJoinSecurityGroupResponse>(await this.callApi(params, req, runtime), new LoadBalancerJoinSecurityGroupResponse({}));
+  }
+
+  /**
+   * @summary 创建访问控制信息
+   *
+   * @param request LoadBalancerJoinSecurityGroupRequest
+   * @return LoadBalancerJoinSecurityGroupResponse
+   */
+  async loadBalancerJoinSecurityGroup(request: LoadBalancerJoinSecurityGroupRequest): Promise<LoadBalancerJoinSecurityGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.loadBalancerJoinSecurityGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 创建访问控制信息
+   *
+   * @param request LoadBalancerLeaveSecurityGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LoadBalancerLeaveSecurityGroupResponse
+   */
+  async loadBalancerLeaveSecurityGroupWithOptions(request: LoadBalancerLeaveSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<LoadBalancerLeaveSecurityGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.securityGroupIds)) {
+      query["SecurityGroupIds"] = request.securityGroupIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "LoadBalancerLeaveSecurityGroup",
+      version: "2020-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LoadBalancerLeaveSecurityGroupResponse>(await this.callApi(params, req, runtime), new LoadBalancerLeaveSecurityGroupResponse({}));
+  }
+
+  /**
+   * @summary 创建访问控制信息
+   *
+   * @param request LoadBalancerLeaveSecurityGroupRequest
+   * @return LoadBalancerLeaveSecurityGroupResponse
+   */
+  async loadBalancerLeaveSecurityGroup(request: LoadBalancerLeaveSecurityGroupRequest): Promise<LoadBalancerLeaveSecurityGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.loadBalancerLeaveSecurityGroupWithOptions(request, runtime);
   }
 
   /**
