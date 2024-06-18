@@ -1018,22 +1018,28 @@ export class QueryAuctionDetailResponse extends $tea.Model {
 }
 
 export class QueryAuctionsRequest extends $tea.Model {
+  auctionEndTimeOrder?: string;
   currentPage?: number;
   pageSize?: number;
   status?: string;
+  statuses?: string;
   static names(): { [key: string]: string } {
     return {
+      auctionEndTimeOrder: 'AuctionEndTimeOrder',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
       status: 'Status',
+      statuses: 'Statuses',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      auctionEndTimeOrder: 'string',
       currentPage: 'number',
       pageSize: 'number',
       status: 'string',
+      statuses: 'string',
     };
   }
 
@@ -2550,6 +2556,7 @@ export class QueryBrokerDemandResponseBodyData extends $tea.Model {
   publishTime?: number;
   purchaseStatus?: number;
   servicePayPrice?: number;
+  settleBasePrice?: number;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2571,6 +2578,7 @@ export class QueryBrokerDemandResponseBodyData extends $tea.Model {
       publishTime: 'PublishTime',
       purchaseStatus: 'PurchaseStatus',
       servicePayPrice: 'ServicePayPrice',
+      settleBasePrice: 'SettleBasePrice',
       status: 'Status',
     };
   }
@@ -2595,6 +2603,7 @@ export class QueryBrokerDemandResponseBodyData extends $tea.Model {
       publishTime: 'number',
       purchaseStatus: 'number',
       servicePayPrice: 'number',
+      settleBasePrice: 'number',
       status: 'string',
     };
   }
@@ -2746,6 +2755,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AcceptDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AcceptDemandResponse
+   */
   async acceptDemandWithOptions(request: AcceptDemandRequest, runtime: $Util.RuntimeOptions): Promise<AcceptDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2774,11 +2788,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AcceptDemandResponse>(await this.callApi(params, req, runtime), new AcceptDemandResponse({}));
   }
 
+  /**
+   * @param request AcceptDemandRequest
+   * @return AcceptDemandResponse
+   */
   async acceptDemand(request: AcceptDemandRequest): Promise<AcceptDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.acceptDemandWithOptions(request, runtime);
   }
 
+  /**
+   * @param request BidDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BidDomainResponse
+   */
   async bidDomainWithOptions(request: BidDomainRequest, runtime: $Util.RuntimeOptions): Promise<BidDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2811,11 +2834,20 @@ export default class Client extends OpenApi {
     return $tea.cast<BidDomainResponse>(await this.callApi(params, req, runtime), new BidDomainResponse({}));
   }
 
+  /**
+   * @param request BidDomainRequest
+   * @return BidDomainResponse
+   */
   async bidDomain(request: BidDomainRequest): Promise<BidDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bidDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ChangeAuctionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeAuctionResponse
+   */
   async changeAuctionWithOptions(request: ChangeAuctionRequest, runtime: $Util.RuntimeOptions): Promise<ChangeAuctionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2840,11 +2872,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeAuctionResponse>(await this.callApi(params, req, runtime), new ChangeAuctionResponse({}));
   }
 
+  /**
+   * @param request ChangeAuctionRequest
+   * @return ChangeAuctionResponse
+   */
   async changeAuction(request: ChangeAuctionRequest): Promise<ChangeAuctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeAuctionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 校验域名在售状态
+   *
+   * @param request CheckDomainStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckDomainStatusResponse
+   */
   async checkDomainStatusWithOptions(request: CheckDomainStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainStatusResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -2865,11 +2908,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckDomainStatusResponse>(await this.callApi(params, req, runtime), new CheckDomainStatusResponse({}));
   }
 
+  /**
+   * @summary 校验域名在售状态
+   *
+   * @param request CheckDomainStatusRequest
+   * @return CheckDomainStatusResponse
+   */
   async checkDomainStatus(request: CheckDomainStatusRequest): Promise<CheckDomainStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkDomainStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 一口价严选询价接口
+   *
+   * @param request CheckSelectedDomainStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckSelectedDomainStatusResponse
+   */
   async checkSelectedDomainStatusWithOptions(request: CheckSelectedDomainStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckSelectedDomainStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2894,11 +2950,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckSelectedDomainStatusResponse>(await this.callApi(params, req, runtime), new CheckSelectedDomainStatusResponse({}));
   }
 
+  /**
+   * @summary 一口价严选询价接口
+   *
+   * @param request CheckSelectedDomainStatusRequest
+   * @return CheckSelectedDomainStatusResponse
+   */
   async checkSelectedDomainStatus(request: CheckSelectedDomainStatusRequest): Promise<CheckSelectedDomainStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkSelectedDomainStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建一口价需求单
+   *
+   * @param request CreateFixedPriceDemandOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFixedPriceDemandOrderResponse
+   */
   async createFixedPriceDemandOrderWithOptions(request: CreateFixedPriceDemandOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFixedPriceDemandOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2935,11 +3004,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFixedPriceDemandOrderResponse>(await this.callApi(params, req, runtime), new CreateFixedPriceDemandOrderResponse({}));
   }
 
+  /**
+   * @summary 创建一口价需求单
+   *
+   * @param request CreateFixedPriceDemandOrderRequest
+   * @return CreateFixedPriceDemandOrderResponse
+   */
   async createFixedPriceDemandOrder(request: CreateFixedPriceDemandOrderRequest): Promise<CreateFixedPriceDemandOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFixedPriceDemandOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 一口价严选下单购买接口，阿里云账户余额直接扣费
+   *
+   * @param request CreateFixedPriceSelectedOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFixedPriceSelectedOrderResponse
+   */
   async createFixedPriceSelectedOrderWithOptions(request: CreateFixedPriceSelectedOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFixedPriceSelectedOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2980,11 +3062,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFixedPriceSelectedOrderResponse>(await this.callApi(params, req, runtime), new CreateFixedPriceSelectedOrderResponse({}));
   }
 
+  /**
+   * @summary 一口价严选下单购买接口，阿里云账户余额直接扣费
+   *
+   * @param request CreateFixedPriceSelectedOrderRequest
+   * @return CreateFixedPriceSelectedOrderResponse
+   */
   async createFixedPriceSelectedOrder(request: CreateFixedPriceSelectedOrderRequest): Promise<CreateFixedPriceSelectedOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFixedPriceSelectedOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @param request FailDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FailDemandResponse
+   */
   async failDemandWithOptions(request: FailDemandRequest, runtime: $Util.RuntimeOptions): Promise<FailDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3013,11 +3106,20 @@ export default class Client extends OpenApi {
     return $tea.cast<FailDemandResponse>(await this.callApi(params, req, runtime), new FailDemandResponse({}));
   }
 
+  /**
+   * @param request FailDemandRequest
+   * @return FailDemandResponse
+   */
   async failDemand(request: FailDemandRequest): Promise<FailDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.failDemandWithOptions(request, runtime);
   }
 
+  /**
+   * @param request FinishDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FinishDemandResponse
+   */
   async finishDemandWithOptions(request: FinishDemandRequest, runtime: $Util.RuntimeOptions): Promise<FinishDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3046,11 +3148,20 @@ export default class Client extends OpenApi {
     return $tea.cast<FinishDemandResponse>(await this.callApi(params, req, runtime), new FinishDemandResponse({}));
   }
 
+  /**
+   * @param request FinishDemandRequest
+   * @return FinishDemandResponse
+   */
   async finishDemand(request: FinishDemandRequest): Promise<FinishDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.finishDemandWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetIntlDomainDownloadUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIntlDomainDownloadUrlResponse
+   */
   async getIntlDomainDownloadUrlWithOptions(runtime: $Util.RuntimeOptions): Promise<GetIntlDomainDownloadUrlResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -3067,11 +3178,19 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIntlDomainDownloadUrlResponse>(await this.callApi(params, req, runtime), new GetIntlDomainDownloadUrlResponse({}));
   }
 
+  /**
+   * @return GetIntlDomainDownloadUrlResponse
+   */
   async getIntlDomainDownloadUrl(): Promise<GetIntlDomainDownloadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getIntlDomainDownloadUrlWithOptions(runtime);
   }
 
+  /**
+   * @param request GetReserveDomainUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetReserveDomainUrlResponse
+   */
   async getReserveDomainUrlWithOptions(runtime: $Util.RuntimeOptions): Promise<GetReserveDomainUrlResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -3088,11 +3207,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetReserveDomainUrlResponse>(await this.callApi(params, req, runtime), new GetReserveDomainUrlResponse({}));
   }
 
+  /**
+   * @return GetReserveDomainUrlResponse
+   */
   async getReserveDomainUrl(): Promise<GetReserveDomainUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getReserveDomainUrlWithOptions(runtime);
   }
 
+  /**
+   * @summary 购买国际站预释放域名
+   *
+   * @param request PurchaseIntlDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PurchaseIntlDomainResponse
+   */
   async purchaseIntlDomainWithOptions(request: PurchaseIntlDomainRequest, runtime: $Util.RuntimeOptions): Promise<PurchaseIntlDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3125,11 +3254,22 @@ export default class Client extends OpenApi {
     return $tea.cast<PurchaseIntlDomainResponse>(await this.callApi(params, req, runtime), new PurchaseIntlDomainResponse({}));
   }
 
+  /**
+   * @summary 购买国际站预释放域名
+   *
+   * @param request PurchaseIntlDomainRequest
+   * @return PurchaseIntlDomainResponse
+   */
   async purchaseIntlDomain(request: PurchaseIntlDomainRequest): Promise<PurchaseIntlDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.purchaseIntlDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryAuctionDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryAuctionDetailResponse
+   */
   async queryAuctionDetailWithOptions(request: QueryAuctionDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryAuctionDetailResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3154,14 +3294,27 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryAuctionDetailResponse>(await this.callApi(params, req, runtime), new QueryAuctionDetailResponse({}));
   }
 
+  /**
+   * @param request QueryAuctionDetailRequest
+   * @return QueryAuctionDetailResponse
+   */
   async queryAuctionDetail(request: QueryAuctionDetailRequest): Promise<QueryAuctionDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAuctionDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryAuctionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryAuctionsResponse
+   */
   async queryAuctionsWithOptions(request: QueryAuctionsRequest, runtime: $Util.RuntimeOptions): Promise<QueryAuctionsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.auctionEndTimeOrder)) {
+      body["AuctionEndTimeOrder"] = request.auctionEndTimeOrder;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       body["CurrentPage"] = request.currentPage;
     }
@@ -3172,6 +3325,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.statuses)) {
+      body["Statuses"] = request.statuses;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3191,11 +3348,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryAuctionsResponse>(await this.callApi(params, req, runtime), new QueryAuctionsResponse({}));
   }
 
+  /**
+   * @param request QueryAuctionsRequest
+   * @return QueryAuctionsResponse
+   */
   async queryAuctions(request: QueryAuctionsRequest): Promise<QueryAuctionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAuctionsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryBidRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryBidRecordsResponse
+   */
   async queryBidRecordsWithOptions(request: QueryBidRecordsRequest, runtime: $Util.RuntimeOptions): Promise<QueryBidRecordsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3228,11 +3394,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryBidRecordsResponse>(await this.callApi(params, req, runtime), new QueryBidRecordsResponse({}));
   }
 
+  /**
+   * @param request QueryBidRecordsRequest
+   * @return QueryBidRecordsResponse
+   */
   async queryBidRecords(request: QueryBidRecordsRequest): Promise<QueryBidRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryBidRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryBookingDomainInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryBookingDomainInfoResponse
+   */
   async queryBookingDomainInfoWithOptions(request: QueryBookingDomainInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryBookingDomainInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3257,11 +3432,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryBookingDomainInfoResponse>(await this.callApi(params, req, runtime), new QueryBookingDomainInfoResponse({}));
   }
 
+  /**
+   * @param request QueryBookingDomainInfoRequest
+   * @return QueryBookingDomainInfoResponse
+   */
   async queryBookingDomainInfo(request: QueryBookingDomainInfoRequest): Promise<QueryBookingDomainInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryBookingDomainInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询回购订单列表
+   *
+   * @param request QueryBrokerDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryBrokerDemandResponse
+   */
   async queryBrokerDemandWithOptions(request: QueryBrokerDemandRequest, runtime: $Util.RuntimeOptions): Promise<QueryBrokerDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3298,11 +3484,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryBrokerDemandResponse>(await this.callApi(params, req, runtime), new QueryBrokerDemandResponse({}));
   }
 
+  /**
+   * @summary 查询回购订单列表
+   *
+   * @param request QueryBrokerDemandRequest
+   * @return QueryBrokerDemandResponse
+   */
   async queryBrokerDemand(request: QueryBrokerDemandRequest): Promise<QueryBrokerDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryBrokerDemandWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryBrokerDemandRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryBrokerDemandRecordResponse
+   */
   async queryBrokerDemandRecordWithOptions(request: QueryBrokerDemandRecordRequest, runtime: $Util.RuntimeOptions): Promise<QueryBrokerDemandRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3335,11 +3532,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryBrokerDemandRecordResponse>(await this.callApi(params, req, runtime), new QueryBrokerDemandRecordResponse({}));
   }
 
+  /**
+   * @param request QueryBrokerDemandRecordRequest
+   * @return QueryBrokerDemandRecordResponse
+   */
   async queryBrokerDemandRecord(request: QueryBrokerDemandRecordRequest): Promise<QueryBrokerDemandRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryBrokerDemandRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDomainTransferStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDomainTransferStatusResponse
+   */
   async queryDomainTransferStatusWithOptions(request: QueryDomainTransferStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainTransferStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3364,11 +3570,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDomainTransferStatusResponse>(await this.callApi(params, req, runtime), new QueryDomainTransferStatusResponse({}));
   }
 
+  /**
+   * @param request QueryDomainTransferStatusRequest
+   * @return QueryDomainTransferStatusResponse
+   */
   async queryDomainTransferStatus(request: QueryDomainTransferStatusRequest): Promise<QueryDomainTransferStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDomainTransferStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryPurchasedDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPurchasedDomainsResponse
+   */
   async queryPurchasedDomainsWithOptions(request: QueryPurchasedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<QueryPurchasedDomainsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3425,11 +3640,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPurchasedDomainsResponse>(await this.callApi(params, req, runtime), new QueryPurchasedDomainsResponse({}));
   }
 
+  /**
+   * @param request QueryPurchasedDomainsRequest
+   * @return QueryPurchasedDomainsResponse
+   */
   async queryPurchasedDomains(request: QueryPurchasedDomainsRequest): Promise<QueryPurchasedDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPurchasedDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RecordDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecordDemandResponse
+   */
   async recordDemandWithOptions(request: RecordDemandRequest, runtime: $Util.RuntimeOptions): Promise<RecordDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3458,11 +3682,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RecordDemandResponse>(await this.callApi(params, req, runtime), new RecordDemandResponse({}));
   }
 
+  /**
+   * @param request RecordDemandRequest
+   * @return RecordDemandResponse
+   */
   async recordDemand(request: RecordDemandRequest): Promise<RecordDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recordDemandWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RefuseDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RefuseDemandResponse
+   */
   async refuseDemandWithOptions(request: RefuseDemandRequest, runtime: $Util.RuntimeOptions): Promise<RefuseDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3491,11 +3724,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RefuseDemandResponse>(await this.callApi(params, req, runtime), new RefuseDemandResponse({}));
   }
 
+  /**
+   * @param request RefuseDemandRequest
+   * @return RefuseDemandResponse
+   */
   async refuseDemand(request: RefuseDemandRequest): Promise<RefuseDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refuseDemandWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RequestPayDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RequestPayDemandResponse
+   */
   async requestPayDemandWithOptions(request: RequestPayDemandRequest, runtime: $Util.RuntimeOptions): Promise<RequestPayDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3536,11 +3778,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RequestPayDemandResponse>(await this.callApi(params, req, runtime), new RequestPayDemandResponse({}));
   }
 
+  /**
+   * @param request RequestPayDemandRequest
+   * @return RequestPayDemandResponse
+   */
   async requestPayDemand(request: RequestPayDemandRequest): Promise<RequestPayDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.requestPayDemandWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ReserveDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReserveDomainResponse
+   */
   async reserveDomainWithOptions(request: ReserveDomainRequest, runtime: $Util.RuntimeOptions): Promise<ReserveDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3569,11 +3820,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ReserveDomainResponse>(await this.callApi(params, req, runtime), new ReserveDomainResponse({}));
   }
 
+  /**
+   * @param request ReserveDomainRequest
+   * @return ReserveDomainResponse
+   */
   async reserveDomain(request: ReserveDomainRequest): Promise<ReserveDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reserveDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ReserveIntlDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReserveIntlDomainResponse
+   */
   async reserveIntlDomainWithOptions(request: ReserveIntlDomainRequest, runtime: $Util.RuntimeOptions): Promise<ReserveIntlDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3598,11 +3858,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ReserveIntlDomainResponse>(await this.callApi(params, req, runtime), new ReserveIntlDomainResponse({}));
   }
 
+  /**
+   * @param request ReserveIntlDomainRequest
+   * @return ReserveIntlDomainResponse
+   */
   async reserveIntlDomain(request: ReserveIntlDomainRequest): Promise<ReserveIntlDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reserveIntlDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名
+   *
+   * @param request SelectedDomainListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SelectedDomainListResponse
+   */
   async selectedDomainListWithOptions(request: SelectedDomainListRequest, runtime: $Util.RuntimeOptions): Promise<SelectedDomainListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3627,11 +3898,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SelectedDomainListResponse>(await this.callApi(params, req, runtime), new SelectedDomainListResponse({}));
   }
 
+  /**
+   * @summary 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名
+   *
+   * @param request SelectedDomainListRequest
+   * @return SelectedDomainListResponse
+   */
   async selectedDomainList(request: SelectedDomainListRequest): Promise<SelectedDomainListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.selectedDomainListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 提交采购信息
+   *
+   * @param request SubmitPurchaseInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitPurchaseInfoResponse
+   */
   async submitPurchaseInfoWithOptions(request: SubmitPurchaseInfoRequest, runtime: $Util.RuntimeOptions): Promise<SubmitPurchaseInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3668,11 +3952,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitPurchaseInfoResponse>(await this.callApi(params, req, runtime), new SubmitPurchaseInfoResponse({}));
   }
 
+  /**
+   * @summary 提交采购信息
+   *
+   * @param request SubmitPurchaseInfoRequest
+   * @return SubmitPurchaseInfoResponse
+   */
   async submitPurchaseInfo(request: SubmitPurchaseInfoRequest): Promise<SubmitPurchaseInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitPurchaseInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 合作方同步报价
+   *
+   * @param request UpdatePartnerReservePriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePartnerReservePriceResponse
+   */
   async updatePartnerReservePriceWithOptions(request: UpdatePartnerReservePriceRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePartnerReservePriceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3709,6 +4006,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePartnerReservePriceResponse>(await this.callApi(params, req, runtime), new UpdatePartnerReservePriceResponse({}));
   }
 
+  /**
+   * @summary 合作方同步报价
+   *
+   * @param request UpdatePartnerReservePriceRequest
+   * @return UpdatePartnerReservePriceResponse
+   */
   async updatePartnerReservePrice(request: UpdatePartnerReservePriceRequest): Promise<UpdatePartnerReservePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePartnerReservePriceWithOptions(request, runtime);
