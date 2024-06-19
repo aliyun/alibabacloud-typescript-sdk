@@ -2768,6 +2768,102 @@ export class ExecContainerCommandResponse extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequest extends $tea.Model {
+  limit?: string;
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'Limit',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'string',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUsageRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -3006,6 +3102,180 @@ export class RestartContainerGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RestartContainerGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
     };
   }
 
@@ -4155,6 +4425,7 @@ export class CreateContainerGroupRequestContainer extends $tea.Model {
   memory?: number;
   name?: string;
   port?: CreateContainerGroupRequestContainerPort[];
+  securityContextPrivileged?: boolean;
   securityContextRunAsGroup?: number;
   securityContextRunAsNonRoot?: boolean;
   stdin?: boolean;
@@ -4196,6 +4467,7 @@ export class CreateContainerGroupRequestContainer extends $tea.Model {
       memory: 'Memory',
       name: 'Name',
       port: 'Port',
+      securityContextPrivileged: 'SecurityContextPrivileged',
       securityContextRunAsGroup: 'SecurityContextRunAsGroup',
       securityContextRunAsNonRoot: 'SecurityContextRunAsNonRoot',
       stdin: 'Stdin',
@@ -4240,6 +4512,7 @@ export class CreateContainerGroupRequestContainer extends $tea.Model {
       memory: 'number',
       name: 'string',
       port: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerPort },
+      securityContextPrivileged: 'boolean',
       securityContextRunAsGroup: 'number',
       securityContextRunAsNonRoot: 'boolean',
       stdin: 'boolean',
@@ -8360,6 +8633,78 @@ export class DescribeVirtualNodesResponseBodyVirtualNodes extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateContainerGroupRequestDnsConfigOption extends $tea.Model {
   name?: string;
   value?: string;
@@ -9564,11 +9909,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must specify the Alibaba Cloud Resource Name (ARN) of the RAM role of the Container Registry Enterprise Edition instance to grant the elastic container instance to assume the RAM role to push images.
-    *
-    * @param request CommitContainerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CommitContainerResponse
+   * @summary Creates an asynchronous task to store a specified container in an elastic container instance as an image and pushes the image to an image repository of Alibaba Cloud Container Registry.
+   *
+   * @description You must specify the Alibaba Cloud Resource Name (ARN) of the RAM role of the Container Registry Enterprise Edition instance to grant the elastic container instance to assume the RAM role to push images.
+   *
+   * @param request CommitContainerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CommitContainerResponse
    */
   async commitContainerWithOptions(request: CommitContainerRequest, runtime: $Util.RuntimeOptions): Promise<CommitContainerResponse> {
     Util.validateModel(request);
@@ -9635,10 +9982,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must specify the Alibaba Cloud Resource Name (ARN) of the RAM role of the Container Registry Enterprise Edition instance to grant the elastic container instance to assume the RAM role to push images.
-    *
-    * @param request CommitContainerRequest
-    * @return CommitContainerResponse
+   * @summary Creates an asynchronous task to store a specified container in an elastic container instance as an image and pushes the image to an image repository of Alibaba Cloud Container Registry.
+   *
+   * @description You must specify the Alibaba Cloud Resource Name (ARN) of the RAM role of the Container Registry Enterprise Edition instance to grant the elastic container instance to assume the RAM role to push images.
+   *
+   * @param request CommitContainerRequest
+   * @return CommitContainerResponse
    */
   async commitContainer(request: CommitContainerRequest): Promise<CommitContainerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9646,14 +9995,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot directly use a DataCache across regions. You can call this operation to copy a DataCache from one region to another region. This operation is suitable for the following scenarios:
-    * *   If you want to use a DataCache across regions and the DataCache exists in Region A, you can call this operation to quickly copy the DataCache to Region B.
-    * *   If you directly pull data from a region outside China to a region inside the Chinese mainland when you create a DataCache, the data may be pulled at a slow speed due to network limits. In this case, you can create a DataCache in a region outside the Chinese mainland but inside China, such as the China (Hong Kong) region, and call this operation to copy the data to the region inside the Chinese mainland.
-    * > The process of copying a DataCache is equivalent to copying a snapshot. You are charged for the traffic generated during the copy process and the storage of the generated DataCache.
-    *
-    * @param request CopyDataCacheRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CopyDataCacheResponse
+   * @summary Copies a DataCache from one region to another region.
+   *
+   * @description You cannot directly use a DataCache across regions. You can call this operation to copy a DataCache from one region to another region. This operation is suitable for the following scenarios:
+   * *   If you want to use a DataCache across regions and the DataCache exists in Region A, you can call this operation to quickly copy the DataCache to Region B.
+   * *   If you directly pull data from a region outside China to a region inside the Chinese mainland when you create a DataCache, the data may be pulled at a slow speed due to network limits. In this case, you can create a DataCache in a region outside the Chinese mainland but inside China, such as the China (Hong Kong) region, and call this operation to copy the data to the region inside the Chinese mainland.
+   * > The process of copying a DataCache is equivalent to copying a snapshot. You are charged for the traffic generated during the copy process and the storage of the generated DataCache.
+   *
+   * @param request CopyDataCacheRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopyDataCacheResponse
    */
   async copyDataCacheWithOptions(request: CopyDataCacheRequest, runtime: $Util.RuntimeOptions): Promise<CopyDataCacheResponse> {
     Util.validateModel(request);
@@ -9736,13 +10087,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot directly use a DataCache across regions. You can call this operation to copy a DataCache from one region to another region. This operation is suitable for the following scenarios:
-    * *   If you want to use a DataCache across regions and the DataCache exists in Region A, you can call this operation to quickly copy the DataCache to Region B.
-    * *   If you directly pull data from a region outside China to a region inside the Chinese mainland when you create a DataCache, the data may be pulled at a slow speed due to network limits. In this case, you can create a DataCache in a region outside the Chinese mainland but inside China, such as the China (Hong Kong) region, and call this operation to copy the data to the region inside the Chinese mainland.
-    * > The process of copying a DataCache is equivalent to copying a snapshot. You are charged for the traffic generated during the copy process and the storage of the generated DataCache.
-    *
-    * @param request CopyDataCacheRequest
-    * @return CopyDataCacheResponse
+   * @summary Copies a DataCache from one region to another region.
+   *
+   * @description You cannot directly use a DataCache across regions. You can call this operation to copy a DataCache from one region to another region. This operation is suitable for the following scenarios:
+   * *   If you want to use a DataCache across regions and the DataCache exists in Region A, you can call this operation to quickly copy the DataCache to Region B.
+   * *   If you directly pull data from a region outside China to a region inside the Chinese mainland when you create a DataCache, the data may be pulled at a slow speed due to network limits. In this case, you can create a DataCache in a region outside the Chinese mainland but inside China, such as the China (Hong Kong) region, and call this operation to copy the data to the region inside the Chinese mainland.
+   * > The process of copying a DataCache is equivalent to copying a snapshot. You are charged for the traffic generated during the copy process and the storage of the generated DataCache.
+   *
+   * @param request CopyDataCacheRequest
+   * @return CopyDataCacheResponse
    */
   async copyDataCache(request: CopyDataCacheRequest): Promise<CopyDataCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9750,47 +10103,49 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call the CreateContainerGroup operation to create an elastic container instance, the system creates a service-linked role named AliyunServiceRoleForECI. This role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](~~212914~~).
-    * When you create an elastic container instance, you can configure features such as instances, images, and storage based on your business requirements. For information about parameters configured for the features and the description of the parameters, see the following documents:
-    * **Instances** You can use one of the following methods to create an elastic container instance:
-    * *   [Specify the number of vCPUs and memory size to create an elastic container instance](~~114662~~)
-    * *   [Specify ECS instance types to create an elastic container instance](~~114664~~)
-    * Both the preceding creation methods support the following features:
-    * *   [Specify CPU options](~~197781~~)
-    * *   [Create a preemptible elastic container instance](~~157759~~)
-    * *   [Configure multiple zones](~~157290~~)
-    * *   [Configure multiple specifications](~~146468~~)
-    * *   [Use tags to manage elastic container instances](~~146608~~)
-    * **Images**
-    * *   [Configure a container image](~~461311~~)
-    * *   [Use the image cache feature to accelerate the creation of an elastic container instance](~~141281~~)
-    * *   [Specify a Container Registry Enterprise Edition instance](~~194250~~)
-    * *   [Use self-managed image repositories](~~378059~~)
-    * **Networking**
-    * *   [Create and Associate an EIP](~~99146~~)
-    * *   [Assign a security group](~~176237~~)
-    * *   [Assign an IPv6 address to an elastic container instance](~~451282~~)
-    * *   [Configure maximum bandwidth](~~190635~~)
-    * **Storage**
-    * *   [Mount a disk volume](~~144571~~)
-    * *   [Mount a NAS volume](~~464075~~)
-    * *   [Mount an OSS bucket to an elastic container instance as a volume](~~464076~~)
-    * *   [Mount an emptyDir volume](~~464078~~)
-    * *   [Mount a ConfigFile volume](~~464080~~)
-    * *   [Increase the size of the temporary storage space](~~204066~~)
-    * **Container configuration**
-    * *   [Configure startup commands and arguments for a container](~~94593~~)
-    * *   [Use probes to perform health checks on a container](~~99053~~)
-    * *   [Obtain metadata by using environment variables](~~141788~~)
-    * *   [Configure a security context for an elastic container instance or a container](~~462313~~)
-    * *   [Configure the NTP service](~~462768~~)
-    * **Logging and O\\&M**
-    * *   [Use environment variables to configure log collection](~~121973~~)
-    * *   [Save core files to volumes](~~167801~~)
-    *
-    * @param request CreateContainerGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateContainerGroupResponse
+   * @summary Creates an elastic container instance.
+   *
+   * @description When you call the CreateContainerGroup operation to create an elastic container instance, the system automatically creates a service-linked role named AliyunServiceRoleForECI. You can assume the service-linked role to access relevant cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](https://help.aliyun.com/document_detail/212914.html).
+   * When you create an elastic container instance, you can configure features that are related to instances, images, and storage based on your business requirements. For information about parameters configured for the features and the description of the parameters, see the following documents:
+   * **Instances**
+   * You can use one of the following methods to create an elastic container instance:
+   * *   [Specify the number of vCPUs and memory size to create an elastic container instance](https://help.aliyun.com/document_detail/114662.html)
+   * *   [Specify ECS instance types to create an elastic container instance](https://help.aliyun.com/document_detail/114664.html)
+   * Both the preceding creation methods support the following features:
+   * *   [Create a preemptible elastic container instance](https://help.aliyun.com/document_detail/157759.html)
+   * *   [Configure multiple zones](https://help.aliyun.com/document_detail/157290.html)
+   * *   [Configure multiple specifications](https://help.aliyun.com/document_detail/146468.html)
+   * *   [Use tags to manage elastic container instances](https://help.aliyun.com/document_detail/146608.html)
+   * **Images**
+   * *   [Configure a container image](https://help.aliyun.com/document_detail/461311.html)
+   * *   [Use the image cache feature to accelerate the creation of an elastic container instance](https://help.aliyun.com/document_detail/141281.html)
+   * *   [Specify a Container Registry Enterprise Edition instance](https://help.aliyun.com/document_detail/194250.html)
+   * *   [Use self-managed image repositories](https://help.aliyun.com/document_detail/378059.html)
+   * **Networking**
+   * *   [Create and Associate an EIP](https://help.aliyun.com/document_detail/99146.html)
+   * *   [Assign a security group](https://help.aliyun.com/document_detail/176237.html)
+   * *   [Assign an IPv6 address to an elastic container instance](https://help.aliyun.com/document_detail/451282.html)
+   * *   [Configure maximum bandwidth](https://help.aliyun.com/document_detail/190635.html)
+   * **Storage**
+   * *   [Mount a disk volume](https://help.aliyun.com/document_detail/144571.html)
+   * *   [Mount a NAS volume](https://help.aliyun.com/document_detail/464075.html)
+   * *   [Mount an OSS bucket to an elastic container instance as a volume](https://help.aliyun.com/document_detail/464076.html)
+   * *   [Mount an emptyDir volume](https://help.aliyun.com/document_detail/464078.html)
+   * *   [Mount a ConfigFile volume](https://help.aliyun.com/document_detail/464080.html)
+   * *   [Increase the size of the temporary storage space](https://help.aliyun.com/document_detail/204066.html)
+   * **Container configuration**
+   * *   [Configure startup commands and arguments for a container](https://help.aliyun.com/document_detail/94593.html)
+   * *   [Use probes to perform health checks on a container](https://help.aliyun.com/document_detail/99053.html)
+   * *   [Obtain metadata by using environment variables](https://help.aliyun.com/document_detail/141788.html)
+   * *   [Configure a security context for an elastic container instance or a container](https://help.aliyun.com/document_detail/462313.html)
+   * *   [Configure the NTP service](https://help.aliyun.com/document_detail/462768.html)
+   * **Logging and O\\&M**
+   * *   [Use environment variables to configure log collection](https://help.aliyun.com/document_detail/121973.html)
+   * *   [Save core files to volumes](https://help.aliyun.com/document_detail/167801.html)
+   *
+   * @param request CreateContainerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateContainerGroupResponse
    */
   async createContainerGroupWithOptions(request: CreateContainerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateContainerGroupResponse> {
     Util.validateModel(request);
@@ -10101,46 +10456,48 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call the CreateContainerGroup operation to create an elastic container instance, the system creates a service-linked role named AliyunServiceRoleForECI. This role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](~~212914~~).
-    * When you create an elastic container instance, you can configure features such as instances, images, and storage based on your business requirements. For information about parameters configured for the features and the description of the parameters, see the following documents:
-    * **Instances** You can use one of the following methods to create an elastic container instance:
-    * *   [Specify the number of vCPUs and memory size to create an elastic container instance](~~114662~~)
-    * *   [Specify ECS instance types to create an elastic container instance](~~114664~~)
-    * Both the preceding creation methods support the following features:
-    * *   [Specify CPU options](~~197781~~)
-    * *   [Create a preemptible elastic container instance](~~157759~~)
-    * *   [Configure multiple zones](~~157290~~)
-    * *   [Configure multiple specifications](~~146468~~)
-    * *   [Use tags to manage elastic container instances](~~146608~~)
-    * **Images**
-    * *   [Configure a container image](~~461311~~)
-    * *   [Use the image cache feature to accelerate the creation of an elastic container instance](~~141281~~)
-    * *   [Specify a Container Registry Enterprise Edition instance](~~194250~~)
-    * *   [Use self-managed image repositories](~~378059~~)
-    * **Networking**
-    * *   [Create and Associate an EIP](~~99146~~)
-    * *   [Assign a security group](~~176237~~)
-    * *   [Assign an IPv6 address to an elastic container instance](~~451282~~)
-    * *   [Configure maximum bandwidth](~~190635~~)
-    * **Storage**
-    * *   [Mount a disk volume](~~144571~~)
-    * *   [Mount a NAS volume](~~464075~~)
-    * *   [Mount an OSS bucket to an elastic container instance as a volume](~~464076~~)
-    * *   [Mount an emptyDir volume](~~464078~~)
-    * *   [Mount a ConfigFile volume](~~464080~~)
-    * *   [Increase the size of the temporary storage space](~~204066~~)
-    * **Container configuration**
-    * *   [Configure startup commands and arguments for a container](~~94593~~)
-    * *   [Use probes to perform health checks on a container](~~99053~~)
-    * *   [Obtain metadata by using environment variables](~~141788~~)
-    * *   [Configure a security context for an elastic container instance or a container](~~462313~~)
-    * *   [Configure the NTP service](~~462768~~)
-    * **Logging and O\\&M**
-    * *   [Use environment variables to configure log collection](~~121973~~)
-    * *   [Save core files to volumes](~~167801~~)
-    *
-    * @param request CreateContainerGroupRequest
-    * @return CreateContainerGroupResponse
+   * @summary Creates an elastic container instance.
+   *
+   * @description When you call the CreateContainerGroup operation to create an elastic container instance, the system automatically creates a service-linked role named AliyunServiceRoleForECI. You can assume the service-linked role to access relevant cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](https://help.aliyun.com/document_detail/212914.html).
+   * When you create an elastic container instance, you can configure features that are related to instances, images, and storage based on your business requirements. For information about parameters configured for the features and the description of the parameters, see the following documents:
+   * **Instances**
+   * You can use one of the following methods to create an elastic container instance:
+   * *   [Specify the number of vCPUs and memory size to create an elastic container instance](https://help.aliyun.com/document_detail/114662.html)
+   * *   [Specify ECS instance types to create an elastic container instance](https://help.aliyun.com/document_detail/114664.html)
+   * Both the preceding creation methods support the following features:
+   * *   [Create a preemptible elastic container instance](https://help.aliyun.com/document_detail/157759.html)
+   * *   [Configure multiple zones](https://help.aliyun.com/document_detail/157290.html)
+   * *   [Configure multiple specifications](https://help.aliyun.com/document_detail/146468.html)
+   * *   [Use tags to manage elastic container instances](https://help.aliyun.com/document_detail/146608.html)
+   * **Images**
+   * *   [Configure a container image](https://help.aliyun.com/document_detail/461311.html)
+   * *   [Use the image cache feature to accelerate the creation of an elastic container instance](https://help.aliyun.com/document_detail/141281.html)
+   * *   [Specify a Container Registry Enterprise Edition instance](https://help.aliyun.com/document_detail/194250.html)
+   * *   [Use self-managed image repositories](https://help.aliyun.com/document_detail/378059.html)
+   * **Networking**
+   * *   [Create and Associate an EIP](https://help.aliyun.com/document_detail/99146.html)
+   * *   [Assign a security group](https://help.aliyun.com/document_detail/176237.html)
+   * *   [Assign an IPv6 address to an elastic container instance](https://help.aliyun.com/document_detail/451282.html)
+   * *   [Configure maximum bandwidth](https://help.aliyun.com/document_detail/190635.html)
+   * **Storage**
+   * *   [Mount a disk volume](https://help.aliyun.com/document_detail/144571.html)
+   * *   [Mount a NAS volume](https://help.aliyun.com/document_detail/464075.html)
+   * *   [Mount an OSS bucket to an elastic container instance as a volume](https://help.aliyun.com/document_detail/464076.html)
+   * *   [Mount an emptyDir volume](https://help.aliyun.com/document_detail/464078.html)
+   * *   [Mount a ConfigFile volume](https://help.aliyun.com/document_detail/464080.html)
+   * *   [Increase the size of the temporary storage space](https://help.aliyun.com/document_detail/204066.html)
+   * **Container configuration**
+   * *   [Configure startup commands and arguments for a container](https://help.aliyun.com/document_detail/94593.html)
+   * *   [Use probes to perform health checks on a container](https://help.aliyun.com/document_detail/99053.html)
+   * *   [Obtain metadata by using environment variables](https://help.aliyun.com/document_detail/141788.html)
+   * *   [Configure a security context for an elastic container instance or a container](https://help.aliyun.com/document_detail/462313.html)
+   * *   [Configure the NTP service](https://help.aliyun.com/document_detail/462768.html)
+   * **Logging and O\\&M**
+   * *   [Use environment variables to configure log collection](https://help.aliyun.com/document_detail/121973.html)
+   * *   [Save core files to volumes](https://help.aliyun.com/document_detail/167801.html)
+   *
+   * @param request CreateContainerGroupRequest
+   * @return CreateContainerGroupResponse
    */
   async createContainerGroup(request: CreateContainerGroupRequest): Promise<CreateContainerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10148,14 +10505,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You are charged for the creation of image caches. We recommend that you learn the relevant billing information in advance. For more information, see [DataCaches](~~2503093~~).
-    * *   Before you create an image cache, you must evaluate the size of the data to be cached. If the size of the data exceeds the specified cache size, the image cache fails to be created.
-    * *   When a data cache is being created, the system automatically creates a temporary elastic container instance (ECI) and an enhanced SSD (ESSD) for the data cache. During the creation, do not delete the ECI and ESSD. Otherwise, the data cache fails to be created.
-    * *   When a data cache is being created, a snapshot is generated for the data cache. Do not delete the snapshot. Otherwise, the data cache becomes invalid.
-    *
-    * @param request CreateDataCacheRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDataCacheResponse
+   * @summary Creates a DataCache.
+   *
+   * @description *   You are charged for the creation of image caches. We recommend that you learn the relevant billing information in advance. For more information, see [DataCaches](https://help.aliyun.com/document_detail/2503093.html).
+   * *   Before you create an image cache, you must evaluate the size of the data to be cached. If the size of the data exceeds the specified cache size, the image cache fails to be created.
+   * *   When a data cache is being created, the system automatically creates a temporary elastic container instance (ECI) and an enhanced SSD (ESSD) for the data cache. During the creation, do not delete the ECI and ESSD. Otherwise, the data cache fails to be created.
+   * *   When a data cache is being created, a snapshot is generated for the data cache. Do not delete the snapshot. Otherwise, the data cache becomes invalid.
+   *
+   * @param request CreateDataCacheRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataCacheResponse
    */
   async createDataCacheWithOptions(request: CreateDataCacheRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataCacheResponse> {
     Util.validateModel(request);
@@ -10254,13 +10613,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You are charged for the creation of image caches. We recommend that you learn the relevant billing information in advance. For more information, see [DataCaches](~~2503093~~).
-    * *   Before you create an image cache, you must evaluate the size of the data to be cached. If the size of the data exceeds the specified cache size, the image cache fails to be created.
-    * *   When a data cache is being created, the system automatically creates a temporary elastic container instance (ECI) and an enhanced SSD (ESSD) for the data cache. During the creation, do not delete the ECI and ESSD. Otherwise, the data cache fails to be created.
-    * *   When a data cache is being created, a snapshot is generated for the data cache. Do not delete the snapshot. Otherwise, the data cache becomes invalid.
-    *
-    * @param request CreateDataCacheRequest
-    * @return CreateDataCacheResponse
+   * @summary Creates a DataCache.
+   *
+   * @description *   You are charged for the creation of image caches. We recommend that you learn the relevant billing information in advance. For more information, see [DataCaches](https://help.aliyun.com/document_detail/2503093.html).
+   * *   Before you create an image cache, you must evaluate the size of the data to be cached. If the size of the data exceeds the specified cache size, the image cache fails to be created.
+   * *   When a data cache is being created, the system automatically creates a temporary elastic container instance (ECI) and an enhanced SSD (ESSD) for the data cache. During the creation, do not delete the ECI and ESSD. Otherwise, the data cache fails to be created.
+   * *   When a data cache is being created, a snapshot is generated for the data cache. Do not delete the snapshot. Otherwise, the data cache becomes invalid.
+   *
+   * @param request CreateDataCacheRequest
+   * @return CreateDataCacheResponse
    */
   async createDataCache(request: CreateDataCacheRequest): Promise<CreateDataCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10268,20 +10629,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **Precautions**
-    *     *   You are charged for creation of image caches. We recommend that you learn the relevant billing information in advance. For more information about billing of image caches, see [Image caches](~~447682~~).
-    *     *   Before you create an image cache, you must estimate the total size of the images that you want to cache. If the total size of the images exceeds the specified cache size, the image cache cannot be created.
-    *     *   When an image cache is being created, the system creates an intermediate elastic container instance and an intermediate enhanced SSD (ESSD) at performance level 1 (PL1). Do not delete the intermediate instance and the ESSD while the image cache is being created. If you delete the intermediate instance or the ESSD, the image cache cannot be created.
-    *     *   A temporary local snapshot and a specific number of regular snapshots are generated during the creation of the image cache. Do not delete these snapshots. If you delete these snapshots, the image cache becomes invalid.
-    *     *   If you use SDKs, SDK for Java 1.0.10 or later and SDK for Python 1.0.7 or later are supported.
-    * *   **Usage notes**
-    *     *   For images that are created based on Container Registry Enterprise Edition instances and use custom domain names, if you want to configure password-free access to the image caches, you must use AcrRegistryInfo-related parameters to specify Container Registry instances. When you configure AcrRegistryInfo-related parameters, you must set the AcrRegistryInfo.N.InstanceId parameter.
-    *     *   If the image cache that you created will be used to create more than 1,000 elastic container instances at a time, we recommend that you use the StandardCopyCount and FlashCopyCount parameters to create multiple temporary local snapshots and regular snapshots of the image. The multiple snapshots are billed based on incremental data. If no incremental data exists on the multiple snapshots, you are not charged for the multiple snapshots.
-    * >  When you call the CreateImageCache operation to create an image cache, the system automatically creates a service-linked role named AliyunServiceRoleForECI. The role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](~~212914~~).
-    *
-    * @param request CreateImageCacheRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateImageCacheResponse
+   * @summary Creates an image cache. The image cache can accelerate image pulling and reduce the instance startup time when you create an elastic container instance later.
+   *
+   * @description *   **Precautions**
+   *     *   You are charged for creation of image caches. We recommend that you learn the relevant billing information in advance. For more information about billing of image caches, see [Image caches](https://help.aliyun.com/document_detail/447682.html).
+   *     *   Before you create an image cache, you must estimate the total size of the images that you want to cache. If the total size of the images exceeds the specified cache size, the image cache cannot be created.
+   *     *   When an image cache is being created, the system creates an intermediate elastic container instance and an intermediate enhanced SSD (ESSD) at performance level 1 (PL1). Do not delete the intermediate instance and the ESSD while the image cache is being created. If you delete the intermediate instance or the ESSD, the image cache cannot be created.
+   *     *   A temporary local snapshot and a specific number of regular snapshots are generated during the creation of the image cache. Do not delete these snapshots. If you delete these snapshots, the image cache becomes invalid.
+   *     *   If you use SDKs, SDK for Java 1.0.10 or later and SDK for Python 1.0.7 or later are supported.
+   * *   **Usage notes**
+   *     *   For images that are created based on Container Registry Enterprise Edition instances and use custom domain names, if you want to configure password-free access to the image caches, you must use AcrRegistryInfo-related parameters to specify Container Registry instances. When you configure AcrRegistryInfo-related parameters, you must set the AcrRegistryInfo.N.InstanceId parameter.
+   *     *   If the image cache that you created will be used to create more than 1,000 elastic container instances at a time, we recommend that you use the StandardCopyCount and FlashCopyCount parameters to create multiple temporary local snapshots and regular snapshots of the image. The multiple snapshots are billed based on incremental data. If no incremental data exists on the multiple snapshots, you are not charged for the multiple snapshots.
+   * >  When you call the CreateImageCache operation to create an image cache, the system automatically creates a service-linked role named AliyunServiceRoleForECI. The role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](https://help.aliyun.com/document_detail/212914.html).
+   *
+   * @param request CreateImageCacheRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateImageCacheResponse
    */
   async createImageCacheWithOptions(request: CreateImageCacheRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageCacheResponse> {
     Util.validateModel(request);
@@ -10412,19 +10775,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **Precautions**
-    *     *   You are charged for creation of image caches. We recommend that you learn the relevant billing information in advance. For more information about billing of image caches, see [Image caches](~~447682~~).
-    *     *   Before you create an image cache, you must estimate the total size of the images that you want to cache. If the total size of the images exceeds the specified cache size, the image cache cannot be created.
-    *     *   When an image cache is being created, the system creates an intermediate elastic container instance and an intermediate enhanced SSD (ESSD) at performance level 1 (PL1). Do not delete the intermediate instance and the ESSD while the image cache is being created. If you delete the intermediate instance or the ESSD, the image cache cannot be created.
-    *     *   A temporary local snapshot and a specific number of regular snapshots are generated during the creation of the image cache. Do not delete these snapshots. If you delete these snapshots, the image cache becomes invalid.
-    *     *   If you use SDKs, SDK for Java 1.0.10 or later and SDK for Python 1.0.7 or later are supported.
-    * *   **Usage notes**
-    *     *   For images that are created based on Container Registry Enterprise Edition instances and use custom domain names, if you want to configure password-free access to the image caches, you must use AcrRegistryInfo-related parameters to specify Container Registry instances. When you configure AcrRegistryInfo-related parameters, you must set the AcrRegistryInfo.N.InstanceId parameter.
-    *     *   If the image cache that you created will be used to create more than 1,000 elastic container instances at a time, we recommend that you use the StandardCopyCount and FlashCopyCount parameters to create multiple temporary local snapshots and regular snapshots of the image. The multiple snapshots are billed based on incremental data. If no incremental data exists on the multiple snapshots, you are not charged for the multiple snapshots.
-    * >  When you call the CreateImageCache operation to create an image cache, the system automatically creates a service-linked role named AliyunServiceRoleForECI. The role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](~~212914~~).
-    *
-    * @param request CreateImageCacheRequest
-    * @return CreateImageCacheResponse
+   * @summary Creates an image cache. The image cache can accelerate image pulling and reduce the instance startup time when you create an elastic container instance later.
+   *
+   * @description *   **Precautions**
+   *     *   You are charged for creation of image caches. We recommend that you learn the relevant billing information in advance. For more information about billing of image caches, see [Image caches](https://help.aliyun.com/document_detail/447682.html).
+   *     *   Before you create an image cache, you must estimate the total size of the images that you want to cache. If the total size of the images exceeds the specified cache size, the image cache cannot be created.
+   *     *   When an image cache is being created, the system creates an intermediate elastic container instance and an intermediate enhanced SSD (ESSD) at performance level 1 (PL1). Do not delete the intermediate instance and the ESSD while the image cache is being created. If you delete the intermediate instance or the ESSD, the image cache cannot be created.
+   *     *   A temporary local snapshot and a specific number of regular snapshots are generated during the creation of the image cache. Do not delete these snapshots. If you delete these snapshots, the image cache becomes invalid.
+   *     *   If you use SDKs, SDK for Java 1.0.10 or later and SDK for Python 1.0.7 or later are supported.
+   * *   **Usage notes**
+   *     *   For images that are created based on Container Registry Enterprise Edition instances and use custom domain names, if you want to configure password-free access to the image caches, you must use AcrRegistryInfo-related parameters to specify Container Registry instances. When you configure AcrRegistryInfo-related parameters, you must set the AcrRegistryInfo.N.InstanceId parameter.
+   *     *   If the image cache that you created will be used to create more than 1,000 elastic container instances at a time, we recommend that you use the StandardCopyCount and FlashCopyCount parameters to create multiple temporary local snapshots and regular snapshots of the image. The multiple snapshots are billed based on incremental data. If no incremental data exists on the multiple snapshots, you are not charged for the multiple snapshots.
+   * >  When you call the CreateImageCache operation to create an image cache, the system automatically creates a service-linked role named AliyunServiceRoleForECI. The role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](https://help.aliyun.com/document_detail/212914.html).
+   *
+   * @param request CreateImageCacheRequest
+   * @return CreateImageCacheResponse
    */
   async createImageCache(request: CreateImageCacheRequest): Promise<CreateImageCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10432,13 +10797,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * O&M tasks are classified into:
-    * *   coredump: After you enable coredump, the system generates a core dump file when a container unexpectedly stops. You can use the core dump file to analyze the exception and find out the cause of the problem. For more information, see [Enable coredump](~~167801~~).
-    * *   tcpdump: After you enable tcpdump, the system captures network packets when a container unexpectedly stops. You can analyze the packets and locate network problems. For more information, see Enable [tcpdump](~~429749~~).
-    *
-    * @param request CreateInstanceOpsTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateInstanceOpsTaskResponse
+   * @summary Creates an O&M task.
+   *
+   * @description O&M tasks are classified into:
+   * *   coredump: After you enable coredump, the system generates a core dump file when a container unexpectedly stops. You can use the core dump file to analyze the exception and find out the cause of the problem. For more information, see [Enable coredump](https://help.aliyun.com/document_detail/167801.html).
+   * *   tcpdump: After you enable tcpdump, the system captures network packets when a container unexpectedly stops. You can analyze the packets and locate network problems. For more information, see Enable [tcpdump](https://help.aliyun.com/document_detail/429749.html).
+   *
+   * @param request CreateInstanceOpsTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceOpsTaskResponse
    */
   async createInstanceOpsTaskWithOptions(request: CreateInstanceOpsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceOpsTaskResponse> {
     Util.validateModel(request);
@@ -10497,12 +10864,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * O&M tasks are classified into:
-    * *   coredump: After you enable coredump, the system generates a core dump file when a container unexpectedly stops. You can use the core dump file to analyze the exception and find out the cause of the problem. For more information, see [Enable coredump](~~167801~~).
-    * *   tcpdump: After you enable tcpdump, the system captures network packets when a container unexpectedly stops. You can analyze the packets and locate network problems. For more information, see Enable [tcpdump](~~429749~~).
-    *
-    * @param request CreateInstanceOpsTaskRequest
-    * @return CreateInstanceOpsTaskResponse
+   * @summary Creates an O&M task.
+   *
+   * @description O&M tasks are classified into:
+   * *   coredump: After you enable coredump, the system generates a core dump file when a container unexpectedly stops. You can use the core dump file to analyze the exception and find out the cause of the problem. For more information, see [Enable coredump](https://help.aliyun.com/document_detail/167801.html).
+   * *   tcpdump: After you enable tcpdump, the system captures network packets when a container unexpectedly stops. You can analyze the packets and locate network problems. For more information, see Enable [tcpdump](https://help.aliyun.com/document_detail/429749.html).
+   *
+   * @param request CreateInstanceOpsTaskRequest
+   * @return CreateInstanceOpsTaskResponse
    */
   async createInstanceOpsTask(request: CreateInstanceOpsTaskRequest): Promise<CreateInstanceOpsTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10510,12 +10879,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you call this operation to create a virtual node, the system automatically creates a service-linked role AliyunServiceRoleForECIVnode. This way, you can use the service-linked role to access relevant cloud services such as Elastic Container Instance, Elastic Compute Service (ECS), and Virtual Private Cloud (VPC). For more information, see [Service-linked role for virtual nodes](~~311014~~).
-    * *   You are charged for virtual nodes based on number of virtual nodes that you use. Each virtual node has a resident node, which is equivalent to an ECI instance with 2 vCPU cores and 8 GiB memory. You are charged for virtual nodes based on elastic container instances.
-    *
-    * @param request CreateVirtualNodeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVirtualNodeResponse
+   * @summary Creates a VNode to connect self-managed Kubernetes clusters to elastic container instances.
+   *
+   * @description *   When you call this operation to create a virtual node, the system automatically creates a service-linked role AliyunServiceRoleForECIVnode. This way, you can use the service-linked role to access relevant cloud services such as Elastic Container Instance, Elastic Compute Service (ECS), and Virtual Private Cloud (VPC). For more information, see [Service-linked role for virtual nodes](https://help.aliyun.com/document_detail/311014.html).
+   * *   You are charged for virtual nodes based on number of virtual nodes that you use. Each virtual node has a resident node, which is equivalent to an ECI instance with 2 vCPU cores and 8 GiB memory. You are charged for virtual nodes based on elastic container instances.
+   *
+   * @param request CreateVirtualNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVirtualNodeResponse
    */
   async createVirtualNodeWithOptions(request: CreateVirtualNodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualNodeResponse> {
     Util.validateModel(request);
@@ -10622,17 +10993,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you call this operation to create a virtual node, the system automatically creates a service-linked role AliyunServiceRoleForECIVnode. This way, you can use the service-linked role to access relevant cloud services such as Elastic Container Instance, Elastic Compute Service (ECS), and Virtual Private Cloud (VPC). For more information, see [Service-linked role for virtual nodes](~~311014~~).
-    * *   You are charged for virtual nodes based on number of virtual nodes that you use. Each virtual node has a resident node, which is equivalent to an ECI instance with 2 vCPU cores and 8 GiB memory. You are charged for virtual nodes based on elastic container instances.
-    *
-    * @param request CreateVirtualNodeRequest
-    * @return CreateVirtualNodeResponse
+   * @summary Creates a VNode to connect self-managed Kubernetes clusters to elastic container instances.
+   *
+   * @description *   When you call this operation to create a virtual node, the system automatically creates a service-linked role AliyunServiceRoleForECIVnode. This way, you can use the service-linked role to access relevant cloud services such as Elastic Container Instance, Elastic Compute Service (ECS), and Virtual Private Cloud (VPC). For more information, see [Service-linked role for virtual nodes](https://help.aliyun.com/document_detail/311014.html).
+   * *   You are charged for virtual nodes based on number of virtual nodes that you use. Each virtual node has a resident node, which is equivalent to an ECI instance with 2 vCPU cores and 8 GiB memory. You are charged for virtual nodes based on elastic container instances.
+   *
+   * @param request CreateVirtualNodeRequest
+   * @return CreateVirtualNodeResponse
    */
   async createVirtualNode(request: CreateVirtualNodeRequest): Promise<CreateVirtualNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVirtualNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a container group.
+   *
+   * @description You can delete a container group that you no longer need. Before you delete a container group, make sure that you understand the lifecycle of container groups. For more information, see [Lifecycle of an elastic container instance](https://help.aliyun.com/document_detail/122385.html).
+   *
+   * @param request DeleteContainerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteContainerGroupResponse
+   */
   async deleteContainerGroupWithOptions(request: DeleteContainerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContainerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10685,11 +11067,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteContainerGroupResponse>(await this.callApi(params, req, runtime), new DeleteContainerGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes a container group.
+   *
+   * @description You can delete a container group that you no longer need. Before you delete a container group, make sure that you understand the lifecycle of container groups. For more information, see [Lifecycle of an elastic container instance](https://help.aliyun.com/document_detail/122385.html).
+   *
+   * @param request DeleteContainerGroupRequest
+   * @return DeleteContainerGroupResponse
+   */
   async deleteContainerGroup(request: DeleteContainerGroupRequest): Promise<DeleteContainerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteContainerGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a DataCache.
+   *
+   * @param request DeleteDataCacheRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataCacheResponse
+   */
   async deleteDataCacheWithOptions(request: DeleteDataCacheRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataCacheResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10750,11 +11147,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataCacheResponse>(await this.callApi(params, req, runtime), new DeleteDataCacheResponse({}));
   }
 
+  /**
+   * @summary Deletes a DataCache.
+   *
+   * @param request DeleteDataCacheRequest
+   * @return DeleteDataCacheResponse
+   */
   async deleteDataCache(request: DeleteDataCacheRequest): Promise<DeleteDataCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataCacheWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an image cache.
+   *
+   * @param request DeleteImageCacheRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteImageCacheResponse
+   */
   async deleteImageCacheWithOptions(request: DeleteImageCacheRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImageCacheResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10807,11 +11217,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteImageCacheResponse>(await this.callApi(params, req, runtime), new DeleteImageCacheResponse({}));
   }
 
+  /**
+   * @summary Deletes an image cache.
+   *
+   * @param request DeleteImageCacheRequest
+   * @return DeleteImageCacheResponse
+   */
   async deleteImageCache(request: DeleteImageCacheRequest): Promise<DeleteImageCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteImageCacheWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a virtual node.
+   *
+   * @param request DeleteVirtualNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVirtualNodeResponse
+   */
   async deleteVirtualNodeWithOptions(request: DeleteVirtualNodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10864,17 +11287,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVirtualNodeResponse>(await this.callApi(params, req, runtime), new DeleteVirtualNodeResponse({}));
   }
 
+  /**
+   * @summary Deletes a virtual node.
+   *
+   * @param request DeleteVirtualNodeRequest
+   * @return DeleteVirtualNodeResponse
+   */
   async deleteVirtualNode(request: DeleteVirtualNodeRequest): Promise<DeleteVirtualNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVirtualNodeWithOptions(request, runtime);
   }
 
   /**
-    * When you call the CreateContainerGroup operation to create an elastic container instance, you can use the InstanceType parameter to specify ECS instance types that fit your specific needs. To ensure that the elastic container instance can be created, you can call the DescribeAvailableResource operation to query which ECS instance types and instance families are available in the specified region and zone before you create the elastic container instance.
-    *
-    * @param request DescribeAvailableResourceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAvailableResourceResponse
+   * @summary Queries the Elastic Compute Service (ECS) instance families that are available in a specified region and zone.
+   *
+   * @description When you call the CreateContainerGroup operation to create an elastic container instance, you can use the InstanceType parameter to specify ECS instance types that fit your specific needs. To ensure that the elastic container instance can be created, you can call the DescribeAvailableResource operation to query which ECS instance types and instance families are available in the specified region and zone before you create the elastic container instance.
+   *
+   * @param request DescribeAvailableResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableResourceResponse
    */
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
@@ -10933,16 +11364,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call the CreateContainerGroup operation to create an elastic container instance, you can use the InstanceType parameter to specify ECS instance types that fit your specific needs. To ensure that the elastic container instance can be created, you can call the DescribeAvailableResource operation to query which ECS instance types and instance families are available in the specified region and zone before you create the elastic container instance.
-    *
-    * @param request DescribeAvailableResourceRequest
-    * @return DescribeAvailableResourceResponse
+   * @summary Queries the Elastic Compute Service (ECS) instance families that are available in a specified region and zone.
+   *
+   * @description When you call the CreateContainerGroup operation to create an elastic container instance, you can use the InstanceType parameter to specify ECS instance types that fit your specific needs. To ensure that the elastic container instance can be created, you can call the DescribeAvailableResource operation to query which ECS instance types and instance families are available in the specified region and zone before you create the elastic container instance.
+   *
+   * @param request DescribeAvailableResourceRequest
+   * @return DescribeAvailableResourceResponse
    */
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a CommitContainer task.
+   *
+   * @param request DescribeCommitContainerTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCommitContainerTaskResponse
+   */
   async describeCommitContainerTaskWithOptions(request: DescribeCommitContainerTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommitContainerTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11007,17 +11447,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCommitContainerTaskResponse>(await this.callApi(params, req, runtime), new DescribeCommitContainerTaskResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a CommitContainer task.
+   *
+   * @param request DescribeCommitContainerTaskRequest
+   * @return DescribeCommitContainerTaskResponse
+   */
   async describeCommitContainerTask(request: DescribeCommitContainerTaskRequest): Promise<DescribeCommitContainerTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCommitContainerTaskWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query the event information about multiple elastic container instances at a time. By default, the most recent 50 entries of events of each elastic container instance are returned.
-    *
-    * @param request DescribeContainerGroupEventsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeContainerGroupEventsResponse
+   * @summary Queries event information about multiple container groups at a time.
+   *
+   * @description You can call this operation to query the event information about multiple elastic container instances at a time. By default, the most recent 50 entries of events of each elastic container instance are returned.
+   *
+   * @param request DescribeContainerGroupEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerGroupEventsResponse
    */
   async describeContainerGroupEventsWithOptions(request: DescribeContainerGroupEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupEventsResponse> {
     Util.validateModel(request);
@@ -11080,10 +11528,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the event information about multiple elastic container instances at a time. By default, the most recent 50 entries of events of each elastic container instance are returned.
-    *
-    * @param request DescribeContainerGroupEventsRequest
-    * @return DescribeContainerGroupEventsResponse
+   * @summary Queries event information about multiple container groups at a time.
+   *
+   * @description You can call this operation to query the event information about multiple elastic container instances at a time. By default, the most recent 50 entries of events of each elastic container instance are returned.
+   *
+   * @param request DescribeContainerGroupEventsRequest
+   * @return DescribeContainerGroupEventsResponse
    */
   async describeContainerGroupEvents(request: DescribeContainerGroupEventsRequest): Promise<DescribeContainerGroupEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11091,13 +11541,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A maximum of 50 monitoring data entries can be returned. If the number of monitoring data entries exceeds this limit, an error message is returned.
-    * *   You can query real-time monitoring data (data generated within the last 5 minutes) and historical data (data generated more than 5 minutes ago). If the time range to query starts or ends later than the current time, historical monitoring data generated more than 5 minutes ago is returned.
-    * *   The elastic container instance whose monitoring data you want to query must be created after April 3, 2019, 15:00 UTC+8.
-    *
-    * @param request DescribeContainerGroupMetricRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeContainerGroupMetricResponse
+   * @summary Queries the monitoring data of an elastic container instance.
+   *
+   * @description *   A maximum of 50 monitoring data entries can be returned. If the number of monitoring data entries exceeds this limit, an error message is returned.
+   * *   You can query real-time monitoring data (data generated within the last 5 minutes) and historical data (data generated more than 5 minutes ago). If the time range to query starts or ends later than the current time, historical monitoring data generated more than 5 minutes ago is returned.
+   * *   The elastic container instance whose monitoring data you want to query must be created after April 3, 2019, 15:00 UTC+8.
+   *
+   * @param request DescribeContainerGroupMetricRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerGroupMetricResponse
    */
   async describeContainerGroupMetricWithOptions(request: DescribeContainerGroupMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupMetricResponse> {
     Util.validateModel(request);
@@ -11156,12 +11608,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A maximum of 50 monitoring data entries can be returned. If the number of monitoring data entries exceeds this limit, an error message is returned.
-    * *   You can query real-time monitoring data (data generated within the last 5 minutes) and historical data (data generated more than 5 minutes ago). If the time range to query starts or ends later than the current time, historical monitoring data generated more than 5 minutes ago is returned.
-    * *   The elastic container instance whose monitoring data you want to query must be created after April 3, 2019, 15:00 UTC+8.
-    *
-    * @param request DescribeContainerGroupMetricRequest
-    * @return DescribeContainerGroupMetricResponse
+   * @summary Queries the monitoring data of an elastic container instance.
+   *
+   * @description *   A maximum of 50 monitoring data entries can be returned. If the number of monitoring data entries exceeds this limit, an error message is returned.
+   * *   You can query real-time monitoring data (data generated within the last 5 minutes) and historical data (data generated more than 5 minutes ago). If the time range to query starts or ends later than the current time, historical monitoring data generated more than 5 minutes ago is returned.
+   * *   The elastic container instance whose monitoring data you want to query must be created after April 3, 2019, 15:00 UTC+8.
+   *
+   * @param request DescribeContainerGroupMetricRequest
+   * @return DescribeContainerGroupMetricResponse
    */
   async describeContainerGroupMetric(request: DescribeContainerGroupMetricRequest): Promise<DescribeContainerGroupMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11169,14 +11623,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you call this operation, you cannot use resource groups to control the permissions of a RAM user.
-    * *   You can create an elastic container instance by specifying vCPU and memory resource specifications or by specifying ECS instance types. When you call this operation to query the prices of elastic container instances, pass in specifications of the elastic container instances.
-    *     *   [vCPU and memory specifications](~~114662~~).
-    *     *   [ECS instance types that are supported by Elastic Container Instance](~~114664~~).
-    *
-    * @param request DescribeContainerGroupPriceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeContainerGroupPriceResponse
+   * @summary Queries the price of an elastic container instance.
+   *
+   * @description *   When you call this operation, you cannot use resource groups to control the permissions of a RAM user.
+   * *   You can create an elastic container instance by specifying vCPU and memory resource specifications or by specifying ECS instance types. When you call this operation to query the prices of elastic container instances, pass in specifications of the elastic container instances.
+   *     *   [vCPU and memory specifications](https://help.aliyun.com/document_detail/114662.html).
+   *     *   [ECS instance types that are supported by Elastic Container Instance](https://help.aliyun.com/document_detail/114664.html).
+   *
+   * @param request DescribeContainerGroupPriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerGroupPriceResponse
    */
   async describeContainerGroupPriceWithOptions(request: DescribeContainerGroupPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupPriceResponse> {
     Util.validateModel(request);
@@ -11259,19 +11715,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you call this operation, you cannot use resource groups to control the permissions of a RAM user.
-    * *   You can create an elastic container instance by specifying vCPU and memory resource specifications or by specifying ECS instance types. When you call this operation to query the prices of elastic container instances, pass in specifications of the elastic container instances.
-    *     *   [vCPU and memory specifications](~~114662~~).
-    *     *   [ECS instance types that are supported by Elastic Container Instance](~~114664~~).
-    *
-    * @param request DescribeContainerGroupPriceRequest
-    * @return DescribeContainerGroupPriceResponse
+   * @summary Queries the price of an elastic container instance.
+   *
+   * @description *   When you call this operation, you cannot use resource groups to control the permissions of a RAM user.
+   * *   You can create an elastic container instance by specifying vCPU and memory resource specifications or by specifying ECS instance types. When you call this operation to query the prices of elastic container instances, pass in specifications of the elastic container instances.
+   *     *   [vCPU and memory specifications](https://help.aliyun.com/document_detail/114662.html).
+   *     *   [ECS instance types that are supported by Elastic Container Instance](https://help.aliyun.com/document_detail/114664.html).
+   *
+   * @param request DescribeContainerGroupPriceRequest
+   * @return DescribeContainerGroupPriceResponse
    */
   async describeContainerGroupPrice(request: DescribeContainerGroupPriceRequest): Promise<DescribeContainerGroupPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerGroupPriceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statuses of multiple container groups at a time.
+   *
+   * @param request DescribeContainerGroupStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerGroupStatusResponse
+   */
   async describeContainerGroupStatusWithOptions(request: DescribeContainerGroupStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11328,20 +11793,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerGroupStatusResponse>(await this.callApi(params, req, runtime), new DescribeContainerGroupStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the statuses of multiple container groups at a time.
+   *
+   * @param request DescribeContainerGroupStatusRequest
+   * @return DescribeContainerGroupStatusResponse
+   */
   async describeContainerGroupStatus(request: DescribeContainerGroupStatusRequest): Promise<DescribeContainerGroupStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerGroupStatusWithOptions(request, runtime);
   }
 
   /**
-    * *   After an elastic container instance is terminated, its underlying computing resources are recycled. By default, other resources, such as elastic IP addresses (EIPs), that are created together with the instance are released together with the instance.
-    * *   The metadata of an instance in the final status (Failed, Succeeded, or Expired) is retained based on the following rules:
-    *     *   All metadata information is retained within 1 hour since the instance enters the final status.
-    *     *   One hour after the instance enters the final status, only the latest 100 entries of metadata information in each region are retained.
-    *
-    * @param request DescribeContainerGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeContainerGroupsResponse
+   * @summary Queries information about multiple elastic container instances at a time.
+   *
+   * @description *   After an elastic container instance is terminated, its underlying computing resources are recycled. By default, other resources, such as elastic IP addresses (EIPs), that are created together with the instance are released together with the instance.
+   * *   The metadata of an instance in the final status (Failed, Succeeded, or Expired) is retained based on the following rules:
+   *     *   All metadata information is retained within 1 hour since the instance enters the final status.
+   *     *   One hour after the instance enters the final status, only the latest 100 entries of metadata information in each region are retained.
+   *
+   * @param request DescribeContainerGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerGroupsResponse
    */
   async describeContainerGroupsWithOptions(request: DescribeContainerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupsResponse> {
     Util.validateModel(request);
@@ -11436,19 +11909,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After an elastic container instance is terminated, its underlying computing resources are recycled. By default, other resources, such as elastic IP addresses (EIPs), that are created together with the instance are released together with the instance.
-    * *   The metadata of an instance in the final status (Failed, Succeeded, or Expired) is retained based on the following rules:
-    *     *   All metadata information is retained within 1 hour since the instance enters the final status.
-    *     *   One hour after the instance enters the final status, only the latest 100 entries of metadata information in each region are retained.
-    *
-    * @param request DescribeContainerGroupsRequest
-    * @return DescribeContainerGroupsResponse
+   * @summary Queries information about multiple elastic container instances at a time.
+   *
+   * @description *   After an elastic container instance is terminated, its underlying computing resources are recycled. By default, other resources, such as elastic IP addresses (EIPs), that are created together with the instance are released together with the instance.
+   * *   The metadata of an instance in the final status (Failed, Succeeded, or Expired) is retained based on the following rules:
+   *     *   All metadata information is retained within 1 hour since the instance enters the final status.
+   *     *   One hour after the instance enters the final status, only the latest 100 entries of metadata information in each region are retained.
+   *
+   * @param request DescribeContainerGroupsRequest
+   * @return DescribeContainerGroupsResponse
    */
   async describeContainerGroups(request: DescribeContainerGroupsRequest): Promise<DescribeContainerGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the logs of a container in a container group.
+   *
+   * @param request DescribeContainerLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerLogResponse
+   */
   async describeContainerLogWithOptions(request: DescribeContainerLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11521,11 +12003,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerLogResponse>(await this.callApi(params, req, runtime), new DescribeContainerLogResponse({}));
   }
 
+  /**
+   * @summary Queries the logs of a container in a container group.
+   *
+   * @param request DescribeContainerLogRequest
+   * @return DescribeContainerLogResponse
+   */
   async describeContainerLog(request: DescribeContainerLogRequest): Promise<DescribeContainerLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about data caches.
+   *
+   * @param request DescribeDataCachesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataCachesResponse
+   */
   async describeDataCachesWithOptions(request: DescribeDataCachesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataCachesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11598,11 +12093,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataCachesResponse>(await this.callApi(params, req, runtime), new DescribeDataCachesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about data caches.
+   *
+   * @param request DescribeDataCachesRequest
+   * @return DescribeDataCachesResponse
+   */
   async describeDataCaches(request: DescribeDataCachesRequest): Promise<DescribeDataCachesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataCachesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about image caches.
+   *
+   * @param request DescribeImageCachesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageCachesResponse
+   */
   async describeImageCachesWithOptions(request: DescribeImageCachesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageCachesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11691,11 +12199,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageCachesResponse>(await this.callApi(params, req, runtime), new DescribeImageCachesResponse({}));
   }
 
+  /**
+   * @summary Queries information about image caches.
+   *
+   * @param request DescribeImageCachesRequest
+   * @return DescribeImageCachesResponse
+   */
   async describeImageCaches(request: DescribeImageCachesRequest): Promise<DescribeImageCachesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageCachesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about operations and maintenance tasks of an elastic container instance.
+   *
+   * @param request DescribeInstanceOpsRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceOpsRecordsResponse
+   */
   async describeInstanceOpsRecordsWithOptions(request: DescribeInstanceOpsRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceOpsRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11748,18 +12269,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceOpsRecordsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceOpsRecordsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about operations and maintenance tasks of an elastic container instance.
+   *
+   * @param request DescribeInstanceOpsRecordsRequest
+   * @return DescribeInstanceOpsRecordsResponse
+   */
   async describeInstanceOpsRecords(request: DescribeInstanceOpsRecordsRequest): Promise<DescribeInstanceOpsRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceOpsRecordsWithOptions(request, runtime);
   }
 
   /**
-    * *   Only the latest entry of monitoring data of each elastic container instance is returned.
-    * *   You can query only the monitoring data of elastic container instances that are created after April 3, 2019 15:00:00 UTC+8.
-    *
-    * @param request DescribeMultiContainerGroupMetricRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeMultiContainerGroupMetricResponse
+   * @summary Queries the monitoring data of elastic container instances.
+   *
+   * @description *   Only the latest entry of monitoring data of each elastic container instance is returned.
+   * *   You can query only the monitoring data of elastic container instances that are created after April 3, 2019 15:00:00 UTC+8.
+   *
+   * @param request DescribeMultiContainerGroupMetricRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMultiContainerGroupMetricResponse
    */
   async describeMultiContainerGroupMetricWithOptions(request: DescribeMultiContainerGroupMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMultiContainerGroupMetricResponse> {
     Util.validateModel(request);
@@ -11814,17 +12343,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only the latest entry of monitoring data of each elastic container instance is returned.
-    * *   You can query only the monitoring data of elastic container instances that are created after April 3, 2019 15:00:00 UTC+8.
-    *
-    * @param request DescribeMultiContainerGroupMetricRequest
-    * @return DescribeMultiContainerGroupMetricResponse
+   * @summary Queries the monitoring data of elastic container instances.
+   *
+   * @description *   Only the latest entry of monitoring data of each elastic container instance is returned.
+   * *   You can query only the monitoring data of elastic container instances that are created after April 3, 2019 15:00:00 UTC+8.
+   *
+   * @param request DescribeMultiContainerGroupMetricRequest
+   * @return DescribeMultiContainerGroupMetricResponse
    */
   async describeMultiContainerGroupMetric(request: DescribeMultiContainerGroupMetricRequest): Promise<DescribeMultiContainerGroupMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMultiContainerGroupMetricWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the regions and zones in which Elastic Container Instance is available.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11869,11 +12407,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the regions and zones in which Elastic Container Instance is available.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about virtual nodes.
+   *
+   * @param request DescribeVirtualNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVirtualNodesResponse
+   */
   async describeVirtualNodesWithOptions(request: DescribeVirtualNodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVirtualNodesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11950,11 +12501,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVirtualNodesResponse>(await this.callApi(params, req, runtime), new DescribeVirtualNodesResponse({}));
   }
 
+  /**
+   * @summary Queries information about virtual nodes.
+   *
+   * @param request DescribeVirtualNodesRequest
+   * @return DescribeVirtualNodesResponse
+   */
   async describeVirtualNodes(request: DescribeVirtualNodesRequest): Promise<DescribeVirtualNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVirtualNodesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Runs commands in a container.
+   *
+   * @param request ExecContainerCommandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExecContainerCommandResponse
+   */
   async execContainerCommandWithOptions(request: ExecContainerCommandRequest, runtime: $Util.RuntimeOptions): Promise<ExecContainerCommandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12023,17 +12587,107 @@ export default class Client extends OpenApi {
     return $tea.cast<ExecContainerCommandResponse>(await this.callApi(params, req, runtime), new ExecContainerCommandResponse({}));
   }
 
+  /**
+   * @summary Runs commands in a container.
+   *
+   * @param request ExecContainerCommandRequest
+   * @return ExecContainerCommandResponse
+   */
   async execContainerCommand(request: ExecContainerCommandRequest): Promise<ExecContainerCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.execContainerCommandWithOptions(request, runtime);
   }
 
   /**
-    * This operation does not support resource group authentication.
-    *
-    * @param request ListUsageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListUsageResponse
+   * @summary 查询用户tag
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  /**
+   * @summary 查询用户tag
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries the used amounts and upper limits of privileges and quotas that you have in a specified region.
+   *
+   * @description This operation does not support resource group authentication.
+   *
+   * @param request ListUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsageResponse
    */
   async listUsageWithOptions(request: ListUsageRequest, runtime: $Util.RuntimeOptions): Promise<ListUsageResponse> {
     Util.validateModel(request);
@@ -12080,10 +12734,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation does not support resource group authentication.
-    *
-    * @param request ListUsageRequest
-    * @return ListUsageResponse
+   * @summary Queries the used amounts and upper limits of privileges and quotas that you have in a specified region.
+   *
+   * @description This operation does not support resource group authentication.
+   *
+   * @param request ListUsageRequest
+   * @return ListUsageResponse
    */
   async listUsage(request: ListUsageRequest): Promise<ListUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12091,11 +12747,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can scale up volumes by calling this operation. You cannot scale down volumes by calling this operation. Only volumes of Alibaba Cloud disks can be scaled up.
-    *
-    * @param request ResizeContainerGroupVolumeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResizeContainerGroupVolumeResponse
+   * @summary Scales out volumes on an elastic container instance.
+   *
+   * @description You can scale up volumes by calling this operation. You cannot scale down volumes by calling this operation. Only volumes of Alibaba Cloud disks can be scaled up.
+   *
+   * @param request ResizeContainerGroupVolumeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResizeContainerGroupVolumeResponse
    */
   async resizeContainerGroupVolumeWithOptions(request: ResizeContainerGroupVolumeRequest, runtime: $Util.RuntimeOptions): Promise<ResizeContainerGroupVolumeResponse> {
     Util.validateModel(request);
@@ -12158,10 +12816,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can scale up volumes by calling this operation. You cannot scale down volumes by calling this operation. Only volumes of Alibaba Cloud disks can be scaled up.
-    *
-    * @param request ResizeContainerGroupVolumeRequest
-    * @return ResizeContainerGroupVolumeResponse
+   * @summary Scales out volumes on an elastic container instance.
+   *
+   * @description You can scale up volumes by calling this operation. You cannot scale down volumes by calling this operation. Only volumes of Alibaba Cloud disks can be scaled up.
+   *
+   * @param request ResizeContainerGroupVolumeRequest
+   * @return ResizeContainerGroupVolumeResponse
    */
   async resizeContainerGroupVolume(request: ResizeContainerGroupVolumeRequest): Promise<ResizeContainerGroupVolumeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12169,13 +12829,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only elastic container instances that are in the Pending or Running state can be restarted. Instances that are in the Succeeded or Failed state cannot be restarted.
-    * *   Elastic container instances that were created before 15:00:00 on March 7, 2019 cannot be restarted.
-    * *   When an elastic container instance is being restarted, its status changes into Restarting.
-    *
-    * @param request RestartContainerGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RestartContainerGroupResponse
+   * @summary Restarts an elastic container instance.
+   *
+   * @description *   Only elastic container instances that are in the Pending or Running state can be restarted. Instances that are in the Succeeded or Failed state cannot be restarted.
+   * *   Elastic container instances that were created before 15:00:00 on March 7, 2019 cannot be restarted.
+   * *   When an elastic container instance is being restarted, its status changes into Restarting.
+   *
+   * @param request RestartContainerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartContainerGroupResponse
    */
   async restartContainerGroupWithOptions(request: RestartContainerGroupRequest, runtime: $Util.RuntimeOptions): Promise<RestartContainerGroupResponse> {
     Util.validateModel(request);
@@ -12230,12 +12892,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only elastic container instances that are in the Pending or Running state can be restarted. Instances that are in the Succeeded or Failed state cannot be restarted.
-    * *   Elastic container instances that were created before 15:00:00 on March 7, 2019 cannot be restarted.
-    * *   When an elastic container instance is being restarted, its status changes into Restarting.
-    *
-    * @param request RestartContainerGroupRequest
-    * @return RestartContainerGroupResponse
+   * @summary Restarts an elastic container instance.
+   *
+   * @description *   Only elastic container instances that are in the Pending or Running state can be restarted. Instances that are in the Succeeded or Failed state cannot be restarted.
+   * *   Elastic container instances that were created before 15:00:00 on March 7, 2019 cannot be restarted.
+   * *   When an elastic container instance is being restarted, its status changes into Restarting.
+   *
+   * @param request RestartContainerGroupRequest
+   * @return RestartContainerGroupResponse
    */
   async restartContainerGroup(request: RestartContainerGroupRequest): Promise<RestartContainerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12243,12 +12907,170 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only elastic container instances that are in the Pending or Running state can be updated. After you call this operation to update an elastic container instance, the instance enters the Updating state.
-    * *   If the RestartPolicy parameter is set to Never for the elastic container instance that you are updating, the containers of the instance may fail. Exercise caution if you want to update the kind of instances.
-    *
-    * @param request UpdateContainerGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateContainerGroupResponse
+   * @summary 打用户tag
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  /**
+   * @summary 打用户tag
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 去除用户tag
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  /**
+   * @summary 去除用户tag
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Updates an elastic container instance.
+   *
+   * @description *   Only elastic container instances that are in the Pending or Running state can be updated. After you call this operation to update an elastic container instance, the instance enters the Updating state.
+   * *   If the RestartPolicy parameter is set to Never for the elastic container instance that you are updating, the containers of the instance may fail. Exercise caution if you want to update the kind of instances.
+   *
+   * @param request UpdateContainerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateContainerGroupResponse
    */
   async updateContainerGroupWithOptions(request: UpdateContainerGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateContainerGroupResponse> {
     Util.validateModel(request);
@@ -12351,17 +13173,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only elastic container instances that are in the Pending or Running state can be updated. After you call this operation to update an elastic container instance, the instance enters the Updating state.
-    * *   If the RestartPolicy parameter is set to Never for the elastic container instance that you are updating, the containers of the instance may fail. Exercise caution if you want to update the kind of instances.
-    *
-    * @param request UpdateContainerGroupRequest
-    * @return UpdateContainerGroupResponse
+   * @summary Updates an elastic container instance.
+   *
+   * @description *   Only elastic container instances that are in the Pending or Running state can be updated. After you call this operation to update an elastic container instance, the instance enters the Updating state.
+   * *   If the RestartPolicy parameter is set to Never for the elastic container instance that you are updating, the containers of the instance may fail. Exercise caution if you want to update the kind of instances.
+   *
+   * @param request UpdateContainerGroupRequest
+   * @return UpdateContainerGroupResponse
    */
   async updateContainerGroup(request: UpdateContainerGroupRequest): Promise<UpdateContainerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateContainerGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a data cache.
+   *
+   * @param request UpdateDataCacheRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDataCacheResponse
+   */
   async updateDataCacheWithOptions(request: UpdateDataCacheRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataCacheResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12458,17 +13289,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDataCacheResponse>(await this.callApi(params, req, runtime), new UpdateDataCacheResponse({}));
   }
 
+  /**
+   * @summary Updates a data cache.
+   *
+   * @param request UpdateDataCacheRequest
+   * @return UpdateDataCacheResponse
+   */
   async updateDataCache(request: UpdateDataCacheRequest): Promise<UpdateDataCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDataCacheWithOptions(request, runtime);
   }
 
   /**
-    * Only image caches that are in the Ready or UpdateFailed state can be updated.
-    *
-    * @param request UpdateImageCacheRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateImageCacheResponse
+   * @summary Updates an image cache.
+   *
+   * @description Only image caches that are in the Ready or UpdateFailed state can be updated.
+   *
+   * @param request UpdateImageCacheRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateImageCacheResponse
    */
   async updateImageCacheWithOptions(request: UpdateImageCacheRequest, runtime: $Util.RuntimeOptions): Promise<UpdateImageCacheResponse> {
     Util.validateModel(request);
@@ -12587,10 +13426,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only image caches that are in the Ready or UpdateFailed state can be updated.
-    *
-    * @param request UpdateImageCacheRequest
-    * @return UpdateImageCacheResponse
+   * @summary Updates an image cache.
+   *
+   * @description Only image caches that are in the Ready or UpdateFailed state can be updated.
+   *
+   * @param request UpdateImageCacheRequest
+   * @return UpdateImageCacheResponse
    */
   async updateImageCache(request: UpdateImageCacheRequest): Promise<UpdateImageCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12598,12 +13439,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * Only virtual nodes that are in the Ready state can be updated.
-    *
-    * @param request UpdateVirtualNodeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateVirtualNodeResponse
+   * @summary Updates attributes of a virtual node.
+   *
+   * @description ## Usage notes
+   * Only virtual nodes that are in the Ready state can be updated.
+   *
+   * @param request UpdateVirtualNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateVirtualNodeResponse
    */
   async updateVirtualNodeWithOptions(request: UpdateVirtualNodeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVirtualNodeResponse> {
     Util.validateModel(request);
@@ -12678,11 +13521,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * Only virtual nodes that are in the Ready state can be updated.
-    *
-    * @param request UpdateVirtualNodeRequest
-    * @return UpdateVirtualNodeResponse
+   * @summary Updates attributes of a virtual node.
+   *
+   * @description ## Usage notes
+   * Only virtual nodes that are in the Ready state can be updated.
+   *
+   * @param request UpdateVirtualNodeRequest
+   * @return UpdateVirtualNodeResponse
    */
   async updateVirtualNode(request: UpdateVirtualNodeRequest): Promise<UpdateVirtualNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
