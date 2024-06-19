@@ -828,6 +828,7 @@ export class CreateInstanceRequest extends $tea.Model {
   port?: string;
   privateIpAddress?: string;
   readOnlyCount?: number;
+  recoverConfigMode?: string;
   regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -836,6 +837,7 @@ export class CreateInstanceRequest extends $tea.Model {
   secondaryZoneId?: string;
   securityToken?: string;
   shardCount?: number;
+  slaveReadOnlyCount?: number;
   srcDBInstanceId?: string;
   tag?: CreateInstanceRequestTag[];
   token?: string;
@@ -874,6 +876,7 @@ export class CreateInstanceRequest extends $tea.Model {
       port: 'Port',
       privateIpAddress: 'PrivateIpAddress',
       readOnlyCount: 'ReadOnlyCount',
+      recoverConfigMode: 'RecoverConfigMode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -882,6 +885,7 @@ export class CreateInstanceRequest extends $tea.Model {
       secondaryZoneId: 'SecondaryZoneId',
       securityToken: 'SecurityToken',
       shardCount: 'ShardCount',
+      slaveReadOnlyCount: 'SlaveReadOnlyCount',
       srcDBInstanceId: 'SrcDBInstanceId',
       tag: 'Tag',
       token: 'Token',
@@ -923,6 +927,7 @@ export class CreateInstanceRequest extends $tea.Model {
       port: 'string',
       privateIpAddress: 'string',
       readOnlyCount: 'number',
+      recoverConfigMode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
@@ -931,6 +936,7 @@ export class CreateInstanceRequest extends $tea.Model {
       secondaryZoneId: 'string',
       securityToken: 'string',
       shardCount: 'number',
+      slaveReadOnlyCount: 'number',
       srcDBInstanceId: 'string',
       tag: { 'type': 'array', 'itemType': CreateInstanceRequestTag },
       token: 'string',
@@ -1160,6 +1166,105 @@ export class CreateInstancesResponse extends $tea.Model {
   }
 }
 
+export class CreateParameterGroupRequest extends $tea.Model {
+  category?: string;
+  engineType?: string;
+  engineVersion?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  parameterGroupDesc?: string;
+  parameterGroupName?: string;
+  parameters?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      engineType: 'EngineType',
+      engineVersion: 'EngineVersion',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      parameterGroupDesc: 'ParameterGroupDesc',
+      parameterGroupName: 'ParameterGroupName',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      engineType: 'string',
+      engineVersion: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      parameterGroupDesc: 'string',
+      parameterGroupName: 'string',
+      parameters: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateParameterGroupResponseBody extends $tea.Model {
+  paramGroupId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramGroupId: 'ParamGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateParameterGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateParameterGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateParameterGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTairInstanceRequest extends $tea.Model {
   autoPay?: boolean;
   autoRenew?: string;
@@ -1186,6 +1291,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
   port?: number;
   privateIpAddress?: string;
   readOnlyCount?: number;
+  recoverConfigMode?: string;
   regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -1230,6 +1336,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       port: 'Port',
       privateIpAddress: 'PrivateIpAddress',
       readOnlyCount: 'ReadOnlyCount',
+      recoverConfigMode: 'RecoverConfigMode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -1277,6 +1384,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       port: 'number',
       privateIpAddress: 'string',
       readOnlyCount: 'number',
+      recoverConfigMode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
@@ -1629,6 +1737,87 @@ export class DeleteInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteParameterGroupRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  parameterGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      parameterGroupId: 'ParameterGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      parameterGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteParameterGroupResponseBody extends $tea.Model {
+  paramGroupId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramGroupId: 'ParamGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteParameterGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteParameterGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteParameterGroupResponseBody,
     };
   }
 
@@ -5036,6 +5225,354 @@ export class DescribeMonitorItemsResponse extends $tea.Model {
   }
 }
 
+export class DescribeParameterGroupRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  parameterGroupId?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      parameterGroupId: 'ParameterGroupId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      parameterGroupId: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupResponseBody extends $tea.Model {
+  parameterGroup?: DescribeParameterGroupResponseBodyParameterGroup;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterGroup: 'ParameterGroup',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterGroup: DescribeParameterGroupResponseBodyParameterGroup,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeParameterGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeParameterGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupSupportParamRequest extends $tea.Model {
+  category?: string;
+  engineType?: string;
+  engineVersion?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      engineType: 'EngineType',
+      engineVersion: 'EngineVersion',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      engineType: 'string',
+      engineVersion: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupSupportParamResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceList?: DescribeParameterGroupSupportParamResponseBodyResourceList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceList: 'ResourceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceList: { 'type': 'array', 'itemType': DescribeParameterGroupSupportParamResponseBodyResourceList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupSupportParamResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeParameterGroupSupportParamResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeParameterGroupSupportParamResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupTemplateListRequest extends $tea.Model {
+  category?: string;
+  characterType?: string;
+  engineType?: string;
+  engineVersion?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      characterType: 'CharacterType',
+      engineType: 'EngineType',
+      engineVersion: 'EngineVersion',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      characterType: 'string',
+      engineType: 'string',
+      engineVersion: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupTemplateListResponseBody extends $tea.Model {
+  engineVersion?: string;
+  parameters?: DescribeParameterGroupTemplateListResponseBodyParameters[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      engineVersion: 'EngineVersion',
+      parameters: 'Parameters',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engineVersion: 'string',
+      parameters: { 'type': 'array', 'itemType': DescribeParameterGroupTemplateListResponseBodyParameters },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupTemplateListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeParameterGroupTemplateListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeParameterGroupTemplateListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupsRequest extends $tea.Model {
+  dbType?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbType: 'DbType',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbType: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupsResponseBody extends $tea.Model {
+  parameterGroups?: DescribeParameterGroupsResponseBodyParameterGroups[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterGroups: 'ParameterGroups',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterGroups: { 'type': 'array', 'itemType': DescribeParameterGroupsResponseBodyParameterGroups },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeParameterGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeParameterGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeParameterModificationHistoryRequest extends $tea.Model {
   endTime?: string;
   instanceId?: string;
@@ -7472,6 +8009,87 @@ export class ModifyBackupPolicyResponse extends $tea.Model {
   }
 }
 
+export class ModifyDBInstanceAutoUpgradeRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceAutoUpgradeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceAutoUpgradeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceAutoUpgradeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBInstanceAutoUpgradeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
   currentConnectionString?: string;
   DBInstanceId?: string;
@@ -8973,6 +9591,102 @@ export class ModifyIntranetAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyIntranetAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyParameterGroupRequest extends $tea.Model {
+  category?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  parameterGroupDesc?: string;
+  parameterGroupId?: string;
+  parameterGroupName?: string;
+  parameters?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      parameterGroupDesc: 'ParameterGroupDesc',
+      parameterGroupId: 'ParameterGroupId',
+      parameterGroupName: 'ParameterGroupName',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      parameterGroupDesc: 'string',
+      parameterGroupId: 'string',
+      parameterGroupName: 'string',
+      parameters: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyParameterGroupResponseBody extends $tea.Model {
+  paramGroupId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramGroupId: 'ParamGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyParameterGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyParameterGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyParameterGroupResponseBody,
     };
   }
 
@@ -11573,6 +12287,7 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
   backupType?: string;
   engineVersion?: string;
   nodeInstanceId?: string;
+  recoverConfigMode?: string;
   static names(): { [key: string]: string } {
     return {
       backupDBNames: 'BackupDBNames',
@@ -11589,6 +12304,7 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
       backupType: 'BackupType',
       engineVersion: 'EngineVersion',
       nodeInstanceId: 'NodeInstanceId',
+      recoverConfigMode: 'RecoverConfigMode',
     };
   }
 
@@ -11608,6 +12324,7 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
       backupType: 'string',
       engineVersion: 'string',
       nodeInstanceId: 'string',
+      recoverConfigMode: 'string',
     };
   }
 
@@ -11755,6 +12472,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   extraInfo?: DescribeClusterBackupListResponseBodyClusterBackupsBackupsExtraInfo;
   instanceName?: string;
   isAvail?: string;
+  recoverConfigMode?: string;
   static names(): { [key: string]: string } {
     return {
       backupDownloadURL: 'BackupDownloadURL',
@@ -11769,6 +12487,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
       extraInfo: 'ExtraInfo',
       instanceName: 'InstanceName',
       isAvail: 'IsAvail',
+      recoverConfigMode: 'RecoverConfigMode',
     };
   }
 
@@ -11786,6 +12505,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
       extraInfo: DescribeClusterBackupListResponseBodyClusterBackupsBackupsExtraInfo,
       instanceName: 'string',
       isAvail: 'string',
+      recoverConfigMode: 'string',
     };
   }
 
@@ -13263,6 +13983,182 @@ export class DescribeMonitorItemsResponseBodyMonitorItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       KVStoreMonitorItem: { 'type': 'array', 'itemType': DescribeMonitorItemsResponseBodyMonitorItemsKVStoreMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupResponseBodyParameterGroupParamGroupsDetails extends $tea.Model {
+  paramName?: string;
+  paramValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramName: 'ParamName',
+      paramValue: 'ParamValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramName: 'string',
+      paramValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupResponseBodyParameterGroup extends $tea.Model {
+  category?: number;
+  created?: string;
+  engine?: string;
+  engineVersion?: string;
+  modified?: string;
+  paramGroupId?: string;
+  paramGroupsDetails?: DescribeParameterGroupResponseBodyParameterGroupParamGroupsDetails[];
+  parameterGroupDesc?: string;
+  parameterGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      created: 'Created',
+      engine: 'Engine',
+      engineVersion: 'EngineVersion',
+      modified: 'Modified',
+      paramGroupId: 'ParamGroupId',
+      paramGroupsDetails: 'ParamGroupsDetails',
+      parameterGroupDesc: 'ParameterGroupDesc',
+      parameterGroupName: 'ParameterGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'number',
+      created: 'string',
+      engine: 'string',
+      engineVersion: 'string',
+      modified: 'string',
+      paramGroupId: 'string',
+      paramGroupsDetails: { 'type': 'array', 'itemType': DescribeParameterGroupResponseBodyParameterGroupParamGroupsDetails },
+      parameterGroupDesc: 'string',
+      parameterGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupSupportParamResponseBodyResourceList extends $tea.Model {
+  category?: string;
+  dbType?: string;
+  dbVersion?: string;
+  paramName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      dbType: 'DbType',
+      dbVersion: 'DbVersion',
+      paramName: 'ParamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      dbType: 'string',
+      dbVersion: 'string',
+      paramName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupTemplateListResponseBodyParameters extends $tea.Model {
+  checkingCode?: string;
+  effective?: number;
+  factor?: number;
+  parameterDescription?: string;
+  parameterName?: string;
+  parameterValue?: string;
+  revisable?: number;
+  supportModifyForMinorVersion?: boolean;
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingCode: 'CheckingCode',
+      effective: 'Effective',
+      factor: 'Factor',
+      parameterDescription: 'ParameterDescription',
+      parameterName: 'ParameterName',
+      parameterValue: 'ParameterValue',
+      revisable: 'Revisable',
+      supportModifyForMinorVersion: 'SupportModifyForMinorVersion',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingCode: 'string',
+      effective: 'number',
+      factor: 'number',
+      parameterDescription: 'string',
+      parameterName: 'string',
+      parameterValue: 'string',
+      revisable: 'number',
+      supportModifyForMinorVersion: 'boolean',
+      unit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterGroupsResponseBodyParameterGroups extends $tea.Model {
+  category?: number;
+  created?: string;
+  engine?: string;
+  engineVersion?: string;
+  modified?: string;
+  paramGroupId?: string;
+  parameterGroupDesc?: string;
+  parameterGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      created: 'Created',
+      engine: 'Engine',
+      engineVersion: 'EngineVersion',
+      modified: 'Modified',
+      paramGroupId: 'ParamGroupId',
+      parameterGroupDesc: 'ParameterGroupDesc',
+      parameterGroupName: 'ParameterGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'number',
+      created: 'string',
+      engine: 'string',
+      engineVersion: 'string',
+      modified: 'string',
+      paramGroupId: 'string',
+      parameterGroupDesc: 'string',
+      parameterGroupName: 'string',
     };
   }
 
@@ -14823,7 +15719,6 @@ export default class Client extends OpenApi {
       'cn-heyuan': "r-kvstore.aliyuncs.com",
       'cn-guangzhou': "r-kvstore.aliyuncs.com",
       'cn-hongkong': "r-kvstore.aliyuncs.com",
-      'ap-southeast-1': "r-kvstore.aliyuncs.com",
       'cn-hangzhou-finance': "r-kvstore.aliyuncs.com",
       'cn-shanghai-finance-1': "r-kvstore.aliyuncs.com",
       'cn-shenzhen-finance-1': "r-kvstore.aliyuncs.com",
@@ -14878,11 +15773,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only for cluster instances that use cloud disks.
-    *
-    * @param request AddShardingNodeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddShardingNodeResponse
+   * @summary Adds one or more data shards to an ApsaraDB for Redis cluster instance.
+   *
+   * @description This operation is available only for cluster instances that use cloud disks.
+   *
+   * @param request AddShardingNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddShardingNodeResponse
    */
   async addShardingNodeWithOptions(request: AddShardingNodeRequest, runtime: $Util.RuntimeOptions): Promise<AddShardingNodeResponse> {
     Util.validateModel(request);
@@ -14957,10 +15854,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only for cluster instances that use cloud disks.
-    *
-    * @param request AddShardingNodeRequest
-    * @return AddShardingNodeResponse
+   * @summary Adds one or more data shards to an ApsaraDB for Redis cluster instance.
+   *
+   * @description This operation is available only for cluster instances that use cloud disks.
+   *
+   * @param request AddShardingNodeRequest
+   * @return AddShardingNodeResponse
    */
   async addShardingNode(request: AddShardingNodeRequest): Promise<AddShardingNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14968,17 +15867,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](~~146901~~).
-    * To call this operation, the instance must meet the following requirements:
-    * *   The instance is an ApsaraDB for Redis cluster instance.
-    * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
-    * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](~~61005~~) operation to change the network type to VPC.
-    * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](~~96194~~) operation to disable it.
-    * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](~~183151~~).
-    *
-    * @param request AllocateDirectConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AllocateDirectConnectionResponse
+   * @summary Applies for a private endpoint for an ApsaraDB for Redis cluster instance.
+   *
+   * @description In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+   * To call this operation, the instance must meet the following requirements:
+   * *   The instance is an ApsaraDB for Redis cluster instance.
+   * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
+   * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html) operation to change the network type to VPC.
+   * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation to disable it.
+   * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](https://help.aliyun.com/document_detail/183151.html).
+   *
+   * @param request AllocateDirectConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateDirectConnectionResponse
    */
   async allocateDirectConnectionWithOptions(request: AllocateDirectConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateDirectConnectionResponse> {
     Util.validateModel(request);
@@ -15033,16 +15934,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](~~146901~~).
-    * To call this operation, the instance must meet the following requirements:
-    * *   The instance is an ApsaraDB for Redis cluster instance.
-    * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
-    * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](~~61005~~) operation to change the network type to VPC.
-    * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](~~96194~~) operation to disable it.
-    * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](~~183151~~).
-    *
-    * @param request AllocateDirectConnectionRequest
-    * @return AllocateDirectConnectionResponse
+   * @summary Applies for a private endpoint for an ApsaraDB for Redis cluster instance.
+   *
+   * @description In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+   * To call this operation, the instance must meet the following requirements:
+   * *   The instance is an ApsaraDB for Redis cluster instance.
+   * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
+   * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html) operation to change the network type to VPC.
+   * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation to disable it.
+   * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](https://help.aliyun.com/document_detail/183151.html).
+   *
+   * @param request AllocateDirectConnectionRequest
+   * @return AllocateDirectConnectionResponse
    */
   async allocateDirectConnection(request: AllocateDirectConnectionRequest): Promise<AllocateDirectConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15050,11 +15953,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](~~43850~~).
-    *
-    * @param request AllocateInstancePublicConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AllocateInstancePublicConnectionResponse
+   * @summary Applies for a public endpoint for an ApsaraDB for Redis instance.
+   *
+   * @description You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
+   *
+   * @param request AllocateInstancePublicConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateInstancePublicConnectionResponse
    */
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
     Util.validateModel(request);
@@ -15109,10 +16014,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](~~43850~~).
-    *
-    * @param request AllocateInstancePublicConnectionRequest
-    * @return AllocateInstancePublicConnectionResponse
+   * @summary Applies for a public endpoint for an ApsaraDB for Redis instance.
+   *
+   * @description You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
+   *
+   * @param request AllocateInstancePublicConnectionRequest
+   * @return AllocateInstancePublicConnectionResponse
    */
   async allocateInstancePublicConnection(request: AllocateInstancePublicConnectionRequest): Promise<AllocateInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15120,12 +16027,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](~~265913~~).
-    * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](~~302337~~) operation to enable TDE.
-    *
-    * @param request CheckCloudResourceAuthorizedRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CheckCloudResourceAuthorizedResponse
+   * @summary Queries whether an ApsaraDB for Redis instance is authorized to use Key Management Service (KMS).
+   *
+   * @description *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable TDE.
+   *
+   * @param request CheckCloudResourceAuthorizedRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckCloudResourceAuthorizedResponse
    */
   async checkCloudResourceAuthorizedWithOptions(request: CheckCloudResourceAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<CheckCloudResourceAuthorizedResponse> {
     Util.validateModel(request);
@@ -15176,11 +16085,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](~~265913~~).
-    * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](~~302337~~) operation to enable TDE.
-    *
-    * @param request CheckCloudResourceAuthorizedRequest
-    * @return CheckCloudResourceAuthorizedResponse
+   * @summary Queries whether an ApsaraDB for Redis instance is authorized to use Key Management Service (KMS).
+   *
+   * @description *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable TDE.
+   *
+   * @param request CheckCloudResourceAuthorizedRequest
+   * @return CheckCloudResourceAuthorizedResponse
    */
   async checkCloudResourceAuthorized(request: CheckCloudResourceAuthorizedRequest): Promise<CheckCloudResourceAuthorizedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15188,15 +16099,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
-    * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
-    * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
-    * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](~~92665~~).
-    *
-    * @param request CreateAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAccountResponse
+   * @summary Creates an account that has specific permissions for an ApsaraDB for Redis instance.
+   *
+   * @description > 
+   * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
+   * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
+   * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
+   * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](https://help.aliyun.com/document_detail/92665.html).
+   *
+   * @param request CreateAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccountResponse
    */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
@@ -15263,14 +16176,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
-    * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
-    * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
-    * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](~~92665~~).
-    *
-    * @param request CreateAccountRequest
-    * @return CreateAccountResponse
+   * @summary Creates an account that has specific permissions for an ApsaraDB for Redis instance.
+   *
+   * @description > 
+   * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
+   * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
+   * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
+   * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](https://help.aliyun.com/document_detail/92665.html).
+   *
+   * @param request CreateAccountRequest
+   * @return CreateAccountResponse
    */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15278,11 +16193,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](~~43886~~).
-    *
-    * @param request CreateBackupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBackupResponse
+   * @summary Backs up an ApsaraDB for Redis instance.
+   *
+   * @description You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+   *
+   * @param request CreateBackupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBackupResponse
    */
   async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
     Util.validateModel(request);
@@ -15329,10 +16246,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](~~43886~~).
-    *
-    * @param request CreateBackupRequest
-    * @return CreateBackupResponse
+   * @summary Backs up an ApsaraDB for Redis instance.
+   *
+   * @description You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+   *
+   * @param request CreateBackupRequest
+   * @return CreateBackupResponse
    */
   async createBackup(request: CreateBackupRequest): Promise<CreateBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15340,17 +16259,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The engine version of the instance is Redis 4.0 or later.
-    * *   The instance is a Community Edition instance or an Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-    * This feature is unavailable for cloud disk-based cluster instances. For more information, see [Comparison between ApsaraDB for Redis instances that use local disks and those that use cloud disks](~~188068~~).
-    * *   The instance is of the latest minor version. For more information about whether you must update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~)
-    * After you call this operation, you can call the [DescribeCacheAnalysisReport](~~128808~~) operation to view the analytic results.
-    *
-    * @param request CreateCacheAnalysisTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateCacheAnalysisTaskResponse
+   * @summary Manually creates a cache analytics task.
+   *
+   * @description This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
+   *
+   * @param request CreateCacheAnalysisTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCacheAnalysisTaskResponse
    */
   async createCacheAnalysisTaskWithOptions(request: CreateCacheAnalysisTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCacheAnalysisTaskResponse> {
     Util.validateModel(request);
@@ -15397,16 +16312,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The engine version of the instance is Redis 4.0 or later.
-    * *   The instance is a Community Edition instance or an Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-    * This feature is unavailable for cloud disk-based cluster instances. For more information, see [Comparison between ApsaraDB for Redis instances that use local disks and those that use cloud disks](~~188068~~).
-    * *   The instance is of the latest minor version. For more information about whether you must update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~)
-    * After you call this operation, you can call the [DescribeCacheAnalysisReport](~~128808~~) operation to view the analytic results.
-    *
-    * @param request CreateCacheAnalysisTaskRequest
-    * @return CreateCacheAnalysisTaskResponse
+   * @summary Manually creates a cache analytics task.
+   *
+   * @description This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
+   *
+   * @param request CreateCacheAnalysisTaskRequest
+   * @return CreateCacheAnalysisTaskResponse
    */
   async createCacheAnalysisTask(request: CreateCacheAnalysisTaskRequest): Promise<CreateCacheAnalysisTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15414,14 +16325,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
-    * *   A [DRAM-based instance](~~126164~~) of Enhanced Edition is used.
-    * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](~~150047~~).
-    * > You can also call the [CreateInstance](~~60873~~) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
-    *
-    * @param request CreateGlobalDistributeCacheRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateGlobalDistributeCacheResponse
+   * @summary Converts an existing ApsaraDB for Redis instance to the first child instance of a distributed ApsaraDB for Redis instance.
+   *
+   * @description You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+   * *   A [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) of Enhanced Edition is used.
+   * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](https://help.aliyun.com/document_detail/150047.html).
+   * > You can also call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+   *
+   * @param request CreateGlobalDistributeCacheRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGlobalDistributeCacheResponse
    */
   async createGlobalDistributeCacheWithOptions(request: CreateGlobalDistributeCacheRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalDistributeCacheResponse> {
     Util.validateModel(request);
@@ -15476,19 +16389,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
-    * *   A [DRAM-based instance](~~126164~~) of Enhanced Edition is used.
-    * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](~~150047~~).
-    * > You can also call the [CreateInstance](~~60873~~) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
-    *
-    * @param request CreateGlobalDistributeCacheRequest
-    * @return CreateGlobalDistributeCacheResponse
+   * @summary Converts an existing ApsaraDB for Redis instance to the first child instance of a distributed ApsaraDB for Redis instance.
+   *
+   * @description You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+   * *   A [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) of Enhanced Edition is used.
+   * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](https://help.aliyun.com/document_detail/150047.html).
+   * > You can also call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+   *
+   * @param request CreateGlobalDistributeCacheRequest
+   * @return CreateGlobalDistributeCacheResponse
    */
   async createGlobalDistributeCache(request: CreateGlobalDistributeCacheRequest): Promise<CreateGlobalDistributeCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGlobalDistributeCacheWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a global IP whitelist template.
+   *
+   * @param request CreateGlobalSecurityIPGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGlobalSecurityIPGroupResponse
+   */
   async createGlobalSecurityIPGroupWithOptions(request: CreateGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15545,19 +16467,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new CreateGlobalSecurityIPGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a global IP whitelist template.
+   *
+   * @param request CreateGlobalSecurityIPGroupRequest
+   * @return CreateGlobalSecurityIPGroupResponse
+   */
   async createGlobalSecurityIPGroup(request: CreateGlobalSecurityIPGroupRequest): Promise<CreateGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGlobalSecurityIPGroupWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](~~208271~~) operation.
-    * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
-    *
-    * @param request CreateInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateInstanceResponse
+   * @summary Creates an ApsaraDB for Redis instance.
+   *
+   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/208271.html) operation.
+   * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/26351.html).
+   *
+   * @param request CreateInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -15682,6 +16612,10 @@ export default class Client extends OpenApi {
       query["ReadOnlyCount"] = request.readOnlyCount;
     }
 
+    if (!Util.isUnset(request.recoverConfigMode)) {
+      query["RecoverConfigMode"] = request.recoverConfigMode;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -15712,6 +16646,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.shardCount)) {
       query["ShardCount"] = request.shardCount;
+    }
+
+    if (!Util.isUnset(request.slaveReadOnlyCount)) {
+      query["SlaveReadOnlyCount"] = request.slaveReadOnlyCount;
     }
 
     if (!Util.isUnset(request.srcDBInstanceId)) {
@@ -15756,12 +16694,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](~~208271~~) operation.
-    * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
-    *
-    * @param request CreateInstanceRequest
-    * @return CreateInstanceResponse
+   * @summary Creates an ApsaraDB for Redis instance.
+   *
+   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/208271.html) operation.
+   * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/26351.html).
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15769,13 +16709,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see Step 1: Create an ApsaraDB for Redis instance.[](~~26351~~)
-    * This operation can only be used to create ApsaraDB for Redis Community Edition instances and ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based classic instances.
-    *
-    * @param request CreateInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateInstancesResponse
+   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * >  You can call this operation to create an ApsaraDB for Redis classic instance or a Tair DRAM-based classic instance. We recommend that you use an API operation for creating a single instance:
+   * *   [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates an ApsaraDB for Redis instance or a Tair DRAM-based classic instance.
+   * *   [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair cloud-native instance. The instance can be a DRAM-based, persistent memory-optimized, or ESSD/SSD-based instance.
+   *
+   * @param request CreateInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstancesResponse
    */
   async createInstancesWithOptions(request: CreateInstancesRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstancesResponse> {
     Util.validateModel(request);
@@ -15854,12 +16795,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see Step 1: Create an ApsaraDB for Redis instance.[](~~26351~~)
-    * This operation can only be used to create ApsaraDB for Redis Community Edition instances and ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based classic instances.
-    *
-    * @param request CreateInstancesRequest
-    * @return CreateInstancesResponse
+   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * >  You can call this operation to create an ApsaraDB for Redis classic instance or a Tair DRAM-based classic instance. We recommend that you use an API operation for creating a single instance:
+   * *   [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates an ApsaraDB for Redis instance or a Tair DRAM-based classic instance.
+   * *   [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair cloud-native instance. The instance can be a DRAM-based, persistent memory-optimized, or ESSD/SSD-based instance.
+   *
+   * @param request CreateInstancesRequest
+   * @return CreateInstancesResponse
    */
   async createInstances(request: CreateInstancesRequest): Promise<CreateInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15867,14 +16809,102 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
-    * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](~~443863~~).
-    * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](~~126164~~) instances, you can call the [CreateInstance](~~60873~~) operation.
-    *
-    * @param request CreateTairInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateTairInstanceResponse
+   * @summary 创建实例参数模板。
+   *
+   * @param request CreateParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateParameterGroupResponse
+   */
+  async createParameterGroupWithOptions(request: CreateParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateParameterGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!Util.isUnset(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.parameterGroupDesc)) {
+      query["ParameterGroupDesc"] = request.parameterGroupDesc;
+    }
+
+    if (!Util.isUnset(request.parameterGroupName)) {
+      query["ParameterGroupName"] = request.parameterGroupName;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateParameterGroup",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateParameterGroupResponse>(await this.callApi(params, req, runtime), new CreateParameterGroupResponse({}));
+  }
+
+  /**
+   * @summary 创建实例参数模板。
+   *
+   * @param request CreateParameterGroupRequest
+   * @return CreateParameterGroupResponse
+   */
+  async createParameterGroup(request: CreateParameterGroupRequest): Promise<CreateParameterGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Creates a Tair instance.
+   *
+   * @description For information about instance selection, see [Select an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/223808.html).
+   * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](https://help.aliyun.com/document_detail/443863.html).
+   * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](https://help.aliyun.com/document_detail/126164.html) instances, you can call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation.
+   *
+   * @param request CreateTairInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTairInstanceResponse
    */
   async createTairInstanceWithOptions(request: CreateTairInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateTairInstanceResponse> {
     Util.validateModel(request);
@@ -15979,6 +17009,10 @@ export default class Client extends OpenApi {
       query["ReadOnlyCount"] = request.readOnlyCount;
     }
 
+    if (!Util.isUnset(request.recoverConfigMode)) {
+      query["RecoverConfigMode"] = request.recoverConfigMode;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -16065,13 +17099,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
-    * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](~~443863~~).
-    * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](~~126164~~) instances, you can call the [CreateInstance](~~60873~~) operation.
-    *
-    * @param request CreateTairInstanceRequest
-    * @return CreateTairInstanceResponse
+   * @summary Creates a Tair instance.
+   *
+   * @description For information about instance selection, see [Select an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/223808.html).
+   * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](https://help.aliyun.com/document_detail/443863.html).
+   * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](https://help.aliyun.com/document_detail/126164.html) instances, you can call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation.
+   *
+   * @param request CreateTairInstanceRequest
+   * @return CreateTairInstanceResponse
    */
   async createTairInstance(request: CreateTairInstanceRequest): Promise<CreateTairInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16079,12 +17115,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
-    * *   The ApsaraDB for Redis instance must be in the Running state.
-    *
-    * @param request DeleteAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAccountResponse
+   * @summary Deletes an account from an ApsaraDB for Redis instance.
+   *
+   * @description *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
+   * *   The ApsaraDB for Redis instance must be in the Running state.
+   *
+   * @param request DeleteAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccountResponse
    */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
@@ -16135,11 +17173,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
-    * *   The ApsaraDB for Redis instance must be in the Running state.
-    *
-    * @param request DeleteAccountRequest
-    * @return DeleteAccountResponse
+   * @summary Deletes an account from an ApsaraDB for Redis instance.
+   *
+   * @description *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
+   * *   The ApsaraDB for Redis instance must be in the Running state.
+   *
+   * @param request DeleteAccountRequest
+   * @return DeleteAccountResponse
    */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16147,11 +17187,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
-    *
-    * @param request DeleteGlobalSecurityIPGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteGlobalSecurityIPGroupResponse
+   * @summary Deletes a global IP whitelist template.
+   *
+   * @description Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+   *
+   * @param request DeleteGlobalSecurityIPGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGlobalSecurityIPGroupResponse
    */
   async deleteGlobalSecurityIPGroupWithOptions(request: DeleteGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
@@ -16210,10 +17252,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
-    *
-    * @param request DeleteGlobalSecurityIPGroupRequest
-    * @return DeleteGlobalSecurityIPGroupResponse
+   * @summary Deletes a global IP whitelist template.
+   *
+   * @description Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+   *
+   * @param request DeleteGlobalSecurityIPGroupRequest
+   * @return DeleteGlobalSecurityIPGroupResponse
    */
   async deleteGlobalSecurityIPGroup(request: DeleteGlobalSecurityIPGroupRequest): Promise<DeleteGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16221,15 +17265,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to perform the corresponding operation in the console, see [Release an instance](~~43882~~).
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The instance is in the running state.
-    * *   The instance is charged on a pay-as-you-go basis.
-    * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
-    *
-    * @param request DeleteInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteInstanceResponse
+   * @summary Release the Redis instance.
+   *
+   * @description For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The instance is in the running state.
+   * *   The instance is charged on a pay-as-you-go basis.
+   * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
+   *
+   * @param request DeleteInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
    */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
@@ -16280,14 +17326,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to perform the corresponding operation in the console, see [Release an instance](~~43882~~).
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The instance is in the running state.
-    * *   The instance is charged on a pay-as-you-go basis.
-    * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
-    *
-    * @param request DeleteInstanceRequest
-    * @return DeleteInstanceResponse
+   * @summary Release the Redis instance.
+   *
+   * @description For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   The instance is in the running state.
+   * *   The instance is charged on a pay-as-you-go basis.
+   * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
+   *
+   * @param request DeleteInstanceRequest
+   * @return DeleteInstanceResponse
    */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16295,14 +17343,78 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](~~198082~~).\\
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](~~183956~~).
-    * *   The instance has more than one data shard.
-    *
-    * @param request DeleteShardingNodeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteShardingNodeResponse
+   * @summary Deletes a parameter template.
+   *
+   * @param request DeleteParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteParameterGroupResponse
+   */
+  async deleteParameterGroupWithOptions(request: DeleteParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParameterGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.parameterGroupId)) {
+      query["ParameterGroupId"] = request.parameterGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteParameterGroup",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteParameterGroupResponse>(await this.callApi(params, req, runtime), new DeleteParameterGroupResponse({}));
+  }
+
+  /**
+   * @summary Deletes a parameter template.
+   *
+   * @param request DeleteParameterGroupRequest
+   * @return DeleteParameterGroupResponse
+   */
+  async deleteParameterGroup(request: DeleteParameterGroupRequest): Promise<DeleteParameterGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Removes one or more data shards from an ApsaraDB for Redis cluster instance.
+   *
+   * @description You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
+   * Before you call this operation, make sure that the instance meets the following requirements:
+   * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/183956.html).
+   * *   The instance has more than one data shard.
+   *
+   * @param request DeleteShardingNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteShardingNodeResponse
    */
   async deleteShardingNodeWithOptions(request: DeleteShardingNodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteShardingNodeResponse> {
     Util.validateModel(request);
@@ -16361,13 +17473,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](~~198082~~).\\
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](~~183956~~).
-    * *   The instance has more than one data shard.
-    *
-    * @param request DeleteShardingNodeRequest
-    * @return DeleteShardingNodeResponse
+   * @summary Removes one or more data shards from an ApsaraDB for Redis cluster instance.
+   *
+   * @description You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
+   * Before you call this operation, make sure that the instance meets the following requirements:
+   * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/183956.html).
+   * *   The instance has more than one data shard.
+   *
+   * @param request DeleteShardingNodeRequest
+   * @return DeleteShardingNodeResponse
    */
   async deleteShardingNode(request: DeleteShardingNodeRequest): Promise<DeleteShardingNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16375,11 +17489,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-    *
-    * @param request DescribeAccountsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAccountsResponse
+   * @summary Queries all accounts or a specified account of an ApsaraDB for Redis instance.
+   *
+   * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+   *
+   * @param request DescribeAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccountsResponse
    */
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
@@ -16430,10 +17546,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-    *
-    * @param request DescribeAccountsRequest
-    * @return DescribeAccountsResponse
+   * @summary Queries all accounts or a specified account of an ApsaraDB for Redis instance.
+   *
+   * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+   *
+   * @param request DescribeAccountsRequest
+   * @return DescribeAccountsResponse
    */
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16441,11 +17559,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
-    *
-    * @param request DescribeActiveOperationTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeActiveOperationTaskResponse
+   * @summary Queries the detailed information about O&M tasks of an ApsaraDB for Redis instance.
+   *
+   * @description After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
+   *
+   * @param request DescribeActiveOperationTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeActiveOperationTaskResponse
    */
   async describeActiveOperationTaskWithOptions(request: DescribeActiveOperationTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTaskResponse> {
     Util.validateModel(request);
@@ -16508,10 +17628,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
-    *
-    * @param request DescribeActiveOperationTaskRequest
-    * @return DescribeActiveOperationTaskResponse
+   * @summary Queries the detailed information about O&M tasks of an ApsaraDB for Redis instance.
+   *
+   * @description After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
+   *
+   * @param request DescribeActiveOperationTaskRequest
+   * @return DescribeActiveOperationTaskResponse
    */
   async describeActiveOperationTask(request: DescribeActiveOperationTaskRequest): Promise<DescribeActiveOperationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16519,15 +17641,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
-    * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
-    * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-    * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest minor version.
-    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
-    *
-    * @param request DescribeAuditLogConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAuditLogConfigResponse
+   * @summary Queries the audit log configurations of an ApsaraDB for Redis instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
+   *
+   * @description > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](https://help.aliyun.com/document_detail/102015.html).
+   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
+   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest minor version.
+   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
+   *
+   * @param request DescribeAuditLogConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAuditLogConfigResponse
    */
   async describeAuditLogConfigWithOptions(request: DescribeAuditLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuditLogConfigResponse> {
     Util.validateModel(request);
@@ -16578,14 +17702,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
-    * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
-    * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-    * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest minor version.
-    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
-    *
-    * @param request DescribeAuditLogConfigRequest
-    * @return DescribeAuditLogConfigResponse
+   * @summary Queries the audit log configurations of an ApsaraDB for Redis instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
+   *
+   * @description > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](https://help.aliyun.com/document_detail/102015.html).
+   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
+   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest minor version.
+   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
+   *
+   * @param request DescribeAuditLogConfigRequest
+   * @return DescribeAuditLogConfigResponse
    */
   async describeAuditLogConfig(request: DescribeAuditLogConfigRequest): Promise<DescribeAuditLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16593,15 +17719,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](~~101937~~).
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
-    * *   The engine version of the instance is Redis 4.0 or later.
-    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
-    *
-    * @param request DescribeAuditRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAuditRecordsResponse
+   * @summary Queries the audit logs of an ApsaraDB for Redis instance.
+   *
+   * @description This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](https://help.aliyun.com/document_detail/101937.html).
+   * Before you call this operation, make sure that the instance meets the following requirements:
+   * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
+   * *   The engine version of the instance is Redis 4.0 or later.
+   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
+   *
+   * @param request DescribeAuditRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAuditRecordsResponse
    */
   async describeAuditRecordsWithOptions(request: DescribeAuditRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuditRecordsResponse> {
     Util.validateModel(request);
@@ -16684,20 +17812,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](~~101937~~).
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
-    * *   The engine version of the instance is Redis 4.0 or later.
-    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
-    *
-    * @param request DescribeAuditRecordsRequest
-    * @return DescribeAuditRecordsResponse
+   * @summary Queries the audit logs of an ApsaraDB for Redis instance.
+   *
+   * @description This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](https://help.aliyun.com/document_detail/101937.html).
+   * Before you call this operation, make sure that the instance meets the following requirements:
+   * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
+   * *   The engine version of the instance is Redis 4.0 or later.
+   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
+   *
+   * @param request DescribeAuditRecordsRequest
+   * @return DescribeAuditRecordsResponse
    */
   async describeAuditRecords(request: DescribeAuditRecordsRequest): Promise<DescribeAuditRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAuditRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the types of ApsaraDB for Redis instances that can be created in a specified zone.
+   *
+   * @param request DescribeAvailableResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16782,11 +17919,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourceResponse({}));
   }
 
+  /**
+   * @summary Queries the types of ApsaraDB for Redis instances that can be created in a specified zone.
+   *
+   * @param request DescribeAvailableResourceRequest
+   * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the backup policy of an ApsaraDB for Redis instance, including the backup cycle and backup time.
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16831,11 +17981,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries the backup policy of an ApsaraDB for Redis instance, including the backup cycle and backup time.
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the states of backup tasks for an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeBackupTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupTasksResponse
+   */
   async describeBackupTasksWithOptions(request: DescribeBackupTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16888,11 +18051,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupTasksResponse>(await this.callApi(params, req, runtime), new DescribeBackupTasksResponse({}));
   }
 
+  /**
+   * @summary Queries the states of backup tasks for an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeBackupTasksRequest
+   * @return DescribeBackupTasksResponse
+   */
   async describeBackupTasks(request: DescribeBackupTasksRequest): Promise<DescribeBackupTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the backup files of the ApsaraDB for Redis instance.
+   *
+   * @param request DescribeBackupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupsResponse
+   */
   async describeBackupsWithOptions(request: DescribeBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16965,20 +18141,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupsResponse>(await this.callApi(params, req, runtime), new DescribeBackupsResponse({}));
   }
 
+  /**
+   * @summary Queries the backup files of the ApsaraDB for Redis instance.
+   *
+   * @param request DescribeBackupsRequest
+   * @return DescribeBackupsResponse
+   */
   async describeBackups(request: DescribeBackupsRequest): Promise<DescribeBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupsWithOptions(request, runtime);
   }
 
   /**
-    * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The engine version of the instance is Redis 4.0 or later.
-    * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~)
-    *
-    * @param request DescribeCacheAnalysisReportRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCacheAnalysisReportResponse
+   * @summary Queries the cache analytics report that is generated on a specified date for an ApsaraDB for Redis instance.
+   *
+   * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+   * Before you call this operation, make sure that the instance meets the following requirements:
+   * *   The engine version of the instance is Redis 4.0 or later.
+   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+   *
+   * @param request DescribeCacheAnalysisReportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCacheAnalysisReportResponse
    */
   async describeCacheAnalysisReportWithOptions(request: DescribeCacheAnalysisReportRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCacheAnalysisReportResponse> {
     Util.validateModel(request);
@@ -17045,13 +18229,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The engine version of the instance is Redis 4.0 or later.
-    * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~)
-    *
-    * @param request DescribeCacheAnalysisReportRequest
-    * @return DescribeCacheAnalysisReportResponse
+   * @summary Queries the cache analytics report that is generated on a specified date for an ApsaraDB for Redis instance.
+   *
+   * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+   * Before you call this operation, make sure that the instance meets the following requirements:
+   * *   The engine version of the instance is Redis 4.0 or later.
+   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+   *
+   * @param request DescribeCacheAnalysisReportRequest
+   * @return DescribeCacheAnalysisReportResponse
    */
   async describeCacheAnalysisReport(request: DescribeCacheAnalysisReportRequest): Promise<DescribeCacheAnalysisReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17059,14 +18245,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The engine version of the instance is Redis 4.0 or later.
-    * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~)
-    *
-    * @param request DescribeCacheAnalysisReportListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCacheAnalysisReportListResponse
+   * @summary Queries the cache analytics reports of an ApsaraDB for Redis instance.
+   *
+   * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+   * Before you call this operation, make sure that the instance meets the following requirements:
+   * *   The engine version of the instance is Redis 4.0 or later.
+   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+   *
+   * @param request DescribeCacheAnalysisReportListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCacheAnalysisReportListResponse
    */
   async describeCacheAnalysisReportListWithOptions(request: DescribeCacheAnalysisReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCacheAnalysisReportListResponse> {
     Util.validateModel(request);
@@ -17129,19 +18317,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The engine version of the instance is Redis 4.0 or later.
-    * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~)
-    *
-    * @param request DescribeCacheAnalysisReportListRequest
-    * @return DescribeCacheAnalysisReportListResponse
+   * @summary Queries the cache analytics reports of an ApsaraDB for Redis instance.
+   *
+   * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+   * Before you call this operation, make sure that the instance meets the following requirements:
+   * *   The engine version of the instance is Redis 4.0 or later.
+   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+   *
+   * @param request DescribeCacheAnalysisReportListRequest
+   * @return DescribeCacheAnalysisReportListResponse
    */
   async describeCacheAnalysisReportList(request: DescribeCacheAnalysisReportListRequest): Promise<DescribeCacheAnalysisReportListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCacheAnalysisReportListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the backup sets of an ApsaraDB for Redis or Tair cluster instance.
+   *
+   * @param request DescribeClusterBackupListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterBackupListResponse
+   */
   async describeClusterBackupListWithOptions(request: DescribeClusterBackupListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterBackupListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -17162,17 +18359,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterBackupListResponse>(await this.callApi(params, req, runtime), new DescribeClusterBackupListResponse({}));
   }
 
+  /**
+   * @summary Queries the backup sets of an ApsaraDB for Redis or Tair cluster instance.
+   *
+   * @param request DescribeClusterBackupListRequest
+   * @return DescribeClusterBackupListResponse
+   */
   async describeClusterBackupList(request: DescribeClusterBackupListRequest): Promise<DescribeClusterBackupListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterBackupListWithOptions(request, runtime);
   }
 
   /**
-    * > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](~~188068~~) and the [cluster architecture](~~52228~~).
-    *
-    * @param request DescribeClusterMemberInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClusterMemberInfoResponse
+   * @summary Queries the configuration information of nodes in an ApsaraDB for Redis cluster instance, such as the specifications and the maximum number of connections.
+   *
+   * @description > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
+   *
+   * @param request DescribeClusterMemberInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterMemberInfoResponse
    */
   async describeClusterMemberInfoWithOptions(request: DescribeClusterMemberInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterMemberInfoResponse> {
     Util.validateModel(request);
@@ -17227,16 +18432,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](~~188068~~) and the [cluster architecture](~~52228~~).
-    *
-    * @param request DescribeClusterMemberInfoRequest
-    * @return DescribeClusterMemberInfoResponse
+   * @summary Queries the configuration information of nodes in an ApsaraDB for Redis cluster instance, such as the specifications and the maximum number of connections.
+   *
+   * @description > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
+   *
+   * @param request DescribeClusterMemberInfoRequest
+   * @return DescribeClusterMemberInfoResponse
    */
   async describeClusterMemberInfo(request: DescribeClusterMemberInfoRequest): Promise<DescribeClusterMemberInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterMemberInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the network information of an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeDBInstanceNetInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceNetInfoResponse
+   */
   async describeDBInstanceNetInfoWithOptions(request: DescribeDBInstanceNetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceNetInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17281,17 +18495,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceNetInfoResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceNetInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the network information of an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeDBInstanceNetInfoRequest
+   * @return DescribeDBInstanceNetInfoResponse
+   */
   async describeDBInstanceNetInfo(request: DescribeDBInstanceNetInfoRequest): Promise<DescribeDBInstanceNetInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceNetInfoWithOptions(request, runtime);
   }
 
   /**
-    * > Only instances that use cloud disks support this operation.
-    *
-    * @param request DescribeDBNodeDirectVipInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBNodeDirectVipInfoResponse
+   * @summary Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
+   *
+   * @description > Only instances that use cloud disks support this operation.
+   *
+   * @param request DescribeDBNodeDirectVipInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBNodeDirectVipInfoResponse
    */
   async describeDBNodeDirectVipInfoWithOptions(request: DescribeDBNodeDirectVipInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBNodeDirectVipInfoResponse> {
     Util.validateModel(request);
@@ -17334,10 +18556,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Only instances that use cloud disks support this operation.
-    *
-    * @param request DescribeDBNodeDirectVipInfoRequest
-    * @return DescribeDBNodeDirectVipInfoResponse
+   * @summary Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
+   *
+   * @description > Only instances that use cloud disks support this operation.
+   *
+   * @param request DescribeDBNodeDirectVipInfoRequest
+   * @return DescribeDBNodeDirectVipInfoResponse
    */
   async describeDBNodeDirectVipInfo(request: DescribeDBNodeDirectVipInfoRequest): Promise<DescribeDBNodeDirectVipInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17345,11 +18569,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](~~60996~~) operation.
-    *
-    * @param request DescribeDedicatedClusterInstanceListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDedicatedClusterInstanceListResponse
+   * @summary Queries the information of an ApsaraDB for Redis instance deployed in a dedicated cluster.
+   *
+   * @description > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/60996.html) operation.
+   *
+   * @param request DescribeDedicatedClusterInstanceListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDedicatedClusterInstanceListResponse
    */
   async describeDedicatedClusterInstanceListWithOptions(request: DescribeDedicatedClusterInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedClusterInstanceListResponse> {
     Util.validateModel(request);
@@ -17436,10 +18662,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](~~60996~~) operation.
-    *
-    * @param request DescribeDedicatedClusterInstanceListRequest
-    * @return DescribeDedicatedClusterInstanceListResponse
+   * @summary Queries the information of an ApsaraDB for Redis instance deployed in a dedicated cluster.
+   *
+   * @description > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/60996.html) operation.
+   *
+   * @param request DescribeDedicatedClusterInstanceListRequest
+   * @return DescribeDedicatedClusterInstanceListResponse
    */
   async describeDedicatedClusterInstanceList(request: DescribeDedicatedClusterInstanceListRequest): Promise<DescribeDedicatedClusterInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17447,12 +18675,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](~~302337~~).
-    * > For more information about TDE, see [Enable TDE](~~265913~~).
-    *
-    * @param request DescribeEncryptionKeyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeEncryptionKeyResponse
+   * @summary Queries the details of a Transparent Data Encryption (TDE) custom key for an ApsaraDB for Redis instance.
+   *
+   * @description Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html).
+   * > For more information about TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   *
+   * @param request DescribeEncryptionKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEncryptionKeyResponse
    */
   async describeEncryptionKeyWithOptions(request: DescribeEncryptionKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEncryptionKeyResponse> {
     Util.validateModel(request);
@@ -17503,11 +18733,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](~~302337~~).
-    * > For more information about TDE, see [Enable TDE](~~265913~~).
-    *
-    * @param request DescribeEncryptionKeyRequest
-    * @return DescribeEncryptionKeyResponse
+   * @summary Queries the details of a Transparent Data Encryption (TDE) custom key for an ApsaraDB for Redis instance.
+   *
+   * @description Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html).
+   * > For more information about TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   *
+   * @param request DescribeEncryptionKeyRequest
+   * @return DescribeEncryptionKeyResponse
    */
   async describeEncryptionKey(request: DescribeEncryptionKeyRequest): Promise<DescribeEncryptionKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17515,12 +18747,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can specify a custom key when you call the [ModifyInstanceTDE](~~302337~~) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](~~28947~~) operation of Key Management Service (KMS).
-    * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
-    *
-    * @param request DescribeEncryptionKeyListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeEncryptionKeyListResponse
+   * @summary Queries the custom keys used by an ApsaraDB for Redis instance.
+   *
+   * @description *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
+   * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   *
+   * @param request DescribeEncryptionKeyListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEncryptionKeyListResponse
    */
   async describeEncryptionKeyListWithOptions(request: DescribeEncryptionKeyListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEncryptionKeyListResponse> {
     Util.validateModel(request);
@@ -17567,11 +18801,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can specify a custom key when you call the [ModifyInstanceTDE](~~302337~~) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](~~28947~~) operation of Key Management Service (KMS).
-    * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
-    *
-    * @param request DescribeEncryptionKeyListRequest
-    * @return DescribeEncryptionKeyListResponse
+   * @summary Queries the custom keys used by an ApsaraDB for Redis instance.
+   *
+   * @description *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
+   * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   *
+   * @param request DescribeEncryptionKeyListRequest
+   * @return DescribeEncryptionKeyListResponse
    */
   async describeEncryptionKeyList(request: DescribeEncryptionKeyListRequest): Promise<DescribeEncryptionKeyListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17579,12 +18815,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
-    *
-    * @param request DescribeEngineVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeEngineVersionResponse
+   * @summary Queries the major version and minor version of an ApsaraDB for Redis instance and the release notes for minor versions.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
+   *
+   * @param request DescribeEngineVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEngineVersionResponse
    */
   async describeEngineVersionWithOptions(request: DescribeEngineVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEngineVersionResponse> {
     Util.validateModel(request);
@@ -17631,11 +18869,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
-    *
-    * @param request DescribeEngineVersionRequest
-    * @return DescribeEngineVersionResponse
+   * @summary Queries the major version and minor version of an ApsaraDB for Redis instance and the release notes for minor versions.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
+   *
+   * @param request DescribeEngineVersionRequest
+   * @return DescribeEngineVersionResponse
    */
   async describeEngineVersion(request: DescribeEngineVersionRequest): Promise<DescribeEngineVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17643,12 +18883,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
-    *
-    * @param request DescribeGlobalDistributeCacheRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeGlobalDistributeCacheResponse
+   * @summary Queries the details of a distributed ApsaraDB for Redis instance.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
+   *
+   * @param request DescribeGlobalDistributeCacheRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGlobalDistributeCacheResponse
    */
   async describeGlobalDistributeCacheWithOptions(request: DescribeGlobalDistributeCacheRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalDistributeCacheResponse> {
     Util.validateModel(request);
@@ -17707,17 +18949,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
-    *
-    * @param request DescribeGlobalDistributeCacheRequest
-    * @return DescribeGlobalDistributeCacheResponse
+   * @summary Queries the details of a distributed ApsaraDB for Redis instance.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
+   *
+   * @param request DescribeGlobalDistributeCacheRequest
+   * @return DescribeGlobalDistributeCacheResponse
    */
   async describeGlobalDistributeCache(request: DescribeGlobalDistributeCacheRequest): Promise<DescribeGlobalDistributeCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGlobalDistributeCacheWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries global IP whitelist templates.
+   *
+   * @param request DescribeGlobalSecurityIPGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGlobalSecurityIPGroupResponse
+   */
   async describeGlobalSecurityIPGroupWithOptions(request: DescribeGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -17738,11 +18989,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new DescribeGlobalSecurityIPGroupResponse({}));
   }
 
+  /**
+   * @summary Queries global IP whitelist templates.
+   *
+   * @param request DescribeGlobalSecurityIPGroupRequest
+   * @return DescribeGlobalSecurityIPGroupResponse
+   */
   async describeGlobalSecurityIPGroup(request: DescribeGlobalSecurityIPGroupRequest): Promise<DescribeGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGlobalSecurityIPGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about the global IP whitelist templates associated with an instance.
+   *
+   * @param request DescribeGlobalSecurityIPGroupRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGlobalSecurityIPGroupRelationResponse
+   */
   async describeGlobalSecurityIPGroupRelationWithOptions(request: DescribeGlobalSecurityIPGroupRelationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalSecurityIPGroupRelationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -17763,17 +19027,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGlobalSecurityIPGroupRelationResponse>(await this.callApi(params, req, runtime), new DescribeGlobalSecurityIPGroupRelationResponse({}));
   }
 
+  /**
+   * @summary Queries information about the global IP whitelist templates associated with an instance.
+   *
+   * @param request DescribeGlobalSecurityIPGroupRelationRequest
+   * @return DescribeGlobalSecurityIPGroupRelationResponse
+   */
   async describeGlobalSecurityIPGroupRelation(request: DescribeGlobalSecurityIPGroupRelationRequest): Promise<DescribeGlobalSecurityIPGroupRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGlobalSecurityIPGroupRelationWithOptions(request, runtime);
   }
 
   /**
-    * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](~~43887~~).
-    *
-    * @param request DescribeHistoryMonitorValuesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeHistoryMonitorValuesResponse
+   * @summary Queries the performance monitoring data of an ApsaraDB for Redis instance.
+   *
+   * @description You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+   *
+   * @param request DescribeHistoryMonitorValuesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHistoryMonitorValuesResponse
    */
   async describeHistoryMonitorValuesWithOptions(request: DescribeHistoryMonitorValuesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryMonitorValuesResponse> {
     Util.validateModel(request);
@@ -17844,16 +19116,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](~~43887~~).
-    *
-    * @param request DescribeHistoryMonitorValuesRequest
-    * @return DescribeHistoryMonitorValuesResponse
+   * @summary Queries the performance monitoring data of an ApsaraDB for Redis instance.
+   *
+   * @description You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+   *
+   * @param request DescribeHistoryMonitorValuesRequest
+   * @return DescribeHistoryMonitorValuesResponse
    */
   async describeHistoryMonitorValues(request: DescribeHistoryMonitorValuesRequest): Promise<DescribeHistoryMonitorValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHistoryMonitorValuesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of tasks in the task center.
+   *
+   * @param request DescribeHistoryTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHistoryTasksResponse
+   */
   async describeHistoryTasksWithOptions(request: DescribeHistoryTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17934,11 +19215,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHistoryTasksResponse>(await this.callApi(params, req, runtime), new DescribeHistoryTasksResponse({}));
   }
 
+  /**
+   * @summary Queries a list of tasks in the task center.
+   *
+   * @param request DescribeHistoryTasksRequest
+   * @return DescribeHistoryTasksResponse
+   */
   async describeHistoryTasks(request: DescribeHistoryTasksRequest): Promise<DescribeHistoryTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHistoryTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeInstanceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceAttributeResponse
+   */
   async describeInstanceAttributeWithOptions(request: DescribeInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17983,11 +19277,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeInstanceAttributeRequest
+   * @return DescribeInstanceAttributeResponse
+   */
   async describeInstanceAttribute(request: DescribeInstanceAttributeRequest): Promise<DescribeInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether auto-renewal is enabled for an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeInstanceAutoRenewalAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceAutoRenewalAttributeResponse
+   */
   async describeInstanceAutoRenewalAttributeWithOptions(request: DescribeInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18044,18 +19351,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceAutoRenewalAttributeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAutoRenewalAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries whether auto-renewal is enabled for an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeInstanceAutoRenewalAttributeRequest
+   * @return DescribeInstanceAutoRenewalAttributeResponse
+   */
   async describeInstanceAutoRenewalAttribute(request: DescribeInstanceAutoRenewalAttributeRequest): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAutoRenewalAttributeWithOptions(request, runtime);
   }
 
   /**
-    * This operation is available only for instances that use cloud disks.
-    * > You can call the [DescribeParameters](~~473847~~) operation to query the parameter settings of instances that use local disks.
-    *
-    * @param request DescribeInstanceConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceConfigResponse
+   * @summary Queries the parameter settings of an ApsaraDB for Redis instance.
+   *
+   * @description This operation is available only for instances that use cloud disks.
+   * > You can call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation to query the parameter settings of instances that use local disks.
+   *
+   * @param request DescribeInstanceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceConfigResponse
    */
   async describeInstanceConfigWithOptions(request: DescribeInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceConfigResponse> {
     Util.validateModel(request);
@@ -18102,11 +19417,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only for instances that use cloud disks.
-    * > You can call the [DescribeParameters](~~473847~~) operation to query the parameter settings of instances that use local disks.
-    *
-    * @param request DescribeInstanceConfigRequest
-    * @return DescribeInstanceConfigResponse
+   * @summary Queries the parameter settings of an ApsaraDB for Redis instance.
+   *
+   * @description This operation is available only for instances that use cloud disks.
+   * > You can call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation to query the parameter settings of instances that use local disks.
+   *
+   * @param request DescribeInstanceConfigRequest
+   * @return DescribeInstanceConfigResponse
    */
   async describeInstanceConfig(request: DescribeInstanceConfigRequest): Promise<DescribeInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18114,15 +19431,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
-    * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
-    * *   Call the [ModifyInstanceSSL](~~96194~~) operation.
-    * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
-    * > After SSL encryption is enabled, the instance may respond slower.
-    *
-    * @param request DescribeInstanceSSLRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceSSLResponse
+   * @summary Queries whether TLS (SSL) encryption is enabled for an instance.
+   *
+   * @description SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+   * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
+   * *   Call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation.
+   * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+   * > After SSL encryption is enabled, the instance may respond slower.
+   *
+   * @param request DescribeInstanceSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceSSLResponse
    */
   async describeInstanceSSLWithOptions(request: DescribeInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSSLResponse> {
     Util.validateModel(request);
@@ -18169,14 +19488,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
-    * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
-    * *   Call the [ModifyInstanceSSL](~~96194~~) operation.
-    * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
-    * > After SSL encryption is enabled, the instance may respond slower.
-    *
-    * @param request DescribeInstanceSSLRequest
-    * @return DescribeInstanceSSLResponse
+   * @summary Queries whether TLS (SSL) encryption is enabled for an instance.
+   *
+   * @description SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+   * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
+   * *   Call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation.
+   * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+   * > After SSL encryption is enabled, the instance may respond slower.
+   *
+   * @param request DescribeInstanceSSLRequest
+   * @return DescribeInstanceSSLResponse
    */
   async describeInstanceSSL(request: DescribeInstanceSSLRequest): Promise<DescribeInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18184,12 +19505,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
-    * >  You can call the [ModifyInstanceTDE](~~302337~~) to enable or disable TDE.
-    *
-    * @param request DescribeInstanceTDEStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceTDEStatusResponse
+   * @summary Queries whether transparent data encryption (TDE) is enabled for an ApsaraDB for Redis instance.
+   *
+   * @description For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   * >  You can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) to enable or disable TDE.
+   *
+   * @param request DescribeInstanceTDEStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceTDEStatusResponse
    */
   async describeInstanceTDEStatusWithOptions(request: DescribeInstanceTDEStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTDEStatusResponse> {
     Util.validateModel(request);
@@ -18236,17 +19559,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
-    * >  You can call the [ModifyInstanceTDE](~~302337~~) to enable or disable TDE.
-    *
-    * @param request DescribeInstanceTDEStatusRequest
-    * @return DescribeInstanceTDEStatusResponse
+   * @summary Queries whether transparent data encryption (TDE) is enabled for an ApsaraDB for Redis instance.
+   *
+   * @description For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   * >  You can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) to enable or disable TDE.
+   *
+   * @param request DescribeInstanceTDEStatusRequest
+   * @return DescribeInstanceTDEStatusResponse
    */
   async describeInstanceTDEStatus(request: DescribeInstanceTDEStatusRequest): Promise<DescribeInstanceTDEStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTDEStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about one or more ApsaraDB for Redis instances.
+   *
+   * @param request DescribeInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstancesResponse
+   */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18371,18 +19703,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about one or more ApsaraDB for Redis instances.
+   *
+   * @param request DescribeInstancesRequest
+   * @return DescribeInstancesResponse
+   */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
   /**
-    * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
-    * > This operation returns non-paged results.
-    *
-    * @param request DescribeInstancesOverviewRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstancesOverviewResponse
+   * @summary Queries the overview information of one or more ApsaraDB for Redis instances.
+   *
+   * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+   * > This operation returns non-paged results.
+   *
+   * @param request DescribeInstancesOverviewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstancesOverviewResponse
    */
   async describeInstancesOverviewWithOptions(request: DescribeInstancesOverviewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesOverviewResponse> {
     Util.validateModel(request);
@@ -18489,11 +19829,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
-    * > This operation returns non-paged results.
-    *
-    * @param request DescribeInstancesOverviewRequest
-    * @return DescribeInstancesOverviewResponse
+   * @summary Queries the overview information of one or more ApsaraDB for Redis instances.
+   *
+   * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+   * > This operation returns non-paged results.
+   *
+   * @param request DescribeInstancesOverviewRequest
+   * @return DescribeInstancesOverviewResponse
    */
   async describeInstancesOverview(request: DescribeInstancesOverviewRequest): Promise<DescribeInstancesOverviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18501,11 +19843,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the [EnableAdditionalBandwidth](~~206173~~) operation to increase the internal bandwidth of an instance.
-    *
-    * @param request DescribeIntranetAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeIntranetAttributeResponse
+   * @summary Queries the internal bandwidth of an ApsaraDB for Redis instance. If you have purchased extra internal bandwidth, the expiration time of the purchased bandwidth is also returned.
+   *
+   * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to increase the internal bandwidth of an instance.
+   *
+   * @param request DescribeIntranetAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIntranetAttributeResponse
    */
   async describeIntranetAttributeWithOptions(request: DescribeIntranetAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIntranetAttributeResponse> {
     Util.validateModel(request);
@@ -18556,10 +19900,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the [EnableAdditionalBandwidth](~~206173~~) operation to increase the internal bandwidth of an instance.
-    *
-    * @param request DescribeIntranetAttributeRequest
-    * @return DescribeIntranetAttributeResponse
+   * @summary Queries the internal bandwidth of an ApsaraDB for Redis instance. If you have purchased extra internal bandwidth, the expiration time of the purchased bandwidth is also returned.
+   *
+   * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to increase the internal bandwidth of an instance.
+   *
+   * @param request DescribeIntranetAttributeRequest
+   * @return DescribeIntranetAttributeResponse
    */
   async describeIntranetAttribute(request: DescribeIntranetAttributeRequest): Promise<DescribeIntranetAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18567,11 +19913,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This parameter is supported only for cluster and read/write splitting instances.
-    *
-    * @param request DescribeLogicInstanceTopologyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLogicInstanceTopologyResponse
+   * @summary Queries the logical topology of an ApsaraDB for Redis instance.
+   *
+   * @description This parameter is supported only for cluster and read/write splitting instances.
+   *
+   * @param request DescribeLogicInstanceTopologyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogicInstanceTopologyResponse
    */
   async describeLogicInstanceTopologyWithOptions(request: DescribeLogicInstanceTopologyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogicInstanceTopologyResponse> {
     Util.validateModel(request);
@@ -18618,10 +19966,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This parameter is supported only for cluster and read/write splitting instances.
-    *
-    * @param request DescribeLogicInstanceTopologyRequest
-    * @return DescribeLogicInstanceTopologyResponse
+   * @summary Queries the logical topology of an ApsaraDB for Redis instance.
+   *
+   * @description This parameter is supported only for cluster and read/write splitting instances.
+   *
+   * @param request DescribeLogicInstanceTopologyRequest
+   * @return DescribeLogicInstanceTopologyResponse
    */
   async describeLogicInstanceTopology(request: DescribeLogicInstanceTopologyRequest): Promise<DescribeLogicInstanceTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18629,12 +19979,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
-    * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
-    *
-    * @param request DescribeMonitorItemsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeMonitorItemsResponse
+   * @summary Queries the metrics of an ApsaraDB for Redis instance.
+   *
+   * @description >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](https://help.aliyun.com/document_detail/189893.html).
+   * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
+   *
+   * @param request DescribeMonitorItemsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMonitorItemsResponse
    */
   async describeMonitorItemsWithOptions(request: DescribeMonitorItemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMonitorItemsResponse> {
     Util.validateModel(request);
@@ -18677,17 +20029,266 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
-    * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
-    *
-    * @param request DescribeMonitorItemsRequest
-    * @return DescribeMonitorItemsResponse
+   * @summary Queries the metrics of an ApsaraDB for Redis instance.
+   *
+   * @description >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](https://help.aliyun.com/document_detail/189893.html).
+   * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
+   *
+   * @param request DescribeMonitorItemsRequest
+   * @return DescribeMonitorItemsResponse
    */
   async describeMonitorItems(request: DescribeMonitorItemsRequest): Promise<DescribeMonitorItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMonitorItemsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the basic information about a parameter template.
+   *
+   * @param request DescribeParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterGroupResponse
+   */
+  async describeParameterGroupWithOptions(request: DescribeParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.parameterGroupId)) {
+      query["ParameterGroupId"] = request.parameterGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeParameterGroup",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeParameterGroupResponse>(await this.callApi(params, req, runtime), new DescribeParameterGroupResponse({}));
+  }
+
+  /**
+   * @summary Queries the basic information about a parameter template.
+   *
+   * @param request DescribeParameterGroupRequest
+   * @return DescribeParameterGroupResponse
+   */
+  async describeParameterGroup(request: DescribeParameterGroupRequest): Promise<DescribeParameterGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries a list of parameters that can be configured for different versions of parameter templates.
+   *
+   * @param request DescribeParameterGroupSupportParamRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterGroupSupportParamResponse
+   */
+  async describeParameterGroupSupportParamWithOptions(request: DescribeParameterGroupSupportParamRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupSupportParamResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!Util.isUnset(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeParameterGroupSupportParam",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeParameterGroupSupportParamResponse>(await this.callApi(params, req, runtime), new DescribeParameterGroupSupportParamResponse({}));
+  }
+
+  /**
+   * @summary Queries a list of parameters that can be configured for different versions of parameter templates.
+   *
+   * @param request DescribeParameterGroupSupportParamRequest
+   * @return DescribeParameterGroupSupportParamResponse
+   */
+  async describeParameterGroupSupportParam(request: DescribeParameterGroupSupportParamRequest): Promise<DescribeParameterGroupSupportParamResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeParameterGroupSupportParamWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询参数模板支持设置的参数列表
+   *
+   * @param request DescribeParameterGroupTemplateListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterGroupTemplateListResponse
+   */
+  async describeParameterGroupTemplateListWithOptions(request: DescribeParameterGroupTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupTemplateListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeParameterGroupTemplateList",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeParameterGroupTemplateListResponse>(await this.callApi(params, req, runtime), new DescribeParameterGroupTemplateListResponse({}));
+  }
+
+  /**
+   * @summary 查询参数模板支持设置的参数列表
+   *
+   * @param request DescribeParameterGroupTemplateListRequest
+   * @return DescribeParameterGroupTemplateListResponse
+   */
+  async describeParameterGroupTemplateList(request: DescribeParameterGroupTemplateListRequest): Promise<DescribeParameterGroupTemplateListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeParameterGroupTemplateListWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries a list of available parameter templates.
+   *
+   * @param request DescribeParameterGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterGroupsResponse
+   */
+  async describeParameterGroupsWithOptions(request: DescribeParameterGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeParameterGroups",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeParameterGroupsResponse>(await this.callApi(params, req, runtime), new DescribeParameterGroupsResponse({}));
+  }
+
+  /**
+   * @summary Queries a list of available parameter templates.
+   *
+   * @param request DescribeParameterGroupsRequest
+   * @return DescribeParameterGroupsResponse
+   */
+  async describeParameterGroups(request: DescribeParameterGroupsRequest): Promise<DescribeParameterGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeParameterGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries the parameter modification history of a Tair or ApsaraDB for Redis instance.
+   *
+   * @param request DescribeParameterModificationHistoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterModificationHistoryResponse
+   */
   async describeParameterModificationHistoryWithOptions(request: DescribeParameterModificationHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterModificationHistoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18748,17 +20349,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParameterModificationHistoryResponse>(await this.callApi(params, req, runtime), new DescribeParameterModificationHistoryResponse({}));
   }
 
+  /**
+   * @summary Queries the parameter modification history of a Tair or ApsaraDB for Redis instance.
+   *
+   * @param request DescribeParameterModificationHistoryRequest
+   * @return DescribeParameterModificationHistoryResponse
+   */
   async describeParameterModificationHistory(request: DescribeParameterModificationHistoryRequest): Promise<DescribeParameterModificationHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParameterModificationHistoryWithOptions(request, runtime);
   }
 
   /**
-    * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](~~61113~~) operation to reconfigure the parameters of the instance.
-    *
-    * @param request DescribeParameterTemplatesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeParameterTemplatesResponse
+   * @summary Queries the parameters and their default values that are supported by ApsaraDB for Redis instances of different architectures and major versions.
+   *
+   * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/61113.html) operation to reconfigure the parameters of the instance.
+   *
+   * @param request DescribeParameterTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterTemplatesResponse
    */
   async describeParameterTemplatesWithOptions(request: DescribeParameterTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterTemplatesResponse> {
     Util.validateModel(request);
@@ -18821,10 +20430,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](~~61113~~) operation to reconfigure the parameters of the instance.
-    *
-    * @param request DescribeParameterTemplatesRequest
-    * @return DescribeParameterTemplatesResponse
+   * @summary Queries the parameters and their default values that are supported by ApsaraDB for Redis instances of different architectures and major versions.
+   *
+   * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/61113.html) operation to reconfigure the parameters of the instance.
+   *
+   * @param request DescribeParameterTemplatesRequest
+   * @return DescribeParameterTemplatesResponse
    */
   async describeParameterTemplates(request: DescribeParameterTemplatesRequest): Promise<DescribeParameterTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18832,12 +20443,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only for instances that use local disks.
-    * > You can call the [DescribeInstanceConfig](~~473846~~) operation to query the parameter settings of instances that use cloud disks.
-    *
-    * @param request DescribeParametersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeParametersResponse
+   * @summary Queries the configuration parameters and running parameters of an ApsaraDB for Redis instance.
+   *
+   * @description This operation is available only for instances that use local disks.
+   * > You can call the [DescribeInstanceConfig](https://help.aliyun.com/document_detail/473846.html) operation to query the parameter settings of instances that use cloud disks.
+   *
+   * @param request DescribeParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParametersResponse
    */
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
@@ -18892,17 +20505,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only for instances that use local disks.
-    * > You can call the [DescribeInstanceConfig](~~473846~~) operation to query the parameter settings of instances that use cloud disks.
-    *
-    * @param request DescribeParametersRequest
-    * @return DescribeParametersResponse
+   * @summary Queries the configuration parameters and running parameters of an ApsaraDB for Redis instance.
+   *
+   * @description This operation is available only for instances that use local disks.
+   * > You can call the [DescribeInstanceConfig](https://help.aliyun.com/document_detail/473846.html) operation to query the parameter settings of instances that use cloud disks.
+   *
+   * @param request DescribeParametersRequest
+   * @return DescribeParametersResponse
    */
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the fees that you must pay when you create, upgrade, or renew an ApsaraDB for Redis instance.
+   *
+   * @param request DescribePriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePriceResponse
+   */
   async describePriceWithOptions(request: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19003,11 +20625,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePriceResponse>(await this.callApi(params, req, runtime), new DescribePriceResponse({}));
   }
 
+  /**
+   * @summary Queries the fees that you must pay when you create, upgrade, or renew an ApsaraDB for Redis instance.
+   *
+   * @param request DescribePriceRequest
+   * @return DescribePriceResponse
+   */
   async describePrice(request: DescribePriceRequest): Promise<DescribePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePriceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the regions in which ApsaraDB for Redis instances can be created.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19052,11 +20687,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the regions in which ApsaraDB for Redis instances can be created.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the role, type, minor version, and zone of each node in an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeRoleZoneInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRoleZoneInfoResponse
+   */
   async describeRoleZoneInfoWithOptions(request: DescribeRoleZoneInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoleZoneInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19113,18 +20761,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRoleZoneInfoResponse>(await this.callApi(params, req, runtime), new DescribeRoleZoneInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the role, type, minor version, and zone of each node in an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeRoleZoneInfoRequest
+   * @return DescribeRoleZoneInfoResponse
+   */
   async describeRoleZoneInfo(request: DescribeRoleZoneInfoRequest): Promise<DescribeRoleZoneInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRoleZoneInfoWithOptions(request, runtime);
   }
 
   /**
-    * For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](~~101713~~).
-    * This operation can be called up to 100 times per minute.
-    *
-    * @param request DescribeRunningLogRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRunningLogRecordsResponse
+   * @summary Queries the active logs of an ApsaraDB for Redis instance.
+   *
+   * @description For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
+   * This operation can be called up to 100 times per minute.
+   *
+   * @param request DescribeRunningLogRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRunningLogRecordsResponse
    */
   async describeRunningLogRecordsWithOptions(request: DescribeRunningLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRunningLogRecordsResponse> {
     Util.validateModel(request);
@@ -19215,17 +20871,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](~~101713~~).
-    * This operation can be called up to 100 times per minute.
-    *
-    * @param request DescribeRunningLogRecordsRequest
-    * @return DescribeRunningLogRecordsResponse
+   * @summary Queries the active logs of an ApsaraDB for Redis instance.
+   *
+   * @description For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
+   * This operation can be called up to 100 times per minute.
+   *
+   * @param request DescribeRunningLogRecordsRequest
+   * @return DescribeRunningLogRecordsResponse
    */
   async describeRunningLogRecords(request: DescribeRunningLogRecordsRequest): Promise<DescribeRunningLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRunningLogRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeSecurityGroupConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityGroupConfigurationResponse
+   */
   async describeSecurityGroupConfigurationWithOptions(request: DescribeSecurityGroupConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19270,11 +20935,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityGroupConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeSecurityGroupConfigurationResponse({}));
   }
 
+  /**
+   * @summary Queries the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeSecurityGroupConfigurationRequest
+   * @return DescribeSecurityGroupConfigurationResponse
+   */
   async describeSecurityGroupConfiguration(request: DescribeSecurityGroupConfigurationRequest): Promise<DescribeSecurityGroupConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityGroupConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the IP address whitelists of an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeSecurityIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityIpsResponse
+   */
   async describeSecurityIpsWithOptions(request: DescribeSecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19319,17 +20997,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityIpsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityIpsResponse({}));
   }
 
+  /**
+   * @summary Queries the IP address whitelists of an ApsaraDB for Redis instance.
+   *
+   * @param request DescribeSecurityIpsRequest
+   * @return DescribeSecurityIpsResponse
+   */
   async describeSecurityIps(request: DescribeSecurityIpsRequest): Promise<DescribeSecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityIpsWithOptions(request, runtime);
   }
 
   /**
-    * You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](~~95874~~). This operation can be called up to 100 times per minute.
-    *
-    * @param request DescribeSlowLogRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSlowLogRecordsResponse
+   * @summary Queries the slow logs of an ApsaraDB for Redis instance that are generated within a specified period of time.
+   *
+   * @description You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
+   *
+   * @param request DescribeSlowLogRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlowLogRecordsResponse
    */
   async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
     Util.validateModel(request);
@@ -19416,10 +21102,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](~~95874~~). This operation can be called up to 100 times per minute.
-    *
-    * @param request DescribeSlowLogRecordsRequest
-    * @return DescribeSlowLogRecordsResponse
+   * @summary Queries the slow logs of an ApsaraDB for Redis instance that are generated within a specified period of time.
+   *
+   * @description You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
+   *
+   * @param request DescribeSlowLogRecordsRequest
+   * @return DescribeSlowLogRecordsResponse
    */
   async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19427,11 +21115,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
-    *
-    * @param request DescribeTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTasksResponse
+   * @summary Queries all tasks that are performed on an ApsaraDB for Redis instance within a specified period of time.
+   *
+   * @description You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
+   *
+   * @param request DescribeTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTasksResponse
    */
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
@@ -19498,16 +21188,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
-    *
-    * @param request DescribeTasksRequest
-    * @return DescribeTasksResponse
+   * @summary Queries all tasks that are performed on an ApsaraDB for Redis instance within a specified period of time.
+   *
+   * @description You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
+   *
+   * @param request DescribeTasksRequest
+   * @return DescribeTasksResponse
    */
   async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the zones available for ApsaraDB for Redis.
+   *
+   * @param request DescribeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19556,18 +21255,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * @summary Queries the zones available for ApsaraDB for Redis.
+   *
+   * @param request DescribeZonesRequest
+   * @return DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
   /**
-    * If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](~~102588~~).
-    * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](~~190794~~) operation to query the current bandwidth of each data node in an instance.
-    *
-    * @param request EnableAdditionalBandwidthRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return EnableAdditionalBandwidthResponse
+   * @summary Adjusts the bandwidth of an ApsaraDB for Redis instance.
+   *
+   * @description If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
+   * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the current bandwidth of each data node in an instance.
+   *
+   * @param request EnableAdditionalBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableAdditionalBandwidthResponse
    */
   async enableAdditionalBandwidthWithOptions(request: EnableAdditionalBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<EnableAdditionalBandwidthResponse> {
     Util.validateModel(request);
@@ -19650,11 +21357,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](~~102588~~).
-    * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](~~190794~~) operation to query the current bandwidth of each data node in an instance.
-    *
-    * @param request EnableAdditionalBandwidthRequest
-    * @return EnableAdditionalBandwidthResponse
+   * @summary Adjusts the bandwidth of an ApsaraDB for Redis instance.
+   *
+   * @description If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
+   * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the current bandwidth of each data node in an instance.
+   *
+   * @param request EnableAdditionalBandwidthRequest
+   * @return EnableAdditionalBandwidthResponse
    */
   async enableAdditionalBandwidth(request: EnableAdditionalBandwidthRequest): Promise<EnableAdditionalBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19662,12 +21371,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](~~43881~~).
-    * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
-    *
-    * @param request FlushExpireKeysRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return FlushExpireKeysResponse
+   * @summary Deletes the expired keys from an ApsaraDB for Redis instance.
+   *
+   * @description For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
+   * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
+   *
+   * @param request FlushExpireKeysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlushExpireKeysResponse
    */
   async flushExpireKeysWithOptions(request: FlushExpireKeysRequest, runtime: $Util.RuntimeOptions): Promise<FlushExpireKeysResponse> {
     Util.validateModel(request);
@@ -19718,17 +21429,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](~~43881~~).
-    * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
-    *
-    * @param request FlushExpireKeysRequest
-    * @return FlushExpireKeysResponse
+   * @summary Deletes the expired keys from an ApsaraDB for Redis instance.
+   *
+   * @description For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
+   * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
+   *
+   * @param request FlushExpireKeysRequest
+   * @return FlushExpireKeysResponse
    */
   async flushExpireKeys(request: FlushExpireKeysRequest): Promise<FlushExpireKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.flushExpireKeysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Clears the data of an ApsaraDB for Redis instance. The cleared data cannot be restored.
+   *
+   * @param request FlushInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlushInstanceResponse
+   */
   async flushInstanceWithOptions(request: FlushInstanceRequest, runtime: $Util.RuntimeOptions): Promise<FlushInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19773,18 +21493,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlushInstanceResponse>(await this.callApi(params, req, runtime), new FlushInstanceResponse({}));
   }
 
+  /**
+   * @summary Clears the data of an ApsaraDB for Redis instance. The cleared data cannot be restored.
+   *
+   * @param request FlushInstanceRequest
+   * @return FlushInstanceResponse
+   */
   async flushInstance(request: FlushInstanceRequest): Promise<FlushInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.flushInstanceWithOptions(request, runtime);
   }
 
   /**
-    * Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](~~38688~~)
-    * >  This operation is available only for cloud-native instances that use cloud disks.
-    *
-    * @param request FlushInstanceForDBRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return FlushInstanceForDBResponse
+   * @summary Cleans the data of specified databases in an instance.
+   *
+   * @description Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
+   * >  This operation is available only for cloud-native instances that use cloud disks.
+   *
+   * @param request FlushInstanceForDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlushInstanceForDBResponse
    */
   async flushInstanceForDBWithOptions(request: FlushInstanceForDBRequest, runtime: $Util.RuntimeOptions): Promise<FlushInstanceForDBResponse> {
     Util.validateModel(request);
@@ -19831,11 +21559,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](~~38688~~)
-    * >  This operation is available only for cloud-native instances that use cloud disks.
-    *
-    * @param request FlushInstanceForDBRequest
-    * @return FlushInstanceForDBResponse
+   * @summary Cleans the data of specified databases in an instance.
+   *
+   * @description Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
+   * >  This operation is available only for cloud-native instances that use cloud disks.
+   *
+   * @param request FlushInstanceForDBRequest
+   * @return FlushInstanceForDBResponse
    */
   async flushInstanceForDB(request: FlushInstanceForDBRequest): Promise<FlushInstanceForDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19843,13 +21573,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-    * *   The ApsaraDB for Redis instance must be in the running state.
-    *
-    * @param request GrantAccountPrivilegeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GrantAccountPrivilegeResponse
+   * @summary Modifies the permissions of an account for an ApsaraDB for Redis instance.
+   *
+   * @description > 
+   * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+   * *   The ApsaraDB for Redis instance must be in the running state.
+   *
+   * @param request GrantAccountPrivilegeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantAccountPrivilegeResponse
    */
   async grantAccountPrivilegeWithOptions(request: GrantAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<GrantAccountPrivilegeResponse> {
     Util.validateModel(request);
@@ -19904,12 +21636,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-    * *   The ApsaraDB for Redis instance must be in the running state.
-    *
-    * @param request GrantAccountPrivilegeRequest
-    * @return GrantAccountPrivilegeResponse
+   * @summary Modifies the permissions of an account for an ApsaraDB for Redis instance.
+   *
+   * @description > 
+   * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+   * *   The ApsaraDB for Redis instance must be in the running state.
+   *
+   * @param request GrantAccountPrivilegeRequest
+   * @return GrantAccountPrivilegeResponse
    */
   async grantAccountPrivilege(request: GrantAccountPrivilegeRequest): Promise<GrantAccountPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19917,11 +21651,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
-    *
-    * @param request InitializeKvstorePermissionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return InitializeKvstorePermissionResponse
+   * @summary Assigns a service-linked role to ApsaraDB for Redis.
+   *
+   * @description The log management feature of ApsaraDB for Redis requires the resources of [Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](https://help.aliyun.com/document_detail/184337.html).
+   *
+   * @param request InitializeKvstorePermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InitializeKvstorePermissionResponse
    */
   async initializeKvstorePermissionWithOptions(request: InitializeKvstorePermissionRequest, runtime: $Util.RuntimeOptions): Promise<InitializeKvstorePermissionResponse> {
     Util.validateModel(request);
@@ -19968,10 +21704,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
-    *
-    * @param request InitializeKvstorePermissionRequest
-    * @return InitializeKvstorePermissionResponse
+   * @summary Assigns a service-linked role to ApsaraDB for Redis.
+   *
+   * @description The log management feature of ApsaraDB for Redis requires the resources of [Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](https://help.aliyun.com/document_detail/184337.html).
+   *
+   * @param request InitializeKvstorePermissionRequest
+   * @return InitializeKvstorePermissionResponse
    */
   async initializeKvstorePermission(request: InitializeKvstorePermissionRequest): Promise<InitializeKvstorePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19979,11 +21717,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](~~119160~~) and [View tags bound to an instance](~~134038~~).
-    *
-    * @param request ListTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTagResourcesResponse
+   * @summary Queries the relationships between ApsaraDB for Redis instances and tags.
+   *
+   * @description You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -20042,16 +21782,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](~~119160~~) and [View tags bound to an instance](~~134038~~).
-    *
-    * @param request ListTagResourcesRequest
-    * @return ListTagResourcesResponse
+   * @summary Queries the relationships between ApsaraDB for Redis instances and tags.
+   *
+   * @description You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Places a write lock on an instance. After the instance is locked, it supports only read operations.
+   *
+   * @param request LockDBInstanceWriteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LockDBInstanceWriteResponse
+   */
   async lockDBInstanceWriteWithOptions(request: LockDBInstanceWriteRequest, runtime: $Util.RuntimeOptions): Promise<LockDBInstanceWriteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20100,19 +21849,28 @@ export default class Client extends OpenApi {
     return $tea.cast<LockDBInstanceWriteResponse>(await this.callApi(params, req, runtime), new LockDBInstanceWriteResponse({}));
   }
 
+  /**
+   * @summary Places a write lock on an instance. After the instance is locked, it supports only read operations.
+   *
+   * @param request LockDBInstanceWriteRequest
+   * @return LockDBInstanceWriteResponse
+   */
   async lockDBInstanceWrite(request: LockDBInstanceWriteRequest): Promise<LockDBInstanceWriteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.lockDBInstanceWriteWithOptions(request, runtime);
   }
 
   /**
-    * For more information about how to migrate an instance across zones in the ApsaraDB for Redis console, see [Migrate an instance across zones](~~106272~~).
-    * > *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the endpoint of the classic network is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
-    * > *   After the data is migrated, the endpoint of an instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
-    *
-    * @param request MigrateToOtherZoneRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return MigrateToOtherZoneResponse
+   * @summary Migrates an ApsaraDB for Redis instance to another zone in the same region.
+   *
+   * @description Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
+   * > 
+   * *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the classic network endpoint is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
+   * *   After the instance is migrated, the endpoint of the instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
+   *
+   * @param request MigrateToOtherZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MigrateToOtherZoneResponse
    */
   async migrateToOtherZoneWithOptions(request: MigrateToOtherZoneRequest, runtime: $Util.RuntimeOptions): Promise<MigrateToOtherZoneResponse> {
     Util.validateModel(request);
@@ -20175,12 +21933,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to migrate an instance across zones in the ApsaraDB for Redis console, see [Migrate an instance across zones](~~106272~~).
-    * > *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the endpoint of the classic network is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
-    * > *   After the data is migrated, the endpoint of an instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
-    *
-    * @param request MigrateToOtherZoneRequest
-    * @return MigrateToOtherZoneResponse
+   * @summary Migrates an ApsaraDB for Redis instance to another zone in the same region.
+   *
+   * @description Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
+   * > 
+   * *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the classic network endpoint is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
+   * *   After the instance is migrated, the endpoint of the instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
+   *
+   * @param request MigrateToOtherZoneRequest
+   * @return MigrateToOtherZoneResponse
    */
   async migrateToOtherZone(request: MigrateToOtherZoneRequest): Promise<MigrateToOtherZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20188,11 +21949,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is supported only for instances that run Redis 4.0 or later.
-    *
-    * @param request ModifyAccountDescriptionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAccountDescriptionResponse
+   * @summary Modifies the description of an account for an ApsaraDB for Redis instance.
+   *
+   * @description > This operation is supported only for instances that run Redis 4.0 or later.
+   *
+   * @param request ModifyAccountDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccountDescriptionResponse
    */
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
     Util.validateModel(request);
@@ -20247,16 +22010,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is supported only for instances that run Redis 4.0 or later.
-    *
-    * @param request ModifyAccountDescriptionRequest
-    * @return ModifyAccountDescriptionResponse
+   * @summary Modifies the description of an account for an ApsaraDB for Redis instance.
+   *
+   * @description > This operation is supported only for instances that run Redis 4.0 or later.
+   *
+   * @param request ModifyAccountDescriptionRequest
+   * @return ModifyAccountDescriptionResponse
    */
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the password of a specific account for an ApsaraDB for Redis instance.
+   *
+   * @param request ModifyAccountPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccountPasswordResponse
+   */
   async modifyAccountPasswordWithOptions(request: ModifyAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20313,17 +22085,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccountPasswordResponse>(await this.callApi(params, req, runtime), new ModifyAccountPasswordResponse({}));
   }
 
+  /**
+   * @summary Changes the password of a specific account for an ApsaraDB for Redis instance.
+   *
+   * @param request ModifyAccountPasswordRequest
+   * @return ModifyAccountPasswordResponse
+   */
   async modifyAccountPassword(request: ModifyAccountPasswordRequest): Promise<ModifyAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountPasswordWithOptions(request, runtime);
   }
 
   /**
-    * You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](~~187022~~).
-    *
-    * @param request ModifyActiveOperationTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyActiveOperationTaskResponse
+   * @summary Changes the scheduled switchover time of an O&M task.
+   *
+   * @description You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
+   *
+   * @param request ModifyActiveOperationTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyActiveOperationTaskResponse
    */
   async modifyActiveOperationTaskWithOptions(request: ModifyActiveOperationTaskRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTaskResponse> {
     Util.validateModel(request);
@@ -20374,10 +22154,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](~~187022~~).
-    *
-    * @param request ModifyActiveOperationTaskRequest
-    * @return ModifyActiveOperationTaskResponse
+   * @summary Changes the scheduled switchover time of an O&M task.
+   *
+   * @description You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
+   *
+   * @param request ModifyActiveOperationTaskRequest
+   * @return ModifyActiveOperationTaskResponse
    */
   async modifyActiveOperationTask(request: ModifyActiveOperationTaskRequest): Promise<ModifyActiveOperationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20385,14 +22167,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of the audit log feature.
-    * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
-    * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-    * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
-    *
-    * @param request ModifyAuditLogConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAuditLogConfigResponse
+   * @summary Modifies the audit log settings of an ApsaraDB for Redis instance.
+   *
+   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
+   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
+   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest major version and minor version.
+   *
+   * @param request ModifyAuditLogConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAuditLogConfigResponse
    */
   async modifyAuditLogConfigWithOptions(request: ModifyAuditLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAuditLogConfigResponse> {
     Util.validateModel(request);
@@ -20447,19 +22231,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of the audit log feature.
-    * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
-    * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-    * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
-    *
-    * @param request ModifyAuditLogConfigRequest
-    * @return ModifyAuditLogConfigResponse
+   * @summary Modifies the audit log settings of an ApsaraDB for Redis instance.
+   *
+   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
+   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
+   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest major version and minor version.
+   *
+   * @param request ModifyAuditLogConfigRequest
+   * @return ModifyAuditLogConfigResponse
    */
   async modifyAuditLogConfig(request: ModifyAuditLogConfigRequest): Promise<ModifyAuditLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAuditLogConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the automatic backup policy of an ApsaraDB for Redis instance.
+   *
+   * @param request ModifyBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20520,17 +22313,91 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Modifies the automatic backup policy of an ApsaraDB for Redis instance.
+   *
+   * @param request ModifyBackupPolicyRequest
+   * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyWithOptions(request, runtime);
   }
 
   /**
-    * You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](~~85683~~).
-    *
-    * @param request ModifyDBInstanceConnectionStringRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceConnectionStringResponse
+   * @summary 修改小版本自动升级开关
+   *
+   * @param request ModifyDBInstanceAutoUpgradeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceAutoUpgradeResponse
+   */
+  async modifyDBInstanceAutoUpgradeWithOptions(request: ModifyDBInstanceAutoUpgradeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceAutoUpgradeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceAutoUpgrade",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceAutoUpgradeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceAutoUpgradeResponse({}));
+  }
+
+  /**
+   * @summary 修改小版本自动升级开关
+   *
+   * @param request ModifyDBInstanceAutoUpgradeRequest
+   * @return ModifyDBInstanceAutoUpgradeResponse
+   */
+  async modifyDBInstanceAutoUpgrade(request: ModifyDBInstanceAutoUpgradeRequest): Promise<ModifyDBInstanceAutoUpgradeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBInstanceAutoUpgradeWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Changes the endpoint or port number of an ApsaraDB for Redis instance.
+   *
+   * @description You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
+   *
+   * @param request ModifyDBInstanceConnectionStringRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceConnectionStringResponse
    */
   async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
     Util.validateModel(request);
@@ -20593,16 +22460,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](~~85683~~).
-    *
-    * @param request ModifyDBInstanceConnectionStringRequest
-    * @return ModifyDBInstanceConnectionStringResponse
+   * @summary Changes the endpoint or port number of an ApsaraDB for Redis instance.
+   *
+   * @description You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
+   *
+   * @param request ModifyDBInstanceConnectionStringRequest
+   * @return ModifyDBInstanceConnectionStringResponse
    */
   async modifyDBInstanceConnectionString(request: ModifyDBInstanceConnectionStringRequest): Promise<ModifyDBInstanceConnectionStringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceConnectionStringWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a global IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGlobalSecurityIPGroupResponse
+   */
   async modifyGlobalSecurityIPGroupWithOptions(request: ModifyGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20663,11 +22539,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new ModifyGlobalSecurityIPGroupResponse({}));
   }
 
+  /**
+   * @summary Modifies a global IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupRequest
+   * @return ModifyGlobalSecurityIPGroupResponse
+   */
   async modifyGlobalSecurityIPGroup(request: ModifyGlobalSecurityIPGroupRequest): Promise<ModifyGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGlobalSecurityIPGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name of a global IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGlobalSecurityIPGroupNameResponse
+   */
   async modifyGlobalSecurityIPGroupNameWithOptions(request: ModifyGlobalSecurityIPGroupNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20724,11 +22613,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGlobalSecurityIPGroupNameResponse>(await this.callApi(params, req, runtime), new ModifyGlobalSecurityIPGroupNameResponse({}));
   }
 
+  /**
+   * @summary Modifies the name of a global IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupNameRequest
+   * @return ModifyGlobalSecurityIPGroupNameResponse
+   */
   async modifyGlobalSecurityIPGroupName(request: ModifyGlobalSecurityIPGroupNameRequest): Promise<ModifyGlobalSecurityIPGroupNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGlobalSecurityIPGroupNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a specified instance to a specified IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGlobalSecurityIPGroupRelationResponse
+   */
   async modifyGlobalSecurityIPGroupRelationWithOptions(request: ModifyGlobalSecurityIPGroupRelationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20785,17 +22687,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGlobalSecurityIPGroupRelationResponse>(await this.callApi(params, req, runtime), new ModifyGlobalSecurityIPGroupRelationResponse({}));
   }
 
+  /**
+   * @summary Adds a specified instance to a specified IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupRelationRequest
+   * @return ModifyGlobalSecurityIPGroupRelationResponse
+   */
   async modifyGlobalSecurityIPGroupRelation(request: ModifyGlobalSecurityIPGroupRelationRequest): Promise<ModifyGlobalSecurityIPGroupRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGlobalSecurityIPGroupRelationWithOptions(request, runtime);
   }
 
   /**
-    * You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](~~43874~~).
-    *
-    * @param request ModifyInstanceAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceAttributeResponse
+   * @summary Changes the information of an ApsaraDB for Redis instance, such as the name and password.
+   *
+   * @description You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
+   *
+   * @param request ModifyInstanceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceAttributeResponse
    */
   async modifyInstanceAttributeWithOptions(request: ModifyInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAttributeResponse> {
     Util.validateModel(request);
@@ -20854,10 +22764,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](~~43874~~).
-    *
-    * @param request ModifyInstanceAttributeRequest
-    * @return ModifyInstanceAttributeResponse
+   * @summary Changes the information of an ApsaraDB for Redis instance, such as the name and password.
+   *
+   * @description You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
+   *
+   * @param request ModifyInstanceAttributeRequest
+   * @return ModifyInstanceAttributeResponse
    */
   async modifyInstanceAttribute(request: ModifyInstanceAttributeRequest): Promise<ModifyInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20865,11 +22777,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Auto-renewal is triggered seven days before the expiration date of the instance.
-    *
-    * @param request ModifyInstanceAutoRenewalAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceAutoRenewalAttributeResponse
+   * @summary Enables or disables auto-renewal for an ApsaraDB for Redis instance.
+   *
+   * @description > Auto-renewal is triggered seven days before the expiration date of the instance.
+   *
+   * @param request ModifyInstanceAutoRenewalAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceAutoRenewalAttributeResponse
    */
   async modifyInstanceAutoRenewalAttributeWithOptions(request: ModifyInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
@@ -20924,16 +22838,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Auto-renewal is triggered seven days before the expiration date of the instance.
-    *
-    * @param request ModifyInstanceAutoRenewalAttributeRequest
-    * @return ModifyInstanceAutoRenewalAttributeResponse
+   * @summary Enables or disables auto-renewal for an ApsaraDB for Redis instance.
+   *
+   * @description > Auto-renewal is triggered seven days before the expiration date of the instance.
+   *
+   * @param request ModifyInstanceAutoRenewalAttributeRequest
+   * @return ModifyInstanceAutoRenewalAttributeResponse
    */
   async modifyInstanceAutoRenewalAttribute(request: ModifyInstanceAutoRenewalAttributeRequest): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceAutoRenewalAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the parameter settings of an ApsaraDB for Redis instance.
+   *
+   * @param request ModifyInstanceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceConfigResponse
+   */
   async modifyInstanceConfigWithOptions(request: ModifyInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20982,17 +22905,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceConfigResponse>(await this.callApi(params, req, runtime), new ModifyInstanceConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the parameter settings of an ApsaraDB for Redis instance.
+   *
+   * @param request ModifyInstanceConfigRequest
+   * @return ModifyInstanceConfigResponse
+   */
   async modifyInstanceConfig(request: ModifyInstanceConfigRequest): Promise<ModifyInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceConfigWithOptions(request, runtime);
   }
 
   /**
-    * You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](~~55252~~).
-    *
-    * @param request ModifyInstanceMaintainTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceMaintainTimeResponse
+   * @summary Modifies the maintenance window of an ApsaraDB for Redis instance. Alibaba Cloud maintains ApsaraDB for Redis instances during the specified maintenance window.
+   *
+   * @description You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
+   *
+   * @param request ModifyInstanceMaintainTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceMaintainTimeResponse
    */
   async modifyInstanceMaintainTimeWithOptions(request: ModifyInstanceMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMaintainTimeResponse> {
     Util.validateModel(request);
@@ -21047,10 +22978,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](~~55252~~).
-    *
-    * @param request ModifyInstanceMaintainTimeRequest
-    * @return ModifyInstanceMaintainTimeResponse
+   * @summary Modifies the maintenance window of an ApsaraDB for Redis instance. Alibaba Cloud maintains ApsaraDB for Redis instances during the specified maintenance window.
+   *
+   * @description You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
+   *
+   * @param request ModifyInstanceMaintainTimeRequest
+   * @return ModifyInstanceMaintainTimeResponse
    */
   async modifyInstanceMaintainTime(request: ModifyInstanceMaintainTimeRequest): Promise<ModifyInstanceMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21058,11 +22991,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](~~101764~~).
-    *
-    * @param request ModifyInstanceMajorVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceMajorVersionResponse
+   * @summary Upgrades the major version of an ApsaraDB for Redis instance.
+   *
+   * @description For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
+   *
+   * @param request ModifyInstanceMajorVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceMajorVersionResponse
    */
   async modifyInstanceMajorVersionWithOptions(request: ModifyInstanceMajorVersionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMajorVersionResponse> {
     Util.validateModel(request);
@@ -21117,10 +23052,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](~~101764~~).
-    *
-    * @param request ModifyInstanceMajorVersionRequest
-    * @return ModifyInstanceMajorVersionResponse
+   * @summary Upgrades the major version of an ApsaraDB for Redis instance.
+   *
+   * @description For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
+   *
+   * @param request ModifyInstanceMajorVersionRequest
+   * @return ModifyInstanceMajorVersionResponse
    */
   async modifyInstanceMajorVersion(request: ModifyInstanceMajorVersionRequest): Promise<ModifyInstanceMajorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21128,14 +23065,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](~~56450~~).
-    * > 
-    * *   Before you call this operation, you can call the [DescribeEngineVersion](~~95268~~) operation to query the minor version of the current instance.
-    * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
-    *
-    * @param request ModifyInstanceMinorVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceMinorVersionResponse
+   * @summary Updates the minor version of an ApsaraDB for Redis instance.
+   *
+   * @description The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
+   * > 
+   * *   Before you call this operation, you can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to query the minor version of the current instance.
+   * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
+   *
+   * @param request ModifyInstanceMinorVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceMinorVersionResponse
    */
   async modifyInstanceMinorVersionWithOptions(request: ModifyInstanceMinorVersionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMinorVersionResponse> {
     Util.validateModel(request);
@@ -21190,13 +23129,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](~~56450~~).
-    * > 
-    * *   Before you call this operation, you can call the [DescribeEngineVersion](~~95268~~) operation to query the minor version of the current instance.
-    * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
-    *
-    * @param request ModifyInstanceMinorVersionRequest
-    * @return ModifyInstanceMinorVersionResponse
+   * @summary Updates the minor version of an ApsaraDB for Redis instance.
+   *
+   * @description The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
+   * > 
+   * *   Before you call this operation, you can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to query the minor version of the current instance.
+   * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
+   *
+   * @param request ModifyInstanceMinorVersionRequest
+   * @return ModifyInstanceMinorVersionResponse
    */
   async modifyInstanceMinorVersion(request: ModifyInstanceMinorVersionRequest): Promise<ModifyInstanceMinorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21204,12 +23145,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](~~60062~~).
-    * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](~~61005~~).
-    *
-    * @param request ModifyInstanceNetExpireTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceNetExpireTimeResponse
+   * @summary Extends the retention period of the classic network endpoint of an ApsaraDB for Redis instance. You can call this operation after you change the network type of the ApsaraDB for Redis instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
+   *
+   * @description You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
+   * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html).
+   *
+   * @param request ModifyInstanceNetExpireTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceNetExpireTimeResponse
    */
   async modifyInstanceNetExpireTimeWithOptions(request: ModifyInstanceNetExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceNetExpireTimeResponse> {
     Util.validateModel(request);
@@ -21264,17 +23207,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](~~60062~~).
-    * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](~~61005~~).
-    *
-    * @param request ModifyInstanceNetExpireTimeRequest
-    * @return ModifyInstanceNetExpireTimeResponse
+   * @summary Extends the retention period of the classic network endpoint of an ApsaraDB for Redis instance. You can call this operation after you change the network type of the ApsaraDB for Redis instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
+   *
+   * @description You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
+   * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html).
+   *
+   * @param request ModifyInstanceNetExpireTimeRequest
+   * @return ModifyInstanceNetExpireTimeResponse
    */
   async modifyInstanceNetExpireTime(request: ModifyInstanceNetExpireTimeRequest): Promise<ModifyInstanceNetExpireTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceNetExpireTimeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改实例参数
+   *
+   * @param request ModifyInstanceParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceParameterResponse
+   */
   async modifyInstanceParameterWithOptions(request: ModifyInstanceParameterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21327,18 +23279,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceParameterResponse>(await this.callApi(params, req, runtime), new ModifyInstanceParameterResponse({}));
   }
 
+  /**
+   * @summary 修改实例参数
+   *
+   * @param request ModifyInstanceParameterRequest
+   * @return ModifyInstanceParameterResponse
+   */
   async modifyInstanceParameter(request: ModifyInstanceParameterRequest): Promise<ModifyInstanceParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceParameterWithOptions(request, runtime);
   }
 
   /**
-    * You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
-    * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
-    *
-    * @param request ModifyInstanceSSLRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceSSLResponse
+   * @summary Modifies the SSL settings of an ApsaraDB for Redis instance.
+   *
+   * @description You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+   * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
+   *
+   * @param request ModifyInstanceSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceSSLResponse
    */
   async modifyInstanceSSLWithOptions(request: ModifyInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSSLResponse> {
     Util.validateModel(request);
@@ -21389,11 +23349,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
-    * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
-    *
-    * @param request ModifyInstanceSSLRequest
-    * @return ModifyInstanceSSLResponse
+   * @summary Modifies the SSL settings of an ApsaraDB for Redis instance.
+   *
+   * @description You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+   * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
+   *
+   * @param request ModifyInstanceSSLRequest
+   * @return ModifyInstanceSSLResponse
    */
   async modifyInstanceSSL(request: ModifyInstanceSSLRequest): Promise<ModifyInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21401,11 +23363,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](~~26353~~).
-    *
-    * @param request ModifyInstanceSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceSpecResponse
+   * @summary Changes the specifications of an ApsaraDB for Redis instance.
+   *
+   * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+   *
+   * @param request ModifyInstanceSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceSpecResponse
    */
   async modifyInstanceSpecWithOptions(request: ModifyInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSpecResponse> {
     Util.validateModel(request);
@@ -21516,10 +23480,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](~~26353~~).
-    *
-    * @param request ModifyInstanceSpecRequest
-    * @return ModifyInstanceSpecResponse
+   * @summary Changes the specifications of an ApsaraDB for Redis instance.
+   *
+   * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+   *
+   * @param request ModifyInstanceSpecRequest
+   * @return ModifyInstanceSpecResponse
    */
   async modifyInstanceSpec(request: ModifyInstanceSpecRequest): Promise<ModifyInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21527,11 +23493,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information about TDE and the impact of TDE, see [Enable TDE](~~265913~~).
-    *
-    * @param request ModifyInstanceTDERequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceTDEResponse
+   * @summary Enables transparent data encryption (TDE) for an ApsaraDB for Redis instance. You can use existing custom keys.
+   *
+   * @description > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   *
+   * @param request ModifyInstanceTDERequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceTDEResponse
    */
   async modifyInstanceTDEWithOptions(request: ModifyInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTDEResponse> {
     Util.validateModel(request);
@@ -21594,10 +23562,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information about TDE and the impact of TDE, see [Enable TDE](~~265913~~).
-    *
-    * @param request ModifyInstanceTDERequest
-    * @return ModifyInstanceTDEResponse
+   * @summary Enables transparent data encryption (TDE) for an ApsaraDB for Redis instance. You can use existing custom keys.
+   *
+   * @description > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   *
+   * @param request ModifyInstanceTDERequest
+   * @return ModifyInstanceTDEResponse
    */
   async modifyInstanceTDE(request: ModifyInstanceTDERequest): Promise<ModifyInstanceTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21605,12 +23575,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
-    * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](~~85168~~).
-    *
-    * @param request ModifyInstanceVpcAuthModeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceVpcAuthModeResponse
+   * @summary Enables or disables password-free access for an ApsaraDB for Redis instance. This way, you can connect to a database in a convenient and secure manner.
+   *
+   * @description When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
+   * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
+   *
+   * @param request ModifyInstanceVpcAuthModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceVpcAuthModeResponse
    */
   async modifyInstanceVpcAuthModeWithOptions(request: ModifyInstanceVpcAuthModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceVpcAuthModeResponse> {
     Util.validateModel(request);
@@ -21661,11 +23633,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
-    * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](~~85168~~).
-    *
-    * @param request ModifyInstanceVpcAuthModeRequest
-    * @return ModifyInstanceVpcAuthModeResponse
+   * @summary Enables or disables password-free access for an ApsaraDB for Redis instance. This way, you can connect to a database in a convenient and secure manner.
+   *
+   * @description When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
+   * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
+   *
+   * @param request ModifyInstanceVpcAuthModeRequest
+   * @return ModifyInstanceVpcAuthModeResponse
    */
   async modifyInstanceVpcAuthMode(request: ModifyInstanceVpcAuthModeRequest): Promise<ModifyInstanceVpcAuthModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21673,12 +23647,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](~~206173~~) operation.
-    *
-    * @param request ModifyIntranetAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyIntranetAttributeResponse
+   * @summary Temporarily adjusts the internal bandwidth of an ApsaraDB for Redis instance that is deployed in a dedicated cluster.
+   *
+   * @description > 
+   * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation.
+   *
+   * @param request ModifyIntranetAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIntranetAttributeResponse
    */
   async modifyIntranetAttributeWithOptions(request: ModifyIntranetAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIntranetAttributeResponse> {
     Util.validateModel(request);
@@ -21733,11 +23709,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](~~206173~~) operation.
-    *
-    * @param request ModifyIntranetAttributeRequest
-    * @return ModifyIntranetAttributeResponse
+   * @summary Temporarily adjusts the internal bandwidth of an ApsaraDB for Redis instance that is deployed in a dedicated cluster.
+   *
+   * @description > 
+   * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation.
+   *
+   * @param request ModifyIntranetAttributeRequest
+   * @return ModifyIntranetAttributeResponse
    */
   async modifyIntranetAttribute(request: ModifyIntranetAttributeRequest): Promise<ModifyIntranetAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21745,12 +23723,96 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](~~94475~~)
-    * > For more information about resource group API operations, see [Resource Management API overview](~~160024~~).
-    *
-    * @param request ModifyResourceGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyResourceGroupResponse
+   * @summary Modifies the settings of a parameter template.
+   *
+   * @param request ModifyParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyParameterGroupResponse
+   */
+  async modifyParameterGroupWithOptions(request: ModifyParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParameterGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.parameterGroupDesc)) {
+      query["ParameterGroupDesc"] = request.parameterGroupDesc;
+    }
+
+    if (!Util.isUnset(request.parameterGroupId)) {
+      query["ParameterGroupId"] = request.parameterGroupId;
+    }
+
+    if (!Util.isUnset(request.parameterGroupName)) {
+      query["ParameterGroupName"] = request.parameterGroupName;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyParameterGroup",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyParameterGroupResponse>(await this.callApi(params, req, runtime), new ModifyParameterGroupResponse({}));
+  }
+
+  /**
+   * @summary Modifies the settings of a parameter template.
+   *
+   * @param request ModifyParameterGroupRequest
+   * @return ModifyParameterGroupResponse
+   */
+  async modifyParameterGroup(request: ModifyParameterGroupRequest): Promise<ModifyParameterGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Changes the resource group to which an ApsaraDB for Redis instance belongs.
+   *
+   * @description Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+   * > For more information about resource group API operations, see [Resource Management API overview](https://help.aliyun.com/document_detail/160024.html).
+   *
+   * @param request ModifyResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyResourceGroupResponse
    */
   async modifyResourceGroupWithOptions(request: ModifyResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyResourceGroupResponse> {
     Util.validateModel(request);
@@ -21805,11 +23867,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](~~94475~~)
-    * > For more information about resource group API operations, see [Resource Management API overview](~~160024~~).
-    *
-    * @param request ModifyResourceGroupRequest
-    * @return ModifyResourceGroupResponse
+   * @summary Changes the resource group to which an ApsaraDB for Redis instance belongs.
+   *
+   * @description Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+   * > For more information about resource group API operations, see [Resource Management API overview](https://help.aliyun.com/document_detail/160024.html).
+   *
+   * @param request ModifyResourceGroupRequest
+   * @return ModifyResourceGroupResponse
    */
   async modifyResourceGroup(request: ModifyResourceGroupRequest): Promise<ModifyResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21817,11 +23881,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
-    *
-    * @param request ModifySecurityGroupConfigurationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySecurityGroupConfigurationResponse
+   * @summary Resets the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+   *
+   * @description > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
+   *
+   * @param request ModifySecurityGroupConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityGroupConfigurationResponse
    */
   async modifySecurityGroupConfigurationWithOptions(request: ModifySecurityGroupConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityGroupConfigurationResponse> {
     Util.validateModel(request);
@@ -21872,10 +23938,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
-    *
-    * @param request ModifySecurityGroupConfigurationRequest
-    * @return ModifySecurityGroupConfigurationResponse
+   * @summary Resets the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+   *
+   * @description > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
+   *
+   * @param request ModifySecurityGroupConfigurationRequest
+   * @return ModifySecurityGroupConfigurationResponse
    */
   async modifySecurityGroupConfiguration(request: ModifySecurityGroupConfigurationRequest): Promise<ModifySecurityGroupConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21883,11 +23951,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](~~56464~~).
-    *
-    * @param request ModifySecurityIpsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySecurityIpsResponse
+   * @summary Modifies the IP address whitelists of an ApsaraDB for Redis instance.
+   *
+   * @description You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
+   *
+   * @param request ModifySecurityIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityIpsResponse
    */
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
@@ -21950,10 +24020,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](~~56464~~).
-    *
-    * @param request ModifySecurityIpsRequest
-    * @return ModifySecurityIpsResponse
+   * @summary Modifies the IP address whitelists of an ApsaraDB for Redis instance.
+   *
+   * @description You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
+   *
+   * @param request ModifySecurityIpsRequest
+   * @return ModifySecurityIpsResponse
    */
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21961,11 +24033,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](~~146901~~).
-    *
-    * @param request ReleaseDirectConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReleaseDirectConnectionResponse
+   * @summary Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+   *
+   * @description In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+   *
+   * @param request ReleaseDirectConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseDirectConnectionResponse
    */
   async releaseDirectConnectionWithOptions(request: ReleaseDirectConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseDirectConnectionResponse> {
     Util.validateModel(request);
@@ -22012,10 +24086,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](~~146901~~).
-    *
-    * @param request ReleaseDirectConnectionRequest
-    * @return ReleaseDirectConnectionResponse
+   * @summary Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+   *
+   * @description In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+   *
+   * @param request ReleaseDirectConnectionRequest
+   * @return ReleaseDirectConnectionResponse
    */
   async releaseDirectConnection(request: ReleaseDirectConnectionRequest): Promise<ReleaseDirectConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22023,11 +24099,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](~~125424~~).
-    *
-    * @param request ReleaseInstancePublicConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReleaseInstancePublicConnectionResponse
+   * @summary Releases the public endpoint of an ApsaraDB for Redis instance.
+   *
+   * @description For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
+   *
+   * @param request ReleaseInstancePublicConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseInstancePublicConnectionResponse
    */
   async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
     Util.validateModel(request);
@@ -22078,10 +24156,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](~~125424~~).
-    *
-    * @param request ReleaseInstancePublicConnectionRequest
-    * @return ReleaseInstancePublicConnectionResponse
+   * @summary Releases the public endpoint of an ApsaraDB for Redis instance.
+   *
+   * @description For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
+   *
+   * @param request ReleaseInstancePublicConnectionRequest
+   * @return ReleaseInstancePublicConnectionResponse
    */
   async releaseInstancePublicConnection(request: ReleaseInstancePublicConnectionRequest): Promise<ReleaseInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22089,11 +24169,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **RemoveSubInstance**.
-    *
-    * @param request RemoveSubInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveSubInstanceResponse
+   * @summary Removes a child instance from a distributed instance.
+   *
+   * @description The operation that you want to perform. Set the value to **RemoveSubInstance**.
+   *
+   * @param request RemoveSubInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveSubInstanceResponse
    */
   async removeSubInstanceWithOptions(request: RemoveSubInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSubInstanceResponse> {
     Util.validateModel(request);
@@ -22140,10 +24222,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **RemoveSubInstance**.
-    *
-    * @param request RemoveSubInstanceRequest
-    * @return RemoveSubInstanceResponse
+   * @summary Removes a child instance from a distributed instance.
+   *
+   * @description The operation that you want to perform. Set the value to **RemoveSubInstance**.
+   *
+   * @param request RemoveSubInstanceRequest
+   * @return RemoveSubInstanceResponse
    */
   async removeSubInstance(request: RemoveSubInstanceRequest): Promise<RemoveSubInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22151,13 +24235,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~). You can also call the [EnableAdditionalBandwidth](~~206173~~) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
-    * > Before you call this operation, you can call the [DescribeIntranetAttribute](~~128715~~) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
-    *
-    * @param request RenewAdditionalBandwidthRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RenewAdditionalBandwidthResponse
+   * @summary Renews the purchased bandwidth for an ApsaraDB for Redis instance.
+   *
+   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/102588.html). You can also call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
+   * > Before you call this operation, you can call the [DescribeIntranetAttribute](https://help.aliyun.com/document_detail/128715.html) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
+   *
+   * @param request RenewAdditionalBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewAdditionalBandwidthResponse
    */
   async renewAdditionalBandwidthWithOptions(request: RenewAdditionalBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<RenewAdditionalBandwidthResponse> {
     Util.validateModel(request);
@@ -22220,12 +24306,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~). You can also call the [EnableAdditionalBandwidth](~~206173~~) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
-    * > Before you call this operation, you can call the [DescribeIntranetAttribute](~~128715~~) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
-    *
-    * @param request RenewAdditionalBandwidthRequest
-    * @return RenewAdditionalBandwidthResponse
+   * @summary Renews the purchased bandwidth for an ApsaraDB for Redis instance.
+   *
+   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/102588.html). You can also call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
+   * > Before you call this operation, you can call the [DescribeIntranetAttribute](https://help.aliyun.com/document_detail/128715.html) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
+   *
+   * @param request RenewAdditionalBandwidthRequest
+   * @return RenewAdditionalBandwidthResponse
    */
   async renewAdditionalBandwidth(request: RenewAdditionalBandwidthRequest): Promise<RenewAdditionalBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22233,11 +24321,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is applicable only to subscription instances.
-    *
-    * @param request RenewInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RenewInstanceResponse
+   * @summary Renews an ApsaraDB for Redis instance.
+   *
+   * @description This operation is applicable only to subscription instances.
+   *
+   * @param request RenewInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewInstanceResponse
    */
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
@@ -22320,10 +24410,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is applicable only to subscription instances.
-    *
-    * @param request RenewInstanceRequest
-    * @return RenewInstanceResponse
+   * @summary Renews an ApsaraDB for Redis instance.
+   *
+   * @description This operation is applicable only to subscription instances.
+   *
+   * @param request RenewInstanceRequest
+   * @return RenewInstanceResponse
    */
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22331,11 +24423,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-    *
-    * @param request ResetAccountPasswordRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResetAccountPasswordResponse
+   * @summary Resets the password of an account for an ApsaraDB for Redis instance.
+   *
+   * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+   *
+   * @param request ResetAccountPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAccountPasswordResponse
    */
   async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
     Util.validateModel(request);
@@ -22390,16 +24484,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-    *
-    * @param request ResetAccountPasswordRequest
-    * @return ResetAccountPasswordResponse
+   * @summary Resets the password of an account for an ApsaraDB for Redis instance.
+   *
+   * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+   *
+   * @param request ResetAccountPasswordRequest
+   * @return ResetAccountPasswordResponse
    */
   async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAccountPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Restarts a running ApsaraDB for Redis instance.
+   *
+   * @param request RestartInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartInstanceResponse
+   */
   async restartInstanceWithOptions(request: RestartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22452,18 +24555,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartInstanceResponse>(await this.callApi(params, req, runtime), new RestartInstanceResponse({}));
   }
 
+  /**
+   * @summary Restarts a running ApsaraDB for Redis instance.
+   *
+   * @param request RestartInstanceRequest
+   * @return RestartInstanceResponse
+   */
   async restartInstance(request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartInstanceWithOptions(request, runtime);
   }
 
   /**
-    * *   If your instance is a [persistent memory-optimized instance](~~443828~~) or [DRAM-based instance](~~443827~~) that is compatible with Redis 5.0 and the [data flashback](~~443784~~) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
-    * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](~~60873~~) operation to create an instance. Then, you can restore data to the new instance.
-    *
-    * @param request RestoreInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RestoreInstanceResponse
+   * @summary Restores the data in a backup file to a specified ApsaraDB for Redis instance.
+   *
+   * @description *   If your instance is a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/443828.html) or [DRAM-based instance](https://help.aliyun.com/document_detail/443827.html) that is compatible with Redis 5.0 and the [data flashback](https://help.aliyun.com/document_detail/443784.html) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
+   * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance. Then, you can restore data to the new instance.
+   *
+   * @param request RestoreInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestoreInstanceResponse
    */
   async restoreInstanceWithOptions(request: RestoreInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestoreInstanceResponse> {
     Util.validateModel(request);
@@ -22530,11 +24641,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If your instance is a [persistent memory-optimized instance](~~443828~~) or [DRAM-based instance](~~443827~~) that is compatible with Redis 5.0 and the [data flashback](~~443784~~) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
-    * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](~~60873~~) operation to create an instance. Then, you can restore data to the new instance.
-    *
-    * @param request RestoreInstanceRequest
-    * @return RestoreInstanceResponse
+   * @summary Restores the data in a backup file to a specified ApsaraDB for Redis instance.
+   *
+   * @description *   If your instance is a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/443828.html) or [DRAM-based instance](https://help.aliyun.com/document_detail/443827.html) that is compatible with Redis 5.0 and the [data flashback](https://help.aliyun.com/document_detail/443784.html) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
+   * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance. Then, you can restore data to the new instance.
+   *
+   * @param request RestoreInstanceRequest
+   * @return RestoreInstanceResponse
    */
   async restoreInstance(request: RestoreInstanceRequest): Promise<RestoreInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22542,15 +24655,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](~~164222~~).
-    * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](~~126164~~) instance that uses local disks.
-    * A call to this operation has the following impacts on your instance:
-    * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
-    * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
-    *
-    * @param request SwitchInstanceHARequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SwitchInstanceHAResponse
+   * @summary Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
+   *
+   * @description > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
+   * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses local disks.
+   * A call to this operation has the following impacts on your instance:
+   * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
+   * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+   *
+   * @param request SwitchInstanceHARequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchInstanceHAResponse
    */
   async switchInstanceHAWithOptions(request: SwitchInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<SwitchInstanceHAResponse> {
     Util.validateModel(request);
@@ -22609,14 +24724,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](~~164222~~).
-    * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](~~126164~~) instance that uses local disks.
-    * A call to this operation has the following impacts on your instance:
-    * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
-    * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
-    *
-    * @param request SwitchInstanceHARequest
-    * @return SwitchInstanceHAResponse
+   * @summary Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
+   *
+   * @description > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
+   * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses local disks.
+   * A call to this operation has the following impacts on your instance:
+   * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
+   * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+   *
+   * @param request SwitchInstanceHARequest
+   * @return SwitchInstanceHAResponse
    */
   async switchInstanceHA(request: SwitchInstanceHARequest): Promise<SwitchInstanceHAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22624,14 +24741,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the proxy mode, see [Features of proxy nodes](~~142959~~). Before you call this operation, make sure that the following requirements are met:
-    * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-    * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](~~52228~~).
-    * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](~~229522~~) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
-    *
-    * @param request SwitchInstanceProxyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SwitchInstanceProxyResponse
+   * @summary Enables or disables the proxy mode for an ApsaraDB for Redis cluster instance in a dedicated cluster.
+   *
+   * @description For more information about the proxy mode, see [Features of proxy nodes](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
+   * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](https://help.aliyun.com/document_detail/52228.html).
+   * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/229522.html) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
+   *
+   * @param request SwitchInstanceProxyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchInstanceProxyResponse
    */
   async switchInstanceProxyWithOptions(request: SwitchInstanceProxyRequest, runtime: $Util.RuntimeOptions): Promise<SwitchInstanceProxyResponse> {
     Util.validateModel(request);
@@ -22678,19 +24797,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the proxy mode, see [Features of proxy nodes](~~142959~~). Before you call this operation, make sure that the following requirements are met:
-    * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-    * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](~~52228~~).
-    * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](~~229522~~) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
-    *
-    * @param request SwitchInstanceProxyRequest
-    * @return SwitchInstanceProxyResponse
+   * @summary Enables or disables the proxy mode for an ApsaraDB for Redis cluster instance in a dedicated cluster.
+   *
+   * @description For more information about the proxy mode, see [Features of proxy nodes](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
+   * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](https://help.aliyun.com/document_detail/52228.html).
+   * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/229522.html) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
+   *
+   * @param request SwitchInstanceProxyRequest
+   * @return SwitchInstanceProxyResponse
    */
   async switchInstanceProxy(request: SwitchInstanceProxyRequest): Promise<SwitchInstanceProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchInstanceProxyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the virtual private cloud (VPC) or vSwitch of an ApsaraDB for Redis instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
+   *
+   * @param request SwitchNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchNetworkResponse
+   */
   async switchNetworkWithOptions(request: SwitchNetworkRequest, runtime: $Util.RuntimeOptions): Promise<SwitchNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22755,11 +24883,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchNetworkResponse>(await this.callApi(params, req, runtime), new SwitchNetworkResponse({}));
   }
 
+  /**
+   * @summary Changes the virtual private cloud (VPC) or vSwitch of an ApsaraDB for Redis instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
+   *
+   * @param request SwitchNetworkRequest
+   * @return SwitchNetworkResponse
+   */
   async switchNetwork(request: SwitchNetworkRequest): Promise<SwitchNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables configuration changes for an ApsaraDB for Redis instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to the configuration change.
+   *
+   * @param request SyncDtsStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SyncDtsStatusResponse
+   */
   async syncDtsStatusWithOptions(request: SyncDtsStatusRequest, runtime: $Util.RuntimeOptions): Promise<SyncDtsStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22816,23 +24957,31 @@ export default class Client extends OpenApi {
     return $tea.cast<SyncDtsStatusResponse>(await this.callApi(params, req, runtime), new SyncDtsStatusResponse({}));
   }
 
+  /**
+   * @summary Disables configuration changes for an ApsaraDB for Redis instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to the configuration change.
+   *
+   * @param request SyncDtsStatusRequest
+   * @return SyncDtsStatusResponse
+   */
   async syncDtsStatus(request: SyncDtsStatusRequest): Promise<SyncDtsStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.syncDtsStatusWithOptions(request, runtime);
   }
 
   /**
-    * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
-    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
-    * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
-    * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
-    * *   You can add up to 20 tags to each instance.
-    * *   You can add tags to up to 50 instances in each request.
-    * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](~~118779~~).
-    *
-    * @param request TagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourcesResponse
+   * @summary Adds specified tags to one or more ApsaraDB for Redis instances.
+   *
+   * @description If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+   * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
+   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+   * *   You can add up to 20 tags to each instance.
+   * *   You can add tags to up to 50 instances in each request.
+   * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](https://help.aliyun.com/document_detail/118779.html).
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -22887,16 +25036,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
-    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
-    * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
-    * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
-    * *   You can add up to 20 tags to each instance.
-    * *   You can add tags to up to 50 instances in each request.
-    * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](~~118779~~).
-    *
-    * @param request TagResourcesRequest
-    * @return TagResourcesResponse
+   * @summary Adds specified tags to one or more ApsaraDB for Redis instances.
+   *
+   * @description If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+   * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
+   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+   * *   You can add up to 20 tags to each instance.
+   * *   You can add tags to up to 50 instances in each request.
+   * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](https://help.aliyun.com/document_detail/118779.html).
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22904,13 +25055,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
-    * *   [Change the billing method to subscription](~~54542~~).
-    * *   [Change the billing method to pay-as-you-go](~~211549~~).
-    *
-    * @param request TransformInstanceChargeTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TransformInstanceChargeTypeResponse
+   * @summary Changes the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
+   *
+   * @description Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+   * *   [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
+   * *   [Change the billing method to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
+   *
+   * @param request TransformInstanceChargeTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TransformInstanceChargeTypeResponse
    */
   async transformInstanceChargeTypeWithOptions(request: TransformInstanceChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<TransformInstanceChargeTypeResponse> {
     Util.validateModel(request);
@@ -22977,12 +25130,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
-    * *   [Change the billing method to subscription](~~54542~~).
-    * *   [Change the billing method to pay-as-you-go](~~211549~~).
-    *
-    * @param request TransformInstanceChargeTypeRequest
-    * @return TransformInstanceChargeTypeResponse
+   * @summary Changes the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
+   *
+   * @description Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+   * *   [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
+   * *   [Change the billing method to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
+   *
+   * @param request TransformInstanceChargeTypeRequest
+   * @return TransformInstanceChargeTypeResponse
    */
   async transformInstanceChargeType(request: TransformInstanceChargeTypeRequest): Promise<TransformInstanceChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22990,12 +25145,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](~~54542~~).
-    * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
-    *
-    * @param request TransformToPrePaidRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TransformToPrePaidResponse
+   * @summary Changes the billing method of an ApsaraDB for Redis instance from pay-as-you-go to subscription.
+   *
+   * @description For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
+   * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
+   *
+   * @param request TransformToPrePaidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TransformToPrePaidResponse
    */
   async transformToPrePaidWithOptions(request: TransformToPrePaidRequest, runtime: $Util.RuntimeOptions): Promise<TransformToPrePaidResponse> {
     Util.validateModel(request);
@@ -23050,17 +25207,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](~~54542~~).
-    * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
-    *
-    * @param request TransformToPrePaidRequest
-    * @return TransformToPrePaidResponse
+   * @summary Changes the billing method of an ApsaraDB for Redis instance from pay-as-you-go to subscription.
+   *
+   * @description For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
+   * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
+   *
+   * @param request TransformToPrePaidRequest
+   * @return TransformToPrePaidResponse
    */
   async transformToPrePaid(request: TransformToPrePaidRequest): Promise<TransformToPrePaidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transformToPrePaidWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+   *
+   * @param request UnlockDBInstanceWriteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnlockDBInstanceWriteResponse
+   */
   async unlockDBInstanceWriteWithOptions(request: UnlockDBInstanceWriteRequest, runtime: $Util.RuntimeOptions): Promise<UnlockDBInstanceWriteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23105,19 +25271,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UnlockDBInstanceWriteResponse>(await this.callApi(params, req, runtime), new UnlockDBInstanceWriteResponse({}));
   }
 
+  /**
+   * @summary Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+   *
+   * @param request UnlockDBInstanceWriteRequest
+   * @return UnlockDBInstanceWriteResponse
+   */
   async unlockDBInstanceWrite(request: UnlockDBInstanceWriteRequest): Promise<UnlockDBInstanceWriteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unlockDBInstanceWriteWithOptions(request, runtime);
   }
 
   /**
-    * *   You can remove up to 20 tags at a time.
-    * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
-    * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](~~119157~~).
-    *
-    * @param request UntagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UntagResourcesResponse
+   * @summary Removes tags from one or more ApsaraDB for Redis instances.
+   *
+   * @description *   You can remove up to 20 tags at a time.
+   * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
+   * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](https://help.aliyun.com/document_detail/119157.html).
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -23176,12 +25350,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can remove up to 20 tags at a time.
-    * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
-    * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](~~119157~~).
-    *
-    * @param request UntagResourcesRequest
-    * @return UntagResourcesResponse
+   * @summary Removes tags from one or more ApsaraDB for Redis instances.
+   *
+   * @description *   You can remove up to 20 tags at a time.
+   * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
+   * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](https://help.aliyun.com/document_detail/119157.html).
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
