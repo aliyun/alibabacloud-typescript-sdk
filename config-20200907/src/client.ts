@@ -599,12 +599,17 @@ export class CreateAggregateCompliancePackRequest extends $tea.Model {
   configRules?: CreateAggregateCompliancePackRequestConfigRules[];
   defaultEnable?: boolean;
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: CreateAggregateCompliancePackRequestExcludeTagsScope[];
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   riskLevel?: number;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: CreateAggregateCompliancePackRequestTagsScope[];
   templateContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -615,12 +620,17 @@ export class CreateAggregateCompliancePackRequest extends $tea.Model {
       configRules: 'ConfigRules',
       defaultEnable: 'DefaultEnable',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       riskLevel: 'RiskLevel',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
       templateContent: 'TemplateContent',
     };
   }
@@ -634,12 +644,17 @@ export class CreateAggregateCompliancePackRequest extends $tea.Model {
       configRules: { 'type': 'array', 'itemType': CreateAggregateCompliancePackRequestConfigRules },
       defaultEnable: 'boolean',
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': CreateAggregateCompliancePackRequestExcludeTagsScope },
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       riskLevel: 'number',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': CreateAggregateCompliancePackRequestTagsScope },
       templateContent: 'string',
     };
   }
@@ -657,12 +672,17 @@ export class CreateAggregateCompliancePackShrinkRequest extends $tea.Model {
   configRulesShrink?: string;
   defaultEnable?: boolean;
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: CreateAggregateCompliancePackShrinkRequestExcludeTagsScope[];
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   riskLevel?: number;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: CreateAggregateCompliancePackShrinkRequestTagsScope[];
   templateContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -673,12 +693,17 @@ export class CreateAggregateCompliancePackShrinkRequest extends $tea.Model {
       configRulesShrink: 'ConfigRules',
       defaultEnable: 'DefaultEnable',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       riskLevel: 'RiskLevel',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
       templateContent: 'TemplateContent',
     };
   }
@@ -692,12 +717,17 @@ export class CreateAggregateCompliancePackShrinkRequest extends $tea.Model {
       configRulesShrink: 'string',
       defaultEnable: 'boolean',
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': CreateAggregateCompliancePackShrinkRequestExcludeTagsScope },
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       riskLevel: 'number',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': CreateAggregateCompliancePackShrinkRequestTagsScope },
       templateContent: 'string',
     };
   }
@@ -854,6 +884,7 @@ export class CreateAggregateConfigDeliveryChannelResponse extends $tea.Model {
 }
 
 export class CreateAggregateConfigRuleRequest extends $tea.Model {
+  accountIdsScope?: string;
   aggregatorId?: string;
   clientToken?: string;
   configRuleName?: string;
@@ -861,12 +892,16 @@ export class CreateAggregateConfigRuleRequest extends $tea.Model {
   description?: string;
   excludeAccountIdsScope?: string;
   excludeFolderIdsScope?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: CreateAggregateConfigRuleRequestExcludeTagsScope[];
   folderIdsScope?: string;
   inputParameters?: { [key: string]: any };
   maximumExecutionFrequency?: string;
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   resourceTypesScope?: string[];
   riskLevel?: number;
   sourceIdentifier?: string;
@@ -874,8 +909,10 @@ export class CreateAggregateConfigRuleRequest extends $tea.Model {
   tagKeyLogicScope?: string;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: CreateAggregateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
+      accountIdsScope: 'AccountIdsScope',
       aggregatorId: 'AggregatorId',
       clientToken: 'ClientToken',
       configRuleName: 'ConfigRuleName',
@@ -883,12 +920,16 @@ export class CreateAggregateConfigRuleRequest extends $tea.Model {
       description: 'Description',
       excludeAccountIdsScope: 'ExcludeAccountIdsScope',
       excludeFolderIdsScope: 'ExcludeFolderIdsScope',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       folderIdsScope: 'FolderIdsScope',
       inputParameters: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       sourceIdentifier: 'SourceIdentifier',
@@ -896,11 +937,13 @@ export class CreateAggregateConfigRuleRequest extends $tea.Model {
       tagKeyLogicScope: 'TagKeyLogicScope',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accountIdsScope: 'string',
       aggregatorId: 'string',
       clientToken: 'string',
       configRuleName: 'string',
@@ -908,12 +951,16 @@ export class CreateAggregateConfigRuleRequest extends $tea.Model {
       description: 'string',
       excludeAccountIdsScope: 'string',
       excludeFolderIdsScope: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': CreateAggregateConfigRuleRequestExcludeTagsScope },
       folderIdsScope: 'string',
       inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       resourceTypesScope: { 'type': 'array', 'itemType': 'string' },
       riskLevel: 'number',
       sourceIdentifier: 'string',
@@ -921,6 +968,7 @@ export class CreateAggregateConfigRuleRequest extends $tea.Model {
       tagKeyLogicScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': CreateAggregateConfigRuleRequestTagsScope },
     };
   }
 
@@ -930,6 +978,7 @@ export class CreateAggregateConfigRuleRequest extends $tea.Model {
 }
 
 export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
+  accountIdsScope?: string;
   aggregatorId?: string;
   clientToken?: string;
   configRuleName?: string;
@@ -937,12 +986,16 @@ export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
   description?: string;
   excludeAccountIdsScope?: string;
   excludeFolderIdsScope?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: CreateAggregateConfigRuleShrinkRequestExcludeTagsScope[];
   folderIdsScope?: string;
   inputParametersShrink?: string;
   maximumExecutionFrequency?: string;
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   resourceTypesScopeShrink?: string;
   riskLevel?: number;
   sourceIdentifier?: string;
@@ -950,8 +1003,10 @@ export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
   tagKeyLogicScope?: string;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: CreateAggregateConfigRuleShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
+      accountIdsScope: 'AccountIdsScope',
       aggregatorId: 'AggregatorId',
       clientToken: 'ClientToken',
       configRuleName: 'ConfigRuleName',
@@ -959,12 +1014,16 @@ export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
       description: 'Description',
       excludeAccountIdsScope: 'ExcludeAccountIdsScope',
       excludeFolderIdsScope: 'ExcludeFolderIdsScope',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       folderIdsScope: 'FolderIdsScope',
       inputParametersShrink: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       resourceTypesScopeShrink: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       sourceIdentifier: 'SourceIdentifier',
@@ -972,11 +1031,13 @@ export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
       tagKeyLogicScope: 'TagKeyLogicScope',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accountIdsScope: 'string',
       aggregatorId: 'string',
       clientToken: 'string',
       configRuleName: 'string',
@@ -984,12 +1045,16 @@ export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
       description: 'string',
       excludeAccountIdsScope: 'string',
       excludeFolderIdsScope: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': CreateAggregateConfigRuleShrinkRequestExcludeTagsScope },
       folderIdsScope: 'string',
       inputParametersShrink: 'string',
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       resourceTypesScopeShrink: 'string',
       riskLevel: 'number',
       sourceIdentifier: 'string',
@@ -997,6 +1062,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
       tagKeyLogicScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': CreateAggregateConfigRuleShrinkRequestTagsScope },
     };
   }
 
@@ -1261,12 +1327,17 @@ export class CreateCompliancePackRequest extends $tea.Model {
   configRules?: CreateCompliancePackRequestConfigRules[];
   defaultEnable?: boolean;
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: CreateCompliancePackRequestExcludeTagsScope[];
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   riskLevel?: number;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: CreateCompliancePackRequestTagsScope[];
   templateContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1276,12 +1347,17 @@ export class CreateCompliancePackRequest extends $tea.Model {
       configRules: 'ConfigRules',
       defaultEnable: 'DefaultEnable',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       riskLevel: 'RiskLevel',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
       templateContent: 'TemplateContent',
     };
   }
@@ -1294,12 +1370,17 @@ export class CreateCompliancePackRequest extends $tea.Model {
       configRules: { 'type': 'array', 'itemType': CreateCompliancePackRequestConfigRules },
       defaultEnable: 'boolean',
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': CreateCompliancePackRequestExcludeTagsScope },
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       riskLevel: 'number',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': CreateCompliancePackRequestTagsScope },
       templateContent: 'string',
     };
   }
@@ -1316,12 +1397,17 @@ export class CreateCompliancePackShrinkRequest extends $tea.Model {
   configRulesShrink?: string;
   defaultEnable?: boolean;
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: CreateCompliancePackShrinkRequestExcludeTagsScope[];
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   riskLevel?: number;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: CreateCompliancePackShrinkRequestTagsScope[];
   templateContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1331,12 +1417,17 @@ export class CreateCompliancePackShrinkRequest extends $tea.Model {
       configRulesShrink: 'ConfigRules',
       defaultEnable: 'DefaultEnable',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       riskLevel: 'RiskLevel',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
       templateContent: 'TemplateContent',
     };
   }
@@ -1349,12 +1440,17 @@ export class CreateCompliancePackShrinkRequest extends $tea.Model {
       configRulesShrink: 'string',
       defaultEnable: 'boolean',
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': CreateCompliancePackShrinkRequestExcludeTagsScope },
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       riskLevel: 'number',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': CreateCompliancePackShrinkRequestTagsScope },
       templateContent: 'string',
     };
   }
@@ -1512,11 +1608,15 @@ export class CreateConfigRuleRequest extends $tea.Model {
   configRuleName?: string;
   configRuleTriggerTypes?: string;
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: CreateConfigRuleRequestExcludeTagsScope[];
   inputParameters?: { [key: string]: any };
   maximumExecutionFrequency?: string;
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   resourceTypesScope?: string[];
   riskLevel?: number;
   sourceIdentifier?: string;
@@ -1524,17 +1624,22 @@ export class CreateConfigRuleRequest extends $tea.Model {
   tagKeyLogicScope?: string;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: CreateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       configRuleName: 'ConfigRuleName',
       configRuleTriggerTypes: 'ConfigRuleTriggerTypes',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       inputParameters: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       sourceIdentifier: 'SourceIdentifier',
@@ -1542,6 +1647,7 @@ export class CreateConfigRuleRequest extends $tea.Model {
       tagKeyLogicScope: 'TagKeyLogicScope',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
@@ -1551,11 +1657,15 @@ export class CreateConfigRuleRequest extends $tea.Model {
       configRuleName: 'string',
       configRuleTriggerTypes: 'string',
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': CreateConfigRuleRequestExcludeTagsScope },
       inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       resourceTypesScope: { 'type': 'array', 'itemType': 'string' },
       riskLevel: 'number',
       sourceIdentifier: 'string',
@@ -1563,6 +1673,7 @@ export class CreateConfigRuleRequest extends $tea.Model {
       tagKeyLogicScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': CreateConfigRuleRequestTagsScope },
     };
   }
 
@@ -1576,11 +1687,15 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
   configRuleName?: string;
   configRuleTriggerTypes?: string;
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: CreateConfigRuleShrinkRequestExcludeTagsScope[];
   inputParametersShrink?: string;
   maximumExecutionFrequency?: string;
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   resourceTypesScopeShrink?: string;
   riskLevel?: number;
   sourceIdentifier?: string;
@@ -1588,17 +1703,22 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
   tagKeyLogicScope?: string;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: CreateConfigRuleShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       configRuleName: 'ConfigRuleName',
       configRuleTriggerTypes: 'ConfigRuleTriggerTypes',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       inputParametersShrink: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       resourceTypesScopeShrink: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       sourceIdentifier: 'SourceIdentifier',
@@ -1606,6 +1726,7 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
       tagKeyLogicScope: 'TagKeyLogicScope',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
@@ -1615,11 +1736,15 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
       configRuleName: 'string',
       configRuleTriggerTypes: 'string',
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': CreateConfigRuleShrinkRequestExcludeTagsScope },
       inputParametersShrink: 'string',
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       resourceTypesScopeShrink: 'string',
       riskLevel: 'number',
       sourceIdentifier: 'string',
@@ -1627,6 +1752,7 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
       tagKeyLogicScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': CreateConfigRuleShrinkRequestTagsScope },
     };
   }
 
@@ -9788,12 +9914,17 @@ export class UpdateAggregateCompliancePackRequest extends $tea.Model {
   compliancePackName?: string;
   configRules?: UpdateAggregateCompliancePackRequestConfigRules[];
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: UpdateAggregateCompliancePackRequestExcludeTagsScope[];
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   riskLevel?: number;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: UpdateAggregateCompliancePackRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
       aggregatorId: 'AggregatorId',
@@ -9802,12 +9933,17 @@ export class UpdateAggregateCompliancePackRequest extends $tea.Model {
       compliancePackName: 'CompliancePackName',
       configRules: 'ConfigRules',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       riskLevel: 'RiskLevel',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
@@ -9819,12 +9955,17 @@ export class UpdateAggregateCompliancePackRequest extends $tea.Model {
       compliancePackName: 'string',
       configRules: { 'type': 'array', 'itemType': UpdateAggregateCompliancePackRequestConfigRules },
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': UpdateAggregateCompliancePackRequestExcludeTagsScope },
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       riskLevel: 'number',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': UpdateAggregateCompliancePackRequestTagsScope },
     };
   }
 
@@ -9840,12 +9981,17 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $tea.Model {
   compliancePackName?: string;
   configRulesShrink?: string;
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope[];
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   riskLevel?: number;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: UpdateAggregateCompliancePackShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
       aggregatorId: 'AggregatorId',
@@ -9854,12 +10000,17 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $tea.Model {
       compliancePackName: 'CompliancePackName',
       configRulesShrink: 'ConfigRules',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       riskLevel: 'RiskLevel',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
@@ -9871,12 +10022,17 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $tea.Model {
       compliancePackName: 'string',
       configRulesShrink: 'string',
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope },
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       riskLevel: 'number',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': UpdateAggregateCompliancePackShrinkRequestTagsScope },
     };
   }
 
@@ -10035,6 +10191,7 @@ export class UpdateAggregateConfigDeliveryChannelResponse extends $tea.Model {
 }
 
 export class UpdateAggregateConfigRuleRequest extends $tea.Model {
+  accountIdsScope?: string;
   aggregatorId?: string;
   clientToken?: string;
   configRuleId?: string;
@@ -10043,19 +10200,25 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
   description?: string;
   excludeAccountIdsScope?: string;
   excludeFolderIdsScope?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: UpdateAggregateConfigRuleRequestExcludeTagsScope[];
   folderIdsScope?: string;
   inputParameters?: { [key: string]: any };
   maximumExecutionFrequency?: string;
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   resourceTypesScope?: string[];
   riskLevel?: number;
   tagKeyLogicScope?: string;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: UpdateAggregateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
+      accountIdsScope: 'AccountIdsScope',
       aggregatorId: 'AggregatorId',
       clientToken: 'ClientToken',
       configRuleId: 'ConfigRuleId',
@@ -10064,22 +10227,28 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
       description: 'Description',
       excludeAccountIdsScope: 'ExcludeAccountIdsScope',
       excludeFolderIdsScope: 'ExcludeFolderIdsScope',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       folderIdsScope: 'FolderIdsScope',
       inputParameters: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       tagKeyLogicScope: 'TagKeyLogicScope',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accountIdsScope: 'string',
       aggregatorId: 'string',
       clientToken: 'string',
       configRuleId: 'string',
@@ -10088,17 +10257,22 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
       description: 'string',
       excludeAccountIdsScope: 'string',
       excludeFolderIdsScope: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': UpdateAggregateConfigRuleRequestExcludeTagsScope },
       folderIdsScope: 'string',
       inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       resourceTypesScope: { 'type': 'array', 'itemType': 'string' },
       riskLevel: 'number',
       tagKeyLogicScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': UpdateAggregateConfigRuleRequestTagsScope },
     };
   }
 
@@ -10108,6 +10282,7 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
 }
 
 export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
+  accountIdsScope?: string;
   aggregatorId?: string;
   clientToken?: string;
   configRuleId?: string;
@@ -10116,19 +10291,25 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
   description?: string;
   excludeAccountIdsScope?: string;
   excludeFolderIdsScope?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope[];
   folderIdsScope?: string;
   inputParametersShrink?: string;
   maximumExecutionFrequency?: string;
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   resourceTypesScopeShrink?: string;
   riskLevel?: number;
   tagKeyLogicScope?: string;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: UpdateAggregateConfigRuleShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
+      accountIdsScope: 'AccountIdsScope',
       aggregatorId: 'AggregatorId',
       clientToken: 'ClientToken',
       configRuleId: 'ConfigRuleId',
@@ -10137,22 +10318,28 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
       description: 'Description',
       excludeAccountIdsScope: 'ExcludeAccountIdsScope',
       excludeFolderIdsScope: 'ExcludeFolderIdsScope',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       folderIdsScope: 'FolderIdsScope',
       inputParametersShrink: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       resourceTypesScopeShrink: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       tagKeyLogicScope: 'TagKeyLogicScope',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accountIdsScope: 'string',
       aggregatorId: 'string',
       clientToken: 'string',
       configRuleId: 'string',
@@ -10161,17 +10348,22 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
       description: 'string',
       excludeAccountIdsScope: 'string',
       excludeFolderIdsScope: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope },
       folderIdsScope: 'string',
       inputParametersShrink: 'string',
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       resourceTypesScopeShrink: 'string',
       riskLevel: 'number',
       tagKeyLogicScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': UpdateAggregateConfigRuleShrinkRequestTagsScope },
     };
   }
 
@@ -10426,12 +10618,17 @@ export class UpdateCompliancePackRequest extends $tea.Model {
   compliancePackName?: string;
   configRules?: UpdateCompliancePackRequestConfigRules[];
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: UpdateCompliancePackRequestExcludeTagsScope[];
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   riskLevel?: number;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: UpdateCompliancePackRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -10439,12 +10636,17 @@ export class UpdateCompliancePackRequest extends $tea.Model {
       compliancePackName: 'CompliancePackName',
       configRules: 'ConfigRules',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       riskLevel: 'RiskLevel',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
@@ -10455,12 +10657,17 @@ export class UpdateCompliancePackRequest extends $tea.Model {
       compliancePackName: 'string',
       configRules: { 'type': 'array', 'itemType': UpdateCompliancePackRequestConfigRules },
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': UpdateCompliancePackRequestExcludeTagsScope },
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       riskLevel: 'number',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': UpdateCompliancePackRequestTagsScope },
     };
   }
 
@@ -10475,12 +10682,17 @@ export class UpdateCompliancePackShrinkRequest extends $tea.Model {
   compliancePackName?: string;
   configRulesShrink?: string;
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: UpdateCompliancePackShrinkRequestExcludeTagsScope[];
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   riskLevel?: number;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: UpdateCompliancePackShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -10488,12 +10700,17 @@ export class UpdateCompliancePackShrinkRequest extends $tea.Model {
       compliancePackName: 'CompliancePackName',
       configRulesShrink: 'ConfigRules',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       riskLevel: 'RiskLevel',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
@@ -10504,12 +10721,17 @@ export class UpdateCompliancePackShrinkRequest extends $tea.Model {
       compliancePackName: 'string',
       configRulesShrink: 'string',
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': UpdateCompliancePackShrinkRequestExcludeTagsScope },
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       riskLevel: 'number',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': UpdateCompliancePackShrinkRequestTagsScope },
     };
   }
 
@@ -10670,16 +10892,21 @@ export class UpdateConfigRuleRequest extends $tea.Model {
   configRuleName?: string;
   configRuleTriggerTypes?: string;
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: UpdateConfigRuleRequestExcludeTagsScope[];
   inputParameters?: { [key: string]: any };
   maximumExecutionFrequency?: string;
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   resourceTypesScope?: string[];
   riskLevel?: number;
   tagKeyLogicScope?: string;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: UpdateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -10687,16 +10914,21 @@ export class UpdateConfigRuleRequest extends $tea.Model {
       configRuleName: 'ConfigRuleName',
       configRuleTriggerTypes: 'ConfigRuleTriggerTypes',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       inputParameters: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       tagKeyLogicScope: 'TagKeyLogicScope',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
@@ -10707,16 +10939,21 @@ export class UpdateConfigRuleRequest extends $tea.Model {
       configRuleName: 'string',
       configRuleTriggerTypes: 'string',
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': UpdateConfigRuleRequestExcludeTagsScope },
       inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       resourceTypesScope: { 'type': 'array', 'itemType': 'string' },
       riskLevel: 'number',
       tagKeyLogicScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': UpdateConfigRuleRequestTagsScope },
     };
   }
 
@@ -10731,16 +10968,21 @@ export class UpdateConfigRuleShrinkRequest extends $tea.Model {
   configRuleName?: string;
   configRuleTriggerTypes?: string;
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: UpdateConfigRuleShrinkRequestExcludeTagsScope[];
   inputParametersShrink?: string;
   maximumExecutionFrequency?: string;
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   resourceTypesScopeShrink?: string;
   riskLevel?: number;
   tagKeyLogicScope?: string;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: UpdateConfigRuleShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -10748,16 +10990,21 @@ export class UpdateConfigRuleShrinkRequest extends $tea.Model {
       configRuleName: 'ConfigRuleName',
       configRuleTriggerTypes: 'ConfigRuleTriggerTypes',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       inputParametersShrink: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       resourceTypesScopeShrink: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       tagKeyLogicScope: 'TagKeyLogicScope',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
@@ -10768,16 +11015,21 @@ export class UpdateConfigRuleShrinkRequest extends $tea.Model {
       configRuleName: 'string',
       configRuleTriggerTypes: 'string',
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': UpdateConfigRuleShrinkRequestExcludeTagsScope },
       inputParametersShrink: 'string',
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       resourceTypesScopeShrink: 'string',
       riskLevel: 'number',
       tagKeyLogicScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': UpdateConfigRuleShrinkRequestTagsScope },
     };
   }
 
@@ -11383,6 +11635,182 @@ export class CreateAggregateCompliancePackRequestConfigRules extends $tea.Model 
   }
 }
 
+export class CreateAggregateCompliancePackRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAggregateCompliancePackRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAggregateCompliancePackShrinkRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAggregateCompliancePackShrinkRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAggregateConfigRuleRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAggregateConfigRuleRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAggregateConfigRuleShrinkRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAggregateConfigRuleShrinkRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAggregatorRequestAggregatorAccounts extends $tea.Model {
   accountId?: number;
   accountName?: string;
@@ -11456,6 +11884,182 @@ export class CreateCompliancePackRequestConfigRules extends $tea.Model {
       description: 'string',
       managedRuleIdentifier: 'string',
       riskLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCompliancePackRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCompliancePackRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCompliancePackShrinkRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCompliancePackShrinkRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigRuleRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigRuleRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigRuleShrinkRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigRuleShrinkRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -12227,29 +12831,88 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules ext
   }
 }
 
-export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $tea.Model {
-  excludeResourceIdsScope?: string;
-  regionIdsScope?: string;
-  resourceGroupIdsScope?: string;
-  tagKeyScope?: string;
-  tagValueScope?: string;
+export class GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      excludeResourceIdsScope: 'ExcludeResourceIdsScope',
-      regionIdsScope: 'RegionIdsScope',
-      resourceGroupIdsScope: 'ResourceGroupIdsScope',
-      tagKeyScope: 'TagKeyScope',
-      tagValueScope: 'TagValueScope',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $tea.Model {
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
+  excludeResourceIdsScope?: string;
+  excludeTagsScope?: GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope[];
+  regionIdsScope?: string;
+  resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
+  tagKeyScope?: string;
+  tagValueScope?: string;
+  tagsScope?: GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
+      excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
+      regionIdsScope: 'RegionIdsScope',
+      resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
+      tagKeyScope: 'TagKeyScope',
+      tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope },
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope },
     };
   }
 
@@ -12579,6 +13242,28 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleCreateBy extends $tea.M
   }
 }
 
+export class GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails extends $tea.Model {
   eventSource?: string;
   maximumExecutionFrequency?: string;
@@ -12691,8 +13376,31 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleSource extends $tea.Mod
   }
 }
 
+export class GetAggregateConfigRuleResponseBodyConfigRuleTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
   accountId?: number;
+  accountIdsScope?: string;
   compliance?: GetAggregateConfigRuleResponseBodyConfigRuleCompliance;
   configRuleArn?: string;
   configRuleEvaluationStatus?: GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus;
@@ -12705,7 +13413,10 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
   description?: string;
   excludeAccountIdsScope?: string;
   excludeFolderIdsScope?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope[];
   folderIdsScope?: string;
   inputParameters?: { [key: string]: any };
   managedRule?: GetAggregateConfigRuleResponseBodyConfigRuleManagedRule;
@@ -12713,15 +13424,18 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
   modifiedTimestamp?: number;
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   resourceTypesScope?: string;
   riskLevel?: number;
   source?: GetAggregateConfigRuleResponseBodyConfigRuleSource;
   tagKeyLogicScope?: string;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: GetAggregateConfigRuleResponseBodyConfigRuleTagsScope[];
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      accountIdsScope: 'AccountIdsScope',
       compliance: 'Compliance',
       configRuleArn: 'ConfigRuleArn',
       configRuleEvaluationStatus: 'ConfigRuleEvaluationStatus',
@@ -12734,7 +13448,10 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
       description: 'Description',
       excludeAccountIdsScope: 'ExcludeAccountIdsScope',
       excludeFolderIdsScope: 'ExcludeFolderIdsScope',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       folderIdsScope: 'FolderIdsScope',
       inputParameters: 'InputParameters',
       managedRule: 'ManagedRule',
@@ -12742,18 +13459,21 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
       modifiedTimestamp: 'ModifiedTimestamp',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       source: 'Source',
       tagKeyLogicScope: 'TagKeyLogicScope',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accountId: 'number',
+      accountIdsScope: 'string',
       compliance: GetAggregateConfigRuleResponseBodyConfigRuleCompliance,
       configRuleArn: 'string',
       configRuleEvaluationStatus: GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus,
@@ -12766,7 +13486,10 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
       description: 'string',
       excludeAccountIdsScope: 'string',
       excludeFolderIdsScope: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope },
       folderIdsScope: 'string',
       inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       managedRule: GetAggregateConfigRuleResponseBodyConfigRuleManagedRule,
@@ -12774,12 +13497,14 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
       modifiedTimestamp: 'number',
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       resourceTypesScope: 'string',
       riskLevel: 'number',
       source: GetAggregateConfigRuleResponseBodyConfigRuleSource,
       tagKeyLogicScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': GetAggregateConfigRuleResponseBodyConfigRuleTagsScope },
     };
   }
 
@@ -13509,29 +14234,88 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $tea
   }
 }
 
-export class GetCompliancePackResponseBodyCompliancePackScope extends $tea.Model {
-  excludeResourceIdsScope?: string;
-  regionIdsScope?: string;
-  resourceGroupIdsScope?: string;
-  tagKeyScope?: string;
-  tagValueScope?: string;
+export class GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      excludeResourceIdsScope: 'ExcludeResourceIdsScope',
-      regionIdsScope: 'RegionIdsScope',
-      resourceGroupIdsScope: 'ResourceGroupIdsScope',
-      tagKeyScope: 'TagKeyScope',
-      tagValueScope: 'TagValueScope',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCompliancePackResponseBodyCompliancePackScopeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCompliancePackResponseBodyCompliancePackScope extends $tea.Model {
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
+  excludeResourceIdsScope?: string;
+  excludeTagsScope?: GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope[];
+  regionIdsScope?: string;
+  resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
+  tagKeyScope?: string;
+  tagValueScope?: string;
+  tagsScope?: GetCompliancePackResponseBodyCompliancePackScopeTagsScope[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
+      excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
+      regionIdsScope: 'RegionIdsScope',
+      resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
+      tagKeyScope: 'TagKeyScope',
+      tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope },
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': GetCompliancePackResponseBodyCompliancePackScopeTagsScope },
     };
   }
 
@@ -13846,6 +14630,28 @@ export class GetConfigRuleResponseBodyConfigRuleCreateBy extends $tea.Model {
   }
 }
 
+export class GetConfigRuleResponseBodyConfigRuleExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails extends $tea.Model {
   eventSource?: string;
   maximumExecutionFrequency?: string;
@@ -13977,6 +14783,28 @@ export class GetConfigRuleResponseBodyConfigRuleSource extends $tea.Model {
   }
 }
 
+export class GetConfigRuleResponseBodyConfigRuleTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
   accountId?: number;
   compliance?: GetConfigRuleResponseBodyConfigRuleCompliance;
@@ -13989,13 +14817,17 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
   createBy?: GetConfigRuleResponseBodyConfigRuleCreateBy;
   createTimestamp?: number;
   description?: string;
+  excludeRegionIdsScope?: string;
+  excludeResourceGroupIdsScope?: string;
   excludeResourceIdsScope?: string;
+  excludeTagsScope?: GetConfigRuleResponseBodyConfigRuleExcludeTagsScope[];
   inputParameters?: { [key: string]: any };
   managedRule?: GetConfigRuleResponseBodyConfigRuleManagedRule;
   maximumExecutionFrequency?: string;
   modifiedTimestamp?: number;
   regionIdsScope?: string;
   resourceGroupIdsScope?: string;
+  resourceIdsScope?: string;
   resourceTypesScope?: string;
   riskLevel?: number;
   scope?: GetConfigRuleResponseBodyConfigRuleScope;
@@ -14003,6 +14835,7 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
   tagKeyLogicScope?: string;
   tagKeyScope?: string;
   tagValueScope?: string;
+  tagsScope?: GetConfigRuleResponseBodyConfigRuleTagsScope[];
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -14016,13 +14849,17 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
       createBy: 'CreateBy',
       createTimestamp: 'CreateTimestamp',
       description: 'Description',
+      excludeRegionIdsScope: 'ExcludeRegionIdsScope',
+      excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
+      excludeTagsScope: 'ExcludeTagsScope',
       inputParameters: 'InputParameters',
       managedRule: 'ManagedRule',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       modifiedTimestamp: 'ModifiedTimestamp',
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
+      resourceIdsScope: 'ResourceIdsScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       scope: 'Scope',
@@ -14030,6 +14867,7 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
       tagKeyLogicScope: 'TagKeyLogicScope',
       tagKeyScope: 'TagKeyScope',
       tagValueScope: 'TagValueScope',
+      tagsScope: 'TagsScope',
     };
   }
 
@@ -14046,13 +14884,17 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
       createBy: GetConfigRuleResponseBodyConfigRuleCreateBy,
       createTimestamp: 'number',
       description: 'string',
+      excludeRegionIdsScope: 'string',
+      excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
+      excludeTagsScope: { 'type': 'array', 'itemType': GetConfigRuleResponseBodyConfigRuleExcludeTagsScope },
       inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       managedRule: GetConfigRuleResponseBodyConfigRuleManagedRule,
       maximumExecutionFrequency: 'string',
       modifiedTimestamp: 'number',
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
+      resourceIdsScope: 'string',
       resourceTypesScope: 'string',
       riskLevel: 'number',
       scope: GetConfigRuleResponseBodyConfigRuleScope,
@@ -14060,6 +14902,7 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
       tagKeyLogicScope: 'string',
       tagKeyScope: 'string',
       tagValueScope: 'string',
+      tagsScope: { 'type': 'array', 'itemType': GetConfigRuleResponseBodyConfigRuleTagsScope },
     };
   }
 
@@ -17286,6 +18129,182 @@ export class UpdateAggregateCompliancePackRequestConfigRules extends $tea.Model 
   }
 }
 
+export class UpdateAggregateCompliancePackRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAggregateCompliancePackRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAggregateCompliancePackShrinkRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAggregateConfigRuleRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAggregateConfigRuleRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAggregateConfigRuleShrinkRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAggregatorRequestAggregatorAccounts extends $tea.Model {
   accountId?: number;
   accountName?: string;
@@ -17359,6 +18378,182 @@ export class UpdateCompliancePackRequestConfigRules extends $tea.Model {
       description: 'string',
       managedRuleIdentifier: 'string',
       riskLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCompliancePackRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCompliancePackRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCompliancePackShrinkRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCompliancePackShrinkRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigRuleRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigRuleRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigRuleShrinkRequestExcludeTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigRuleShrinkRequestTagsScope extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -17851,8 +19046,21 @@ export default class Client extends OpenApi {
       body["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.excludeRegionIdsScope)) {
+      body["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope;
+    }
+
+    if (!Util.isUnset(request.excludeResourceGroupIdsScope)) {
+      body["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope;
+    }
+
     if (!Util.isUnset(request.excludeResourceIdsScope)) {
       body["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.excludeTagsScope)) {
+      bodyFlat["ExcludeTagsScope"] = request.excludeTagsScope;
     }
 
     if (!Util.isUnset(request.regionIdsScope)) {
@@ -17861,6 +19069,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupIdsScope)) {
       body["ResourceGroupIdsScope"] = request.resourceGroupIdsScope;
+    }
+
+    if (!Util.isUnset(request.resourceIdsScope)) {
+      body["ResourceIdsScope"] = request.resourceIdsScope;
     }
 
     if (!Util.isUnset(request.riskLevel)) {
@@ -17875,10 +19087,18 @@ export default class Client extends OpenApi {
       body["TagValueScope"] = request.tagValueScope;
     }
 
+    if (!Util.isUnset(request.tagsScope)) {
+      bodyFlat["TagsScope"] = request.tagsScope;
+    }
+
     if (!Util.isUnset(request.templateContent)) {
       body["TemplateContent"] = request.templateContent;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -18025,6 +19245,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accountIdsScope)) {
+      body["AccountIdsScope"] = request.accountIdsScope;
+    }
+
     if (!Util.isUnset(request.aggregatorId)) {
       body["AggregatorId"] = request.aggregatorId;
     }
@@ -18053,8 +19277,21 @@ export default class Client extends OpenApi {
       body["ExcludeFolderIdsScope"] = request.excludeFolderIdsScope;
     }
 
+    if (!Util.isUnset(request.excludeRegionIdsScope)) {
+      body["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope;
+    }
+
+    if (!Util.isUnset(request.excludeResourceGroupIdsScope)) {
+      body["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope;
+    }
+
     if (!Util.isUnset(request.excludeResourceIdsScope)) {
       body["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.excludeTagsScope)) {
+      bodyFlat["ExcludeTagsScope"] = request.excludeTagsScope;
     }
 
     if (!Util.isUnset(request.folderIdsScope)) {
@@ -18075,6 +19312,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupIdsScope)) {
       body["ResourceGroupIdsScope"] = request.resourceGroupIdsScope;
+    }
+
+    if (!Util.isUnset(request.resourceIdsScope)) {
+      body["ResourceIdsScope"] = request.resourceIdsScope;
     }
 
     if (!Util.isUnset(request.resourceTypesScopeShrink)) {
@@ -18105,6 +19346,14 @@ export default class Client extends OpenApi {
       body["TagValueScope"] = request.tagValueScope;
     }
 
+    if (!Util.isUnset(request.tagsScope)) {
+      bodyFlat["TagsScope"] = request.tagsScope;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -18339,8 +19588,21 @@ export default class Client extends OpenApi {
       body["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.excludeRegionIdsScope)) {
+      body["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope;
+    }
+
+    if (!Util.isUnset(request.excludeResourceGroupIdsScope)) {
+      body["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope;
+    }
+
     if (!Util.isUnset(request.excludeResourceIdsScope)) {
       body["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.excludeTagsScope)) {
+      bodyFlat["ExcludeTagsScope"] = request.excludeTagsScope;
     }
 
     if (!Util.isUnset(request.regionIdsScope)) {
@@ -18349,6 +19611,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupIdsScope)) {
       body["ResourceGroupIdsScope"] = request.resourceGroupIdsScope;
+    }
+
+    if (!Util.isUnset(request.resourceIdsScope)) {
+      body["ResourceIdsScope"] = request.resourceIdsScope;
     }
 
     if (!Util.isUnset(request.riskLevel)) {
@@ -18363,10 +19629,18 @@ export default class Client extends OpenApi {
       body["TagValueScope"] = request.tagValueScope;
     }
 
+    if (!Util.isUnset(request.tagsScope)) {
+      bodyFlat["TagsScope"] = request.tagsScope;
+    }
+
     if (!Util.isUnset(request.templateContent)) {
       body["TemplateContent"] = request.templateContent;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -18523,8 +19797,21 @@ export default class Client extends OpenApi {
       body["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.excludeRegionIdsScope)) {
+      body["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope;
+    }
+
+    if (!Util.isUnset(request.excludeResourceGroupIdsScope)) {
+      body["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope;
+    }
+
     if (!Util.isUnset(request.excludeResourceIdsScope)) {
       body["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.excludeTagsScope)) {
+      bodyFlat["ExcludeTagsScope"] = request.excludeTagsScope;
     }
 
     if (!Util.isUnset(request.inputParametersShrink)) {
@@ -18541,6 +19828,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupIdsScope)) {
       body["ResourceGroupIdsScope"] = request.resourceGroupIdsScope;
+    }
+
+    if (!Util.isUnset(request.resourceIdsScope)) {
+      body["ResourceIdsScope"] = request.resourceIdsScope;
     }
 
     if (!Util.isUnset(request.resourceTypesScopeShrink)) {
@@ -18571,6 +19862,14 @@ export default class Client extends OpenApi {
       body["TagValueScope"] = request.tagValueScope;
     }
 
+    if (!Util.isUnset(request.tagsScope)) {
+      bodyFlat["TagsScope"] = request.tagsScope;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -20156,6 +21455,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 获取账号组规则详情
+   *
    * @description This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
    *
    * @param request GetAggregateConfigRuleRequest
@@ -20191,6 +21492,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 获取账号组规则详情
+   *
    * @description This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
    *
    * @param request GetAggregateConfigRuleRequest
@@ -24439,8 +25742,21 @@ export default class Client extends OpenApi {
       body["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.excludeRegionIdsScope)) {
+      body["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope;
+    }
+
+    if (!Util.isUnset(request.excludeResourceGroupIdsScope)) {
+      body["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope;
+    }
+
     if (!Util.isUnset(request.excludeResourceIdsScope)) {
       body["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.excludeTagsScope)) {
+      bodyFlat["ExcludeTagsScope"] = request.excludeTagsScope;
     }
 
     if (!Util.isUnset(request.regionIdsScope)) {
@@ -24449,6 +25765,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupIdsScope)) {
       body["ResourceGroupIdsScope"] = request.resourceGroupIdsScope;
+    }
+
+    if (!Util.isUnset(request.resourceIdsScope)) {
+      body["ResourceIdsScope"] = request.resourceIdsScope;
     }
 
     if (!Util.isUnset(request.riskLevel)) {
@@ -24463,6 +25783,14 @@ export default class Client extends OpenApi {
       body["TagValueScope"] = request.tagValueScope;
     }
 
+    if (!Util.isUnset(request.tagsScope)) {
+      bodyFlat["TagsScope"] = request.tagsScope;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -24609,6 +25937,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accountIdsScope)) {
+      body["AccountIdsScope"] = request.accountIdsScope;
+    }
+
     if (!Util.isUnset(request.aggregatorId)) {
       body["AggregatorId"] = request.aggregatorId;
     }
@@ -24641,8 +25973,21 @@ export default class Client extends OpenApi {
       body["ExcludeFolderIdsScope"] = request.excludeFolderIdsScope;
     }
 
+    if (!Util.isUnset(request.excludeRegionIdsScope)) {
+      body["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope;
+    }
+
+    if (!Util.isUnset(request.excludeResourceGroupIdsScope)) {
+      body["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope;
+    }
+
     if (!Util.isUnset(request.excludeResourceIdsScope)) {
       body["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.excludeTagsScope)) {
+      bodyFlat["ExcludeTagsScope"] = request.excludeTagsScope;
     }
 
     if (!Util.isUnset(request.folderIdsScope)) {
@@ -24665,6 +26010,10 @@ export default class Client extends OpenApi {
       body["ResourceGroupIdsScope"] = request.resourceGroupIdsScope;
     }
 
+    if (!Util.isUnset(request.resourceIdsScope)) {
+      body["ResourceIdsScope"] = request.resourceIdsScope;
+    }
+
     if (!Util.isUnset(request.resourceTypesScopeShrink)) {
       body["ResourceTypesScope"] = request.resourceTypesScopeShrink;
     }
@@ -24685,6 +26034,14 @@ export default class Client extends OpenApi {
       body["TagValueScope"] = request.tagValueScope;
     }
 
+    if (!Util.isUnset(request.tagsScope)) {
+      bodyFlat["TagsScope"] = request.tagsScope;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -24891,8 +26248,21 @@ export default class Client extends OpenApi {
       body["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.excludeRegionIdsScope)) {
+      body["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope;
+    }
+
+    if (!Util.isUnset(request.excludeResourceGroupIdsScope)) {
+      body["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope;
+    }
+
     if (!Util.isUnset(request.excludeResourceIdsScope)) {
       body["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.excludeTagsScope)) {
+      bodyFlat["ExcludeTagsScope"] = request.excludeTagsScope;
     }
 
     if (!Util.isUnset(request.regionIdsScope)) {
@@ -24901,6 +26271,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupIdsScope)) {
       body["ResourceGroupIdsScope"] = request.resourceGroupIdsScope;
+    }
+
+    if (!Util.isUnset(request.resourceIdsScope)) {
+      body["ResourceIdsScope"] = request.resourceIdsScope;
     }
 
     if (!Util.isUnset(request.riskLevel)) {
@@ -24915,6 +26289,14 @@ export default class Client extends OpenApi {
       body["TagValueScope"] = request.tagValueScope;
     }
 
+    if (!Util.isUnset(request.tagsScope)) {
+      bodyFlat["TagsScope"] = request.tagsScope;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -25077,8 +26459,21 @@ export default class Client extends OpenApi {
       body["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.excludeRegionIdsScope)) {
+      body["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope;
+    }
+
+    if (!Util.isUnset(request.excludeResourceGroupIdsScope)) {
+      body["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope;
+    }
+
     if (!Util.isUnset(request.excludeResourceIdsScope)) {
       body["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.excludeTagsScope)) {
+      bodyFlat["ExcludeTagsScope"] = request.excludeTagsScope;
     }
 
     if (!Util.isUnset(request.inputParametersShrink)) {
@@ -25095,6 +26490,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupIdsScope)) {
       body["ResourceGroupIdsScope"] = request.resourceGroupIdsScope;
+    }
+
+    if (!Util.isUnset(request.resourceIdsScope)) {
+      body["ResourceIdsScope"] = request.resourceIdsScope;
     }
 
     if (!Util.isUnset(request.resourceTypesScopeShrink)) {
@@ -25117,6 +26516,14 @@ export default class Client extends OpenApi {
       body["TagValueScope"] = request.tagValueScope;
     }
 
+    if (!Util.isUnset(request.tagsScope)) {
+      bodyFlat["TagsScope"] = request.tagsScope;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
