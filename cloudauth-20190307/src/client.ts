@@ -851,6 +851,87 @@ export class CredentialVerifyResponse extends $tea.Model {
   }
 }
 
+export class DeepfakeDetectRequest extends $tea.Model {
+  faceBase64?: string;
+  faceInputType?: string;
+  faceUrl?: string;
+  outerOrderNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      faceBase64: 'FaceBase64',
+      faceInputType: 'FaceInputType',
+      faceUrl: 'FaceUrl',
+      outerOrderNo: 'OuterOrderNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceBase64: 'string',
+      faceInputType: 'string',
+      faceUrl: 'string',
+      outerOrderNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeDetectResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: DeepfakeDetectResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: DeepfakeDetectResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeDetectResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeepfakeDetectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeepfakeDetectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDeviceInfoRequest extends $tea.Model {
   bizType?: string;
   currentPage?: number;
@@ -2701,6 +2782,31 @@ export class CredentialVerifyResponseBodyResultObject extends $tea.Model {
   }
 }
 
+export class DeepfakeDetectResponseBodyResultObject extends $tea.Model {
+  result?: string;
+  riskScore?: { [key: string]: string };
+  riskTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      riskScore: 'RiskScore',
+      riskTag: 'RiskTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'string',
+      riskScore: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      riskTag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDeviceInfoResponseBodyDeviceInfoListDeviceInfo extends $tea.Model {
   beginDay?: string;
   bizType?: string;
@@ -4175,6 +4281,62 @@ export default class Client extends OpenApi {
   async credentialVerify(request: CredentialVerifyRequest): Promise<CredentialVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.credentialVerifyWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 人脸凭证核验服务
+   *
+   * @param request DeepfakeDetectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeepfakeDetectResponse
+   */
+  async deepfakeDetectWithOptions(request: DeepfakeDetectRequest, runtime: $Util.RuntimeOptions): Promise<DeepfakeDetectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.faceInputType)) {
+      query["FaceInputType"] = request.faceInputType;
+    }
+
+    if (!Util.isUnset(request.faceUrl)) {
+      query["FaceUrl"] = request.faceUrl;
+    }
+
+    if (!Util.isUnset(request.outerOrderNo)) {
+      query["OuterOrderNo"] = request.outerOrderNo;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.faceBase64)) {
+      body["FaceBase64"] = request.faceBase64;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeepfakeDetect",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeepfakeDetectResponse>(await this.callApi(params, req, runtime), new DeepfakeDetectResponse({}));
+  }
+
+  /**
+   * @summary 人脸凭证核验服务
+   *
+   * @param request DeepfakeDetectRequest
+   * @return DeepfakeDetectResponse
+   */
+  async deepfakeDetect(request: DeepfakeDetectRequest): Promise<DeepfakeDetectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deepfakeDetectWithOptions(request, runtime);
   }
 
   /**
