@@ -65,9 +65,9 @@ export class AlignStoragePrimaryAzoneResponseBody extends $tea.Model {
 }
 
 export class AlignStoragePrimaryAzoneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AlignStoragePrimaryAzoneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AlignStoragePrimaryAzoneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -131,9 +131,9 @@ export class AllocateColdDataVolumeResponseBody extends $tea.Model {
 }
 
 export class AllocateColdDataVolumeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AllocateColdDataVolumeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AllocateColdDataVolumeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -215,9 +215,9 @@ export class AllocateInstancePublicConnectionResponseBody extends $tea.Model {
 }
 
 export class AllocateInstancePublicConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AllocateInstancePublicConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AllocateInstancePublicConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -284,9 +284,9 @@ export class CancelActiveOperationTasksResponseBody extends $tea.Model {
 }
 
 export class CancelActiveOperationTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelActiveOperationTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelActiveOperationTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -356,9 +356,9 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -428,9 +428,9 @@ export class CheckCloudResourceAuthorizedResponseBody extends $tea.Model {
 }
 
 export class CheckCloudResourceAuthorizedResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckCloudResourceAuthorizedResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckCloudResourceAuthorizedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -521,9 +521,9 @@ export class CreateAccountResponseBody extends $tea.Model {
 }
 
 export class CreateAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -571,7 +571,7 @@ export class CreateBackupRequest extends $tea.Model {
 }
 
 export class CreateBackupResponseBody extends $tea.Model {
-  data?: CreateBackupResponseBodyData[];
+  data?: CreateBackupResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -586,7 +586,7 @@ export class CreateBackupResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': CreateBackupResponseBodyData },
+      data: CreateBackupResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -599,9 +599,9 @@ export class CreateBackupResponseBody extends $tea.Model {
 }
 
 export class CreateBackupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBackupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBackupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -634,6 +634,7 @@ export class CreateDBRequest extends $tea.Model {
   regionId?: string;
   securityAccountName?: string;
   securityAccountPassword?: string;
+  storagePoolName?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
@@ -646,6 +647,7 @@ export class CreateDBRequest extends $tea.Model {
       regionId: 'RegionId',
       securityAccountName: 'SecurityAccountName',
       securityAccountPassword: 'SecurityAccountPassword',
+      storagePoolName: 'StoragePoolName',
     };
   }
 
@@ -661,6 +663,7 @@ export class CreateDBRequest extends $tea.Model {
       regionId: 'string',
       securityAccountName: 'string',
       securityAccountPassword: 'string',
+      storagePoolName: 'string',
     };
   }
 
@@ -695,9 +698,9 @@ export class CreateDBResponseBody extends $tea.Model {
 }
 
 export class CreateDBResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDBResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDBResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -728,7 +731,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
   DBNodeCount?: number;
   DNNodeCount?: string;
   dnClass?: string;
+  dnStorageSpace?: string;
   engineVersion?: string;
+  isColumnarReadDBInstance?: boolean;
   isReadDBInstance?: boolean;
   networkType?: string;
   payType?: string;
@@ -738,6 +743,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   secondaryZone?: string;
+  series?: string;
   tertiaryZone?: string;
   topologyType?: string;
   usedTime?: number;
@@ -754,7 +760,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
       DBNodeCount: 'DBNodeCount',
       DNNodeCount: 'DNNodeCount',
       dnClass: 'DnClass',
+      dnStorageSpace: 'DnStorageSpace',
       engineVersion: 'EngineVersion',
+      isColumnarReadDBInstance: 'IsColumnarReadDBInstance',
       isReadDBInstance: 'IsReadDBInstance',
       networkType: 'NetworkType',
       payType: 'PayType',
@@ -764,6 +772,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       secondaryZone: 'SecondaryZone',
+      series: 'Series',
       tertiaryZone: 'TertiaryZone',
       topologyType: 'TopologyType',
       usedTime: 'UsedTime',
@@ -783,7 +792,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
       DBNodeCount: 'number',
       DNNodeCount: 'string',
       dnClass: 'string',
+      dnStorageSpace: 'string',
       engineVersion: 'string',
+      isColumnarReadDBInstance: 'boolean',
       isReadDBInstance: 'boolean',
       networkType: 'string',
       payType: 'string',
@@ -793,6 +804,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       secondaryZone: 'string',
+      series: 'string',
       tertiaryZone: 'string',
       topologyType: 'string',
       usedTime: 'number',
@@ -833,9 +845,9 @@ export class CreateDBInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateDBInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDBInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDBInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -914,9 +926,9 @@ export class CreateSuperAccountResponseBody extends $tea.Model {
 }
 
 export class CreateSuperAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSuperAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSuperAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -995,9 +1007,9 @@ export class DeleteAccountResponseBody extends $tea.Model {
 }
 
 export class DeleteAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1070,9 +1082,9 @@ export class DeleteDBResponseBody extends $tea.Model {
 }
 
 export class DeleteDBResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDBResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDBResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1136,9 +1148,9 @@ export class DeleteDBInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteDBInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDBInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDBInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1217,9 +1229,9 @@ export class DescribeAccountListResponseBody extends $tea.Model {
 }
 
 export class DescribeAccountListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAccountListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAccountListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1286,9 +1298,9 @@ export class DescribeActiveOperationMaintainConfResponseBody extends $tea.Model 
 }
 
 export class DescribeActiveOperationMaintainConfResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeActiveOperationMaintainConfResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActiveOperationMaintainConfResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1361,9 +1373,9 @@ export class DescribeActiveOperationTaskCountResponseBody extends $tea.Model {
 }
 
 export class DescribeActiveOperationTaskCountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeActiveOperationTaskCountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActiveOperationTaskCountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1469,9 +1481,9 @@ export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
 }
 
 export class DescribeActiveOperationTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeActiveOperationTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActiveOperationTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1553,9 +1565,9 @@ export class DescribeArchiveTableListResponseBody extends $tea.Model {
 }
 
 export class DescribeArchiveTableListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeArchiveTableListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeArchiveTableListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1600,7 +1612,7 @@ export class DescribeBackupPolicyRequest extends $tea.Model {
 }
 
 export class DescribeBackupPolicyResponseBody extends $tea.Model {
-  data?: DescribeBackupPolicyResponseBodyData[];
+  data?: DescribeBackupPolicyResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -1615,7 +1627,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': DescribeBackupPolicyResponseBodyData },
+      data: DescribeBackupPolicyResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -1628,9 +1640,9 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
 }
 
 export class DescribeBackupPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeBackupPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1709,9 +1721,9 @@ export class DescribeBackupSetResponseBody extends $tea.Model {
 }
 
 export class DescribeBackupSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeBackupSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1799,9 +1811,9 @@ export class DescribeBackupSetListResponseBody extends $tea.Model {
 }
 
 export class DescribeBackupSetListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeBackupSetListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupSetListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1892,9 +1904,9 @@ export class DescribeBinaryLogListResponseBody extends $tea.Model {
 }
 
 export class DescribeBinaryLogListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeBinaryLogListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBinaryLogListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1967,9 +1979,9 @@ export class DescribeCharacterSetResponseBody extends $tea.Model {
 }
 
 export class DescribeCharacterSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCharacterSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCharacterSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2036,9 +2048,9 @@ export class DescribeColdDataBasicInfoResponseBody extends $tea.Model {
 }
 
 export class DescribeColdDataBasicInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeColdDataBasicInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeColdDataBasicInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2108,9 +2120,9 @@ export class DescribeDBInstanceAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeDBInstanceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstanceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2180,9 +2192,9 @@ export class DescribeDBInstanceConfigResponseBody extends $tea.Model {
 }
 
 export class DescribeDBInstanceConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstanceConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2255,9 +2267,9 @@ export class DescribeDBInstanceHAResponseBody extends $tea.Model {
 }
 
 export class DescribeDBInstanceHAResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstanceHAResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceHAResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2324,9 +2336,9 @@ export class DescribeDBInstanceSSLResponseBody extends $tea.Model {
 }
 
 export class DescribeDBInstanceSSLResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstanceSSLResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceSSLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2393,9 +2405,9 @@ export class DescribeDBInstanceTDEResponseBody extends $tea.Model {
 }
 
 export class DescribeDBInstanceTDEResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstanceTDEResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceTDEResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2468,9 +2480,9 @@ export class DescribeDBInstanceTopologyResponseBody extends $tea.Model {
 }
 
 export class DescribeDBInstanceTopologyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstanceTopologyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceTopologyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2537,9 +2549,9 @@ export class DescribeDBInstanceViaEndpointResponseBody extends $tea.Model {
 }
 
 export class DescribeDBInstanceViaEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstanceViaEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceViaEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2633,9 +2645,9 @@ export class DescribeDBInstancesResponseBody extends $tea.Model {
 }
 
 export class DescribeDBInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2729,9 +2741,9 @@ export class DescribeDBNodePerformanceResponseBody extends $tea.Model {
 }
 
 export class DescribeDBNodePerformanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBNodePerformanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBNodePerformanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2807,9 +2819,9 @@ export class DescribeDbListResponseBody extends $tea.Model {
 }
 
 export class DescribeDbListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDbListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDbListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2885,9 +2897,9 @@ export class DescribeDistributeTableListResponseBody extends $tea.Model {
 }
 
 export class DescribeDistributeTableListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDistributeTableListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDistributeTableListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2972,9 +2984,9 @@ export class DescribeEventsResponseBody extends $tea.Model {
 }
 
 export class DescribeEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeEventsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3044,9 +3056,9 @@ export class DescribeParameterTemplatesResponseBody extends $tea.Model {
 }
 
 export class DescribeParameterTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeParameterTemplatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeParameterTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3116,9 +3128,9 @@ export class DescribeParametersResponseBody extends $tea.Model {
 }
 
 export class DescribeParametersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeParametersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeParametersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3175,9 +3187,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3203,6 +3215,7 @@ export class DescribeScaleOutMigrateTaskListRequest extends $tea.Model {
   DBInstanceName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -3210,6 +3223,7 @@ export class DescribeScaleOutMigrateTaskListRequest extends $tea.Model {
       DBInstanceName: 'DBInstanceName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -3220,6 +3234,7 @@ export class DescribeScaleOutMigrateTaskListRequest extends $tea.Model {
       DBInstanceName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -3253,9 +3268,9 @@ export class DescribeScaleOutMigrateTaskListResponseBody extends $tea.Model {
 }
 
 export class DescribeScaleOutMigrateTaskListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeScaleOutMigrateTaskListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeScaleOutMigrateTaskListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3328,9 +3343,9 @@ export class DescribeSecurityIpsResponseBody extends $tea.Model {
 }
 
 export class DescribeSecurityIpsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSecurityIpsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSecurityIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3400,9 +3415,9 @@ export class DescribeTagsResponseBody extends $tea.Model {
 }
 
 export class DescribeTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3502,9 +3517,9 @@ export class DescribeTasksResponseBody extends $tea.Model {
 }
 
 export class DescribeTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3571,9 +3586,9 @@ export class DescribeUserEncryptionKeyListResponseBody extends $tea.Model {
 }
 
 export class DescribeUserEncryptionKeyListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeUserEncryptionKeyListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserEncryptionKeyListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3649,9 +3664,9 @@ export class DisableRightsSeparationResponseBody extends $tea.Model {
 }
 
 export class DisableRightsSeparationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableRightsSeparationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableRightsSeparationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3739,9 +3754,9 @@ export class EnableRightsSeparationResponseBody extends $tea.Model {
 }
 
 export class EnableRightsSeparationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableRightsSeparationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableRightsSeparationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3820,9 +3835,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3898,9 +3913,9 @@ export class ModifyAccountDescriptionResponseBody extends $tea.Model {
 }
 
 export class ModifyAccountDescriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAccountDescriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAccountDescriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3985,9 +4000,9 @@ export class ModifyAccountPrivilegeResponseBody extends $tea.Model {
 }
 
 export class ModifyAccountPrivilegeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAccountPrivilegeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAccountPrivilegeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4063,9 +4078,9 @@ export class ModifyActiveOperationMaintainConfResponseBody extends $tea.Model {
 }
 
 export class ModifyActiveOperationMaintainConfResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyActiveOperationMaintainConfResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyActiveOperationMaintainConfResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4138,9 +4153,9 @@ export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
 }
 
 export class ModifyActiveOperationTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyActiveOperationTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyActiveOperationTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4168,6 +4183,10 @@ export class ModifyDBInstanceClassRequest extends $tea.Model {
   DBInstanceName?: string;
   dnClass?: string;
   regionId?: string;
+  specifiedDNScale?: boolean;
+  specifiedDNSpecMapJson?: string;
+  switchTime?: string;
+  switchTimeMode?: string;
   targetDBInstanceClass?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4176,6 +4195,10 @@ export class ModifyDBInstanceClassRequest extends $tea.Model {
       DBInstanceName: 'DBInstanceName',
       dnClass: 'DnClass',
       regionId: 'RegionId',
+      specifiedDNScale: 'SpecifiedDNScale',
+      specifiedDNSpecMapJson: 'SpecifiedDNSpecMapJson',
+      switchTime: 'SwitchTime',
+      switchTimeMode: 'SwitchTimeMode',
       targetDBInstanceClass: 'TargetDBInstanceClass',
     };
   }
@@ -4187,6 +4210,10 @@ export class ModifyDBInstanceClassRequest extends $tea.Model {
       DBInstanceName: 'string',
       dnClass: 'string',
       regionId: 'string',
+      specifiedDNScale: 'boolean',
+      specifiedDNSpecMapJson: 'string',
+      switchTime: 'string',
+      switchTimeMode: 'string',
       targetDBInstanceClass: 'string',
     };
   }
@@ -4219,9 +4246,9 @@ export class ModifyDBInstanceClassResponseBody extends $tea.Model {
 }
 
 export class ModifyDBInstanceClassResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDBInstanceClassResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceClassResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4291,9 +4318,9 @@ export class ModifyDBInstanceConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyDBInstanceConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDBInstanceConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4375,9 +4402,9 @@ export class ModifyDBInstanceConnectionStringResponseBody extends $tea.Model {
 }
 
 export class ModifyDBInstanceConnectionStringResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDBInstanceConnectionStringResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceConnectionStringResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4444,9 +4471,9 @@ export class ModifyDBInstanceDescriptionResponseBody extends $tea.Model {
 }
 
 export class ModifyDBInstanceDescriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDBInstanceDescriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceDescriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4522,9 +4549,9 @@ export class ModifyDatabaseDescriptionResponseBody extends $tea.Model {
 }
 
 export class ModifyDatabaseDescriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDatabaseDescriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDatabaseDescriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4597,9 +4624,9 @@ export class ModifyParameterResponseBody extends $tea.Model {
 }
 
 export class ModifyParameterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyParameterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4678,9 +4705,9 @@ export class ModifySecurityIpsResponseBody extends $tea.Model {
 }
 
 export class ModifySecurityIpsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySecurityIpsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySecurityIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4744,9 +4771,9 @@ export class ReleaseColdDataVolumeResponseBody extends $tea.Model {
 }
 
 export class ReleaseColdDataVolumeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseColdDataVolumeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseColdDataVolumeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4825,9 +4852,9 @@ export class ReleaseInstancePublicConnectionResponseBody extends $tea.Model {
 }
 
 export class ReleaseInstancePublicConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseInstancePublicConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseInstancePublicConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4909,9 +4936,9 @@ export class ResetAccountPasswordResponseBody extends $tea.Model {
 }
 
 export class ResetAccountPasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetAccountPasswordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetAccountPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4975,9 +5002,9 @@ export class RestartDBInstanceResponseBody extends $tea.Model {
 }
 
 export class RestartDBInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RestartDBInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestartDBInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5059,9 +5086,9 @@ export class SwitchDBInstanceHAResponseBody extends $tea.Model {
 }
 
 export class SwitchDBInstanceHAResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SwitchDBInstanceHAResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchDBInstanceHAResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5131,9 +5158,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5206,9 +5233,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5307,7 +5334,7 @@ export class UpdateBackupPolicyRequest extends $tea.Model {
 }
 
 export class UpdateBackupPolicyResponseBody extends $tea.Model {
-  data?: UpdateBackupPolicyResponseBodyData[];
+  data?: UpdateBackupPolicyResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -5322,7 +5349,7 @@ export class UpdateBackupPolicyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': UpdateBackupPolicyResponseBodyData },
+      data: UpdateBackupPolicyResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -5335,9 +5362,9 @@ export class UpdateBackupPolicyResponseBody extends $tea.Model {
 }
 
 export class UpdateBackupPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateBackupPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBackupPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5410,9 +5437,9 @@ export class UpdateDBInstanceSSLResponseBody extends $tea.Model {
 }
 
 export class UpdateDBInstanceSSLResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateDBInstanceSSLResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDBInstanceSSLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5488,9 +5515,9 @@ export class UpdateDBInstanceTDEResponseBody extends $tea.Model {
 }
 
 export class UpdateDBInstanceTDEResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateDBInstanceTDEResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDBInstanceTDEResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5513,31 +5540,40 @@ export class UpdateDBInstanceTDEResponse extends $tea.Model {
 }
 
 export class UpdatePolarDBXInstanceNodeRequest extends $tea.Model {
+  addDNSpec?: string;
   CNNodeCount?: string;
   clientToken?: string;
   DBInstanceName?: string;
   DNNodeCount?: string;
   dbInstanceNodeCount?: string;
+  deleteDNIds?: string;
   regionId?: string;
+  storagePoolName?: string;
   static names(): { [key: string]: string } {
     return {
+      addDNSpec: 'AddDNSpec',
       CNNodeCount: 'CNNodeCount',
       clientToken: 'ClientToken',
       DBInstanceName: 'DBInstanceName',
       DNNodeCount: 'DNNodeCount',
       dbInstanceNodeCount: 'DbInstanceNodeCount',
+      deleteDNIds: 'DeleteDNIds',
       regionId: 'RegionId',
+      storagePoolName: 'StoragePoolName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      addDNSpec: 'string',
       CNNodeCount: 'string',
       clientToken: 'string',
       DBInstanceName: 'string',
       DNNodeCount: 'string',
       dbInstanceNodeCount: 'string',
+      deleteDNIds: 'string',
       regionId: 'string',
+      storagePoolName: 'string',
     };
   }
 
@@ -5569,9 +5605,9 @@ export class UpdatePolarDBXInstanceNodeResponseBody extends $tea.Model {
 }
 
 export class UpdatePolarDBXInstanceNodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePolarDBXInstanceNodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePolarDBXInstanceNodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5650,9 +5686,9 @@ export class UpgradeDBInstanceKernelVersionResponseBody extends $tea.Model {
 }
 
 export class UpgradeDBInstanceKernelVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpgradeDBInstanceKernelVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeDBInstanceKernelVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5697,7 +5733,7 @@ export class CheckCloudResourceAuthorizedResponseBodyData extends $tea.Model {
 }
 
 export class CreateBackupResponseBodyData extends $tea.Model {
-  backupSetId?: number;
+  backupSetId?: string;
   static names(): { [key: string]: string } {
     return {
       backupSetId: 'BackupSetId',
@@ -5706,7 +5742,7 @@ export class CreateBackupResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      backupSetId: 'number',
+      backupSetId: 'string',
     };
   }
 
@@ -6106,7 +6142,7 @@ export class DescribeBackupSetResponseBodyData extends $tea.Model {
 
 export class DescribeBackupSetListResponseBodyData extends $tea.Model {
   backupModel?: number;
-  backupSetId?: number;
+  backupSetId?: string;
   backupSetSize?: number;
   backupType?: number;
   beginTime?: number;
@@ -6127,7 +6163,7 @@ export class DescribeBackupSetListResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backupModel: 'number',
-      backupSetId: 'number',
+      backupSetId: 'string',
       backupSetSize: 'number',
       backupType: 'number',
       beginTime: 'number',
@@ -6390,6 +6426,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
   rightsSeparationStatus?: string;
   secondaryZone?: string;
   series?: string;
+  specCategory?: string;
   status?: string;
   storageUsed?: number;
   tagSet?: DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet[];
@@ -6442,6 +6479,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       rightsSeparationStatus: 'RightsSeparationStatus',
       secondaryZone: 'SecondaryZone',
       series: 'Series',
+      specCategory: 'SpecCategory',
       status: 'Status',
       storageUsed: 'StorageUsed',
       tagSet: 'TagSet',
@@ -6497,6 +6535,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       rightsSeparationStatus: 'string',
       secondaryZone: 'string',
       series: 'string',
+      specCategory: 'string',
       status: 'string',
       storageUsed: 'number',
       tagSet: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet },
@@ -6728,6 +6767,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   region?: string;
   role?: string;
   status?: string;
+  storageUsed?: string;
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6757,6 +6797,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
       region: 'Region',
       role: 'Role',
       status: 'Status',
+      storageUsed: 'StorageUsed',
       version: 'Version',
     };
   }
@@ -6789,6 +6830,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
       region: 'string',
       role: 'string',
       status: 'string',
+      storageUsed: 'string',
       version: 'string',
     };
   }
@@ -7171,6 +7213,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
   columnarReadDBInstances?: string[];
   commodityCode?: string;
   containBinlogX?: boolean;
+  cpuType?: string;
   createTime?: string;
   DBInstanceName?: string;
   DBType?: string;
@@ -7205,6 +7248,8 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
   type?: string;
   VPCId?: string;
   zoneId?: string;
+  gdnRole?: string;
+  isInGdn?: boolean;
   static names(): { [key: string]: string } {
     return {
       cdcInstanceName: 'CdcInstanceName',
@@ -7214,6 +7259,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       columnarReadDBInstances: 'ColumnarReadDBInstances',
       commodityCode: 'CommodityCode',
       containBinlogX: 'ContainBinlogX',
+      cpuType: 'CpuType',
       createTime: 'CreateTime',
       DBInstanceName: 'DBInstanceName',
       DBType: 'DBType',
@@ -7248,6 +7294,8 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       type: 'Type',
       VPCId: 'VPCId',
       zoneId: 'ZoneId',
+      gdnRole: 'gdnRole',
+      isInGdn: 'isInGdn',
     };
   }
 
@@ -7260,6 +7308,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       columnarReadDBInstances: { 'type': 'array', 'itemType': 'string' },
       commodityCode: 'string',
       containBinlogX: 'boolean',
+      cpuType: 'string',
       createTime: 'string',
       DBInstanceName: 'string',
       DBType: 'string',
@@ -7294,6 +7343,8 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       type: 'string',
       VPCId: 'string',
       zoneId: 'string',
+      gdnRole: 'string',
+      isInGdn: 'boolean',
     };
   }
 
@@ -8204,6 +8255,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AlignStoragePrimaryAzoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AlignStoragePrimaryAzoneResponse
+   */
   async alignStoragePrimaryAzoneWithOptions(request: AlignStoragePrimaryAzoneRequest, runtime: $Util.RuntimeOptions): Promise<AlignStoragePrimaryAzoneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8244,11 +8300,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AlignStoragePrimaryAzoneResponse>(await this.callApi(params, req, runtime), new AlignStoragePrimaryAzoneResponse({}));
   }
 
+  /**
+   * @param request AlignStoragePrimaryAzoneRequest
+   * @return AlignStoragePrimaryAzoneResponse
+   */
   async alignStoragePrimaryAzone(request: AlignStoragePrimaryAzoneRequest): Promise<AlignStoragePrimaryAzoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.alignStoragePrimaryAzoneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开通冷存储
+   *
+   * @param request AllocateColdDataVolumeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateColdDataVolumeResponse
+   */
   async allocateColdDataVolumeWithOptions(request: AllocateColdDataVolumeRequest, runtime: $Util.RuntimeOptions): Promise<AllocateColdDataVolumeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8277,11 +8344,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateColdDataVolumeResponse>(await this.callApi(params, req, runtime), new AllocateColdDataVolumeResponse({}));
   }
 
+  /**
+   * @summary 开通冷存储
+   *
+   * @param request AllocateColdDataVolumeRequest
+   * @return AllocateColdDataVolumeResponse
+   */
   async allocateColdDataVolume(request: AllocateColdDataVolumeRequest): Promise<AllocateColdDataVolumeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateColdDataVolumeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request AllocateInstancePublicConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateInstancePublicConnectionResponse
+   */
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8334,11 +8412,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateInstancePublicConnectionResponse({}));
   }
 
+  /**
+   * @param request AllocateInstancePublicConnectionRequest
+   * @return AllocateInstancePublicConnectionResponse
+   */
   async allocateInstancePublicConnection(request: AllocateInstancePublicConnectionRequest): Promise<AllocateInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 取消主动运维任务
+   *
+   * @param request CancelActiveOperationTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelActiveOperationTasksResponse
+   */
   async cancelActiveOperationTasksWithOptions(request: CancelActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<CancelActiveOperationTasksResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -8359,11 +8448,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new CancelActiveOperationTasksResponse({}));
   }
 
+  /**
+   * @summary 取消主动运维任务
+   *
+   * @param request CancelActiveOperationTasksRequest
+   * @return CancelActiveOperationTasksResponse
+   */
   async cancelActiveOperationTasks(request: CancelActiveOperationTasksRequest): Promise<CancelActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelActiveOperationTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改实例所在资源组.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8400,11 +8502,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+   * @summary 修改实例所在资源组.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CheckCloudResourceAuthorizedRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckCloudResourceAuthorizedResponse
+   */
   async checkCloudResourceAuthorizedWithOptions(request: CheckCloudResourceAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<CheckCloudResourceAuthorizedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8437,11 +8550,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckCloudResourceAuthorizedResponse>(await this.callApi(params, req, runtime), new CheckCloudResourceAuthorizedResponse({}));
   }
 
+  /**
+   * @param request CheckCloudResourceAuthorizedRequest
+   * @return CheckCloudResourceAuthorizedResponse
+   */
   async checkCloudResourceAuthorized(request: CheckCloudResourceAuthorizedRequest): Promise<CheckCloudResourceAuthorizedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkCloudResourceAuthorizedWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccountResponse
+   */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8498,11 +8620,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
   }
 
+  /**
+   * @param request CreateAccountRequest
+   * @return CreateAccountResponse
+   */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateBackupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBackupResponse
+   */
   async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8535,11 +8666,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBackupResponse>(await this.callApi(params, req, runtime), new CreateBackupResponse({}));
   }
 
+  /**
+   * @param request CreateBackupRequest
+   * @return CreateBackupResponse
+   */
   async createBackup(request: CreateBackupRequest): Promise<CreateBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBResponse
+   */
   async createDBWithOptions(request: CreateDBRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8583,6 +8723,10 @@ export default class Client extends OpenApi {
       query["SecurityAccountPassword"] = request.securityAccountPassword;
     }
 
+    if (!Util.isUnset(request.storagePoolName)) {
+      query["StoragePoolName"] = request.storagePoolName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8600,11 +8744,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBResponse>(await this.callApi(params, req, runtime), new CreateDBResponse({}));
   }
 
+  /**
+   * @param request CreateDBRequest
+   * @return CreateDBResponse
+   */
   async createDB(request: CreateDBRequest): Promise<CreateDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBInstanceResponse
+   */
   async createDBInstanceWithOptions(request: CreateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8640,8 +8793,16 @@ export default class Client extends OpenApi {
       query["DnClass"] = request.dnClass;
     }
 
+    if (!Util.isUnset(request.dnStorageSpace)) {
+      query["DnStorageSpace"] = request.dnStorageSpace;
+    }
+
     if (!Util.isUnset(request.engineVersion)) {
       query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!Util.isUnset(request.isColumnarReadDBInstance)) {
+      query["IsColumnarReadDBInstance"] = request.isColumnarReadDBInstance;
     }
 
     if (!Util.isUnset(request.isReadDBInstance)) {
@@ -8678,6 +8839,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.secondaryZone)) {
       query["SecondaryZone"] = request.secondaryZone;
+    }
+
+    if (!Util.isUnset(request.series)) {
+      query["Series"] = request.series;
     }
 
     if (!Util.isUnset(request.tertiaryZone)) {
@@ -8721,11 +8886,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceResponse({}));
   }
 
+  /**
+   * @param request CreateDBInstanceRequest
+   * @return CreateDBInstanceResponse
+   */
   async createDBInstance(request: CreateDBInstanceRequest): Promise<CreateDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateSuperAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSuperAccountResponse
+   */
   async createSuperAccountWithOptions(request: CreateSuperAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateSuperAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8766,11 +8940,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSuperAccountResponse>(await this.callApi(params, req, runtime), new CreateSuperAccountResponse({}));
   }
 
+  /**
+   * @param request CreateSuperAccountRequest
+   * @return CreateSuperAccountResponse
+   */
   async createSuperAccount(request: CreateSuperAccountRequest): Promise<CreateSuperAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSuperAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccountResponse
+   */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8811,11 +8994,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
   }
 
+  /**
+   * @param request DeleteAccountRequest
+   * @return DeleteAccountResponse
+   */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBResponse
+   */
   async deleteDBWithOptions(request: DeleteDBRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8848,11 +9040,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBResponse>(await this.callApi(params, req, runtime), new DeleteDBResponse({}));
   }
 
+  /**
+   * @param request DeleteDBRequest
+   * @return DeleteDBResponse
+   */
   async deleteDB(request: DeleteDBRequest): Promise<DeleteDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBInstanceResponse
+   */
   async deleteDBInstanceWithOptions(request: DeleteDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8881,11 +9082,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBInstanceResponse>(await this.callApi(params, req, runtime), new DeleteDBInstanceResponse({}));
   }
 
+  /**
+   * @param request DeleteDBInstanceRequest
+   * @return DeleteDBInstanceResponse
+   */
   async deleteDBInstance(request: DeleteDBInstanceRequest): Promise<DeleteDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAccountListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccountListResponse
+   */
   async describeAccountListWithOptions(request: DescribeAccountListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8922,11 +9132,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountListResponse>(await this.callApi(params, req, runtime), new DescribeAccountListResponse({}));
   }
 
+  /**
+   * @param request DescribeAccountListRequest
+   * @return DescribeAccountListResponse
+   */
   async describeAccountList(request: DescribeAccountListRequest): Promise<DescribeAccountListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 展示全局运维窗口配置
+   *
+   * @param request DescribeActiveOperationMaintainConfRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeActiveOperationMaintainConfResponse
+   */
   async describeActiveOperationMaintainConfWithOptions(request: DescribeActiveOperationMaintainConfRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationMaintainConfResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8951,11 +9172,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationMaintainConfResponse({}));
   }
 
+  /**
+   * @summary 展示全局运维窗口配置
+   *
+   * @param request DescribeActiveOperationMaintainConfRequest
+   * @return DescribeActiveOperationMaintainConfResponse
+   */
   async describeActiveOperationMaintainConf(request: DescribeActiveOperationMaintainConfRequest): Promise<DescribeActiveOperationMaintainConfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeActiveOperationMaintainConfWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取主动运维任务数量
+   *
+   * @param request DescribeActiveOperationTaskCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeActiveOperationTaskCountResponse
+   */
   async describeActiveOperationTaskCountWithOptions(request: DescribeActiveOperationTaskCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTaskCountResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -8976,11 +9210,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeActiveOperationTaskCountResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTaskCountResponse({}));
   }
 
+  /**
+   * @summary 获取主动运维任务数量
+   *
+   * @param request DescribeActiveOperationTaskCountRequest
+   * @return DescribeActiveOperationTaskCountResponse
+   */
   async describeActiveOperationTaskCount(request: DescribeActiveOperationTaskCountRequest): Promise<DescribeActiveOperationTaskCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeActiveOperationTaskCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取待执行自动运维任务列表
+   *
+   * @param request DescribeActiveOperationTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeActiveOperationTasksResponse
+   */
   async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9001,11 +9248,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
   }
 
+  /**
+   * @summary 获取待执行自动运维任务列表
+   *
+   * @param request DescribeActiveOperationTasksRequest
+   * @return DescribeActiveOperationTasksResponse
+   */
   async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeActiveOperationTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 冷存储表列表
+   *
+   * @param request DescribeArchiveTableListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeArchiveTableListResponse
+   */
   async describeArchiveTableListWithOptions(request: DescribeArchiveTableListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeArchiveTableListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9054,11 +9314,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeArchiveTableListResponse>(await this.callApi(params, req, runtime), new DescribeArchiveTableListResponse({}));
   }
 
+  /**
+   * @summary 冷存储表列表
+   *
+   * @param request DescribeArchiveTableListRequest
+   * @return DescribeArchiveTableListResponse
+   */
   async describeArchiveTableList(request: DescribeArchiveTableListRequest): Promise<DescribeArchiveTableListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeArchiveTableListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9087,11 +9358,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
   }
 
+  /**
+   * @param request DescribeBackupPolicyRequest
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 备份集详情
+   *
+   * @param request DescribeBackupSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupSetResponse
+   */
   async describeBackupSetWithOptions(request: DescribeBackupSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9128,11 +9410,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupSetResponse>(await this.callApi(params, req, runtime), new DescribeBackupSetResponse({}));
   }
 
+  /**
+   * @summary 备份集详情
+   *
+   * @param request DescribeBackupSetRequest
+   * @return DescribeBackupSetResponse
+   */
   async describeBackupSet(request: DescribeBackupSetRequest): Promise<DescribeBackupSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupSetWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeBackupSetListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupSetListResponse
+   */
   async describeBackupSetListWithOptions(request: DescribeBackupSetListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSetListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9153,11 +9446,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupSetListResponse>(await this.callApi(params, req, runtime), new DescribeBackupSetListResponse({}));
   }
 
+  /**
+   * @param request DescribeBackupSetListRequest
+   * @return DescribeBackupSetListResponse
+   */
   async describeBackupSetList(request: DescribeBackupSetListRequest): Promise<DescribeBackupSetListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupSetListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeBinaryLogListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBinaryLogListResponse
+   */
   async describeBinaryLogListWithOptions(request: DescribeBinaryLogListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBinaryLogListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9206,11 +9508,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBinaryLogListResponse>(await this.callApi(params, req, runtime), new DescribeBinaryLogListResponse({}));
   }
 
+  /**
+   * @param request DescribeBinaryLogListRequest
+   * @return DescribeBinaryLogListResponse
+   */
   async describeBinaryLogList(request: DescribeBinaryLogListRequest): Promise<DescribeBinaryLogListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBinaryLogListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeCharacterSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCharacterSetResponse
+   */
   async describeCharacterSetWithOptions(request: DescribeCharacterSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCharacterSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9239,11 +9550,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCharacterSetResponse>(await this.callApi(params, req, runtime), new DescribeCharacterSetResponse({}));
   }
 
+  /**
+   * @param request DescribeCharacterSetRequest
+   * @return DescribeCharacterSetResponse
+   */
   async describeCharacterSet(request: DescribeCharacterSetRequest): Promise<DescribeCharacterSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCharacterSetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 冷存储基础信息
+   *
+   * @param request DescribeColdDataBasicInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeColdDataBasicInfoResponse
+   */
   async describeColdDataBasicInfoWithOptions(request: DescribeColdDataBasicInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeColdDataBasicInfoResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9264,11 +9586,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeColdDataBasicInfoResponse>(await this.callApi(params, req, runtime), new DescribeColdDataBasicInfoResponse({}));
   }
 
+  /**
+   * @summary 冷存储基础信息
+   *
+   * @param request DescribeColdDataBasicInfoRequest
+   * @return DescribeColdDataBasicInfoResponse
+   */
   async describeColdDataBasicInfo(request: DescribeColdDataBasicInfoRequest): Promise<DescribeColdDataBasicInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeColdDataBasicInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBInstanceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceAttributeResponse
+   */
   async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9301,11 +9634,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceAttributeResponse({}));
   }
 
+  /**
+   * @param request DescribeDBInstanceAttributeRequest
+   * @return DescribeDBInstanceAttributeResponse
+   */
   async describeDBInstanceAttribute(request: DescribeDBInstanceAttributeRequest): Promise<DescribeDBInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBInstanceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceConfigResponse
+   */
   async describeDBInstanceConfigWithOptions(request: DescribeDBInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9338,11 +9680,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceConfigResponse({}));
   }
 
+  /**
+   * @param request DescribeDBInstanceConfigRequest
+   * @return DescribeDBInstanceConfigResponse
+   */
   async describeDBInstanceConfig(request: DescribeDBInstanceConfigRequest): Promise<DescribeDBInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBInstanceHARequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceHAResponse
+   */
   async describeDBInstanceHAWithOptions(request: DescribeDBInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceHAResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9371,11 +9722,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceHAResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceHAResponse({}));
   }
 
+  /**
+   * @param request DescribeDBInstanceHARequest
+   * @return DescribeDBInstanceHAResponse
+   */
   async describeDBInstanceHA(request: DescribeDBInstanceHARequest): Promise<DescribeDBInstanceHAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceHAWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBInstanceSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceSSLResponse
+   */
   async describeDBInstanceSSLWithOptions(request: DescribeDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSSLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9404,11 +9764,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSSLResponse({}));
   }
 
+  /**
+   * @param request DescribeDBInstanceSSLRequest
+   * @return DescribeDBInstanceSSLResponse
+   */
   async describeDBInstanceSSL(request: DescribeDBInstanceSSLRequest): Promise<DescribeDBInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBInstanceTDERequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceTDEResponse
+   */
   async describeDBInstanceTDEWithOptions(request: DescribeDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceTDEResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9437,11 +9806,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceTDEResponse({}));
   }
 
+  /**
+   * @param request DescribeDBInstanceTDERequest
+   * @return DescribeDBInstanceTDEResponse
+   */
   async describeDBInstanceTDE(request: DescribeDBInstanceTDERequest): Promise<DescribeDBInstanceTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceTDEWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBInstanceTopologyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceTopologyResponse
+   */
   async describeDBInstanceTopologyWithOptions(request: DescribeDBInstanceTopologyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceTopologyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9478,11 +9856,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceTopologyResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceTopologyResponse({}));
   }
 
+  /**
+   * @param request DescribeDBInstanceTopologyRequest
+   * @return DescribeDBInstanceTopologyResponse
+   */
   async describeDBInstanceTopology(request: DescribeDBInstanceTopologyRequest): Promise<DescribeDBInstanceTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceTopologyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 通过Endpoint查询实例
+   *
+   * @param request DescribeDBInstanceViaEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceViaEndpointResponse
+   */
   async describeDBInstanceViaEndpointWithOptions(request: DescribeDBInstanceViaEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceViaEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9511,11 +9900,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceViaEndpointResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceViaEndpointResponse({}));
   }
 
+  /**
+   * @summary 通过Endpoint查询实例
+   *
+   * @param request DescribeDBInstanceViaEndpointRequest
+   * @return DescribeDBInstanceViaEndpointResponse
+   */
   async describeDBInstanceViaEndpoint(request: DescribeDBInstanceViaEndpointRequest): Promise<DescribeDBInstanceViaEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceViaEndpointWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancesResponse
+   */
   async describeDBInstancesWithOptions(request: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9568,11 +9968,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesResponse({}));
   }
 
+  /**
+   * @param request DescribeDBInstancesRequest
+   * @return DescribeDBInstancesResponse
+   */
   async describeDBInstances(request: DescribeDBInstancesRequest): Promise<DescribeDBInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBNodePerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBNodePerformanceResponse
+   */
   async describeDBNodePerformanceWithOptions(request: DescribeDBNodePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBNodePerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9625,11 +10034,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBNodePerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBNodePerformanceResponse({}));
   }
 
+  /**
+   * @param request DescribeDBNodePerformanceRequest
+   * @return DescribeDBNodePerformanceResponse
+   */
   async describeDBNodePerformance(request: DescribeDBNodePerformanceRequest): Promise<DescribeDBNodePerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBNodePerformanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDbListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDbListResponse
+   */
   async describeDbListWithOptions(request: DescribeDbListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDbListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9662,11 +10080,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDbListResponse>(await this.callApi(params, req, runtime), new DescribeDbListResponse({}));
   }
 
+  /**
+   * @param request DescribeDbListRequest
+   * @return DescribeDbListResponse
+   */
   async describeDbList(request: DescribeDbListRequest): Promise<DescribeDbListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDbListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDistributeTableListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDistributeTableListResponse
+   */
   async describeDistributeTableListWithOptions(request: DescribeDistributeTableListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDistributeTableListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9699,11 +10126,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDistributeTableListResponse>(await this.callApi(params, req, runtime), new DescribeDistributeTableListResponse({}));
   }
 
+  /**
+   * @param request DescribeDistributeTableListRequest
+   * @return DescribeDistributeTableListResponse
+   */
   async describeDistributeTableList(request: DescribeDistributeTableListRequest): Promise<DescribeDistributeTableListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDistributeTableListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 历史事件
+   *
+   * @param request DescribeEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEventsResponse
+   */
   async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9724,11 +10162,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
   }
 
+  /**
+   * @summary 历史事件
+   *
+   * @param request DescribeEventsRequest
+   * @return DescribeEventsResponse
+   */
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeParameterTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterTemplatesResponse
+   */
   async describeParameterTemplatesWithOptions(request: DescribeParameterTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9761,11 +10210,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParameterTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeParameterTemplatesResponse({}));
   }
 
+  /**
+   * @param request DescribeParameterTemplatesRequest
+   * @return DescribeParameterTemplatesResponse
+   */
   async describeParameterTemplates(request: DescribeParameterTemplatesRequest): Promise<DescribeParameterTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParameterTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParametersResponse
+   */
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9798,11 +10256,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParametersResponse>(await this.callApi(params, req, runtime), new DescribeParametersResponse({}));
   }
 
+  /**
+   * @param request DescribeParametersRequest
+   * @return DescribeParametersResponse
+   */
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -9819,11 +10286,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(runtime);
   }
 
+  /**
+   * @param request DescribeScaleOutMigrateTaskListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeScaleOutMigrateTaskListResponse
+   */
   async describeScaleOutMigrateTaskListWithOptions(request: DescribeScaleOutMigrateTaskListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScaleOutMigrateTaskListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9837,6 +10312,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -9864,11 +10343,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeScaleOutMigrateTaskListResponse>(await this.callApi(params, req, runtime), new DescribeScaleOutMigrateTaskListResponse({}));
   }
 
+  /**
+   * @param request DescribeScaleOutMigrateTaskListRequest
+   * @return DescribeScaleOutMigrateTaskListResponse
+   */
   async describeScaleOutMigrateTaskList(request: DescribeScaleOutMigrateTaskListRequest): Promise<DescribeScaleOutMigrateTaskListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeScaleOutMigrateTaskListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeSecurityIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityIpsResponse
+   */
   async describeSecurityIpsWithOptions(request: DescribeSecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9897,11 +10385,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityIpsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityIpsResponse({}));
   }
 
+  /**
+   * @param request DescribeSecurityIpsRequest
+   * @return DescribeSecurityIpsResponse
+   */
   async describeSecurityIps(request: DescribeSecurityIpsRequest): Promise<DescribeSecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityIpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 标签列表查询
+   *
+   * @param request DescribeTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagsResponse
+   */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9934,11 +10433,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
   }
 
+  /**
+   * @summary 标签列表查询
+   *
+   * @param request DescribeTagsRequest
+   * @return DescribeTagsResponse
+   */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTasksResponse
+   */
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9999,11 +10509,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
   }
 
+  /**
+   * @param request DescribeTasksRequest
+   * @return DescribeTasksResponse
+   */
   async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeUserEncryptionKeyListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserEncryptionKeyListResponse
+   */
   async describeUserEncryptionKeyListWithOptions(request: DescribeUserEncryptionKeyListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserEncryptionKeyListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10032,11 +10551,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserEncryptionKeyListResponse>(await this.callApi(params, req, runtime), new DescribeUserEncryptionKeyListResponse({}));
   }
 
+  /**
+   * @param request DescribeUserEncryptionKeyListRequest
+   * @return DescribeUserEncryptionKeyListResponse
+   */
   async describeUserEncryptionKeyList(request: DescribeUserEncryptionKeyListRequest): Promise<DescribeUserEncryptionKeyListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DisableRightsSeparationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableRightsSeparationResponse
+   */
   async disableRightsSeparationWithOptions(request: DisableRightsSeparationRequest, runtime: $Util.RuntimeOptions): Promise<DisableRightsSeparationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10073,11 +10601,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableRightsSeparationResponse>(await this.callApi(params, req, runtime), new DisableRightsSeparationResponse({}));
   }
 
+  /**
+   * @param request DisableRightsSeparationRequest
+   * @return DisableRightsSeparationResponse
+   */
   async disableRightsSeparation(request: DisableRightsSeparationRequest): Promise<DisableRightsSeparationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableRightsSeparationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开启三权分立
+   *
+   * @param request EnableRightsSeparationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableRightsSeparationResponse
+   */
   async enableRightsSeparationWithOptions(request: EnableRightsSeparationRequest, runtime: $Util.RuntimeOptions): Promise<EnableRightsSeparationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10130,11 +10669,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableRightsSeparationResponse>(await this.callApi(params, req, runtime), new EnableRightsSeparationResponse({}));
   }
 
+  /**
+   * @summary 开启三权分立
+   *
+   * @param request EnableRightsSeparationRequest
+   * @return EnableRightsSeparationResponse
+   */
   async enableRightsSeparation(request: EnableRightsSeparationRequest): Promise<EnableRightsSeparationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableRightsSeparationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查标签接口
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10175,11 +10727,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary 查标签接口
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyAccountDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10216,11 +10779,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
   }
 
+  /**
+   * @param request ModifyAccountDescriptionRequest
+   * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyAccountPrivilegeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccountPrivilegeResponse
+   */
   async modifyAccountPrivilegeWithOptions(request: ModifyAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountPrivilegeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10269,11 +10841,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new ModifyAccountPrivilegeResponse({}));
   }
 
+  /**
+   * @param request ModifyAccountPrivilegeRequest
+   * @return ModifyAccountPrivilegeResponse
+   */
   async modifyAccountPrivilege(request: ModifyAccountPrivilegeRequest): Promise<ModifyAccountPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountPrivilegeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改全局运维窗口信息
+   *
+   * @param request ModifyActiveOperationMaintainConfRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyActiveOperationMaintainConfResponse
+   */
   async modifyActiveOperationMaintainConfWithOptions(request: ModifyActiveOperationMaintainConfRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationMaintainConfResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -10294,11 +10877,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationMaintainConfResponse({}));
   }
 
+  /**
+   * @summary 修改全局运维窗口信息
+   *
+   * @param request ModifyActiveOperationMaintainConfRequest
+   * @return ModifyActiveOperationMaintainConfResponse
+   */
   async modifyActiveOperationMaintainConf(request: ModifyActiveOperationMaintainConfRequest): Promise<ModifyActiveOperationMaintainConfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyActiveOperationMaintainConfWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改主动运维任务
+   *
+   * @param request ModifyActiveOperationTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyActiveOperationTasksResponse
+   */
   async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10335,11 +10931,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
   }
 
+  /**
+   * @summary 修改主动运维任务
+   *
+   * @param request ModifyActiveOperationTasksRequest
+   * @return ModifyActiveOperationTasksResponse
+   */
   async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyActiveOperationTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyDBInstanceClassRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceClassResponse
+   */
   async modifyDBInstanceClassWithOptions(request: ModifyDBInstanceClassRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceClassResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10363,6 +10970,22 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.specifiedDNScale)) {
+      query["SpecifiedDNScale"] = request.specifiedDNScale;
+    }
+
+    if (!Util.isUnset(request.specifiedDNSpecMapJson)) {
+      query["SpecifiedDNSpecMapJson"] = request.specifiedDNSpecMapJson;
+    }
+
+    if (!Util.isUnset(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    if (!Util.isUnset(request.switchTimeMode)) {
+      query["SwitchTimeMode"] = request.switchTimeMode;
+    }
+
     if (!Util.isUnset(request.targetDBInstanceClass)) {
       query["TargetDBInstanceClass"] = request.targetDBInstanceClass;
     }
@@ -10384,11 +11007,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceClassResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceClassResponse({}));
   }
 
+  /**
+   * @param request ModifyDBInstanceClassRequest
+   * @return ModifyDBInstanceClassResponse
+   */
   async modifyDBInstanceClass(request: ModifyDBInstanceClassRequest): Promise<ModifyDBInstanceClassResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceClassWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改实例配置
+   *
+   * @param request ModifyDBInstanceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceConfigResponse
+   */
   async modifyDBInstanceConfigWithOptions(request: ModifyDBInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10425,11 +11059,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConfigResponse({}));
   }
 
+  /**
+   * @summary 修改实例配置
+   *
+   * @param request ModifyDBInstanceConfigRequest
+   * @return ModifyDBInstanceConfigResponse
+   */
   async modifyDBInstanceConfig(request: ModifyDBInstanceConfigRequest): Promise<ModifyDBInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改实例链接串
+   *
+   * @param request ModifyDBInstanceConnectionStringRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceConnectionStringResponse
+   */
   async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10470,11 +11117,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
   }
 
+  /**
+   * @summary 修改实例链接串
+   *
+   * @param request ModifyDBInstanceConnectionStringRequest
+   * @return ModifyDBInstanceConnectionStringResponse
+   */
   async modifyDBInstanceConnectionString(request: ModifyDBInstanceConnectionStringRequest): Promise<ModifyDBInstanceConnectionStringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceConnectionStringWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyDBInstanceDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceDescriptionResponse
+   */
   async modifyDBInstanceDescriptionWithOptions(request: ModifyDBInstanceDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10507,11 +11165,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceDescriptionResponse({}));
   }
 
+  /**
+   * @param request ModifyDBInstanceDescriptionRequest
+   * @return ModifyDBInstanceDescriptionResponse
+   */
   async modifyDBInstanceDescription(request: ModifyDBInstanceDescriptionRequest): Promise<ModifyDBInstanceDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyDatabaseDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDatabaseDescriptionResponse
+   */
   async modifyDatabaseDescriptionWithOptions(request: ModifyDatabaseDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatabaseDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10548,11 +11215,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDatabaseDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDatabaseDescriptionResponse({}));
   }
 
+  /**
+   * @param request ModifyDatabaseDescriptionRequest
+   * @return ModifyDatabaseDescriptionResponse
+   */
   async modifyDatabaseDescription(request: ModifyDatabaseDescriptionRequest): Promise<ModifyDatabaseDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDatabaseDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyParameterResponse
+   */
   async modifyParameterWithOptions(request: ModifyParameterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10593,11 +11269,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyParameterResponse>(await this.callApi(params, req, runtime), new ModifyParameterResponse({}));
   }
 
+  /**
+   * @param request ModifyParameterRequest
+   * @return ModifyParameterResponse
+   */
   async modifyParameter(request: ModifyParameterRequest): Promise<ModifyParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifySecurityIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityIpsResponse
+   */
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10638,11 +11323,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySecurityIpsResponse>(await this.callApi(params, req, runtime), new ModifySecurityIpsResponse({}));
   }
 
+  /**
+   * @param request ModifySecurityIpsRequest
+   * @return ModifySecurityIpsResponse
+   */
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 关闭冷存储
+   *
+   * @param request ReleaseColdDataVolumeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseColdDataVolumeResponse
+   */
   async releaseColdDataVolumeWithOptions(request: ReleaseColdDataVolumeRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseColdDataVolumeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10671,11 +11367,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseColdDataVolumeResponse>(await this.callApi(params, req, runtime), new ReleaseColdDataVolumeResponse({}));
   }
 
+  /**
+   * @summary 关闭冷存储
+   *
+   * @param request ReleaseColdDataVolumeRequest
+   * @return ReleaseColdDataVolumeResponse
+   */
   async releaseColdDataVolume(request: ReleaseColdDataVolumeRequest): Promise<ReleaseColdDataVolumeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseColdDataVolumeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ReleaseInstancePublicConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseInstancePublicConnectionResponse
+   */
   async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10724,11 +11431,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseInstancePublicConnectionResponse({}));
   }
 
+  /**
+   * @param request ReleaseInstancePublicConnectionRequest
+   * @return ReleaseInstancePublicConnectionResponse
+   */
   async releaseInstancePublicConnection(request: ReleaseInstancePublicConnectionRequest): Promise<ReleaseInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResetAccountPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAccountPasswordResponse
+   */
   async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10773,11 +11489,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
   }
 
+  /**
+   * @param request ResetAccountPasswordRequest
+   * @return ResetAccountPasswordResponse
+   */
   async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAccountPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RestartDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartDBInstanceResponse
+   */
   async restartDBInstanceWithOptions(request: RestartDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10806,11 +11531,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartDBInstanceResponse>(await this.callApi(params, req, runtime), new RestartDBInstanceResponse({}));
   }
 
+  /**
+   * @param request RestartDBInstanceRequest
+   * @return RestartDBInstanceResponse
+   */
   async restartDBInstance(request: RestartDBInstanceRequest): Promise<RestartDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SwitchDBInstanceHARequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchDBInstanceHAResponse
+   */
   async switchDBInstanceHAWithOptions(request: SwitchDBInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceHAResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10855,11 +11589,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchDBInstanceHAResponse>(await this.callApi(params, req, runtime), new SwitchDBInstanceHAResponse({}));
   }
 
+  /**
+   * @param request SwitchDBInstanceHARequest
+   * @return SwitchDBInstanceHAResponse
+   */
   async switchDBInstanceHA(request: SwitchDBInstanceHARequest): Promise<SwitchDBInstanceHAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchDBInstanceHAWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 打标签接口
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10896,11 +11641,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary 打标签接口
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删标签接口
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10941,11 +11699,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary 删标签接口
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBackupPolicyResponse
+   */
   async updateBackupPolicyWithOptions(request: UpdateBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11046,11 +11815,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBackupPolicyResponse>(await this.callApi(params, req, runtime), new UpdateBackupPolicyResponse({}));
   }
 
+  /**
+   * @param request UpdateBackupPolicyRequest
+   * @return UpdateBackupPolicyResponse
+   */
   async updateBackupPolicy(request: UpdateBackupPolicyRequest): Promise<UpdateBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateDBInstanceSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDBInstanceSSLResponse
+   */
   async updateDBInstanceSSLWithOptions(request: UpdateDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDBInstanceSSLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11087,11 +11865,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new UpdateDBInstanceSSLResponse({}));
   }
 
+  /**
+   * @param request UpdateDBInstanceSSLRequest
+   * @return UpdateDBInstanceSSLResponse
+   */
   async updateDBInstanceSSL(request: UpdateDBInstanceSSLRequest): Promise<UpdateDBInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDBInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateDBInstanceTDERequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDBInstanceTDEResponse
+   */
   async updateDBInstanceTDEWithOptions(request: UpdateDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<UpdateDBInstanceTDEResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11132,14 +11919,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new UpdateDBInstanceTDEResponse({}));
   }
 
+  /**
+   * @param request UpdateDBInstanceTDERequest
+   * @return UpdateDBInstanceTDEResponse
+   */
   async updateDBInstanceTDE(request: UpdateDBInstanceTDERequest): Promise<UpdateDBInstanceTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDBInstanceTDEWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdatePolarDBXInstanceNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePolarDBXInstanceNodeResponse
+   */
   async updatePolarDBXInstanceNodeWithOptions(request: UpdatePolarDBXInstanceNodeRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePolarDBXInstanceNodeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.addDNSpec)) {
+      query["AddDNSpec"] = request.addDNSpec;
+    }
+
     if (!Util.isUnset(request.CNNodeCount)) {
       query["CNNodeCount"] = request.CNNodeCount;
     }
@@ -11160,8 +11960,16 @@ export default class Client extends OpenApi {
       query["DbInstanceNodeCount"] = request.dbInstanceNodeCount;
     }
 
+    if (!Util.isUnset(request.deleteDNIds)) {
+      query["DeleteDNIds"] = request.deleteDNIds;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.storagePoolName)) {
+      query["StoragePoolName"] = request.storagePoolName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11181,11 +11989,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePolarDBXInstanceNodeResponse>(await this.callApi(params, req, runtime), new UpdatePolarDBXInstanceNodeResponse({}));
   }
 
+  /**
+   * @param request UpdatePolarDBXInstanceNodeRequest
+   * @return UpdatePolarDBXInstanceNodeResponse
+   */
   async updatePolarDBXInstanceNode(request: UpdatePolarDBXInstanceNodeRequest): Promise<UpdatePolarDBXInstanceNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePolarDBXInstanceNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpgradeDBInstanceKernelVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeDBInstanceKernelVersionResponse
+   */
   async upgradeDBInstanceKernelVersionWithOptions(request: UpgradeDBInstanceKernelVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceKernelVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11222,6 +12039,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeDBInstanceKernelVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceKernelVersionResponse({}));
   }
 
+  /**
+   * @param request UpgradeDBInstanceKernelVersionRequest
+   * @return UpgradeDBInstanceKernelVersionResponse
+   */
   async upgradeDBInstanceKernelVersion(request: UpgradeDBInstanceKernelVersionRequest): Promise<UpgradeDBInstanceKernelVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBInstanceKernelVersionWithOptions(request, runtime);
