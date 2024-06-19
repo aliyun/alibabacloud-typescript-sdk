@@ -1716,6 +1716,78 @@ export class DescribeApisecEventDomainStatisticResponse extends $tea.Model {
   }
 }
 
+export class DescribeApisecLogDeliveriesRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecLogDeliveriesResponseBody extends $tea.Model {
+  deliveryConfigs?: DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deliveryConfigs: 'DeliveryConfigs',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliveryConfigs: { 'type': 'array', 'itemType': DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecLogDeliveriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecLogDeliveriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecLogDeliveriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisecSensitiveDomainStatisticRequest extends $tea.Model {
   clusterId?: string;
   endTime?: number;
@@ -1807,6 +1879,159 @@ export class DescribeApisecSensitiveDomainStatisticResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeApisecSensitiveDomainStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSlsLogStoresRequest extends $tea.Model {
+  instanceId?: string;
+  logRegionId?: string;
+  projectName?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      logRegionId: 'LogRegionId',
+      projectName: 'ProjectName',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      logRegionId: 'string',
+      projectName: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSlsLogStoresResponseBody extends $tea.Model {
+  logStores?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logStores: 'LogStores',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logStores: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSlsLogStoresResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecSlsLogStoresResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecSlsLogStoresResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSlsProjectsRequest extends $tea.Model {
+  instanceId?: string;
+  logRegionId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      logRegionId: 'LogRegionId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      logRegionId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSlsProjectsResponseBody extends $tea.Model {
+  projects?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projects: 'Projects',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projects: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSlsProjectsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecSlsProjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecSlsProjectsResponseBody,
     };
   }
 
@@ -6411,6 +6636,162 @@ export class ListTagValuesResponse extends $tea.Model {
   }
 }
 
+export class ModifyApisecLogDeliveryRequest extends $tea.Model {
+  assertKey?: string;
+  instanceId?: string;
+  logRegionId?: string;
+  logStoreName?: string;
+  projectName?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assertKey: 'AssertKey',
+      instanceId: 'InstanceId',
+      logRegionId: 'LogRegionId',
+      logStoreName: 'LogStoreName',
+      projectName: 'ProjectName',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assertKey: 'string',
+      instanceId: 'string',
+      logRegionId: 'string',
+      logStoreName: 'string',
+      projectName: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecLogDeliveryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecLogDeliveryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyApisecLogDeliveryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApisecLogDeliveryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecLogDeliveryStatusRequest extends $tea.Model {
+  assertKey?: string;
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      assertKey: 'AssertKey',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assertKey: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecLogDeliveryStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecLogDeliveryStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyApisecLogDeliveryStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApisecLogDeliveryStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDefenseResourceGroupRequest extends $tea.Model {
   addList?: string;
   deleteList?: string;
@@ -8024,6 +8405,37 @@ export class DescribeApisecEventDomainStatisticResponseBodyData extends $tea.Mod
   }
 }
 
+export class DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs extends $tea.Model {
+  assertKey?: string;
+  logRegionId?: string;
+  logStoreName?: string;
+  projectName?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      assertKey: 'AssertKey',
+      logRegionId: 'LogRegionId',
+      logStoreName: 'LogStoreName',
+      projectName: 'ProjectName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assertKey: 'string',
+      logRegionId: 'string',
+      logStoreName: 'string',
+      projectName: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $tea.Model {
   apiCount?: number;
   domainCount?: number;
@@ -8640,7 +9052,7 @@ export class DescribeDomainDetailResponseBodyListen extends $tea.Model {
   IPv6Enabled?: boolean;
   protectionResource?: string;
   SM2AccessOnly?: boolean;
-  SM2CertId?: boolean;
+  SM2CertId?: string;
   SM2Enabled?: boolean;
   TLSVersion?: string;
   xffHeaderMode?: number;
@@ -8681,7 +9093,7 @@ export class DescribeDomainDetailResponseBodyListen extends $tea.Model {
       IPv6Enabled: 'boolean',
       protectionResource: 'string',
       SM2AccessOnly: 'boolean',
-      SM2CertId: 'boolean',
+      SM2CertId: 'string',
       SM2Enabled: 'boolean',
       TLSVersion: 'string',
       xffHeaderMode: 'number',
@@ -11686,6 +12098,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 获取API安全日志订阅列表
+   *
+   * @param request DescribeApisecLogDeliveriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisecLogDeliveriesResponse
+   */
+  async describeApisecLogDeliveriesWithOptions(request: DescribeApisecLogDeliveriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecLogDeliveriesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecLogDeliveries",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecLogDeliveriesResponse>(await this.callApi(params, req, runtime), new DescribeApisecLogDeliveriesResponse({}));
+  }
+
+  /**
+   * @summary 获取API安全日志订阅列表
+   *
+   * @param request DescribeApisecLogDeliveriesRequest
+   * @return DescribeApisecLogDeliveriesResponse
+   */
+  async describeApisecLogDeliveries(request: DescribeApisecLogDeliveriesRequest): Promise<DescribeApisecLogDeliveriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecLogDeliveriesWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 查询API安全敏感数据类型统计
    *
    * @param request DescribeApisecSensitiveDomainStatisticRequest
@@ -11765,6 +12227,118 @@ export default class Client extends OpenApi {
   async describeApisecSensitiveDomainStatistic(request: DescribeApisecSensitiveDomainStatisticRequest): Promise<DescribeApisecSensitiveDomainStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApisecSensitiveDomainStatisticWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询日志服务SLS的LogStore列表
+   *
+   * @param request DescribeApisecSlsLogStoresRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisecSlsLogStoresResponse
+   */
+  async describeApisecSlsLogStoresWithOptions(request: DescribeApisecSlsLogStoresRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecSlsLogStoresResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.logRegionId)) {
+      query["LogRegionId"] = request.logRegionId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecSlsLogStores",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecSlsLogStoresResponse>(await this.callApi(params, req, runtime), new DescribeApisecSlsLogStoresResponse({}));
+  }
+
+  /**
+   * @summary 查询日志服务SLS的LogStore列表
+   *
+   * @param request DescribeApisecSlsLogStoresRequest
+   * @return DescribeApisecSlsLogStoresResponse
+   */
+  async describeApisecSlsLogStores(request: DescribeApisecSlsLogStoresRequest): Promise<DescribeApisecSlsLogStoresResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecSlsLogStoresWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询日志服务SLS的Project列表
+   *
+   * @param request DescribeApisecSlsProjectsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisecSlsProjectsResponse
+   */
+  async describeApisecSlsProjectsWithOptions(request: DescribeApisecSlsProjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecSlsProjectsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.logRegionId)) {
+      query["LogRegionId"] = request.logRegionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecSlsProjects",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecSlsProjectsResponse>(await this.callApi(params, req, runtime), new DescribeApisecSlsProjectsResponse({}));
+  }
+
+  /**
+   * @summary 查询日志服务SLS的Project列表
+   *
+   * @param request DescribeApisecSlsProjectsRequest
+   * @return DescribeApisecSlsProjectsResponse
+   */
+  async describeApisecSlsProjects(request: DescribeApisecSlsProjectsRequest): Promise<DescribeApisecSlsProjectsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecSlsProjectsWithOptions(request, runtime);
   }
 
   /**
@@ -15157,6 +15731,130 @@ export default class Client extends OpenApi {
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改API安全日志订阅
+   *
+   * @param request ModifyApisecLogDeliveryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyApisecLogDeliveryResponse
+   */
+  async modifyApisecLogDeliveryWithOptions(request: ModifyApisecLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApisecLogDeliveryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assertKey)) {
+      query["AssertKey"] = request.assertKey;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.logRegionId)) {
+      query["LogRegionId"] = request.logRegionId;
+    }
+
+    if (!Util.isUnset(request.logStoreName)) {
+      query["LogStoreName"] = request.logStoreName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApisecLogDelivery",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApisecLogDeliveryResponse>(await this.callApi(params, req, runtime), new ModifyApisecLogDeliveryResponse({}));
+  }
+
+  /**
+   * @summary 修改API安全日志订阅
+   *
+   * @param request ModifyApisecLogDeliveryRequest
+   * @return ModifyApisecLogDeliveryResponse
+   */
+  async modifyApisecLogDelivery(request: ModifyApisecLogDeliveryRequest): Promise<ModifyApisecLogDeliveryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApisecLogDeliveryWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改API安全日志订阅状态
+   *
+   * @param request ModifyApisecLogDeliveryStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyApisecLogDeliveryStatusResponse
+   */
+  async modifyApisecLogDeliveryStatusWithOptions(request: ModifyApisecLogDeliveryStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApisecLogDeliveryStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assertKey)) {
+      query["AssertKey"] = request.assertKey;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApisecLogDeliveryStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApisecLogDeliveryStatusResponse>(await this.callApi(params, req, runtime), new ModifyApisecLogDeliveryStatusResponse({}));
+  }
+
+  /**
+   * @summary 修改API安全日志订阅状态
+   *
+   * @param request ModifyApisecLogDeliveryStatusRequest
+   * @return ModifyApisecLogDeliveryStatusResponse
+   */
+  async modifyApisecLogDeliveryStatus(request: ModifyApisecLogDeliveryStatusRequest): Promise<ModifyApisecLogDeliveryStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApisecLogDeliveryStatusWithOptions(request, runtime);
   }
 
   /**
