@@ -3047,6 +3047,7 @@ export class UpdateArtifactResponse extends $tea.Model {
 
 export class UpdateServiceRequest extends $tea.Model {
   alarmMetadata?: string;
+  approvalType?: string;
   clientToken?: string;
   deployMetadata?: string;
   deployType?: string;
@@ -3062,6 +3063,7 @@ export class UpdateServiceRequest extends $tea.Model {
   serviceInfo?: UpdateServiceRequestServiceInfo[];
   serviceType?: string;
   serviceVersion?: string;
+  shareType?: string;
   tenantType?: string;
   trialDuration?: number;
   updateOption?: UpdateServiceRequestUpdateOption;
@@ -3070,6 +3072,7 @@ export class UpdateServiceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       alarmMetadata: 'AlarmMetadata',
+      approvalType: 'ApprovalType',
       clientToken: 'ClientToken',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
@@ -3085,6 +3088,7 @@ export class UpdateServiceRequest extends $tea.Model {
       serviceInfo: 'ServiceInfo',
       serviceType: 'ServiceType',
       serviceVersion: 'ServiceVersion',
+      shareType: 'ShareType',
       tenantType: 'TenantType',
       trialDuration: 'TrialDuration',
       updateOption: 'UpdateOption',
@@ -3096,6 +3100,7 @@ export class UpdateServiceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alarmMetadata: 'string',
+      approvalType: 'string',
       clientToken: 'string',
       deployMetadata: 'string',
       deployType: 'string',
@@ -3111,6 +3116,7 @@ export class UpdateServiceRequest extends $tea.Model {
       serviceInfo: { 'type': 'array', 'itemType': UpdateServiceRequestServiceInfo },
       serviceType: 'string',
       serviceVersion: 'string',
+      shareType: 'string',
       tenantType: 'string',
       trialDuration: 'number',
       updateOption: UpdateServiceRequestUpdateOption,
@@ -3126,6 +3132,7 @@ export class UpdateServiceRequest extends $tea.Model {
 
 export class UpdateServiceShrinkRequest extends $tea.Model {
   alarmMetadata?: string;
+  approvalType?: string;
   clientToken?: string;
   deployMetadata?: string;
   deployType?: string;
@@ -3141,6 +3148,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
   serviceInfo?: UpdateServiceShrinkRequestServiceInfo[];
   serviceType?: string;
   serviceVersion?: string;
+  shareType?: string;
   tenantType?: string;
   trialDuration?: number;
   updateOptionShrink?: string;
@@ -3149,6 +3157,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       alarmMetadata: 'AlarmMetadata',
+      approvalType: 'ApprovalType',
       clientToken: 'ClientToken',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
@@ -3164,6 +3173,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
       serviceInfo: 'ServiceInfo',
       serviceType: 'ServiceType',
       serviceVersion: 'ServiceVersion',
+      shareType: 'ShareType',
       tenantType: 'TenantType',
       trialDuration: 'TrialDuration',
       updateOptionShrink: 'UpdateOption',
@@ -3175,6 +3185,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alarmMetadata: 'string',
+      approvalType: 'string',
       clientToken: 'string',
       deployMetadata: 'string',
       deployType: 'string',
@@ -3190,6 +3201,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
       serviceInfo: { 'type': 'array', 'itemType': UpdateServiceShrinkRequestServiceInfo },
       serviceType: 'string',
       serviceVersion: 'string',
+      shareType: 'string',
       tenantType: 'string',
       trialDuration: 'number',
       updateOptionShrink: 'string',
@@ -7454,6 +7466,10 @@ export default class Client extends OpenApi {
       query["AlarmMetadata"] = request.alarmMetadata;
     }
 
+    if (!Util.isUnset(request.approvalType)) {
+      query["ApprovalType"] = request.approvalType;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -7512,6 +7528,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!Util.isUnset(request.shareType)) {
+      query["ShareType"] = request.shareType;
     }
 
     if (!Util.isUnset(request.tenantType)) {
