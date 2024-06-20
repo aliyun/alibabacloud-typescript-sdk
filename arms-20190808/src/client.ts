@@ -4162,6 +4162,7 @@ export class CreateOrUpdateNotificationPolicyRequest extends $tea.Model {
   repeat?: boolean;
   repeatInterval?: number;
   sendRecoverMessage?: boolean;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       directedMode: 'DirectedMode',
@@ -4177,6 +4178,7 @@ export class CreateOrUpdateNotificationPolicyRequest extends $tea.Model {
       repeat: 'Repeat',
       repeatInterval: 'RepeatInterval',
       sendRecoverMessage: 'SendRecoverMessage',
+      state: 'State',
     };
   }
 
@@ -4195,6 +4197,7 @@ export class CreateOrUpdateNotificationPolicyRequest extends $tea.Model {
       repeat: 'boolean',
       repeatInterval: 'number',
       sendRecoverMessage: 'boolean',
+      state: 'string',
     };
   }
 
@@ -11652,6 +11655,7 @@ export class GetRumExceptionStackRequest extends $tea.Model {
   exceptionThreadId?: string;
   pid?: string;
   regionId?: string;
+  sourcemapType?: string;
   static names(): { [key: string]: string } {
     return {
       exceptionBinaryImages: 'ExceptionBinaryImages',
@@ -11659,6 +11663,7 @@ export class GetRumExceptionStackRequest extends $tea.Model {
       exceptionThreadId: 'ExceptionThreadId',
       pid: 'Pid',
       regionId: 'RegionId',
+      sourcemapType: 'SourcemapType',
     };
   }
 
@@ -11669,6 +11674,7 @@ export class GetRumExceptionStackRequest extends $tea.Model {
       exceptionThreadId: 'string',
       pid: 'string',
       regionId: 'string',
+      sourcemapType: 'string',
     };
   }
 
@@ -12524,6 +12530,81 @@ export class GetTraceAppResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetTraceAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTraceAppConfigRequest extends $tea.Model {
+  pid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pid: 'Pid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTraceAppConfigResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTraceAppConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTraceAppConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTraceAppConfigResponseBody,
     };
   }
 
@@ -22728,6 +22809,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicy exte
   repeat?: boolean;
   repeatInterval?: number;
   sendRecoverMessage?: boolean;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       directedMode: 'DirectedMode',
@@ -22742,6 +22824,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicy exte
       repeat: 'Repeat',
       repeatInterval: 'RepeatInterval',
       sendRecoverMessage: 'SendRecoverMessage',
+      state: 'State',
     };
   }
 
@@ -22759,6 +22842,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicy exte
       repeat: 'boolean',
       repeatInterval: 'number',
       sendRecoverMessage: 'boolean',
+      state: 'string',
     };
   }
 
@@ -31094,6 +31178,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPolicies ex
   repeat?: boolean;
   repeatInterval?: number;
   sendRecoverMessage?: boolean;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       directedMode: 'DirectedMode',
@@ -31108,6 +31193,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPolicies ex
       repeat: 'Repeat',
       repeatInterval: 'RepeatInterval',
       sendRecoverMessage: 'SendRecoverMessage',
+      state: 'State',
     };
   }
 
@@ -31125,6 +31211,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPolicies ex
       repeat: 'boolean',
       repeatInterval: 'number',
       sendRecoverMessage: 'boolean',
+      state: 'string',
     };
   }
 
@@ -37088,6 +37175,10 @@ export default class Client extends OpenApi {
       body["SendRecoverMessage"] = request.sendRecoverMessage;
     }
 
+    if (!Util.isUnset(request.state)) {
+      body["State"] = request.state;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -42012,6 +42103,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.sourcemapType)) {
+      query["SourcemapType"] = request.sourcemapType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -42564,6 +42659,48 @@ export default class Client extends OpenApi {
   async getTraceApp(request: GetTraceAppRequest): Promise<GetTraceAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTraceAppWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 获取应用监控自定义配置
+   *
+   * @param request GetTraceAppConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTraceAppConfigResponse
+   */
+  async getTraceAppConfigWithOptions(request: GetTraceAppConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetTraceAppConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTraceAppConfig",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTraceAppConfigResponse>(await this.callApi(params, req, runtime), new GetTraceAppConfigResponse({}));
+  }
+
+  /**
+   * @summary 获取应用监控自定义配置
+   *
+   * @param request GetTraceAppConfigRequest
+   * @return GetTraceAppConfigResponse
+   */
+  async getTraceAppConfig(request: GetTraceAppConfigRequest): Promise<GetTraceAppConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTraceAppConfigWithOptions(request, runtime);
   }
 
   /**
