@@ -241,6 +241,81 @@ export class AbortCampaignResponse extends $tea.Model {
   }
 }
 
+export class AcceptChatRequest extends $tea.Model {
+  instanceId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AcceptChatResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AcceptChatResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AcceptChatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AcceptChatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddBlacklistCallTaggingRequest extends $tea.Model {
   instanceId?: string;
   jobId?: string;
@@ -1955,6 +2030,90 @@ export class ChangeWorkModeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ChangeWorkModeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimChatRequest extends $tea.Model {
+  instanceId?: string;
+  jobId?: string;
+  skillGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      skillGroupId: 'SkillGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      jobId: 'string',
+      skillGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimChatResponseBody extends $tea.Model {
+  code?: string;
+  data?: ClaimChatResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ClaimChatResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimChatResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClaimChatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ClaimChatResponseBody,
     };
   }
 
@@ -6836,6 +6995,93 @@ export class GetVideoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetVideoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVisitorLoginDetailsRequest extends $tea.Model {
+  chatDeviceId?: string;
+  instanceId?: string;
+  token?: string;
+  visitorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chatDeviceId: 'ChatDeviceId',
+      instanceId: 'InstanceId',
+      token: 'Token',
+      visitorId: 'VisitorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatDeviceId: 'string',
+      instanceId: 'string',
+      token: 'string',
+      visitorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVisitorLoginDetailsResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetVisitorLoginDetailsResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetVisitorLoginDetailsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVisitorLoginDetailsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVisitorLoginDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVisitorLoginDetailsResponseBody,
     };
   }
 
@@ -16289,6 +16535,118 @@ export class StartBack2BackCallResponse extends $tea.Model {
   }
 }
 
+export class StartChatRequest extends $tea.Model {
+  accessChannelId?: string;
+  instanceId?: string;
+  token?: string;
+  userList?: StartChatRequestUserList[];
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelId: 'AccessChannelId',
+      instanceId: 'InstanceId',
+      token: 'Token',
+      userList: 'UserList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelId: 'string',
+      instanceId: 'string',
+      token: 'string',
+      userList: { 'type': 'array', 'itemType': StartChatRequestUserList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartChatShrinkRequest extends $tea.Model {
+  accessChannelId?: string;
+  instanceId?: string;
+  token?: string;
+  userListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelId: 'AccessChannelId',
+      instanceId: 'InstanceId',
+      token: 'Token',
+      userListShrink: 'UserList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelId: 'string',
+      instanceId: 'string',
+      token: 'string',
+      userListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartChatResponseBody extends $tea.Model {
+  code?: string;
+  data?: StartChatResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: StartChatResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartChatResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartChatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartChatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartConferenceRequest extends $tea.Model {
   instanceId?: string;
   participantListJson?: string;
@@ -18242,6 +18600,129 @@ export class ChangeWorkModeResponseBodyData extends $tea.Model {
       userId: 'string',
       userState: 'string',
       workMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimChatResponseBodyDataChatContexts extends $tea.Model {
+  accessChannelId?: string;
+  accessChannelName?: string;
+  accessChannelType?: string;
+  beingAssigned?: boolean;
+  callVariables?: string;
+  chatType?: string;
+  instanceId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelId: 'AccessChannelId',
+      accessChannelName: 'AccessChannelName',
+      accessChannelType: 'AccessChannelType',
+      beingAssigned: 'BeingAssigned',
+      callVariables: 'CallVariables',
+      chatType: 'ChatType',
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelId: 'string',
+      accessChannelName: 'string',
+      accessChannelType: 'string',
+      beingAssigned: 'boolean',
+      callVariables: 'string',
+      chatType: 'string',
+      instanceId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimChatResponseBodyDataUserContext extends $tea.Model {
+  breakCode?: string;
+  deviceId?: string;
+  deviceState?: string;
+  extension?: string;
+  heartbeat?: number;
+  instanceId?: string;
+  jobId?: string;
+  mobile?: string;
+  outboundScenario?: boolean;
+  reserved?: number;
+  signedSkillGroupIdList?: string[];
+  userId?: string;
+  userState?: string;
+  workMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      breakCode: 'BreakCode',
+      deviceId: 'DeviceId',
+      deviceState: 'DeviceState',
+      extension: 'Extension',
+      heartbeat: 'Heartbeat',
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      mobile: 'Mobile',
+      outboundScenario: 'OutboundScenario',
+      reserved: 'Reserved',
+      signedSkillGroupIdList: 'SignedSkillGroupIdList',
+      userId: 'UserId',
+      userState: 'UserState',
+      workMode: 'WorkMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakCode: 'string',
+      deviceId: 'string',
+      deviceState: 'string',
+      extension: 'string',
+      heartbeat: 'number',
+      instanceId: 'string',
+      jobId: 'string',
+      mobile: 'string',
+      outboundScenario: 'boolean',
+      reserved: 'number',
+      signedSkillGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      userId: 'string',
+      userState: 'string',
+      workMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimChatResponseBodyData extends $tea.Model {
+  chatContexts?: ClaimChatResponseBodyDataChatContexts[];
+  contextId?: number;
+  userContext?: ClaimChatResponseBodyDataUserContext;
+  static names(): { [key: string]: string } {
+    return {
+      chatContexts: 'ChatContexts',
+      contextId: 'ContextId',
+      userContext: 'UserContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatContexts: { 'type': 'array', 'itemType': ClaimChatResponseBodyDataChatContexts },
+      contextId: 'number',
+      userContext: ClaimChatResponseBodyDataUserContext,
     };
   }
 
@@ -20892,6 +21373,40 @@ export class GetVideoResponseBodyData extends $tea.Model {
     return {
       fileName: 'string',
       fileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVisitorLoginDetailsResponseBodyData extends $tea.Model {
+  chatAppId?: string;
+  chatAppKey?: string;
+  chatDeviceId?: string;
+  chatLoginToken?: string;
+  chatServerUrl?: string;
+  chatUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chatAppId: 'ChatAppId',
+      chatAppKey: 'ChatAppKey',
+      chatDeviceId: 'ChatDeviceId',
+      chatLoginToken: 'ChatLoginToken',
+      chatServerUrl: 'ChatServerUrl',
+      chatUserId: 'ChatUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatAppId: 'string',
+      chatAppKey: 'string',
+      chatDeviceId: 'string',
+      chatLoginToken: 'string',
+      chatServerUrl: 'string',
+      chatUserId: 'string',
     };
   }
 
@@ -31113,6 +31628,56 @@ export class StartBack2BackCallResponseBodyData extends $tea.Model {
   }
 }
 
+export class StartChatRequestUserList extends $tea.Model {
+  avatarUrl?: string;
+  nickname?: string;
+  userId?: string;
+  userType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'AvatarUrl',
+      nickname: 'Nickname',
+      userId: 'UserId',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      nickname: 'string',
+      userId: 'string',
+      userType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartChatResponseBodyData extends $tea.Model {
+  chatConversationId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chatConversationId: 'ChatConversationId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatConversationId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartConferenceResponseBodyDataCallContextChannelContexts extends $tea.Model {
   callType?: string;
   channelFlags?: string;
@@ -31969,6 +32534,48 @@ export default class Client extends OpenApi {
   async abortCampaign(request: AbortCampaignRequest): Promise<AbortCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.abortCampaignWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request AcceptChatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AcceptChatResponse
+   */
+  async acceptChatWithOptions(request: AcceptChatRequest, runtime: $Util.RuntimeOptions): Promise<AcceptChatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AcceptChat",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AcceptChatResponse>(await this.callApi(params, req, runtime), new AcceptChatResponse({}));
+  }
+
+  /**
+   * @param request AcceptChatRequest
+   * @return AcceptChatResponse
+   */
+  async acceptChat(request: AcceptChatRequest): Promise<AcceptChatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.acceptChatWithOptions(request, runtime);
   }
 
   /**
@@ -33017,6 +33624,52 @@ export default class Client extends OpenApi {
   async changeWorkMode(request: ChangeWorkModeRequest): Promise<ChangeWorkModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeWorkModeWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ClaimChatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ClaimChatResponse
+   */
+  async claimChatWithOptions(request: ClaimChatRequest, runtime: $Util.RuntimeOptions): Promise<ClaimChatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ClaimChat",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClaimChatResponse>(await this.callApi(params, req, runtime), new ClaimChatResponse({}));
+  }
+
+  /**
+   * @param request ClaimChatRequest
+   * @return ClaimChatResponse
+   */
+  async claimChat(request: ClaimChatRequest): Promise<ClaimChatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.claimChatWithOptions(request, runtime);
   }
 
   /**
@@ -35803,6 +36456,56 @@ export default class Client extends OpenApi {
   async getVideo(request: GetVideoRequest): Promise<GetVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVideoWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request GetVisitorLoginDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVisitorLoginDetailsResponse
+   */
+  async getVisitorLoginDetailsWithOptions(request: GetVisitorLoginDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetVisitorLoginDetailsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.chatDeviceId)) {
+      query["ChatDeviceId"] = request.chatDeviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.visitorId)) {
+      query["VisitorId"] = request.visitorId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVisitorLoginDetails",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVisitorLoginDetailsResponse>(await this.callApi(params, req, runtime), new GetVisitorLoginDetailsResponse({}));
+  }
+
+  /**
+   * @param request GetVisitorLoginDetailsRequest
+   * @return GetVisitorLoginDetailsResponse
+   */
+  async getVisitorLoginDetails(request: GetVisitorLoginDetailsRequest): Promise<GetVisitorLoginDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVisitorLoginDetailsWithOptions(request, runtime);
   }
 
   /**
@@ -41627,6 +42330,62 @@ export default class Client extends OpenApi {
   async startBack2BackCall(request: StartBack2BackCallRequest): Promise<StartBack2BackCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startBack2BackCallWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq StartChatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartChatResponse
+   */
+  async startChatWithOptions(tmpReq: StartChatRequest, runtime: $Util.RuntimeOptions): Promise<StartChatResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartChatShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.userList)) {
+      request.userListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userList, "UserList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.accessChannelId)) {
+      query["AccessChannelId"] = request.accessChannelId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.userListShrink)) {
+      query["UserList"] = request.userListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartChat",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartChatResponse>(await this.callApi(params, req, runtime), new StartChatResponse({}));
+  }
+
+  /**
+   * @param request StartChatRequest
+   * @return StartChatResponse
+   */
+  async startChat(request: StartChatRequest): Promise<StartChatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startChatWithOptions(request, runtime);
   }
 
   /**
