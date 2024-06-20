@@ -4857,18 +4857,26 @@ export class RemoveUsersResponse extends $tea.Model {
 export class StartCloudRecordRequest extends $tea.Model {
   appId?: string;
   channelId?: string;
+  clockWidgets?: StartCloudRecordRequestClockWidgets[];
+  cropMode?: number;
+  images?: StartCloudRecordRequestImages[];
   panes?: StartCloudRecordRequestPanes[];
   storageConfig?: StartCloudRecordRequestStorageConfig;
   taskId?: string;
   templateId?: string;
+  texts?: StartCloudRecordRequestTexts[];
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       channelId: 'ChannelId',
+      clockWidgets: 'ClockWidgets',
+      cropMode: 'CropMode',
+      images: 'Images',
       panes: 'Panes',
       storageConfig: 'StorageConfig',
       taskId: 'TaskId',
       templateId: 'TemplateId',
+      texts: 'Texts',
     };
   }
 
@@ -4876,10 +4884,14 @@ export class StartCloudRecordRequest extends $tea.Model {
     return {
       appId: 'string',
       channelId: 'string',
+      clockWidgets: { 'type': 'array', 'itemType': StartCloudRecordRequestClockWidgets },
+      cropMode: 'number',
+      images: { 'type': 'array', 'itemType': StartCloudRecordRequestImages },
       panes: { 'type': 'array', 'itemType': StartCloudRecordRequestPanes },
       storageConfig: StartCloudRecordRequestStorageConfig,
       taskId: 'string',
       templateId: 'string',
+      texts: { 'type': 'array', 'itemType': StartCloudRecordRequestTexts },
     };
   }
 
@@ -5208,17 +5220,25 @@ export class StartRecordTaskResponse extends $tea.Model {
 export class StartStreamingOutRequest extends $tea.Model {
   appId?: string;
   channelId?: string;
+  clockWidgets?: StartStreamingOutRequestClockWidgets[];
+  cropMode?: number;
+  images?: StartStreamingOutRequestImages[];
   panes?: StartStreamingOutRequestPanes[];
   taskId?: string;
   templateId?: string;
+  texts?: StartStreamingOutRequestTexts[];
   url?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       channelId: 'ChannelId',
+      clockWidgets: 'ClockWidgets',
+      cropMode: 'CropMode',
+      images: 'Images',
       panes: 'Panes',
       taskId: 'TaskId',
       templateId: 'TemplateId',
+      texts: 'Texts',
       url: 'Url',
     };
   }
@@ -5227,9 +5247,13 @@ export class StartStreamingOutRequest extends $tea.Model {
     return {
       appId: 'string',
       channelId: 'string',
+      clockWidgets: { 'type': 'array', 'itemType': StartStreamingOutRequestClockWidgets },
+      cropMode: 'number',
+      images: { 'type': 'array', 'itemType': StartStreamingOutRequestImages },
       panes: { 'type': 'array', 'itemType': StartStreamingOutRequestPanes },
       taskId: 'string',
       templateId: 'string',
+      texts: { 'type': 'array', 'itemType': StartStreamingOutRequestTexts },
       url: 'string',
     };
   }
@@ -5721,6 +5745,93 @@ export class UpdateAutoLiveStreamRuleResponse extends $tea.Model {
   }
 }
 
+export class UpdateCloudRecordRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  clockWidgets?: UpdateCloudRecordRequestClockWidgets[];
+  images?: UpdateCloudRecordRequestImages[];
+  panes?: UpdateCloudRecordRequestPanes[];
+  taskId?: string;
+  templateId?: string;
+  texts?: UpdateCloudRecordRequestTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      clockWidgets: 'ClockWidgets',
+      images: 'Images',
+      panes: 'Panes',
+      taskId: 'TaskId',
+      templateId: 'TemplateId',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      clockWidgets: { 'type': 'array', 'itemType': UpdateCloudRecordRequestClockWidgets },
+      images: { 'type': 'array', 'itemType': UpdateCloudRecordRequestImages },
+      panes: { 'type': 'array', 'itemType': UpdateCloudRecordRequestPanes },
+      taskId: 'string',
+      templateId: 'string',
+      texts: { 'type': 'array', 'itemType': UpdateCloudRecordRequestTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCloudRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCloudRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateMPUTaskRequest extends $tea.Model {
   appId?: string;
   backgroundColor?: number;
@@ -6070,6 +6181,93 @@ export class UpdateRecordTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateRecordTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  clockWidgets?: UpdateStreamingOutRequestClockWidgets[];
+  images?: UpdateStreamingOutRequestImages[];
+  panes?: UpdateStreamingOutRequestPanes[];
+  taskId?: string;
+  templateId?: string;
+  texts?: UpdateStreamingOutRequestTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      clockWidgets: 'ClockWidgets',
+      images: 'Images',
+      panes: 'Panes',
+      taskId: 'TaskId',
+      templateId: 'TemplateId',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      clockWidgets: { 'type': 'array', 'itemType': UpdateStreamingOutRequestClockWidgets },
+      images: { 'type': 'array', 'itemType': UpdateStreamingOutRequestImages },
+      panes: { 'type': 'array', 'itemType': UpdateStreamingOutRequestPanes },
+      taskId: 'string',
+      templateId: 'string',
+      texts: { 'type': 'array', 'itemType': UpdateStreamingOutRequestTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateStreamingOutResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateStreamingOutResponseBody,
     };
   }
 
@@ -9110,20 +9308,316 @@ export class RemoveUsersResponseBodyUsers extends $tea.Model {
   }
 }
 
-export class StartCloudRecordRequestPanes extends $tea.Model {
-  paneId?: number;
-  sourceType?: string;
+export class StartCloudRecordRequestClockWidgetsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
   static names(): { [key: string]: string } {
     return {
-      paneId: 'PaneId',
-      sourceType: 'SourceType',
+      b: 'B',
+      g: 'G',
+      r: 'R',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestClockWidgetsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestClockWidgets extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: StartCloudRecordRequestClockWidgetsBoxColor;
+  font?: number;
+  fontColor?: StartCloudRecordRequestClockWidgetsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  x?: number;
+  y?: number;
+  zone?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      x: 'X',
+      y: 'Y',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartCloudRecordRequestClockWidgetsBoxColor,
+      font: 'number',
+      fontColor: StartCloudRecordRequestClockWidgetsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      x: 'number',
+      y: 'number',
+      zone: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestImages extends $tea.Model {
+  alpha?: number;
+  height?: number;
+  imageCropMode?: number;
+  layer?: number;
+  url?: string;
+  width?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      imageCropMode: 'ImageCropMode',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      imageCropMode: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestPanesImages extends $tea.Model {
+  alpha?: number;
+  height?: number;
+  layer?: number;
+  paneImageCropMode?: number;
+  url?: string;
+  width?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      layer: 'Layer',
+      paneImageCropMode: 'PaneImageCropMode',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      layer: 'number',
+      paneImageCropMode: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestPanesTextsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestPanesTextsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestPanesTexts extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: StartCloudRecordRequestPanesTextsBoxColor;
+  font?: number;
+  fontColor?: StartCloudRecordRequestPanesTextsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  texture?: string;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartCloudRecordRequestPanesTextsBoxColor,
+      font: 'number',
+      fontColor: StartCloudRecordRequestPanesTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestPanes extends $tea.Model {
+  images?: StartCloudRecordRequestPanesImages[];
+  paneCropMode?: number;
+  paneId?: number;
+  source?: string;
+  sourceType?: string;
+  texts?: StartCloudRecordRequestPanesTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneCropMode: 'PaneCropMode',
+      paneId: 'PaneId',
+      source: 'Source',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': StartCloudRecordRequestPanesImages },
+      paneCropMode: 'number',
       paneId: 'number',
+      source: 'string',
       sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': StartCloudRecordRequestPanesTexts },
     };
   }
 
@@ -9155,6 +9649,108 @@ export class StartCloudRecordRequestStorageConfig extends $tea.Model {
       region: 'number',
       secretKey: 'string',
       vendor: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestTextsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestTextsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestTexts extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: StartCloudRecordRequestTextsBoxColor;
+  font?: number;
+  fontColor?: StartCloudRecordRequestTextsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  texture?: string;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartCloudRecordRequestTextsBoxColor,
+      font: 'number',
+      fontColor: StartCloudRecordRequestTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
     };
   }
 
@@ -9542,20 +10138,838 @@ export class StartRecordTaskRequestUserPanes extends $tea.Model {
   }
 }
 
-export class StartStreamingOutRequestPanes extends $tea.Model {
-  paneId?: string;
-  sourceType?: string;
+export class StartStreamingOutRequestClockWidgetsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
   static names(): { [key: string]: string } {
     return {
-      paneId: 'PaneId',
-      sourceType: 'SourceType',
+      b: 'B',
+      g: 'G',
+      r: 'R',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestClockWidgetsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestClockWidgets extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: StartStreamingOutRequestClockWidgetsBoxColor;
+  font?: number;
+  fontColor?: StartStreamingOutRequestClockWidgetsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  x?: number;
+  y?: number;
+  zone?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      x: 'X',
+      y: 'Y',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartStreamingOutRequestClockWidgetsBoxColor,
+      font: 'number',
+      fontColor: StartStreamingOutRequestClockWidgetsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      x: 'number',
+      y: 'number',
+      zone: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestImages extends $tea.Model {
+  alpha?: number;
+  height?: number;
+  imageCropMode?: number;
+  layer?: number;
+  url?: string;
+  width?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      imageCropMode: 'ImageCropMode',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      imageCropMode: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestPanesImages extends $tea.Model {
+  alpha?: number;
+  height?: number;
+  layer?: number;
+  paneImageCropMode?: number;
+  url?: string;
+  width?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      layer: 'Layer',
+      paneImageCropMode: 'PaneImageCropMode',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      layer: 'number',
+      paneImageCropMode: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestPanesTextsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestPanesTextsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestPanesTexts extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: StartStreamingOutRequestPanesTextsBoxColor;
+  font?: number;
+  fontColor?: StartStreamingOutRequestPanesTextsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  texture?: string;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartStreamingOutRequestPanesTextsBoxColor,
+      font: 'number',
+      fontColor: StartStreamingOutRequestPanesTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestPanes extends $tea.Model {
+  images?: StartStreamingOutRequestPanesImages[];
+  paneCropMode?: number;
+  paneId?: string;
+  source?: string;
+  sourceType?: string;
+  texts?: StartStreamingOutRequestPanesTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneCropMode: 'PaneCropMode',
+      paneId: 'PaneId',
+      source: 'Source',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': StartStreamingOutRequestPanesImages },
+      paneCropMode: 'number',
       paneId: 'string',
+      source: 'string',
       sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': StartStreamingOutRequestPanesTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestTextsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestTextsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestTexts extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: StartStreamingOutRequestTextsBoxColor;
+  font?: number;
+  fontColor?: StartStreamingOutRequestTextsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  texture?: string;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartStreamingOutRequestTextsBoxColor,
+      font: 'number',
+      fontColor: StartStreamingOutRequestTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestClockWidgetsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestClockWidgetsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestClockWidgets extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: UpdateCloudRecordRequestClockWidgetsBoxColor;
+  font?: number;
+  fontColor?: UpdateCloudRecordRequestClockWidgetsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  x?: number;
+  y?: number;
+  zone?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      x: 'X',
+      y: 'Y',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateCloudRecordRequestClockWidgetsBoxColor,
+      font: 'number',
+      fontColor: UpdateCloudRecordRequestClockWidgetsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      x: 'number',
+      y: 'number',
+      zone: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestImages extends $tea.Model {
+  alpha?: number;
+  height?: number;
+  imageCropMode?: number;
+  layer?: number;
+  url?: string;
+  width?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      imageCropMode: 'ImageCropMode',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      imageCropMode: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestPanesImages extends $tea.Model {
+  alpha?: number;
+  height?: number;
+  layer?: number;
+  paneImageCropMode?: number;
+  url?: string;
+  width?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      layer: 'Layer',
+      paneImageCropMode: 'PaneImageCropMode',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      layer: 'number',
+      paneImageCropMode: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestPanesTextsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestPanesTextsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestPanesTexts extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: UpdateCloudRecordRequestPanesTextsBoxColor;
+  font?: number;
+  fontColor?: UpdateCloudRecordRequestPanesTextsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  texture?: string;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateCloudRecordRequestPanesTextsBoxColor,
+      font: 'number',
+      fontColor: UpdateCloudRecordRequestPanesTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestPanes extends $tea.Model {
+  images?: UpdateCloudRecordRequestPanesImages[];
+  paneCropMode?: number;
+  paneId?: number;
+  source?: string;
+  sourceType?: string;
+  texts?: UpdateCloudRecordRequestPanesTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneCropMode: 'PaneCropMode',
+      paneId: 'PaneId',
+      source: 'Source',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': UpdateCloudRecordRequestPanesImages },
+      paneCropMode: 'number',
+      paneId: 'number',
+      source: 'string',
+      sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': UpdateCloudRecordRequestPanesTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestTextsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestTextsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestTexts extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: UpdateCloudRecordRequestTextsBoxColor;
+  font?: number;
+  fontColor?: UpdateCloudRecordRequestTextsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  texture?: string;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateCloudRecordRequestTextsBoxColor,
+      font: 'number',
+      fontColor: UpdateCloudRecordRequestTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
     };
   }
 
@@ -10027,6 +11441,426 @@ export class UpdateRecordTemplateRequestWatermarks extends $tea.Model {
       x: 'number',
       y: 'number',
       ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestClockWidgetsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestClockWidgetsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestClockWidgets extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: UpdateStreamingOutRequestClockWidgetsBoxColor;
+  font?: number;
+  fontColor?: UpdateStreamingOutRequestClockWidgetsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  x?: number;
+  y?: number;
+  zone?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      x: 'X',
+      y: 'Y',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateStreamingOutRequestClockWidgetsBoxColor,
+      font: 'number',
+      fontColor: UpdateStreamingOutRequestClockWidgetsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      x: 'number',
+      y: 'number',
+      zone: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestImages extends $tea.Model {
+  alpha?: number;
+  height?: number;
+  imageCropMode?: number;
+  layer?: number;
+  url?: string;
+  width?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      imageCropMode: 'ImageCropMode',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      imageCropMode: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestPanesImages extends $tea.Model {
+  alpha?: number;
+  height?: number;
+  layer?: number;
+  paneImageCropMode?: number;
+  url?: string;
+  width?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      layer: 'Layer',
+      paneImageCropMode: 'PaneImageCropMode',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      layer: 'number',
+      paneImageCropMode: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestPanesTextsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestPanesTextsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestPanesTexts extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: UpdateStreamingOutRequestPanesTextsBoxColor;
+  font?: number;
+  fontColor?: UpdateStreamingOutRequestPanesTextsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  texture?: string;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateStreamingOutRequestPanesTextsBoxColor,
+      font: 'number',
+      fontColor: UpdateStreamingOutRequestPanesTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestPanes extends $tea.Model {
+  images?: UpdateStreamingOutRequestPanesImages[];
+  paneCropMode?: number;
+  paneId?: number;
+  source?: string;
+  sourceType?: string;
+  texts?: UpdateStreamingOutRequestPanesTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneCropMode: 'PaneCropMode',
+      paneId: 'PaneId',
+      source: 'Source',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': UpdateStreamingOutRequestPanesImages },
+      paneCropMode: 'number',
+      paneId: 'number',
+      source: 'string',
+      sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': UpdateStreamingOutRequestPanesTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestTextsBoxColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestTextsFontColor extends $tea.Model {
+  b?: number;
+  g?: number;
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutRequestTexts extends $tea.Model {
+  alpha?: number;
+  boxAlpha?: number;
+  boxBorderw?: number;
+  boxColor?: UpdateStreamingOutRequestTextsBoxColor;
+  font?: number;
+  fontColor?: UpdateStreamingOutRequestTextsFontColor;
+  fontSize?: number;
+  hasBox?: boolean;
+  layer?: number;
+  texture?: string;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateStreamingOutRequestTextsBoxColor,
+      font: 'number',
+      fontColor: UpdateStreamingOutRequestTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
     };
   }
 
@@ -13412,6 +15246,18 @@ export default class Client extends OpenApi {
       query["ChannelId"] = request.channelId;
     }
 
+    if (!Util.isUnset(request.clockWidgets)) {
+      query["ClockWidgets"] = request.clockWidgets;
+    }
+
+    if (!Util.isUnset(request.cropMode)) {
+      query["CropMode"] = request.cropMode;
+    }
+
+    if (!Util.isUnset(request.images)) {
+      query["Images"] = request.images;
+    }
+
     if (!Util.isUnset(request.panes)) {
       query["Panes"] = request.panes;
     }
@@ -13426,6 +15272,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.texts)) {
+      query["Texts"] = request.texts;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -13749,6 +15599,18 @@ export default class Client extends OpenApi {
       query["ChannelId"] = request.channelId;
     }
 
+    if (!Util.isUnset(request.clockWidgets)) {
+      query["ClockWidgets"] = request.clockWidgets;
+    }
+
+    if (!Util.isUnset(request.cropMode)) {
+      query["CropMode"] = request.cropMode;
+    }
+
+    if (!Util.isUnset(request.images)) {
+      query["Images"] = request.images;
+    }
+
     if (!Util.isUnset(request.panes)) {
       query["Panes"] = request.panes;
     }
@@ -13759,6 +15621,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.texts)) {
+      query["Texts"] = request.texts;
     }
 
     if (!Util.isUnset(request.url)) {
@@ -14102,6 +15968,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 更新云端录制任务
+   *
+   * @param request UpdateCloudRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCloudRecordResponse
+   */
+  async updateCloudRecordWithOptions(request: UpdateCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.clockWidgets)) {
+      query["ClockWidgets"] = request.clockWidgets;
+    }
+
+    if (!Util.isUnset(request.images)) {
+      query["Images"] = request.images;
+    }
+
+    if (!Util.isUnset(request.panes)) {
+      query["Panes"] = request.panes;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.texts)) {
+      query["Texts"] = request.texts;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCloudRecord",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCloudRecordResponse>(await this.callApi(params, req, runtime), new UpdateCloudRecordResponse({}));
+  }
+
+  /**
+   * @summary 更新云端录制任务
+   *
+   * @param request UpdateCloudRecordRequest
+   * @return UpdateCloudRecordResponse
+   */
+  async updateCloudRecord(request: UpdateCloudRecordRequest): Promise<UpdateCloudRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCloudRecordWithOptions(request, runtime);
+  }
+
+  /**
    * @param request UpdateMPUTaskRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return UpdateMPUTaskResponse
@@ -14433,6 +16369,76 @@ export default class Client extends OpenApi {
   async updateRecordTemplate(request: UpdateRecordTemplateRequest): Promise<UpdateRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRecordTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 更新旁路推流任务
+   *
+   * @param request UpdateStreamingOutRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateStreamingOutResponse
+   */
+  async updateStreamingOutWithOptions(request: UpdateStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStreamingOutResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.clockWidgets)) {
+      query["ClockWidgets"] = request.clockWidgets;
+    }
+
+    if (!Util.isUnset(request.images)) {
+      query["Images"] = request.images;
+    }
+
+    if (!Util.isUnset(request.panes)) {
+      query["Panes"] = request.panes;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.texts)) {
+      query["Texts"] = request.texts;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateStreamingOut",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateStreamingOutResponse>(await this.callApi(params, req, runtime), new UpdateStreamingOutResponse({}));
+  }
+
+  /**
+   * @summary 更新旁路推流任务
+   *
+   * @param request UpdateStreamingOutRequest
+   * @return UpdateStreamingOutResponse
+   */
+  async updateStreamingOut(request: UpdateStreamingOutRequest): Promise<UpdateStreamingOutResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateStreamingOutWithOptions(request, runtime);
   }
 
 }
