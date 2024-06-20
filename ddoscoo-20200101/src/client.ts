@@ -302,6 +302,75 @@ export class AttachSceneDefenseObjectResponse extends $tea.Model {
   }
 }
 
+export class ConfigDomainSecurityProfileRequest extends $tea.Model {
+  cluster?: string;
+  config?: string;
+  domain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cluster: 'Cluster',
+      config: 'Config',
+      domain: 'Domain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cluster: 'string',
+      config: 'string',
+      domain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigDomainSecurityProfileResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigDomainSecurityProfileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigDomainSecurityProfileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConfigDomainSecurityProfileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConfigL7RsPolicyRequest extends $tea.Model {
   domain?: string;
   policy?: string;
@@ -366,6 +435,72 @@ export class ConfigL7RsPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ConfigL7RsPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigL7UsKeepaliveRequest extends $tea.Model {
+  domain?: string;
+  upstreamKeepalive?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      upstreamKeepalive: 'UpstreamKeepalive',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      upstreamKeepalive: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigL7UsKeepaliveResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigL7UsKeepaliveResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigL7UsKeepaliveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConfigL7UsKeepaliveResponseBody,
     };
   }
 
@@ -6102,6 +6237,72 @@ export class DescribeL7RsPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeL7RsPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeL7UsKeepaliveRequest extends $tea.Model {
+  domain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeL7UsKeepaliveResponseBody extends $tea.Model {
+  requestId?: string;
+  rsKeepalive?: DescribeL7UsKeepaliveResponseBodyRsKeepalive;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      rsKeepalive: 'RsKeepalive',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      rsKeepalive: DescribeL7UsKeepaliveResponseBodyRsKeepalive,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeL7UsKeepaliveResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeL7UsKeepaliveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeL7UsKeepaliveResponseBody,
     };
   }
 
@@ -14073,25 +14274,37 @@ export class DescribeHealthCheckStatusResponseBodyHealthCheckStatus extends $tea
 }
 
 export class DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos extends $tea.Model {
+  certConfigured?: boolean;
   eip?: string;
+  functionVersion?: string;
   ipMode?: string;
   ipVersion?: string;
+  ssl13Enabled?: boolean;
   status?: string;
+  tlsVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      certConfigured: 'CertConfigured',
       eip: 'Eip',
+      functionVersion: 'FunctionVersion',
       ipMode: 'IpMode',
       ipVersion: 'IpVersion',
+      ssl13Enabled: 'Ssl13Enabled',
       status: 'Status',
+      tlsVersion: 'TlsVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      certConfigured: 'boolean',
       eip: 'string',
+      functionVersion: 'string',
       ipMode: 'string',
       ipVersion: 'string',
+      ssl13Enabled: 'boolean',
       status: 'string',
+      tlsVersion: 'string',
     };
   }
 
@@ -14416,6 +14629,31 @@ export class DescribeL7RsPolicyResponseBodyAttributes extends $tea.Model {
       attribute: DescribeL7RsPolicyResponseBodyAttributesAttribute,
       realServer: 'string',
       rsType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeL7UsKeepaliveResponseBodyRsKeepalive extends $tea.Model {
+  enabled?: boolean;
+  keepaliveRequests?: number;
+  keepaliveTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      keepaliveRequests: 'KeepaliveRequests',
+      keepaliveTimeout: 'KeepaliveTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      keepaliveRequests: 'number',
+      keepaliveTimeout: 'number',
     };
   }
 
@@ -16483,6 +16721,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 配置安全概要属性
+   *
+   * @param request ConfigDomainSecurityProfileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigDomainSecurityProfileResponse
+   */
+  async configDomainSecurityProfileWithOptions(request: ConfigDomainSecurityProfileRequest, runtime: $Util.RuntimeOptions): Promise<ConfigDomainSecurityProfileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cluster)) {
+      query["Cluster"] = request.cluster;
+    }
+
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConfigDomainSecurityProfile",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfigDomainSecurityProfileResponse>(await this.callApi(params, req, runtime), new ConfigDomainSecurityProfileResponse({}));
+  }
+
+  /**
+   * @summary 配置安全概要属性
+   *
+   * @param request ConfigDomainSecurityProfileRequest
+   * @return ConfigDomainSecurityProfileResponse
+   */
+  async configDomainSecurityProfile(request: ConfigDomainSecurityProfileRequest): Promise<ConfigDomainSecurityProfileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.configDomainSecurityProfileWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Configures a back-to-origin policy for the forwarding rule of a website.
    *
    * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
@@ -16538,6 +16826,52 @@ export default class Client extends OpenApi {
   async configL7RsPolicy(request: ConfigL7RsPolicyRequest): Promise<ConfigL7RsPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configL7RsPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 配置长连接
+   *
+   * @param request ConfigL7UsKeepaliveRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigL7UsKeepaliveResponse
+   */
+  async configL7UsKeepaliveWithOptions(request: ConfigL7UsKeepaliveRequest, runtime: $Util.RuntimeOptions): Promise<ConfigL7UsKeepaliveResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.upstreamKeepalive)) {
+      query["UpstreamKeepalive"] = request.upstreamKeepalive;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConfigL7UsKeepalive",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfigL7UsKeepaliveResponse>(await this.callApi(params, req, runtime), new ConfigL7UsKeepaliveResponse({}));
+  }
+
+  /**
+   * @summary 配置长连接
+   *
+   * @param request ConfigL7UsKeepaliveRequest
+   * @return ConfigL7UsKeepaliveResponse
+   */
+  async configL7UsKeepalive(request: ConfigL7UsKeepaliveRequest): Promise<ConfigL7UsKeepaliveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.configL7UsKeepaliveWithOptions(request, runtime);
   }
 
   /**
@@ -20680,6 +21014,48 @@ export default class Client extends OpenApi {
   async describeL7RsPolicy(request: DescribeL7RsPolicyRequest): Promise<DescribeL7RsPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeL7RsPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询长连接
+   *
+   * @param request DescribeL7UsKeepaliveRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeL7UsKeepaliveResponse
+   */
+  async describeL7UsKeepaliveWithOptions(request: DescribeL7UsKeepaliveRequest, runtime: $Util.RuntimeOptions): Promise<DescribeL7UsKeepaliveResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeL7UsKeepalive",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeL7UsKeepaliveResponse>(await this.callApi(params, req, runtime), new DescribeL7UsKeepaliveResponse({}));
+  }
+
+  /**
+   * @summary 查询长连接
+   *
+   * @param request DescribeL7UsKeepaliveRequest
+   * @return DescribeL7UsKeepaliveResponse
+   */
+  async describeL7UsKeepalive(request: DescribeL7UsKeepaliveRequest): Promise<DescribeL7UsKeepaliveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeL7UsKeepaliveWithOptions(request, runtime);
   }
 
   /**
