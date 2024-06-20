@@ -1482,6 +1482,7 @@ export class InitializeRequest extends $tea.Model {
   crop?: string;
   docScanMode?: string;
   docType?: string;
+  experienceCode?: string;
   facePictureBase64?: string;
   facePictureUrl?: string;
   idFaceQuality?: string;
@@ -1505,6 +1506,7 @@ export class InitializeRequest extends $tea.Model {
       crop: 'Crop',
       docScanMode: 'DocScanMode',
       docType: 'DocType',
+      experienceCode: 'ExperienceCode',
       facePictureBase64: 'FacePictureBase64',
       facePictureUrl: 'FacePictureUrl',
       idFaceQuality: 'IdFaceQuality',
@@ -1531,6 +1533,7 @@ export class InitializeRequest extends $tea.Model {
       crop: 'string',
       docScanMode: 'string',
       docType: 'string',
+      experienceCode: 'string',
       facePictureBase64: 'string',
       facePictureUrl: 'string',
       idFaceQuality: 'string',
@@ -2551,11 +2554,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
-    *
-    * @param request CardOcrRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CardOcrResponse
+   * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
+   *
+   * @summary 证件OCR识别纯服务端接口
+   *
+   * @param request CardOcrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CardOcrResponse
    */
   // Deprecated
   async cardOcrWithOptions(request: CardOcrRequest, runtime: $Util.RuntimeOptions): Promise<CardOcrResponse> {
@@ -2617,10 +2622,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
-    *
-    * @param request CardOcrRequest
-    * @return CardOcrResponse
+   * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
+   *
+   * @summary 证件OCR识别纯服务端接口
+   *
+   * @param request CardOcrRequest
+   * @return CardOcrResponse
    */
   // Deprecated
   async cardOcr(request: CardOcrRequest): Promise<CardOcrResponse> {
@@ -2628,6 +2635,13 @@ export default class Client extends OpenApi {
     return await this.cardOcrWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 结果查询
+   *
+   * @param request CheckResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckResultResponse
+   */
   async checkResultWithOptions(request: CheckResultRequest, runtime: $Util.RuntimeOptions): Promise<CheckResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2668,11 +2682,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckResultResponse>(await this.callApi(params, req, runtime), new CheckResultResponse({}));
   }
 
+  /**
+   * @summary 结果查询
+   *
+   * @param request CheckResultRequest
+   * @return CheckResultResponse
+   */
   async checkResult(request: CheckResultRequest): Promise<CheckResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除用户认证记录结果
+   *
+   * @param request DeleteVerifyResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVerifyResultResponse
+   */
   async deleteVerifyResultWithOptions(request: DeleteVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVerifyResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2705,11 +2732,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVerifyResultResponse>(await this.callApi(params, req, runtime), new DeleteVerifyResultResponse({}));
   }
 
+  /**
+   * @summary 删除用户认证记录结果
+   *
+   * @param request DeleteVerifyResultRequest
+   * @return DeleteVerifyResultResponse
+   */
   async deleteVerifyResult(request: DeleteVerifyResultRequest): Promise<DeleteVerifyResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVerifyResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询地址标签接口
+   *
+   * @param request DescribeAddressLabelsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAddressLabelsResponse
+   */
   async describeAddressLabelsWithOptions(request: DescribeAddressLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddressLabelsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2742,11 +2782,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAddressLabelsResponse>(await this.callApi(params, req, runtime), new DescribeAddressLabelsResponse({}));
   }
 
+  /**
+   * @summary 查询地址标签接口
+   *
+   * @param request DescribeAddressLabelsRequest
+   * @return DescribeAddressLabelsResponse
+   */
   async describeAddressLabels(request: DescribeAddressLabelsRequest): Promise<DescribeAddressLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAddressLabelsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询地址详情接口
+   *
+   * @param request DescribeAddressOverviewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAddressOverviewResponse
+   */
   async describeAddressOverviewWithOptions(request: DescribeAddressOverviewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddressOverviewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2779,11 +2832,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAddressOverviewResponse>(await this.callApi(params, req, runtime), new DescribeAddressOverviewResponse({}));
   }
 
+  /**
+   * @summary 查询地址详情接口
+   *
+   * @param request DescribeAddressOverviewRequest
+   * @return DescribeAddressOverviewResponse
+   */
   async describeAddressOverview(request: DescribeAddressOverviewRequest): Promise<DescribeAddressOverviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAddressOverviewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 恶意地址查询
+   *
+   * @param request DescribeMaliciousAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMaliciousAddressResponse
+   */
   async describeMaliciousAddressWithOptions(request: DescribeMaliciousAddressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMaliciousAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2820,11 +2886,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMaliciousAddressResponse>(await this.callApi(params, req, runtime), new DescribeMaliciousAddressResponse({}));
   }
 
+  /**
+   * @summary 恶意地址查询
+   *
+   * @param request DescribeMaliciousAddressRequest
+   * @return DescribeMaliciousAddressResponse
+   */
   async describeMaliciousAddress(request: DescribeMaliciousAddressRequest): Promise<DescribeMaliciousAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMaliciousAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询地址风险接口
+   *
+   * @param request DescribeRiskScoreRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRiskScoreResponse
+   */
   async describeRiskScoreWithOptions(request: DescribeRiskScoreRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskScoreResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2857,11 +2936,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRiskScoreResponse>(await this.callApi(params, req, runtime), new DescribeRiskScoreResponse({}));
   }
 
+  /**
+   * @summary 查询地址风险接口
+   *
+   * @param request DescribeRiskScoreRequest
+   * @return DescribeRiskScoreResponse
+   */
   async describeRiskScore(request: DescribeRiskScoreRequest): Promise<DescribeRiskScoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRiskScoreWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询交易接口
+   *
+   * @param request DescribeTransactionsListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTransactionsListResponse
+   */
   async describeTransactionsListWithOptions(request: DescribeTransactionsListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTransactionsListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2910,11 +3002,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTransactionsListResponse>(await this.callApi(params, req, runtime), new DescribeTransactionsListResponse({}));
   }
 
+  /**
+   * @summary 查询交易接口
+   *
+   * @param request DescribeTransactionsListRequest
+   * @return DescribeTransactionsListResponse
+   */
   async describeTransactionsList(request: DescribeTransactionsListRequest): Promise<DescribeTransactionsListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTransactionsListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Query the Information of address.
+   *
+   * @param request DescribeWeb3AddressLabelsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWeb3AddressLabelsResponse
+   */
   async describeWeb3AddressLabelsWithOptions(request: DescribeWeb3AddressLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWeb3AddressLabelsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2947,11 +3052,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWeb3AddressLabelsResponse>(await this.callApi(params, req, runtime), new DescribeWeb3AddressLabelsResponse({}));
   }
 
+  /**
+   * @summary Query the Information of address.
+   *
+   * @param request DescribeWeb3AddressLabelsRequest
+   * @return DescribeWeb3AddressLabelsResponse
+   */
   async describeWeb3AddressLabels(request: DescribeWeb3AddressLabelsRequest): Promise<DescribeWeb3AddressLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWeb3AddressLabelsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Query risk score, risk detail list for a given address
+   *
+   * @param request DescribeWeb3RiskScoreRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWeb3RiskScoreResponse
+   */
   async describeWeb3RiskScoreWithOptions(request: DescribeWeb3RiskScoreRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWeb3RiskScoreResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2992,11 +3110,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWeb3RiskScoreResponse>(await this.callApi(params, req, runtime), new DescribeWeb3RiskScoreResponse({}));
   }
 
+  /**
+   * @summary Query risk score, risk detail list for a given address
+   *
+   * @param request DescribeWeb3RiskScoreRequest
+   * @return DescribeWeb3RiskScoreResponse
+   */
   async describeWeb3RiskScore(request: DescribeWeb3RiskScoreRequest): Promise<DescribeWeb3RiskScoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWeb3RiskScoreWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Query the Information of transaction.
+   *
+   * @param request DescribeWeb3TransactionLabelsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWeb3TransactionLabelsResponse
+   */
   async describeWeb3TransactionLabelsWithOptions(request: DescribeWeb3TransactionLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWeb3TransactionLabelsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3029,11 +3160,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWeb3TransactionLabelsResponse>(await this.callApi(params, req, runtime), new DescribeWeb3TransactionLabelsResponse({}));
   }
 
+  /**
+   * @summary Query the Information of transaction.
+   *
+   * @param request DescribeWeb3TransactionLabelsRequest
+   * @return DescribeWeb3TransactionLabelsResponse
+   */
   async describeWeb3TransactionLabels(request: DescribeWeb3TransactionLabelsRequest): Promise<DescribeWeb3TransactionLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWeb3TransactionLabelsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 卡证ocr纯服务端
+   *
+   * @param request DocOcrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DocOcrResponse
+   */
   async docOcrWithOptions(request: DocOcrRequest, runtime: $Util.RuntimeOptions): Promise<DocOcrResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3092,11 +3236,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DocOcrResponse>(await this.callApi(params, req, runtime), new DocOcrResponse({}));
   }
 
+  /**
+   * @summary 卡证ocr纯服务端
+   *
+   * @param request DocOcrRequest
+   * @return DocOcrResponse
+   */
   async docOcr(request: DocOcrRequest): Promise<DocOcrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.docOcrWithOptions(request, runtime);
   }
 
+  /**
+   * @summary ekyc纯服务端接口
+   *
+   * @param request EkycVerifyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EkycVerifyResponse
+   */
   async ekycVerifyWithOptions(request: EkycVerifyRequest, runtime: $Util.RuntimeOptions): Promise<EkycVerifyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3167,11 +3324,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EkycVerifyResponse>(await this.callApi(params, req, runtime), new EkycVerifyResponse({}));
   }
 
+  /**
+   * @summary ekyc纯服务端接口
+   *
+   * @param request EkycVerifyRequest
+   * @return EkycVerifyResponse
+   */
   async ekycVerify(request: EkycVerifyRequest): Promise<EkycVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.ekycVerifyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 人脸比对
+   *
+   * @param request FaceCompareRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FaceCompareResponse
+   */
   async faceCompareWithOptions(request: FaceCompareRequest, runtime: $Util.RuntimeOptions): Promise<FaceCompareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3214,11 +3384,24 @@ export default class Client extends OpenApi {
     return $tea.cast<FaceCompareResponse>(await this.callApi(params, req, runtime), new FaceCompareResponse({}));
   }
 
+  /**
+   * @summary 人脸比对
+   *
+   * @param request FaceCompareRequest
+   * @return FaceCompareResponse
+   */
   async faceCompare(request: FaceCompareRequest): Promise<FaceCompareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.faceCompareWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 静默活体API 纯服务端
+   *
+   * @param request FaceLivenessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FaceLivenessResponse
+   */
   async faceLivenessWithOptions(request: FaceLivenessRequest, runtime: $Util.RuntimeOptions): Promise<FaceLivenessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3273,11 +3456,24 @@ export default class Client extends OpenApi {
     return $tea.cast<FaceLivenessResponse>(await this.callApi(params, req, runtime), new FaceLivenessResponse({}));
   }
 
+  /**
+   * @summary 静默活体API 纯服务端
+   *
+   * @param request FaceLivenessRequest
+   * @return FaceLivenessResponse
+   */
   async faceLiveness(request: FaceLivenessRequest): Promise<FaceLivenessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.faceLivenessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 防伪回调接口
+   *
+   * @param request FraudResultCallBackRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FraudResultCallBackResponse
+   */
   async fraudResultCallBackWithOptions(request: FraudResultCallBackRequest, runtime: $Util.RuntimeOptions): Promise<FraudResultCallBackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3314,11 +3510,24 @@ export default class Client extends OpenApi {
     return $tea.cast<FraudResultCallBackResponse>(await this.callApi(params, req, runtime), new FraudResultCallBackResponse({}));
   }
 
+  /**
+   * @summary 防伪回调接口
+   *
+   * @param request FraudResultCallBackRequest
+   * @return FraudResultCallBackResponse
+   */
   async fraudResultCallBack(request: FraudResultCallBackRequest): Promise<FraudResultCallBackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fraudResultCallBackWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 身份二要素国际版接口
+   *
+   * @param request Id2MetaVerifyIntlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return Id2MetaVerifyIntlResponse
+   */
   async id2MetaVerifyIntlWithOptions(request: Id2MetaVerifyIntlRequest, runtime: $Util.RuntimeOptions): Promise<Id2MetaVerifyIntlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3355,11 +3564,24 @@ export default class Client extends OpenApi {
     return $tea.cast<Id2MetaVerifyIntlResponse>(await this.callApi(params, req, runtime), new Id2MetaVerifyIntlResponse({}));
   }
 
+  /**
+   * @summary 身份二要素国际版接口
+   *
+   * @param request Id2MetaVerifyIntlRequest
+   * @return Id2MetaVerifyIntlResponse
+   */
   async id2MetaVerifyIntl(request: Id2MetaVerifyIntlRequest): Promise<Id2MetaVerifyIntlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.id2MetaVerifyIntlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 认证初始化
+   *
+   * @param request InitializeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InitializeResponse
+   */
   async initializeWithOptions(request: InitializeRequest, runtime: $Util.RuntimeOptions): Promise<InitializeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3385,6 +3607,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.docType)) {
       query["DocType"] = request.docType;
+    }
+
+    if (!Util.isUnset(request.experienceCode)) {
+      query["ExperienceCode"] = request.experienceCode;
     }
 
     if (!Util.isUnset(request.facePictureUrl)) {
@@ -3466,11 +3692,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InitializeResponse>(await this.callApi(params, req, runtime), new InitializeResponse({}));
   }
 
+  /**
+   * @summary 认证初始化
+   *
+   * @param request InitializeRequest
+   * @return InitializeResponse
+   */
   async initialize(request: InitializeRequest): Promise<InitializeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.initializeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 手机号三要素国际版接口
+   *
+   * @param request Mobile3MetaVerifyIntlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return Mobile3MetaVerifyIntlResponse
+   */
   async mobile3MetaVerifyIntlWithOptions(request: Mobile3MetaVerifyIntlRequest, runtime: $Util.RuntimeOptions): Promise<Mobile3MetaVerifyIntlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3511,6 +3750,12 @@ export default class Client extends OpenApi {
     return $tea.cast<Mobile3MetaVerifyIntlResponse>(await this.callApi(params, req, runtime), new Mobile3MetaVerifyIntlResponse({}));
   }
 
+  /**
+   * @summary 手机号三要素国际版接口
+   *
+   * @param request Mobile3MetaVerifyIntlRequest
+   * @return Mobile3MetaVerifyIntlResponse
+   */
   async mobile3MetaVerifyIntl(request: Mobile3MetaVerifyIntlRequest): Promise<Mobile3MetaVerifyIntlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.mobile3MetaVerifyIntlWithOptions(request, runtime);
