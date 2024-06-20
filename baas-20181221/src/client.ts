@@ -199,9 +199,9 @@ export class AcceptFabricInvitationResponseBody extends $tea.Model {
 }
 
 export class AcceptFabricInvitationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AcceptFabricInvitationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AcceptFabricInvitationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -268,9 +268,9 @@ export class ApplyAntChainCertificateResponseBody extends $tea.Model {
 }
 
 export class ApplyAntChainCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApplyAntChainCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyAntChainCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -358,9 +358,9 @@ export class ApplyAntChainCertificateWithKeyAutoCreationResponseBody extends $te
 }
 
 export class ApplyAntChainCertificateWithKeyAutoCreationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApplyAntChainCertificateWithKeyAutoCreationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyAntChainCertificateWithKeyAutoCreationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -442,9 +442,9 @@ export class ApproveFabricChaincodeDefinitionResponseBody extends $tea.Model {
 }
 
 export class ApproveFabricChaincodeDefinitionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApproveFabricChaincodeDefinitionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApproveFabricChaincodeDefinitionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -533,9 +533,9 @@ export class BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponseBody extends $t
 }
 
 export class BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -605,9 +605,9 @@ export class CheckFabricConsortiumDomainResponseBody extends $tea.Model {
 }
 
 export class CheckFabricConsortiumDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckFabricConsortiumDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckFabricConsortiumDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -680,9 +680,9 @@ export class CheckFabricOrganizationDomainResponseBody extends $tea.Model {
 }
 
 export class CheckFabricOrganizationDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckFabricOrganizationDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckFabricOrganizationDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -755,9 +755,9 @@ export class ConfirmFabricConsortiumMemberResponseBody extends $tea.Model {
 }
 
 export class ConfirmFabricConsortiumMemberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfirmFabricConsortiumMemberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfirmFabricConsortiumMemberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -830,9 +830,9 @@ export class CopyAntChainContractProjectResponseBody extends $tea.Model {
 }
 
 export class CopyAntChainContractProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CopyAntChainContractProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CopyAntChainContractProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -905,9 +905,9 @@ export class CreateAntChainAccountResponseBody extends $tea.Model {
 }
 
 export class CreateAntChainAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAntChainAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAntChainAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -980,9 +980,9 @@ export class CreateAntChainAccountWithKeyPairAutoCreationResponseBody extends $t
 }
 
 export class CreateAntChainAccountWithKeyPairAutoCreationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAntChainAccountWithKeyPairAutoCreationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAntChainAccountWithKeyPairAutoCreationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1049,9 +1049,9 @@ export class CreateAntChainConsortiumResponseBody extends $tea.Model {
 }
 
 export class CreateAntChainConsortiumResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAntChainConsortiumResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAntChainConsortiumResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1127,9 +1127,9 @@ export class CreateAntChainContractContentResponseBody extends $tea.Model {
 }
 
 export class CreateAntChainContractContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAntChainContractContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAntChainContractContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1202,9 +1202,9 @@ export class CreateAntChainContractProjectResponseBody extends $tea.Model {
 }
 
 export class CreateAntChainContractProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAntChainContractProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAntChainContractProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1289,9 +1289,9 @@ export class CreateAntChainKmsAccountNewResponseBody extends $tea.Model {
 }
 
 export class CreateAntChainKmsAccountNewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAntChainKmsAccountNewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAntChainKmsAccountNewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1379,9 +1379,9 @@ export class CreateFabricChaincodeResponseBody extends $tea.Model {
 }
 
 export class CreateFabricChaincodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFabricChaincodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFabricChaincodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1460,9 +1460,9 @@ export class CreateFabricChaincodePackageResponseBody extends $tea.Model {
 }
 
 export class CreateFabricChaincodePackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFabricChaincodePackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFabricChaincodePackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1547,9 +1547,9 @@ export class CreateFabricChannelResponseBody extends $tea.Model {
 }
 
 export class CreateFabricChannelResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFabricChannelResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFabricChannelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1622,9 +1622,9 @@ export class CreateFabricChannelMemberResponseBody extends $tea.Model {
 }
 
 export class CreateFabricChannelMemberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFabricChannelMemberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFabricChannelMemberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1730,9 +1730,9 @@ export class CreateFabricConsortiumResponseBody extends $tea.Model {
 }
 
 export class CreateFabricConsortiumResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFabricConsortiumResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFabricConsortiumResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1808,9 +1808,9 @@ export class CreateFabricConsortiumMemberResponseBody extends $tea.Model {
 }
 
 export class CreateFabricConsortiumMemberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFabricConsortiumMemberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFabricConsortiumMemberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1901,9 +1901,9 @@ export class CreateFabricOrganizationResponseBody extends $tea.Model {
 }
 
 export class CreateFabricOrganizationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFabricOrganizationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFabricOrganizationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1982,9 +1982,9 @@ export class CreateFabricOrganizationUserResponseBody extends $tea.Model {
 }
 
 export class CreateFabricOrganizationUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFabricOrganizationUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFabricOrganizationUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2048,9 +2048,9 @@ export class DeleteAntChainConsortiumResponseBody extends $tea.Model {
 }
 
 export class DeleteAntChainConsortiumResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAntChainConsortiumResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAntChainConsortiumResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2114,9 +2114,9 @@ export class DeleteAntChainContractContentResponseBody extends $tea.Model {
 }
 
 export class DeleteAntChainContractContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAntChainContractContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAntChainContractContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2180,9 +2180,9 @@ export class DeleteAntChainContractProjectResponseBody extends $tea.Model {
 }
 
 export class DeleteAntChainContractProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAntChainContractProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAntChainContractProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2249,9 +2249,9 @@ export class DeleteAntChainMiniAppQRCodeAuthorizedUserResponseBody extends $tea.
 }
 
 export class DeleteAntChainMiniAppQRCodeAuthorizedUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAntChainMiniAppQRCodeAuthorizedUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAntChainMiniAppQRCodeAuthorizedUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2318,9 +2318,9 @@ export class DeleteFabricChaincodeResponseBody extends $tea.Model {
 }
 
 export class DeleteFabricChaincodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFabricChaincodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFabricChaincodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2390,9 +2390,9 @@ export class DescribeAntChainAccountsResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainAccountsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainAccountsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainAccountsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2483,9 +2483,9 @@ export class DescribeAntChainAccountsV2ResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainAccountsV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainAccountsV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainAccountsV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2552,9 +2552,9 @@ export class DescribeAntChainBlockResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainBlockResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainBlockResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainBlockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2642,9 +2642,9 @@ export class DescribeAntChainBlockV2ResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainBlockV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainBlockV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainBlockV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2717,9 +2717,9 @@ export class DescribeAntChainCertificateApplicationsResponseBody extends $tea.Mo
 }
 
 export class DescribeAntChainCertificateApplicationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainCertificateApplicationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainCertificateApplicationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2813,9 +2813,9 @@ export class DescribeAntChainCertificateApplicationsV2ResponseBody extends $tea.
 }
 
 export class DescribeAntChainCertificateApplicationsV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainCertificateApplicationsV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainCertificateApplicationsV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2882,9 +2882,9 @@ export class DescribeAntChainConsortiumsResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainConsortiumsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainConsortiumsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainConsortiumsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2969,9 +2969,9 @@ export class DescribeAntChainConsortiumsV2ResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainConsortiumsV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainConsortiumsV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainConsortiumsV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3035,9 +3035,9 @@ export class DescribeAntChainContractProjectContentTreeResponseBody extends $tea
 }
 
 export class DescribeAntChainContractProjectContentTreeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainContractProjectContentTreeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainContractProjectContentTreeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3122,9 +3122,9 @@ export class DescribeAntChainContractProjectContentTreeV2ResponseBody extends $t
 }
 
 export class DescribeAntChainContractProjectContentTreeV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainContractProjectContentTreeV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainContractProjectContentTreeV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3194,9 +3194,9 @@ export class DescribeAntChainContractProjectsResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainContractProjectsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainContractProjectsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainContractProjectsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3284,9 +3284,9 @@ export class DescribeAntChainContractProjectsV2ResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainContractProjectsV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainContractProjectsV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainContractProjectsV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3350,9 +3350,9 @@ export class DescribeAntChainDownloadPathsResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainDownloadPathsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainDownloadPathsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainDownloadPathsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3437,9 +3437,9 @@ export class DescribeAntChainDownloadPathsV2ResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainDownloadPathsV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainDownloadPathsV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainDownloadPathsV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3503,9 +3503,9 @@ export class DescribeAntChainInformationResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainInformationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainInformationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainInformationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3590,9 +3590,9 @@ export class DescribeAntChainInformationV2ResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainInformationV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainInformationV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainInformationV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3656,9 +3656,9 @@ export class DescribeAntChainLatestBlocksResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainLatestBlocksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainLatestBlocksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainLatestBlocksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3743,9 +3743,9 @@ export class DescribeAntChainLatestBlocksV2ResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainLatestBlocksV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainLatestBlocksV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainLatestBlocksV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3809,9 +3809,9 @@ export class DescribeAntChainLatestTransactionDigestsResponseBody extends $tea.M
 }
 
 export class DescribeAntChainLatestTransactionDigestsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainLatestTransactionDigestsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainLatestTransactionDigestsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3896,9 +3896,9 @@ export class DescribeAntChainLatestTransactionDigestsV2ResponseBody extends $tea
 }
 
 export class DescribeAntChainLatestTransactionDigestsV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainLatestTransactionDigestsV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainLatestTransactionDigestsV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3968,9 +3968,9 @@ export class DescribeAntChainMembersResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainMembersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainMembersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4058,9 +4058,9 @@ export class DescribeAntChainMembersV2ResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainMembersV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainMembersV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainMembersV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4127,9 +4127,9 @@ export class DescribeAntChainMiniAppBrowserQRCodeAccessLogResponseBody extends $
 }
 
 export class DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainMiniAppBrowserQRCodeAccessLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainMiniAppBrowserQRCodeAccessLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4214,9 +4214,9 @@ export class DescribeAntChainMiniAppBrowserQRCodeAccessLogV2ResponseBody extends
 }
 
 export class DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainMiniAppBrowserQRCodeAccessLogV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainMiniAppBrowserQRCodeAccessLogV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4289,9 +4289,9 @@ export class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponseBody ext
 }
 
 export class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4382,9 +4382,9 @@ export class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2ResponseBody e
 }
 
 export class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4451,9 +4451,9 @@ export class DescribeAntChainMiniAppBrowserTransactionQRCodeResponseBody extends
 }
 
 export class DescribeAntChainMiniAppBrowserTransactionQRCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainMiniAppBrowserTransactionQRCodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainMiniAppBrowserTransactionQRCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4541,9 +4541,9 @@ export class DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponseBody exte
 }
 
 export class DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4607,9 +4607,9 @@ export class DescribeAntChainNodesResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainNodesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainNodesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4694,9 +4694,9 @@ export class DescribeAntChainNodesV2ResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainNodesV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainNodesV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainNodesV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4763,9 +4763,9 @@ export class DescribeAntChainQRCodeAuthorizationResponseBody extends $tea.Model 
 }
 
 export class DescribeAntChainQRCodeAuthorizationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainQRCodeAuthorizationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainQRCodeAuthorizationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4850,9 +4850,9 @@ export class DescribeAntChainQRCodeAuthorizationV2ResponseBody extends $tea.Mode
 }
 
 export class DescribeAntChainQRCodeAuthorizationV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainQRCodeAuthorizationV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainQRCodeAuthorizationV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4919,9 +4919,9 @@ export class DescribeAntChainTransactionResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainTransactionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainTransactionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainTransactionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4988,9 +4988,9 @@ export class DescribeAntChainTransactionReceiptResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainTransactionReceiptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainTransactionReceiptResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainTransactionReceiptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5078,9 +5078,9 @@ export class DescribeAntChainTransactionReceiptV2ResponseBody extends $tea.Model
 }
 
 export class DescribeAntChainTransactionReceiptV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainTransactionReceiptV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainTransactionReceiptV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5150,9 +5150,9 @@ export class DescribeAntChainTransactionStatisticsResponseBody extends $tea.Mode
 }
 
 export class DescribeAntChainTransactionStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainTransactionStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainTransactionStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5243,9 +5243,9 @@ export class DescribeAntChainTransactionStatisticsV2ResponseBody extends $tea.Mo
 }
 
 export class DescribeAntChainTransactionStatisticsV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainTransactionStatisticsV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainTransactionStatisticsV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5333,9 +5333,9 @@ export class DescribeAntChainTransactionV2ResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainTransactionV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainTransactionV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainTransactionV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5405,9 +5405,9 @@ export class DescribeAntChainsResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5495,9 +5495,9 @@ export class DescribeAntChainsV2ResponseBody extends $tea.Model {
 }
 
 export class DescribeAntChainsV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAntChainsV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAntChainsV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5567,9 +5567,9 @@ export class DescribeEthereumDeletableResponseBody extends $tea.Model {
 }
 
 export class DescribeEthereumDeletableResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeEthereumDeletableResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEthereumDeletableResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5639,9 +5639,9 @@ export class DescribeFabricCandidateOrganizationsResponseBody extends $tea.Model
 }
 
 export class DescribeFabricCandidateOrganizationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricCandidateOrganizationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricCandidateOrganizationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5714,9 +5714,9 @@ export class DescribeFabricChaincodeDefinitionTaskResponseBody extends $tea.Mode
 }
 
 export class DescribeFabricChaincodeDefinitionTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricChaincodeDefinitionTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricChaincodeDefinitionTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5786,9 +5786,9 @@ export class DescribeFabricChaincodeUploadPolicyResponseBody extends $tea.Model 
 }
 
 export class DescribeFabricChaincodeUploadPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricChaincodeUploadPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricChaincodeUploadPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5858,9 +5858,9 @@ export class DescribeFabricChannelMembersResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricChannelMembersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricChannelMembersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricChannelMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5930,9 +5930,9 @@ export class DescribeFabricConsortiumAdminStatusResponseBody extends $tea.Model 
 }
 
 export class DescribeFabricConsortiumAdminStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricConsortiumAdminStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricConsortiumAdminStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6005,9 +6005,9 @@ export class DescribeFabricConsortiumChaincodesResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricConsortiumChaincodesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricConsortiumChaincodesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricConsortiumChaincodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6080,9 +6080,9 @@ export class DescribeFabricConsortiumChannelsResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricConsortiumChannelsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricConsortiumChannelsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricConsortiumChannelsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6133,9 +6133,9 @@ export class DescribeFabricConsortiumConfigResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricConsortiumConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricConsortiumConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricConsortiumConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6208,9 +6208,9 @@ export class DescribeFabricConsortiumDeletableResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricConsortiumDeletableResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricConsortiumDeletableResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricConsortiumDeletableResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6283,9 +6283,9 @@ export class DescribeFabricConsortiumMemberApprovalResponseBody extends $tea.Mod
 }
 
 export class DescribeFabricConsortiumMemberApprovalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricConsortiumMemberApprovalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricConsortiumMemberApprovalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6358,9 +6358,9 @@ export class DescribeFabricConsortiumMembersResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricConsortiumMembersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricConsortiumMembersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricConsortiumMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6433,9 +6433,9 @@ export class DescribeFabricConsortiumOrderersResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricConsortiumOrderersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricConsortiumOrderersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricConsortiumOrderersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6486,9 +6486,9 @@ export class DescribeFabricConsortiumSpecsResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricConsortiumSpecsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricConsortiumSpecsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricConsortiumSpecsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6564,9 +6564,9 @@ export class DescribeFabricConsortiumsResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricConsortiumsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricConsortiumsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricConsortiumsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6651,9 +6651,9 @@ export class DescribeFabricExplorerResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricExplorerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricExplorerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricExplorerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6729,9 +6729,9 @@ export class DescribeFabricInvitationCodeResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricInvitationCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricInvitationCodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricInvitationCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6801,9 +6801,9 @@ export class DescribeFabricInviterResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricInviterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricInviterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricInviterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6879,9 +6879,9 @@ export class DescribeFabricOrdererLogsResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricOrdererLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricOrdererLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricOrdererLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6957,9 +6957,9 @@ export class DescribeFabricOrganizationResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricOrganizationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricOrganizationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricOrganizationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7032,9 +7032,9 @@ export class DescribeFabricOrganizationChaincodePackageResponseBody extends $tea
 }
 
 export class DescribeFabricOrganizationChaincodePackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricOrganizationChaincodePackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricOrganizationChaincodePackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7107,9 +7107,9 @@ export class DescribeFabricOrganizationChaincodesResponseBody extends $tea.Model
 }
 
 export class DescribeFabricOrganizationChaincodesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricOrganizationChaincodesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricOrganizationChaincodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7182,9 +7182,9 @@ export class DescribeFabricOrganizationChannelsResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricOrganizationChannelsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricOrganizationChannelsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricOrganizationChannelsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7257,9 +7257,9 @@ export class DescribeFabricOrganizationDeletableResponseBody extends $tea.Model 
 }
 
 export class DescribeFabricOrganizationDeletableResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricOrganizationDeletableResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricOrganizationDeletableResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7332,9 +7332,9 @@ export class DescribeFabricOrganizationMembersResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricOrganizationMembersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricOrganizationMembersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricOrganizationMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7407,9 +7407,9 @@ export class DescribeFabricOrganizationPeersResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricOrganizationPeersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricOrganizationPeersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricOrganizationPeersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7460,9 +7460,9 @@ export class DescribeFabricOrganizationSpecsResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricOrganizationSpecsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricOrganizationSpecsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricOrganizationSpecsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7535,9 +7535,9 @@ export class DescribeFabricOrganizationUsersResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricOrganizationUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricOrganizationUsersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricOrganizationUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7610,9 +7610,9 @@ export class DescribeFabricOrganizationsResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricOrganizationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricOrganizationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricOrganizationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7688,9 +7688,9 @@ export class DescribeFabricPeerLogsResponseBody extends $tea.Model {
 }
 
 export class DescribeFabricPeerLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFabricPeerLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFabricPeerLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7763,9 +7763,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7816,9 +7816,9 @@ export class DescribeRootDomainResponseBody extends $tea.Model {
 }
 
 export class DescribeRootDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRootDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRootDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7875,9 +7875,9 @@ export class DescribeTasksResponseBody extends $tea.Model {
 }
 
 export class DescribeTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7953,9 +7953,9 @@ export class DownloadFabricOrganizationSDKResponseBody extends $tea.Model {
 }
 
 export class DownloadFabricOrganizationSDKResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DownloadFabricOrganizationSDKResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DownloadFabricOrganizationSDKResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8022,9 +8022,9 @@ export class FreezeAntChainAccountResponseBody extends $tea.Model {
 }
 
 export class FreezeAntChainAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FreezeAntChainAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FreezeAntChainAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8100,9 +8100,9 @@ export class InstallFabricChaincodeResponseBody extends $tea.Model {
 }
 
 export class InstallFabricChaincodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InstallFabricChaincodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InstallFabricChaincodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8181,9 +8181,9 @@ export class InstallFabricChaincodePackageResponseBody extends $tea.Model {
 }
 
 export class InstallFabricChaincodePackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InstallFabricChaincodePackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InstallFabricChaincodePackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8265,9 +8265,9 @@ export class InstantiateFabricChaincodeResponseBody extends $tea.Model {
 }
 
 export class InstantiateFabricChaincodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InstantiateFabricChaincodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InstantiateFabricChaincodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8343,9 +8343,9 @@ export class JoinFabricChannelResponseBody extends $tea.Model {
 }
 
 export class JoinFabricChannelResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: JoinFabricChannelResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: JoinFabricChannelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8421,9 +8421,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8487,9 +8487,9 @@ export class ResetAntChainCertificateResponseBody extends $tea.Model {
 }
 
 export class ResetAntChainCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetAntChainCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetAntChainCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8556,9 +8556,9 @@ export class ResetAntChainUserCertificateResponseBody extends $tea.Model {
 }
 
 export class ResetAntChainUserCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetAntChainUserCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetAntChainUserCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8637,9 +8637,9 @@ export class ResetFabricOrganizationUserPasswordResponseBody extends $tea.Model 
 }
 
 export class ResetFabricOrganizationUserPasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetFabricOrganizationUserPasswordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetFabricOrganizationUserPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8736,9 +8736,9 @@ export class SubmitFabricChaincodeDefinitionResponseBody extends $tea.Model {
 }
 
 export class SubmitFabricChaincodeDefinitionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitFabricChaincodeDefinitionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitFabricChaincodeDefinitionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8811,9 +8811,9 @@ export class SynchronizeFabricChaincodeResponseBody extends $tea.Model {
 }
 
 export class SynchronizeFabricChaincodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SynchronizeFabricChaincodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SynchronizeFabricChaincodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8889,9 +8889,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8958,9 +8958,9 @@ export class UnfreezeAntChainAccountResponseBody extends $tea.Model {
 }
 
 export class UnfreezeAntChainAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnfreezeAntChainAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnfreezeAntChainAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9039,9 +9039,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9108,9 +9108,9 @@ export class UpdateAntChainResponseBody extends $tea.Model {
 }
 
 export class UpdateAntChainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAntChainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAntChainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9180,9 +9180,9 @@ export class UpdateAntChainConsortiumResponseBody extends $tea.Model {
 }
 
 export class UpdateAntChainConsortiumResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAntChainConsortiumResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAntChainConsortiumResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9255,9 +9255,9 @@ export class UpdateAntChainContractContentResponseBody extends $tea.Model {
 }
 
 export class UpdateAntChainContractContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAntChainContractContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAntChainContractContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9330,9 +9330,9 @@ export class UpdateAntChainContractProjectResponseBody extends $tea.Model {
 }
 
 export class UpdateAntChainContractProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAntChainContractProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAntChainContractProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9402,9 +9402,9 @@ export class UpdateAntChainMemberResponseBody extends $tea.Model {
 }
 
 export class UpdateAntChainMemberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAntChainMemberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAntChainMemberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9474,9 +9474,9 @@ export class UpdateAntChainQRCodeAuthorizationResponseBody extends $tea.Model {
 }
 
 export class UpdateAntChainQRCodeAuthorizationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAntChainQRCodeAuthorizationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAntChainQRCodeAuthorizationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9558,9 +9558,9 @@ export class UpgradeFabricChaincodeResponseBody extends $tea.Model {
 }
 
 export class UpgradeFabricChaincodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpgradeFabricChaincodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeFabricChaincodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9654,9 +9654,9 @@ export class UpgradeFabricChaincodeDefinitionResponseBody extends $tea.Model {
 }
 
 export class UpgradeFabricChaincodeDefinitionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpgradeFabricChaincodeDefinitionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeFabricChaincodeDefinitionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14351,6 +14351,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AcceptFabricInvitationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AcceptFabricInvitationResponse
+   */
   async acceptFabricInvitationWithOptions(request: AcceptFabricInvitationRequest, runtime: $Util.RuntimeOptions): Promise<AcceptFabricInvitationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14379,11 +14384,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AcceptFabricInvitationResponse>(await this.callApi(params, req, runtime), new AcceptFabricInvitationResponse({}));
   }
 
+  /**
+   * @param request AcceptFabricInvitationRequest
+   * @return AcceptFabricInvitationResponse
+   */
   async acceptFabricInvitation(request: AcceptFabricInvitationRequest): Promise<AcceptFabricInvitationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.acceptFabricInvitationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ApplyAntChainCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyAntChainCertificateResponse
+   */
   async applyAntChainCertificateWithOptions(request: ApplyAntChainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ApplyAntChainCertificateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14412,11 +14426,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyAntChainCertificateResponse>(await this.callApi(params, req, runtime), new ApplyAntChainCertificateResponse({}));
   }
 
+  /**
+   * @param request ApplyAntChainCertificateRequest
+   * @return ApplyAntChainCertificateResponse
+   */
   async applyAntChainCertificate(request: ApplyAntChainCertificateRequest): Promise<ApplyAntChainCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyAntChainCertificateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ApplyAntChainCertificateWithKeyAutoCreationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyAntChainCertificateWithKeyAutoCreationResponse
+   */
   async applyAntChainCertificateWithKeyAutoCreationWithOptions(request: ApplyAntChainCertificateWithKeyAutoCreationRequest, runtime: $Util.RuntimeOptions): Promise<ApplyAntChainCertificateWithKeyAutoCreationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14473,11 +14496,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyAntChainCertificateWithKeyAutoCreationResponse>(await this.callApi(params, req, runtime), new ApplyAntChainCertificateWithKeyAutoCreationResponse({}));
   }
 
+  /**
+   * @param request ApplyAntChainCertificateWithKeyAutoCreationRequest
+   * @return ApplyAntChainCertificateWithKeyAutoCreationResponse
+   */
   async applyAntChainCertificateWithKeyAutoCreation(request: ApplyAntChainCertificateWithKeyAutoCreationRequest): Promise<ApplyAntChainCertificateWithKeyAutoCreationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyAntChainCertificateWithKeyAutoCreationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary ApproveFabricChaincodeDefinition
+   *
+   * @param request ApproveFabricChaincodeDefinitionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApproveFabricChaincodeDefinitionResponse
+   */
   async approveFabricChaincodeDefinitionWithOptions(request: ApproveFabricChaincodeDefinitionRequest, runtime: $Util.RuntimeOptions): Promise<ApproveFabricChaincodeDefinitionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14514,11 +14548,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ApproveFabricChaincodeDefinitionResponse>(await this.callApi(params, req, runtime), new ApproveFabricChaincodeDefinitionResponse({}));
   }
 
+  /**
+   * @summary ApproveFabricChaincodeDefinition
+   *
+   * @param request ApproveFabricChaincodeDefinitionRequest
+   * @return ApproveFabricChaincodeDefinitionResponse
+   */
   async approveFabricChaincodeDefinition(request: ApproveFabricChaincodeDefinitionRequest): Promise<ApproveFabricChaincodeDefinitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.approveFabricChaincodeDefinitionWithOptions(request, runtime);
   }
 
+  /**
+   * @param tmpReq BatchAddAntChainMiniAppQRCodeAuthorizedUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse
+   */
   async batchAddAntChainMiniAppQRCodeAuthorizedUsersWithOptions(tmpReq: BatchAddAntChainMiniAppQRCodeAuthorizedUsersRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse> {
     Util.validateModel(tmpReq);
     let request = new BatchAddAntChainMiniAppQRCodeAuthorizedUsersShrinkRequest({ });
@@ -14553,11 +14598,20 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse>(await this.callApi(params, req, runtime), new BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse({}));
   }
 
+  /**
+   * @param request BatchAddAntChainMiniAppQRCodeAuthorizedUsersRequest
+   * @return BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse
+   */
   async batchAddAntChainMiniAppQRCodeAuthorizedUsers(request: BatchAddAntChainMiniAppQRCodeAuthorizedUsersRequest): Promise<BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchAddAntChainMiniAppQRCodeAuthorizedUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CheckFabricConsortiumDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckFabricConsortiumDomainResponse
+   */
   async checkFabricConsortiumDomainWithOptions(request: CheckFabricConsortiumDomainRequest, runtime: $Util.RuntimeOptions): Promise<CheckFabricConsortiumDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14582,11 +14636,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckFabricConsortiumDomainResponse>(await this.callApi(params, req, runtime), new CheckFabricConsortiumDomainResponse({}));
   }
 
+  /**
+   * @param request CheckFabricConsortiumDomainRequest
+   * @return CheckFabricConsortiumDomainResponse
+   */
   async checkFabricConsortiumDomain(request: CheckFabricConsortiumDomainRequest): Promise<CheckFabricConsortiumDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkFabricConsortiumDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CheckFabricOrganizationDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckFabricOrganizationDomainResponse
+   */
   async checkFabricOrganizationDomainWithOptions(request: CheckFabricOrganizationDomainRequest, runtime: $Util.RuntimeOptions): Promise<CheckFabricOrganizationDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14615,11 +14678,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckFabricOrganizationDomainResponse>(await this.callApi(params, req, runtime), new CheckFabricOrganizationDomainResponse({}));
   }
 
+  /**
+   * @param request CheckFabricOrganizationDomainRequest
+   * @return CheckFabricOrganizationDomainResponse
+   */
   async checkFabricOrganizationDomain(request: CheckFabricOrganizationDomainRequest): Promise<CheckFabricOrganizationDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkFabricOrganizationDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ConfirmFabricConsortiumMemberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfirmFabricConsortiumMemberResponse
+   */
   async confirmFabricConsortiumMemberWithOptions(request: ConfirmFabricConsortiumMemberRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmFabricConsortiumMemberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14648,11 +14720,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfirmFabricConsortiumMemberResponse>(await this.callApi(params, req, runtime), new ConfirmFabricConsortiumMemberResponse({}));
   }
 
+  /**
+   * @param request ConfirmFabricConsortiumMemberRequest
+   * @return ConfirmFabricConsortiumMemberResponse
+   */
   async confirmFabricConsortiumMember(request: ConfirmFabricConsortiumMemberRequest): Promise<ConfirmFabricConsortiumMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.confirmFabricConsortiumMemberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CopyAntChainContractProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopyAntChainContractProjectResponse
+   */
   async copyAntChainContractProjectWithOptions(request: CopyAntChainContractProjectRequest, runtime: $Util.RuntimeOptions): Promise<CopyAntChainContractProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14689,11 +14770,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyAntChainContractProjectResponse>(await this.callApi(params, req, runtime), new CopyAntChainContractProjectResponse({}));
   }
 
+  /**
+   * @param request CopyAntChainContractProjectRequest
+   * @return CopyAntChainContractProjectResponse
+   */
   async copyAntChainContractProject(request: CopyAntChainContractProjectRequest): Promise<CopyAntChainContractProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyAntChainContractProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateAntChainAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAntChainAccountResponse
+   */
   async createAntChainAccountWithOptions(request: CreateAntChainAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAntChainAccountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14730,11 +14820,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAntChainAccountResponse>(await this.callApi(params, req, runtime), new CreateAntChainAccountResponse({}));
   }
 
+  /**
+   * @param request CreateAntChainAccountRequest
+   * @return CreateAntChainAccountResponse
+   */
   async createAntChainAccount(request: CreateAntChainAccountRequest): Promise<CreateAntChainAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAntChainAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateAntChainAccountWithKeyPairAutoCreationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAntChainAccountWithKeyPairAutoCreationResponse
+   */
   async createAntChainAccountWithKeyPairAutoCreationWithOptions(request: CreateAntChainAccountWithKeyPairAutoCreationRequest, runtime: $Util.RuntimeOptions): Promise<CreateAntChainAccountWithKeyPairAutoCreationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14771,11 +14870,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAntChainAccountWithKeyPairAutoCreationResponse>(await this.callApi(params, req, runtime), new CreateAntChainAccountWithKeyPairAutoCreationResponse({}));
   }
 
+  /**
+   * @param request CreateAntChainAccountWithKeyPairAutoCreationRequest
+   * @return CreateAntChainAccountWithKeyPairAutoCreationResponse
+   */
   async createAntChainAccountWithKeyPairAutoCreation(request: CreateAntChainAccountWithKeyPairAutoCreationRequest): Promise<CreateAntChainAccountWithKeyPairAutoCreationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAntChainAccountWithKeyPairAutoCreationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateAntChainConsortiumRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAntChainConsortiumResponse
+   */
   async createAntChainConsortiumWithOptions(request: CreateAntChainConsortiumRequest, runtime: $Util.RuntimeOptions): Promise<CreateAntChainConsortiumResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14804,11 +14912,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAntChainConsortiumResponse>(await this.callApi(params, req, runtime), new CreateAntChainConsortiumResponse({}));
   }
 
+  /**
+   * @param request CreateAntChainConsortiumRequest
+   * @return CreateAntChainConsortiumResponse
+   */
   async createAntChainConsortium(request: CreateAntChainConsortiumRequest): Promise<CreateAntChainConsortiumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAntChainConsortiumWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateAntChainContractContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAntChainContractContentResponse
+   */
   async createAntChainContractContentWithOptions(request: CreateAntChainContractContentRequest, runtime: $Util.RuntimeOptions): Promise<CreateAntChainContractContentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14849,11 +14966,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAntChainContractContentResponse>(await this.callApi(params, req, runtime), new CreateAntChainContractContentResponse({}));
   }
 
+  /**
+   * @param request CreateAntChainContractContentRequest
+   * @return CreateAntChainContractContentResponse
+   */
   async createAntChainContractContent(request: CreateAntChainContractContentRequest): Promise<CreateAntChainContractContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAntChainContractContentWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateAntChainContractProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAntChainContractProjectResponse
+   */
   async createAntChainContractProjectWithOptions(request: CreateAntChainContractProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateAntChainContractProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14890,11 +15016,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAntChainContractProjectResponse>(await this.callApi(params, req, runtime), new CreateAntChainContractProjectResponse({}));
   }
 
+  /**
+   * @param request CreateAntChainContractProjectRequest
+   * @return CreateAntChainContractProjectResponse
+   */
   async createAntChainContractProject(request: CreateAntChainContractProjectRequest): Promise<CreateAntChainContractProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAntChainContractProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建MyChain托管账户
+   *
+   * @param request CreateAntChainKmsAccountNewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAntChainKmsAccountNewResponse
+   */
   async createAntChainKmsAccountNewWithOptions(request: CreateAntChainKmsAccountNewRequest, runtime: $Util.RuntimeOptions): Promise<CreateAntChainKmsAccountNewResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14923,11 +15060,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAntChainKmsAccountNewResponse>(await this.callApi(params, req, runtime), new CreateAntChainKmsAccountNewResponse({}));
   }
 
+  /**
+   * @summary 创建MyChain托管账户
+   *
+   * @param request CreateAntChainKmsAccountNewRequest
+   * @return CreateAntChainKmsAccountNewResponse
+   */
   async createAntChainKmsAccountNew(request: CreateAntChainKmsAccountNewRequest): Promise<CreateAntChainKmsAccountNewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAntChainKmsAccountNewWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateFabricChaincodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFabricChaincodeResponse
+   */
   async createFabricChaincodeWithOptions(request: CreateFabricChaincodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateFabricChaincodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14976,11 +15124,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFabricChaincodeResponse>(await this.callApi(params, req, runtime), new CreateFabricChaincodeResponse({}));
   }
 
+  /**
+   * @param request CreateFabricChaincodeRequest
+   * @return CreateFabricChaincodeResponse
+   */
   async createFabricChaincode(request: CreateFabricChaincodeRequest): Promise<CreateFabricChaincodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFabricChaincodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary CreateFabricChaincodePackage
+   *
+   * @param request CreateFabricChaincodePackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFabricChaincodePackageResponse
+   */
   async createFabricChaincodePackageWithOptions(request: CreateFabricChaincodePackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateFabricChaincodePackageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15013,11 +15172,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFabricChaincodePackageResponse>(await this.callApi(params, req, runtime), new CreateFabricChaincodePackageResponse({}));
   }
 
+  /**
+   * @summary CreateFabricChaincodePackage
+   *
+   * @param request CreateFabricChaincodePackageRequest
+   * @return CreateFabricChaincodePackageResponse
+   */
   async createFabricChaincodePackage(request: CreateFabricChaincodePackageRequest): Promise<CreateFabricChaincodePackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFabricChaincodePackageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateFabricChannelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFabricChannelResponse
+   */
   async createFabricChannelWithOptions(request: CreateFabricChannelRequest, runtime: $Util.RuntimeOptions): Promise<CreateFabricChannelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15064,11 +15234,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFabricChannelResponse>(await this.callApi(params, req, runtime), new CreateFabricChannelResponse({}));
   }
 
+  /**
+   * @param request CreateFabricChannelRequest
+   * @return CreateFabricChannelResponse
+   */
   async createFabricChannel(request: CreateFabricChannelRequest): Promise<CreateFabricChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFabricChannelWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateFabricChannelMemberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFabricChannelMemberResponse
+   */
   async createFabricChannelMemberWithOptions(request: CreateFabricChannelMemberRequest, runtime: $Util.RuntimeOptions): Promise<CreateFabricChannelMemberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15097,11 +15276,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFabricChannelMemberResponse>(await this.callApi(params, req, runtime), new CreateFabricChannelMemberResponse({}));
   }
 
+  /**
+   * @param request CreateFabricChannelMemberRequest
+   * @return CreateFabricChannelMemberResponse
+   */
   async createFabricChannelMember(request: CreateFabricChannelMemberRequest): Promise<CreateFabricChannelMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFabricChannelMemberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateFabricConsortiumRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFabricConsortiumResponse
+   */
   async createFabricConsortiumWithOptions(request: CreateFabricConsortiumRequest, runtime: $Util.RuntimeOptions): Promise<CreateFabricConsortiumResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15174,11 +15362,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFabricConsortiumResponse>(await this.callApi(params, req, runtime), new CreateFabricConsortiumResponse({}));
   }
 
+  /**
+   * @param request CreateFabricConsortiumRequest
+   * @return CreateFabricConsortiumResponse
+   */
   async createFabricConsortium(request: CreateFabricConsortiumRequest): Promise<CreateFabricConsortiumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFabricConsortiumWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateFabricConsortiumMemberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFabricConsortiumMemberResponse
+   */
   async createFabricConsortiumMemberWithOptions(request: CreateFabricConsortiumMemberRequest, runtime: $Util.RuntimeOptions): Promise<CreateFabricConsortiumMemberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15211,11 +15408,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFabricConsortiumMemberResponse>(await this.callApi(params, req, runtime), new CreateFabricConsortiumMemberResponse({}));
   }
 
+  /**
+   * @param request CreateFabricConsortiumMemberRequest
+   * @return CreateFabricConsortiumMemberResponse
+   */
   async createFabricConsortiumMember(request: CreateFabricConsortiumMemberRequest): Promise<CreateFabricConsortiumMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFabricConsortiumMemberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateFabricOrganizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFabricOrganizationResponse
+   */
   async createFabricOrganizationWithOptions(request: CreateFabricOrganizationRequest, runtime: $Util.RuntimeOptions): Promise<CreateFabricOrganizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15270,11 +15476,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFabricOrganizationResponse>(await this.callApi(params, req, runtime), new CreateFabricOrganizationResponse({}));
   }
 
+  /**
+   * @param request CreateFabricOrganizationRequest
+   * @return CreateFabricOrganizationResponse
+   */
   async createFabricOrganization(request: CreateFabricOrganizationRequest): Promise<CreateFabricOrganizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFabricOrganizationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateFabricOrganizationUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFabricOrganizationUserResponse
+   */
   async createFabricOrganizationUserWithOptions(request: CreateFabricOrganizationUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateFabricOrganizationUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15311,11 +15526,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFabricOrganizationUserResponse>(await this.callApi(params, req, runtime), new CreateFabricOrganizationUserResponse({}));
   }
 
+  /**
+   * @param request CreateFabricOrganizationUserRequest
+   * @return CreateFabricOrganizationUserResponse
+   */
   async createFabricOrganizationUser(request: CreateFabricOrganizationUserRequest): Promise<CreateFabricOrganizationUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFabricOrganizationUserWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteAntChainConsortiumRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAntChainConsortiumResponse
+   */
   async deleteAntChainConsortiumWithOptions(request: DeleteAntChainConsortiumRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAntChainConsortiumResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15340,11 +15564,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAntChainConsortiumResponse>(await this.callApi(params, req, runtime), new DeleteAntChainConsortiumResponse({}));
   }
 
+  /**
+   * @param request DeleteAntChainConsortiumRequest
+   * @return DeleteAntChainConsortiumResponse
+   */
   async deleteAntChainConsortium(request: DeleteAntChainConsortiumRequest): Promise<DeleteAntChainConsortiumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAntChainConsortiumWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteAntChainContractContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAntChainContractContentResponse
+   */
   async deleteAntChainContractContentWithOptions(request: DeleteAntChainContractContentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAntChainContractContentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15369,11 +15602,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAntChainContractContentResponse>(await this.callApi(params, req, runtime), new DeleteAntChainContractContentResponse({}));
   }
 
+  /**
+   * @param request DeleteAntChainContractContentRequest
+   * @return DeleteAntChainContractContentResponse
+   */
   async deleteAntChainContractContent(request: DeleteAntChainContractContentRequest): Promise<DeleteAntChainContractContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAntChainContractContentWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteAntChainContractProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAntChainContractProjectResponse
+   */
   async deleteAntChainContractProjectWithOptions(request: DeleteAntChainContractProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAntChainContractProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15398,11 +15640,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAntChainContractProjectResponse>(await this.callApi(params, req, runtime), new DeleteAntChainContractProjectResponse({}));
   }
 
+  /**
+   * @param request DeleteAntChainContractProjectRequest
+   * @return DeleteAntChainContractProjectResponse
+   */
   async deleteAntChainContractProject(request: DeleteAntChainContractProjectRequest): Promise<DeleteAntChainContractProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAntChainContractProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteAntChainMiniAppQRCodeAuthorizedUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAntChainMiniAppQRCodeAuthorizedUserResponse
+   */
   async deleteAntChainMiniAppQRCodeAuthorizedUserWithOptions(request: DeleteAntChainMiniAppQRCodeAuthorizedUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAntChainMiniAppQRCodeAuthorizedUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15431,11 +15682,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAntChainMiniAppQRCodeAuthorizedUserResponse>(await this.callApi(params, req, runtime), new DeleteAntChainMiniAppQRCodeAuthorizedUserResponse({}));
   }
 
+  /**
+   * @param request DeleteAntChainMiniAppQRCodeAuthorizedUserRequest
+   * @return DeleteAntChainMiniAppQRCodeAuthorizedUserResponse
+   */
   async deleteAntChainMiniAppQRCodeAuthorizedUser(request: DeleteAntChainMiniAppQRCodeAuthorizedUserRequest): Promise<DeleteAntChainMiniAppQRCodeAuthorizedUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAntChainMiniAppQRCodeAuthorizedUserWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteFabricChaincodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFabricChaincodeResponse
+   */
   async deleteFabricChaincodeWithOptions(request: DeleteFabricChaincodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFabricChaincodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15460,11 +15720,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFabricChaincodeResponse>(await this.callApi(params, req, runtime), new DeleteFabricChaincodeResponse({}));
   }
 
+  /**
+   * @param request DeleteFabricChaincodeRequest
+   * @return DeleteFabricChaincodeResponse
+   */
   async deleteFabricChaincode(request: DeleteFabricChaincodeRequest): Promise<DeleteFabricChaincodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFabricChaincodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainAccountsResponse
+   */
   async describeAntChainAccountsWithOptions(request: DescribeAntChainAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainAccountsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15497,11 +15766,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainAccountsResponse>(await this.callApi(params, req, runtime), new DescribeAntChainAccountsResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainAccountsRequest
+   * @return DescribeAntChainAccountsResponse
+   */
   async describeAntChainAccounts(request: DescribeAntChainAccountsRequest): Promise<DescribeAntChainAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainAccountsV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainAccountsV2Response
+   */
   async describeAntChainAccountsV2WithOptions(request: DescribeAntChainAccountsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainAccountsV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15538,11 +15816,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainAccountsV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainAccountsV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainAccountsV2Request
+   * @return DescribeAntChainAccountsV2Response
+   */
   async describeAntChainAccountsV2(request: DescribeAntChainAccountsV2Request): Promise<DescribeAntChainAccountsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainAccountsV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainBlockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainBlockResponse
+   */
   async describeAntChainBlockWithOptions(request: DescribeAntChainBlockRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainBlockResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15571,11 +15858,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainBlockResponse>(await this.callApi(params, req, runtime), new DescribeAntChainBlockResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainBlockRequest
+   * @return DescribeAntChainBlockResponse
+   */
   async describeAntChainBlock(request: DescribeAntChainBlockRequest): Promise<DescribeAntChainBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainBlockWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainBlockV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainBlockV2Response
+   */
   async describeAntChainBlockV2WithOptions(request: DescribeAntChainBlockV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainBlockV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15608,11 +15904,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainBlockV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainBlockV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainBlockV2Request
+   * @return DescribeAntChainBlockV2Response
+   */
   async describeAntChainBlockV2(request: DescribeAntChainBlockV2Request): Promise<DescribeAntChainBlockV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainBlockV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainCertificateApplicationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainCertificateApplicationsResponse
+   */
   async describeAntChainCertificateApplicationsWithOptions(request: DescribeAntChainCertificateApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainCertificateApplicationsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15649,11 +15954,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainCertificateApplicationsResponse>(await this.callApi(params, req, runtime), new DescribeAntChainCertificateApplicationsResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainCertificateApplicationsRequest
+   * @return DescribeAntChainCertificateApplicationsResponse
+   */
   async describeAntChainCertificateApplications(request: DescribeAntChainCertificateApplicationsRequest): Promise<DescribeAntChainCertificateApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainCertificateApplicationsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainCertificateApplicationsV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainCertificateApplicationsV2Response
+   */
   async describeAntChainCertificateApplicationsV2WithOptions(request: DescribeAntChainCertificateApplicationsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainCertificateApplicationsV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15694,11 +16008,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainCertificateApplicationsV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainCertificateApplicationsV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainCertificateApplicationsV2Request
+   * @return DescribeAntChainCertificateApplicationsV2Response
+   */
   async describeAntChainCertificateApplicationsV2(request: DescribeAntChainCertificateApplicationsV2Request): Promise<DescribeAntChainCertificateApplicationsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainCertificateApplicationsV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainConsortiumsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainConsortiumsResponse
+   */
   async describeAntChainConsortiumsWithOptions(request: DescribeAntChainConsortiumsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainConsortiumsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15727,11 +16050,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainConsortiumsResponse>(await this.callApi(params, req, runtime), new DescribeAntChainConsortiumsResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainConsortiumsRequest
+   * @return DescribeAntChainConsortiumsResponse
+   */
   async describeAntChainConsortiums(request: DescribeAntChainConsortiumsRequest): Promise<DescribeAntChainConsortiumsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainConsortiumsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainConsortiumsV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainConsortiumsV2Response
+   */
   async describeAntChainConsortiumsV2WithOptions(request: DescribeAntChainConsortiumsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainConsortiumsV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15760,11 +16092,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainConsortiumsV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainConsortiumsV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainConsortiumsV2Request
+   * @return DescribeAntChainConsortiumsV2Response
+   */
   async describeAntChainConsortiumsV2(request: DescribeAntChainConsortiumsV2Request): Promise<DescribeAntChainConsortiumsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainConsortiumsV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainContractProjectContentTreeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainContractProjectContentTreeResponse
+   */
   async describeAntChainContractProjectContentTreeWithOptions(request: DescribeAntChainContractProjectContentTreeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainContractProjectContentTreeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15789,11 +16130,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainContractProjectContentTreeResponse>(await this.callApi(params, req, runtime), new DescribeAntChainContractProjectContentTreeResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainContractProjectContentTreeRequest
+   * @return DescribeAntChainContractProjectContentTreeResponse
+   */
   async describeAntChainContractProjectContentTree(request: DescribeAntChainContractProjectContentTreeRequest): Promise<DescribeAntChainContractProjectContentTreeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainContractProjectContentTreeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainContractProjectContentTreeV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainContractProjectContentTreeV2Response
+   */
   async describeAntChainContractProjectContentTreeV2WithOptions(request: DescribeAntChainContractProjectContentTreeV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainContractProjectContentTreeV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15822,11 +16172,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainContractProjectContentTreeV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainContractProjectContentTreeV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainContractProjectContentTreeV2Request
+   * @return DescribeAntChainContractProjectContentTreeV2Response
+   */
   async describeAntChainContractProjectContentTreeV2(request: DescribeAntChainContractProjectContentTreeV2Request): Promise<DescribeAntChainContractProjectContentTreeV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainContractProjectContentTreeV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainContractProjectsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainContractProjectsResponse
+   */
   async describeAntChainContractProjectsWithOptions(request: DescribeAntChainContractProjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainContractProjectsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15859,11 +16218,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainContractProjectsResponse>(await this.callApi(params, req, runtime), new DescribeAntChainContractProjectsResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainContractProjectsRequest
+   * @return DescribeAntChainContractProjectsResponse
+   */
   async describeAntChainContractProjects(request: DescribeAntChainContractProjectsRequest): Promise<DescribeAntChainContractProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainContractProjectsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainContractProjectsV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainContractProjectsV2Response
+   */
   async describeAntChainContractProjectsV2WithOptions(request: DescribeAntChainContractProjectsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainContractProjectsV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15896,11 +16264,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainContractProjectsV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainContractProjectsV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainContractProjectsV2Request
+   * @return DescribeAntChainContractProjectsV2Response
+   */
   async describeAntChainContractProjectsV2(request: DescribeAntChainContractProjectsV2Request): Promise<DescribeAntChainContractProjectsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainContractProjectsV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainDownloadPathsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainDownloadPathsResponse
+   */
   async describeAntChainDownloadPathsWithOptions(request: DescribeAntChainDownloadPathsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainDownloadPathsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15925,11 +16302,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainDownloadPathsResponse>(await this.callApi(params, req, runtime), new DescribeAntChainDownloadPathsResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainDownloadPathsRequest
+   * @return DescribeAntChainDownloadPathsResponse
+   */
   async describeAntChainDownloadPaths(request: DescribeAntChainDownloadPathsRequest): Promise<DescribeAntChainDownloadPathsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainDownloadPathsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainDownloadPathsV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainDownloadPathsV2Response
+   */
   async describeAntChainDownloadPathsV2WithOptions(request: DescribeAntChainDownloadPathsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainDownloadPathsV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15958,11 +16344,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainDownloadPathsV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainDownloadPathsV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainDownloadPathsV2Request
+   * @return DescribeAntChainDownloadPathsV2Response
+   */
   async describeAntChainDownloadPathsV2(request: DescribeAntChainDownloadPathsV2Request): Promise<DescribeAntChainDownloadPathsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainDownloadPathsV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainInformationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainInformationResponse
+   */
   async describeAntChainInformationWithOptions(request: DescribeAntChainInformationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainInformationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15987,11 +16382,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainInformationResponse>(await this.callApi(params, req, runtime), new DescribeAntChainInformationResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainInformationRequest
+   * @return DescribeAntChainInformationResponse
+   */
   async describeAntChainInformation(request: DescribeAntChainInformationRequest): Promise<DescribeAntChainInformationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainInformationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainInformationV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainInformationV2Response
+   */
   async describeAntChainInformationV2WithOptions(request: DescribeAntChainInformationV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainInformationV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16020,11 +16424,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainInformationV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainInformationV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainInformationV2Request
+   * @return DescribeAntChainInformationV2Response
+   */
   async describeAntChainInformationV2(request: DescribeAntChainInformationV2Request): Promise<DescribeAntChainInformationV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainInformationV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainLatestBlocksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainLatestBlocksResponse
+   */
   async describeAntChainLatestBlocksWithOptions(request: DescribeAntChainLatestBlocksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainLatestBlocksResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16049,11 +16462,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainLatestBlocksResponse>(await this.callApi(params, req, runtime), new DescribeAntChainLatestBlocksResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainLatestBlocksRequest
+   * @return DescribeAntChainLatestBlocksResponse
+   */
   async describeAntChainLatestBlocks(request: DescribeAntChainLatestBlocksRequest): Promise<DescribeAntChainLatestBlocksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainLatestBlocksWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainLatestBlocksV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainLatestBlocksV2Response
+   */
   async describeAntChainLatestBlocksV2WithOptions(request: DescribeAntChainLatestBlocksV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainLatestBlocksV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16082,11 +16504,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainLatestBlocksV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainLatestBlocksV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainLatestBlocksV2Request
+   * @return DescribeAntChainLatestBlocksV2Response
+   */
   async describeAntChainLatestBlocksV2(request: DescribeAntChainLatestBlocksV2Request): Promise<DescribeAntChainLatestBlocksV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainLatestBlocksV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainLatestTransactionDigestsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainLatestTransactionDigestsResponse
+   */
   async describeAntChainLatestTransactionDigestsWithOptions(request: DescribeAntChainLatestTransactionDigestsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainLatestTransactionDigestsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16111,11 +16542,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainLatestTransactionDigestsResponse>(await this.callApi(params, req, runtime), new DescribeAntChainLatestTransactionDigestsResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainLatestTransactionDigestsRequest
+   * @return DescribeAntChainLatestTransactionDigestsResponse
+   */
   async describeAntChainLatestTransactionDigests(request: DescribeAntChainLatestTransactionDigestsRequest): Promise<DescribeAntChainLatestTransactionDigestsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainLatestTransactionDigestsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainLatestTransactionDigestsV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainLatestTransactionDigestsV2Response
+   */
   async describeAntChainLatestTransactionDigestsV2WithOptions(request: DescribeAntChainLatestTransactionDigestsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainLatestTransactionDigestsV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16144,11 +16584,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainLatestTransactionDigestsV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainLatestTransactionDigestsV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainLatestTransactionDigestsV2Request
+   * @return DescribeAntChainLatestTransactionDigestsV2Response
+   */
   async describeAntChainLatestTransactionDigestsV2(request: DescribeAntChainLatestTransactionDigestsV2Request): Promise<DescribeAntChainLatestTransactionDigestsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainLatestTransactionDigestsV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainMembersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainMembersResponse
+   */
   async describeAntChainMembersWithOptions(request: DescribeAntChainMembersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainMembersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16181,11 +16630,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainMembersResponse>(await this.callApi(params, req, runtime), new DescribeAntChainMembersResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainMembersRequest
+   * @return DescribeAntChainMembersResponse
+   */
   async describeAntChainMembers(request: DescribeAntChainMembersRequest): Promise<DescribeAntChainMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainMembersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainMembersV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainMembersV2Response
+   */
   async describeAntChainMembersV2WithOptions(request: DescribeAntChainMembersV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainMembersV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16218,11 +16676,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainMembersV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainMembersV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainMembersV2Request
+   * @return DescribeAntChainMembersV2Response
+   */
   async describeAntChainMembersV2(request: DescribeAntChainMembersV2Request): Promise<DescribeAntChainMembersV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainMembersV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserQRCodeAccessLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse
+   */
   async describeAntChainMiniAppBrowserQRCodeAccessLogWithOptions(request: DescribeAntChainMiniAppBrowserQRCodeAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16251,11 +16718,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse>(await this.callApi(params, req, runtime), new DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserQRCodeAccessLogRequest
+   * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse
+   */
   async describeAntChainMiniAppBrowserQRCodeAccessLog(request: DescribeAntChainMiniAppBrowserQRCodeAccessLogRequest): Promise<DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainMiniAppBrowserQRCodeAccessLogWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response
+   */
   async describeAntChainMiniAppBrowserQRCodeAccessLogV2WithOptions(request: DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16284,11 +16760,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Request
+   * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response
+   */
   async describeAntChainMiniAppBrowserQRCodeAccessLogV2(request: DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Request): Promise<DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainMiniAppBrowserQRCodeAccessLogV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse
+   */
   async describeAntChainMiniAppBrowserQRCodeAuthorizedUsersWithOptions(request: DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16325,11 +16810,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse>(await this.callApi(params, req, runtime), new DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest
+   * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse
+   */
   async describeAntChainMiniAppBrowserQRCodeAuthorizedUsers(request: DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest): Promise<DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainMiniAppBrowserQRCodeAuthorizedUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response
+   */
   async describeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2WithOptions(request: DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16366,11 +16860,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request
+   * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response
+   */
   async describeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2(request: DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request): Promise<DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserTransactionQRCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainMiniAppBrowserTransactionQRCodeResponse
+   */
   async describeAntChainMiniAppBrowserTransactionQRCodeWithOptions(request: DescribeAntChainMiniAppBrowserTransactionQRCodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainMiniAppBrowserTransactionQRCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16399,11 +16902,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainMiniAppBrowserTransactionQRCodeResponse>(await this.callApi(params, req, runtime), new DescribeAntChainMiniAppBrowserTransactionQRCodeResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserTransactionQRCodeRequest
+   * @return DescribeAntChainMiniAppBrowserTransactionQRCodeResponse
+   */
   async describeAntChainMiniAppBrowserTransactionQRCode(request: DescribeAntChainMiniAppBrowserTransactionQRCodeRequest): Promise<DescribeAntChainMiniAppBrowserTransactionQRCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainMiniAppBrowserTransactionQRCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse
+   */
   async describeAntChainMiniAppBrowserTransactionQRCodeNewWithOptions(request: DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16436,11 +16948,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse>(await this.callApi(params, req, runtime), new DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest
+   * @return DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse
+   */
   async describeAntChainMiniAppBrowserTransactionQRCodeNew(request: DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest): Promise<DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainMiniAppBrowserTransactionQRCodeNewWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainNodesResponse
+   */
   async describeAntChainNodesWithOptions(request: DescribeAntChainNodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainNodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16465,11 +16986,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainNodesResponse>(await this.callApi(params, req, runtime), new DescribeAntChainNodesResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainNodesRequest
+   * @return DescribeAntChainNodesResponse
+   */
   async describeAntChainNodes(request: DescribeAntChainNodesRequest): Promise<DescribeAntChainNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainNodesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainNodesV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainNodesV2Response
+   */
   async describeAntChainNodesV2WithOptions(request: DescribeAntChainNodesV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainNodesV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16498,11 +17028,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainNodesV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainNodesV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainNodesV2Request
+   * @return DescribeAntChainNodesV2Response
+   */
   async describeAntChainNodesV2(request: DescribeAntChainNodesV2Request): Promise<DescribeAntChainNodesV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainNodesV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainQRCodeAuthorizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainQRCodeAuthorizationResponse
+   */
   async describeAntChainQRCodeAuthorizationWithOptions(request: DescribeAntChainQRCodeAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainQRCodeAuthorizationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16531,11 +17070,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainQRCodeAuthorizationResponse>(await this.callApi(params, req, runtime), new DescribeAntChainQRCodeAuthorizationResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainQRCodeAuthorizationRequest
+   * @return DescribeAntChainQRCodeAuthorizationResponse
+   */
   async describeAntChainQRCodeAuthorization(request: DescribeAntChainQRCodeAuthorizationRequest): Promise<DescribeAntChainQRCodeAuthorizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainQRCodeAuthorizationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainQRCodeAuthorizationV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainQRCodeAuthorizationV2Response
+   */
   async describeAntChainQRCodeAuthorizationV2WithOptions(request: DescribeAntChainQRCodeAuthorizationV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainQRCodeAuthorizationV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16564,11 +17112,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainQRCodeAuthorizationV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainQRCodeAuthorizationV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainQRCodeAuthorizationV2Request
+   * @return DescribeAntChainQRCodeAuthorizationV2Response
+   */
   async describeAntChainQRCodeAuthorizationV2(request: DescribeAntChainQRCodeAuthorizationV2Request): Promise<DescribeAntChainQRCodeAuthorizationV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainQRCodeAuthorizationV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainTransactionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainTransactionResponse
+   */
   async describeAntChainTransactionWithOptions(request: DescribeAntChainTransactionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainTransactionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16597,11 +17154,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainTransactionResponse>(await this.callApi(params, req, runtime), new DescribeAntChainTransactionResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainTransactionRequest
+   * @return DescribeAntChainTransactionResponse
+   */
   async describeAntChainTransaction(request: DescribeAntChainTransactionRequest): Promise<DescribeAntChainTransactionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainTransactionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainTransactionReceiptRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainTransactionReceiptResponse
+   */
   async describeAntChainTransactionReceiptWithOptions(request: DescribeAntChainTransactionReceiptRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainTransactionReceiptResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16630,11 +17196,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainTransactionReceiptResponse>(await this.callApi(params, req, runtime), new DescribeAntChainTransactionReceiptResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainTransactionReceiptRequest
+   * @return DescribeAntChainTransactionReceiptResponse
+   */
   async describeAntChainTransactionReceipt(request: DescribeAntChainTransactionReceiptRequest): Promise<DescribeAntChainTransactionReceiptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainTransactionReceiptWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainTransactionReceiptV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainTransactionReceiptV2Response
+   */
   async describeAntChainTransactionReceiptV2WithOptions(request: DescribeAntChainTransactionReceiptV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainTransactionReceiptV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16667,11 +17242,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainTransactionReceiptV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainTransactionReceiptV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainTransactionReceiptV2Request
+   * @return DescribeAntChainTransactionReceiptV2Response
+   */
   async describeAntChainTransactionReceiptV2(request: DescribeAntChainTransactionReceiptV2Request): Promise<DescribeAntChainTransactionReceiptV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainTransactionReceiptV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainTransactionStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainTransactionStatisticsResponse
+   */
   async describeAntChainTransactionStatisticsWithOptions(request: DescribeAntChainTransactionStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainTransactionStatisticsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16704,11 +17288,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainTransactionStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeAntChainTransactionStatisticsResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainTransactionStatisticsRequest
+   * @return DescribeAntChainTransactionStatisticsResponse
+   */
   async describeAntChainTransactionStatistics(request: DescribeAntChainTransactionStatisticsRequest): Promise<DescribeAntChainTransactionStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainTransactionStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainTransactionStatisticsV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainTransactionStatisticsV2Response
+   */
   async describeAntChainTransactionStatisticsV2WithOptions(request: DescribeAntChainTransactionStatisticsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainTransactionStatisticsV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16745,11 +17338,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainTransactionStatisticsV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainTransactionStatisticsV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainTransactionStatisticsV2Request
+   * @return DescribeAntChainTransactionStatisticsV2Response
+   */
   async describeAntChainTransactionStatisticsV2(request: DescribeAntChainTransactionStatisticsV2Request): Promise<DescribeAntChainTransactionStatisticsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainTransactionStatisticsV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainTransactionV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainTransactionV2Response
+   */
   async describeAntChainTransactionV2WithOptions(request: DescribeAntChainTransactionV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainTransactionV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16782,11 +17384,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainTransactionV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainTransactionV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainTransactionV2Request
+   * @return DescribeAntChainTransactionV2Response
+   */
   async describeAntChainTransactionV2(request: DescribeAntChainTransactionV2Request): Promise<DescribeAntChainTransactionV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainTransactionV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainsResponse
+   */
   async describeAntChainsWithOptions(request: DescribeAntChainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16819,11 +17430,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainsResponse>(await this.callApi(params, req, runtime), new DescribeAntChainsResponse({}));
   }
 
+  /**
+   * @param request DescribeAntChainsRequest
+   * @return DescribeAntChainsResponse
+   */
   async describeAntChains(request: DescribeAntChainsRequest): Promise<DescribeAntChainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAntChainsV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntChainsV2Response
+   */
   async describeAntChainsV2WithOptions(request: DescribeAntChainsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeAntChainsV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16856,11 +17476,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntChainsV2Response>(await this.callApi(params, req, runtime), new DescribeAntChainsV2Response({}));
   }
 
+  /**
+   * @param request DescribeAntChainsV2Request
+   * @return DescribeAntChainsV2Response
+   */
   async describeAntChainsV2(request: DescribeAntChainsV2Request): Promise<DescribeAntChainsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntChainsV2WithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeEthereumDeletableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEthereumDeletableResponse
+   */
   async describeEthereumDeletableWithOptions(request: DescribeEthereumDeletableRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEthereumDeletableResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16885,11 +17514,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEthereumDeletableResponse>(await this.callApi(params, req, runtime), new DescribeEthereumDeletableResponse({}));
   }
 
+  /**
+   * @param request DescribeEthereumDeletableRequest
+   * @return DescribeEthereumDeletableResponse
+   */
   async describeEthereumDeletable(request: DescribeEthereumDeletableRequest): Promise<DescribeEthereumDeletableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEthereumDeletableWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricCandidateOrganizationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricCandidateOrganizationsResponse
+   */
   async describeFabricCandidateOrganizationsWithOptions(request: DescribeFabricCandidateOrganizationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricCandidateOrganizationsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16914,11 +17552,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricCandidateOrganizationsResponse>(await this.callApi(params, req, runtime), new DescribeFabricCandidateOrganizationsResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricCandidateOrganizationsRequest
+   * @return DescribeFabricCandidateOrganizationsResponse
+   */
   async describeFabricCandidateOrganizations(request: DescribeFabricCandidateOrganizationsRequest): Promise<DescribeFabricCandidateOrganizationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricCandidateOrganizationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary DescribeFabricChaincodeDefinitionTask
+   *
+   * @param request DescribeFabricChaincodeDefinitionTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricChaincodeDefinitionTaskResponse
+   */
   async describeFabricChaincodeDefinitionTaskWithOptions(request: DescribeFabricChaincodeDefinitionTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricChaincodeDefinitionTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16947,11 +17596,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricChaincodeDefinitionTaskResponse>(await this.callApi(params, req, runtime), new DescribeFabricChaincodeDefinitionTaskResponse({}));
   }
 
+  /**
+   * @summary DescribeFabricChaincodeDefinitionTask
+   *
+   * @param request DescribeFabricChaincodeDefinitionTaskRequest
+   * @return DescribeFabricChaincodeDefinitionTaskResponse
+   */
   async describeFabricChaincodeDefinitionTask(request: DescribeFabricChaincodeDefinitionTaskRequest): Promise<DescribeFabricChaincodeDefinitionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricChaincodeDefinitionTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricChaincodeUploadPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricChaincodeUploadPolicyResponse
+   */
   async describeFabricChaincodeUploadPolicyWithOptions(request: DescribeFabricChaincodeUploadPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricChaincodeUploadPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16976,11 +17636,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricChaincodeUploadPolicyResponse>(await this.callApi(params, req, runtime), new DescribeFabricChaincodeUploadPolicyResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricChaincodeUploadPolicyRequest
+   * @return DescribeFabricChaincodeUploadPolicyResponse
+   */
   async describeFabricChaincodeUploadPolicy(request: DescribeFabricChaincodeUploadPolicyRequest): Promise<DescribeFabricChaincodeUploadPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricChaincodeUploadPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricChannelMembersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricChannelMembersResponse
+   */
   async describeFabricChannelMembersWithOptions(request: DescribeFabricChannelMembersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricChannelMembersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17005,11 +17674,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricChannelMembersResponse>(await this.callApi(params, req, runtime), new DescribeFabricChannelMembersResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricChannelMembersRequest
+   * @return DescribeFabricChannelMembersResponse
+   */
   async describeFabricChannelMembers(request: DescribeFabricChannelMembersRequest): Promise<DescribeFabricChannelMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricChannelMembersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricConsortiumAdminStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricConsortiumAdminStatusResponse
+   */
   async describeFabricConsortiumAdminStatusWithOptions(request: DescribeFabricConsortiumAdminStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricConsortiumAdminStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17034,11 +17712,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricConsortiumAdminStatusResponse>(await this.callApi(params, req, runtime), new DescribeFabricConsortiumAdminStatusResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricConsortiumAdminStatusRequest
+   * @return DescribeFabricConsortiumAdminStatusResponse
+   */
   async describeFabricConsortiumAdminStatus(request: DescribeFabricConsortiumAdminStatusRequest): Promise<DescribeFabricConsortiumAdminStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricConsortiumAdminStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricConsortiumChaincodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricConsortiumChaincodesResponse
+   */
   async describeFabricConsortiumChaincodesWithOptions(request: DescribeFabricConsortiumChaincodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricConsortiumChaincodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17067,11 +17754,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricConsortiumChaincodesResponse>(await this.callApi(params, req, runtime), new DescribeFabricConsortiumChaincodesResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricConsortiumChaincodesRequest
+   * @return DescribeFabricConsortiumChaincodesResponse
+   */
   async describeFabricConsortiumChaincodes(request: DescribeFabricConsortiumChaincodesRequest): Promise<DescribeFabricConsortiumChaincodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricConsortiumChaincodesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricConsortiumChannelsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricConsortiumChannelsResponse
+   */
   async describeFabricConsortiumChannelsWithOptions(request: DescribeFabricConsortiumChannelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricConsortiumChannelsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17102,11 +17798,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricConsortiumChannelsResponse>(await this.callApi(params, req, runtime), new DescribeFabricConsortiumChannelsResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricConsortiumChannelsRequest
+   * @return DescribeFabricConsortiumChannelsResponse
+   */
   async describeFabricConsortiumChannels(request: DescribeFabricConsortiumChannelsRequest): Promise<DescribeFabricConsortiumChannelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricConsortiumChannelsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricConsortiumConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricConsortiumConfigResponse
+   */
   async describeFabricConsortiumConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeFabricConsortiumConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -17123,11 +17828,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricConsortiumConfigResponse>(await this.callApi(params, req, runtime), new DescribeFabricConsortiumConfigResponse({}));
   }
 
+  /**
+   * @return DescribeFabricConsortiumConfigResponse
+   */
   async describeFabricConsortiumConfig(): Promise<DescribeFabricConsortiumConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricConsortiumConfigWithOptions(runtime);
   }
 
+  /**
+   * @param request DescribeFabricConsortiumDeletableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricConsortiumDeletableResponse
+   */
   async describeFabricConsortiumDeletableWithOptions(request: DescribeFabricConsortiumDeletableRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricConsortiumDeletableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17158,11 +17871,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricConsortiumDeletableResponse>(await this.callApi(params, req, runtime), new DescribeFabricConsortiumDeletableResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricConsortiumDeletableRequest
+   * @return DescribeFabricConsortiumDeletableResponse
+   */
   async describeFabricConsortiumDeletable(request: DescribeFabricConsortiumDeletableRequest): Promise<DescribeFabricConsortiumDeletableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricConsortiumDeletableWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricConsortiumMemberApprovalRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricConsortiumMemberApprovalResponse
+   */
   async describeFabricConsortiumMemberApprovalWithOptions(request: DescribeFabricConsortiumMemberApprovalRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricConsortiumMemberApprovalResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17193,11 +17915,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricConsortiumMemberApprovalResponse>(await this.callApi(params, req, runtime), new DescribeFabricConsortiumMemberApprovalResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricConsortiumMemberApprovalRequest
+   * @return DescribeFabricConsortiumMemberApprovalResponse
+   */
   async describeFabricConsortiumMemberApproval(request: DescribeFabricConsortiumMemberApprovalRequest): Promise<DescribeFabricConsortiumMemberApprovalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricConsortiumMemberApprovalWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricConsortiumMembersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricConsortiumMembersResponse
+   */
   async describeFabricConsortiumMembersWithOptions(request: DescribeFabricConsortiumMembersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricConsortiumMembersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17226,11 +17957,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricConsortiumMembersResponse>(await this.callApi(params, req, runtime), new DescribeFabricConsortiumMembersResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricConsortiumMembersRequest
+   * @return DescribeFabricConsortiumMembersResponse
+   */
   async describeFabricConsortiumMembers(request: DescribeFabricConsortiumMembersRequest): Promise<DescribeFabricConsortiumMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricConsortiumMembersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricConsortiumOrderersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricConsortiumOrderersResponse
+   */
   async describeFabricConsortiumOrderersWithOptions(request: DescribeFabricConsortiumOrderersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricConsortiumOrderersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17259,11 +17999,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricConsortiumOrderersResponse>(await this.callApi(params, req, runtime), new DescribeFabricConsortiumOrderersResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricConsortiumOrderersRequest
+   * @return DescribeFabricConsortiumOrderersResponse
+   */
   async describeFabricConsortiumOrderers(request: DescribeFabricConsortiumOrderersRequest): Promise<DescribeFabricConsortiumOrderersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricConsortiumOrderersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricConsortiumSpecsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricConsortiumSpecsResponse
+   */
   async describeFabricConsortiumSpecsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeFabricConsortiumSpecsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -17280,11 +18029,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricConsortiumSpecsResponse>(await this.callApi(params, req, runtime), new DescribeFabricConsortiumSpecsResponse({}));
   }
 
+  /**
+   * @return DescribeFabricConsortiumSpecsResponse
+   */
   async describeFabricConsortiumSpecs(): Promise<DescribeFabricConsortiumSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricConsortiumSpecsWithOptions(runtime);
   }
 
+  /**
+   * @param request DescribeFabricConsortiumsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricConsortiumsResponse
+   */
   async describeFabricConsortiumsWithOptions(request: DescribeFabricConsortiumsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricConsortiumsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17319,11 +18076,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricConsortiumsResponse>(await this.callApi(params, req, runtime), new DescribeFabricConsortiumsResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricConsortiumsRequest
+   * @return DescribeFabricConsortiumsResponse
+   */
   async describeFabricConsortiums(request: DescribeFabricConsortiumsRequest): Promise<DescribeFabricConsortiumsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricConsortiumsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricExplorerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricExplorerResponse
+   */
   async describeFabricExplorerWithOptions(request: DescribeFabricExplorerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricExplorerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17362,11 +18128,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricExplorerResponse>(await this.callApi(params, req, runtime), new DescribeFabricExplorerResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricExplorerRequest
+   * @return DescribeFabricExplorerResponse
+   */
   async describeFabricExplorer(request: DescribeFabricExplorerRequest): Promise<DescribeFabricExplorerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricExplorerWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricInvitationCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricInvitationCodeResponse
+   */
   async describeFabricInvitationCodeWithOptions(request: DescribeFabricInvitationCodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricInvitationCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17391,11 +18166,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricInvitationCodeResponse>(await this.callApi(params, req, runtime), new DescribeFabricInvitationCodeResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricInvitationCodeRequest
+   * @return DescribeFabricInvitationCodeResponse
+   */
   async describeFabricInvitationCode(request: DescribeFabricInvitationCodeRequest): Promise<DescribeFabricInvitationCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricInvitationCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricInviterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricInviterResponse
+   */
   async describeFabricInviterWithOptions(request: DescribeFabricInviterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricInviterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17420,11 +18204,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricInviterResponse>(await this.callApi(params, req, runtime), new DescribeFabricInviterResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricInviterRequest
+   * @return DescribeFabricInviterResponse
+   */
   async describeFabricInviter(request: DescribeFabricInviterRequest): Promise<DescribeFabricInviterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricInviterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricOrdererLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricOrdererLogsResponse
+   */
   async describeFabricOrdererLogsWithOptions(request: DescribeFabricOrdererLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricOrdererLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17457,11 +18250,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricOrdererLogsResponse>(await this.callApi(params, req, runtime), new DescribeFabricOrdererLogsResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricOrdererLogsRequest
+   * @return DescribeFabricOrdererLogsResponse
+   */
   async describeFabricOrdererLogs(request: DescribeFabricOrdererLogsRequest): Promise<DescribeFabricOrdererLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricOrdererLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricOrganizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricOrganizationResponse
+   */
   async describeFabricOrganizationWithOptions(request: DescribeFabricOrganizationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricOrganizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17496,11 +18298,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricOrganizationResponse>(await this.callApi(params, req, runtime), new DescribeFabricOrganizationResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricOrganizationRequest
+   * @return DescribeFabricOrganizationResponse
+   */
   async describeFabricOrganization(request: DescribeFabricOrganizationRequest): Promise<DescribeFabricOrganizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricOrganizationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary DescribeFabricOrganizationChaincodePackage
+   *
+   * @param request DescribeFabricOrganizationChaincodePackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricOrganizationChaincodePackageResponse
+   */
   async describeFabricOrganizationChaincodePackageWithOptions(request: DescribeFabricOrganizationChaincodePackageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricOrganizationChaincodePackageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17525,11 +18338,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricOrganizationChaincodePackageResponse>(await this.callApi(params, req, runtime), new DescribeFabricOrganizationChaincodePackageResponse({}));
   }
 
+  /**
+   * @summary DescribeFabricOrganizationChaincodePackage
+   *
+   * @param request DescribeFabricOrganizationChaincodePackageRequest
+   * @return DescribeFabricOrganizationChaincodePackageResponse
+   */
   async describeFabricOrganizationChaincodePackage(request: DescribeFabricOrganizationChaincodePackageRequest): Promise<DescribeFabricOrganizationChaincodePackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricOrganizationChaincodePackageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricOrganizationChaincodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricOrganizationChaincodesResponse
+   */
   async describeFabricOrganizationChaincodesWithOptions(request: DescribeFabricOrganizationChaincodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricOrganizationChaincodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17558,11 +18382,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricOrganizationChaincodesResponse>(await this.callApi(params, req, runtime), new DescribeFabricOrganizationChaincodesResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricOrganizationChaincodesRequest
+   * @return DescribeFabricOrganizationChaincodesResponse
+   */
   async describeFabricOrganizationChaincodes(request: DescribeFabricOrganizationChaincodesRequest): Promise<DescribeFabricOrganizationChaincodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricOrganizationChaincodesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricOrganizationChannelsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricOrganizationChannelsResponse
+   */
   async describeFabricOrganizationChannelsWithOptions(request: DescribeFabricOrganizationChannelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricOrganizationChannelsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17593,11 +18426,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricOrganizationChannelsResponse>(await this.callApi(params, req, runtime), new DescribeFabricOrganizationChannelsResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricOrganizationChannelsRequest
+   * @return DescribeFabricOrganizationChannelsResponse
+   */
   async describeFabricOrganizationChannels(request: DescribeFabricOrganizationChannelsRequest): Promise<DescribeFabricOrganizationChannelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricOrganizationChannelsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricOrganizationDeletableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricOrganizationDeletableResponse
+   */
   async describeFabricOrganizationDeletableWithOptions(request: DescribeFabricOrganizationDeletableRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricOrganizationDeletableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17628,11 +18470,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricOrganizationDeletableResponse>(await this.callApi(params, req, runtime), new DescribeFabricOrganizationDeletableResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricOrganizationDeletableRequest
+   * @return DescribeFabricOrganizationDeletableResponse
+   */
   async describeFabricOrganizationDeletable(request: DescribeFabricOrganizationDeletableRequest): Promise<DescribeFabricOrganizationDeletableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricOrganizationDeletableWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricOrganizationMembersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricOrganizationMembersResponse
+   */
   async describeFabricOrganizationMembersWithOptions(request: DescribeFabricOrganizationMembersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricOrganizationMembersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17661,11 +18512,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricOrganizationMembersResponse>(await this.callApi(params, req, runtime), new DescribeFabricOrganizationMembersResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricOrganizationMembersRequest
+   * @return DescribeFabricOrganizationMembersResponse
+   */
   async describeFabricOrganizationMembers(request: DescribeFabricOrganizationMembersRequest): Promise<DescribeFabricOrganizationMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricOrganizationMembersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricOrganizationPeersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricOrganizationPeersResponse
+   */
   async describeFabricOrganizationPeersWithOptions(request: DescribeFabricOrganizationPeersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricOrganizationPeersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17696,11 +18556,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricOrganizationPeersResponse>(await this.callApi(params, req, runtime), new DescribeFabricOrganizationPeersResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricOrganizationPeersRequest
+   * @return DescribeFabricOrganizationPeersResponse
+   */
   async describeFabricOrganizationPeers(request: DescribeFabricOrganizationPeersRequest): Promise<DescribeFabricOrganizationPeersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricOrganizationPeersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricOrganizationSpecsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricOrganizationSpecsResponse
+   */
   async describeFabricOrganizationSpecsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeFabricOrganizationSpecsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -17717,11 +18586,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricOrganizationSpecsResponse>(await this.callApi(params, req, runtime), new DescribeFabricOrganizationSpecsResponse({}));
   }
 
+  /**
+   * @return DescribeFabricOrganizationSpecsResponse
+   */
   async describeFabricOrganizationSpecs(): Promise<DescribeFabricOrganizationSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricOrganizationSpecsWithOptions(runtime);
   }
 
+  /**
+   * @param request DescribeFabricOrganizationUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricOrganizationUsersResponse
+   */
   async describeFabricOrganizationUsersWithOptions(request: DescribeFabricOrganizationUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricOrganizationUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17752,11 +18629,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricOrganizationUsersResponse>(await this.callApi(params, req, runtime), new DescribeFabricOrganizationUsersResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricOrganizationUsersRequest
+   * @return DescribeFabricOrganizationUsersResponse
+   */
   async describeFabricOrganizationUsers(request: DescribeFabricOrganizationUsersRequest): Promise<DescribeFabricOrganizationUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricOrganizationUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricOrganizationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricOrganizationsResponse
+   */
   async describeFabricOrganizationsWithOptions(request: DescribeFabricOrganizationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricOrganizationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17787,11 +18673,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricOrganizationsResponse>(await this.callApi(params, req, runtime), new DescribeFabricOrganizationsResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricOrganizationsRequest
+   * @return DescribeFabricOrganizationsResponse
+   */
   async describeFabricOrganizations(request: DescribeFabricOrganizationsRequest): Promise<DescribeFabricOrganizationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricOrganizationsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFabricPeerLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFabricPeerLogsResponse
+   */
   async describeFabricPeerLogsWithOptions(request: DescribeFabricPeerLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFabricPeerLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17824,11 +18719,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFabricPeerLogsResponse>(await this.callApi(params, req, runtime), new DescribeFabricPeerLogsResponse({}));
   }
 
+  /**
+   * @param request DescribeFabricPeerLogsRequest
+   * @return DescribeFabricPeerLogsResponse
+   */
   async describeFabricPeerLogs(request: DescribeFabricPeerLogsRequest): Promise<DescribeFabricPeerLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFabricPeerLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17857,11 +18761,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRootDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRootDomainResponse
+   */
   async describeRootDomainWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRootDomainResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -17878,11 +18791,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRootDomainResponse>(await this.callApi(params, req, runtime), new DescribeRootDomainResponse({}));
   }
 
+  /**
+   * @return DescribeRootDomainResponse
+   */
   async describeRootDomain(): Promise<DescribeRootDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRootDomainWithOptions(runtime);
   }
 
+  /**
+   * @param request DescribeTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTasksResponse
+   */
   async describeTasksWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -17899,11 +18820,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
   }
 
+  /**
+   * @return DescribeTasksResponse
+   */
   async describeTasks(): Promise<DescribeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTasksWithOptions(runtime);
   }
 
+  /**
+   * @param request DownloadFabricOrganizationSDKRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DownloadFabricOrganizationSDKResponse
+   */
   async downloadFabricOrganizationSDKWithOptions(request: DownloadFabricOrganizationSDKRequest, runtime: $Util.RuntimeOptions): Promise<DownloadFabricOrganizationSDKResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17938,11 +18867,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DownloadFabricOrganizationSDKResponse>(await this.callApi(params, req, runtime), new DownloadFabricOrganizationSDKResponse({}));
   }
 
+  /**
+   * @param request DownloadFabricOrganizationSDKRequest
+   * @return DownloadFabricOrganizationSDKResponse
+   */
   async downloadFabricOrganizationSDK(request: DownloadFabricOrganizationSDKRequest): Promise<DownloadFabricOrganizationSDKResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.downloadFabricOrganizationSDKWithOptions(request, runtime);
   }
 
+  /**
+   * @param request FreezeAntChainAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FreezeAntChainAccountResponse
+   */
   async freezeAntChainAccountWithOptions(request: FreezeAntChainAccountRequest, runtime: $Util.RuntimeOptions): Promise<FreezeAntChainAccountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17971,11 +18909,20 @@ export default class Client extends OpenApi {
     return $tea.cast<FreezeAntChainAccountResponse>(await this.callApi(params, req, runtime), new FreezeAntChainAccountResponse({}));
   }
 
+  /**
+   * @param request FreezeAntChainAccountRequest
+   * @return FreezeAntChainAccountResponse
+   */
   async freezeAntChainAccount(request: FreezeAntChainAccountRequest): Promise<FreezeAntChainAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.freezeAntChainAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request InstallFabricChaincodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallFabricChaincodeResponse
+   */
   async installFabricChaincodeWithOptions(request: InstallFabricChaincodeRequest, runtime: $Util.RuntimeOptions): Promise<InstallFabricChaincodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18008,11 +18955,22 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallFabricChaincodeResponse>(await this.callApi(params, req, runtime), new InstallFabricChaincodeResponse({}));
   }
 
+  /**
+   * @param request InstallFabricChaincodeRequest
+   * @return InstallFabricChaincodeResponse
+   */
   async installFabricChaincode(request: InstallFabricChaincodeRequest): Promise<InstallFabricChaincodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installFabricChaincodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary InstallFabricChaincodePackage
+   *
+   * @param request InstallFabricChaincodePackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallFabricChaincodePackageResponse
+   */
   async installFabricChaincodePackageWithOptions(request: InstallFabricChaincodePackageRequest, runtime: $Util.RuntimeOptions): Promise<InstallFabricChaincodePackageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18045,11 +19003,22 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallFabricChaincodePackageResponse>(await this.callApi(params, req, runtime), new InstallFabricChaincodePackageResponse({}));
   }
 
+  /**
+   * @summary InstallFabricChaincodePackage
+   *
+   * @param request InstallFabricChaincodePackageRequest
+   * @return InstallFabricChaincodePackageResponse
+   */
   async installFabricChaincodePackage(request: InstallFabricChaincodePackageRequest): Promise<InstallFabricChaincodePackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installFabricChaincodePackageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request InstantiateFabricChaincodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstantiateFabricChaincodeResponse
+   */
   async instantiateFabricChaincodeWithOptions(request: InstantiateFabricChaincodeRequest, runtime: $Util.RuntimeOptions): Promise<InstantiateFabricChaincodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18090,11 +19059,20 @@ export default class Client extends OpenApi {
     return $tea.cast<InstantiateFabricChaincodeResponse>(await this.callApi(params, req, runtime), new InstantiateFabricChaincodeResponse({}));
   }
 
+  /**
+   * @param request InstantiateFabricChaincodeRequest
+   * @return InstantiateFabricChaincodeResponse
+   */
   async instantiateFabricChaincode(request: InstantiateFabricChaincodeRequest): Promise<InstantiateFabricChaincodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.instantiateFabricChaincodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request JoinFabricChannelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return JoinFabricChannelResponse
+   */
   async joinFabricChannelWithOptions(request: JoinFabricChannelRequest, runtime: $Util.RuntimeOptions): Promise<JoinFabricChannelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18129,11 +19107,20 @@ export default class Client extends OpenApi {
     return $tea.cast<JoinFabricChannelResponse>(await this.callApi(params, req, runtime), new JoinFabricChannelResponse({}));
   }
 
+  /**
+   * @param request JoinFabricChannelRequest
+   * @return JoinFabricChannelResponse
+   */
   async joinFabricChannel(request: JoinFabricChannelRequest): Promise<JoinFabricChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.joinFabricChannelWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18170,11 +19157,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResetAntChainCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAntChainCertificateResponse
+   */
   async resetAntChainCertificateWithOptions(request: ResetAntChainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ResetAntChainCertificateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18199,11 +19195,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAntChainCertificateResponse>(await this.callApi(params, req, runtime), new ResetAntChainCertificateResponse({}));
   }
 
+  /**
+   * @param request ResetAntChainCertificateRequest
+   * @return ResetAntChainCertificateResponse
+   */
   async resetAntChainCertificate(request: ResetAntChainCertificateRequest): Promise<ResetAntChainCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAntChainCertificateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResetAntChainUserCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAntChainUserCertificateResponse
+   */
   async resetAntChainUserCertificateWithOptions(request: ResetAntChainUserCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ResetAntChainUserCertificateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18232,11 +19237,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAntChainUserCertificateResponse>(await this.callApi(params, req, runtime), new ResetAntChainUserCertificateResponse({}));
   }
 
+  /**
+   * @param request ResetAntChainUserCertificateRequest
+   * @return ResetAntChainUserCertificateResponse
+   */
   async resetAntChainUserCertificate(request: ResetAntChainUserCertificateRequest): Promise<ResetAntChainUserCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAntChainUserCertificateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResetFabricOrganizationUserPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetFabricOrganizationUserPasswordResponse
+   */
   async resetFabricOrganizationUserPasswordWithOptions(request: ResetFabricOrganizationUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetFabricOrganizationUserPasswordResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18273,11 +19287,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetFabricOrganizationUserPasswordResponse>(await this.callApi(params, req, runtime), new ResetFabricOrganizationUserPasswordResponse({}));
   }
 
+  /**
+   * @param request ResetFabricOrganizationUserPasswordRequest
+   * @return ResetFabricOrganizationUserPasswordResponse
+   */
   async resetFabricOrganizationUserPassword(request: ResetFabricOrganizationUserPasswordRequest): Promise<ResetFabricOrganizationUserPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetFabricOrganizationUserPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary SubmitFabricChaincodeDefinition
+   *
+   * @param request SubmitFabricChaincodeDefinitionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitFabricChaincodeDefinitionResponse
+   */
   async submitFabricChaincodeDefinitionWithOptions(request: SubmitFabricChaincodeDefinitionRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFabricChaincodeDefinitionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18334,11 +19359,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitFabricChaincodeDefinitionResponse>(await this.callApi(params, req, runtime), new SubmitFabricChaincodeDefinitionResponse({}));
   }
 
+  /**
+   * @summary SubmitFabricChaincodeDefinition
+   *
+   * @param request SubmitFabricChaincodeDefinitionRequest
+   * @return SubmitFabricChaincodeDefinitionResponse
+   */
   async submitFabricChaincodeDefinition(request: SubmitFabricChaincodeDefinitionRequest): Promise<SubmitFabricChaincodeDefinitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitFabricChaincodeDefinitionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SynchronizeFabricChaincodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SynchronizeFabricChaincodeResponse
+   */
   async synchronizeFabricChaincodeWithOptions(request: SynchronizeFabricChaincodeRequest, runtime: $Util.RuntimeOptions): Promise<SynchronizeFabricChaincodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18367,11 +19403,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SynchronizeFabricChaincodeResponse>(await this.callApi(params, req, runtime), new SynchronizeFabricChaincodeResponse({}));
   }
 
+  /**
+   * @param request SynchronizeFabricChaincodeRequest
+   * @return SynchronizeFabricChaincodeResponse
+   */
   async synchronizeFabricChaincode(request: SynchronizeFabricChaincodeRequest): Promise<SynchronizeFabricChaincodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.synchronizeFabricChaincodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18404,11 +19449,20 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UnfreezeAntChainAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnfreezeAntChainAccountResponse
+   */
   async unfreezeAntChainAccountWithOptions(request: UnfreezeAntChainAccountRequest, runtime: $Util.RuntimeOptions): Promise<UnfreezeAntChainAccountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18437,11 +19491,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UnfreezeAntChainAccountResponse>(await this.callApi(params, req, runtime), new UnfreezeAntChainAccountResponse({}));
   }
 
+  /**
+   * @param request UnfreezeAntChainAccountRequest
+   * @return UnfreezeAntChainAccountResponse
+   */
   async unfreezeAntChainAccount(request: UnfreezeAntChainAccountRequest): Promise<UnfreezeAntChainAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unfreezeAntChainAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18478,11 +19541,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateAntChainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAntChainResponse
+   */
   async updateAntChainWithOptions(request: UpdateAntChainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAntChainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18511,11 +19583,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAntChainResponse>(await this.callApi(params, req, runtime), new UpdateAntChainResponse({}));
   }
 
+  /**
+   * @param request UpdateAntChainRequest
+   * @return UpdateAntChainResponse
+   */
   async updateAntChain(request: UpdateAntChainRequest): Promise<UpdateAntChainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAntChainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateAntChainConsortiumRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAntChainConsortiumResponse
+   */
   async updateAntChainConsortiumWithOptions(request: UpdateAntChainConsortiumRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAntChainConsortiumResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18548,11 +19629,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAntChainConsortiumResponse>(await this.callApi(params, req, runtime), new UpdateAntChainConsortiumResponse({}));
   }
 
+  /**
+   * @param request UpdateAntChainConsortiumRequest
+   * @return UpdateAntChainConsortiumResponse
+   */
   async updateAntChainConsortium(request: UpdateAntChainConsortiumRequest): Promise<UpdateAntChainConsortiumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAntChainConsortiumWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateAntChainContractContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAntChainContractContentResponse
+   */
   async updateAntChainContractContentWithOptions(request: UpdateAntChainContractContentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAntChainContractContentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18589,11 +19679,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAntChainContractContentResponse>(await this.callApi(params, req, runtime), new UpdateAntChainContractContentResponse({}));
   }
 
+  /**
+   * @param request UpdateAntChainContractContentRequest
+   * @return UpdateAntChainContractContentResponse
+   */
   async updateAntChainContractContent(request: UpdateAntChainContractContentRequest): Promise<UpdateAntChainContractContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAntChainContractContentWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateAntChainContractProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAntChainContractProjectResponse
+   */
   async updateAntChainContractProjectWithOptions(request: UpdateAntChainContractProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAntChainContractProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18630,11 +19729,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAntChainContractProjectResponse>(await this.callApi(params, req, runtime), new UpdateAntChainContractProjectResponse({}));
   }
 
+  /**
+   * @param request UpdateAntChainContractProjectRequest
+   * @return UpdateAntChainContractProjectResponse
+   */
   async updateAntChainContractProject(request: UpdateAntChainContractProjectRequest): Promise<UpdateAntChainContractProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAntChainContractProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateAntChainMemberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAntChainMemberResponse
+   */
   async updateAntChainMemberWithOptions(request: UpdateAntChainMemberRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAntChainMemberResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18667,11 +19775,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAntChainMemberResponse>(await this.callApi(params, req, runtime), new UpdateAntChainMemberResponse({}));
   }
 
+  /**
+   * @param request UpdateAntChainMemberRequest
+   * @return UpdateAntChainMemberResponse
+   */
   async updateAntChainMember(request: UpdateAntChainMemberRequest): Promise<UpdateAntChainMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAntChainMemberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateAntChainQRCodeAuthorizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAntChainQRCodeAuthorizationResponse
+   */
   async updateAntChainQRCodeAuthorizationWithOptions(request: UpdateAntChainQRCodeAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAntChainQRCodeAuthorizationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18704,17 +19821,21 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAntChainQRCodeAuthorizationResponse>(await this.callApi(params, req, runtime), new UpdateAntChainQRCodeAuthorizationResponse({}));
   }
 
+  /**
+   * @param request UpdateAntChainQRCodeAuthorizationRequest
+   * @return UpdateAntChainQRCodeAuthorizationResponse
+   */
   async updateAntChainQRCodeAuthorization(request: UpdateAntChainQRCodeAuthorizationRequest): Promise<UpdateAntChainQRCodeAuthorizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAntChainQRCodeAuthorizationWithOptions(request, runtime);
   }
 
   /**
-    * ****
-    *
-    * @param request UpgradeFabricChaincodeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeFabricChaincodeResponse
+   * @description ****
+   *
+   * @param request UpgradeFabricChaincodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeFabricChaincodeResponse
    */
   async upgradeFabricChaincodeWithOptions(request: UpgradeFabricChaincodeRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeFabricChaincodeResponse> {
     Util.validateModel(request);
@@ -18757,16 +19878,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    *
-    * @param request UpgradeFabricChaincodeRequest
-    * @return UpgradeFabricChaincodeResponse
+   * @description ****
+   *
+   * @param request UpgradeFabricChaincodeRequest
+   * @return UpgradeFabricChaincodeResponse
    */
   async upgradeFabricChaincode(request: UpgradeFabricChaincodeRequest): Promise<UpgradeFabricChaincodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeFabricChaincodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary UpgradeFabricChaincodeDefinition
+   *
+   * @param request UpgradeFabricChaincodeDefinitionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeFabricChaincodeDefinitionResponse
+   */
   async upgradeFabricChaincodeDefinitionWithOptions(request: UpgradeFabricChaincodeDefinitionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeFabricChaincodeDefinitionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18819,6 +19947,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeFabricChaincodeDefinitionResponse>(await this.callApi(params, req, runtime), new UpgradeFabricChaincodeDefinitionResponse({}));
   }
 
+  /**
+   * @summary UpgradeFabricChaincodeDefinition
+   *
+   * @param request UpgradeFabricChaincodeDefinitionRequest
+   * @return UpgradeFabricChaincodeDefinitionResponse
+   */
   async upgradeFabricChaincodeDefinition(request: UpgradeFabricChaincodeDefinitionRequest): Promise<UpgradeFabricChaincodeDefinitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeFabricChaincodeDefinitionWithOptions(request, runtime);
