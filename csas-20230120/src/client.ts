@@ -814,6 +814,394 @@ export class CreateUserGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateWmBaseImageRequest extends $tea.Model {
+  height?: number;
+  opacity?: number;
+  scale?: number;
+  width?: number;
+  wmInfoBytesB64?: string;
+  wmInfoSize?: number;
+  wmInfoUint?: string;
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      opacity: 'Opacity',
+      scale: 'Scale',
+      width: 'Width',
+      wmInfoBytesB64: 'WmInfoBytesB64',
+      wmInfoSize: 'WmInfoSize',
+      wmInfoUint: 'WmInfoUint',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      opacity: 'number',
+      scale: 'number',
+      width: 'number',
+      wmInfoBytesB64: 'string',
+      wmInfoSize: 'number',
+      wmInfoUint: 'string',
+      wmType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmBaseImageResponseBody extends $tea.Model {
+  data?: CreateWmBaseImageResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateWmBaseImageResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmBaseImageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWmBaseImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWmBaseImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequest extends $tea.Model {
+  documentControl?: CreateWmEmbedTaskRequestDocumentControl;
+  fileUrl?: string;
+  filename?: string;
+  imageEmbedJpegQuality?: number;
+  imageEmbedLevel?: number;
+  videoBitrate?: string;
+  videoIsLong?: boolean;
+  wmInfoBytesB64?: string;
+  wmInfoSize?: number;
+  wmInfoUint?: string;
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentControl: 'DocumentControl',
+      fileUrl: 'FileUrl',
+      filename: 'Filename',
+      imageEmbedJpegQuality: 'ImageEmbedJpegQuality',
+      imageEmbedLevel: 'ImageEmbedLevel',
+      videoBitrate: 'VideoBitrate',
+      videoIsLong: 'VideoIsLong',
+      wmInfoBytesB64: 'WmInfoBytesB64',
+      wmInfoSize: 'WmInfoSize',
+      wmInfoUint: 'WmInfoUint',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentControl: CreateWmEmbedTaskRequestDocumentControl,
+      fileUrl: 'string',
+      filename: 'string',
+      imageEmbedJpegQuality: 'number',
+      imageEmbedLevel: 'number',
+      videoBitrate: 'string',
+      videoIsLong: 'boolean',
+      wmInfoBytesB64: 'string',
+      wmInfoSize: 'number',
+      wmInfoUint: 'string',
+      wmType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskShrinkRequest extends $tea.Model {
+  documentControlShrink?: string;
+  fileUrl?: string;
+  filename?: string;
+  imageEmbedJpegQuality?: number;
+  imageEmbedLevel?: number;
+  videoBitrate?: string;
+  videoIsLong?: boolean;
+  wmInfoBytesB64?: string;
+  wmInfoSize?: number;
+  wmInfoUint?: string;
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentControlShrink: 'DocumentControl',
+      fileUrl: 'FileUrl',
+      filename: 'Filename',
+      imageEmbedJpegQuality: 'ImageEmbedJpegQuality',
+      imageEmbedLevel: 'ImageEmbedLevel',
+      videoBitrate: 'VideoBitrate',
+      videoIsLong: 'VideoIsLong',
+      wmInfoBytesB64: 'WmInfoBytesB64',
+      wmInfoSize: 'WmInfoSize',
+      wmInfoUint: 'WmInfoUint',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentControlShrink: 'string',
+      fileUrl: 'string',
+      filename: 'string',
+      imageEmbedJpegQuality: 'number',
+      imageEmbedLevel: 'number',
+      videoBitrate: 'string',
+      videoIsLong: 'boolean',
+      wmInfoBytesB64: 'string',
+      wmInfoSize: 'number',
+      wmInfoUint: 'string',
+      wmType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskResponseBody extends $tea.Model {
+  data?: CreateWmEmbedTaskResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateWmEmbedTaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWmEmbedTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWmEmbedTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmExtractTaskRequest extends $tea.Model {
+  documentIsCapture?: boolean;
+  fileUrl?: string;
+  filename?: string;
+  videoIsLong?: boolean;
+  videoSpeed?: string;
+  wmInfoSize?: number;
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentIsCapture: 'DocumentIsCapture',
+      fileUrl: 'FileUrl',
+      filename: 'Filename',
+      videoIsLong: 'VideoIsLong',
+      videoSpeed: 'VideoSpeed',
+      wmInfoSize: 'WmInfoSize',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentIsCapture: 'boolean',
+      fileUrl: 'string',
+      filename: 'string',
+      videoIsLong: 'boolean',
+      videoSpeed: 'string',
+      wmInfoSize: 'number',
+      wmType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmExtractTaskResponseBody extends $tea.Model {
+  data?: CreateWmExtractTaskResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateWmExtractTaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmExtractTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWmExtractTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWmExtractTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmInfoMappingRequest extends $tea.Model {
+  wmInfoBytesB64?: string;
+  wmInfoSize?: number;
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      wmInfoBytesB64: 'WmInfoBytesB64',
+      wmInfoSize: 'WmInfoSize',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wmInfoBytesB64: 'string',
+      wmInfoSize: 'number',
+      wmType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmInfoMappingResponseBody extends $tea.Model {
+  data?: CreateWmInfoMappingResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateWmInfoMappingResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmInfoMappingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWmInfoMappingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWmInfoMappingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteClientUserRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -2177,6 +2565,138 @@ export class GetUserGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetUserGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmEmbedTaskRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmEmbedTaskResponseBody extends $tea.Model {
+  data?: GetWmEmbedTaskResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetWmEmbedTaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmEmbedTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWmEmbedTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWmEmbedTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmExtractTaskRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmExtractTaskResponseBody extends $tea.Model {
+  data?: GetWmExtractTaskResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetWmExtractTaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmExtractTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWmExtractTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWmExtractTaskResponseBody,
     };
   }
 
@@ -4344,6 +4864,78 @@ export class ListUsersResponse extends $tea.Model {
   }
 }
 
+export class LookupWmInfoMappingRequest extends $tea.Model {
+  wmInfoSize?: number;
+  wmInfoUint?: string;
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      wmInfoSize: 'WmInfoSize',
+      wmInfoUint: 'WmInfoUint',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wmInfoSize: 'number',
+      wmInfoUint: 'string',
+      wmType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LookupWmInfoMappingResponseBody extends $tea.Model {
+  data?: LookupWmInfoMappingResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: LookupWmInfoMappingResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LookupWmInfoMappingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LookupWmInfoMappingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LookupWmInfoMappingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RevokeUserSessionRequest extends $tea.Model {
   externalIds?: string;
   idpId?: string;
@@ -5691,6 +6283,206 @@ export class CreateUserGroupRequestAttributes extends $tea.Model {
   }
 }
 
+export class CreateWmBaseImageResponseBodyData extends $tea.Model {
+  imageId?: string;
+  imageUrl?: string;
+  imageUrlExp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      imageUrl: 'ImageUrl',
+      imageUrlExp: 'ImageUrlExp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      imageUrl: 'string',
+      imageUrlExp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl extends $tea.Model {
+  opacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      opacity: 'Opacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl extends $tea.Model {
+  angle?: number;
+  fontColor?: string;
+  fontSize?: number;
+  horizontalNumber?: number;
+  mode?: string;
+  opacity?: number;
+  posX?: string;
+  posY?: string;
+  verticalNumber?: number;
+  visibleText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      horizontalNumber: 'HorizontalNumber',
+      mode: 'Mode',
+      opacity: 'Opacity',
+      posX: 'PosX',
+      posY: 'PosY',
+      verticalNumber: 'VerticalNumber',
+      visibleText: 'VisibleText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      fontColor: 'string',
+      fontSize: 'number',
+      horizontalNumber: 'number',
+      mode: 'string',
+      opacity: 'number',
+      posX: 'string',
+      posY: 'string',
+      verticalNumber: 'number',
+      visibleText: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestDocumentControlBackgroundControl extends $tea.Model {
+  bgAddInvisible?: boolean;
+  bgAddVisible?: boolean;
+  bgInvisibleControl?: CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl;
+  bgVisibleControl?: CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl;
+  static names(): { [key: string]: string } {
+    return {
+      bgAddInvisible: 'BgAddInvisible',
+      bgAddVisible: 'BgAddVisible',
+      bgInvisibleControl: 'BgInvisibleControl',
+      bgVisibleControl: 'BgVisibleControl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bgAddInvisible: 'boolean',
+      bgAddVisible: 'boolean',
+      bgInvisibleControl: CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl,
+      bgVisibleControl: CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestDocumentControl extends $tea.Model {
+  backgroundControl?: CreateWmEmbedTaskRequestDocumentControlBackgroundControl;
+  invisibleAntiAllCopy?: boolean;
+  invisibleAntiTextCopy?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      backgroundControl: 'BackgroundControl',
+      invisibleAntiAllCopy: 'InvisibleAntiAllCopy',
+      invisibleAntiTextCopy: 'InvisibleAntiTextCopy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backgroundControl: CreateWmEmbedTaskRequestDocumentControlBackgroundControl,
+      invisibleAntiAllCopy: 'boolean',
+      invisibleAntiTextCopy: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskResponseBodyData extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmExtractTaskResponseBodyData extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmInfoMappingResponseBodyData extends $tea.Model {
+  wmInfoUint?: number;
+  static names(): { [key: string]: string } {
+    return {
+      wmInfoUint: 'WmInfoUint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wmInfoUint: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetActiveIdpConfigResponseBodyData extends $tea.Model {
   description?: string;
   id?: string;
@@ -6286,6 +7078,83 @@ export class GetUserGroupResponseBodyUserGroup extends $tea.Model {
       description: 'string',
       name: 'string',
       userGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmEmbedTaskResponseBodyData extends $tea.Model {
+  fileUrl?: string;
+  fileUrlExp?: string;
+  filename?: string;
+  outFileHashMd5?: string;
+  outFileSize?: number;
+  taskId?: string;
+  taskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+      fileUrlExp: 'FileUrlExp',
+      filename: 'Filename',
+      outFileHashMd5: 'OutFileHashMd5',
+      outFileSize: 'OutFileSize',
+      taskId: 'TaskId',
+      taskStatus: 'TaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      fileUrlExp: 'string',
+      filename: 'string',
+      outFileHashMd5: 'string',
+      outFileSize: 'number',
+      taskId: 'string',
+      taskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmExtractTaskResponseBodyData extends $tea.Model {
+  createTime?: string;
+  filename?: string;
+  status?: string;
+  taskId?: string;
+  wmInfoBytesB64?: string;
+  wmInfoSize?: number;
+  wmInfoUint?: number;
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      filename: 'Filename',
+      status: 'Status',
+      taskId: 'TaskId',
+      wmInfoBytesB64: 'WmInfoBytesB64',
+      wmInfoSize: 'WmInfoSize',
+      wmInfoUint: 'WmInfoUint',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      filename: 'string',
+      status: 'string',
+      taskId: 'string',
+      wmInfoBytesB64: 'string',
+      wmInfoSize: 'number',
+      wmInfoUint: 'number',
+      wmType: 'string',
     };
   }
 
@@ -8200,6 +9069,25 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
   }
 }
 
+export class LookupWmInfoMappingResponseBodyData extends $tea.Model {
+  wmInfoBytesB64?: string;
+  static names(): { [key: string]: string } {
+    return {
+      wmInfoBytesB64: 'WmInfoBytesB64',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wmInfoBytesB64: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications extends $tea.Model {
   applicationId?: string;
   createTime?: string;
@@ -9293,6 +10181,280 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 创建数字水印暗水印透明底图
+   *
+   * @param request CreateWmBaseImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWmBaseImageResponse
+   */
+  async createWmBaseImageWithOptions(request: CreateWmBaseImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmBaseImageResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.height)) {
+      body["Height"] = request.height;
+    }
+
+    if (!Util.isUnset(request.opacity)) {
+      body["Opacity"] = request.opacity;
+    }
+
+    if (!Util.isUnset(request.scale)) {
+      body["Scale"] = request.scale;
+    }
+
+    if (!Util.isUnset(request.width)) {
+      body["Width"] = request.width;
+    }
+
+    if (!Util.isUnset(request.wmInfoBytesB64)) {
+      body["WmInfoBytesB64"] = request.wmInfoBytesB64;
+    }
+
+    if (!Util.isUnset(request.wmInfoSize)) {
+      body["WmInfoSize"] = request.wmInfoSize;
+    }
+
+    if (!Util.isUnset(request.wmInfoUint)) {
+      body["WmInfoUint"] = request.wmInfoUint;
+    }
+
+    if (!Util.isUnset(request.wmType)) {
+      body["WmType"] = request.wmType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWmBaseImage",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWmBaseImageResponse>(await this.callApi(params, req, runtime), new CreateWmBaseImageResponse({}));
+  }
+
+  /**
+   * @summary 创建数字水印暗水印透明底图
+   *
+   * @param request CreateWmBaseImageRequest
+   * @return CreateWmBaseImageResponse
+   */
+  async createWmBaseImage(request: CreateWmBaseImageRequest): Promise<CreateWmBaseImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createWmBaseImageWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 创建嵌入水印任务
+   *
+   * @param tmpReq CreateWmEmbedTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWmEmbedTaskResponse
+   */
+  async createWmEmbedTaskWithOptions(tmpReq: CreateWmEmbedTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmEmbedTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateWmEmbedTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.documentControl)) {
+      request.documentControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentControl, "DocumentControl", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.documentControlShrink)) {
+      body["DocumentControl"] = request.documentControlShrink;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.filename)) {
+      body["Filename"] = request.filename;
+    }
+
+    if (!Util.isUnset(request.imageEmbedJpegQuality)) {
+      body["ImageEmbedJpegQuality"] = request.imageEmbedJpegQuality;
+    }
+
+    if (!Util.isUnset(request.imageEmbedLevel)) {
+      body["ImageEmbedLevel"] = request.imageEmbedLevel;
+    }
+
+    if (!Util.isUnset(request.videoBitrate)) {
+      body["VideoBitrate"] = request.videoBitrate;
+    }
+
+    if (!Util.isUnset(request.videoIsLong)) {
+      body["VideoIsLong"] = request.videoIsLong;
+    }
+
+    if (!Util.isUnset(request.wmInfoBytesB64)) {
+      body["WmInfoBytesB64"] = request.wmInfoBytesB64;
+    }
+
+    if (!Util.isUnset(request.wmInfoSize)) {
+      body["WmInfoSize"] = request.wmInfoSize;
+    }
+
+    if (!Util.isUnset(request.wmInfoUint)) {
+      body["WmInfoUint"] = request.wmInfoUint;
+    }
+
+    if (!Util.isUnset(request.wmType)) {
+      body["WmType"] = request.wmType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWmEmbedTask",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWmEmbedTaskResponse>(await this.callApi(params, req, runtime), new CreateWmEmbedTaskResponse({}));
+  }
+
+  /**
+   * @summary 创建嵌入水印任务
+   *
+   * @param request CreateWmEmbedTaskRequest
+   * @return CreateWmEmbedTaskResponse
+   */
+  async createWmEmbedTask(request: CreateWmEmbedTaskRequest): Promise<CreateWmEmbedTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createWmEmbedTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 创建文件水印提取任务
+   *
+   * @param request CreateWmExtractTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWmExtractTaskResponse
+   */
+  async createWmExtractTaskWithOptions(request: CreateWmExtractTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmExtractTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.documentIsCapture)) {
+      body["DocumentIsCapture"] = request.documentIsCapture;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.filename)) {
+      body["Filename"] = request.filename;
+    }
+
+    if (!Util.isUnset(request.videoIsLong)) {
+      body["VideoIsLong"] = request.videoIsLong;
+    }
+
+    if (!Util.isUnset(request.videoSpeed)) {
+      body["VideoSpeed"] = request.videoSpeed;
+    }
+
+    if (!Util.isUnset(request.wmInfoSize)) {
+      body["WmInfoSize"] = request.wmInfoSize;
+    }
+
+    if (!Util.isUnset(request.wmType)) {
+      body["WmType"] = request.wmType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWmExtractTask",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWmExtractTaskResponse>(await this.callApi(params, req, runtime), new CreateWmExtractTaskResponse({}));
+  }
+
+  /**
+   * @summary 创建文件水印提取任务
+   *
+   * @param request CreateWmExtractTaskRequest
+   * @return CreateWmExtractTaskResponse
+   */
+  async createWmExtractTask(request: CreateWmExtractTaskRequest): Promise<CreateWmExtractTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createWmExtractTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 创建一条字符串水印信息到数字水印信息的映射记录
+   *
+   * @param request CreateWmInfoMappingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWmInfoMappingResponse
+   */
+  async createWmInfoMappingWithOptions(request: CreateWmInfoMappingRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmInfoMappingResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.wmInfoBytesB64)) {
+      body["WmInfoBytesB64"] = request.wmInfoBytesB64;
+    }
+
+    if (!Util.isUnset(request.wmInfoSize)) {
+      body["WmInfoSize"] = request.wmInfoSize;
+    }
+
+    if (!Util.isUnset(request.wmType)) {
+      body["WmType"] = request.wmType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWmInfoMapping",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWmInfoMappingResponse>(await this.callApi(params, req, runtime), new CreateWmInfoMappingResponse({}));
+  }
+
+  /**
+   * @summary 创建一条字符串水印信息到数字水印信息的映射记录
+   *
+   * @param request CreateWmInfoMappingRequest
+   * @return CreateWmInfoMappingResponse
+   */
+  async createWmInfoMapping(request: CreateWmInfoMappingRequest): Promise<CreateWmInfoMappingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createWmInfoMappingWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 删除自定义身份源指定用户
    *
    * @param request DeleteClientUserRequest
@@ -10174,6 +11336,82 @@ export default class Client extends OpenApi {
   async getUserGroup(request: GetUserGroupRequest): Promise<GetUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询嵌入水印任务
+   *
+   * @param request GetWmEmbedTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetWmEmbedTaskResponse
+   */
+  async getWmEmbedTaskWithOptions(request: GetWmEmbedTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetWmEmbedTaskResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWmEmbedTask",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWmEmbedTaskResponse>(await this.callApi(params, req, runtime), new GetWmEmbedTaskResponse({}));
+  }
+
+  /**
+   * @summary 查询嵌入水印任务
+   *
+   * @param request GetWmEmbedTaskRequest
+   * @return GetWmEmbedTaskResponse
+   */
+  async getWmEmbedTask(request: GetWmEmbedTaskRequest): Promise<GetWmEmbedTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWmEmbedTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询文件水印提取任务详情
+   *
+   * @param request GetWmExtractTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetWmExtractTaskResponse
+   */
+  async getWmExtractTaskWithOptions(request: GetWmExtractTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetWmExtractTaskResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWmExtractTask",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWmExtractTaskResponse>(await this.callApi(params, req, runtime), new GetWmExtractTaskResponse({}));
+  }
+
+  /**
+   * @summary 查询文件水印提取任务详情
+   *
+   * @param request GetWmExtractTaskRequest
+   * @return GetWmExtractTaskResponse
+   */
+  async getWmExtractTask(request: GetWmExtractTaskRequest): Promise<GetWmExtractTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWmExtractTaskWithOptions(request, runtime);
   }
 
   /**
@@ -11233,6 +12471,44 @@ export default class Client extends OpenApi {
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 根据数字水印信息查询字符串水印信息
+   *
+   * @param request LookupWmInfoMappingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LookupWmInfoMappingResponse
+   */
+  async lookupWmInfoMappingWithOptions(request: LookupWmInfoMappingRequest, runtime: $Util.RuntimeOptions): Promise<LookupWmInfoMappingResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "LookupWmInfoMapping",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LookupWmInfoMappingResponse>(await this.callApi(params, req, runtime), new LookupWmInfoMappingResponse({}));
+  }
+
+  /**
+   * @summary 根据数字水印信息查询字符串水印信息
+   *
+   * @param request LookupWmInfoMappingRequest
+   * @return LookupWmInfoMappingResponse
+   */
+  async lookupWmInfoMapping(request: LookupWmInfoMappingRequest): Promise<LookupWmInfoMappingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.lookupWmInfoMappingWithOptions(request, runtime);
   }
 
   /**
