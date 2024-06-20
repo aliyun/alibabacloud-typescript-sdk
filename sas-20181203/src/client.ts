@@ -57318,11 +57318,13 @@ export class DescribeCommonOverallConfigResponseBodyOverallConfig extends $tea.M
 }
 
 export class DescribeCommonOverallConfigListResponseBodyOverallList extends $tea.Model {
+  authVersionList?: string[];
   config?: string;
   totalCount?: number;
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      authVersionList: 'AuthVersionList',
       config: 'Config',
       totalCount: 'TotalCount',
       type: 'Type',
@@ -57331,6 +57333,7 @@ export class DescribeCommonOverallConfigListResponseBodyOverallList extends $tea
 
   static types(): { [key: string]: any } {
     return {
+      authVersionList: { 'type': 'array', 'itemType': 'string' },
       config: 'string',
       totalCount: 'number',
       type: 'string',
@@ -105734,7 +105737,31 @@ export default class Client extends OpenApi {
    */
   async listHoneypotEventFlowsWithOptions(request: ListHoneypotEventFlowsRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotEventFlowsResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.dealed)) {
+      query["Dealed"] = request.dealed;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.securityEventId)) {
+      query["SecurityEventId"] = request.securityEventId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -105743,7 +105770,7 @@ export default class Client extends OpenApi {
       version: "2018-12-03",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
