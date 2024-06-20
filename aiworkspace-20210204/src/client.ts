@@ -889,6 +889,7 @@ export class CreateDatasetRequest extends $tea.Model {
   sourceId?: string;
   sourceType?: string;
   uri?: string;
+  userId?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -905,6 +906,7 @@ export class CreateDatasetRequest extends $tea.Model {
       sourceId: 'SourceId',
       sourceType: 'SourceType',
       uri: 'Uri',
+      userId: 'UserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -924,6 +926,7 @@ export class CreateDatasetRequest extends $tea.Model {
       sourceId: 'string',
       sourceType: 'string',
       uri: 'string',
+      userId: 'string',
       workspaceId: 'string',
     };
   }
@@ -6066,6 +6069,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 增加 Image
+   *
+   * @param request AddImageRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddImageResponse
+   */
   async addImageWithOptions(request: AddImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddImageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6119,12 +6130,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddImageResponse>(await this.callApi(params, req, runtime), new AddImageResponse({}));
   }
 
+  /**
+   * @summary 增加 Image
+   *
+   * @param request AddImageRequest
+   * @return AddImageResponse
+   */
   async addImage(request: AddImageRequest): Promise<AddImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addImageWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 增加 Image 的标签
+   *
+   * @param request AddImageLabelsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddImageLabelsResponse
+   */
   async addImageLabelsWithOptions(ImageId: string, request: AddImageLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddImageLabelsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6150,12 +6175,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AddImageLabelsResponse>(await this.callApi(params, req, runtime), new AddImageLabelsResponse({}));
   }
 
+  /**
+   * @summary 增加 Image 的标签
+   *
+   * @param request AddImageLabelsRequest
+   * @return AddImageLabelsResponse
+   */
   async addImageLabels(ImageId: string, request: AddImageLabelsRequest): Promise<AddImageLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addImageLabelsWithOptions(ImageId, request, headers, runtime);
   }
 
+  /**
+   * @summary 增加成员角色
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddMemberRoleResponse
+   */
   async addMemberRoleWithOptions(WorkspaceId: string, MemberId: string, RoleName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddMemberRoleResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6174,12 +6212,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AddMemberRoleResponse>(await this.callApi(params, req, runtime), new AddMemberRoleResponse({}));
   }
 
+  /**
+   * @summary 增加成员角色
+   *
+   * @return AddMemberRoleResponse
+   */
   async addMemberRole(WorkspaceId: string, MemberId: string, RoleName: string): Promise<AddMemberRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addMemberRoleWithOptions(WorkspaceId, MemberId, RoleName, headers, runtime);
   }
 
+  /**
+   * @summary 创建一个代码源配置
+   *
+   * @param request CreateCodeSourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCodeSourceResponse
+   */
   async createCodeSourceWithOptions(request: CreateCodeSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCodeSourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6237,12 +6288,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCodeSourceResponse>(await this.callApi(params, req, runtime), new CreateCodeSourceResponse({}));
   }
 
+  /**
+   * @summary 创建一个代码源配置
+   *
+   * @param request CreateCodeSourceRequest
+   * @return CreateCodeSourceResponse
+   */
   async createCodeSource(request: CreateCodeSourceRequest): Promise<CreateCodeSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCodeSourceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建数据集
+   *
+   * @param request CreateDatasetRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDatasetResponse
+   */
   async createDatasetWithOptions(request: CreateDatasetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDatasetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6298,6 +6363,10 @@ export default class Client extends OpenApi {
       body["Uri"] = request.uri;
     }
 
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     if (!Util.isUnset(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -6320,12 +6389,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatasetResponse>(await this.callApi(params, req, runtime), new CreateDatasetResponse({}));
   }
 
+  /**
+   * @summary 创建数据集
+   *
+   * @param request CreateDatasetRequest
+   * @return CreateDatasetResponse
+   */
   async createDataset(request: CreateDatasetRequest): Promise<CreateDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createDatasetWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建或更新 Dataset 的标签
+   *
+   * @param request CreateDatasetLabelsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDatasetLabelsResponse
+   */
   async createDatasetLabelsWithOptions(DatasetId: string, request: CreateDatasetLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDatasetLabelsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6351,12 +6434,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatasetLabelsResponse>(await this.callApi(params, req, runtime), new CreateDatasetLabelsResponse({}));
   }
 
+  /**
+   * @summary 创建或更新 Dataset 的标签
+   *
+   * @param request CreateDatasetLabelsRequest
+   * @return CreateDatasetLabelsResponse
+   */
   async createDatasetLabels(DatasetId: string, request: CreateDatasetLabelsRequest): Promise<CreateDatasetLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createDatasetLabelsWithOptions(DatasetId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建成员
+   *
+   * @param request CreateMemberRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMemberResponse
+   */
   async createMemberWithOptions(WorkspaceId: string, request: CreateMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateMemberResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6382,12 +6479,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMemberResponse>(await this.callApi(params, req, runtime), new CreateMemberResponse({}));
   }
 
+  /**
+   * @summary 创建成员
+   *
+   * @param request CreateMemberRequest
+   * @return CreateMemberResponse
+   */
   async createMember(WorkspaceId: string, request: CreateMemberRequest): Promise<CreateMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createMemberWithOptions(WorkspaceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建模型
+   *
+   * @param request CreateModelRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateModelResponse
+   */
   async createModelWithOptions(request: CreateModelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateModelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6457,12 +6568,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateModelResponse>(await this.callApi(params, req, runtime), new CreateModelResponse({}));
   }
 
+  /**
+   * @summary 创建模型
+   *
+   * @param request CreateModelRequest
+   * @return CreateModelResponse
+   */
   async createModel(request: CreateModelRequest): Promise<CreateModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createModelWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建或更新模型的标签
+   *
+   * @param request CreateModelLabelsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateModelLabelsResponse
+   */
   async createModelLabelsWithOptions(ModelId: string, request: CreateModelLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateModelLabelsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6488,12 +6613,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateModelLabelsResponse>(await this.callApi(params, req, runtime), new CreateModelLabelsResponse({}));
   }
 
+  /**
+   * @summary 创建或更新模型的标签
+   *
+   * @param request CreateModelLabelsRequest
+   * @return CreateModelLabelsResponse
+   */
   async createModelLabels(ModelId: string, request: CreateModelLabelsRequest): Promise<CreateModelLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createModelLabelsWithOptions(ModelId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建模型版本
+   *
+   * @param request CreateModelVersionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateModelVersionResponse
+   */
   async createModelVersionWithOptions(ModelId: string, request: CreateModelVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateModelVersionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6575,12 +6714,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateModelVersionResponse>(await this.callApi(params, req, runtime), new CreateModelVersionResponse({}));
   }
 
+  /**
+   * @summary 创建模型版本
+   *
+   * @param request CreateModelVersionRequest
+   * @return CreateModelVersionResponse
+   */
   async createModelVersion(ModelId: string, request: CreateModelVersionRequest): Promise<CreateModelVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createModelVersionWithOptions(ModelId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建或更新模型版本的标签
+   *
+   * @param request CreateModelVersionLabelsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateModelVersionLabelsResponse
+   */
   async createModelVersionLabelsWithOptions(ModelId: string, VersionName: string, request: CreateModelVersionLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateModelVersionLabelsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6606,12 +6759,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateModelVersionLabelsResponse>(await this.callApi(params, req, runtime), new CreateModelVersionLabelsResponse({}));
   }
 
+  /**
+   * @summary 创建或更新模型版本的标签
+   *
+   * @param request CreateModelVersionLabelsRequest
+   * @return CreateModelVersionLabelsResponse
+   */
   async createModelVersionLabels(ModelId: string, VersionName: string, request: CreateModelVersionLabelsRequest): Promise<CreateModelVersionLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createModelVersionLabelsWithOptions(ModelId, VersionName, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建产品订单
+   *
+   * @param request CreateProductOrdersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProductOrdersResponse
+   */
   async createProductOrdersWithOptions(request: CreateProductOrdersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProductOrdersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6641,12 +6808,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProductOrdersResponse>(await this.callApi(params, req, runtime), new CreateProductOrdersResponse({}));
   }
 
+  /**
+   * @summary 创建产品订单
+   *
+   * @param request CreateProductOrdersRequest
+   * @return CreateProductOrdersResponse
+   */
   async createProductOrders(request: CreateProductOrdersRequest): Promise<CreateProductOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createProductOrdersWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建工作空间
+   *
+   * @param request CreateWorkspaceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWorkspaceResponse
+   */
   async createWorkspaceWithOptions(request: CreateWorkspaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkspaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6684,12 +6865,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new CreateWorkspaceResponse({}));
   }
 
+  /**
+   * @summary 创建工作空间
+   *
+   * @param request CreateWorkspaceRequest
+   * @return CreateWorkspaceResponse
+   */
   async createWorkspace(request: CreateWorkspaceRequest): Promise<CreateWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createWorkspaceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建资源
+   *
+   * @param request CreateWorkspaceResourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWorkspaceResourceResponse
+   */
   async createWorkspaceResourceWithOptions(WorkspaceId: string, request: CreateWorkspaceResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkspaceResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6719,12 +6914,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWorkspaceResourceResponse>(await this.callApi(params, req, runtime), new CreateWorkspaceResourceResponse({}));
   }
 
+  /**
+   * @summary 创建资源
+   *
+   * @param request CreateWorkspaceResourceRequest
+   * @return CreateWorkspaceResourceResponse
+   */
   async createWorkspaceResource(WorkspaceId: string, request: CreateWorkspaceResourceRequest): Promise<CreateWorkspaceResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createWorkspaceResourceWithOptions(WorkspaceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除一个代码源配置
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCodeSourceResponse
+   */
   async deleteCodeSourceWithOptions(CodeSourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCodeSourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6743,12 +6951,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCodeSourceResponse>(await this.callApi(params, req, runtime), new DeleteCodeSourceResponse({}));
   }
 
+  /**
+   * @summary 删除一个代码源配置
+   *
+   * @return DeleteCodeSourceResponse
+   */
   async deleteCodeSource(CodeSourceId: string): Promise<DeleteCodeSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCodeSourceWithOptions(CodeSourceId, headers, runtime);
   }
 
+  /**
+   * @summary 删除数据集
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDatasetResponse
+   */
   async deleteDatasetWithOptions(DatasetId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6767,12 +6987,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatasetResponse>(await this.callApi(params, req, runtime), new DeleteDatasetResponse({}));
   }
 
+  /**
+   * @summary 删除数据集
+   *
+   * @return DeleteDatasetResponse
+   */
   async deleteDataset(DatasetId: string): Promise<DeleteDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDatasetWithOptions(DatasetId, headers, runtime);
   }
 
+  /**
+   * @summary 删除 Dataset 的标签
+   *
+   * @param request DeleteDatasetLabelsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDatasetLabelsResponse
+   */
   async deleteDatasetLabelsWithOptions(DatasetId: string, request: DeleteDatasetLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetLabelsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6798,12 +7031,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatasetLabelsResponse>(await this.callApi(params, req, runtime), new DeleteDatasetLabelsResponse({}));
   }
 
+  /**
+   * @summary 删除 Dataset 的标签
+   *
+   * @param request DeleteDatasetLabelsRequest
+   * @return DeleteDatasetLabelsResponse
+   */
   async deleteDatasetLabels(DatasetId: string, request: DeleteDatasetLabelsRequest): Promise<DeleteDatasetLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDatasetLabelsWithOptions(DatasetId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除工作空间成员
+   *
+   * @param request DeleteMembersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMembersResponse
+   */
   async deleteMembersWithOptions(WorkspaceId: string, request: DeleteMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteMembersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6829,12 +7076,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMembersResponse>(await this.callApi(params, req, runtime), new DeleteMembersResponse({}));
   }
 
+  /**
+   * @summary 删除工作空间成员
+   *
+   * @param request DeleteMembersRequest
+   * @return DeleteMembersResponse
+   */
   async deleteMembers(WorkspaceId: string, request: DeleteMembersRequest): Promise<DeleteMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteMembersWithOptions(WorkspaceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除模型
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteModelResponse
+   */
   async deleteModelWithOptions(ModelId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteModelResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6853,12 +7113,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteModelResponse>(await this.callApi(params, req, runtime), new DeleteModelResponse({}));
   }
 
+  /**
+   * @summary 删除模型
+   *
+   * @return DeleteModelResponse
+   */
   async deleteModel(ModelId: string): Promise<DeleteModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteModelWithOptions(ModelId, headers, runtime);
   }
 
+  /**
+   * @summary 删除模型的标签
+   *
+   * @param request DeleteModelLabelsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteModelLabelsResponse
+   */
   async deleteModelLabelsWithOptions(ModelId: string, request: DeleteModelLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteModelLabelsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6884,12 +7157,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteModelLabelsResponse>(await this.callApi(params, req, runtime), new DeleteModelLabelsResponse({}));
   }
 
+  /**
+   * @summary 删除模型的标签
+   *
+   * @param request DeleteModelLabelsRequest
+   * @return DeleteModelLabelsResponse
+   */
   async deleteModelLabels(ModelId: string, request: DeleteModelLabelsRequest): Promise<DeleteModelLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteModelLabelsWithOptions(ModelId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除模型版本
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteModelVersionResponse
+   */
   async deleteModelVersionWithOptions(ModelId: string, VersionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteModelVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6908,12 +7194,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteModelVersionResponse>(await this.callApi(params, req, runtime), new DeleteModelVersionResponse({}));
   }
 
+  /**
+   * @summary 删除模型版本
+   *
+   * @return DeleteModelVersionResponse
+   */
   async deleteModelVersion(ModelId: string, VersionName: string): Promise<DeleteModelVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteModelVersionWithOptions(ModelId, VersionName, headers, runtime);
   }
 
+  /**
+   * @summary 删除模型版本的标签
+   *
+   * @param request DeleteModelVersionLabelsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteModelVersionLabelsResponse
+   */
   async deleteModelVersionLabelsWithOptions(ModelId: string, VersionName: string, request: DeleteModelVersionLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteModelVersionLabelsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6939,12 +7238,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteModelVersionLabelsResponse>(await this.callApi(params, req, runtime), new DeleteModelVersionLabelsResponse({}));
   }
 
+  /**
+   * @summary 删除模型版本的标签
+   *
+   * @param request DeleteModelVersionLabelsRequest
+   * @return DeleteModelVersionLabelsResponse
+   */
   async deleteModelVersionLabels(ModelId: string, VersionName: string, request: DeleteModelVersionLabelsRequest): Promise<DeleteModelVersionLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteModelVersionLabelsWithOptions(ModelId, VersionName, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除工作空间
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWorkspaceResponse
+   */
   async deleteWorkspaceWithOptions(WorkspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWorkspaceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6963,12 +7275,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWorkspaceResponse>(await this.callApi(params, req, runtime), new DeleteWorkspaceResponse({}));
   }
 
+  /**
+   * @summary 删除工作空间
+   *
+   * @return DeleteWorkspaceResponse
+   */
   async deleteWorkspace(WorkspaceId: string): Promise<DeleteWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteWorkspaceWithOptions(WorkspaceId, headers, runtime);
   }
 
+  /**
+   * @summary 删除工作空间资源
+   *
+   * @param request DeleteWorkspaceResourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWorkspaceResourceResponse
+   */
   async deleteWorkspaceResourceWithOptions(WorkspaceId: string, request: DeleteWorkspaceResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWorkspaceResourceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7014,12 +7339,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWorkspaceResourceResponse>(await this.callApi(params, req, runtime), new DeleteWorkspaceResourceResponse({}));
   }
 
+  /**
+   * @summary 删除工作空间资源
+   *
+   * @param request DeleteWorkspaceResourceRequest
+   * @return DeleteWorkspaceResourceResponse
+   */
   async deleteWorkspaceResource(WorkspaceId: string, request: DeleteWorkspaceResourceRequest): Promise<DeleteWorkspaceResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteWorkspaceResourceWithOptions(WorkspaceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取一个代码源配置
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCodeSourceResponse
+   */
   async getCodeSourceWithOptions(CodeSourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCodeSourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7038,12 +7376,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCodeSourceResponse>(await this.callApi(params, req, runtime), new GetCodeSourceResponse({}));
   }
 
+  /**
+   * @summary 获取一个代码源配置
+   *
+   * @return GetCodeSourceResponse
+   */
   async getCodeSource(CodeSourceId: string): Promise<GetCodeSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCodeSourceWithOptions(CodeSourceId, headers, runtime);
   }
 
+  /**
+   * @summary 获取数据集
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDatasetResponse
+   */
   async getDatasetWithOptions(DatasetId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDatasetResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7062,12 +7412,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDatasetResponse>(await this.callApi(params, req, runtime), new GetDatasetResponse({}));
   }
 
+  /**
+   * @summary 获取数据集
+   *
+   * @return GetDatasetResponse
+   */
   async getDataset(DatasetId: string): Promise<GetDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDatasetWithOptions(DatasetId, headers, runtime);
   }
 
+  /**
+   * @summary 获取默认工作空间
+   *
+   * @param request GetDefaultWorkspaceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDefaultWorkspaceResponse
+   */
   async getDefaultWorkspaceWithOptions(request: GetDefaultWorkspaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDefaultWorkspaceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7093,12 +7456,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDefaultWorkspaceResponse>(await this.callApi(params, req, runtime), new GetDefaultWorkspaceResponse({}));
   }
 
+  /**
+   * @summary 获取默认工作空间
+   *
+   * @param request GetDefaultWorkspaceRequest
+   * @return GetDefaultWorkspaceResponse
+   */
   async getDefaultWorkspace(request: GetDefaultWorkspaceRequest): Promise<GetDefaultWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDefaultWorkspaceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取镜像
+   *
+   * @param request GetImageRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetImageResponse
+   */
   async getImageWithOptions(ImageId: string, request: GetImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetImageResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7124,12 +7501,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetImageResponse>(await this.callApi(params, req, runtime), new GetImageResponse({}));
   }
 
+  /**
+   * @summary 获取镜像
+   *
+   * @param request GetImageRequest
+   * @return GetImageResponse
+   */
   async getImage(ImageId: string, request: GetImageRequest): Promise<GetImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getImageWithOptions(ImageId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取成员
+   *
+   * @param request GetMemberRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMemberResponse
+   */
   async getMemberWithOptions(WorkspaceId: string, request: GetMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMemberResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7159,12 +7550,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMemberResponse>(await this.callApi(params, req, runtime), new GetMemberResponse({}));
   }
 
+  /**
+   * @summary 获取成员
+   *
+   * @param request GetMemberRequest
+   * @return GetMemberResponse
+   */
   async getMember(WorkspaceId: string, request: GetMemberRequest): Promise<GetMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMemberWithOptions(WorkspaceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取模型
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetModelResponse
+   */
   async getModelWithOptions(ModelId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetModelResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7183,12 +7587,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetModelResponse>(await this.callApi(params, req, runtime), new GetModelResponse({}));
   }
 
+  /**
+   * @summary 获取模型
+   *
+   * @return GetModelResponse
+   */
   async getModel(ModelId: string): Promise<GetModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getModelWithOptions(ModelId, headers, runtime);
   }
 
+  /**
+   * @summary 获取模型版本
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetModelVersionResponse
+   */
   async getModelVersionWithOptions(ModelId: string, VersionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetModelVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7207,12 +7623,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetModelVersionResponse>(await this.callApi(params, req, runtime), new GetModelVersionResponse({}));
   }
 
+  /**
+   * @summary 获取模型版本
+   *
+   * @return GetModelVersionResponse
+   */
   async getModelVersion(ModelId: string, VersionName: string): Promise<GetModelVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getModelVersionWithOptions(ModelId, VersionName, headers, runtime);
   }
 
+  /**
+   * @summary 获取权限，若无权限则返回错误
+   *
+   * @param request GetPermissionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPermissionResponse
+   */
   async getPermissionWithOptions(WorkspaceId: string, PermissionCode: string, request: GetPermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPermissionResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7250,12 +7679,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPermissionResponse>(await this.callApi(params, req, runtime), new GetPermissionResponse({}));
   }
 
+  /**
+   * @summary 获取权限，若无权限则返回错误
+   *
+   * @param request GetPermissionRequest
+   * @return GetPermissionResponse
+   */
   async getPermission(WorkspaceId: string, PermissionCode: string, request: GetPermissionRequest): Promise<GetPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPermissionWithOptions(WorkspaceId, PermissionCode, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取服务模版
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceTemplateResponse
+   */
   async getServiceTemplateWithOptions(ServiceTemplateId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7274,12 +7716,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceTemplateResponse>(await this.callApi(params, req, runtime), new GetServiceTemplateResponse({}));
   }
 
+  /**
+   * @summary 获取服务模版
+   *
+   * @return GetServiceTemplateResponse
+   */
   async getServiceTemplate(ServiceTemplateId: string): Promise<GetServiceTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getServiceTemplateWithOptions(ServiceTemplateId, headers, runtime);
   }
 
+  /**
+   * @summary 获取工作空间
+   *
+   * @param request GetWorkspaceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetWorkspaceResponse
+   */
   async getWorkspaceWithOptions(WorkspaceId: string, request: GetWorkspaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkspaceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7305,12 +7760,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWorkspaceResponse>(await this.callApi(params, req, runtime), new GetWorkspaceResponse({}));
   }
 
+  /**
+   * @summary 获取工作空间
+   *
+   * @param request GetWorkspaceRequest
+   * @return GetWorkspaceResponse
+   */
   async getWorkspace(WorkspaceId: string, request: GetWorkspaceRequest): Promise<GetWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getWorkspaceWithOptions(WorkspaceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取代码源配置列表
+   *
+   * @param request ListCodeSourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCodeSourcesResponse
+   */
   async listCodeSourcesWithOptions(request: ListCodeSourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCodeSourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7356,12 +7825,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCodeSourcesResponse>(await this.callApi(params, req, runtime), new ListCodeSourcesResponse({}));
   }
 
+  /**
+   * @summary 获取代码源配置列表
+   *
+   * @param request ListCodeSourcesRequest
+   * @return ListCodeSourcesResponse
+   */
   async listCodeSources(request: ListCodeSourcesRequest): Promise<ListCodeSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCodeSourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取数据集列表
+   *
+   * @param request ListDatasetsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDatasetsResponse
+   */
   async listDatasetsWithOptions(request: ListDatasetsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDatasetsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7431,12 +7914,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatasetsResponse>(await this.callApi(params, req, runtime), new ListDatasetsResponse({}));
   }
 
+  /**
+   * @summary 获取数据集列表
+   *
+   * @param request ListDatasetsRequest
+   * @return ListDatasetsResponse
+   */
   async listDatasets(request: ListDatasetsRequest): Promise<ListDatasetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDatasetsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 列举标签
+   *
+   * @param request ListImageLabelsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListImageLabelsResponse
+   */
   async listImageLabelsWithOptions(request: ListImageLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListImageLabelsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7478,12 +7975,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListImageLabelsResponse>(await this.callApi(params, req, runtime), new ListImageLabelsResponse({}));
   }
 
+  /**
+   * @summary 列举标签
+   *
+   * @param request ListImageLabelsRequest
+   * @return ListImageLabelsResponse
+   */
   async listImageLabels(request: ListImageLabelsRequest): Promise<ListImageLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listImageLabelsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 列举已注册镜像
+   *
+   * @param request ListImagesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListImagesResponse
+   */
   async listImagesWithOptions(request: ListImagesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListImagesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7553,12 +8064,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListImagesResponse>(await this.callApi(params, req, runtime), new ListImagesResponse({}));
   }
 
+  /**
+   * @summary 列举已注册镜像
+   *
+   * @param request ListImagesRequest
+   * @return ListImagesResponse
+   */
   async listImages(request: ListImagesRequest): Promise<ListImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listImagesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 列举工作空间成员
+   *
+   * @param request ListMembersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMembersResponse
+   */
   async listMembersWithOptions(WorkspaceId: string, request: ListMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMembersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7596,12 +8121,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMembersResponse>(await this.callApi(params, req, runtime), new ListMembersResponse({}));
   }
 
+  /**
+   * @summary 列举工作空间成员
+   *
+   * @param request ListMembersRequest
+   * @return ListMembersResponse
+   */
   async listMembers(WorkspaceId: string, request: ListMembersRequest): Promise<ListMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMembersWithOptions(WorkspaceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取模型版本列表
+   *
+   * @param request ListModelVersionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListModelVersionsResponse
+   */
   async listModelVersionsWithOptions(ModelId: string, request: ListModelVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListModelVersionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7667,12 +8206,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListModelVersionsResponse>(await this.callApi(params, req, runtime), new ListModelVersionsResponse({}));
   }
 
+  /**
+   * @summary 获取模型版本列表
+   *
+   * @param request ListModelVersionsRequest
+   * @return ListModelVersionsResponse
+   */
   async listModelVersions(ModelId: string, request: ListModelVersionsRequest): Promise<ListModelVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listModelVersionsWithOptions(ModelId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取模型列表
+   *
+   * @param request ListModelsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListModelsResponse
+   */
   async listModelsWithOptions(request: ListModelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListModelsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7750,12 +8303,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListModelsResponse>(await this.callApi(params, req, runtime), new ListModelsResponse({}));
   }
 
+  /**
+   * @summary 获取模型列表
+   *
+   * @param request ListModelsRequest
+   * @return ListModelsResponse
+   */
   async listModels(request: ListModelsRequest): Promise<ListModelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listModelsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 列举权限
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPermissionsResponse
+   */
   async listPermissionsWithOptions(WorkspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPermissionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7774,12 +8340,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPermissionsResponse>(await this.callApi(params, req, runtime), new ListPermissionsResponse({}));
   }
 
+  /**
+   * @summary 列举权限
+   *
+   * @return ListPermissionsResponse
+   */
   async listPermissions(WorkspaceId: string): Promise<ListPermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPermissionsWithOptions(WorkspaceId, headers, runtime);
   }
 
+  /**
+   * @summary 列举产品
+   *
+   * @param request ListProductsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProductsResponse
+   */
   async listProductsWithOptions(request: ListProductsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProductsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7813,12 +8392,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProductsResponse>(await this.callApi(params, req, runtime), new ListProductsResponse({}));
   }
 
+  /**
+   * @summary 列举产品
+   *
+   * @param request ListProductsRequest
+   * @return ListProductsResponse
+   */
   async listProducts(request: ListProductsRequest): Promise<ListProductsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProductsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取已有配额列表
+   *
+   * @param request ListQuotasRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQuotasResponse
+   */
   async listQuotasWithOptions(request: ListQuotasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListQuotasResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7844,12 +8437,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQuotasResponse>(await this.callApi(params, req, runtime), new ListQuotasResponse({}));
   }
 
+  /**
+   * @summary 获取已有配额列表
+   *
+   * @param request ListQuotasRequest
+   * @return ListQuotasResponse
+   */
   async listQuotas(request: ListQuotasRequest): Promise<ListQuotasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listQuotasWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 列举工作空间资源
+   *
+   * @param request ListResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListResourcesResponse
+   */
   async listResourcesWithOptions(request: ListResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7919,12 +8526,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourcesResponse>(await this.callApi(params, req, runtime), new ListResourcesResponse({}));
   }
 
+  /**
+   * @summary 列举工作空间资源
+   *
+   * @param request ListResourcesRequest
+   * @return ListResourcesResponse
+   */
   async listResources(request: ListResourcesRequest): Promise<ListResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取服务模版列表
+   *
+   * @param request ListServiceTemplatesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServiceTemplatesResponse
+   */
   async listServiceTemplatesWithOptions(request: ListServiceTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceTemplatesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7978,12 +8599,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceTemplatesResponse>(await this.callApi(params, req, runtime), new ListServiceTemplatesResponse({}));
   }
 
+  /**
+   * @summary 获取服务模版列表
+   *
+   * @param request ListServiceTemplatesRequest
+   * @return ListServiceTemplatesResponse
+   */
   async listServiceTemplates(request: ListServiceTemplatesRequest): Promise<ListServiceTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceTemplatesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 列出工作空间的可变为成员的用户
+   *
+   * @param request ListWorkspaceUsersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWorkspaceUsersResponse
+   */
   async listWorkspaceUsersWithOptions(WorkspaceId: string, request: ListWorkspaceUsersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkspaceUsersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8009,12 +8644,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWorkspaceUsersResponse>(await this.callApi(params, req, runtime), new ListWorkspaceUsersResponse({}));
   }
 
+  /**
+   * @summary 列出工作空间的可变为成员的用户
+   *
+   * @param request ListWorkspaceUsersRequest
+   * @return ListWorkspaceUsersResponse
+   */
   async listWorkspaceUsers(WorkspaceId: string, request: ListWorkspaceUsersRequest): Promise<ListWorkspaceUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listWorkspaceUsersWithOptions(WorkspaceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获得工作空间列表
+   *
+   * @param request ListWorkspacesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWorkspacesResponse
+   */
   async listWorkspacesWithOptions(request: ListWorkspacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkspacesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8080,12 +8729,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWorkspacesResponse>(await this.callApi(params, req, runtime), new ListWorkspacesResponse({}));
   }
 
+  /**
+   * @summary 获得工作空间列表
+   *
+   * @param request ListWorkspacesRequest
+   * @return ListWorkspacesResponse
+   */
   async listWorkspaces(request: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listWorkspacesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 发布一个代码源配置为本工作空间下所有人可见
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishCodeSourceResponse
+   */
   async publishCodeSourceWithOptions(CodeSourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishCodeSourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8104,12 +8766,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishCodeSourceResponse>(await this.callApi(params, req, runtime), new PublishCodeSourceResponse({}));
   }
 
+  /**
+   * @summary 发布一个代码源配置为本工作空间下所有人可见
+   *
+   * @return PublishCodeSourceResponse
+   */
   async publishCodeSource(CodeSourceId: string): Promise<PublishCodeSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.publishCodeSourceWithOptions(CodeSourceId, headers, runtime);
   }
 
+  /**
+   * @summary 更新数据集
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishDatasetResponse
+   */
   async publishDatasetWithOptions(DatasetId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishDatasetResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8128,12 +8802,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishDatasetResponse>(await this.callApi(params, req, runtime), new PublishDatasetResponse({}));
   }
 
+  /**
+   * @summary 更新数据集
+   *
+   * @return PublishDatasetResponse
+   */
   async publishDataset(DatasetId: string): Promise<PublishDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.publishDatasetWithOptions(DatasetId, headers, runtime);
   }
 
+  /**
+   * @summary 发布 Image
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishImageResponse
+   */
   async publishImageWithOptions(ImageId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishImageResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8152,12 +8838,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishImageResponse>(await this.callApi(params, req, runtime), new PublishImageResponse({}));
   }
 
+  /**
+   * @summary 发布 Image
+   *
+   * @return PublishImageResponse
+   */
   async publishImage(ImageId: string): Promise<PublishImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.publishImageWithOptions(ImageId, headers, runtime);
   }
 
+  /**
+   * @summary 删除 Image
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveImageResponse
+   */
   async removeImageWithOptions(ImageId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveImageResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8176,12 +8874,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveImageResponse>(await this.callApi(params, req, runtime), new RemoveImageResponse({}));
   }
 
+  /**
+   * @summary 删除 Image
+   *
+   * @return RemoveImageResponse
+   */
   async removeImage(ImageId: string): Promise<RemoveImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeImageWithOptions(ImageId, headers, runtime);
   }
 
+  /**
+   * @summary 删除 Image 的标签
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveImageLabelsResponse
+   */
   async removeImageLabelsWithOptions(ImageId: string, LabelKey: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveImageLabelsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8200,12 +8910,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveImageLabelsResponse>(await this.callApi(params, req, runtime), new RemoveImageLabelsResponse({}));
   }
 
+  /**
+   * @summary 删除 Image 的标签
+   *
+   * @return RemoveImageLabelsResponse
+   */
   async removeImageLabels(ImageId: string, LabelKey: string): Promise<RemoveImageLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeImageLabelsWithOptions(ImageId, LabelKey, headers, runtime);
   }
 
+  /**
+   * @summary 删除成员角色
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveMemberRoleResponse
+   */
   async removeMemberRoleWithOptions(WorkspaceId: string, MemberId: string, RoleName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveMemberRoleResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8224,12 +8946,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveMemberRoleResponse>(await this.callApi(params, req, runtime), new RemoveMemberRoleResponse({}));
   }
 
+  /**
+   * @summary 删除成员角色
+   *
+   * @return RemoveMemberRoleResponse
+   */
   async removeMemberRole(WorkspaceId: string, MemberId: string, RoleName: string): Promise<RemoveMemberRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeMemberRoleWithOptions(WorkspaceId, MemberId, RoleName, headers, runtime);
   }
 
+  /**
+   * @summary 更新数据集
+   *
+   * @param request UpdateDatasetRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDatasetResponse
+   */
   async updateDatasetWithOptions(DatasetId: string, request: UpdateDatasetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDatasetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8263,12 +8998,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDatasetResponse>(await this.callApi(params, req, runtime), new UpdateDatasetResponse({}));
   }
 
+  /**
+   * @summary 更新数据集
+   *
+   * @param request UpdateDatasetRequest
+   * @return UpdateDatasetResponse
+   */
   async updateDataset(DatasetId: string, request: UpdateDatasetRequest): Promise<UpdateDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDatasetWithOptions(DatasetId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新默认工作空间
+   *
+   * @param request UpdateDefaultWorkspaceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDefaultWorkspaceResponse
+   */
   async updateDefaultWorkspaceWithOptions(request: UpdateDefaultWorkspaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDefaultWorkspaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8294,12 +9043,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDefaultWorkspaceResponse>(await this.callApi(params, req, runtime), new UpdateDefaultWorkspaceResponse({}));
   }
 
+  /**
+   * @summary 更新默认工作空间
+   *
+   * @param request UpdateDefaultWorkspaceRequest
+   * @return UpdateDefaultWorkspaceResponse
+   */
   async updateDefaultWorkspace(request: UpdateDefaultWorkspaceRequest): Promise<UpdateDefaultWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDefaultWorkspaceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 更新模型
+   *
+   * @param request UpdateModelRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateModelResponse
+   */
   async updateModelWithOptions(ModelId: string, request: UpdateModelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateModelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8361,12 +9124,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateModelResponse>(await this.callApi(params, req, runtime), new UpdateModelResponse({}));
   }
 
+  /**
+   * @summary 更新模型
+   *
+   * @param request UpdateModelRequest
+   * @return UpdateModelResponse
+   */
   async updateModel(ModelId: string, request: UpdateModelRequest): Promise<UpdateModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModelWithOptions(ModelId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新模型版本
+   *
+   * @param request UpdateModelVersionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateModelVersionResponse
+   */
   async updateModelVersionWithOptions(ModelId: string, VersionName: string, request: UpdateModelVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateModelVersionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8428,12 +9205,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateModelVersionResponse>(await this.callApi(params, req, runtime), new UpdateModelVersionResponse({}));
   }
 
+  /**
+   * @summary 更新模型版本
+   *
+   * @param request UpdateModelVersionRequest
+   * @return UpdateModelVersionResponse
+   */
   async updateModelVersion(ModelId: string, VersionName: string, request: UpdateModelVersionRequest): Promise<UpdateModelVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModelVersionWithOptions(ModelId, VersionName, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新工作空间
+   *
+   * @param request UpdateWorkspaceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWorkspaceResponse
+   */
   async updateWorkspaceWithOptions(WorkspaceId: string, request: UpdateWorkspaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWorkspaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8463,12 +9254,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWorkspaceResponse>(await this.callApi(params, req, runtime), new UpdateWorkspaceResponse({}));
   }
 
+  /**
+   * @summary 更新工作空间
+   *
+   * @param request UpdateWorkspaceRequest
+   * @return UpdateWorkspaceResponse
+   */
   async updateWorkspace(WorkspaceId: string, request: UpdateWorkspaceRequest): Promise<UpdateWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateWorkspaceWithOptions(WorkspaceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新工作空间资源
+   *
+   * @param request UpdateWorkspaceResourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWorkspaceResourceResponse
+   */
   async updateWorkspaceResourceWithOptions(WorkspaceId: string, request: UpdateWorkspaceResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWorkspaceResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8518,6 +9323,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWorkspaceResourceResponse>(await this.callApi(params, req, runtime), new UpdateWorkspaceResourceResponse({}));
   }
 
+  /**
+   * @summary 更新工作空间资源
+   *
+   * @param request UpdateWorkspaceResourceRequest
+   * @return UpdateWorkspaceResourceResponse
+   */
   async updateWorkspaceResource(WorkspaceId: string, request: UpdateWorkspaceResourceRequest): Promise<UpdateWorkspaceResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
