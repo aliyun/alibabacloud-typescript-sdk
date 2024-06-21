@@ -7986,6 +7986,8 @@ export class LaunchSurveyRequest extends $tea.Model {
   jobId?: string;
   smsMetadataId?: string;
   surveyChannel?: string;
+  surveyTemplateId?: string;
+  surveyTemplateVariables?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7996,6 +7998,8 @@ export class LaunchSurveyRequest extends $tea.Model {
       jobId: 'JobId',
       smsMetadataId: 'SmsMetadataId',
       surveyChannel: 'SurveyChannel',
+      surveyTemplateId: 'SurveyTemplateId',
+      surveyTemplateVariables: 'SurveyTemplateVariables',
       userId: 'UserId',
     };
   }
@@ -8009,6 +8013,8 @@ export class LaunchSurveyRequest extends $tea.Model {
       jobId: 'string',
       smsMetadataId: 'string',
       surveyChannel: 'string',
+      surveyTemplateId: 'string',
+      surveyTemplateVariables: 'string',
       userId: 'string',
     };
   }
@@ -11704,6 +11710,7 @@ export class ListRealtimeAgentStatesRequest extends $tea.Model {
   agentName?: string;
   callTypeList?: string;
   instanceId?: string;
+  mediaType?: string;
   outboundScenario?: boolean;
   pageNumber?: number;
   pageSize?: number;
@@ -11717,6 +11724,7 @@ export class ListRealtimeAgentStatesRequest extends $tea.Model {
       agentName: 'AgentName',
       callTypeList: 'CallTypeList',
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       outboundScenario: 'OutboundScenario',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -11733,6 +11741,7 @@ export class ListRealtimeAgentStatesRequest extends $tea.Model {
       agentName: 'string',
       callTypeList: 'string',
       instanceId: 'string',
+      mediaType: 'string',
       outboundScenario: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
@@ -11806,12 +11815,14 @@ export class ListRealtimeAgentStatesResponse extends $tea.Model {
 
 export class ListRealtimeSkillGroupStatesRequest extends $tea.Model {
   instanceId?: string;
+  mediaType?: string;
   pageNumber?: number;
   pageSize?: number;
   skillGroupIdList?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       skillGroupIdList: 'SkillGroupIdList',
@@ -11821,6 +11832,7 @@ export class ListRealtimeSkillGroupStatesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      mediaType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       skillGroupIdList: 'string',
@@ -37110,6 +37122,14 @@ export default class Client extends OpenApi {
       query["SurveyChannel"] = request.surveyChannel;
     }
 
+    if (!Util.isUnset(request.surveyTemplateId)) {
+      query["SurveyTemplateId"] = request.surveyTemplateId;
+    }
+
+    if (!Util.isUnset(request.surveyTemplateVariables)) {
+      query["SurveyTemplateVariables"] = request.surveyTemplateVariables;
+    }
+
     if (!Util.isUnset(request.userId)) {
       query["UserId"] = request.userId;
     }
@@ -39410,6 +39430,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
     if (!Util.isUnset(request.outboundScenario)) {
       query["OutboundScenario"] = request.outboundScenario;
     }
@@ -39480,6 +39504,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
