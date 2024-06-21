@@ -976,6 +976,136 @@ export class DescribeAppKeyResponse extends $tea.Model {
   }
 }
 
+export class DescribeAppRecordingFilesRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  endTs?: number;
+  pageNo?: number;
+  pageSize?: number;
+  startTs?: number;
+  taskIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      endTs: 'EndTs',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      startTs: 'StartTs',
+      taskIds: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      endTs: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      startTs: 'number',
+      taskIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordingFilesShrinkRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  endTs?: number;
+  pageNo?: number;
+  pageSize?: number;
+  startTs?: number;
+  taskIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      endTs: 'EndTs',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      startTs: 'StartTs',
+      taskIdsShrink: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      endTs: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      startTs: 'number',
+      taskIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordingFilesResponseBody extends $tea.Model {
+  items?: DescribeAppRecordingFilesResponseBodyItems[];
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCnt: 'TotalCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeAppRecordingFilesResponseBodyItems },
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCnt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordingFilesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAppRecordingFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppRecordingFilesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppStreamingOutTemplatesRequest extends $tea.Model {
   appId?: string;
   condition?: DescribeAppStreamingOutTemplatesRequestCondition;
@@ -6460,6 +6590,52 @@ export class DeleteAppStreamingOutTemplateRequestStreamingOutTemplate extends $t
   static types(): { [key: string]: any } {
     return {
       templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordingFilesResponseBodyItems extends $tea.Model {
+  bucket?: string;
+  channelId?: string;
+  fileCreateTs?: number;
+  fileDuration?: number;
+  filePath?: string;
+  fileSize?: number;
+  region?: number;
+  startTs?: number;
+  taskId?: string;
+  vendor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      channelId: 'ChannelId',
+      fileCreateTs: 'FileCreateTs',
+      fileDuration: 'FileDuration',
+      filePath: 'FilePath',
+      fileSize: 'FileSize',
+      region: 'Region',
+      startTs: 'StartTs',
+      taskId: 'TaskId',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      channelId: 'string',
+      fileCreateTs: 'number',
+      fileDuration: 'number',
+      filePath: 'string',
+      fileSize: 'number',
+      region: 'number',
+      startTs: 'number',
+      taskId: 'string',
+      vendor: 'number',
     };
   }
 
@@ -12570,6 +12746,50 @@ export default class Client extends OpenApi {
   async describeAppKey(request: DescribeAppKeyRequest): Promise<DescribeAppKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAppKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询录制列表
+   *
+   * @param tmpReq DescribeAppRecordingFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppRecordingFilesResponse
+   */
+  async describeAppRecordingFilesWithOptions(tmpReq: DescribeAppRecordingFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppRecordingFilesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeAppRecordingFilesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.taskIds)) {
+      request.taskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIds, "TaskIds", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppRecordingFiles",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppRecordingFilesResponse>(await this.callApi(params, req, runtime), new DescribeAppRecordingFilesResponse({}));
+  }
+
+  /**
+   * @summary 查询录制列表
+   *
+   * @param request DescribeAppRecordingFilesRequest
+   * @return DescribeAppRecordingFilesResponse
+   */
+  async describeAppRecordingFiles(request: DescribeAppRecordingFilesRequest): Promise<DescribeAppRecordingFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppRecordingFilesWithOptions(request, runtime);
   }
 
   /**
