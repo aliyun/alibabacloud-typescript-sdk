@@ -552,12 +552,14 @@ export class CreateTaskRequestParametersExtraParams extends $tea.Model {
   maxKeywords?: number;
   nfixEnabled?: boolean;
   ocrAuxiliaryEnabled?: boolean;
+  translateLlmSceneEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       domainEducationEnabled: 'DomainEducationEnabled',
       maxKeywords: 'MaxKeywords',
       nfixEnabled: 'NfixEnabled',
       ocrAuxiliaryEnabled: 'OcrAuxiliaryEnabled',
+      translateLlmSceneEnabled: 'TranslateLlmSceneEnabled',
     };
   }
 
@@ -567,6 +569,7 @@ export class CreateTaskRequestParametersExtraParams extends $tea.Model {
       maxKeywords: 'number',
       nfixEnabled: 'boolean',
       ocrAuxiliaryEnabled: 'boolean',
+      translateLlmSceneEnabled: 'boolean',
     };
   }
 
