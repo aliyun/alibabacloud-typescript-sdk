@@ -62,9 +62,9 @@ export class AddUserToVpcEndpointServiceResponseBody extends $tea.Model {
 }
 
 export class AddUserToVpcEndpointServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddUserToVpcEndpointServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddUserToVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -143,9 +143,9 @@ export class AddZoneToVpcEndpointResponseBody extends $tea.Model {
 }
 
 export class AddZoneToVpcEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddZoneToVpcEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddZoneToVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -224,9 +224,9 @@ export class AttachResourceToVpcEndpointServiceResponseBody extends $tea.Model {
 }
 
 export class AttachResourceToVpcEndpointServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachResourceToVpcEndpointServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachResourceToVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -299,9 +299,9 @@ export class AttachSecurityGroupToVpcEndpointResponseBody extends $tea.Model {
 }
 
 export class AttachSecurityGroupToVpcEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachSecurityGroupToVpcEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachSecurityGroupToVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -326,12 +326,12 @@ export class AttachSecurityGroupToVpcEndpointResponse extends $tea.Model {
 export class ChangeResourceGroupRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceId?: string;
-  resourceRegionId?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
-      resourceRegionId: 'ResourceRegionId',
+      resourceType: 'ResourceType',
     };
   }
 
@@ -339,7 +339,7 @@ export class ChangeResourceGroupRequest extends $tea.Model {
     return {
       resourceGroupId: 'string',
       resourceId: 'string',
-      resourceRegionId: 'string',
+      resourceType: 'string',
     };
   }
 
@@ -368,9 +368,9 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -415,9 +415,9 @@ export class CheckProductOpenResponseBody extends $tea.Model {
 }
 
 export class CheckProductOpenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckProductOpenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckProductOpenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -439,87 +439,13 @@ export class CheckProductOpenResponse extends $tea.Model {
   }
 }
 
-export class CheckResourceSupportOperateRequest extends $tea.Model {
-  resourceId?: string;
-  resourceType?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResourceSupportOperateResponseBody extends $tea.Model {
-  requestId?: string;
-  resourceCanBeDowngraded?: boolean;
-  resourceZoneCanBeDeleted?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resourceCanBeDowngraded: 'ResourceCanBeDowngraded',
-      resourceZoneCanBeDeleted: 'ResourceZoneCanBeDeleted',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resourceCanBeDowngraded: 'boolean',
-      resourceZoneCanBeDeleted: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResourceSupportOperateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckResourceSupportOperateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckResourceSupportOperateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateVpcEndpointRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
   endpointDescription?: string;
   endpointName?: string;
   endpointType?: string;
+  policyDocument?: string;
   protectedEnabled?: boolean;
   regionId?: string;
   resourceGroupId?: string;
@@ -537,6 +463,7 @@ export class CreateVpcEndpointRequest extends $tea.Model {
       endpointDescription: 'EndpointDescription',
       endpointName: 'EndpointName',
       endpointType: 'EndpointType',
+      policyDocument: 'PolicyDocument',
       protectedEnabled: 'ProtectedEnabled',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -557,6 +484,7 @@ export class CreateVpcEndpointRequest extends $tea.Model {
       endpointDescription: 'string',
       endpointName: 'string',
       endpointType: 'string',
+      policyDocument: 'string',
       protectedEnabled: 'boolean',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -631,9 +559,9 @@ export class CreateVpcEndpointResponseBody extends $tea.Model {
 }
 
 export class CreateVpcEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVpcEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -760,9 +688,9 @@ export class CreateVpcEndpointServiceResponseBody extends $tea.Model {
 }
 
 export class CreateVpcEndpointServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVpcEndpointServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -832,9 +760,9 @@ export class DeleteVpcEndpointResponseBody extends $tea.Model {
 }
 
 export class DeleteVpcEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVpcEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -904,9 +832,9 @@ export class DeleteVpcEndpointServiceResponseBody extends $tea.Model {
 }
 
 export class DeleteVpcEndpointServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVpcEndpointServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -970,9 +898,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1036,9 +964,9 @@ export class DescribeZonesResponseBody extends $tea.Model {
 }
 
 export class DescribeZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1117,9 +1045,9 @@ export class DetachResourceFromVpcEndpointServiceResponseBody extends $tea.Model
 }
 
 export class DetachResourceFromVpcEndpointServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachResourceFromVpcEndpointServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachResourceFromVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1192,9 +1120,9 @@ export class DetachSecurityGroupFromVpcEndpointResponseBody extends $tea.Model {
 }
 
 export class DetachSecurityGroupFromVpcEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachSecurityGroupFromVpcEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachSecurityGroupFromVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1267,9 +1195,9 @@ export class DisableVpcEndpointConnectionResponseBody extends $tea.Model {
 }
 
 export class DisableVpcEndpointConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableVpcEndpointConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableVpcEndpointConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1348,9 +1276,9 @@ export class DisableVpcEndpointZoneConnectionResponseBody extends $tea.Model {
 }
 
 export class DisableVpcEndpointZoneConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableVpcEndpointZoneConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableVpcEndpointZoneConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1426,9 +1354,9 @@ export class EnableVpcEndpointConnectionResponseBody extends $tea.Model {
 }
 
 export class EnableVpcEndpointConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableVpcEndpointConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableVpcEndpointConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1504,9 +1432,9 @@ export class EnableVpcEndpointZoneConnectionResponseBody extends $tea.Model {
 }
 
 export class EnableVpcEndpointZoneConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableVpcEndpointZoneConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableVpcEndpointZoneConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1562,6 +1490,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
   endpointStatus?: string;
   endpointType?: string;
   payer?: string;
+  policyDocument?: string;
   regionId?: string;
   requestId?: string;
   resourceGroupId?: string;
@@ -1584,6 +1513,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
       endpointStatus: 'EndpointStatus',
       endpointType: 'EndpointType',
       payer: 'Payer',
+      policyDocument: 'PolicyDocument',
       regionId: 'RegionId',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
@@ -1609,6 +1539,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
       endpointStatus: 'string',
       endpointType: 'string',
       payer: 'string',
+      policyDocument: 'string',
       regionId: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
@@ -1627,9 +1558,9 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
 }
 
 export class GetVpcEndpointAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVpcEndpointAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVpcEndpointAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1750,9 +1681,9 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $tea.Model {
 }
 
 export class GetVpcEndpointServiceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVpcEndpointServiceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVpcEndpointServiceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1774,8 +1705,91 @@ export class GetVpcEndpointServiceAttributeResponse extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequest extends $tea.Model {
+  clientToken?: string;
+  nextToken?: string;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVpcEndpointConnectionsRequest extends $tea.Model {
-  connectionId?: number;
   connectionStatus?: string;
   endpointId?: string;
   endpointOwnerId?: number;
@@ -1789,7 +1803,6 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
   serviceId?: string;
   static names(): { [key: string]: string } {
     return {
-      connectionId: 'ConnectionId',
       connectionStatus: 'ConnectionStatus',
       endpointId: 'EndpointId',
       endpointOwnerId: 'EndpointOwnerId',
@@ -1806,7 +1819,6 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      connectionId: 'number',
       connectionStatus: 'string',
       endpointId: 'string',
       endpointOwnerId: 'number',
@@ -1858,9 +1870,9 @@ export class ListVpcEndpointConnectionsResponseBody extends $tea.Model {
 }
 
 export class ListVpcEndpointConnectionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpcEndpointConnectionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcEndpointConnectionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1915,12 +1927,14 @@ export class ListVpcEndpointSecurityGroupsResponseBody extends $tea.Model {
   nextToken?: string;
   requestId?: string;
   securityGroups?: ListVpcEndpointSecurityGroupsResponseBodySecurityGroups[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
       securityGroups: 'SecurityGroups',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -1930,6 +1944,7 @@ export class ListVpcEndpointSecurityGroupsResponseBody extends $tea.Model {
       nextToken: 'string',
       requestId: 'string',
       securityGroups: { 'type': 'array', 'itemType': ListVpcEndpointSecurityGroupsResponseBodySecurityGroups },
+      totalCount: 'number',
     };
   }
 
@@ -1939,9 +1954,9 @@ export class ListVpcEndpointSecurityGroupsResponseBody extends $tea.Model {
 }
 
 export class ListVpcEndpointSecurityGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpcEndpointSecurityGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcEndpointSecurityGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2020,9 +2035,9 @@ export class ListVpcEndpointServiceResourcesResponseBody extends $tea.Model {
 }
 
 export class ListVpcEndpointServiceResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpcEndpointServiceResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcEndpointServiceResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2113,9 +2128,9 @@ export class ListVpcEndpointServiceUsersResponseBody extends $tea.Model {
 }
 
 export class ListVpcEndpointServiceUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpcEndpointServiceUsersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcEndpointServiceUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2224,9 +2239,9 @@ export class ListVpcEndpointServicesResponseBody extends $tea.Model {
 }
 
 export class ListVpcEndpointServicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpcEndpointServicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcEndpointServicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2320,9 +2335,9 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $tea.Model {
 }
 
 export class ListVpcEndpointServicesByEndUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpcEndpointServicesByEndUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcEndpointServicesByEndUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2376,12 +2391,14 @@ export class ListVpcEndpointZonesResponseBody extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   requestId?: string;
+  totalCount?: number;
   zones?: ListVpcEndpointZonesResponseBodyZones[];
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
       zones: 'Zones',
     };
   }
@@ -2391,6 +2408,7 @@ export class ListVpcEndpointZonesResponseBody extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
+      totalCount: 'number',
       zones: { 'type': 'array', 'itemType': ListVpcEndpointZonesResponseBodyZones },
     };
   }
@@ -2401,9 +2419,9 @@ export class ListVpcEndpointZonesResponseBody extends $tea.Model {
 }
 
 export class ListVpcEndpointZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpcEndpointZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcEndpointZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2509,9 +2527,9 @@ export class ListVpcEndpointsResponseBody extends $tea.Model {
 }
 
 export class ListVpcEndpointsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpcEndpointsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcEndpointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2525,78 +2543,6 @@ export class ListVpcEndpointsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListVpcEndpointsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class NotifyResourceAddressFamilyRequest extends $tea.Model {
-  addressFamily?: string;
-  ipv6Address?: string;
-  resourceId?: string;
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addressFamily: 'AddressFamily',
-      ipv6Address: 'Ipv6Address',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addressFamily: 'string',
-      ipv6Address: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class NotifyResourceAddressFamilyResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class NotifyResourceAddressFamilyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: NotifyResourceAddressFamilyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: NotifyResourceAddressFamilyResponseBody,
     };
   }
 
@@ -2647,9 +2593,9 @@ export class OpenPrivateLinkServiceResponseBody extends $tea.Model {
 }
 
 export class OpenPrivateLinkServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OpenPrivateLinkServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenPrivateLinkServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2725,9 +2671,9 @@ export class RemoveUserFromVpcEndpointServiceResponseBody extends $tea.Model {
 }
 
 export class RemoveUserFromVpcEndpointServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveUserFromVpcEndpointServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveUserFromVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2800,9 +2746,9 @@ export class RemoveZoneFromVpcEndpointResponseBody extends $tea.Model {
 }
 
 export class RemoveZoneFromVpcEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveZoneFromVpcEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveZoneFromVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2878,9 +2824,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2902,12 +2848,94 @@ export class TagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  clientToken?: string;
+  dryRun?: boolean;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateVpcEndpointAttributeRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
   endpointDescription?: string;
   endpointId?: string;
   endpointName?: string;
+  policyDocument?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2916,6 +2944,7 @@ export class UpdateVpcEndpointAttributeRequest extends $tea.Model {
       endpointDescription: 'EndpointDescription',
       endpointId: 'EndpointId',
       endpointName: 'EndpointName',
+      policyDocument: 'PolicyDocument',
       regionId: 'RegionId',
     };
   }
@@ -2927,6 +2956,7 @@ export class UpdateVpcEndpointAttributeRequest extends $tea.Model {
       endpointDescription: 'string',
       endpointId: 'string',
       endpointName: 'string',
+      policyDocument: 'string',
       regionId: 'string',
     };
   }
@@ -2956,9 +2986,9 @@ export class UpdateVpcEndpointAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateVpcEndpointAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVpcEndpointAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVpcEndpointAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3034,9 +3064,9 @@ export class UpdateVpcEndpointConnectionAttributeResponseBody extends $tea.Model
 }
 
 export class UpdateVpcEndpointConnectionAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVpcEndpointConnectionAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVpcEndpointConnectionAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3121,9 +3151,9 @@ export class UpdateVpcEndpointServiceAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateVpcEndpointServiceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVpcEndpointServiceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVpcEndpointServiceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3202,9 +3232,9 @@ export class UpdateVpcEndpointServiceResourceAttributeResponseBody extends $tea.
 }
 
 export class UpdateVpcEndpointServiceResourceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVpcEndpointServiceResourceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVpcEndpointServiceResourceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3292,9 +3322,9 @@ export class UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody extend
 }
 
 export class UpdateVpcEndpointZoneConnectionResourceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3495,9 +3525,57 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $tea.Model {
-  connectionId?: number;
-  connectionStringId?: string;
   eniId?: string;
   replacedEniId?: string;
   replacedResourceId?: string;
@@ -3508,8 +3586,6 @@ export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $tea
   zoneStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      connectionId: 'ConnectionId',
-      connectionStringId: 'ConnectionStringId',
       eniId: 'EniId',
       replacedEniId: 'ReplacedEniId',
       replacedResourceId: 'ReplacedResourceId',
@@ -3523,8 +3599,6 @@ export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $tea
 
   static types(): { [key: string]: any } {
     return {
-      connectionId: 'number',
-      connectionStringId: 'string',
       eniId: 'string',
       replacedEniId: 'string',
       replacedResourceId: 'string',
@@ -3589,15 +3663,18 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $tea.Mode
 
 export class ListVpcEndpointSecurityGroupsResponseBodySecurityGroups extends $tea.Model {
   securityGroupId?: string;
+  securityGroupStatus?: string;
   static names(): { [key: string]: string } {
     return {
       securityGroupId: 'SecurityGroupId',
+      securityGroupStatus: 'SecurityGroupStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       securityGroupId: 'string',
+      securityGroupStatus: 'string',
     };
   }
 
@@ -3904,7 +3981,6 @@ export class ListVpcEndpointZonesResponseBodyZones extends $tea.Model {
   eniId?: string;
   eniIp?: string;
   regionId?: string;
-  serviceStatus?: string;
   vSwitchId?: string;
   zoneDomain?: string;
   zoneId?: string;
@@ -3915,7 +3991,6 @@ export class ListVpcEndpointZonesResponseBodyZones extends $tea.Model {
       eniId: 'EniId',
       eniIp: 'EniIp',
       regionId: 'RegionId',
-      serviceStatus: 'ServiceStatus',
       vSwitchId: 'VSwitchId',
       zoneDomain: 'ZoneDomain',
       zoneId: 'ZoneId',
@@ -3929,7 +4004,6 @@ export class ListVpcEndpointZonesResponseBodyZones extends $tea.Model {
       eniId: 'string',
       eniIp: 'string',
       regionId: 'string',
-      serviceStatus: 'string',
       vSwitchId: 'string',
       zoneDomain: 'string',
       zoneId: 'string',
@@ -3998,6 +4072,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $tea.Model {
   endpointName?: string;
   endpointStatus?: string;
   endpointType?: string;
+  policyDocument?: string;
   regionId?: string;
   resourceGroupId?: string;
   resourceOwner?: boolean;
@@ -4018,6 +4093,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $tea.Model {
       endpointName: 'EndpointName',
       endpointStatus: 'EndpointStatus',
       endpointType: 'EndpointType',
+      policyDocument: 'PolicyDocument',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwner: 'ResourceOwner',
@@ -4041,6 +4117,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $tea.Model {
       endpointName: 'string',
       endpointStatus: 'string',
       endpointType: 'string',
+      policyDocument: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwner: 'boolean',
@@ -4103,11 +4180,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **AddUserToVpcEndpointService** operation to add the ID of an Alibaba Cloud account to a service whitelist within a specified period of time.
-    *
-    * @param request AddUserToVpcEndpointServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddUserToVpcEndpointServiceResponse
+   * @summary Adds an account ID to the whitelist of an endpoint service.
+   *
+   * @description *   Before you add an account ID to the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+   * *   You cannot repeatedly call the **AddUserToVpcEndpointService** operation to add the ID of an Alibaba Cloud account to the whitelist of an endpoint service within a specified period of time.
+   *
+   * @param request AddUserToVpcEndpointServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserToVpcEndpointServiceResponse
    */
   async addUserToVpcEndpointServiceWithOptions(request: AddUserToVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToVpcEndpointServiceResponse> {
     Util.validateModel(request);
@@ -4158,10 +4238,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **AddUserToVpcEndpointService** operation to add the ID of an Alibaba Cloud account to a service whitelist within a specified period of time.
-    *
-    * @param request AddUserToVpcEndpointServiceRequest
-    * @return AddUserToVpcEndpointServiceResponse
+   * @summary Adds an account ID to the whitelist of an endpoint service.
+   *
+   * @description *   Before you add an account ID to the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+   * *   You cannot repeatedly call the **AddUserToVpcEndpointService** operation to add the ID of an Alibaba Cloud account to the whitelist of an endpoint service within a specified period of time.
+   *
+   * @param request AddUserToVpcEndpointServiceRequest
+   * @return AddUserToVpcEndpointServiceResponse
    */
   async addUserToVpcEndpointService(request: AddUserToVpcEndpointServiceRequest): Promise<AddUserToVpcEndpointServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4169,11 +4252,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The request ID.
-    *
-    * @param request AddZoneToVpcEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddZoneToVpcEndpointResponse
+   * @summary Adds a zone to an endpoint.
+   *
+   * @description *   **AddZoneToVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the state of the zone.
+   *     *   If the zone is in the **Creating** state, the zone is being added.
+   *     *   If the zone is in the Wait state, the zone is added.
+   * *   You cannot repeatedly call the **AddZoneToVpcEndpoint** operation to add a zone to an endpoint within a specified period of time.
+   *
+   * @param request AddZoneToVpcEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddZoneToVpcEndpointResponse
    */
   async addZoneToVpcEndpointWithOptions(request: AddZoneToVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AddZoneToVpcEndpointResponse> {
     Util.validateModel(request);
@@ -4228,10 +4316,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The request ID.
-    *
-    * @param request AddZoneToVpcEndpointRequest
-    * @return AddZoneToVpcEndpointResponse
+   * @summary Adds a zone to an endpoint.
+   *
+   * @description *   **AddZoneToVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the state of the zone.
+   *     *   If the zone is in the **Creating** state, the zone is being added.
+   *     *   If the zone is in the Wait state, the zone is added.
+   * *   You cannot repeatedly call the **AddZoneToVpcEndpoint** operation to add a zone to an endpoint within a specified period of time.
+   *
+   * @param request AddZoneToVpcEndpointRequest
+   * @return AddZoneToVpcEndpointResponse
    */
   async addZoneToVpcEndpoint(request: AddZoneToVpcEndpointRequest): Promise<AddZoneToVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4239,11 +4332,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **AttachResourceToVpcEndpointService** operation to add a service resource to an endpoint service within a specified period of time.
-    *
-    * @param request AttachResourceToVpcEndpointServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachResourceToVpcEndpointServiceResponse
+   * @summary Adds a service resource to an endpoint service.
+   *
+   * @description *   Before you add a service resource to an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+   * *   You cannot repeatedly call the **AttachResourceToVpcEndpointService** operation to add a service resource to an endpoint service within a specified period of time.
+   *
+   * @param request AttachResourceToVpcEndpointServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachResourceToVpcEndpointServiceResponse
    */
   async attachResourceToVpcEndpointServiceWithOptions(request: AttachResourceToVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<AttachResourceToVpcEndpointServiceResponse> {
     Util.validateModel(request);
@@ -4298,10 +4394,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **AttachResourceToVpcEndpointService** operation to add a service resource to an endpoint service within a specified period of time.
-    *
-    * @param request AttachResourceToVpcEndpointServiceRequest
-    * @return AttachResourceToVpcEndpointServiceResponse
+   * @summary Adds a service resource to an endpoint service.
+   *
+   * @description *   Before you add a service resource to an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+   * *   You cannot repeatedly call the **AttachResourceToVpcEndpointService** operation to add a service resource to an endpoint service within a specified period of time.
+   *
+   * @param request AttachResourceToVpcEndpointServiceRequest
+   * @return AttachResourceToVpcEndpointServiceResponse
    */
   async attachResourceToVpcEndpointService(request: AttachResourceToVpcEndpointServiceRequest): Promise<AttachResourceToVpcEndpointServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4309,14 +4408,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **AttachSecurityGroupToVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](~~183558~~) operation to query the state of the endpoint.
-    *     *   If the endpoint is in the **Pending** state, the endpoint is being associated with the security group.
-    *     *   If the endpoint is in the **Active** state, the endpoint is associated with the security group.
-    * *   You cannot repeatedly call the **AttachSecurityGroupToVpcEndpoint** operation to associate an endpoint with a security group within a specified period of time.
-    *
-    * @param request AttachSecurityGroupToVpcEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachSecurityGroupToVpcEndpointResponse
+   * @summary Associates an endpoint with a security group.
+   *
+   * @description *   **AttachSecurityGroupToVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) operation to query the state of the endpoint.
+   *     *   If the endpoint is in the **Pending** state, the endpoint is being associated with the security group.
+   *     *   If the endpoint is in the **Active** state, the endpoint is associated with the security group.
+   * *   You cannot repeatedly call the **AttachSecurityGroupToVpcEndpoint** operation to associate an endpoint with a security group within a specified period of time.
+   *
+   * @param request AttachSecurityGroupToVpcEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachSecurityGroupToVpcEndpointResponse
    */
   async attachSecurityGroupToVpcEndpointWithOptions(request: AttachSecurityGroupToVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AttachSecurityGroupToVpcEndpointResponse> {
     Util.validateModel(request);
@@ -4363,19 +4464,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **AttachSecurityGroupToVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](~~183558~~) operation to query the state of the endpoint.
-    *     *   If the endpoint is in the **Pending** state, the endpoint is being associated with the security group.
-    *     *   If the endpoint is in the **Active** state, the endpoint is associated with the security group.
-    * *   You cannot repeatedly call the **AttachSecurityGroupToVpcEndpoint** operation to associate an endpoint with a security group within a specified period of time.
-    *
-    * @param request AttachSecurityGroupToVpcEndpointRequest
-    * @return AttachSecurityGroupToVpcEndpointResponse
+   * @summary Associates an endpoint with a security group.
+   *
+   * @description *   **AttachSecurityGroupToVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) operation to query the state of the endpoint.
+   *     *   If the endpoint is in the **Pending** state, the endpoint is being associated with the security group.
+   *     *   If the endpoint is in the **Active** state, the endpoint is associated with the security group.
+   * *   You cannot repeatedly call the **AttachSecurityGroupToVpcEndpoint** operation to associate an endpoint with a security group within a specified period of time.
+   *
+   * @param request AttachSecurityGroupToVpcEndpointRequest
+   * @return AttachSecurityGroupToVpcEndpointResponse
    */
   async attachSecurityGroupToVpcEndpoint(request: AttachSecurityGroupToVpcEndpointRequest): Promise<AttachSecurityGroupToVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachSecurityGroupToVpcEndpointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a resource group.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4387,8 +4497,8 @@ export default class Client extends OpenApi {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceRegionId)) {
-      query["ResourceRegionId"] = request.resourceRegionId;
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4408,11 +4518,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Modifies a resource group.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether PrivateLink is activated.
+   *
+   * @param request CheckProductOpenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckProductOpenResponse
+   */
   async checkProductOpenWithOptions(runtime: $Util.RuntimeOptions): Promise<CheckProductOpenResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -4429,55 +4552,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckProductOpenResponse>(await this.callApi(params, req, runtime), new CheckProductOpenResponse({}));
   }
 
+  /**
+   * @summary Queries whether PrivateLink is activated.
+   *
+   * @return CheckProductOpenResponse
+   */
   async checkProductOpen(): Promise<CheckProductOpenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkProductOpenWithOptions(runtime);
   }
 
-  async checkResourceSupportOperateWithOptions(request: CheckResourceSupportOperateRequest, runtime: $Util.RuntimeOptions): Promise<CheckResourceSupportOperateResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.resourceId)) {
-      query["ResourceId"] = request.resourceId;
-    }
-
-    if (!Util.isUnset(request.resourceType)) {
-      query["ResourceType"] = request.resourceType;
-    }
-
-    if (!Util.isUnset(request.zoneId)) {
-      query["ZoneId"] = request.zoneId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CheckResourceSupportOperate",
-      version: "2020-04-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CheckResourceSupportOperateResponse>(await this.callApi(params, req, runtime), new CheckResourceSupportOperateResponse({}));
-  }
-
-  async checkResourceSupportOperate(request: CheckResourceSupportOperateRequest): Promise<CheckResourceSupportOperateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkResourceSupportOperateWithOptions(request, runtime);
-  }
-
   /**
-    * The region ID of the endpoint.
-    * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
-    *
-    * @param request CreateVpcEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpcEndpointResponse
+   * @summary Creates an endpoint.
+   *
+   * @description **CreateVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to check whether the endpoint is created.
+   * *   If the endpoint is in the **Creating** state, the endpoint is being created.
+   * *   If the endpoint is in the **Active** state, the endpoint is created.
+   *
+   * @param request CreateVpcEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpcEndpointResponse
    */
   async createVpcEndpointWithOptions(request: CreateVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcEndpointResponse> {
     Util.validateModel(request);
@@ -4500,6 +4594,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endpointType)) {
       query["EndpointType"] = request.endpointType;
+    }
+
+    if (!Util.isUnset(request.policyDocument)) {
+      query["PolicyDocument"] = request.policyDocument;
     }
 
     if (!Util.isUnset(request.protectedEnabled)) {
@@ -4564,11 +4662,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID of the endpoint.
-    * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
-    *
-    * @param request CreateVpcEndpointRequest
-    * @return CreateVpcEndpointResponse
+   * @summary Creates an endpoint.
+   *
+   * @description **CreateVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to check whether the endpoint is created.
+   * *   If the endpoint is in the **Creating** state, the endpoint is being created.
+   * *   If the endpoint is in the **Active** state, the endpoint is created.
+   *
+   * @param request CreateVpcEndpointRequest
+   * @return CreateVpcEndpointResponse
    */
   async createVpcEndpoint(request: CreateVpcEndpointRequest): Promise<CreateVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4576,11 +4677,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The resource group ID.
-    *
-    * @param request CreateVpcEndpointServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpcEndpointServiceResponse
+   * @summary Creates an endpoint service.
+   *
+   * @description *   Before you create an endpoint service, make sure that you have created a Server Load Balancer (SLB) instance that supports PrivateLink. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/174064.html).
+   * *   **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) operation to query the status of the endpoint service.
+   *     *   If the endpoint service is in the **Creating** state, the endpoint service is being created.
+   *     *   If the endpoint service is in the **Active** state, the endpoint service is created.
+   *
+   * @param request CreateVpcEndpointServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpcEndpointServiceResponse
    */
   async createVpcEndpointServiceWithOptions(request: CreateVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcEndpointServiceResponse> {
     Util.validateModel(request);
@@ -4655,10 +4761,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The resource group ID.
-    *
-    * @param request CreateVpcEndpointServiceRequest
-    * @return CreateVpcEndpointServiceResponse
+   * @summary Creates an endpoint service.
+   *
+   * @description *   Before you create an endpoint service, make sure that you have created a Server Load Balancer (SLB) instance that supports PrivateLink. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/174064.html).
+   * *   **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) operation to query the status of the endpoint service.
+   *     *   If the endpoint service is in the **Creating** state, the endpoint service is being created.
+   *     *   If the endpoint service is in the **Active** state, the endpoint service is created.
+   *
+   * @param request CreateVpcEndpointServiceRequest
+   * @return CreateVpcEndpointServiceResponse
    */
   async createVpcEndpointService(request: CreateVpcEndpointServiceRequest): Promise<CreateVpcEndpointServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4666,13 +4777,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to check whether the endpoint is deleted.
-    * *   If the endpoint is in the **Deleting** state, the endpoint is being deleted.
-    * *   If the endpoint cannot be queried, the endpoint is deleted.
-    *
-    * @param request DeleteVpcEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVpcEndpointResponse
+   * @summary Deletes an endpoint.
+   *
+   * @description *   Before you delete an endpoint, you must delete the zones that are added to the endpoint.
+   * *   **DeleteVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to check whether the endpoint is deleted.
+   *     *   If the endpoint is in the **Deleting** state, the endpoint is being deleted.
+   *     *   If the endpoint cannot be queried, the endpoint is deleted.
+   *
+   * @param request DeleteVpcEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpcEndpointResponse
    */
   async deleteVpcEndpointWithOptions(request: DeleteVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointResponse> {
     Util.validateModel(request);
@@ -4715,12 +4829,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to check whether the endpoint is deleted.
-    * *   If the endpoint is in the **Deleting** state, the endpoint is being deleted.
-    * *   If the endpoint cannot be queried, the endpoint is deleted.
-    *
-    * @param request DeleteVpcEndpointRequest
-    * @return DeleteVpcEndpointResponse
+   * @summary Deletes an endpoint.
+   *
+   * @description *   Before you delete an endpoint, you must delete the zones that are added to the endpoint.
+   * *   **DeleteVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to check whether the endpoint is deleted.
+   *     *   If the endpoint is in the **Deleting** state, the endpoint is being deleted.
+   *     *   If the endpoint cannot be queried, the endpoint is deleted.
+   *
+   * @param request DeleteVpcEndpointRequest
+   * @return DeleteVpcEndpointResponse
    */
   async deleteVpcEndpoint(request: DeleteVpcEndpointRequest): Promise<DeleteVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4728,14 +4845,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteVpcEndpointService** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](~~183542~~) operation to check whether the endpoint service is deleted.
-    *     *   If the endpoint service is in the **Deleting** state, the endpoint service is being deleted.
-    *     *   If the endpoint service cannot be queried, the endpoint service is deleted.
-    * *   You cannot repeatedly call the **DeleteVpcEndpointService** operation to delete an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
-    *
-    * @param request DeleteVpcEndpointServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVpcEndpointServiceResponse
+   * @summary Deletes an endpoint service.
+   *
+   * @description *   Before you delete an endpoint service, you must disconnect the endpoint from the endpoint service and remove the service resources.
+   * *   **DeleteVpcEndpointService** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) operation to check whether the endpoint service is deleted.
+   *     *   If the endpoint service is in the **Deleting** state, the endpoint service is being deleted.
+   *     *   If the endpoint service cannot be queried, the endpoint service is deleted.
+   * *   You cannot repeatedly call the **DeleteVpcEndpointService** operation to delete an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
+   *
+   * @param request DeleteVpcEndpointServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpcEndpointServiceResponse
    */
   async deleteVpcEndpointServiceWithOptions(request: DeleteVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointServiceResponse> {
     Util.validateModel(request);
@@ -4778,19 +4898,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteVpcEndpointService** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](~~183542~~) operation to check whether the endpoint service is deleted.
-    *     *   If the endpoint service is in the **Deleting** state, the endpoint service is being deleted.
-    *     *   If the endpoint service cannot be queried, the endpoint service is deleted.
-    * *   You cannot repeatedly call the **DeleteVpcEndpointService** operation to delete an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
-    *
-    * @param request DeleteVpcEndpointServiceRequest
-    * @return DeleteVpcEndpointServiceResponse
+   * @summary Deletes an endpoint service.
+   *
+   * @description *   Before you delete an endpoint service, you must disconnect the endpoint from the endpoint service and remove the service resources.
+   * *   **DeleteVpcEndpointService** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) operation to check whether the endpoint service is deleted.
+   *     *   If the endpoint service is in the **Deleting** state, the endpoint service is being deleted.
+   *     *   If the endpoint service cannot be queried, the endpoint service is deleted.
+   * *   You cannot repeatedly call the **DeleteVpcEndpointService** operation to delete an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
+   *
+   * @param request DeleteVpcEndpointServiceRequest
+   * @return DeleteVpcEndpointServiceResponse
    */
   async deleteVpcEndpointService(request: DeleteVpcEndpointServiceRequest): Promise<DeleteVpcEndpointServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcEndpointServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available regions and zones.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4819,11 +4949,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries available regions and zones.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of zones in a specified region.
+   *
+   * @param request DescribeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4852,11 +4995,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of zones in a specified region.
+   *
+   * @param request DescribeZonesRequest
+   * @return DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes a service resource from an endpoint service.
+   *
+   * @description *   Before you remove a service resource from an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+   * *   You cannot repeatedly call the **DetachResourceFromVpcEndpointService** operation to remove a service resource from an endpoint service within a specified period of time.
+   *
+   * @param request DetachResourceFromVpcEndpointServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachResourceFromVpcEndpointServiceResponse
+   */
   async detachResourceFromVpcEndpointServiceWithOptions(request: DetachResourceFromVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<DetachResourceFromVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4909,17 +5068,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachResourceFromVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new DetachResourceFromVpcEndpointServiceResponse({}));
   }
 
+  /**
+   * @summary Removes a service resource from an endpoint service.
+   *
+   * @description *   Before you remove a service resource from an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+   * *   You cannot repeatedly call the **DetachResourceFromVpcEndpointService** operation to remove a service resource from an endpoint service within a specified period of time.
+   *
+   * @param request DetachResourceFromVpcEndpointServiceRequest
+   * @return DetachResourceFromVpcEndpointServiceResponse
+   */
   async detachResourceFromVpcEndpointService(request: DetachResourceFromVpcEndpointServiceRequest): Promise<DetachResourceFromVpcEndpointServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachResourceFromVpcEndpointServiceWithOptions(request, runtime);
   }
 
   /**
-    * 671231
-    *
-    * @param request DetachSecurityGroupFromVpcEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DetachSecurityGroupFromVpcEndpointResponse
+   * @summary Disassociates an endpoint from a security group.
+   *
+   * @description *   **DetachSecurityGroupFromVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) to check whether the endpoint is disassociated from the security group.
+   *     *   If the endpoint is in the **Pending** state, the endpoint is being disassociated from the security group.
+   *     *   If you cannot query the endpoint in the security group, the endpoint is disassociated from the security group.
+   * *   You cannot repeatedly call the **DetachSecurityGroupFromVpcEndpoint** operation to disassociate an endpoint from a security group within a specified period of time.
+   *
+   * @param request DetachSecurityGroupFromVpcEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachSecurityGroupFromVpcEndpointResponse
    */
   async detachSecurityGroupFromVpcEndpointWithOptions(request: DetachSecurityGroupFromVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DetachSecurityGroupFromVpcEndpointResponse> {
     Util.validateModel(request);
@@ -4966,10 +5139,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 671231
-    *
-    * @param request DetachSecurityGroupFromVpcEndpointRequest
-    * @return DetachSecurityGroupFromVpcEndpointResponse
+   * @summary Disassociates an endpoint from a security group.
+   *
+   * @description *   **DetachSecurityGroupFromVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) to check whether the endpoint is disassociated from the security group.
+   *     *   If the endpoint is in the **Pending** state, the endpoint is being disassociated from the security group.
+   *     *   If you cannot query the endpoint in the security group, the endpoint is disassociated from the security group.
+   * *   You cannot repeatedly call the **DetachSecurityGroupFromVpcEndpoint** operation to disassociate an endpoint from a security group within a specified period of time.
+   *
+   * @param request DetachSecurityGroupFromVpcEndpointRequest
+   * @return DetachSecurityGroupFromVpcEndpointResponse
    */
   async detachSecurityGroupFromVpcEndpoint(request: DetachSecurityGroupFromVpcEndpointRequest): Promise<DetachSecurityGroupFromVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4977,14 +5155,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DisableVpcEndpointConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to query the state of the endpoint connection.
-    *     *   If the endpoint connection is in the **Disconnecting** state, the endpoint is being disconnected from the endpoint service.
-    *     *   If the endpoint connection is in the **Disconnected** state, the endpoint is disconnected from the endpoint service.
-    * *   You cannot repeatedly call the **DisableVpcEndpointConnection** operation to allow an endpoint service to reject a connection request from an endpoint within a specified period of time.
-    *
-    * @param request DisableVpcEndpointConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DisableVpcEndpointConnectionResponse
+   * @summary Rejects a connection request from an endpoint.
+   *
+   * @description *   **DisableVpcEndpointConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
+   *     *   If the endpoint connection is in the **Disconnecting** state, the endpoint is being disconnected from the endpoint service.
+   *     *   If the endpoint connection is in the **Disconnected** state, the endpoint is disconnected from the endpoint service.
+   * *   You cannot repeatedly call the **DisableVpcEndpointConnection** operation to allow an endpoint service to reject a connection request from an endpoint within a specified period of time.
+   *
+   * @param request DisableVpcEndpointConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableVpcEndpointConnectionResponse
    */
   async disableVpcEndpointConnectionWithOptions(request: DisableVpcEndpointConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DisableVpcEndpointConnectionResponse> {
     Util.validateModel(request);
@@ -5031,13 +5211,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DisableVpcEndpointConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to query the state of the endpoint connection.
-    *     *   If the endpoint connection is in the **Disconnecting** state, the endpoint is being disconnected from the endpoint service.
-    *     *   If the endpoint connection is in the **Disconnected** state, the endpoint is disconnected from the endpoint service.
-    * *   You cannot repeatedly call the **DisableVpcEndpointConnection** operation to allow an endpoint service to reject a connection request from an endpoint within a specified period of time.
-    *
-    * @param request DisableVpcEndpointConnectionRequest
-    * @return DisableVpcEndpointConnectionResponse
+   * @summary Rejects a connection request from an endpoint.
+   *
+   * @description *   **DisableVpcEndpointConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
+   *     *   If the endpoint connection is in the **Disconnecting** state, the endpoint is being disconnected from the endpoint service.
+   *     *   If the endpoint connection is in the **Disconnected** state, the endpoint is disconnected from the endpoint service.
+   * *   You cannot repeatedly call the **DisableVpcEndpointConnection** operation to allow an endpoint service to reject a connection request from an endpoint within a specified period of time.
+   *
+   * @param request DisableVpcEndpointConnectionRequest
+   * @return DisableVpcEndpointConnectionResponse
    */
   async disableVpcEndpointConnection(request: DisableVpcEndpointConnectionRequest): Promise<DisableVpcEndpointConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5045,13 +5227,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Specifies whether to only precheck the request. Valid values:
-    * *   **true**: only prechecks the API request without performing the operation. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user is authorized, and whether required parameters are set. If the request fails to pass the precheck, an error code is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-    * *   **false** (default): sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
-    *
-    * @param request DisableVpcEndpointZoneConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DisableVpcEndpointZoneConnectionResponse
+   * @summary Disconnects an endpoint from a connection in the specified zone.
+   *
+   * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the zone associated with the endpoint is **Connected** or **Migrated**.
+   * *   **DisableVpcEndpointZoneConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the status of the task.
+   *     *   If the zone is in the **Disconnecting** state, the task is running.
+   *     *   If the zone is in the **Disconnected** state, the task is successful.
+   * *   You cannot repeatedly call the **DisableVpcEndpointZoneConnection** operation to allow an endpoint service to reject a connection request from the endpoint in the zone within a specified period of time.
+   *
+   * @param request DisableVpcEndpointZoneConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableVpcEndpointZoneConnectionResponse
    */
   async disableVpcEndpointZoneConnectionWithOptions(request: DisableVpcEndpointZoneConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DisableVpcEndpointZoneConnectionResponse> {
     Util.validateModel(request);
@@ -5106,12 +5292,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Specifies whether to only precheck the request. Valid values:
-    * *   **true**: only prechecks the API request without performing the operation. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user is authorized, and whether required parameters are set. If the request fails to pass the precheck, an error code is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-    * *   **false** (default): sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
-    *
-    * @param request DisableVpcEndpointZoneConnectionRequest
-    * @return DisableVpcEndpointZoneConnectionResponse
+   * @summary Disconnects an endpoint from a connection in the specified zone.
+   *
+   * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the zone associated with the endpoint is **Connected** or **Migrated**.
+   * *   **DisableVpcEndpointZoneConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the status of the task.
+   *     *   If the zone is in the **Disconnecting** state, the task is running.
+   *     *   If the zone is in the **Disconnected** state, the task is successful.
+   * *   You cannot repeatedly call the **DisableVpcEndpointZoneConnection** operation to allow an endpoint service to reject a connection request from the endpoint in the zone within a specified period of time.
+   *
+   * @param request DisableVpcEndpointZoneConnectionRequest
+   * @return DisableVpcEndpointZoneConnectionResponse
    */
   async disableVpcEndpointZoneConnection(request: DisableVpcEndpointZoneConnectionRequest): Promise<DisableVpcEndpointZoneConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5119,14 +5309,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **EnableVpcEndpointConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to query the state of the endpoint connection.
-    *     *   If the state is **Connecting**, the endpoint connection is being established.
-    *     *   If the state is **Connected**, the endpoint connection is established.
-    * *   You cannot repeatedly call the **EnableVpcEndpointConnection** operation to allow an endpoint service of an Alibaba Cloud account to accept a connection request from an endpoint within a specified period of time.
-    *
-    * @param request EnableVpcEndpointConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return EnableVpcEndpointConnectionResponse
+   * @summary Accepts connection requests from an endpoint.
+   *
+   * @description *   **EnableVpcEndpointConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
+   *     *   If the state is **Connecting**, the endpoint connection is being established.
+   *     *   If the state is **Connected**, the endpoint connection is established.
+   * *   You cannot repeatedly call the **EnableVpcEndpointConnection** operation to allow an endpoint service of an Alibaba Cloud account to accept a connection request from an endpoint within a specified period of time.
+   *
+   * @param request EnableVpcEndpointConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableVpcEndpointConnectionResponse
    */
   async enableVpcEndpointConnectionWithOptions(request: EnableVpcEndpointConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcEndpointConnectionResponse> {
     Util.validateModel(request);
@@ -5177,13 +5369,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **EnableVpcEndpointConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to query the state of the endpoint connection.
-    *     *   If the state is **Connecting**, the endpoint connection is being established.
-    *     *   If the state is **Connected**, the endpoint connection is established.
-    * *   You cannot repeatedly call the **EnableVpcEndpointConnection** operation to allow an endpoint service of an Alibaba Cloud account to accept a connection request from an endpoint within a specified period of time.
-    *
-    * @param request EnableVpcEndpointConnectionRequest
-    * @return EnableVpcEndpointConnectionResponse
+   * @summary Accepts connection requests from an endpoint.
+   *
+   * @description *   **EnableVpcEndpointConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
+   *     *   If the state is **Connecting**, the endpoint connection is being established.
+   *     *   If the state is **Connected**, the endpoint connection is established.
+   * *   You cannot repeatedly call the **EnableVpcEndpointConnection** operation to allow an endpoint service of an Alibaba Cloud account to accept a connection request from an endpoint within a specified period of time.
+   *
+   * @param request EnableVpcEndpointConnectionRequest
+   * @return EnableVpcEndpointConnectionResponse
    */
   async enableVpcEndpointConnection(request: EnableVpcEndpointConnectionRequest): Promise<EnableVpcEndpointConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5191,15 +5385,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
-    * *   **EnableVpcEndpointZoneConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](~~183560~~) operation to check whether the endpoint service accepts a connection request from the endpoint in the associated zone.
-    *     *   If the zone is in the **Connecting** state, the endpoint service is accepting the connection request from the endpoint.
-    *     *   If the zone is in the **Connected** state, the endpoint service has accepted the connection request from the endpoint.
-    * *   You cannot repeatedly call the **EnableVpcEndpointZoneConnection** operation to allow an endpoint service to accept a connection request from an endpoint in the associated zone within a specified period of time.
-    *
-    * @param request EnableVpcEndpointZoneConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return EnableVpcEndpointZoneConnectionResponse
+   * @summary Accepts a connection request from an endpoint in the specified zone.
+   *
+   * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
+   * *   **EnableVpcEndpointZoneConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the endpoint service accepts a connection request from the endpoint in the associated zone.
+   *     *   If the zone is in the **Connecting** state, the endpoint service is accepting the connection request from the endpoint.
+   *     *   If the zone is in the **Connected** state, the endpoint service has accepted the connection request from the endpoint.
+   * *   You cannot repeatedly call the **EnableVpcEndpointZoneConnection** operation to allow an endpoint service to accept a connection request from an endpoint in the associated zone within a specified period of time.
+   *
+   * @param request EnableVpcEndpointZoneConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableVpcEndpointZoneConnectionResponse
    */
   async enableVpcEndpointZoneConnectionWithOptions(request: EnableVpcEndpointZoneConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcEndpointZoneConnectionResponse> {
     Util.validateModel(request);
@@ -5250,20 +5446,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
-    * *   **EnableVpcEndpointZoneConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](~~183560~~) operation to check whether the endpoint service accepts a connection request from the endpoint in the associated zone.
-    *     *   If the zone is in the **Connecting** state, the endpoint service is accepting the connection request from the endpoint.
-    *     *   If the zone is in the **Connected** state, the endpoint service has accepted the connection request from the endpoint.
-    * *   You cannot repeatedly call the **EnableVpcEndpointZoneConnection** operation to allow an endpoint service to accept a connection request from an endpoint in the associated zone within a specified period of time.
-    *
-    * @param request EnableVpcEndpointZoneConnectionRequest
-    * @return EnableVpcEndpointZoneConnectionResponse
+   * @summary Accepts a connection request from an endpoint in the specified zone.
+   *
+   * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
+   * *   **EnableVpcEndpointZoneConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the endpoint service accepts a connection request from the endpoint in the associated zone.
+   *     *   If the zone is in the **Connecting** state, the endpoint service is accepting the connection request from the endpoint.
+   *     *   If the zone is in the **Connected** state, the endpoint service has accepted the connection request from the endpoint.
+   * *   You cannot repeatedly call the **EnableVpcEndpointZoneConnection** operation to allow an endpoint service to accept a connection request from an endpoint in the associated zone within a specified period of time.
+   *
+   * @param request EnableVpcEndpointZoneConnectionRequest
+   * @return EnableVpcEndpointZoneConnectionResponse
    */
   async enableVpcEndpointZoneConnection(request: EnableVpcEndpointZoneConnectionRequest): Promise<EnableVpcEndpointZoneConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableVpcEndpointZoneConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the attributes of an endpoint.
+   *
+   * @param request GetVpcEndpointAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVpcEndpointAttributeResponse
+   */
   async getVpcEndpointAttributeWithOptions(request: GetVpcEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcEndpointAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5296,11 +5501,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVpcEndpointAttributeResponse>(await this.callApi(params, req, runtime), new GetVpcEndpointAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the attributes of an endpoint.
+   *
+   * @param request GetVpcEndpointAttributeRequest
+   * @return GetVpcEndpointAttributeResponse
+   */
   async getVpcEndpointAttribute(request: GetVpcEndpointAttributeRequest): Promise<GetVpcEndpointAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVpcEndpointAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the attributes of an endpoint service.
+   *
+   * @param request GetVpcEndpointServiceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVpcEndpointServiceAttributeResponse
+   */
   async getVpcEndpointServiceAttributeWithOptions(request: GetVpcEndpointServiceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcEndpointServiceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5333,18 +5551,99 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVpcEndpointServiceAttributeResponse>(await this.callApi(params, req, runtime), new GetVpcEndpointServiceAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the attributes of an endpoint service.
+   *
+   * @param request GetVpcEndpointServiceAttributeRequest
+   * @return GetVpcEndpointServiceAttributeResponse
+   */
   async getVpcEndpointServiceAttribute(request: GetVpcEndpointServiceAttributeRequest): Promise<GetVpcEndpointServiceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVpcEndpointServiceAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tags that are added to resources.
+   *
+   * @description *   You must specify **ResourceId.N** or **Tag.N** in the request to specify the object that you want to query.
+   * *   **Tag.N** is a resource tag that consists of a key-value pair (Tag.N.Key and Tag.N.Value). If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  /**
+   * @summary Queries the tags that are added to resources.
+   *
+   * @description *   You must specify **ResourceId.N** or **Tag.N** in the request to specify the object that you want to query.
+   * *   **Tag.N** is a resource tag that consists of a key-value pair (Tag.N.Key and Tag.N.Value). If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries endpoint connections.
+   *
+   * @param request ListVpcEndpointConnectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcEndpointConnectionsResponse
+   */
   async listVpcEndpointConnectionsWithOptions(request: ListVpcEndpointConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointConnectionsResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.connectionId)) {
-      query["ConnectionId"] = request.connectionId;
-    }
-
     if (!Util.isUnset(request.connectionStatus)) {
       query["ConnectionStatus"] = request.connectionStatus;
     }
@@ -5410,11 +5709,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcEndpointConnectionsResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointConnectionsResponse({}));
   }
 
+  /**
+   * @summary Queries endpoint connections.
+   *
+   * @param request ListVpcEndpointConnectionsRequest
+   * @return ListVpcEndpointConnectionsResponse
+   */
   async listVpcEndpointConnections(request: ListVpcEndpointConnectionsRequest): Promise<ListVpcEndpointConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpcEndpointConnectionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the security groups that are associated with an endpoint.
+   *
+   * @param request ListVpcEndpointSecurityGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcEndpointSecurityGroupsResponse
+   */
   async listVpcEndpointSecurityGroupsWithOptions(request: ListVpcEndpointSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointSecurityGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5455,11 +5767,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcEndpointSecurityGroupsResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointSecurityGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries the security groups that are associated with an endpoint.
+   *
+   * @param request ListVpcEndpointSecurityGroupsRequest
+   * @return ListVpcEndpointSecurityGroupsResponse
+   */
   async listVpcEndpointSecurityGroups(request: ListVpcEndpointSecurityGroupsRequest): Promise<ListVpcEndpointSecurityGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpcEndpointSecurityGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the service resources that are added to an endpoint service.
+   *
+   * @param request ListVpcEndpointServiceResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcEndpointServiceResourcesResponse
+   */
   async listVpcEndpointServiceResourcesWithOptions(request: ListVpcEndpointServiceResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServiceResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5500,11 +5825,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcEndpointServiceResourcesResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointServiceResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries the service resources that are added to an endpoint service.
+   *
+   * @param request ListVpcEndpointServiceResourcesRequest
+   * @return ListVpcEndpointServiceResourcesResponse
+   */
   async listVpcEndpointServiceResources(request: ListVpcEndpointServiceResourcesRequest): Promise<ListVpcEndpointServiceResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpcEndpointServiceResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the whitelist of an endpoint service.
+   *
+   * @param request ListVpcEndpointServiceUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcEndpointServiceUsersResponse
+   */
   async listVpcEndpointServiceUsersWithOptions(request: ListVpcEndpointServiceUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServiceUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5553,11 +5891,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcEndpointServiceUsersResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointServiceUsersResponse({}));
   }
 
+  /**
+   * @summary Queries the whitelist of an endpoint service.
+   *
+   * @param request ListVpcEndpointServiceUsersRequest
+   * @return ListVpcEndpointServiceUsersResponse
+   */
   async listVpcEndpointServiceUsers(request: ListVpcEndpointServiceUsersRequest): Promise<ListVpcEndpointServiceUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpcEndpointServiceUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of endpoint services.
+   *
+   * @param request ListVpcEndpointServicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcEndpointServicesResponse
+   */
   async listVpcEndpointServicesWithOptions(request: ListVpcEndpointServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServicesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5634,11 +5985,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcEndpointServicesResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointServicesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of endpoint services.
+   *
+   * @param request ListVpcEndpointServicesRequest
+   * @return ListVpcEndpointServicesResponse
+   */
   async listVpcEndpointServices(request: ListVpcEndpointServicesRequest): Promise<ListVpcEndpointServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpcEndpointServicesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of endpoint services that can be associated with the endpoint created within the current account.
+   *
+   * @param request ListVpcEndpointServicesByEndUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcEndpointServicesByEndUserResponse
+   */
   async listVpcEndpointServicesByEndUserWithOptions(request: ListVpcEndpointServicesByEndUserRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServicesByEndUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5695,11 +6059,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcEndpointServicesByEndUserResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointServicesByEndUserResponse({}));
   }
 
+  /**
+   * @summary Queries a list of endpoint services that can be associated with the endpoint created within the current account.
+   *
+   * @param request ListVpcEndpointServicesByEndUserRequest
+   * @return ListVpcEndpointServicesByEndUserResponse
+   */
   async listVpcEndpointServicesByEndUser(request: ListVpcEndpointServicesByEndUserRequest): Promise<ListVpcEndpointServicesByEndUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpcEndpointServicesByEndUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the zones of an endpoint.
+   *
+   * @param request ListVpcEndpointZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcEndpointZonesResponse
+   */
   async listVpcEndpointZonesWithOptions(request: ListVpcEndpointZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5740,11 +6117,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcEndpointZonesResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointZonesResponse({}));
   }
 
+  /**
+   * @summary Queries the zones of an endpoint.
+   *
+   * @param request ListVpcEndpointZonesRequest
+   * @return ListVpcEndpointZonesResponse
+   */
   async listVpcEndpointZones(request: ListVpcEndpointZonesRequest): Promise<ListVpcEndpointZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpcEndpointZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of endpoints.
+   *
+   * @param request ListVpcEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcEndpointsResponse
+   */
   async listVpcEndpointsWithOptions(request: ListVpcEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5817,65 +6207,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcEndpointsResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of endpoints.
+   *
+   * @param request ListVpcEndpointsRequest
+   * @return ListVpcEndpointsResponse
+   */
   async listVpcEndpoints(request: ListVpcEndpointsRequest): Promise<ListVpcEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpcEndpointsWithOptions(request, runtime);
   }
 
   /**
-    * The ID of the request.
-    *
-    * @param request NotifyResourceAddressFamilyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return NotifyResourceAddressFamilyResponse
+   * @summary Activates PrivateLink.
+   *
+   * @param request OpenPrivateLinkServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenPrivateLinkServiceResponse
    */
-  async notifyResourceAddressFamilyWithOptions(request: NotifyResourceAddressFamilyRequest, runtime: $Util.RuntimeOptions): Promise<NotifyResourceAddressFamilyResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.addressFamily)) {
-      query["AddressFamily"] = request.addressFamily;
-    }
-
-    if (!Util.isUnset(request.ipv6Address)) {
-      query["Ipv6Address"] = request.ipv6Address;
-    }
-
-    if (!Util.isUnset(request.resourceId)) {
-      query["ResourceId"] = request.resourceId;
-    }
-
-    if (!Util.isUnset(request.resourceType)) {
-      query["ResourceType"] = request.resourceType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "NotifyResourceAddressFamily",
-      version: "2020-04-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<NotifyResourceAddressFamilyResponse>(await this.callApi(params, req, runtime), new NotifyResourceAddressFamilyResponse({}));
-  }
-
-  /**
-    * The ID of the request.
-    *
-    * @param request NotifyResourceAddressFamilyRequest
-    * @return NotifyResourceAddressFamilyResponse
-   */
-  async notifyResourceAddressFamily(request: NotifyResourceAddressFamilyRequest): Promise<NotifyResourceAddressFamilyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.notifyResourceAddressFamilyWithOptions(request, runtime);
-  }
-
   async openPrivateLinkServiceWithOptions(request: OpenPrivateLinkServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenPrivateLinkServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5900,17 +6249,26 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenPrivateLinkServiceResponse>(await this.callApi(params, req, runtime), new OpenPrivateLinkServiceResponse({}));
   }
 
+  /**
+   * @summary Activates PrivateLink.
+   *
+   * @param request OpenPrivateLinkServiceRequest
+   * @return OpenPrivateLinkServiceResponse
+   */
   async openPrivateLinkService(request: OpenPrivateLinkServiceRequest): Promise<OpenPrivateLinkServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openPrivateLinkServiceWithOptions(request, runtime);
   }
 
   /**
-    * You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
-    *
-    * @param request RemoveUserFromVpcEndpointServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveUserFromVpcEndpointServiceResponse
+   * @summary Removes an account ID from the whitelist of an endpoint service.
+   *
+   * @description *   Before you remove an account ID from the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+   * *   You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
+   *
+   * @param request RemoveUserFromVpcEndpointServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveUserFromVpcEndpointServiceResponse
    */
   async removeUserFromVpcEndpointServiceWithOptions(request: RemoveUserFromVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromVpcEndpointServiceResponse> {
     Util.validateModel(request);
@@ -5961,10 +6319,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
-    *
-    * @param request RemoveUserFromVpcEndpointServiceRequest
-    * @return RemoveUserFromVpcEndpointServiceResponse
+   * @summary Removes an account ID from the whitelist of an endpoint service.
+   *
+   * @description *   Before you remove an account ID from the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+   * *   You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
+   *
+   * @param request RemoveUserFromVpcEndpointServiceRequest
+   * @return RemoveUserFromVpcEndpointServiceResponse
    */
   async removeUserFromVpcEndpointService(request: RemoveUserFromVpcEndpointServiceRequest): Promise<RemoveUserFromVpcEndpointServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5972,14 +6333,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **RemoveZoneFromVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](~~183560~~) operation to check whether the zone of the endpoint is deleted.
-    *     *   If the zone of the endpoint is in the **Deleting** state, the zone is being deleted.
-    *     *   If the zone cannot be queried, the zone is deleted.
-    * *   You cannot repeatedly call the **RemoveZoneFromVpcEndpoint** operation to delete a zone of an endpoint within a specified period of time.
-    *
-    * @param request RemoveZoneFromVpcEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveZoneFromVpcEndpointResponse
+   * @summary Deletes a zone of an endpoint.
+   *
+   * @description *   **RemoveZoneFromVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the zone of the endpoint is deleted.
+   *     *   If the zone of the endpoint is in the **Deleting** state, the zone is being deleted.
+   *     *   If the zone cannot be queried, the zone is deleted.
+   * *   You cannot repeatedly call the **RemoveZoneFromVpcEndpoint** operation to delete a zone of an endpoint within a specified period of time.
+   *
+   * @param request RemoveZoneFromVpcEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveZoneFromVpcEndpointResponse
    */
   async removeZoneFromVpcEndpointWithOptions(request: RemoveZoneFromVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<RemoveZoneFromVpcEndpointResponse> {
     Util.validateModel(request);
@@ -6026,13 +6389,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **RemoveZoneFromVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](~~183560~~) operation to check whether the zone of the endpoint is deleted.
-    *     *   If the zone of the endpoint is in the **Deleting** state, the zone is being deleted.
-    *     *   If the zone cannot be queried, the zone is deleted.
-    * *   You cannot repeatedly call the **RemoveZoneFromVpcEndpoint** operation to delete a zone of an endpoint within a specified period of time.
-    *
-    * @param request RemoveZoneFromVpcEndpointRequest
-    * @return RemoveZoneFromVpcEndpointResponse
+   * @summary Deletes a zone of an endpoint.
+   *
+   * @description *   **RemoveZoneFromVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the zone of the endpoint is deleted.
+   *     *   If the zone of the endpoint is in the **Deleting** state, the zone is being deleted.
+   *     *   If the zone cannot be queried, the zone is deleted.
+   * *   You cannot repeatedly call the **RemoveZoneFromVpcEndpoint** operation to delete a zone of an endpoint within a specified period of time.
+   *
+   * @param request RemoveZoneFromVpcEndpointRequest
+   * @return RemoveZoneFromVpcEndpointResponse
    */
   async removeZoneFromVpcEndpoint(request: RemoveZoneFromVpcEndpointRequest): Promise<RemoveZoneFromVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6040,11 +6405,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can add up to 20 tags to an instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
-    *
-    * @param request TagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourcesResponse
+   * @summary Adds tags to resources. You can call this API operation to add tags to one or more endpoints or endpoint services.
+   *
+   * @description > You can add up to 20 tags to an instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -6096,10 +6463,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can add up to 20 tags to an instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
-    *
-    * @param request TagResourcesRequest
-    * @return TagResourcesResponse
+   * @summary Adds tags to resources. You can call this API operation to add tags to one or more endpoints or endpoint services.
+   *
+   * @description > You can add up to 20 tags to an instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6107,11 +6476,88 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateVpcEndpointAttribute** operation to modify the attributes of an endpoint that belongs to an Alibaba Cloud account within a specified period of time.
-    *
-    * @param request UpdateVpcEndpointAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateVpcEndpointAttributeResponse
+   * @summary Removes tags from resources. You can call the UntagResources operation to remove tags from one or more endpoints or endpoint services.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.all)) {
+      body["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resourceId)) {
+      bodyFlat["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      bodyFlat["TagKey"] = request.tagKey;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  /**
+   * @summary Removes tags from resources. You can call the UntagResources operation to remove tags from one or more endpoints or endpoint services.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Modifies the attributes of an endpoint.
+   *
+   * @description You cannot repeatedly call the **UpdateVpcEndpointAttribute** operation to modify the attributes of an endpoint that belongs to an Alibaba Cloud account within a specified period of time.
+   *
+   * @param request UpdateVpcEndpointAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateVpcEndpointAttributeResponse
    */
   async updateVpcEndpointAttributeWithOptions(request: UpdateVpcEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointAttributeResponse> {
     Util.validateModel(request);
@@ -6134,6 +6580,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endpointName)) {
       query["EndpointName"] = request.endpointName;
+    }
+
+    if (!Util.isUnset(request.policyDocument)) {
+      query["PolicyDocument"] = request.policyDocument;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -6162,10 +6612,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateVpcEndpointAttribute** operation to modify the attributes of an endpoint that belongs to an Alibaba Cloud account within a specified period of time.
-    *
-    * @param request UpdateVpcEndpointAttributeRequest
-    * @return UpdateVpcEndpointAttributeResponse
+   * @summary Modifies the attributes of an endpoint.
+   *
+   * @description You cannot repeatedly call the **UpdateVpcEndpointAttribute** operation to modify the attributes of an endpoint that belongs to an Alibaba Cloud account within a specified period of time.
+   *
+   * @param request UpdateVpcEndpointAttributeRequest
+   * @return UpdateVpcEndpointAttributeResponse
    */
   async updateVpcEndpointAttribute(request: UpdateVpcEndpointAttributeRequest): Promise<UpdateVpcEndpointAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6173,11 +6625,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the endpoint service.
-    *
-    * @param request UpdateVpcEndpointConnectionAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateVpcEndpointConnectionAttributeResponse
+   * @summary Modifies the attributes of an endpoint connection.
+   *
+   * @description You cannot repeatedly call the **UpdateVpcEndpointConnectionAttribute** operation to modify the bandwidth of an endpoint connection that belongs to an Alibaba Cloud account within a specified period of time.
+   *
+   * @param request UpdateVpcEndpointConnectionAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateVpcEndpointConnectionAttributeResponse
    */
   async updateVpcEndpointConnectionAttributeWithOptions(request: UpdateVpcEndpointConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointConnectionAttributeResponse> {
     Util.validateModel(request);
@@ -6228,10 +6682,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the endpoint service.
-    *
-    * @param request UpdateVpcEndpointConnectionAttributeRequest
-    * @return UpdateVpcEndpointConnectionAttributeResponse
+   * @summary Modifies the attributes of an endpoint connection.
+   *
+   * @description You cannot repeatedly call the **UpdateVpcEndpointConnectionAttribute** operation to modify the bandwidth of an endpoint connection that belongs to an Alibaba Cloud account within a specified period of time.
+   *
+   * @param request UpdateVpcEndpointConnectionAttributeRequest
+   * @return UpdateVpcEndpointConnectionAttributeResponse
    */
   async updateVpcEndpointConnectionAttribute(request: UpdateVpcEndpointConnectionAttributeRequest): Promise<UpdateVpcEndpointConnectionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6239,11 +6695,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateVpcEndpointServiceAttribute** operation to modify the attributes of an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
-    *
-    * @param request UpdateVpcEndpointServiceAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateVpcEndpointServiceAttributeResponse
+   * @summary Modifies the attributes of an endpoint service.
+   *
+   * @description You cannot repeatedly call the **UpdateVpcEndpointServiceAttribute** operation to modify the attributes of an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
+   *
+   * @param request UpdateVpcEndpointServiceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateVpcEndpointServiceAttributeResponse
    */
   async updateVpcEndpointServiceAttributeWithOptions(request: UpdateVpcEndpointServiceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointServiceAttributeResponse> {
     Util.validateModel(request);
@@ -6306,10 +6764,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateVpcEndpointServiceAttribute** operation to modify the attributes of an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
-    *
-    * @param request UpdateVpcEndpointServiceAttributeRequest
-    * @return UpdateVpcEndpointServiceAttributeResponse
+   * @summary Modifies the attributes of an endpoint service.
+   *
+   * @description You cannot repeatedly call the **UpdateVpcEndpointServiceAttribute** operation to modify the attributes of an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
+   *
+   * @param request UpdateVpcEndpointServiceAttributeRequest
+   * @return UpdateVpcEndpointServiceAttributeResponse
    */
   async updateVpcEndpointServiceAttribute(request: UpdateVpcEndpointServiceAttributeRequest): Promise<UpdateVpcEndpointServiceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6317,11 +6777,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateVpcEndpointServiceResourceAttribute** operation to modify the attributes of a service resource that is added to an endpoint service within a specified period of time.
-    *
-    * @param request UpdateVpcEndpointServiceResourceAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateVpcEndpointServiceResourceAttributeResponse
+   * @summary Modifies the attributes of a service resource that is added to an endpoint service.
+   *
+   * @description You cannot repeatedly call the **UpdateVpcEndpointServiceResourceAttribute** operation to modify the attributes of a service resource that is added to an endpoint service within a specified period of time.
+   *
+   * @param request UpdateVpcEndpointServiceResourceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateVpcEndpointServiceResourceAttributeResponse
    */
   async updateVpcEndpointServiceResourceAttributeWithOptions(request: UpdateVpcEndpointServiceResourceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointServiceResourceAttributeResponse> {
     Util.validateModel(request);
@@ -6376,10 +6838,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateVpcEndpointServiceResourceAttribute** operation to modify the attributes of a service resource that is added to an endpoint service within a specified period of time.
-    *
-    * @param request UpdateVpcEndpointServiceResourceAttributeRequest
-    * @return UpdateVpcEndpointServiceResourceAttributeResponse
+   * @summary Modifies the attributes of a service resource that is added to an endpoint service.
+   *
+   * @description You cannot repeatedly call the **UpdateVpcEndpointServiceResourceAttribute** operation to modify the attributes of a service resource that is added to an endpoint service within a specified period of time.
+   *
+   * @param request UpdateVpcEndpointServiceResourceAttributeRequest
+   * @return UpdateVpcEndpointServiceResourceAttributeResponse
    */
   async updateVpcEndpointServiceResourceAttribute(request: UpdateVpcEndpointServiceResourceAttributeRequest): Promise<UpdateVpcEndpointServiceResourceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6387,19 +6851,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
-    * By default, the feature of modifying a service resource of a zone to which an endpoint connection belongs is unavailable. To use this feature, log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/privatelink/quotas). Click Whitelist Quotas in the left-side navigation pane and click PrivateLink in the Networking section. On the page that appears, search for `privatelink_whitelist/svc_res_mgt_uat` and click Apply in the Actions column.
-    * ### Usage notes
-    * *   If the endpoint connection is in the **Disconnected** state, you can manually allocate the service resource in the zone.
-    * *   If the endpoint connection is in the **Connected** state, you can manually migrate the service resource in the zone. In this case, the connection might be interrupted.
-    * *   **UpdateVpcEndpointZoneConnectionResourceAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](~~469330~~) operation to check whether the service resource is modified.
-    *     *   If the endpoint service is in the **Pending** state, the service resource is being modified.
-    *     *   If the endpoint service is in the **Active** state, the service resource is modified.
-    * *   You cannot repeatedly call the **UpdateVpcEndpointZoneConnectionResourceAttribute** operation to modify a service resource in the zone to which an endpoint connection belongs within a specified period of time.
-    *
-    * @param request UpdateVpcEndpointZoneConnectionResourceAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse
+   * @summary Modifies a service resource of a zone to which an endpoint connection belongs.
+   *
+   * @description ### Prerequisites
+   * By default, the feature of modifying a service resource of a zone to which an endpoint connection belongs is unavailable. To use this feature, log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/privatelink/quotas). Click Whitelist Quotas in the left-side navigation pane and click PrivateLink in the Networking section. On the page that appears, search for `privatelink_whitelist/svc_res_mgt_uat` and click Apply in the Actions column.
+   * ### Usage notes
+   * *   If the endpoint connection is in the **Disconnected** state, you can manually allocate the service resource in the zone.
+   * *   If the endpoint connection is in the **Connected** state, you can manually migrate the service resource in the zone. In this case, the connection might be interrupted.
+   * *   **UpdateVpcEndpointZoneConnectionResourceAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to check whether the service resource is modified.
+   *     *   If the endpoint service is in the **Pending** state, the service resource is being modified.
+   *     *   If the endpoint service is in the **Active** state, the service resource is modified.
+   * *   You cannot repeatedly call the **UpdateVpcEndpointZoneConnectionResourceAttribute** operation to modify a service resource in the zone to which an endpoint connection belongs within a specified period of time.
+   *
+   * @param request UpdateVpcEndpointZoneConnectionResourceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse
    */
   async updateVpcEndpointZoneConnectionResourceAttributeWithOptions(request: UpdateVpcEndpointZoneConnectionResourceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointZoneConnectionResourceAttributeResponse> {
     Util.validateModel(request);
@@ -6466,18 +6932,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
-    * By default, the feature of modifying a service resource of a zone to which an endpoint connection belongs is unavailable. To use this feature, log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/privatelink/quotas). Click Whitelist Quotas in the left-side navigation pane and click PrivateLink in the Networking section. On the page that appears, search for `privatelink_whitelist/svc_res_mgt_uat` and click Apply in the Actions column.
-    * ### Usage notes
-    * *   If the endpoint connection is in the **Disconnected** state, you can manually allocate the service resource in the zone.
-    * *   If the endpoint connection is in the **Connected** state, you can manually migrate the service resource in the zone. In this case, the connection might be interrupted.
-    * *   **UpdateVpcEndpointZoneConnectionResourceAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](~~469330~~) operation to check whether the service resource is modified.
-    *     *   If the endpoint service is in the **Pending** state, the service resource is being modified.
-    *     *   If the endpoint service is in the **Active** state, the service resource is modified.
-    * *   You cannot repeatedly call the **UpdateVpcEndpointZoneConnectionResourceAttribute** operation to modify a service resource in the zone to which an endpoint connection belongs within a specified period of time.
-    *
-    * @param request UpdateVpcEndpointZoneConnectionResourceAttributeRequest
-    * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse
+   * @summary Modifies a service resource of a zone to which an endpoint connection belongs.
+   *
+   * @description ### Prerequisites
+   * By default, the feature of modifying a service resource of a zone to which an endpoint connection belongs is unavailable. To use this feature, log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/privatelink/quotas). Click Whitelist Quotas in the left-side navigation pane and click PrivateLink in the Networking section. On the page that appears, search for `privatelink_whitelist/svc_res_mgt_uat` and click Apply in the Actions column.
+   * ### Usage notes
+   * *   If the endpoint connection is in the **Disconnected** state, you can manually allocate the service resource in the zone.
+   * *   If the endpoint connection is in the **Connected** state, you can manually migrate the service resource in the zone. In this case, the connection might be interrupted.
+   * *   **UpdateVpcEndpointZoneConnectionResourceAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to check whether the service resource is modified.
+   *     *   If the endpoint service is in the **Pending** state, the service resource is being modified.
+   *     *   If the endpoint service is in the **Active** state, the service resource is modified.
+   * *   You cannot repeatedly call the **UpdateVpcEndpointZoneConnectionResourceAttribute** operation to modify a service resource in the zone to which an endpoint connection belongs within a specified period of time.
+   *
+   * @param request UpdateVpcEndpointZoneConnectionResourceAttributeRequest
+   * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse
    */
   async updateVpcEndpointZoneConnectionResourceAttribute(request: UpdateVpcEndpointZoneConnectionResourceAttributeRequest): Promise<UpdateVpcEndpointZoneConnectionResourceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
