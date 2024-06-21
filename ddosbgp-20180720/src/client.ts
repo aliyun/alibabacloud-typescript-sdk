@@ -166,13 +166,11 @@ export class AttachAssetGroupToInstanceRequest extends $tea.Model {
   assetGroupList?: AttachAssetGroupToInstanceRequestAssetGroupList[];
   instanceId?: string;
   regionId?: string;
-  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
       assetGroupList: 'AssetGroupList',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
-      sourceIp: 'SourceIp',
     };
   }
 
@@ -181,7 +179,6 @@ export class AttachAssetGroupToInstanceRequest extends $tea.Model {
       assetGroupList: { 'type': 'array', 'itemType': AttachAssetGroupToInstanceRequestAssetGroupList },
       instanceId: 'string',
       regionId: 'string',
-      sourceIp: 'string',
     };
   }
 
@@ -194,13 +191,11 @@ export class AttachAssetGroupToInstanceShrinkRequest extends $tea.Model {
   assetGroupListShrink?: string;
   instanceId?: string;
   regionId?: string;
-  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
       assetGroupListShrink: 'AssetGroupList',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
-      sourceIp: 'SourceIp',
     };
   }
 
@@ -209,7 +204,6 @@ export class AttachAssetGroupToInstanceShrinkRequest extends $tea.Model {
       assetGroupListShrink: 'string',
       instanceId: 'string',
       regionId: 'string',
-      sourceIp: 'string',
     };
   }
 
@@ -499,6 +493,75 @@ export class ConfigSchedruleOnDemandResponse extends $tea.Model {
   }
 }
 
+export class CreatePolicyRequest extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePolicyResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSchedruleOnDemandRequest extends $tea.Model {
   instanceId?: string;
   regionId?: string;
@@ -739,6 +802,69 @@ export class DeleteIpResponse extends $tea.Model {
   }
 }
 
+export class DeletePolicyRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRdMemberListRequest extends $tea.Model {
   memberList?: DeleteRdMemberListRequestMemberList[];
   static names(): { [key: string]: string } {
@@ -894,14 +1020,12 @@ export class DescribeAssetGroupRequest extends $tea.Model {
   name?: string;
   region?: string;
   regionId?: string;
-  sourceIp?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
       region: 'Region',
       regionId: 'RegionId',
-      sourceIp: 'SourceIp',
       type: 'Type',
     };
   }
@@ -911,7 +1035,6 @@ export class DescribeAssetGroupRequest extends $tea.Model {
       name: 'string',
       region: 'string',
       regionId: 'string',
-      sourceIp: 'string',
       type: 'string',
     };
   }
@@ -977,7 +1100,6 @@ export class DescribeAssetGroupToInstanceRequest extends $tea.Model {
   name?: string;
   region?: string;
   regionId?: string;
-  sourceIp?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -986,7 +1108,6 @@ export class DescribeAssetGroupToInstanceRequest extends $tea.Model {
       name: 'Name',
       region: 'Region',
       regionId: 'RegionId',
-      sourceIp: 'SourceIp',
       type: 'Type',
     };
   }
@@ -998,7 +1119,6 @@ export class DescribeAssetGroupToInstanceRequest extends $tea.Model {
       name: 'string',
       region: 'string',
       regionId: 'string',
-      sourceIp: 'string',
       type: 'string',
     };
   }
@@ -2167,17 +2287,103 @@ export class DescribeTrafficResponse extends $tea.Model {
   }
 }
 
+export class DetachFromPolicyRequest extends $tea.Model {
+  ipPortProtocolList?: DetachFromPolicyRequestIpPortProtocolList[];
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipPortProtocolList: 'IpPortProtocolList',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipPortProtocolList: { 'type': 'array', 'itemType': DetachFromPolicyRequestIpPortProtocolList },
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachFromPolicyShrinkRequest extends $tea.Model {
+  ipPortProtocolListShrink?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipPortProtocolListShrink: 'IpPortProtocolList',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipPortProtocolListShrink: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachFromPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachFromPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachFromPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachFromPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DettachAssetGroupToInstanceRequest extends $tea.Model {
   assetGroupList?: DettachAssetGroupToInstanceRequestAssetGroupList[];
   instanceId?: string;
   regionId?: string;
-  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
       assetGroupList: 'AssetGroupList',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
-      sourceIp: 'SourceIp',
     };
   }
 
@@ -2186,7 +2392,6 @@ export class DettachAssetGroupToInstanceRequest extends $tea.Model {
       assetGroupList: { 'type': 'array', 'itemType': DettachAssetGroupToInstanceRequestAssetGroupList },
       instanceId: 'string',
       regionId: 'string',
-      sourceIp: 'string',
     };
   }
 
@@ -2199,13 +2404,11 @@ export class DettachAssetGroupToInstanceShrinkRequest extends $tea.Model {
   assetGroupListShrink?: string;
   instanceId?: string;
   regionId?: string;
-  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
       assetGroupListShrink: 'AssetGroupList',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
-      sourceIp: 'SourceIp',
     };
   }
 
@@ -2214,7 +2417,6 @@ export class DettachAssetGroupToInstanceShrinkRequest extends $tea.Model {
       assetGroupListShrink: 'string',
       instanceId: 'string',
       regionId: 'string',
-      sourceIp: 'string',
     };
   }
 
@@ -2411,6 +2613,196 @@ export class ListOpenedAccessLogInstancesResponse extends $tea.Model {
   }
 }
 
+export class ListPolicyRequest extends $tea.Model {
+  name?: string;
+  pageNo?: number;
+  pageSize?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBody extends $tea.Model {
+  policyList?: ListPolicyResponseBodyPolicyList[];
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      policyList: 'PolicyList',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyList },
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyAttachmentRequest extends $tea.Model {
+  ipPortProtocolList?: ListPolicyAttachmentRequestIpPortProtocolList[];
+  pageNo?: number;
+  pageSize?: number;
+  policyId?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipPortProtocolList: 'IpPortProtocolList',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      policyId: 'PolicyId',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipPortProtocolList: { 'type': 'array', 'itemType': ListPolicyAttachmentRequestIpPortProtocolList },
+      pageNo: 'number',
+      pageSize: 'number',
+      policyId: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyAttachmentShrinkRequest extends $tea.Model {
+  ipPortProtocolListShrink?: string;
+  pageNo?: number;
+  pageSize?: number;
+  policyId?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipPortProtocolListShrink: 'IpPortProtocolList',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      policyId: 'PolicyId',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipPortProtocolListShrink: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      policyId: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyAttachmentResponseBody extends $tea.Model {
+  attachmentList?: ListPolicyAttachmentResponseBodyAttachmentList[];
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attachmentList: 'AttachmentList',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachmentList: { 'type': 'array', 'itemType': ListPolicyAttachmentResponseBodyAttachmentList },
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyAttachmentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPolicyAttachmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPolicyAttachmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagKeysRequest extends $tea.Model {
   currentPage?: number;
   pageSize?: number;
@@ -2574,6 +2966,200 @@ export class ListTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequest extends $tea.Model {
+  actionType?: number;
+  content?: ModifyPolicyRequestContent;
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionType: 'ActionType',
+      content: 'Content',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionType: 'number',
+      content: ModifyPolicyRequestContent,
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyShrinkRequest extends $tea.Model {
+  actionType?: number;
+  contentShrink?: string;
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionType: 'ActionType',
+      contentShrink: 'Content',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionType: 'number',
+      contentShrink: 'string',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequest extends $tea.Model {
+  content?: ModifyPolicyContentRequestContent;
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: ModifyPolicyContentRequestContent,
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentShrinkRequest extends $tea.Model {
+  contentShrink?: string;
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentShrink: 'Content',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentShrink: 'string',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPolicyContentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyPolicyContentResponseBody,
     };
   }
 
@@ -3671,6 +4257,31 @@ export class DescribeTrafficResponseBodyFlowList extends $tea.Model {
   }
 }
 
+export class DetachFromPolicyRequestIpPortProtocolList extends $tea.Model {
+  ip?: string;
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DettachAssetGroupToInstanceRequestAssetGroupList extends $tea.Model {
   name?: string;
   region?: string;
@@ -3710,6 +4321,373 @@ export class ListOpenedAccessLogInstancesResponseBodySlsConfigStatus extends $te
     return {
       enable: 'boolean',
       instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends $tea.Model {
+  dstPortEnd?: number;
+  dstPortStart?: number;
+  id?: string;
+  matchAction?: string;
+  maxPktLen?: number;
+  minPktLen?: number;
+  offset?: number;
+  payloadBytes?: string;
+  protocol?: string;
+  rateValue?: number;
+  seqNo?: number;
+  srcPortEnd?: number;
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      maxPktLen: 'MaxPktLen',
+      minPktLen: 'MinPktLen',
+      offset: 'Offset',
+      payloadBytes: 'PayloadBytes',
+      protocol: 'Protocol',
+      rateValue: 'RateValue',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      maxPktLen: 'number',
+      minPktLen: 'number',
+      offset: 'number',
+      payloadBytes: 'string',
+      protocol: 'string',
+      rateValue: 'number',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentL4RuleListConditionList extends $tea.Model {
+  arg?: string;
+  depth?: number;
+  position?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arg: 'Arg',
+      depth: 'Depth',
+      position: 'Position',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arg: 'string',
+      depth: 'number',
+      position: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentL4RuleList extends $tea.Model {
+  action?: string;
+  conditionList?: ListPolicyResponseBodyPolicyListContentL4RuleListConditionList[];
+  limited?: number;
+  match?: string;
+  method?: string;
+  name?: string;
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      conditionList: 'ConditionList',
+      limited: 'Limited',
+      match: 'Match',
+      method: 'Method',
+      name: 'Name',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      conditionList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentL4RuleListConditionList },
+      limited: 'number',
+      match: 'string',
+      method: 'string',
+      name: 'string',
+      priority: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentPortRuleList extends $tea.Model {
+  dstPortEnd?: number;
+  dstPortStart?: number;
+  id?: string;
+  matchAction?: string;
+  protocol?: string;
+  seqNo?: number;
+  srcPortEnd?: number;
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      protocol: 'Protocol',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      protocol: 'string',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentSourceBlockList extends $tea.Model {
+  blockExpireSeconds?: number;
+  everySeconds?: number;
+  exceedLimitTimes?: number;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockExpireSeconds: 'BlockExpireSeconds',
+      everySeconds: 'EverySeconds',
+      exceedLimitTimes: 'ExceedLimitTimes',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockExpireSeconds: 'number',
+      everySeconds: 'number',
+      exceedLimitTimes: 'number',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $tea.Model {
+  bps?: number;
+  pps?: number;
+  synBps?: number;
+  synPps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      pps: 'Pps',
+      synBps: 'SynBps',
+      synPps: 'SynPps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      pps: 'number',
+      synBps: 'number',
+      synPps: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContent extends $tea.Model {
+  blackIpListExpireAt?: number;
+  enableDropIcmp?: boolean;
+  enableIntelligence?: boolean;
+  enableL4Defense?: boolean;
+  fingerPrintRuleList?: ListPolicyResponseBodyPolicyListContentFingerPrintRuleList[];
+  intelligenceLevel?: string;
+  l4RuleList?: ListPolicyResponseBodyPolicyListContentL4RuleList[];
+  portRuleList?: ListPolicyResponseBodyPolicyListContentPortRuleList[];
+  reflectBlockUdpPortList?: number[];
+  regionBlockCountryList?: number[];
+  regionBlockProvinceList?: number[];
+  sourceBlockList?: ListPolicyResponseBodyPolicyListContentSourceBlockList[];
+  sourceLimit?: ListPolicyResponseBodyPolicyListContentSourceLimit;
+  whitenGfbrNets?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      blackIpListExpireAt: 'BlackIpListExpireAt',
+      enableDropIcmp: 'EnableDropIcmp',
+      enableIntelligence: 'EnableIntelligence',
+      enableL4Defense: 'EnableL4Defense',
+      fingerPrintRuleList: 'FingerPrintRuleList',
+      intelligenceLevel: 'IntelligenceLevel',
+      l4RuleList: 'L4RuleList',
+      portRuleList: 'PortRuleList',
+      reflectBlockUdpPortList: 'ReflectBlockUdpPortList',
+      regionBlockCountryList: 'RegionBlockCountryList',
+      regionBlockProvinceList: 'RegionBlockProvinceList',
+      sourceBlockList: 'SourceBlockList',
+      sourceLimit: 'SourceLimit',
+      whitenGfbrNets: 'WhitenGfbrNets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackIpListExpireAt: 'number',
+      enableDropIcmp: 'boolean',
+      enableIntelligence: 'boolean',
+      enableL4Defense: 'boolean',
+      fingerPrintRuleList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentFingerPrintRuleList },
+      intelligenceLevel: 'string',
+      l4RuleList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentL4RuleList },
+      portRuleList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentPortRuleList },
+      reflectBlockUdpPortList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockCountryList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockProvinceList: { 'type': 'array', 'itemType': 'number' },
+      sourceBlockList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentSourceBlockList },
+      sourceLimit: ListPolicyResponseBodyPolicyListContentSourceLimit,
+      whitenGfbrNets: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyList extends $tea.Model {
+  attachedCount?: number;
+  content?: ListPolicyResponseBodyPolicyListContent;
+  id?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachedCount: 'AttachedCount',
+      content: 'Content',
+      id: 'Id',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachedCount: 'number',
+      content: ListPolicyResponseBodyPolicyListContent,
+      id: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyAttachmentRequestIpPortProtocolList extends $tea.Model {
+  ip?: string;
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyAttachmentResponseBodyAttachmentList extends $tea.Model {
+  ip?: string;
+  memberUid?: string;
+  policyId?: string;
+  policyName?: string;
+  policyType?: string;
+  port?: number;
+  protocol?: string;
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      memberUid: 'MemberUid',
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+      policyType: 'PolicyType',
+      port: 'Port',
+      protocol: 'Protocol',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      memberUid: 'string',
+      policyId: 'string',
+      policyName: 'string',
+      policyType: 'string',
+      port: 'number',
+      protocol: 'string',
+      region: 'string',
     };
   }
 
@@ -3801,6 +4779,554 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentFingerPrintRuleList extends $tea.Model {
+  dstPortEnd?: number;
+  dstPortStart?: number;
+  id?: string;
+  matchAction?: string;
+  maxPktLen?: number;
+  minPktLen?: number;
+  offset?: number;
+  payloadBytes?: string;
+  protocol?: string;
+  rateValue?: number;
+  seqNo?: number;
+  srcPortEnd?: number;
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      maxPktLen: 'MaxPktLen',
+      minPktLen: 'MinPktLen',
+      offset: 'Offset',
+      payloadBytes: 'PayloadBytes',
+      protocol: 'Protocol',
+      rateValue: 'RateValue',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      maxPktLen: 'number',
+      minPktLen: 'number',
+      offset: 'number',
+      payloadBytes: 'string',
+      protocol: 'string',
+      rateValue: 'number',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentL4RuleListConditionList extends $tea.Model {
+  arg?: string;
+  depth?: number;
+  position?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arg: 'Arg',
+      depth: 'Depth',
+      position: 'Position',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arg: 'string',
+      depth: 'number',
+      position: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentL4RuleList extends $tea.Model {
+  action?: string;
+  conditionList?: ModifyPolicyRequestContentL4RuleListConditionList[];
+  limited?: number;
+  match?: string;
+  method?: string;
+  name?: string;
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      conditionList: 'ConditionList',
+      limited: 'Limited',
+      match: 'Match',
+      method: 'Method',
+      name: 'Name',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      conditionList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentL4RuleListConditionList },
+      limited: 'number',
+      match: 'string',
+      method: 'string',
+      name: 'string',
+      priority: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentPortRuleList extends $tea.Model {
+  dstPortEnd?: number;
+  dstPortStart?: number;
+  id?: string;
+  matchAction?: string;
+  protocol?: string;
+  seqNo?: number;
+  srcPortEnd?: number;
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      protocol: 'Protocol',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      protocol: 'string',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentSourceBlockList extends $tea.Model {
+  blockExpireSeconds?: number;
+  everySeconds?: number;
+  exceedLimitTimes?: number;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockExpireSeconds: 'BlockExpireSeconds',
+      everySeconds: 'EverySeconds',
+      exceedLimitTimes: 'ExceedLimitTimes',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockExpireSeconds: 'number',
+      everySeconds: 'number',
+      exceedLimitTimes: 'number',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentSourceLimit extends $tea.Model {
+  bps?: number;
+  pps?: number;
+  synBps?: number;
+  synPps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      pps: 'Pps',
+      synBps: 'SynBps',
+      synPps: 'SynPps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      pps: 'number',
+      synBps: 'number',
+      synPps: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContent extends $tea.Model {
+  blackIpList?: string[];
+  blackIpListExpireAt?: number;
+  enableDropIcmp?: boolean;
+  enableIntelligence?: boolean;
+  enableL4Defense?: boolean;
+  fingerPrintRuleList?: ModifyPolicyRequestContentFingerPrintRuleList[];
+  intelligenceLevel?: string;
+  l4RuleList?: ModifyPolicyRequestContentL4RuleList[];
+  portRuleList?: ModifyPolicyRequestContentPortRuleList[];
+  reflectBlockUdpPortList?: number[];
+  regionBlockCountryList?: number[];
+  regionBlockProvinceList?: number[];
+  sourceBlockList?: ModifyPolicyRequestContentSourceBlockList[];
+  sourceLimit?: ModifyPolicyRequestContentSourceLimit;
+  whiteIpList?: string[];
+  whitenGfbrNets?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      blackIpList: 'BlackIpList',
+      blackIpListExpireAt: 'BlackIpListExpireAt',
+      enableDropIcmp: 'EnableDropIcmp',
+      enableIntelligence: 'EnableIntelligence',
+      enableL4Defense: 'EnableL4Defense',
+      fingerPrintRuleList: 'FingerPrintRuleList',
+      intelligenceLevel: 'IntelligenceLevel',
+      l4RuleList: 'L4RuleList',
+      portRuleList: 'PortRuleList',
+      reflectBlockUdpPortList: 'ReflectBlockUdpPortList',
+      regionBlockCountryList: 'RegionBlockCountryList',
+      regionBlockProvinceList: 'RegionBlockProvinceList',
+      sourceBlockList: 'SourceBlockList',
+      sourceLimit: 'SourceLimit',
+      whiteIpList: 'WhiteIpList',
+      whitenGfbrNets: 'WhitenGfbrNets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackIpList: { 'type': 'array', 'itemType': 'string' },
+      blackIpListExpireAt: 'number',
+      enableDropIcmp: 'boolean',
+      enableIntelligence: 'boolean',
+      enableL4Defense: 'boolean',
+      fingerPrintRuleList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentFingerPrintRuleList },
+      intelligenceLevel: 'string',
+      l4RuleList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentL4RuleList },
+      portRuleList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentPortRuleList },
+      reflectBlockUdpPortList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockCountryList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockProvinceList: { 'type': 'array', 'itemType': 'number' },
+      sourceBlockList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentSourceBlockList },
+      sourceLimit: ModifyPolicyRequestContentSourceLimit,
+      whiteIpList: { 'type': 'array', 'itemType': 'string' },
+      whitenGfbrNets: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $tea.Model {
+  dstPortEnd?: number;
+  dstPortStart?: number;
+  id?: string;
+  matchAction?: string;
+  maxPktLen?: number;
+  minPktLen?: number;
+  offset?: number;
+  payloadBytes?: string;
+  protocol?: string;
+  rateValue?: number;
+  seqNo?: number;
+  srcPortEnd?: number;
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      maxPktLen: 'MaxPktLen',
+      minPktLen: 'MinPktLen',
+      offset: 'Offset',
+      payloadBytes: 'PayloadBytes',
+      protocol: 'Protocol',
+      rateValue: 'RateValue',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      maxPktLen: 'number',
+      minPktLen: 'number',
+      offset: 'number',
+      payloadBytes: 'string',
+      protocol: 'string',
+      rateValue: 'number',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentL4RuleListConditionList extends $tea.Model {
+  arg?: string;
+  depth?: number;
+  position?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arg: 'Arg',
+      depth: 'Depth',
+      position: 'Position',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arg: 'string',
+      depth: 'number',
+      position: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentL4RuleList extends $tea.Model {
+  action?: string;
+  conditionList?: ModifyPolicyContentRequestContentL4RuleListConditionList[];
+  limited?: number;
+  match?: string;
+  method?: string;
+  name?: string;
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      conditionList: 'ConditionList',
+      limited: 'Limited',
+      match: 'Match',
+      method: 'Method',
+      name: 'Name',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      conditionList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentL4RuleListConditionList },
+      limited: 'number',
+      match: 'string',
+      method: 'string',
+      name: 'string',
+      priority: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentPortRuleList extends $tea.Model {
+  dstPortEnd?: number;
+  dstPortStart?: number;
+  id?: string;
+  matchAction?: string;
+  protocol?: string;
+  seqNo?: number;
+  srcPortEnd?: number;
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      protocol: 'Protocol',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      protocol: 'string',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentSourceBlockList extends $tea.Model {
+  blockExpireSeconds?: number;
+  everySeconds?: number;
+  exceedLimitTimes?: number;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockExpireSeconds: 'BlockExpireSeconds',
+      everySeconds: 'EverySeconds',
+      exceedLimitTimes: 'ExceedLimitTimes',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockExpireSeconds: 'number',
+      everySeconds: 'number',
+      exceedLimitTimes: 'number',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentSourceLimit extends $tea.Model {
+  bps?: number;
+  pps?: number;
+  synBps?: number;
+  synPps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      pps: 'Pps',
+      synBps: 'SynBps',
+      synPps: 'SynPps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      pps: 'number',
+      synBps: 'number',
+      synPps: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContent extends $tea.Model {
+  blackIpListExpireAt?: number;
+  enableDropIcmp?: boolean;
+  enableIntelligence?: boolean;
+  enableL4Defense?: boolean;
+  fingerPrintRuleList?: ModifyPolicyContentRequestContentFingerPrintRuleList[];
+  intelligenceLevel?: string;
+  l4RuleList?: ModifyPolicyContentRequestContentL4RuleList[];
+  portRuleList?: ModifyPolicyContentRequestContentPortRuleList[];
+  reflectBlockUdpPortList?: number[];
+  regionBlockCountryList?: number[];
+  regionBlockProvinceList?: number[];
+  sourceBlockList?: ModifyPolicyContentRequestContentSourceBlockList[];
+  sourceLimit?: ModifyPolicyContentRequestContentSourceLimit;
+  whitenGfbrNets?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      blackIpListExpireAt: 'BlackIpListExpireAt',
+      enableDropIcmp: 'EnableDropIcmp',
+      enableIntelligence: 'EnableIntelligence',
+      enableL4Defense: 'EnableL4Defense',
+      fingerPrintRuleList: 'FingerPrintRuleList',
+      intelligenceLevel: 'IntelligenceLevel',
+      l4RuleList: 'L4RuleList',
+      portRuleList: 'PortRuleList',
+      reflectBlockUdpPortList: 'ReflectBlockUdpPortList',
+      regionBlockCountryList: 'RegionBlockCountryList',
+      regionBlockProvinceList: 'RegionBlockProvinceList',
+      sourceBlockList: 'SourceBlockList',
+      sourceLimit: 'SourceLimit',
+      whitenGfbrNets: 'WhitenGfbrNets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackIpListExpireAt: 'number',
+      enableDropIcmp: 'boolean',
+      enableIntelligence: 'boolean',
+      enableL4Defense: 'boolean',
+      fingerPrintRuleList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentFingerPrintRuleList },
+      intelligenceLevel: 'string',
+      l4RuleList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentL4RuleList },
+      portRuleList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentPortRuleList },
+      reflectBlockUdpPortList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockCountryList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockProvinceList: { 'type': 'array', 'itemType': 'number' },
+      sourceBlockList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentSourceBlockList },
+      sourceLimit: ModifyPolicyContentRequestContentSourceLimit,
+      whitenGfbrNets: 'boolean',
     };
   }
 
@@ -4074,10 +5600,6 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4278,6 +5800,52 @@ export default class Client extends OpenApi {
   async configSchedruleOnDemand(request: ConfigSchedruleOnDemandRequest): Promise<ConfigSchedruleOnDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configSchedruleOnDemandWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 创建策略
+   *
+   * @param request CreatePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePolicyResponse
+   */
+  async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePolicy",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
+  }
+
+  /**
+   * @summary 创建策略
+   *
+   * @param request CreatePolicyRequest
+   * @return CreatePolicyResponse
+   */
+  async createPolicy(request: CreatePolicyRequest): Promise<CreatePolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -4489,6 +6057,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 删除策略
+   *
+   * @param request DeletePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePolicyResponse
+   */
+  async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePolicy",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
+  }
+
+  /**
+   * @summary 删除策略
+   *
+   * @param request DeletePolicyRequest
+   * @return DeletePolicyResponse
+   */
+  async deletePolicy(request: DeletePolicyRequest): Promise<DeletePolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePolicyWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 删除资源目录成员账号列表
    *
    * @param tmpReq DeleteRdMemberListRequest
@@ -4604,10 +6214,6 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
-    }
-
     if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
@@ -4668,10 +6274,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -5526,6 +7128,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 策略解绑
+   *
+   * @param tmpReq DetachFromPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachFromPolicyResponse
+   */
+  async detachFromPolicyWithOptions(tmpReq: DetachFromPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DetachFromPolicyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DetachFromPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ipPortProtocolList)) {
+      request.ipPortProtocolListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipPortProtocolList, "IpPortProtocolList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.ipPortProtocolListShrink)) {
+      query["IpPortProtocolList"] = request.ipPortProtocolListShrink;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachFromPolicy",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachFromPolicyResponse>(await this.callApi(params, req, runtime), new DetachFromPolicyResponse({}));
+  }
+
+  /**
+   * @summary 策略解绑
+   *
+   * @param request DetachFromPolicyRequest
+   * @return DetachFromPolicyResponse
+   */
+  async detachFromPolicy(request: DetachFromPolicyRequest): Promise<DetachFromPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachFromPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Dissociates an asset from an Anti-DDoS Origin instance of a paid edition.
    *
    * @param tmpReq DettachAssetGroupToInstanceRequest
@@ -5551,10 +7205,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5682,6 +7332,124 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询策略
+   *
+   * @param request ListPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPolicyResponse
+   */
+  async listPolicyWithOptions(request: ListPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPolicy",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPolicyResponse>(await this.callApi(params, req, runtime), new ListPolicyResponse({}));
+  }
+
+  /**
+   * @summary 查询策略
+   *
+   * @param request ListPolicyRequest
+   * @return ListPolicyResponse
+   */
+  async listPolicy(request: ListPolicyRequest): Promise<ListPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询策略绑定
+   *
+   * @param tmpReq ListPolicyAttachmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPolicyAttachmentResponse
+   */
+  async listPolicyAttachmentWithOptions(tmpReq: ListPolicyAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicyAttachmentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListPolicyAttachmentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ipPortProtocolList)) {
+      request.ipPortProtocolListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipPortProtocolList, "IpPortProtocolList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.ipPortProtocolListShrink)) {
+      query["IpPortProtocolList"] = request.ipPortProtocolListShrink;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPolicyAttachment",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPolicyAttachmentResponse>(await this.callApi(params, req, runtime), new ListPolicyAttachmentResponse({}));
+  }
+
+  /**
+   * @summary 查询策略绑定
+   *
+   * @param request ListPolicyAttachmentRequest
+   * @return ListPolicyAttachmentResponse
+   */
+  async listPolicyAttachment(request: ListPolicyAttachmentRequest): Promise<ListPolicyAttachmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPolicyAttachmentWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Queries all tags.
    *
    * @param request ListTagKeysRequest
@@ -5799,6 +7567,122 @@ export default class Client extends OpenApi {
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改策略
+   *
+   * @param tmpReq ModifyPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPolicyResponse
+   */
+  async modifyPolicyWithOptions(tmpReq: ModifyPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.actionType)) {
+      query["ActionType"] = request.actionType;
+    }
+
+    if (!Util.isUnset(request.contentShrink)) {
+      query["Content"] = request.contentShrink;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyPolicy",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyPolicyResponse>(await this.callApi(params, req, runtime), new ModifyPolicyResponse({}));
+  }
+
+  /**
+   * @summary 修改策略
+   *
+   * @param request ModifyPolicyRequest
+   * @return ModifyPolicyResponse
+   */
+  async modifyPolicy(request: ModifyPolicyRequest): Promise<ModifyPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改策略
+   *
+   * @param tmpReq ModifyPolicyContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPolicyContentResponse
+   */
+  async modifyPolicyContentWithOptions(tmpReq: ModifyPolicyContentRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyContentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyPolicyContentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.contentShrink)) {
+      query["Content"] = request.contentShrink;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyPolicyContent",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyPolicyContentResponse>(await this.callApi(params, req, runtime), new ModifyPolicyContentResponse({}));
+  }
+
+  /**
+   * @summary 修改策略
+   *
+   * @param request ModifyPolicyContentRequest
+   * @return ModifyPolicyContentResponse
+   */
+  async modifyPolicyContent(request: ModifyPolicyContentRequest): Promise<ModifyPolicyContentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyPolicyContentWithOptions(request, runtime);
   }
 
   /**
