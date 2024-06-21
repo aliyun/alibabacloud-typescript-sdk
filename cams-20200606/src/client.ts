@@ -5866,6 +5866,28 @@ export class CreateChatappMigrationInitiateResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateChatappTemplateRequestComponentsButtonsSupportedApps extends $tea.Model {
+  packageName?: string;
+  signatureHash?: string;
+  static names(): { [key: string]: string } {
+    return {
+      packageName: 'PackageName',
+      signatureHash: 'SignatureHash',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packageName: 'string',
+      signatureHash: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   autofillText?: string;
   couponCode?: string;
@@ -5876,6 +5898,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   packageName?: string;
   phoneNumber?: string;
   signatureHash?: string;
+  supportedApps?: CreateChatappTemplateRequestComponentsButtonsSupportedApps[];
   text?: string;
   type?: string;
   url?: string;
@@ -5891,6 +5914,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
       packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
       signatureHash: 'SignatureHash',
+      supportedApps: 'SupportedApps',
       text: 'Text',
       type: 'Type',
       url: 'Url',
@@ -5909,6 +5933,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
       packageName: 'string',
       phoneNumber: 'string',
       signatureHash: 'string',
+      supportedApps: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsButtonsSupportedApps },
       text: 'string',
       type: 'string',
       url: 'string',
@@ -6206,6 +6231,28 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttr
   }
 }
 
+export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps extends $tea.Model {
+  packageName?: string;
+  signatureHash?: string;
+  static names(): { [key: string]: string } {
+    return {
+      packageName: 'PackageName',
+      signatureHash: 'SignatureHash',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packageName: 'string',
+      signatureHash: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $tea.Model {
   autofillText?: string;
   couponCode?: string;
@@ -6217,6 +6264,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   packageName?: string;
   phoneNumber?: string;
   signatureHash?: string;
+  supportedApps?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps[];
   text?: string;
   type?: string;
   url?: string;
@@ -6233,6 +6281,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
       packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
       signatureHash: 'SignatureHash',
+      supportedApps: 'SupportedApps',
       text: 'Text',
       type: 'Type',
       url: 'Url',
@@ -6252,6 +6301,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
       packageName: 'string',
       phoneNumber: 'string',
       signatureHash: 'string',
+      supportedApps: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps },
       text: 'string',
       type: 'string',
       url: 'string',
@@ -7038,6 +7088,28 @@ export class ListProductCatalogResponseBodyModel extends $tea.Model {
   }
 }
 
+export class ModifyChatappTemplateRequestComponentsButtonsSupportedApps extends $tea.Model {
+  packageName?: string;
+  signatureHash?: string;
+  static names(): { [key: string]: string } {
+    return {
+      packageName: 'PackageName',
+      signatureHash: 'SignatureHash',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packageName: 'string',
+      signatureHash: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   autofillText?: string;
   couponCode?: string;
@@ -7048,6 +7120,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   packageName?: string;
   phoneNumber?: string;
   signatureHash?: string;
+  supportedApps?: ModifyChatappTemplateRequestComponentsButtonsSupportedApps[];
   text?: string;
   type?: string;
   url?: string;
@@ -7063,6 +7136,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
       packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
       signatureHash: 'SignatureHash',
+      supportedApps: 'SupportedApps',
       text: 'Text',
       type: 'Type',
       url: 'Url',
@@ -7081,6 +7155,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
       packageName: 'string',
       phoneNumber: 'string',
       signatureHash: 'string',
+      supportedApps: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsButtonsSupportedApps },
       text: 'string',
       type: 'string',
       url: 'string',
