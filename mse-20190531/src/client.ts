@@ -573,6 +573,7 @@ export class AddBlackWhiteListResponse extends $tea.Model {
 export class AddGatewayRequest extends $tea.Model {
   acceptLanguage?: string;
   chargeType?: string;
+  clbNetworkType?: string;
   enableHardwareAcceleration?: boolean;
   enableSls?: boolean;
   enableXtrace?: boolean;
@@ -597,6 +598,7 @@ export class AddGatewayRequest extends $tea.Model {
     return {
       acceptLanguage: 'AcceptLanguage',
       chargeType: 'ChargeType',
+      clbNetworkType: 'ClbNetworkType',
       enableHardwareAcceleration: 'EnableHardwareAcceleration',
       enableSls: 'EnableSls',
       enableXtrace: 'EnableXtrace',
@@ -624,6 +626,7 @@ export class AddGatewayRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       chargeType: 'string',
+      clbNetworkType: 'string',
       enableHardwareAcceleration: 'boolean',
       enableSls: 'boolean',
       enableXtrace: 'boolean',
@@ -655,6 +658,7 @@ export class AddGatewayRequest extends $tea.Model {
 export class AddGatewayShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
   chargeType?: string;
+  clbNetworkType?: string;
   enableHardwareAcceleration?: boolean;
   enableSls?: boolean;
   enableXtrace?: boolean;
@@ -679,6 +683,7 @@ export class AddGatewayShrinkRequest extends $tea.Model {
     return {
       acceptLanguage: 'AcceptLanguage',
       chargeType: 'ChargeType',
+      clbNetworkType: 'ClbNetworkType',
       enableHardwareAcceleration: 'EnableHardwareAcceleration',
       enableSls: 'EnableSls',
       enableXtrace: 'EnableXtrace',
@@ -706,6 +711,7 @@ export class AddGatewayShrinkRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       chargeType: 'string',
+      clbNetworkType: 'string',
       enableHardwareAcceleration: 'boolean',
       enableSls: 'boolean',
       enableXtrace: 'boolean',
@@ -34941,6 +34947,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.clbNetworkType)) {
+      query["ClbNetworkType"] = request.clbNetworkType;
     }
 
     if (!Util.isUnset(request.enableHardwareAcceleration)) {
