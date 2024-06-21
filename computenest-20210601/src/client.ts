@@ -1179,6 +1179,133 @@ export class StopServiceInstanceResponse extends $tea.Model {
   }
 }
 
+export class UpdateServiceInstanceSpecRequest extends $tea.Model {
+  clientToken?: string;
+  commodity?: UpdateServiceInstanceSpecRequestCommodity;
+  dryRun?: boolean;
+  enableUserPrometheus?: boolean;
+  operationName?: string;
+  parameters?: { [key: string]: any };
+  predefinedParametersName?: string;
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      commodity: 'Commodity',
+      dryRun: 'DryRun',
+      enableUserPrometheus: 'EnableUserPrometheus',
+      operationName: 'OperationName',
+      parameters: 'Parameters',
+      predefinedParametersName: 'PredefinedParametersName',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      commodity: UpdateServiceInstanceSpecRequestCommodity,
+      dryRun: 'boolean',
+      enableUserPrometheus: 'boolean',
+      operationName: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      predefinedParametersName: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceSpecShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  commodity?: UpdateServiceInstanceSpecShrinkRequestCommodity;
+  dryRun?: boolean;
+  enableUserPrometheus?: boolean;
+  operationName?: string;
+  parametersShrink?: string;
+  predefinedParametersName?: string;
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      commodity: 'Commodity',
+      dryRun: 'DryRun',
+      enableUserPrometheus: 'EnableUserPrometheus',
+      operationName: 'OperationName',
+      parametersShrink: 'Parameters',
+      predefinedParametersName: 'PredefinedParametersName',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      commodity: UpdateServiceInstanceSpecShrinkRequestCommodity,
+      dryRun: 'boolean',
+      enableUserPrometheus: 'boolean',
+      operationName: 'string',
+      parametersShrink: 'string',
+      predefinedParametersName: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceSpecResponseBody extends $tea.Model {
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceSpecResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceInstanceSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateServiceInstanceSpecResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ContinueDeployServiceInstanceResponseBodyDryRunResult extends $tea.Model {
   parametersAllowedToBeModified?: string[];
   parametersConditionallyAllowedToBeModified?: string[];
@@ -2074,6 +2201,44 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $tea.Model
   }
 }
 
+export class UpdateServiceInstanceSpecRequestCommodity extends $tea.Model {
+  autoPay?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceSpecShrinkRequestCommodity extends $tea.Model {
+  autoPay?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -2853,6 +3018,78 @@ export default class Client extends OpenApi {
   async stopServiceInstance(request: StopServiceInstanceRequest): Promise<StopServiceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopServiceInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq UpdateServiceInstanceSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceInstanceSpecResponse
+   */
+  async updateServiceInstanceSpecWithOptions(tmpReq: UpdateServiceInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceSpecResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateServiceInstanceSpecShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.commodity)) {
+      query["Commodity"] = request.commodity;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.enableUserPrometheus)) {
+      query["EnableUserPrometheus"] = request.enableUserPrometheus;
+    }
+
+    if (!Util.isUnset(request.operationName)) {
+      query["OperationName"] = request.operationName;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!Util.isUnset(request.predefinedParametersName)) {
+      query["PredefinedParametersName"] = request.predefinedParametersName;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateServiceInstanceSpec",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceInstanceSpecResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
+  }
+
+  /**
+   * @param request UpdateServiceInstanceSpecRequest
+   * @return UpdateServiceInstanceSpecResponse
+   */
+  async updateServiceInstanceSpec(request: UpdateServiceInstanceSpecRequest): Promise<UpdateServiceInstanceSpecResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateServiceInstanceSpecWithOptions(request, runtime);
   }
 
 }
