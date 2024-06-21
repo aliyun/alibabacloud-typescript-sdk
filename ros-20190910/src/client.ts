@@ -1309,6 +1309,7 @@ export class DeleteDiagnosticResponse extends $tea.Model {
 
 export class DeleteStackRequest extends $tea.Model {
   deleteOptions?: string[];
+  parallelism?: number;
   ramRoleName?: string;
   regionId?: string;
   retainAllResources?: boolean;
@@ -1317,6 +1318,7 @@ export class DeleteStackRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       deleteOptions: 'DeleteOptions',
+      parallelism: 'Parallelism',
       ramRoleName: 'RamRoleName',
       regionId: 'RegionId',
       retainAllResources: 'RetainAllResources',
@@ -1328,6 +1330,7 @@ export class DeleteStackRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       deleteOptions: { 'type': 'array', 'itemType': 'string' },
+      parallelism: 'number',
       ramRoleName: 'string',
       regionId: 'string',
       retainAllResources: 'boolean',
@@ -13015,6 +13018,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.deleteOptions)) {
       query["DeleteOptions"] = request.deleteOptions;
+    }
+
+    if (!Util.isUnset(request.parallelism)) {
+      query["Parallelism"] = request.parallelism;
     }
 
     if (!Util.isUnset(request.ramRoleName)) {
