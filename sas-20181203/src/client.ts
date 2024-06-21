@@ -37486,6 +37486,7 @@ export class ListFileProtectEventRequest extends $tea.Model {
   instanceName?: string;
   internetIp?: string;
   intranetIp?: string;
+  operation?: string;
   pageSize?: string;
   ruleName?: string;
   startTime?: number;
@@ -37500,6 +37501,7 @@ export class ListFileProtectEventRequest extends $tea.Model {
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
+      operation: 'Operation',
       pageSize: 'PageSize',
       ruleName: 'RuleName',
       startTime: 'StartTime',
@@ -37517,6 +37519,7 @@ export class ListFileProtectEventRequest extends $tea.Model {
       instanceName: 'string',
       internetIp: 'string',
       intranetIp: 'string',
+      operation: 'string',
       pageSize: 'string',
       ruleName: 'string',
       startTime: 'number',
@@ -64627,6 +64630,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
   lastTimeStamp?: number;
   level?: string;
   maliciousRuleStatus?: string;
+  markList?: string[];
   markMisRules?: string;
   name?: string;
   occurrenceTime?: string;
@@ -64682,6 +64686,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       lastTimeStamp: 'LastTimeStamp',
       level: 'Level',
       maliciousRuleStatus: 'MaliciousRuleStatus',
+      markList: 'MarkList',
       markMisRules: 'MarkMisRules',
       name: 'Name',
       occurrenceTime: 'OccurrenceTime',
@@ -64740,6 +64745,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       lastTimeStamp: 'number',
       level: 'string',
       maliciousRuleStatus: 'string',
+      markList: { 'type': 'array', 'itemType': 'string' },
       markMisRules: 'string',
       name: 'string',
       occurrenceTime: 'string',
@@ -67632,36 +67638,48 @@ export class GetCheckDetailResponseBodyRepairSettingFlowStep extends $tea.Model 
 }
 
 export class GetCheckDetailResponseBodyRepairSettingRepairConfigs extends $tea.Model {
+  consoleParamType?: string;
   customFlag?: boolean;
+  dataTransformType?: string;
   defaultValue?: string;
+  emptyParamSwitch?: string;
   exclusiveName?: string[];
   flowId?: string;
   name?: string;
   showName?: string;
   typeDefine?: string;
+  usageType?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      consoleParamType: 'ConsoleParamType',
       customFlag: 'CustomFlag',
+      dataTransformType: 'DataTransformType',
       defaultValue: 'DefaultValue',
+      emptyParamSwitch: 'EmptyParamSwitch',
       exclusiveName: 'ExclusiveName',
       flowId: 'FlowId',
       name: 'Name',
       showName: 'ShowName',
       typeDefine: 'TypeDefine',
+      usageType: 'UsageType',
       value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      consoleParamType: 'string',
       customFlag: 'boolean',
+      dataTransformType: 'string',
       defaultValue: 'string',
+      emptyParamSwitch: 'string',
       exclusiveName: { 'type': 'array', 'itemType': 'string' },
       flowId: 'string',
       name: 'string',
       showName: 'string',
       typeDefine: 'string',
+      usageType: 'string',
       value: 'string',
     };
   }
@@ -80195,7 +80213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+   * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
    *
    * @param request AddSasModuleTrialRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -80230,7 +80248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+   * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
    *
    * @param request AddSasModuleTrialRequest
    * @return AddSasModuleTrialResponse
@@ -101682,7 +101700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+   * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
    *
    * @param request GetModuleTrialAuthInfoRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -101717,7 +101735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+   * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
    *
    * @param request GetModuleTrialAuthInfoRequest
    * @return GetModuleTrialAuthInfoResponse
@@ -105284,6 +105302,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.intranetIp)) {
       query["IntranetIp"] = request.intranetIp;
+    }
+
+    if (!Util.isUnset(request.operation)) {
+      query["Operation"] = request.operation;
     }
 
     if (!Util.isUnset(request.pageSize)) {
