@@ -308,6 +308,9 @@ export class CreateEventSourceRequest extends $tea.Model {
   description?: string;
   eventBusName?: string;
   eventSourceName?: string;
+  externalSourceConfig?: { [key: string]: any };
+  externalSourceType?: Buffer;
+  linkedExternalSource?: boolean;
   sourceHttpEventParameters?: CreateEventSourceRequestSourceHttpEventParameters;
   sourceKafkaParameters?: CreateEventSourceRequestSourceKafkaParameters;
   sourceMNSParameters?: CreateEventSourceRequestSourceMNSParameters;
@@ -320,6 +323,9 @@ export class CreateEventSourceRequest extends $tea.Model {
       description: 'Description',
       eventBusName: 'EventBusName',
       eventSourceName: 'EventSourceName',
+      externalSourceConfig: 'ExternalSourceConfig',
+      externalSourceType: 'ExternalSourceType',
+      linkedExternalSource: 'LinkedExternalSource',
       sourceHttpEventParameters: 'SourceHttpEventParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
@@ -335,6 +341,9 @@ export class CreateEventSourceRequest extends $tea.Model {
       description: 'string',
       eventBusName: 'string',
       eventSourceName: 'string',
+      externalSourceConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      externalSourceType: 'Buffer',
+      linkedExternalSource: 'boolean',
       sourceHttpEventParameters: CreateEventSourceRequestSourceHttpEventParameters,
       sourceKafkaParameters: CreateEventSourceRequestSourceKafkaParameters,
       sourceMNSParameters: CreateEventSourceRequestSourceMNSParameters,
@@ -354,6 +363,9 @@ export class CreateEventSourceShrinkRequest extends $tea.Model {
   description?: string;
   eventBusName?: string;
   eventSourceName?: string;
+  externalSourceConfigShrink?: string;
+  externalSourceType?: Buffer;
+  linkedExternalSource?: boolean;
   sourceHttpEventParametersShrink?: string;
   sourceKafkaParametersShrink?: string;
   sourceMNSParametersShrink?: string;
@@ -366,6 +378,9 @@ export class CreateEventSourceShrinkRequest extends $tea.Model {
       description: 'Description',
       eventBusName: 'EventBusName',
       eventSourceName: 'EventSourceName',
+      externalSourceConfigShrink: 'ExternalSourceConfig',
+      externalSourceType: 'ExternalSourceType',
+      linkedExternalSource: 'LinkedExternalSource',
       sourceHttpEventParametersShrink: 'SourceHttpEventParameters',
       sourceKafkaParametersShrink: 'SourceKafkaParameters',
       sourceMNSParametersShrink: 'SourceMNSParameters',
@@ -381,6 +396,9 @@ export class CreateEventSourceShrinkRequest extends $tea.Model {
       description: 'string',
       eventBusName: 'string',
       eventSourceName: 'string',
+      externalSourceConfigShrink: 'string',
+      externalSourceType: 'Buffer',
+      linkedExternalSource: 'boolean',
       sourceHttpEventParametersShrink: 'string',
       sourceKafkaParametersShrink: 'string',
       sourceMNSParametersShrink: 'string',
@@ -940,12 +958,14 @@ export class DeleteEventBusRequest extends $tea.Model {
 
 export class DeleteEventBusResponseBody extends $tea.Model {
   code?: string;
+  data?: boolean;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -955,6 +975,7 @@ export class DeleteEventBusResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: 'boolean',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -3714,6 +3735,9 @@ export class UpdateEventSourceRequest extends $tea.Model {
   description?: string;
   eventBusName?: string;
   eventSourceName?: string;
+  externalSourceConfig?: { [key: string]: any };
+  externalSourceType?: string;
+  linkedExternalSource?: boolean;
   sourceHttpEventParameters?: UpdateEventSourceRequestSourceHttpEventParameters;
   sourceKafkaParameters?: UpdateEventSourceRequestSourceKafkaParameters;
   sourceMNSParameters?: UpdateEventSourceRequestSourceMNSParameters;
@@ -3726,6 +3750,9 @@ export class UpdateEventSourceRequest extends $tea.Model {
       description: 'Description',
       eventBusName: 'EventBusName',
       eventSourceName: 'EventSourceName',
+      externalSourceConfig: 'ExternalSourceConfig',
+      externalSourceType: 'ExternalSourceType',
+      linkedExternalSource: 'LinkedExternalSource',
       sourceHttpEventParameters: 'SourceHttpEventParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
@@ -3741,6 +3768,9 @@ export class UpdateEventSourceRequest extends $tea.Model {
       description: 'string',
       eventBusName: 'string',
       eventSourceName: 'string',
+      externalSourceConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      externalSourceType: 'string',
+      linkedExternalSource: 'boolean',
       sourceHttpEventParameters: UpdateEventSourceRequestSourceHttpEventParameters,
       sourceKafkaParameters: UpdateEventSourceRequestSourceKafkaParameters,
       sourceMNSParameters: UpdateEventSourceRequestSourceMNSParameters,
@@ -3760,6 +3790,9 @@ export class UpdateEventSourceShrinkRequest extends $tea.Model {
   description?: string;
   eventBusName?: string;
   eventSourceName?: string;
+  externalSourceConfigShrink?: string;
+  externalSourceType?: string;
+  linkedExternalSource?: boolean;
   sourceHttpEventParametersShrink?: string;
   sourceKafkaParametersShrink?: string;
   sourceMNSParametersShrink?: string;
@@ -3772,6 +3805,9 @@ export class UpdateEventSourceShrinkRequest extends $tea.Model {
       description: 'Description',
       eventBusName: 'EventBusName',
       eventSourceName: 'EventSourceName',
+      externalSourceConfigShrink: 'ExternalSourceConfig',
+      externalSourceType: 'ExternalSourceType',
+      linkedExternalSource: 'LinkedExternalSource',
       sourceHttpEventParametersShrink: 'SourceHttpEventParameters',
       sourceKafkaParametersShrink: 'SourceKafkaParameters',
       sourceMNSParametersShrink: 'SourceMNSParameters',
@@ -3787,6 +3823,9 @@ export class UpdateEventSourceShrinkRequest extends $tea.Model {
       description: 'string',
       eventBusName: 'string',
       eventSourceName: 'string',
+      externalSourceConfigShrink: 'string',
+      externalSourceType: 'string',
+      linkedExternalSource: 'boolean',
       sourceHttpEventParametersShrink: 'string',
       sourceKafkaParametersShrink: 'string',
       sourceMNSParametersShrink: 'string',
@@ -4708,6 +4747,141 @@ export class CreateEventStreamingRequestRunOptionsDeadLetterQueue extends $tea.M
   }
 }
 
+export class CreateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters extends $tea.Model {
+  endpoint?: string;
+  instanceId?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      instanceId: 'InstanceId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      instanceId: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters extends $tea.Model {
+  logstoreName?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstoreName: 'LogstoreName',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstoreName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestRunOptionsLogDelivery extends $tea.Model {
+  kafkaLogParameters?: CreateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters[];
+  SLSLogParameters?: CreateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters[];
+  static names(): { [key: string]: string } {
+    return {
+      kafkaLogParameters: 'KafkaLogParameters',
+      SLSLogParameters: 'SLSLogParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kafkaLogParameters: { 'type': 'array', 'itemType': CreateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters },
+      SLSLogParameters: { 'type': 'array', 'itemType': CreateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestRunOptionsNetwork extends $tea.Model {
+  securityGroupId?: string;
+  vSwitchIds?: string[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestRunOptionsResourceSpecResources extends $tea.Model {
+  type?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestRunOptionsResourceSpec extends $tea.Model {
+  resources?: CreateEventStreamingRequestRunOptionsResourceSpecResources[];
+  static names(): { [key: string]: string } {
+    return {
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resources: { 'type': 'array', 'itemType': CreateEventStreamingRequestRunOptionsResourceSpecResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingRequestRunOptionsRetryStrategy extends $tea.Model {
   maximumEventAgeInSeconds?: number;
   maximumRetryAttempts?: number;
@@ -4733,19 +4907,98 @@ export class CreateEventStreamingRequestRunOptionsRetryStrategy extends $tea.Mod
   }
 }
 
+export class CreateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata extends $tea.Model {
+  type?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestRunOptionsScaledObjectTriggers extends $tea.Model {
+  metadata?: CreateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metadata: 'Metadata',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metadata: CreateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestRunOptionsScaledObject extends $tea.Model {
+  maxReplicaCount?: number;
+  minReplicaCount?: number;
+  triggers?: CreateEventStreamingRequestRunOptionsScaledObjectTriggers[];
+  static names(): { [key: string]: string } {
+    return {
+      maxReplicaCount: 'MaxReplicaCount',
+      minReplicaCount: 'MinReplicaCount',
+      triggers: 'Triggers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxReplicaCount: 'number',
+      minReplicaCount: 'number',
+      triggers: { 'type': 'array', 'itemType': CreateEventStreamingRequestRunOptionsScaledObjectTriggers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingRequestRunOptions extends $tea.Model {
   batchWindow?: CreateEventStreamingRequestRunOptionsBatchWindow;
   deadLetterQueue?: CreateEventStreamingRequestRunOptionsDeadLetterQueue;
   errorsTolerance?: string;
+  logDelivery?: CreateEventStreamingRequestRunOptionsLogDelivery;
   maximumTasks?: number;
+  network?: CreateEventStreamingRequestRunOptionsNetwork;
+  resourceSpec?: CreateEventStreamingRequestRunOptionsResourceSpec;
   retryStrategy?: CreateEventStreamingRequestRunOptionsRetryStrategy;
+  roleName?: string;
+  scaledObject?: CreateEventStreamingRequestRunOptionsScaledObject;
   static names(): { [key: string]: string } {
     return {
       batchWindow: 'BatchWindow',
       deadLetterQueue: 'DeadLetterQueue',
       errorsTolerance: 'ErrorsTolerance',
+      logDelivery: 'LogDelivery',
       maximumTasks: 'MaximumTasks',
+      network: 'Network',
+      resourceSpec: 'ResourceSpec',
       retryStrategy: 'RetryStrategy',
+      roleName: 'RoleName',
+      scaledObject: 'ScaledObject',
     };
   }
 
@@ -4754,8 +5007,79 @@ export class CreateEventStreamingRequestRunOptions extends $tea.Model {
       batchWindow: CreateEventStreamingRequestRunOptionsBatchWindow,
       deadLetterQueue: CreateEventStreamingRequestRunOptionsDeadLetterQueue,
       errorsTolerance: 'string',
+      logDelivery: CreateEventStreamingRequestRunOptionsLogDelivery,
       maximumTasks: 'number',
+      network: CreateEventStreamingRequestRunOptionsNetwork,
+      resourceSpec: CreateEventStreamingRequestRunOptionsResourceSpec,
       retryStrategy: CreateEventStreamingRequestRunOptionsRetryStrategy,
+      roleName: 'string',
+      scaledObject: CreateEventStreamingRequestRunOptionsScaledObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParametersConnectorParameters extends $tea.Model {
+  config?: { [key: string]: any };
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters extends $tea.Model {
+  connectorPackageUrl?: string;
+  connectorParameters?: CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParametersConnectorParameters;
+  workerParameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      connectorPackageUrl: 'ConnectorPackageUrl',
+      connectorParameters: 'ConnectorParameters',
+      workerParameters: 'WorkerParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectorPackageUrl: 'string',
+      connectorParameters: CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParametersConnectorParameters,
+      workerParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
     };
   }
 
@@ -6485,6 +6809,56 @@ export class CreateEventStreamingRequestSinkSinkSLSParametersBody extends $tea.M
   }
 }
 
+export class CreateEventStreamingRequestSinkSinkSLSParametersContentSchema extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkSLSParametersContentType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingRequestSinkSinkSLSParametersLogStore extends $tea.Model {
   form?: string;
   template?: string;
@@ -6587,6 +6961,8 @@ export class CreateEventStreamingRequestSinkSinkSLSParametersTopic extends $tea.
 
 export class CreateEventStreamingRequestSinkSinkSLSParameters extends $tea.Model {
   body?: CreateEventStreamingRequestSinkSinkSLSParametersBody;
+  contentSchema?: CreateEventStreamingRequestSinkSinkSLSParametersContentSchema;
+  contentType?: CreateEventStreamingRequestSinkSinkSLSParametersContentType;
   logStore?: CreateEventStreamingRequestSinkSinkSLSParametersLogStore;
   project?: CreateEventStreamingRequestSinkSinkSLSParametersProject;
   roleName?: CreateEventStreamingRequestSinkSinkSLSParametersRoleName;
@@ -6594,6 +6970,8 @@ export class CreateEventStreamingRequestSinkSinkSLSParameters extends $tea.Model
   static names(): { [key: string]: string } {
     return {
       body: 'Body',
+      contentSchema: 'ContentSchema',
+      contentType: 'ContentType',
       logStore: 'LogStore',
       project: 'Project',
       roleName: 'RoleName',
@@ -6604,6 +6982,8 @@ export class CreateEventStreamingRequestSinkSinkSLSParameters extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       body: CreateEventStreamingRequestSinkSinkSLSParametersBody,
+      contentSchema: CreateEventStreamingRequestSinkSinkSLSParametersContentSchema,
+      contentType: CreateEventStreamingRequestSinkSinkSLSParametersContentType,
       logStore: CreateEventStreamingRequestSinkSinkSLSParametersLogStore,
       project: CreateEventStreamingRequestSinkSinkSLSParametersProject,
       roleName: CreateEventStreamingRequestSinkSinkSLSParametersRoleName,
@@ -6617,6 +6997,8 @@ export class CreateEventStreamingRequestSinkSinkSLSParameters extends $tea.Model
 }
 
 export class CreateEventStreamingRequestSink extends $tea.Model {
+  sinkCustomizedKafkaConnectorParameters?: CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters;
+  sinkCustomizedKafkaParameters?: CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters;
   sinkDataHubParameters?: CreateEventStreamingRequestSinkSinkDataHubParameters;
   sinkFcParameters?: CreateEventStreamingRequestSinkSinkFcParameters;
   sinkFnfParameters?: CreateEventStreamingRequestSinkSinkFnfParameters;
@@ -6628,6 +7010,8 @@ export class CreateEventStreamingRequestSink extends $tea.Model {
   sinkSLSParameters?: CreateEventStreamingRequestSinkSinkSLSParameters;
   static names(): { [key: string]: string } {
     return {
+      sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
+      sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
@@ -6642,6 +7026,8 @@ export class CreateEventStreamingRequestSink extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      sinkCustomizedKafkaConnectorParameters: CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters,
+      sinkCustomizedKafkaParameters: CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters,
       sinkDataHubParameters: CreateEventStreamingRequestSinkSinkDataHubParameters,
       sinkFcParameters: CreateEventStreamingRequestSinkSinkFcParameters,
       sinkFnfParameters: CreateEventStreamingRequestSinkSinkFnfParameters,
@@ -6706,6 +7092,72 @@ export class CreateEventStreamingRequestSourceSourceApacheKafkaParameters extend
       vSwitchIds: 'string',
       valueDataType: 'string',
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParametersConnectorParameters extends $tea.Model {
+  config?: { [key: string]: any };
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParameters extends $tea.Model {
+  connectorPackageUrl?: string;
+  connectorParameters?: CreateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParametersConnectorParameters;
+  workerParameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      connectorPackageUrl: 'ConnectorPackageUrl',
+      connectorParameters: 'ConnectorParameters',
+      workerParameters: 'WorkerParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectorPackageUrl: 'string',
+      connectorParameters: CreateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParametersConnectorParameters,
+      workerParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSourceSourceCustomizedKafkaParameters extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
     };
   }
 
@@ -7021,6 +7473,8 @@ export class CreateEventStreamingRequestSourceSourceSLSParameters extends $tea.M
 
 export class CreateEventStreamingRequestSource extends $tea.Model {
   sourceApacheKafkaParameters?: CreateEventStreamingRequestSourceSourceApacheKafkaParameters;
+  sourceCustomizedKafkaConnectorParameters?: CreateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParameters;
+  sourceCustomizedKafkaParameters?: CreateEventStreamingRequestSourceSourceCustomizedKafkaParameters;
   sourceDTSParameters?: CreateEventStreamingRequestSourceSourceDTSParameters;
   sourceKafkaParameters?: CreateEventStreamingRequestSourceSourceKafkaParameters;
   sourceMNSParameters?: CreateEventStreamingRequestSourceSourceMNSParameters;
@@ -7032,6 +7486,8 @@ export class CreateEventStreamingRequestSource extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       sourceApacheKafkaParameters: 'SourceApacheKafkaParameters',
+      sourceCustomizedKafkaConnectorParameters: 'SourceCustomizedKafkaConnectorParameters',
+      sourceCustomizedKafkaParameters: 'SourceCustomizedKafkaParameters',
       sourceDTSParameters: 'SourceDTSParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
@@ -7046,6 +7502,8 @@ export class CreateEventStreamingRequestSource extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       sourceApacheKafkaParameters: CreateEventStreamingRequestSourceSourceApacheKafkaParameters,
+      sourceCustomizedKafkaConnectorParameters: CreateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParameters,
+      sourceCustomizedKafkaParameters: CreateEventStreamingRequestSourceSourceCustomizedKafkaParameters,
       sourceDTSParameters: CreateEventStreamingRequestSourceSourceDTSParameters,
       sourceKafkaParameters: CreateEventStreamingRequestSourceSourceKafkaParameters,
       sourceMNSParameters: CreateEventStreamingRequestSourceSourceMNSParameters,
@@ -7871,6 +8329,34 @@ export class GetEventBusResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetEventStreamingResponseBodyDataDetailedStatus extends $tea.Model {
+  delayTime?: number;
+  diffOffset?: number;
+  extensions?: { [key: string]: any };
+  TPS?: number;
+  static names(): { [key: string]: string } {
+    return {
+      delayTime: 'DelayTime',
+      diffOffset: 'DiffOffset',
+      extensions: 'Extensions',
+      TPS: 'TPS',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      delayTime: 'number',
+      diffOffset: 'number',
+      extensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      TPS: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventStreamingResponseBodyDataRunOptionsBatchWindow extends $tea.Model {
   countBasedWindow?: number;
   timeBasedWindow?: number;
@@ -7912,6 +8398,141 @@ export class GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue extends 
   }
 }
 
+export class GetEventStreamingResponseBodyDataRunOptionsLogDeliveryKafkaLogParameters extends $tea.Model {
+  endpoint?: string;
+  instanceId?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      instanceId: 'InstanceId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      instanceId: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataRunOptionsLogDeliverySLSLogParameters extends $tea.Model {
+  logstoreName?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstoreName: 'LogstoreName',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstoreName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataRunOptionsLogDelivery extends $tea.Model {
+  kafkaLogParameters?: GetEventStreamingResponseBodyDataRunOptionsLogDeliveryKafkaLogParameters[];
+  SLSLogParameters?: GetEventStreamingResponseBodyDataRunOptionsLogDeliverySLSLogParameters[];
+  static names(): { [key: string]: string } {
+    return {
+      kafkaLogParameters: 'KafkaLogParameters',
+      SLSLogParameters: 'SLSLogParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kafkaLogParameters: { 'type': 'array', 'itemType': GetEventStreamingResponseBodyDataRunOptionsLogDeliveryKafkaLogParameters },
+      SLSLogParameters: { 'type': 'array', 'itemType': GetEventStreamingResponseBodyDataRunOptionsLogDeliverySLSLogParameters },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataRunOptionsNetwork extends $tea.Model {
+  securityGroupId?: string;
+  vSwitchIds?: string[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataRunOptionsResourceSpecResources extends $tea.Model {
+  type?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataRunOptionsResourceSpec extends $tea.Model {
+  resources?: GetEventStreamingResponseBodyDataRunOptionsResourceSpecResources[];
+  static names(): { [key: string]: string } {
+    return {
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resources: { 'type': 'array', 'itemType': GetEventStreamingResponseBodyDataRunOptionsResourceSpecResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventStreamingResponseBodyDataRunOptionsRetryStrategy extends $tea.Model {
   maximumEventAgeInSeconds?: number;
   maximumRetryAttempts?: number;
@@ -7937,19 +8558,98 @@ export class GetEventStreamingResponseBodyDataRunOptionsRetryStrategy extends $t
   }
 }
 
+export class GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggersMetadata extends $tea.Model {
+  type?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggers extends $tea.Model {
+  metadata?: GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggersMetadata;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metadata: 'Metadata',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metadata: GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggersMetadata,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataRunOptionsScaledObject extends $tea.Model {
+  maxReplicaCount?: number;
+  minReplicaCount?: number;
+  triggers?: GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggers[];
+  static names(): { [key: string]: string } {
+    return {
+      maxReplicaCount: 'MaxReplicaCount',
+      minReplicaCount: 'MinReplicaCount',
+      triggers: 'Triggers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxReplicaCount: 'number',
+      minReplicaCount: 'number',
+      triggers: { 'type': 'array', 'itemType': GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventStreamingResponseBodyDataRunOptions extends $tea.Model {
   batchWindow?: GetEventStreamingResponseBodyDataRunOptionsBatchWindow;
   deadLetterQueue?: GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue;
   errorsTolerance?: string;
+  logDelivery?: GetEventStreamingResponseBodyDataRunOptionsLogDelivery;
   maximumTasks?: number;
+  network?: GetEventStreamingResponseBodyDataRunOptionsNetwork;
+  resourceSpec?: GetEventStreamingResponseBodyDataRunOptionsResourceSpec;
   retryStrategy?: GetEventStreamingResponseBodyDataRunOptionsRetryStrategy;
+  roleName?: string;
+  scaledObject?: GetEventStreamingResponseBodyDataRunOptionsScaledObject;
   static names(): { [key: string]: string } {
     return {
       batchWindow: 'BatchWindow',
       deadLetterQueue: 'DeadLetterQueue',
       errorsTolerance: 'ErrorsTolerance',
+      logDelivery: 'LogDelivery',
       maximumTasks: 'MaximumTasks',
+      network: 'Network',
+      resourceSpec: 'ResourceSpec',
       retryStrategy: 'RetryStrategy',
+      roleName: 'RoleName',
+      scaledObject: 'ScaledObject',
     };
   }
 
@@ -7958,8 +8658,263 @@ export class GetEventStreamingResponseBodyDataRunOptions extends $tea.Model {
       batchWindow: GetEventStreamingResponseBodyDataRunOptionsBatchWindow,
       deadLetterQueue: GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue,
       errorsTolerance: 'string',
+      logDelivery: GetEventStreamingResponseBodyDataRunOptionsLogDelivery,
       maximumTasks: 'number',
+      network: GetEventStreamingResponseBodyDataRunOptionsNetwork,
+      resourceSpec: GetEventStreamingResponseBodyDataRunOptionsResourceSpec,
       retryStrategy: GetEventStreamingResponseBodyDataRunOptionsRetryStrategy,
+      roleName: 'string',
+      scaledObject: GetEventStreamingResponseBodyDataRunOptionsScaledObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParametersConnectorParameters extends $tea.Model {
+  config?: { [key: string]: any };
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParameters extends $tea.Model {
+  connectorPackageUrl?: string;
+  connectorParameters?: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParametersConnectorParameters;
+  workerParameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      connectorPackageUrl: 'ConnectorPackageUrl',
+      connectorParameters: 'ConnectorParameters',
+      workerParameters: 'WorkerParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectorPackageUrl: 'string',
+      connectorParameters: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParametersConnectorParameters,
+      workerParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkDataHubParametersBody extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkDataHubParametersProject extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkDataHubParametersRoleName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkDataHubParametersTopic extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkDataHubParametersTopicSchema extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkDataHubParametersTopicType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkDataHubParameters extends $tea.Model {
+  body?: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersBody;
+  project?: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersProject;
+  roleName?: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersRoleName;
+  topic?: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersTopic;
+  topicSchema?: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersTopicSchema;
+  topicType?: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersTopicType;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      project: 'Project',
+      roleName: 'RoleName',
+      topic: 'Topic',
+      topicSchema: 'TopicSchema',
+      topicType: 'TopicType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersBody,
+      project: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersProject,
+      roleName: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersRoleName,
+      topic: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersTopic,
+      topicSchema: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersTopicSchema,
+      topicType: GetEventStreamingResponseBodyDataSinkSinkDataHubParametersTopicType,
     };
   }
 
@@ -8829,7 +9784,107 @@ export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersBody ext
   }
 }
 
+export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceEndpoint extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstancePassword extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceUsername extends $tea.Model {
   form?: string;
   template?: string;
   value?: string;
@@ -8879,7 +9934,57 @@ export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersKeys ext
   }
 }
 
+export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersNetwork extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersProperties extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersSecurityGroupId extends $tea.Model {
   form?: string;
   template?: string;
   value?: string;
@@ -8954,32 +10059,106 @@ export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersTopic ex
   }
 }
 
+export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersVSwitchIds extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersVpcId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParameters extends $tea.Model {
   body?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersBody;
+  instanceEndpoint?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceEndpoint;
   instanceId?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceId;
+  instancePassword?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstancePassword;
+  instanceType?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceType;
+  instanceUsername?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceUsername;
   keys?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersKeys;
+  network?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersNetwork;
   properties?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersProperties;
+  securityGroupId?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersSecurityGroupId;
   tags?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersTags;
   topic?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersTopic;
+  vSwitchIds?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersVSwitchIds;
+  vpcId?: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersVpcId;
   static names(): { [key: string]: string } {
     return {
       body: 'Body',
+      instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
+      instancePassword: 'InstancePassword',
+      instanceType: 'InstanceType',
+      instanceUsername: 'InstanceUsername',
       keys: 'Keys',
+      network: 'Network',
       properties: 'Properties',
+      securityGroupId: 'SecurityGroupId',
       tags: 'Tags',
       topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       body: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersBody,
+      instanceEndpoint: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceEndpoint,
       instanceId: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceId,
+      instancePassword: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstancePassword,
+      instanceType: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceType,
+      instanceUsername: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceUsername,
       keys: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersKeys,
+      network: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersNetwork,
       properties: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersProperties,
+      securityGroupId: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersSecurityGroupId,
       tags: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersTags,
       topic: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersTopic,
+      vSwitchIds: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersVSwitchIds,
+      vpcId: GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersVpcId,
     };
   }
 
@@ -8989,6 +10168,56 @@ export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParameters extends
 }
 
 export class GetEventStreamingResponseBodyDataSinkSinkSLSParametersBody extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkSLSParametersContentSchema extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkSLSParametersContentType extends $tea.Model {
   form?: string;
   template?: string;
   value?: string;
@@ -9115,6 +10344,8 @@ export class GetEventStreamingResponseBodyDataSinkSinkSLSParametersTopic extends
 
 export class GetEventStreamingResponseBodyDataSinkSinkSLSParameters extends $tea.Model {
   body?: GetEventStreamingResponseBodyDataSinkSinkSLSParametersBody;
+  contentSchema?: GetEventStreamingResponseBodyDataSinkSinkSLSParametersContentSchema;
+  contentType?: GetEventStreamingResponseBodyDataSinkSinkSLSParametersContentType;
   logStore?: GetEventStreamingResponseBodyDataSinkSinkSLSParametersLogStore;
   project?: GetEventStreamingResponseBodyDataSinkSinkSLSParametersProject;
   roleName?: GetEventStreamingResponseBodyDataSinkSinkSLSParametersRoleName;
@@ -9122,6 +10353,8 @@ export class GetEventStreamingResponseBodyDataSinkSinkSLSParameters extends $tea
   static names(): { [key: string]: string } {
     return {
       body: 'Body',
+      contentSchema: 'ContentSchema',
+      contentType: 'ContentType',
       logStore: 'LogStore',
       project: 'Project',
       roleName: 'RoleName',
@@ -9132,6 +10365,8 @@ export class GetEventStreamingResponseBodyDataSinkSinkSLSParameters extends $tea
   static types(): { [key: string]: any } {
     return {
       body: GetEventStreamingResponseBodyDataSinkSinkSLSParametersBody,
+      contentSchema: GetEventStreamingResponseBodyDataSinkSinkSLSParametersContentSchema,
+      contentType: GetEventStreamingResponseBodyDataSinkSinkSLSParametersContentType,
       logStore: GetEventStreamingResponseBodyDataSinkSinkSLSParametersLogStore,
       project: GetEventStreamingResponseBodyDataSinkSinkSLSParametersProject,
       roleName: GetEventStreamingResponseBodyDataSinkSinkSLSParametersRoleName,
@@ -9145,6 +10380,9 @@ export class GetEventStreamingResponseBodyDataSinkSinkSLSParameters extends $tea
 }
 
 export class GetEventStreamingResponseBodyDataSink extends $tea.Model {
+  sinkCustomizedKafkaConnectorParameters?: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParameters;
+  sinkCustomizedKafkaParameters?: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters;
+  sinkDataHubParameters?: GetEventStreamingResponseBodyDataSinkSinkDataHubParameters;
   sinkFcParameters?: GetEventStreamingResponseBodyDataSinkSinkFcParameters;
   sinkFnfParameters?: GetEventStreamingResponseBodyDataSinkSinkFnfParameters;
   sinkKafkaParameters?: GetEventStreamingResponseBodyDataSinkSinkKafkaParameters;
@@ -9154,6 +10392,9 @@ export class GetEventStreamingResponseBodyDataSink extends $tea.Model {
   sinkSLSParameters?: GetEventStreamingResponseBodyDataSinkSinkSLSParameters;
   static names(): { [key: string]: string } {
     return {
+      sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
+      sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
+      sinkDataHubParameters: 'SinkDataHubParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
@@ -9166,6 +10407,9 @@ export class GetEventStreamingResponseBodyDataSink extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      sinkCustomizedKafkaConnectorParameters: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParameters,
+      sinkCustomizedKafkaParameters: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters,
+      sinkDataHubParameters: GetEventStreamingResponseBodyDataSinkSinkDataHubParameters,
       sinkFcParameters: GetEventStreamingResponseBodyDataSinkSinkFcParameters,
       sinkFnfParameters: GetEventStreamingResponseBodyDataSinkSinkFnfParameters,
       sinkKafkaParameters: GetEventStreamingResponseBodyDataSinkSinkKafkaParameters,
@@ -9228,6 +10472,72 @@ export class GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters 
       vSwitchIds: 'string',
       valueDataType: 'string',
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaConnectorParametersConnectorParameters extends $tea.Model {
+  config?: { [key: string]: any };
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaConnectorParameters extends $tea.Model {
+  connectorPackageUrl?: string;
+  connectorParameters?: GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaConnectorParametersConnectorParameters;
+  workerParameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      connectorPackageUrl: 'ConnectorPackageUrl',
+      connectorParameters: 'ConnectorParameters',
+      workerParameters: 'WorkerParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectorPackageUrl: 'string',
+      connectorParameters: GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaConnectorParametersConnectorParameters,
+      workerParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaParameters extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
     };
   }
 
@@ -9345,11 +10655,13 @@ export class GetEventStreamingResponseBodyDataSourceSourceMNSParameters extends 
 }
 
 export class GetEventStreamingResponseBodyDataSourceSourceMQTTParameters extends $tea.Model {
+  bodyDataType?: string;
   instanceId?: string;
   regionId?: string;
   topic?: string;
   static names(): { [key: string]: string } {
     return {
+      bodyDataType: 'BodyDataType',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       topic: 'Topic',
@@ -9358,6 +10670,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceMQTTParameters extends
 
   static types(): { [key: string]: any } {
     return {
+      bodyDataType: 'string',
       instanceId: 'string',
       regionId: 'string',
       topic: 'string',
@@ -9428,6 +10741,8 @@ export class GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters ext
 export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters extends $tea.Model {
   authType?: string;
   bodyDataType?: string;
+  filterSql?: string;
+  filterType?: string;
   groupID?: string;
   instanceEndpoint?: string;
   instanceId?: string;
@@ -9438,15 +10753,21 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
   instanceUsername?: string;
   instanceVSwitchIds?: string;
   instanceVpcId?: string;
+  network?: string;
   offset?: string;
   regionId?: string;
+  securityGroupId?: string;
   tag?: string;
   timestamp?: number;
   topic?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       authType: 'AuthType',
       bodyDataType: 'BodyDataType',
+      filterSql: 'FilterSql',
+      filterType: 'FilterType',
       groupID: 'GroupID',
       instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
@@ -9457,11 +10778,15 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
       instanceUsername: 'InstanceUsername',
       instanceVSwitchIds: 'InstanceVSwitchIds',
       instanceVpcId: 'InstanceVpcId',
+      network: 'Network',
       offset: 'Offset',
       regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
       tag: 'Tag',
       timestamp: 'Timestamp',
       topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
@@ -9469,6 +10794,8 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
     return {
       authType: 'string',
       bodyDataType: 'string',
+      filterSql: 'string',
+      filterType: 'string',
       groupID: 'string',
       instanceEndpoint: 'string',
       instanceId: 'string',
@@ -9479,11 +10806,15 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
       instanceUsername: 'string',
       instanceVSwitchIds: 'string',
       instanceVpcId: 'string',
+      network: 'string',
       offset: 'string',
       regionId: 'string',
+      securityGroupId: 'string',
       tag: 'string',
       timestamp: 'number',
       topic: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -9525,6 +10856,8 @@ export class GetEventStreamingResponseBodyDataSourceSourceSLSParameters extends 
 
 export class GetEventStreamingResponseBodyDataSource extends $tea.Model {
   sourceApacheKafkaParameters?: GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters;
+  sourceCustomizedKafkaConnectorParameters?: GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaConnectorParameters;
+  sourceCustomizedKafkaParameters?: GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaParameters;
   sourceDTSParameters?: GetEventStreamingResponseBodyDataSourceSourceDTSParameters;
   sourceKafkaParameters?: GetEventStreamingResponseBodyDataSourceSourceKafkaParameters;
   sourceMNSParameters?: GetEventStreamingResponseBodyDataSourceSourceMNSParameters;
@@ -9536,6 +10869,8 @@ export class GetEventStreamingResponseBodyDataSource extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       sourceApacheKafkaParameters: 'SourceApacheKafkaParameters',
+      sourceCustomizedKafkaConnectorParameters: 'SourceCustomizedKafkaConnectorParameters',
+      sourceCustomizedKafkaParameters: 'SourceCustomizedKafkaParameters',
       sourceDTSParameters: 'SourceDTSParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
@@ -9550,6 +10885,8 @@ export class GetEventStreamingResponseBodyDataSource extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       sourceApacheKafkaParameters: GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters,
+      sourceCustomizedKafkaConnectorParameters: GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaConnectorParameters,
+      sourceCustomizedKafkaParameters: GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaParameters,
       sourceDTSParameters: GetEventStreamingResponseBodyDataSourceSourceDTSParameters,
       sourceKafkaParameters: GetEventStreamingResponseBodyDataSourceSourceKafkaParameters,
       sourceMNSParameters: GetEventStreamingResponseBodyDataSourceSourceMNSParameters,
@@ -9587,6 +10924,7 @@ export class GetEventStreamingResponseBodyDataTransforms extends $tea.Model {
 
 export class GetEventStreamingResponseBodyData extends $tea.Model {
   description?: string;
+  detailedStatus?: GetEventStreamingResponseBodyDataDetailedStatus;
   eventStreamingName?: string;
   filterPattern?: string;
   runOptions?: GetEventStreamingResponseBodyDataRunOptions;
@@ -9597,6 +10935,7 @@ export class GetEventStreamingResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      detailedStatus: 'DetailedStatus',
       eventStreamingName: 'EventStreamingName',
       filterPattern: 'FilterPattern',
       runOptions: 'RunOptions',
@@ -9610,6 +10949,7 @@ export class GetEventStreamingResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      detailedStatus: GetEventStreamingResponseBodyDataDetailedStatus,
       eventStreamingName: 'string',
       filterPattern: 'string',
       runOptions: GetEventStreamingResponseBodyDataRunOptions,
@@ -9617,6 +10957,25 @@ export class GetEventStreamingResponseBodyData extends $tea.Model {
       source: GetEventStreamingResponseBodyDataSource,
       status: 'string',
       transforms: { 'type': 'array', 'itemType': GetEventStreamingResponseBodyDataTransforms },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRuleResponseBodyDataTargetsConcurrentConfig extends $tea.Model {
+  concurrency?: number;
+  static names(): { [key: string]: string } {
+    return {
+      concurrency: 'Concurrency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      concurrency: 'number',
     };
   }
 
@@ -9673,6 +11032,7 @@ export class GetRuleResponseBodyDataTargetsParamList extends $tea.Model {
 }
 
 export class GetRuleResponseBodyDataTargets extends $tea.Model {
+  concurrentConfig?: GetRuleResponseBodyDataTargetsConcurrentConfig;
   deadLetterQueue?: GetRuleResponseBodyDataTargetsDeadLetterQueue;
   detailMap?: { [key: string]: any };
   endpoint?: string;
@@ -9684,6 +11044,7 @@ export class GetRuleResponseBodyDataTargets extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      concurrentConfig: 'ConcurrentConfig',
       deadLetterQueue: 'DeadLetterQueue',
       detailMap: 'DetailMap',
       endpoint: 'Endpoint',
@@ -9698,6 +11059,7 @@ export class GetRuleResponseBodyDataTargets extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      concurrentConfig: GetRuleResponseBodyDataTargetsConcurrentConfig,
       deadLetterQueue: GetRuleResponseBodyDataTargetsDeadLetterQueue,
       detailMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       endpoint: 'string',
@@ -10332,6 +11694,141 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLet
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliveryKafkaLogParameters extends $tea.Model {
+  endpoint?: string;
+  instanceId?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      instanceId: 'InstanceId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      instanceId: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliverySLSLogParameters extends $tea.Model {
+  logstoreName?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstoreName: 'LogstoreName',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstoreName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDelivery extends $tea.Model {
+  kafkaLogParameters?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliveryKafkaLogParameters[];
+  SLSLogParameters?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliverySLSLogParameters[];
+  static names(): { [key: string]: string } {
+    return {
+      kafkaLogParameters: 'KafkaLogParameters',
+      SLSLogParameters: 'SLSLogParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kafkaLogParameters: { 'type': 'array', 'itemType': ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliveryKafkaLogParameters },
+      SLSLogParameters: { 'type': 'array', 'itemType': ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliverySLSLogParameters },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsNetwork extends $tea.Model {
+  securityGroupId?: string;
+  vSwitchIds?: string[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpecResources extends $tea.Model {
+  type?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpec extends $tea.Model {
+  resources?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpecResources[];
+  static names(): { [key: string]: string } {
+    return {
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resources: { 'type': 'array', 'itemType': ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpecResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy extends $tea.Model {
   maximumEventAgeInSeconds?: number;
   maximumRetryAttempts?: number;
@@ -10357,19 +11854,98 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetrySt
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggersMetadata extends $tea.Model {
+  type?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggers extends $tea.Model {
+  metadata?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggersMetadata;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metadata: 'Metadata',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metadata: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggersMetadata,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObject extends $tea.Model {
+  maxReplicaCount?: number;
+  minReplicaCount?: number;
+  triggers?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggers[];
+  static names(): { [key: string]: string } {
+    return {
+      maxReplicaCount: 'MaxReplicaCount',
+      minReplicaCount: 'MinReplicaCount',
+      triggers: 'Triggers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxReplicaCount: 'number',
+      minReplicaCount: 'number',
+      triggers: { 'type': 'array', 'itemType': ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptions extends $tea.Model {
   batchWindow?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow;
   deadLetterQueue?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLetterQueue;
   errorsTolerance?: string;
+  logDelivery?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDelivery;
   maximumTasks?: number;
+  network?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsNetwork;
+  resourceSpec?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpec;
   retryStrategy?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy;
+  roleName?: string;
+  scaledObject?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObject;
   static names(): { [key: string]: string } {
     return {
       batchWindow: 'BatchWindow',
       deadLetterQueue: 'DeadLetterQueue',
       errorsTolerance: 'ErrorsTolerance',
+      logDelivery: 'LogDelivery',
       maximumTasks: 'MaximumTasks',
+      network: 'Network',
+      resourceSpec: 'ResourceSpec',
       retryStrategy: 'RetryStrategy',
+      roleName: 'RoleName',
+      scaledObject: 'ScaledObject',
     };
   }
 
@@ -10378,8 +11954,263 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptions extend
       batchWindow: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow,
       deadLetterQueue: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLetterQueue,
       errorsTolerance: 'string',
+      logDelivery: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDelivery,
       maximumTasks: 'number',
+      network: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsNetwork,
+      resourceSpec: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpec,
       retryStrategy: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy,
+      roleName: 'string',
+      scaledObject: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParametersConnectorParameters extends $tea.Model {
+  config?: { [key: string]: any };
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters extends $tea.Model {
+  connectorPackageUrl?: string;
+  connectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParametersConnectorParameters;
+  workerParameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      connectorPackageUrl: 'ConnectorPackageUrl',
+      connectorParameters: 'ConnectorParameters',
+      workerParameters: 'WorkerParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectorPackageUrl: 'string',
+      connectorParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParametersConnectorParameters,
+      workerParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersBody extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersProject extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersRoleName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersTopic extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersTopicSchema extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersTopicType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters extends $tea.Model {
+  body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersBody;
+  project?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersProject;
+  roleName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersRoleName;
+  topic?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersTopic;
+  topicSchema?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersTopicSchema;
+  topicType?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersTopicType;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      project: 'Project',
+      roleName: 'RoleName',
+      topic: 'Topic',
+      topicSchema: 'TopicSchema',
+      topicType: 'TopicType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersBody,
+      project: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersProject,
+      roleName: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersRoleName,
+      topic: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersTopic,
+      topicSchema: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersTopicSchema,
+      topicType: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersTopicType,
     };
   }
 
@@ -11433,6 +13264,56 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersContentSchema extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersContentType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersLogStore extends $tea.Model {
   form?: string;
   template?: string;
@@ -11535,6 +13416,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParameters extends $tea.Model {
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersBody;
+  contentSchema?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersContentSchema;
+  contentType?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersContentType;
   logStore?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersLogStore;
   project?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersProject;
   roleName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersRoleName;
@@ -11542,6 +13425,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
   static names(): { [key: string]: string } {
     return {
       body: 'Body',
+      contentSchema: 'ContentSchema',
+      contentType: 'ContentType',
       logStore: 'LogStore',
       project: 'Project',
       roleName: 'RoleName',
@@ -11552,6 +13437,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
   static types(): { [key: string]: any } {
     return {
       body: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersBody,
+      contentSchema: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersContentSchema,
+      contentType: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersContentType,
       logStore: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersLogStore,
       project: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersProject,
       roleName: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersRoleName,
@@ -11565,6 +13452,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $tea.Model {
+  sinkCustomizedKafkaConnectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters;
+  sinkCustomizedKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters;
+  sinkDataHubParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters;
   sinkFcParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters;
   sinkFnfParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters;
   sinkKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters;
@@ -11574,6 +13464,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $tea
   sinkSLSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParameters;
   static names(): { [key: string]: string } {
     return {
+      sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
+      sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
+      sinkDataHubParameters: 'SinkDataHubParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
@@ -11586,6 +13479,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $tea
 
   static types(): { [key: string]: any } {
     return {
+      sinkCustomizedKafkaConnectorParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters,
+      sinkCustomizedKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters,
+      sinkDataHubParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters,
       sinkFcParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters,
       sinkFnfParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters,
       sinkKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters,
@@ -11656,6 +13552,72 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApach
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParametersConnectorParameters extends $tea.Model {
+  config?: { [key: string]: any };
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParameters extends $tea.Model {
+  connectorPackageUrl?: string;
+  connectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParametersConnectorParameters;
+  workerParameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      connectorPackageUrl: 'ConnectorPackageUrl',
+      connectorParameters: 'ConnectorParameters',
+      workerParameters: 'WorkerParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectorPackageUrl: 'string',
+      connectorParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParametersConnectorParameters,
+      workerParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaParameters extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters extends $tea.Model {
   brokerUrl?: string;
   initCheckPoint?: string;
@@ -11702,6 +13664,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafka
   securityGroupId?: string;
   topic?: string;
   vSwitchIds?: string;
+  valueDataType?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11713,6 +13676,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafka
       securityGroupId: 'SecurityGroupId',
       topic: 'Topic',
       vSwitchIds: 'VSwitchIds',
+      valueDataType: 'ValueDataType',
       vpcId: 'VpcId',
     };
   }
@@ -11727,6 +13691,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafka
       securityGroupId: 'string',
       topic: 'string',
       vSwitchIds: 'string',
+      valueDataType: 'string',
       vpcId: 'string',
     };
   }
@@ -11762,11 +13727,13 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSPa
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters extends $tea.Model {
+  bodyDataType?: string;
   instanceId?: string;
   regionId?: string;
   topic?: string;
   static names(): { [key: string]: string } {
     return {
+      bodyDataType: 'BodyDataType',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       topic: 'Topic',
@@ -11775,6 +13742,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTP
 
   static types(): { [key: string]: any } {
     return {
+      bodyDataType: 'string',
       instanceId: 'string',
       regionId: 'string',
       topic: 'string',
@@ -11845,6 +13813,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbi
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters extends $tea.Model {
   authType?: string;
   bodyDataType?: string;
+  filterSql?: string;
+  filterType?: string;
   groupID?: string;
   instanceEndpoint?: string;
   instanceId?: string;
@@ -11855,15 +13825,21 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   instanceUsername?: string;
   instanceVSwitchIds?: string;
   instanceVpcId?: string;
+  network?: string;
   offset?: string;
   regionId?: string;
+  securityGroupId?: string;
   tag?: string;
   timestamp?: number;
   topic?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       authType: 'AuthType',
       bodyDataType: 'BodyDataType',
+      filterSql: 'FilterSql',
+      filterType: 'FilterType',
       groupID: 'GroupID',
       instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
@@ -11874,11 +13850,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
       instanceUsername: 'InstanceUsername',
       instanceVSwitchIds: 'InstanceVSwitchIds',
       instanceVpcId: 'InstanceVpcId',
+      network: 'Network',
       offset: 'Offset',
       regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
       tag: 'Tag',
       timestamp: 'Timestamp',
       topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
@@ -11886,6 +13866,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
     return {
       authType: 'string',
       bodyDataType: 'string',
+      filterSql: 'string',
+      filterType: 'string',
       groupID: 'string',
       instanceEndpoint: 'string',
       instanceId: 'string',
@@ -11896,11 +13878,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
       instanceUsername: 'string',
       instanceVSwitchIds: 'string',
       instanceVpcId: 'string',
+      network: 'string',
       offset: 'string',
       regionId: 'string',
+      securityGroupId: 'string',
       tag: 'string',
       timestamp: 'number',
       topic: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -11942,6 +13928,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceSLSPa
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $tea.Model {
   sourceApacheKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters;
+  sourceCustomizedKafkaConnectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParameters;
+  sourceCustomizedKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaParameters;
   sourceDTSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters;
   sourceKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters;
   sourceMNSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters;
@@ -11953,6 +13941,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $t
   static names(): { [key: string]: string } {
     return {
       sourceApacheKafkaParameters: 'SourceApacheKafkaParameters',
+      sourceCustomizedKafkaConnectorParameters: 'SourceCustomizedKafkaConnectorParameters',
+      sourceCustomizedKafkaParameters: 'SourceCustomizedKafkaParameters',
       sourceDTSParameters: 'SourceDTSParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
@@ -11967,6 +13957,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $t
   static types(): { [key: string]: any } {
     return {
       sourceApacheKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters,
+      sourceCustomizedKafkaConnectorParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParameters,
+      sourceCustomizedKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaParameters,
       sourceDTSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters,
       sourceKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters,
       sourceMNSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters,
@@ -13466,6 +15458,141 @@ export class UpdateEventStreamingRequestRunOptionsDeadLetterQueue extends $tea.M
   }
 }
 
+export class UpdateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters extends $tea.Model {
+  endpoint?: string;
+  instanceId?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      instanceId: 'InstanceId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      instanceId: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters extends $tea.Model {
+  logstoreName?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstoreName: 'LogstoreName',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstoreName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestRunOptionsLogDelivery extends $tea.Model {
+  kafkaLogParameters?: UpdateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters[];
+  SLSLogParameters?: UpdateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters[];
+  static names(): { [key: string]: string } {
+    return {
+      kafkaLogParameters: 'KafkaLogParameters',
+      SLSLogParameters: 'SLSLogParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kafkaLogParameters: { 'type': 'array', 'itemType': UpdateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters },
+      SLSLogParameters: { 'type': 'array', 'itemType': UpdateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestRunOptionsNetwork extends $tea.Model {
+  securityGroupId?: string;
+  vSwitchIds?: string[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestRunOptionsResourceSpecResources extends $tea.Model {
+  type?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestRunOptionsResourceSpec extends $tea.Model {
+  resources?: UpdateEventStreamingRequestRunOptionsResourceSpecResources[];
+  static names(): { [key: string]: string } {
+    return {
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resources: { 'type': 'array', 'itemType': UpdateEventStreamingRequestRunOptionsResourceSpecResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestRunOptionsRetryStrategy extends $tea.Model {
   maximumEventAgeInSeconds?: number;
   maximumRetryAttempts?: number;
@@ -13491,19 +15618,98 @@ export class UpdateEventStreamingRequestRunOptionsRetryStrategy extends $tea.Mod
   }
 }
 
+export class UpdateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata extends $tea.Model {
+  type?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestRunOptionsScaledObjectTriggers extends $tea.Model {
+  metadata?: UpdateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metadata: 'Metadata',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metadata: UpdateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestRunOptionsScaledObject extends $tea.Model {
+  maxReplicaCount?: number;
+  minReplicaCount?: number;
+  triggers?: UpdateEventStreamingRequestRunOptionsScaledObjectTriggers[];
+  static names(): { [key: string]: string } {
+    return {
+      maxReplicaCount: 'MaxReplicaCount',
+      minReplicaCount: 'MinReplicaCount',
+      triggers: 'Triggers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxReplicaCount: 'number',
+      minReplicaCount: 'number',
+      triggers: { 'type': 'array', 'itemType': UpdateEventStreamingRequestRunOptionsScaledObjectTriggers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestRunOptions extends $tea.Model {
   batchWindow?: UpdateEventStreamingRequestRunOptionsBatchWindow;
   deadLetterQueue?: UpdateEventStreamingRequestRunOptionsDeadLetterQueue;
   errorsTolerance?: string;
+  logDelivery?: UpdateEventStreamingRequestRunOptionsLogDelivery;
   maximumTasks?: number;
+  network?: UpdateEventStreamingRequestRunOptionsNetwork;
+  resourceSpec?: UpdateEventStreamingRequestRunOptionsResourceSpec;
   retryStrategy?: UpdateEventStreamingRequestRunOptionsRetryStrategy;
+  roleName?: string;
+  scaledObject?: UpdateEventStreamingRequestRunOptionsScaledObject;
   static names(): { [key: string]: string } {
     return {
       batchWindow: 'BatchWindow',
       deadLetterQueue: 'DeadLetterQueue',
       errorsTolerance: 'ErrorsTolerance',
+      logDelivery: 'LogDelivery',
       maximumTasks: 'MaximumTasks',
+      network: 'Network',
+      resourceSpec: 'ResourceSpec',
       retryStrategy: 'RetryStrategy',
+      roleName: 'RoleName',
+      scaledObject: 'ScaledObject',
     };
   }
 
@@ -13512,8 +15718,319 @@ export class UpdateEventStreamingRequestRunOptions extends $tea.Model {
       batchWindow: UpdateEventStreamingRequestRunOptionsBatchWindow,
       deadLetterQueue: UpdateEventStreamingRequestRunOptionsDeadLetterQueue,
       errorsTolerance: 'string',
+      logDelivery: UpdateEventStreamingRequestRunOptionsLogDelivery,
       maximumTasks: 'number',
+      network: UpdateEventStreamingRequestRunOptionsNetwork,
+      resourceSpec: UpdateEventStreamingRequestRunOptionsResourceSpec,
       retryStrategy: UpdateEventStreamingRequestRunOptionsRetryStrategy,
+      roleName: 'string',
+      scaledObject: UpdateEventStreamingRequestRunOptionsScaledObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParametersConnectorParameters extends $tea.Model {
+  config?: { [key: string]: any };
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters extends $tea.Model {
+  connectorPackageUrl?: string;
+  connectorParameters?: UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParametersConnectorParameters;
+  workerParameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      connectorPackageUrl: 'ConnectorPackageUrl',
+      connectorParameters: 'ConnectorParameters',
+      workerParameters: 'WorkerParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectorPackageUrl: 'string',
+      connectorParameters: UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParametersConnectorParameters,
+      workerParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDataHubParametersBody extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDataHubParametersContentSchema extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDataHubParametersContentType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDataHubParametersProject extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDataHubParametersRoleName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDataHubParametersTopic extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDataHubParametersTopicSchema extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDataHubParametersTopicType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDataHubParameters extends $tea.Model {
+  body?: UpdateEventStreamingRequestSinkSinkDataHubParametersBody;
+  contentSchema?: UpdateEventStreamingRequestSinkSinkDataHubParametersContentSchema;
+  contentType?: UpdateEventStreamingRequestSinkSinkDataHubParametersContentType;
+  project?: UpdateEventStreamingRequestSinkSinkDataHubParametersProject;
+  roleName?: UpdateEventStreamingRequestSinkSinkDataHubParametersRoleName;
+  topic?: UpdateEventStreamingRequestSinkSinkDataHubParametersTopic;
+  topicSchema?: UpdateEventStreamingRequestSinkSinkDataHubParametersTopicSchema;
+  topicType?: UpdateEventStreamingRequestSinkSinkDataHubParametersTopicType;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      contentSchema: 'ContentSchema',
+      contentType: 'ContentType',
+      project: 'Project',
+      roleName: 'RoleName',
+      topic: 'Topic',
+      topicSchema: 'TopicSchema',
+      topicType: 'TopicType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: UpdateEventStreamingRequestSinkSinkDataHubParametersBody,
+      contentSchema: UpdateEventStreamingRequestSinkSinkDataHubParametersContentSchema,
+      contentType: UpdateEventStreamingRequestSinkSinkDataHubParametersContentType,
+      project: UpdateEventStreamingRequestSinkSinkDataHubParametersProject,
+      roleName: UpdateEventStreamingRequestSinkSinkDataHubParametersRoleName,
+      topic: UpdateEventStreamingRequestSinkSinkDataHubParametersTopic,
+      topicSchema: UpdateEventStreamingRequestSinkSinkDataHubParametersTopicSchema,
+      topicType: UpdateEventStreamingRequestSinkSinkDataHubParametersTopicType,
     };
   }
 
@@ -14967,6 +17484,9 @@ export class UpdateEventStreamingRequestSinkSinkSLSParameters extends $tea.Model
 }
 
 export class UpdateEventStreamingRequestSink extends $tea.Model {
+  sinkCustomizedKafkaConnectorParameters?: UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters;
+  sinkCustomizedKafkaParameters?: UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters;
+  sinkDataHubParameters?: UpdateEventStreamingRequestSinkSinkDataHubParameters;
   sinkFcParameters?: UpdateEventStreamingRequestSinkSinkFcParameters;
   sinkFnfParameters?: UpdateEventStreamingRequestSinkSinkFnfParameters;
   sinkKafkaParameters?: UpdateEventStreamingRequestSinkSinkKafkaParameters;
@@ -14977,6 +17497,9 @@ export class UpdateEventStreamingRequestSink extends $tea.Model {
   sinkSLSParameters?: UpdateEventStreamingRequestSinkSinkSLSParameters;
   static names(): { [key: string]: string } {
     return {
+      sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
+      sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
+      sinkDataHubParameters: 'SinkDataHubParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
@@ -14990,6 +17513,9 @@ export class UpdateEventStreamingRequestSink extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      sinkCustomizedKafkaConnectorParameters: UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters,
+      sinkCustomizedKafkaParameters: UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters,
+      sinkDataHubParameters: UpdateEventStreamingRequestSinkSinkDataHubParameters,
       sinkFcParameters: UpdateEventStreamingRequestSinkSinkFcParameters,
       sinkFnfParameters: UpdateEventStreamingRequestSinkSinkFnfParameters,
       sinkKafkaParameters: UpdateEventStreamingRequestSinkSinkKafkaParameters,
@@ -15053,6 +17579,72 @@ export class UpdateEventStreamingRequestSourceSourceApacheKafkaParameters extend
       vSwitchIds: 'string',
       valueDataType: 'string',
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParametersConnectorParameters extends $tea.Model {
+  config?: { [key: string]: any };
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParameters extends $tea.Model {
+  connectorPackageUrl?: string;
+  connectorParameters?: UpdateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParametersConnectorParameters;
+  workerParameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      connectorPackageUrl: 'ConnectorPackageUrl',
+      connectorParameters: 'ConnectorParameters',
+      workerParameters: 'WorkerParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectorPackageUrl: 'string',
+      connectorParameters: UpdateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParametersConnectorParameters,
+      workerParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSourceSourceCustomizedKafkaParameters extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
     };
   }
 
@@ -15253,6 +17845,8 @@ export class UpdateEventStreamingRequestSourceSourceRabbitMQParameters extends $
 export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $tea.Model {
   authType?: string;
   bodyDataType?: string;
+  filterSql?: string;
+  filterType?: string;
   groupID?: string;
   instanceEndpoint?: string;
   instanceId?: string;
@@ -15263,15 +17857,21 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
   instanceUsername?: string;
   instanceVSwitchIds?: string;
   instanceVpcId?: string;
+  network?: string;
   offset?: string;
   regionId?: string;
+  securityGroupId?: string;
   tag?: string;
   timestamp?: number;
   topic?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       authType: 'AuthType',
       bodyDataType: 'BodyDataType',
+      filterSql: 'FilterSql',
+      filterType: 'FilterType',
       groupID: 'GroupID',
       instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
@@ -15282,11 +17882,15 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
       instanceUsername: 'InstanceUsername',
       instanceVSwitchIds: 'InstanceVSwitchIds',
       instanceVpcId: 'InstanceVpcId',
+      network: 'Network',
       offset: 'Offset',
       regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
       tag: 'Tag',
       timestamp: 'Timestamp',
       topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
@@ -15294,6 +17898,8 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
     return {
       authType: 'string',
       bodyDataType: 'string',
+      filterSql: 'string',
+      filterType: 'string',
       groupID: 'string',
       instanceEndpoint: 'string',
       instanceId: 'string',
@@ -15304,11 +17910,15 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
       instanceUsername: 'string',
       instanceVSwitchIds: 'string',
       instanceVpcId: 'string',
+      network: 'string',
       offset: 'string',
       regionId: 'string',
+      securityGroupId: 'string',
       tag: 'string',
       timestamp: 'number',
       topic: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -15338,6 +17948,8 @@ export class UpdateEventStreamingRequestSourceSourceSLSParameters extends $tea.M
 
 export class UpdateEventStreamingRequestSource extends $tea.Model {
   sourceApacheKafkaParameters?: UpdateEventStreamingRequestSourceSourceApacheKafkaParameters;
+  sourceCustomizedKafkaConnectorParameters?: UpdateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParameters;
+  sourceCustomizedKafkaParameters?: UpdateEventStreamingRequestSourceSourceCustomizedKafkaParameters;
   sourceDTSParameters?: UpdateEventStreamingRequestSourceSourceDTSParameters;
   sourceKafkaParameters?: UpdateEventStreamingRequestSourceSourceKafkaParameters;
   sourceMNSParameters?: UpdateEventStreamingRequestSourceSourceMNSParameters;
@@ -15349,6 +17961,8 @@ export class UpdateEventStreamingRequestSource extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       sourceApacheKafkaParameters: 'SourceApacheKafkaParameters',
+      sourceCustomizedKafkaConnectorParameters: 'SourceCustomizedKafkaConnectorParameters',
+      sourceCustomizedKafkaParameters: 'SourceCustomizedKafkaParameters',
       sourceDTSParameters: 'SourceDTSParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
@@ -15363,6 +17977,8 @@ export class UpdateEventStreamingRequestSource extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       sourceApacheKafkaParameters: UpdateEventStreamingRequestSourceSourceApacheKafkaParameters,
+      sourceCustomizedKafkaConnectorParameters: UpdateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParameters,
+      sourceCustomizedKafkaParameters: UpdateEventStreamingRequestSourceSourceCustomizedKafkaParameters,
       sourceDTSParameters: UpdateEventStreamingRequestSourceSourceDTSParameters,
       sourceKafkaParameters: UpdateEventStreamingRequestSourceSourceKafkaParameters,
       sourceMNSParameters: UpdateEventStreamingRequestSourceSourceMNSParameters,
@@ -15616,6 +18232,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateEventSourceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.externalSourceConfig)) {
+      request.externalSourceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.externalSourceConfig, "ExternalSourceConfig", "json");
+    }
+
     if (!Util.isUnset(tmpReq.sourceHttpEventParameters)) {
       request.sourceHttpEventParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceHttpEventParameters, "SourceHttpEventParameters", "json");
     }
@@ -15655,6 +18275,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.eventSourceName)) {
       body["EventSourceName"] = request.eventSourceName;
+    }
+
+    if (!Util.isUnset(request.externalSourceConfigShrink)) {
+      body["ExternalSourceConfig"] = request.externalSourceConfigShrink;
+    }
+
+    if (!Util.isUnset(request.externalSourceType)) {
+      body["ExternalSourceType"] = request.externalSourceType;
+    }
+
+    if (!Util.isUnset(request.linkedExternalSource)) {
+      body["LinkedExternalSource"] = request.linkedExternalSource;
     }
 
     if (!Util.isUnset(request.sourceHttpEventParametersShrink)) {
@@ -17828,6 +20460,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateEventSourceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.externalSourceConfig)) {
+      request.externalSourceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.externalSourceConfig, "ExternalSourceConfig", "json");
+    }
+
     if (!Util.isUnset(tmpReq.sourceHttpEventParameters)) {
       request.sourceHttpEventParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceHttpEventParameters, "SourceHttpEventParameters", "json");
     }
@@ -17867,6 +20503,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.eventSourceName)) {
       body["EventSourceName"] = request.eventSourceName;
+    }
+
+    if (!Util.isUnset(request.externalSourceConfigShrink)) {
+      body["ExternalSourceConfig"] = request.externalSourceConfigShrink;
+    }
+
+    if (!Util.isUnset(request.externalSourceType)) {
+      body["ExternalSourceType"] = request.externalSourceType;
+    }
+
+    if (!Util.isUnset(request.linkedExternalSource)) {
+      body["LinkedExternalSource"] = request.linkedExternalSource;
     }
 
     if (!Util.isUnset(request.sourceHttpEventParametersShrink)) {
