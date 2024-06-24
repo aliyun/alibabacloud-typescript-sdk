@@ -14431,6 +14431,93 @@ export class SubmitTranscodeJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitVideoTranslationJobRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  editingConfig?: string;
+  inputConfig?: string;
+  outputConfig?: string;
+  title?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      editingConfig: 'EditingConfig',
+      inputConfig: 'InputConfig',
+      outputConfig: 'OutputConfig',
+      title: 'Title',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      editingConfig: 'string',
+      inputConfig: 'string',
+      outputConfig: 'string',
+      title: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoTranslationJobResponseBody extends $tea.Model {
+  data?: SubmitVideoTranslationJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitVideoTranslationJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoTranslationJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitVideoTranslationJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitVideoTranslationJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAvatarTrainingJobRequest extends $tea.Model {
   avatarDescription?: string;
   avatarName?: string;
@@ -31776,6 +31863,25 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $tea.Model
   }
 }
 
+export class SubmitVideoTranslationJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAvatarTrainingJobResponseBodyData extends $tea.Model {
   jobId?: string;
   static names(): { [key: string]: string } {
@@ -41608,6 +41714,72 @@ export default class Client extends OpenApi {
   async submitTranscodeJob(request: SubmitTranscodeJobRequest): Promise<SubmitTranscodeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitTranscodeJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 提交视频翻译任务
+   *
+   * @param request SubmitVideoTranslationJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitVideoTranslationJobResponse
+   */
+  async submitVideoTranslationJobWithOptions(request: SubmitVideoTranslationJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitVideoTranslationJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.editingConfig)) {
+      query["EditingConfig"] = request.editingConfig;
+    }
+
+    if (!Util.isUnset(request.inputConfig)) {
+      query["InputConfig"] = request.inputConfig;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitVideoTranslationJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitVideoTranslationJobResponse>(await this.callApi(params, req, runtime), new SubmitVideoTranslationJobResponse({}));
+  }
+
+  /**
+   * @summary 提交视频翻译任务
+   *
+   * @param request SubmitVideoTranslationJobRequest
+   * @return SubmitVideoTranslationJobResponse
+   */
+  async submitVideoTranslationJob(request: SubmitVideoTranslationJobRequest): Promise<SubmitVideoTranslationJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitVideoTranslationJobWithOptions(request, runtime);
   }
 
   /**
