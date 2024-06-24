@@ -2978,11 +2978,216 @@ export class GetProjectResponseBodyDataPropertiesTableLifecycle extends $tea.Mod
   }
 }
 
+export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastAccessGreaterThan extends $tea.Model {
+  conditionCode?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conditionCode: 'conditionCode',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionCode: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastModificationGreaterThan extends $tea.Model {
+  conditionCode?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conditionCode: 'conditionCode',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionCode: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastTierModificationGreaterThan extends $tea.Model {
+  conditionCode?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conditionCode: 'conditionCode',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionCode: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm extends $tea.Model {
+  daysAfterLastAccessGreaterThan?: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastAccessGreaterThan;
+  daysAfterLastModificationGreaterThan?: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastModificationGreaterThan;
+  daysAfterLastTierModificationGreaterThan?: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastTierModificationGreaterThan;
+  static names(): { [key: string]: string } {
+    return {
+      daysAfterLastAccessGreaterThan: 'daysAfterLastAccessGreaterThan',
+      daysAfterLastModificationGreaterThan: 'daysAfterLastModificationGreaterThan',
+      daysAfterLastTierModificationGreaterThan: 'daysAfterLastTierModificationGreaterThan',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      daysAfterLastAccessGreaterThan: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastAccessGreaterThan,
+      daysAfterLastModificationGreaterThan: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastModificationGreaterThan,
+      daysAfterLastTierModificationGreaterThan: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastTierModificationGreaterThan,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastAccessGreaterThan extends $tea.Model {
+  conditionCode?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conditionCode: 'conditionCode',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionCode: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastModificationGreaterThan extends $tea.Model {
+  conditionCode?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conditionCode: 'conditionCode',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionCode: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastTierModificationGreaterThan extends $tea.Model {
+  conditionCode?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conditionCode: 'conditionCode',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionCode: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency extends $tea.Model {
+  daysAfterLastAccessGreaterThan?: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastAccessGreaterThan;
+  daysAfterLastModificationGreaterThan?: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastModificationGreaterThan;
+  daysAfterLastTierModificationGreaterThan?: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastTierModificationGreaterThan;
+  static names(): { [key: string]: string } {
+    return {
+      daysAfterLastAccessGreaterThan: 'daysAfterLastAccessGreaterThan',
+      daysAfterLastModificationGreaterThan: 'daysAfterLastModificationGreaterThan',
+      daysAfterLastTierModificationGreaterThan: 'daysAfterLastTierModificationGreaterThan',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      daysAfterLastAccessGreaterThan: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastAccessGreaterThan,
+      daysAfterLastModificationGreaterThan: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastModificationGreaterThan,
+      daysAfterLastTierModificationGreaterThan: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastTierModificationGreaterThan,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBodyDataPropertiesTableLifecycleConfig extends $tea.Model {
+  tierToLongterm?: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm;
+  tierToLowFrequency?: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency;
+  static names(): { [key: string]: string } {
+    return {
+      tierToLongterm: 'TierToLongterm',
+      tierToLowFrequency: 'TierToLowFrequency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tierToLongterm: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm,
+      tierToLowFrequency: GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetProjectResponseBodyDataProperties extends $tea.Model {
   allowFullScan?: boolean;
   elderTunnelQuota?: string;
   enableDecimal2?: boolean;
   enableFdcCacheForce?: boolean;
+  enableTieredStorage?: boolean;
   enableTunnelQuotaRoute?: boolean;
   encryption?: GetProjectResponseBodyDataPropertiesEncryption;
   fdcQuota?: string;
@@ -2990,6 +3195,7 @@ export class GetProjectResponseBodyDataProperties extends $tea.Model {
   sqlMeteringMax?: string;
   storageTierInfo?: GetProjectResponseBodyDataPropertiesStorageTierInfo;
   tableLifecycle?: GetProjectResponseBodyDataPropertiesTableLifecycle;
+  tableLifecycleConfig?: GetProjectResponseBodyDataPropertiesTableLifecycleConfig;
   timezone?: string;
   tunnelQuota?: string;
   typeSystem?: string;
@@ -2999,6 +3205,7 @@ export class GetProjectResponseBodyDataProperties extends $tea.Model {
       elderTunnelQuota: 'elderTunnelQuota',
       enableDecimal2: 'enableDecimal2',
       enableFdcCacheForce: 'enableFdcCacheForce',
+      enableTieredStorage: 'enableTieredStorage',
       enableTunnelQuotaRoute: 'enableTunnelQuotaRoute',
       encryption: 'encryption',
       fdcQuota: 'fdcQuota',
@@ -3006,6 +3213,7 @@ export class GetProjectResponseBodyDataProperties extends $tea.Model {
       sqlMeteringMax: 'sqlMeteringMax',
       storageTierInfo: 'storageTierInfo',
       tableLifecycle: 'tableLifecycle',
+      tableLifecycleConfig: 'tableLifecycleConfig',
       timezone: 'timezone',
       tunnelQuota: 'tunnelQuota',
       typeSystem: 'typeSystem',
@@ -3018,6 +3226,7 @@ export class GetProjectResponseBodyDataProperties extends $tea.Model {
       elderTunnelQuota: 'string',
       enableDecimal2: 'boolean',
       enableFdcCacheForce: 'boolean',
+      enableTieredStorage: 'boolean',
       enableTunnelQuotaRoute: 'boolean',
       encryption: GetProjectResponseBodyDataPropertiesEncryption,
       fdcQuota: 'string',
@@ -3025,6 +3234,7 @@ export class GetProjectResponseBodyDataProperties extends $tea.Model {
       sqlMeteringMax: 'string',
       storageTierInfo: GetProjectResponseBodyDataPropertiesStorageTierInfo,
       tableLifecycle: GetProjectResponseBodyDataPropertiesTableLifecycle,
+      tableLifecycleConfig: GetProjectResponseBodyDataPropertiesTableLifecycleConfig,
       timezone: 'string',
       tunnelQuota: 'string',
       typeSystem: 'string',
@@ -6773,6 +6983,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Creates a package.
+   *
+   * @param request CreatePackageRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePackageResponse
+   */
   async createPackageWithOptions(projectName: string, request: CreatePackageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePackageResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6799,12 +7017,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePackageResponse>(await this.callApi(params, req, runtime), new CreatePackageResponse({}));
   }
 
+  /**
+   * @summary Creates a package.
+   *
+   * @param request CreatePackageRequest
+   * @return CreatePackageResponse
+   */
   async createPackage(projectName: string, request: CreatePackageRequest): Promise<CreatePackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createPackageWithOptions(projectName, request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a MaxCompute project.
+   *
+   * @param request CreateProjectRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProjectResponse
+   */
   async createProjectWithOptions(request: CreateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6825,12 +7057,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
   }
 
+  /**
+   * @summary Creates a MaxCompute project.
+   *
+   * @param request CreateProjectRequest
+   * @return CreateProjectResponse
+   */
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createProjectWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a quota plan.
+   *
+   * @param request CreateQuotaPlanRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQuotaPlanResponse
+   */
   async createQuotaPlanWithOptions(nickname: string, request: CreateQuotaPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateQuotaPlanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6861,12 +7107,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQuotaPlanResponse>(await this.callApi(params, req, runtime), new CreateQuotaPlanResponse({}));
   }
 
+  /**
+   * @summary Creates a quota plan.
+   *
+   * @param request CreateQuotaPlanRequest
+   * @return CreateQuotaPlanResponse
+   */
   async createQuotaPlan(nickname: string, request: CreateQuotaPlanRequest): Promise<CreateQuotaPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createQuotaPlanWithOptions(nickname, request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a scheduling plan for a quota plan.
+   *
+   * @param request CreateQuotaScheduleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQuotaScheduleResponse
+   */
   async createQuotaScheduleWithOptions(nickname: string, request: CreateQuotaScheduleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateQuotaScheduleResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6897,12 +7157,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQuotaScheduleResponse>(await this.callApi(params, req, runtime), new CreateQuotaScheduleResponse({}));
   }
 
+  /**
+   * @summary Creates a scheduling plan for a quota plan.
+   *
+   * @param request CreateQuotaScheduleRequest
+   * @return CreateQuotaScheduleResponse
+   */
   async createQuotaSchedule(nickname: string, request: CreateQuotaScheduleRequest): Promise<CreateQuotaScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createQuotaScheduleWithOptions(nickname, request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a role at the MaxCompute project level.
+   *
+   * @param request CreateRoleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRoleResponse
+   */
   async createRoleWithOptions(projectName: string, request: CreateRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRoleResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6923,12 +7197,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRoleResponse>(await this.callApi(params, req, runtime), new CreateRoleResponse({}));
   }
 
+  /**
+   * @summary Creates a role at the MaxCompute project level.
+   *
+   * @param request CreateRoleRequest
+   * @return CreateRoleResponse
+   */
   async createRole(projectName: string, request: CreateRoleRequest): Promise<CreateRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createRoleWithOptions(projectName, request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a quota plan.
+   *
+   * @param request DeleteQuotaPlanRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteQuotaPlanResponse
+   */
   async deleteQuotaPlanWithOptions(nickname: string, planName: string, request: DeleteQuotaPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteQuotaPlanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6958,12 +7246,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteQuotaPlanResponse>(await this.callApi(params, req, runtime), new DeleteQuotaPlanResponse({}));
   }
 
+  /**
+   * @summary Deletes a quota plan.
+   *
+   * @param request DeleteQuotaPlanRequest
+   * @return DeleteQuotaPlanResponse
+   */
   async deleteQuotaPlan(nickname: string, planName: string, request: DeleteQuotaPlanRequest): Promise<DeleteQuotaPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteQuotaPlanWithOptions(nickname, planName, request, headers, runtime);
   }
 
+  /**
+   * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+   *
+   * @param tmpReq GetJobResourceUsageRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobResourceUsageResponse
+   */
   async getJobResourceUsageWithOptions(tmpReq: GetJobResourceUsageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobResourceUsageResponse> {
     Util.validateModel(tmpReq);
     let request = new GetJobResourceUsageShrinkRequest({ });
@@ -7015,12 +7317,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobResourceUsageResponse>(await this.callApi(params, req, runtime), new GetJobResourceUsageResponse({}));
   }
 
+  /**
+   * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+   *
+   * @param request GetJobResourceUsageRequest
+   * @return GetJobResourceUsageResponse
+   */
   async getJobResourceUsage(request: GetJobResourceUsageRequest): Promise<GetJobResourceUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobResourceUsageWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains the information about a package.
+   *
+   * @param request GetPackageRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPackageResponse
+   */
   async getPackageWithOptions(projectName: string, packageName: string, request: GetPackageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPackageResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7046,12 +7362,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPackageResponse>(await this.callApi(params, req, runtime), new GetPackageResponse({}));
   }
 
+  /**
+   * @summary Obtains the information about a package.
+   *
+   * @param request GetPackageRequest
+   * @return GetPackageResponse
+   */
   async getPackage(projectName: string, packageName: string, request: GetPackageRequest): Promise<GetPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPackageWithOptions(projectName, packageName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about a MaxCompute project.
+   *
+   * @param request GetProjectRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProjectResponse
+   */
   async getProjectWithOptions(projectName: string, request: GetProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7077,12 +7407,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a MaxCompute project.
+   *
+   * @param request GetProjectRequest
+   * @return GetProjectResponse
+   */
   async getProject(projectName: string, request: GetProjectRequest): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProjectWithOptions(projectName, request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains the information about a specified level-1 quota.
+   *
+   * @param request GetQuotaRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQuotaResponse
+   */
   async getQuotaWithOptions(nickname: string, request: GetQuotaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQuotaResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7120,12 +7464,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQuotaResponse>(await this.callApi(params, req, runtime), new GetQuotaResponse({}));
   }
 
+  /**
+   * @summary Obtains the information about a specified level-1 quota.
+   *
+   * @param request GetQuotaRequest
+   * @return GetQuotaResponse
+   */
   async getQuota(nickname: string, request: GetQuotaRequest): Promise<GetQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getQuotaWithOptions(nickname, request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains the information of a quota plan.
+   *
+   * @param request GetQuotaPlanRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQuotaPlanResponse
+   */
   async getQuotaPlanWithOptions(nickname: string, planName: string, request: GetQuotaPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQuotaPlanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7155,12 +7513,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQuotaPlanResponse>(await this.callApi(params, req, runtime), new GetQuotaPlanResponse({}));
   }
 
+  /**
+   * @summary Obtains the information of a quota plan.
+   *
+   * @param request GetQuotaPlanRequest
+   * @return GetQuotaPlanResponse
+   */
   async getQuotaPlan(nickname: string, planName: string, request: GetQuotaPlanRequest): Promise<GetQuotaPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getQuotaPlanWithOptions(nickname, planName, request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains the scheduling plan for a quota plan.
+   *
+   * @param request GetQuotaScheduleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQuotaScheduleResponse
+   */
   async getQuotaScheduleWithOptions(nickname: string, request: GetQuotaScheduleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQuotaScheduleResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7194,12 +7566,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQuotaScheduleResponse>(await this.callApi(params, req, runtime), new GetQuotaScheduleResponse({}));
   }
 
+  /**
+   * @summary Obtains the scheduling plan for a quota plan.
+   *
+   * @param request GetQuotaScheduleRequest
+   * @return GetQuotaScheduleResponse
+   */
   async getQuotaSchedule(nickname: string, request: GetQuotaScheduleRequest): Promise<GetQuotaScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getQuotaScheduleWithOptions(nickname, request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains the ACL-based permissions that is granted to a project-level role.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRoleAclResponse
+   */
   async getRoleAclWithOptions(projectName: string, roleName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRoleAclResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7218,12 +7603,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRoleAclResponse>(await this.callApi(params, req, runtime), new GetRoleAclResponse({}));
   }
 
+  /**
+   * @summary Obtains the ACL-based permissions that is granted to a project-level role.
+   *
+   * @return GetRoleAclResponse
+   */
   async getRoleAcl(projectName: string, roleName: string): Promise<GetRoleAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRoleAclWithOptions(projectName, roleName, headers, runtime);
   }
 
+  /**
+   * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
+   *
+   * @param request GetRoleAclOnObjectRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRoleAclOnObjectResponse
+   */
   async getRoleAclOnObjectWithOptions(projectName: string, roleName: string, request: GetRoleAclOnObjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRoleAclOnObjectResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7253,12 +7651,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRoleAclOnObjectResponse>(await this.callApi(params, req, runtime), new GetRoleAclOnObjectResponse({}));
   }
 
+  /**
+   * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
+   *
+   * @param request GetRoleAclOnObjectRequest
+   * @return GetRoleAclOnObjectResponse
+   */
   async getRoleAclOnObject(projectName: string, roleName: string, request: GetRoleAclOnObjectRequest): Promise<GetRoleAclOnObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRoleAclOnObjectWithOptions(projectName, roleName, request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains the policy that is attached to a project-level role.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRolePolicyResponse
+   */
   async getRolePolicyWithOptions(projectName: string, roleName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRolePolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7277,12 +7688,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRolePolicyResponse>(await this.callApi(params, req, runtime), new GetRolePolicyResponse({}));
   }
 
+  /**
+   * @summary Obtains the policy that is attached to a project-level role.
+   *
+   * @return GetRolePolicyResponse
+   */
   async getRolePolicy(projectName: string, roleName: string): Promise<GetRolePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRolePolicyWithOptions(projectName, roleName, headers, runtime);
   }
 
+  /**
+   * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
+   *
+   * @param tmpReq GetRunningJobsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRunningJobsResponse
+   */
   async getRunningJobsWithOptions(tmpReq: GetRunningJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRunningJobsResponse> {
     Util.validateModel(tmpReq);
     let request = new GetRunningJobsShrinkRequest({ });
@@ -7338,12 +7762,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRunningJobsResponse>(await this.callApi(params, req, runtime), new GetRunningJobsResponse({}));
   }
 
+  /**
+   * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
+   *
+   * @param request GetRunningJobsRequest
+   * @return GetRunningJobsResponse
+   */
   async getRunningJobs(request: GetRunningJobsRequest): Promise<GetRunningJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRunningJobsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request GetTableInfoRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTableInfoResponse
+   */
   async getTableInfoWithOptions(projectName: string, tableName: string, request: GetTableInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTableInfoResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7373,12 +7809,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTableInfoResponse>(await this.callApi(params, req, runtime), new GetTableInfoResponse({}));
   }
 
+  /**
+   * @param request GetTableInfoRequest
+   * @return GetTableInfoResponse
+   */
   async getTableInfo(projectName: string, tableName: string, request: GetTableInfoRequest): Promise<GetTableInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTableInfoWithOptions(projectName, tableName, request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains the trusted projects of the current project.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTrustedProjectsResponse
+   */
   async getTrustedProjectsWithOptions(projectName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTrustedProjectsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7397,12 +7844,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTrustedProjectsResponse>(await this.callApi(params, req, runtime), new GetTrustedProjectsResponse({}));
   }
 
+  /**
+   * @summary Obtains the trusted projects of the current project.
+   *
+   * @return GetTrustedProjectsResponse
+   */
   async getTrustedProjects(projectName: string): Promise<GetTrustedProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTrustedProjectsWithOptions(projectName, headers, runtime);
   }
 
+  /**
+   * @summary Terminates a running job.
+   *
+   * @param request KillJobsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return KillJobsResponse
+   */
   async killJobsWithOptions(request: KillJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<KillJobsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7433,12 +7893,26 @@ export default class Client extends OpenApi {
     return $tea.cast<KillJobsResponse>(await this.callApi(params, req, runtime), new KillJobsResponse({}));
   }
 
+  /**
+   * @summary Terminates a running job.
+   *
+   * @param request KillJobsRequest
+   * @return KillJobsResponse
+   */
   async killJobs(request: KillJobsRequest): Promise<KillJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.killJobsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains functions in a MaxCompute project.
+   *
+   * @param request ListFunctionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFunctionsResponse
+   */
   async listFunctionsWithOptions(projectName: string, request: ListFunctionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7476,12 +7950,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
   }
 
+  /**
+   * @summary Obtains functions in a MaxCompute project.
+   *
+   * @param request ListFunctionsRequest
+   * @return ListFunctionsResponse
+   */
   async listFunctions(projectName: string, request: ListFunctionsRequest): Promise<ListFunctionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFunctionsWithOptions(projectName, request, headers, runtime);
   }
 
+  /**
+   * @summary Views a list of jobs.
+   *
+   * @param request ListJobInfosRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListJobInfosResponse
+   */
   async listJobInfosWithOptions(request: ListJobInfosRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobInfosResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7528,12 +8016,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListJobInfosResponse>(await this.callApi(params, req, runtime), new ListJobInfosResponse({}));
   }
 
+  /**
+   * @summary Views a list of jobs.
+   *
+   * @param request ListJobInfosRequest
+   * @return ListJobInfosResponse
+   */
   async listJobInfos(request: ListJobInfosRequest): Promise<ListJobInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listJobInfosWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the packages in a MaxCompute project.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPackagesResponse
+   */
   async listPackagesWithOptions(projectName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPackagesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7552,12 +8053,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPackagesResponse>(await this.callApi(params, req, runtime), new ListPackagesResponse({}));
   }
 
+  /**
+   * @summary Queries the packages in a MaxCompute project.
+   *
+   * @return ListPackagesResponse
+   */
   async listPackages(projectName: string): Promise<ListPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPackagesWithOptions(projectName, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of users in a project.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectUsersResponse
+   */
   async listProjectUsersWithOptions(projectName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectUsersResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7576,12 +8089,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectUsersResponse>(await this.callApi(params, req, runtime), new ListProjectUsersResponse({}));
   }
 
+  /**
+   * @summary Queries a list of users in a project.
+   *
+   * @return ListProjectUsersResponse
+   */
   async listProjectUsers(projectName: string): Promise<ListProjectUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProjectUsersWithOptions(projectName, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of MaxCompute projects.
+   *
+   * @param request ListProjectsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectsResponse
+   */
   async listProjectsWithOptions(request: ListProjectsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7643,12 +8169,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of MaxCompute projects.
+   *
+   * @param request ListProjectsRequest
+   * @return ListProjectsResponse
+   */
   async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProjectsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries quotas.
+   *
+   * @param request ListQuotasRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQuotasResponse
+   */
   async listQuotasWithOptions(request: ListQuotasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListQuotasResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7698,12 +8238,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQuotasResponse>(await this.callApi(params, req, runtime), new ListQuotasResponse({}));
   }
 
+  /**
+   * @summary Queries quotas.
+   *
+   * @param request ListQuotasRequest
+   * @return ListQuotasResponse
+   */
   async listQuotas(request: ListQuotasRequest): Promise<ListQuotasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listQuotasWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains quota plans.
+   *
+   * @param request ListQuotasPlansRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQuotasPlansResponse
+   */
   async listQuotasPlansWithOptions(nickname: string, request: ListQuotasPlansRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListQuotasPlansResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7733,12 +8287,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQuotasPlansResponse>(await this.callApi(params, req, runtime), new ListQuotasPlansResponse({}));
   }
 
+  /**
+   * @summary Obtains quota plans.
+   *
+   * @param request ListQuotasPlansRequest
+   * @return ListQuotasPlansResponse
+   */
   async listQuotasPlans(nickname: string, request: ListQuotasPlansRequest): Promise<ListQuotasPlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listQuotasPlansWithOptions(nickname, request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains resources in a MaxCompute project.
+   *
+   * @param request ListResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListResourcesResponse
+   */
   async listResourcesWithOptions(projectName: string, request: ListResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7776,12 +8344,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourcesResponse>(await this.callApi(params, req, runtime), new ListResourcesResponse({}));
   }
 
+  /**
+   * @summary Obtains resources in a MaxCompute project.
+   *
+   * @param request ListResourcesRequest
+   * @return ListResourcesResponse
+   */
   async listResources(projectName: string, request: ListResourcesRequest): Promise<ListResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listResourcesWithOptions(projectName, request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains MaxCompute project-level roles.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRolesResponse
+   */
   async listRolesWithOptions(projectName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRolesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7800,12 +8381,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRolesResponse>(await this.callApi(params, req, runtime), new ListRolesResponse({}));
   }
 
+  /**
+   * @summary Obtains MaxCompute project-level roles.
+   *
+   * @return ListRolesResponse
+   */
   async listRoles(projectName: string): Promise<ListRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRolesWithOptions(projectName, headers, runtime);
   }
 
+  /**
+   * @summary Obtains tables in a MaxCompute project.
+   *
+   * @param request ListTablesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTablesResponse
+   */
   async listTablesWithOptions(projectName: string, request: ListTablesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTablesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7847,12 +8441,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTablesResponse>(await this.callApi(params, req, runtime), new ListTablesResponse({}));
   }
 
+  /**
+   * @summary Obtains tables in a MaxCompute project.
+   *
+   * @param request ListTablesRequest
+   * @return ListTablesResponse
+   */
   async listTables(projectName: string, request: ListTablesRequest): Promise<ListTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTablesWithOptions(projectName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of all users under a tenant.
+   *
+   * @param request ListUsersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersResponse
+   */
   async listUsersWithOptions(request: ListUsersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7882,12 +8490,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
+  /**
+   * @summary Queries a list of all users under a tenant.
+   *
+   * @param request ListUsersRequest
+   * @return ListUsersResponse
+   */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listUsersWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains information about the users who are assigned a project-level role.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersByRoleResponse
+   */
   async listUsersByRoleWithOptions(projectName: string, roleName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUsersByRoleResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7906,12 +8527,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersByRoleResponse>(await this.callApi(params, req, runtime), new ListUsersByRoleResponse({}));
   }
 
+  /**
+   * @summary Obtains information about the users who are assigned a project-level role.
+   *
+   * @return ListUsersByRoleResponse
+   */
   async listUsersByRole(projectName: string, roleName: string): Promise<ListUsersByRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listUsersByRoleWithOptions(projectName, roleName, headers, runtime);
   }
 
+  /**
+   * @summary Updates the objects in a package and projects in which the package can be installed.
+   *
+   * @param request UpdatePackageRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePackageResponse
+   */
   async updatePackageWithOptions(projectName: string, packageName: string, request: UpdatePackageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePackageResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7932,12 +8566,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePackageResponse>(await this.callApi(params, req, runtime), new UpdatePackageResponse({}));
   }
 
+  /**
+   * @summary Updates the objects in a package and projects in which the package can be installed.
+   *
+   * @param request UpdatePackageRequest
+   * @return UpdatePackageResponse
+   */
   async updatePackage(projectName: string, packageName: string, request: UpdatePackageRequest): Promise<UpdatePackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updatePackageWithOptions(projectName, packageName, request, headers, runtime);
   }
 
+  /**
+   * @summary Modifies the IP address whitelist of a MaxCompute project.
+   *
+   * @param request UpdateProjectIpWhiteListRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateProjectIpWhiteListResponse
+   */
   async updateProjectIpWhiteListWithOptions(projectName: string, request: UpdateProjectIpWhiteListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectIpWhiteListResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7958,12 +8606,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProjectIpWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateProjectIpWhiteListResponse({}));
   }
 
+  /**
+   * @summary Modifies the IP address whitelist of a MaxCompute project.
+   *
+   * @param request UpdateProjectIpWhiteListRequest
+   * @return UpdateProjectIpWhiteListResponse
+   */
   async updateProjectIpWhiteList(projectName: string, request: UpdateProjectIpWhiteListRequest): Promise<UpdateProjectIpWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateProjectIpWhiteListWithOptions(projectName, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates a quota.
+   *
+   * @param request UpdateQuotaRequest
+   * @param headers UpdateQuotaHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateQuotaResponse
+   */
   async updateQuotaWithOptions(nickname: string, request: UpdateQuotaRequest, headers: UpdateQuotaHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateQuotaResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8003,12 +8665,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateQuotaResponse>(await this.callApi(params, req, runtime), new UpdateQuotaResponse({}));
   }
 
+  /**
+   * @summary Updates a quota.
+   *
+   * @param request UpdateQuotaRequest
+   * @return UpdateQuotaResponse
+   */
   async updateQuota(nickname: string, request: UpdateQuotaRequest): Promise<UpdateQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UpdateQuotaHeaders({ });
     return await this.updateQuotaWithOptions(nickname, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates a quota plan.
+   *
+   * @param request UpdateQuotaPlanRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateQuotaPlanResponse
+   */
   async updateQuotaPlanWithOptions(nickname: string, planName: string, request: UpdateQuotaPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateQuotaPlanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8039,12 +8715,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateQuotaPlanResponse>(await this.callApi(params, req, runtime), new UpdateQuotaPlanResponse({}));
   }
 
+  /**
+   * @summary Updates a quota plan.
+   *
+   * @param request UpdateQuotaPlanRequest
+   * @return UpdateQuotaPlanResponse
+   */
   async updateQuotaPlan(nickname: string, planName: string, request: UpdateQuotaPlanRequest): Promise<UpdateQuotaPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateQuotaPlanWithOptions(nickname, planName, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the scheduling plan for a quota plan.
+   *
+   * @param request UpdateQuotaScheduleRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateQuotaScheduleResponse
+   */
   async updateQuotaScheduleWithOptions(nickname: string, request: UpdateQuotaScheduleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateQuotaScheduleResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8075,6 +8765,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateQuotaScheduleResponse>(await this.callApi(params, req, runtime), new UpdateQuotaScheduleResponse({}));
   }
 
+  /**
+   * @summary Updates the scheduling plan for a quota plan.
+   *
+   * @param request UpdateQuotaScheduleRequest
+   * @return UpdateQuotaScheduleResponse
+   */
   async updateQuotaSchedule(nickname: string, request: UpdateQuotaScheduleRequest): Promise<UpdateQuotaScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
