@@ -2560,10 +2560,16 @@ export class CreateInstanceRequestCloudDisks extends $tea.Model {
 export class CreateInstanceRequestDatasets extends $tea.Model {
   datasetId?: string;
   mountPath?: string;
+  optionType?: string;
+  options?: string;
+  uri?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       mountPath: 'MountPath',
+      optionType: 'OptionType',
+      options: 'Options',
+      uri: 'Uri',
     };
   }
 
@@ -2571,6 +2577,9 @@ export class CreateInstanceRequestDatasets extends $tea.Model {
     return {
       datasetId: 'string',
       mountPath: 'string',
+      optionType: 'string',
+      options: 'string',
+      uri: 'string',
     };
   }
 
@@ -2719,10 +2728,16 @@ export class GetInstanceResponseBodyCloudDisks extends $tea.Model {
 export class GetInstanceResponseBodyDatasets extends $tea.Model {
   datasetId?: string;
   mountPath?: string;
+  optionType?: string;
+  options?: string;
+  uri?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       mountPath: 'MountPath',
+      optionType: 'OptionType',
+      options: 'Options',
+      uri: 'Uri',
     };
   }
 
@@ -2730,6 +2745,9 @@ export class GetInstanceResponseBodyDatasets extends $tea.Model {
     return {
       datasetId: 'string',
       mountPath: 'string',
+      optionType: 'string',
+      options: 'string',
+      uri: 'string',
     };
   }
 
@@ -3741,10 +3759,16 @@ export class UpdateInstanceRequestCloudDisks extends $tea.Model {
 export class UpdateInstanceRequestDatasets extends $tea.Model {
   datasetId?: string;
   mountPath?: string;
+  optionType?: string;
+  options?: string;
+  uri?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       mountPath: 'MountPath',
+      optionType: 'OptionType',
+      options: 'Options',
+      uri: 'Uri',
     };
   }
 
@@ -3752,6 +3776,9 @@ export class UpdateInstanceRequestDatasets extends $tea.Model {
     return {
       datasetId: 'string',
       mountPath: 'string',
+      optionType: 'string',
+      options: 'string',
+      uri: 'string',
     };
   }
 
