@@ -14731,8 +14731,8 @@ export class DescribeLayer4RulePolicyResponseBodySecRealServers extends $tea.Mod
 }
 
 export class DescribeNetworkRegionBlockResponseBodyConfig extends $tea.Model {
-  countries?: string[];
-  provinces?: string[];
+  countries?: number[];
+  provinces?: number[];
   regionBlockSwitch?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14744,8 +14744,8 @@ export class DescribeNetworkRegionBlockResponseBodyConfig extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      countries: { 'type': 'array', 'itemType': 'string' },
-      provinces: { 'type': 'array', 'itemType': 'string' },
+      countries: { 'type': 'array', 'itemType': 'number' },
+      provinces: { 'type': 'array', 'itemType': 'number' },
       regionBlockSwitch: 'string',
     };
   }
