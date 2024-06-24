@@ -8,6 +8,58 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class KeywordSuggestInfo extends $tea.Model {
+  address?: string;
+  businessAreaWithCity?: KeywordSuggestInfo;
+  cityCode?: number;
+  cityName?: string;
+  displayName?: string;
+  hotelId?: string;
+  icon?: string;
+  point?: string;
+  price?: string;
+  region?: number;
+  type?: number;
+  typeDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      businessAreaWithCity: 'business_area_with_city',
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      displayName: 'display_name',
+      hotelId: 'hotel_id',
+      icon: 'icon',
+      point: 'point',
+      price: 'price',
+      region: 'region',
+      type: 'type',
+      typeDesc: 'type_desc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      businessAreaWithCity: KeywordSuggestInfo,
+      cityCode: 'number',
+      cityName: 'string',
+      displayName: 'string',
+      hotelId: 'string',
+      icon: 'string',
+      point: 'string',
+      price: 'string',
+      region: 'number',
+      type: 'number',
+      typeDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModuleFlightItemListBestPriceItemFlightRuleInfosValue extends $tea.Model {
   refundChangeRuleDesc?: string;
   baggageDesc?: string;
@@ -27688,6 +27740,7 @@ export class CarApplyQueryResponseBodyApplyListTravelerStandard extends $tea.Mod
 
 export class CarApplyQueryResponseBodyApplyList extends $tea.Model {
   approverList?: CarApplyQueryResponseBodyApplyListApproverList[];
+  businessType?: string;
   departId?: string;
   departName?: string;
   gmtCreate?: string;
@@ -27704,6 +27757,7 @@ export class CarApplyQueryResponseBodyApplyList extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       approverList: 'approver_list',
+      businessType: 'business_type',
       departId: 'depart_id',
       departName: 'depart_name',
       gmtCreate: 'gmt_create',
@@ -27723,6 +27777,7 @@ export class CarApplyQueryResponseBodyApplyList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approverList: { 'type': 'array', 'itemType': CarApplyQueryResponseBodyApplyListApproverList },
+      businessType: 'string',
       departId: 'string',
       departName: 'string',
       gmtCreate: 'string',
@@ -35908,6 +35963,7 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
   arrAirportCode?: string;
   arrCity?: string;
   arrCityCode?: string;
+  companyRefundTicketFee?: number;
   depAirport?: string;
   depAirportCode?: string;
   depCity?: string;
@@ -35916,6 +35972,7 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
   gmtCreate?: string;
   gmtModify?: string;
   outApplyId?: string;
+  personalRefundTicketFee?: number;
   refundOrderId?: number;
   refundReason?: string;
   refundTicketFee?: number;
@@ -35928,6 +35985,7 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
       arrAirportCode: 'arr_airport_code',
       arrCity: 'arr_city',
       arrCityCode: 'arr_city_code',
+      companyRefundTicketFee: 'company_refund_ticket_fee',
       depAirport: 'dep_airport',
       depAirportCode: 'dep_airport_code',
       depCity: 'dep_city',
@@ -35936,6 +35994,7 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
       gmtCreate: 'gmt_create',
       gmtModify: 'gmt_modify',
       outApplyId: 'out_apply_id',
+      personalRefundTicketFee: 'personal_refund_ticket_fee',
       refundOrderId: 'refund_order_id',
       refundReason: 'refund_reason',
       refundTicketFee: 'refund_ticket_fee',
@@ -35951,6 +36010,7 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
       arrAirportCode: 'string',
       arrCity: 'string',
       arrCityCode: 'string',
+      companyRefundTicketFee: 'number',
       depAirport: 'string',
       depAirportCode: 'string',
       depCity: 'string',
@@ -35959,6 +36019,7 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
       gmtCreate: 'string',
       gmtModify: 'string',
       outApplyId: 'string',
+      personalRefundTicketFee: 'number',
       refundOrderId: 'number',
       refundReason: 'string',
       refundTicketFee: 'number',
@@ -35985,6 +36046,7 @@ export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $tea
   gmtModify?: string;
   oilPrice?: number;
   payType?: number;
+  personalPrice?: number;
   settlePrice?: number;
   ticketNo?: string;
   ticketPrice?: number;
@@ -36005,6 +36067,7 @@ export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $tea
       gmtModify: 'gmt_modify',
       oilPrice: 'oil_price',
       payType: 'pay_type',
+      personalPrice: 'personal_price',
       settlePrice: 'settle_price',
       ticketNo: 'ticket_no',
       ticketPrice: 'ticket_price',
@@ -36028,6 +36091,7 @@ export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $tea
       gmtModify: 'string',
       oilPrice: 'number',
       payType: 'number',
+      personalPrice: 'number',
       settlePrice: 'number',
       ticketNo: 'string',
       ticketPrice: 'number',
@@ -43876,6 +43940,7 @@ export class HotelOrderDetailInfoResponseBodyModule extends $tea.Model {
   occupantInfoList?: HotelOrderDetailInfoResponseBodyModuleOccupantInfoList[];
   orderStatus?: number;
   orderStatusDesc?: string;
+  outConfirmCode?: string;
   payTime?: string;
   productType?: number;
   purchaseOrderId?: string;
@@ -43916,6 +43981,7 @@ export class HotelOrderDetailInfoResponseBodyModule extends $tea.Model {
       occupantInfoList: 'occupant_info_list',
       orderStatus: 'order_status',
       orderStatusDesc: 'order_status_desc',
+      outConfirmCode: 'out_confirm_code',
       payTime: 'pay_time',
       productType: 'product_type',
       purchaseOrderId: 'purchase_order_id',
@@ -43959,6 +44025,7 @@ export class HotelOrderDetailInfoResponseBodyModule extends $tea.Model {
       occupantInfoList: { 'type': 'array', 'itemType': HotelOrderDetailInfoResponseBodyModuleOccupantInfoList },
       orderStatus: 'number',
       orderStatusDesc: 'string',
+      outConfirmCode: 'string',
       payTime: 'string',
       productType: 'number',
       purchaseOrderId: 'string',
