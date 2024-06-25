@@ -208,12 +208,14 @@ export class MaintenanceWindow extends $tea.Model {
   duration?: string;
   enable?: boolean;
   maintenanceTime?: string;
+  recurrence?: string;
   weeklyPeriod?: string;
   static names(): { [key: string]: string } {
     return {
       duration: 'duration',
       enable: 'enable',
       maintenanceTime: 'maintenance_time',
+      recurrence: 'recurrence',
       weeklyPeriod: 'weekly_period',
     };
   }
@@ -223,6 +225,7 @@ export class MaintenanceWindow extends $tea.Model {
       duration: 'string',
       enable: 'boolean',
       maintenanceTime: 'string',
+      recurrence: 'string',
       weeklyPeriod: 'string',
     };
   }
@@ -3659,10 +3662,12 @@ export class DescribeClusterVulsResponse extends $tea.Model {
 export class DescribeClustersRequest extends $tea.Model {
   clusterType?: string;
   name?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterType: 'clusterType',
       name: 'name',
+      resourceGroupId: 'resource_group_id',
     };
   }
 
@@ -3670,6 +3675,7 @@ export class DescribeClustersRequest extends $tea.Model {
     return {
       clusterType: 'string',
       name: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -16780,6 +16786,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       query["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["resource_group_id"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
