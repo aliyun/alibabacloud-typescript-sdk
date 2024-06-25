@@ -55,6 +55,28 @@ export class ResultClusterValue extends $tea.Model {
   }
 }
 
+export class ResultDatabasesFunctionsValue extends $tea.Model {
+  name?: string;
+  signatures?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      signatures: 'signatures',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      signatures: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResultValue extends $tea.Model {
   pauseAll?: boolean;
   pauseIndex?: boolean;
@@ -388,6 +410,75 @@ export class ChangeResourceGroupResponse extends $tea.Model {
   }
 }
 
+export class CloneSqlInstanceRequest extends $tea.Model {
+  name?: string;
+  targetFolderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      targetFolderId: 'targetFolderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      targetFolderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneSqlInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: CloneSqlInstanceResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: CloneSqlInstanceResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneSqlInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneSqlInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloneSqlInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequest extends $tea.Model {
   autoLoad?: boolean;
   dataNode?: CreateClusterRequestDataNode;
@@ -691,6 +782,78 @@ export class CreateDataSourceResponse extends $tea.Model {
   }
 }
 
+export class CreateFolderRequest extends $tea.Model {
+  name?: string;
+  parent?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      parent: 'parent',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      parent: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFolderResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: CreateFolderResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: CreateFolderResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFolderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFolderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFolderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIndexRequest extends $tea.Model {
   buildParallelNum?: number;
   content?: string;
@@ -895,6 +1058,75 @@ export class CreatePublicUrlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreatePublicUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlInstanceRequest extends $tea.Model {
+  name?: string;
+  parent?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      parent: 'parent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      parent: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: CreateSqlInstanceResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: CreateSqlInstanceResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSqlInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSqlInstanceResponseBody,
     };
   }
 
@@ -1228,6 +1460,53 @@ export class DeleteDataSourceResponse extends $tea.Model {
   }
 }
 
+export class DeleteFolderResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DeleteFolderResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: DeleteFolderResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFolderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFolderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFolderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIndexRequest extends $tea.Model {
   dataSource?: string;
   deleteDataSource?: boolean;
@@ -1438,6 +1717,53 @@ export class DeletePublicUrlResponse extends $tea.Model {
   }
 }
 
+export class DeleteSqlInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DeleteSqlInstanceResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: DeleteSqlInstanceResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSqlInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSqlInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSqlInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteTableResponseBody extends $tea.Model {
   requestId?: string;
   result?: { [key: string]: any };
@@ -1543,6 +1869,90 @@ export class DescribeRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSqlInstanceRequest extends $tea.Model {
+  combineParam?: { [key: string]: any };
+  content?: string;
+  domain?: string;
+  dynamicParam?: { [key: string]: any };
+  kvpair?: { [key: string]: any };
+  params?: { [key: string]: any };
+  staticParam?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      combineParam: 'combineParam',
+      content: 'content',
+      domain: 'domain',
+      dynamicParam: 'dynamicParam',
+      kvpair: 'kvpair',
+      params: 'params',
+      staticParam: 'staticParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      combineParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      content: 'string',
+      domain: 'string',
+      dynamicParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      kvpair: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      staticParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSqlInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ExecuteSqlInstanceResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ExecuteSqlInstanceResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSqlInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteSqlInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteSqlInstanceResponseBody,
     };
   }
 
@@ -1918,6 +2328,53 @@ export class GetDataSourceDeployResponse extends $tea.Model {
   }
 }
 
+export class GetDatabaseSchemaResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetDatabaseSchemaResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': GetDatabaseSchemaResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatabaseSchemaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDatabaseSchemaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDatabaseSchemaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDeployGraphResponseBody extends $tea.Model {
   requestId?: string;
   result?: GetDeployGraphResponseBodyResult;
@@ -2283,6 +2740,72 @@ export class GetNodeConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetNodeConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSqlInstanceRequest extends $tea.Model {
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSqlInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetSqlInstanceResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetSqlInstanceResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSqlInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSqlInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSqlInstanceResponseBody,
     };
   }
 
@@ -2800,6 +3323,53 @@ export class ListDataSourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDataSourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatabasesResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListDatabasesResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListDatabasesResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatabasesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDatabasesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDatabasesResponseBody,
     };
   }
 
@@ -4337,75 +4907,6 @@ export class ModifyClusterOnlineConfigResponse extends $tea.Model {
   }
 }
 
-export class ModifyDataSourceRequest extends $tea.Model {
-  body?: { [key: string]: any };
-  dryRun?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-      dryRun: 'dryRun',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      dryRun: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDataSourceResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-      result: 'result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDataSourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDataSourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDataSourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyDataSourceDeployRequest extends $tea.Model {
   autoBuildIndex?: boolean;
   extend?: ModifyDataSourceDeployRequestExtend;
@@ -5716,6 +6217,72 @@ export class RemoveClusterResponse extends $tea.Model {
   }
 }
 
+export class RenameFolderRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenameFolderResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: RenameFolderResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: RenameFolderResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenameFolderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenameFolderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenameFolderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartIndexResponseBody extends $tea.Model {
   requestId?: string;
   result?: { [key: string]: any };
@@ -6098,6 +6665,216 @@ export class UpdateInstanceResponse extends $tea.Model {
   }
 }
 
+export class UpdateSqlInstanceContentRequest extends $tea.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceContentResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: UpdateSqlInstanceContentResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: UpdateSqlInstanceContentResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceContentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSqlInstanceContentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSqlInstanceContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceNameRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceNameResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: UpdateSqlInstanceNameResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: UpdateSqlInstanceNameResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceNameResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSqlInstanceNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSqlInstanceNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceParamsRequest extends $tea.Model {
+  combineParam?: { [key: string]: any };
+  dynamicParam?: { [key: string]: any };
+  kvpair?: { [key: string]: any };
+  params?: { [key: string]: any };
+  staticParam?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      combineParam: 'combineParam',
+      dynamicParam: 'dynamicParam',
+      kvpair: 'kvpair',
+      params: 'params',
+      staticParam: 'staticParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      combineParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      dynamicParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      kvpair: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      staticParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceParamsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: UpdateSqlInstanceParamsResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: UpdateSqlInstanceParamsResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceParamsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSqlInstanceParamsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSqlInstanceParamsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VariablesValueFuncValue extends $tea.Model {
   funcClassName?: string;
   template?: string;
@@ -6165,6 +6942,49 @@ export class ConfigValueFiles extends $tea.Model {
       fileName: 'string',
       config: ConfigValueFilesConfig,
       dirName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneSqlInstanceResponseBodyResult extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  instanceId?: number;
+  isDir?: number;
+  name?: string;
+  parent?: number;
+  templateId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      id: 'id',
+      instanceId: 'instanceId',
+      isDir: 'isDir',
+      name: 'name',
+      parent: 'parent',
+      templateId: 'templateId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      instanceId: 'number',
+      isDir: 'number',
+      name: 'string',
+      parent: 'number',
+      templateId: 'number',
+      type: 'string',
     };
   }
 
@@ -6274,6 +7094,49 @@ export class CreateDataSourceRequestSaroConfig extends $tea.Model {
     return {
       namespace: 'string',
       tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFolderResponseBodyResult extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  instanceId?: number;
+  isDir?: number;
+  name?: string;
+  parent?: number;
+  templateId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      id: 'id',
+      instanceId: 'instanceId',
+      isDir: 'isDir',
+      name: 'name',
+      parent: 'parent',
+      templateId: 'templateId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      instanceId: 'number',
+      isDir: 'number',
+      name: 'string',
+      parent: 'number',
+      templateId: 'number',
+      type: 'string',
     };
   }
 
@@ -6451,6 +7314,49 @@ export class CreateInstanceResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlInstanceResponseBodyResult extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  instanceId?: number;
+  isDir?: number;
+  name?: string;
+  parent?: number;
+  templateId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      id: 'id',
+      instanceId: 'instanceId',
+      isDir: 'isDir',
+      name: 'name',
+      parent: 'parent',
+      templateId: 'templateId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      instanceId: 'number',
+      isDir: 'number',
+      name: 'string',
+      parent: 'number',
+      templateId: 'number',
+      type: 'string',
     };
   }
 
@@ -6676,6 +7582,50 @@ export class CreateTableRequestVectorIndex extends $tea.Model {
   }
 }
 
+export class DeleteFolderResponseBodyResult extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSqlInstanceResponseBodyResult extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyResult extends $tea.Model {
   endpoint?: string;
   localName?: string;
@@ -6693,6 +7643,49 @@ export class DescribeRegionsResponseBodyResult extends $tea.Model {
       endpoint: 'string',
       localName: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSqlInstanceResponseBodyResult extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  instanceId?: number;
+  isDir?: number;
+  name?: string;
+  parent?: number;
+  templateId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      id: 'id',
+      instanceId: 'instanceId',
+      isDir: 'isDir',
+      name: 'name',
+      parent: 'parent',
+      templateId: 'templateId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      instanceId: 'number',
+      isDir: 'number',
+      name: 'string',
+      parent: 'number',
+      templateId: 'number',
+      type: 'string',
     };
   }
 
@@ -7447,6 +8440,37 @@ export class GetDataSourceDeployResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetDatabaseSchemaResponseBodyResult extends $tea.Model {
+  fieldName?: string;
+  fieldType?: string;
+  fieldTypeDetail?: { [key: string]: any };
+  indexName?: string;
+  indexType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldName: 'fieldName',
+      fieldType: 'fieldType',
+      fieldTypeDetail: 'fieldTypeDetail',
+      indexName: 'indexName',
+      indexType: 'indexType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldName: 'string',
+      fieldType: 'string',
+      fieldTypeDetail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      indexName: 'string',
+      indexType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDeployGraphResponseBodyResultGraphIndexMetas extends $tea.Model {
   domainName?: string;
   name?: string;
@@ -8064,6 +9088,58 @@ export class GetNodeConfigResponseBodyResult extends $tea.Model {
       flowRatio: 'number',
       minServicePercent: 'number',
       published: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSqlInstanceResponseBodyResult extends $tea.Model {
+  combineParams?: string;
+  comment?: string;
+  content?: string;
+  dynamicParams?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  instanceId?: number;
+  kvpairs?: string;
+  relatedTemplateId?: number;
+  staticParams?: string;
+  templateParams?: string;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      combineParams: 'combineParams',
+      comment: 'comment',
+      content: 'content',
+      dynamicParams: 'dynamicParams',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      instanceId: 'instanceId',
+      kvpairs: 'kvpairs',
+      relatedTemplateId: 'relatedTemplateId',
+      staticParams: 'staticParams',
+      templateParams: 'templateParams',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      combineParams: 'string',
+      comment: 'string',
+      content: 'string',
+      dynamicParams: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      instanceId: 'number',
+      kvpairs: 'string',
+      relatedTemplateId: 'number',
+      staticParams: 'string',
+      templateParams: 'string',
+      version: 'number',
     };
   }
 
@@ -8887,6 +9963,176 @@ export class ListDataSourcesResponseBodyResult extends $tea.Model {
       name: 'string',
       status: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatabasesResponseBodyResultDatabasesSqlInstances extends $tea.Model {
+  children?: any[];
+  id?: number;
+  instanceId?: number;
+  isDir?: number;
+  name?: string;
+  parent?: number;
+  templateId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      children: 'children',
+      id: 'id',
+      instanceId: 'instanceId',
+      isDir: 'isDir',
+      name: 'name',
+      parent: 'parent',
+      templateId: 'templateId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      children: { 'type': 'array', 'itemType': 'any' },
+      id: 'number',
+      instanceId: 'number',
+      isDir: 'number',
+      name: 'string',
+      parent: 'number',
+      templateId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatabasesResponseBodyResultDatabasesTables extends $tea.Model {
+  children?: any[];
+  id?: number;
+  instanceId?: number;
+  isDir?: number;
+  name?: string;
+  parent?: number;
+  templateId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      children: 'children',
+      id: 'id',
+      instanceId: 'instanceId',
+      isDir: 'isDir',
+      name: 'name',
+      parent: 'parent',
+      templateId: 'templateId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      children: { 'type': 'array', 'itemType': 'any' },
+      id: 'number',
+      instanceId: 'number',
+      isDir: 'number',
+      name: 'string',
+      parent: 'number',
+      templateId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatabasesResponseBodyResultDatabasesTemplates extends $tea.Model {
+  children?: any[];
+  id?: number;
+  instanceId?: number;
+  isDir?: number;
+  name?: string;
+  parent?: number;
+  templateId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      children: 'children',
+      id: 'id',
+      instanceId: 'instanceId',
+      isDir: 'isDir',
+      name: 'name',
+      parent: 'parent',
+      templateId: 'templateId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      children: { 'type': 'array', 'itemType': 'any' },
+      id: 'number',
+      instanceId: 'number',
+      isDir: 'number',
+      name: 'string',
+      parent: 'number',
+      templateId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatabasesResponseBodyResultDatabases extends $tea.Model {
+  database?: string;
+  functions?: { [key: string]: ResultDatabasesFunctionsValue[] };
+  sqlInstances?: ListDatabasesResponseBodyResultDatabasesSqlInstances[];
+  tables?: ListDatabasesResponseBodyResultDatabasesTables[];
+  templates?: ListDatabasesResponseBodyResultDatabasesTemplates[];
+  static names(): { [key: string]: string } {
+    return {
+      database: 'database',
+      functions: 'functions',
+      sqlInstances: 'sqlInstances',
+      tables: 'tables',
+      templates: 'templates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      functions: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': ResultDatabasesFunctionsValue } },
+      sqlInstances: { 'type': 'array', 'itemType': ListDatabasesResponseBodyResultDatabasesSqlInstances },
+      tables: { 'type': 'array', 'itemType': ListDatabasesResponseBodyResultDatabasesTables },
+      templates: { 'type': 'array', 'itemType': ListDatabasesResponseBodyResultDatabasesTemplates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatabasesResponseBodyResult extends $tea.Model {
+  databases?: ListDatabasesResponseBodyResultDatabases[];
+  static names(): { [key: string]: string } {
+    return {
+      databases: 'databases',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databases: { 'type': 'array', 'itemType': ListDatabasesResponseBodyResultDatabases },
     };
   }
 
@@ -10084,6 +11330,49 @@ export class PublishAdvanceConfigRequestFiles extends $tea.Model {
   }
 }
 
+export class RenameFolderResponseBodyResult extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  instanceId?: number;
+  isDir?: number;
+  name?: string;
+  parent?: number;
+  templateId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      id: 'id',
+      instanceId: 'instanceId',
+      isDir: 'isDir',
+      name: 'name',
+      parent: 'parent',
+      templateId: 'templateId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      instanceId: 'number',
+      isDir: 'number',
+      name: 'string',
+      parent: 'number',
+      templateId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -10169,6 +11458,153 @@ export class UpdateInstanceResponseBodyResult extends $tea.Model {
       resourceGroupId: 'string',
       status: 'string',
       updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceContentResponseBodyResult extends $tea.Model {
+  combineParams?: string;
+  comment?: string;
+  content?: string;
+  dynamicParams?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  instanceId?: number;
+  kvpairs?: string;
+  relatedTemplateId?: number;
+  staticParams?: string;
+  templateParams?: string;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      combineParams: 'combineParams',
+      comment: 'comment',
+      content: 'content',
+      dynamicParams: 'dynamicParams',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      instanceId: 'instanceId',
+      kvpairs: 'kvpairs',
+      relatedTemplateId: 'relatedTemplateId',
+      staticParams: 'staticParams',
+      templateParams: 'templateParams',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      combineParams: 'string',
+      comment: 'string',
+      content: 'string',
+      dynamicParams: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      instanceId: 'number',
+      kvpairs: 'string',
+      relatedTemplateId: 'number',
+      staticParams: 'string',
+      templateParams: 'string',
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceNameResponseBodyResult extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  instanceId?: number;
+  isDir?: number;
+  name?: string;
+  parent?: number;
+  templateId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      id: 'id',
+      instanceId: 'instanceId',
+      isDir: 'isDir',
+      name: 'name',
+      parent: 'parent',
+      templateId: 'templateId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      instanceId: 'number',
+      isDir: 'number',
+      name: 'string',
+      parent: 'number',
+      templateId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceParamsResponseBodyResult extends $tea.Model {
+  combineParams?: string;
+  comment?: string;
+  content?: string;
+  dynamicParams?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  instanceId?: number;
+  kvpairs?: string;
+  relatedTemplateId?: number;
+  staticParams?: string;
+  templateParams?: string;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      combineParams: 'combineParams',
+      comment: 'comment',
+      content: 'content',
+      dynamicParams: 'dynamicParams',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      instanceId: 'instanceId',
+      kvpairs: 'kvpairs',
+      relatedTemplateId: 'relatedTemplateId',
+      staticParams: 'staticParams',
+      templateParams: 'templateParams',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      combineParams: 'string',
+      comment: 'string',
+      content: 'string',
+      dynamicParams: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      instanceId: 'number',
+      kvpairs: 'string',
+      relatedTemplateId: 'number',
+      staticParams: 'string',
+      templateParams: 'string',
+      version: 'number',
     };
   }
 
@@ -10326,6 +11762,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.changeResourceGroupWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * @param request CloneSqlInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneSqlInstanceResponse
+   */
+  async cloneSqlInstanceWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: CloneSqlInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneSqlInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.targetFolderId)) {
+      body["targetFolderId"] = request.targetFolderId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CloneSqlInstance",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/sql-instances/${OpenApiUtil.getEncodeParam(sqlInstanceId)}/actions/clone`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CloneSqlInstanceResponse>(await this.callApi(params, req, runtime), new CloneSqlInstanceResponse({}));
+  }
+
+  /**
+   * @param request CloneSqlInstanceRequest
+   * @return CloneSqlInstanceResponse
+   */
+  async cloneSqlInstance(instanceId: string, database: string, sqlInstanceId: string, request: CloneSqlInstanceRequest): Promise<CloneSqlInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cloneSqlInstanceWithOptions(instanceId, database, sqlInstanceId, request, headers, runtime);
   }
 
   /**
@@ -10565,6 +12046,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request CreateFolderRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFolderResponse
+   */
+  async createFolderWithOptions(instanceId: string, database: string, request: CreateFolderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFolderResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parent)) {
+      body["parent"] = request.parent;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFolder",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/folders`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFolderResponse>(await this.callApi(params, req, runtime), new CreateFolderResponse({}));
+  }
+
+  /**
+   * @param request CreateFolderRequest
+   * @return CreateFolderResponse
+   */
+  async createFolder(instanceId: string, database: string, request: CreateFolderRequest): Promise<CreateFolderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createFolderWithOptions(instanceId, database, request, headers, runtime);
+  }
+
+  /**
    * @summary Creates an index.
    *
    * @description ### Method
@@ -10762,6 +12292,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createPublicUrlWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * @param request CreateSqlInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSqlInstanceResponse
+   */
+  async createSqlInstanceWithOptions(instanceId: string, database: string, request: CreateSqlInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSqlInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parent)) {
+      body["parent"] = request.parent;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSqlInstance",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/sql-instances`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSqlInstanceResponse>(await this.callApi(params, req, runtime), new CreateSqlInstanceResponse({}));
+  }
+
+  /**
+   * @param request CreateSqlInstanceRequest
+   * @return CreateSqlInstanceResponse
+   */
+  async createSqlInstance(instanceId: string, database: string, request: CreateSqlInstanceRequest): Promise<CreateSqlInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSqlInstanceWithOptions(instanceId, database, request, headers, runtime);
   }
 
   /**
@@ -11030,6 +12605,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFolderResponse
+   */
+  async deleteFolderWithOptions(instanceId: string, database: string, folderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFolderResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFolder",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/folders/${OpenApiUtil.getEncodeParam(folderId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFolderResponse>(await this.callApi(params, req, runtime), new DeleteFolderResponse({}));
+  }
+
+  /**
+   * @return DeleteFolderResponse
+   */
+  async deleteFolder(instanceId: string, database: string, folderId: string): Promise<DeleteFolderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFolderWithOptions(instanceId, database, folderId, headers, runtime);
+  }
+
+  /**
    * @summary Deletes an index.
    *
    * @description ## Method
@@ -11217,6 +12824,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSqlInstanceResponse
+   */
+  async deleteSqlInstanceWithOptions(instanceId: string, database: string, sqlInstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSqlInstanceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSqlInstance",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/sql-instances/${OpenApiUtil.getEncodeParam(sqlInstanceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSqlInstanceResponse>(await this.callApi(params, req, runtime), new DeleteSqlInstanceResponse({}));
+  }
+
+  /**
+   * @return DeleteSqlInstanceResponse
+   */
+  async deleteSqlInstance(instanceId: string, database: string, sqlInstanceId: string): Promise<DeleteSqlInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSqlInstanceWithOptions(instanceId, database, sqlInstanceId, headers, runtime);
+  }
+
+  /**
    * @summary 删除索引表V2
    *
    * @param headers map
@@ -11291,6 +12930,71 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeRegionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param request ExecuteSqlInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExecuteSqlInstanceResponse
+   */
+  async executeSqlInstanceWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: ExecuteSqlInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExecuteSqlInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.combineParam)) {
+      body["combineParam"] = request.combineParam;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      body["domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.dynamicParam)) {
+      body["dynamicParam"] = request.dynamicParam;
+    }
+
+    if (!Util.isUnset(request.kvpair)) {
+      body["kvpair"] = request.kvpair;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      body["params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.staticParam)) {
+      body["staticParam"] = request.staticParam;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteSqlInstance",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/sql-instances/${OpenApiUtil.getEncodeParam(sqlInstanceId)}/actions/execution`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteSqlInstanceResponse>(await this.callApi(params, req, runtime), new ExecuteSqlInstanceResponse({}));
+  }
+
+  /**
+   * @param request ExecuteSqlInstanceRequest
+   * @return ExecuteSqlInstanceResponse
+   */
+  async executeSqlInstance(instanceId: string, database: string, sqlInstanceId: string, request: ExecuteSqlInstanceRequest): Promise<ExecuteSqlInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeSqlInstanceWithOptions(instanceId, database, sqlInstanceId, request, headers, runtime);
   }
 
   /**
@@ -11632,6 +13336,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDatabaseSchemaResponse
+   */
+  async getDatabaseSchemaWithOptions(instanceId: string, database: string, tableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDatabaseSchemaResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDatabaseSchema",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/tables/${OpenApiUtil.getEncodeParam(tableName)}/schema`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDatabaseSchemaResponse>(await this.callApi(params, req, runtime), new GetDatabaseSchemaResponse({}));
+  }
+
+  /**
+   * @return GetDatabaseSchemaResponse
+   */
+  async getDatabaseSchema(instanceId: string, database: string, tableName: string): Promise<GetDatabaseSchemaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDatabaseSchemaWithOptions(instanceId, database, tableName, headers, runtime);
+  }
+
+  /**
    * @summary Displays the overview of the deployment.
    *
    * @description ## Method
@@ -11951,6 +13687,47 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getNodeConfigWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * @param request GetSqlInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSqlInstanceResponse
+   */
+  async getSqlInstanceWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: GetSqlInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSqlInstanceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSqlInstance",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/sql-instances/${OpenApiUtil.getEncodeParam(sqlInstanceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSqlInstanceResponse>(await this.callApi(params, req, runtime), new GetSqlInstanceResponse({}));
+  }
+
+  /**
+   * @param request GetSqlInstanceRequest
+   * @return GetSqlInstanceResponse
+   */
+  async getSqlInstance(instanceId: string, database: string, sqlInstanceId: string, request: GetSqlInstanceRequest): Promise<GetSqlInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSqlInstanceWithOptions(instanceId, database, sqlInstanceId, request, headers, runtime);
   }
 
   /**
@@ -12441,6 +14218,38 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDataSourcesWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDatabasesResponse
+   */
+  async listDatabasesWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDatabasesResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDatabases",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDatabasesResponse>(await this.callApi(params, req, runtime), new ListDatabasesResponse({}));
+  }
+
+  /**
+   * @return ListDatabasesResponse
+   */
+  async listDatabases(instanceId: string): Promise<ListDatabasesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDatabasesWithOptions(instanceId, headers, runtime);
   }
 
   /**
@@ -13638,67 +15447,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a data source.
-   *
-   * @description ## Method
-   * `PUT`
-   * ## URI
-   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-   *
-   * @param request ModifyDataSourceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyDataSourceResponse
-   */
-  async modifyDataSourceWithOptions(instanceId: string, dataSourceName: string, request: ModifyDataSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyDataSourceResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dryRun)) {
-      query["dryRun"] = request.dryRun;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.body)) {
-      body["body"] = request.body;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ModifyDataSource",
-      version: "2021-10-25",
-      protocol: "HTTPS",
-      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/data-sources/${OpenApiUtil.getEncodeParam(dataSourceName)}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyDataSourceResponse>(await this.callApi(params, req, runtime), new ModifyDataSourceResponse({}));
-  }
-
-  /**
-   * @summary Modifies a data source.
-   *
-   * @description ## Method
-   * `PUT`
-   * ## URI
-   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-   *
-   * @param request ModifyDataSourceRequest
-   * @return ModifyDataSourceResponse
-   */
-  async modifyDataSource(instanceId: string, dataSourceName: string, request: ModifyDataSourceRequest): Promise<ModifyDataSourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.modifyDataSourceWithOptions(instanceId, dataSourceName, request, headers, runtime);
-  }
-
-  /**
    * @summary 修改数据源部署信息
    *
    * @param request ModifyDataSourceDeployRequest
@@ -14810,6 +16558,47 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request RenameFolderRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenameFolderResponse
+   */
+  async renameFolderWithOptions(instanceId: string, database: string, folderId: string, request: RenameFolderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenameFolderResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RenameFolder",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/folders/${OpenApiUtil.getEncodeParam(folderId)}/name`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RenameFolderResponse>(await this.callApi(params, req, runtime), new RenameFolderResponse({}));
+  }
+
+  /**
+   * @param request RenameFolderRequest
+   * @return RenameFolderResponse
+   */
+  async renameFolder(instanceId: string, database: string, folderId: string, request: RenameFolderRequest): Promise<RenameFolderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.renameFolderWithOptions(instanceId, database, folderId, request, headers, runtime);
+  }
+
+  /**
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
    * @return StartIndexResponse
@@ -15108,6 +16897,145 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * @param request UpdateSqlInstanceContentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSqlInstanceContentResponse
+   */
+  async updateSqlInstanceContentWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceContentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSqlInstanceContentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSqlInstanceContent",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/sql-instances/${OpenApiUtil.getEncodeParam(sqlInstanceId)}/content`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSqlInstanceContentResponse>(await this.callApi(params, req, runtime), new UpdateSqlInstanceContentResponse({}));
+  }
+
+  /**
+   * @param request UpdateSqlInstanceContentRequest
+   * @return UpdateSqlInstanceContentResponse
+   */
+  async updateSqlInstanceContent(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceContentRequest): Promise<UpdateSqlInstanceContentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSqlInstanceContentWithOptions(instanceId, database, sqlInstanceId, request, headers, runtime);
+  }
+
+  /**
+   * @param request UpdateSqlInstanceNameRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSqlInstanceNameResponse
+   */
+  async updateSqlInstanceNameWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceNameRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSqlInstanceNameResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSqlInstanceName",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/sql-instances/${OpenApiUtil.getEncodeParam(sqlInstanceId)}/name`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSqlInstanceNameResponse>(await this.callApi(params, req, runtime), new UpdateSqlInstanceNameResponse({}));
+  }
+
+  /**
+   * @param request UpdateSqlInstanceNameRequest
+   * @return UpdateSqlInstanceNameResponse
+   */
+  async updateSqlInstanceName(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceNameRequest): Promise<UpdateSqlInstanceNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSqlInstanceNameWithOptions(instanceId, database, sqlInstanceId, request, headers, runtime);
+  }
+
+  /**
+   * @param request UpdateSqlInstanceParamsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSqlInstanceParamsResponse
+   */
+  async updateSqlInstanceParamsWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceParamsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSqlInstanceParamsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.combineParam)) {
+      body["combineParam"] = request.combineParam;
+    }
+
+    if (!Util.isUnset(request.dynamicParam)) {
+      body["dynamicParam"] = request.dynamicParam;
+    }
+
+    if (!Util.isUnset(request.kvpair)) {
+      body["kvpair"] = request.kvpair;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      body["params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.staticParam)) {
+      body["staticParam"] = request.staticParam;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSqlInstanceParams",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/sql-studio/databases/${OpenApiUtil.getEncodeParam(database)}/sql-instances/${OpenApiUtil.getEncodeParam(sqlInstanceId)}/params`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSqlInstanceParamsResponse>(await this.callApi(params, req, runtime), new UpdateSqlInstanceParamsResponse({}));
+  }
+
+  /**
+   * @param request UpdateSqlInstanceParamsRequest
+   * @return UpdateSqlInstanceParamsResponse
+   */
+  async updateSqlInstanceParams(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceParamsRequest): Promise<UpdateSqlInstanceParamsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSqlInstanceParamsWithOptions(instanceId, database, sqlInstanceId, request, headers, runtime);
   }
 
 }
