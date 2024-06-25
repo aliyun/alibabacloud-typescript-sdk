@@ -53,9 +53,9 @@ export class CheckCommercialStatusResponseBody extends $tea.Model {
 }
 
 export class CheckCommercialStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckCommercialStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckCommercialStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -131,9 +131,9 @@ export class GetTagKeyResponseBody extends $tea.Model {
 }
 
 export class GetTagKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTagKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTagKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -212,9 +212,9 @@ export class GetTagValResponseBody extends $tea.Model {
 }
 
 export class GetTagValResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTagValResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTagValResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -284,9 +284,9 @@ export class GetTraceResponseBody extends $tea.Model {
 }
 
 export class GetTraceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTraceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTraceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -359,9 +359,9 @@ export class ListIpOrHostsResponseBody extends $tea.Model {
 }
 
 export class ListIpOrHostsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIpOrHostsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIpOrHostsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -428,9 +428,9 @@ export class ListServicesResponseBody extends $tea.Model {
 }
 
 export class ListServicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -503,9 +503,9 @@ export class ListSpanNamesResponseBody extends $tea.Model {
 }
 
 export class ListSpanNamesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSpanNamesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSpanNamesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -572,9 +572,9 @@ export class OpenXtraceServiceResponseBody extends $tea.Model {
 }
 
 export class OpenXtraceServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OpenXtraceServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenXtraceServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -668,9 +668,9 @@ export class QueryMetricResponseBody extends $tea.Model {
 }
 
 export class QueryMetricResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMetricResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -767,9 +767,9 @@ export class SearchTracesResponseBody extends $tea.Model {
 }
 
 export class SearchTracesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchTracesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchTracesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1259,6 +1259,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 检查商业化状态
+   *
+   * @param request CheckCommercialStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckCommercialStatusResponse
+   */
   async checkCommercialStatusWithOptions(request: CheckCommercialStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckCommercialStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1287,11 +1294,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckCommercialStatusResponse>(await this.callApi(params, req, runtime), new CheckCommercialStatusResponse({}));
   }
 
+  /**
+   * @summary 检查商业化状态
+   *
+   * @param request CheckCommercialStatusRequest
+   * @return CheckCommercialStatusResponse
+   */
   async checkCommercialStatus(request: CheckCommercialStatusRequest): Promise<CheckCommercialStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkCommercialStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries tag keys.
+   *
+   * @param request GetTagKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTagKeyResponse
+   */
   async getTagKeyWithOptions(request: GetTagKeyRequest, runtime: $Util.RuntimeOptions): Promise<GetTagKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1332,11 +1352,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTagKeyResponse>(await this.callApi(params, req, runtime), new GetTagKeyResponse({}));
   }
 
+  /**
+   * @summary Queries tag keys.
+   *
+   * @param request GetTagKeyRequest
+   * @return GetTagKeyResponse
+   */
   async getTagKey(request: GetTagKeyRequest): Promise<GetTagKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTagKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tag values that correspond to a tag key.
+   *
+   * @param request GetTagValRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTagValResponse
+   */
   async getTagValWithOptions(request: GetTagValRequest, runtime: $Util.RuntimeOptions): Promise<GetTagValResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1381,11 +1414,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTagValResponse>(await this.callApi(params, req, runtime), new GetTagValResponse({}));
   }
 
+  /**
+   * @summary Queries the tag values that correspond to a tag key.
+   *
+   * @param request GetTagValRequest
+   * @return GetTagValResponse
+   */
   async getTagVal(request: GetTagValRequest): Promise<GetTagValResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTagValWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a trace.
+   *
+   * @param request GetTraceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTraceResponse
+   */
   async getTraceWithOptions(request: GetTraceRequest, runtime: $Util.RuntimeOptions): Promise<GetTraceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1418,11 +1464,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTraceResponse>(await this.callApi(params, req, runtime), new GetTraceResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a trace.
+   *
+   * @param request GetTraceRequest
+   * @return GetTraceResponse
+   */
   async getTrace(request: GetTraceRequest): Promise<GetTraceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTraceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the IP addresses of an application.
+   *
+   * @param request ListIpOrHostsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIpOrHostsResponse
+   */
   async listIpOrHostsWithOptions(request: ListIpOrHostsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpOrHostsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1459,11 +1518,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIpOrHostsResponse>(await this.callApi(params, req, runtime), new ListIpOrHostsResponse({}));
   }
 
+  /**
+   * @summary Queries the IP addresses of an application.
+   *
+   * @param request ListIpOrHostsRequest
+   * @return ListIpOrHostsResponse
+   */
   async listIpOrHosts(request: ListIpOrHostsRequest): Promise<ListIpOrHostsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIpOrHostsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries applications.
+   *
+   * @param request ListServicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServicesResponse
+   */
   async listServicesWithOptions(request: ListServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1492,11 +1564,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
   }
 
+  /**
+   * @summary Queries applications.
+   *
+   * @param request ListServicesRequest
+   * @return ListServicesResponse
+   */
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServicesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all span names in a specified region or all span names of a microservice.
+   *
+   * @param request ListSpanNamesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSpanNamesResponse
+   */
   async listSpanNamesWithOptions(request: ListSpanNamesRequest, runtime: $Util.RuntimeOptions): Promise<ListSpanNamesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1533,11 +1618,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSpanNamesResponse>(await this.callApi(params, req, runtime), new ListSpanNamesResponse({}));
   }
 
+  /**
+   * @summary Queries all span names in a specified region or all span names of a microservice.
+   *
+   * @param request ListSpanNamesRequest
+   * @return ListSpanNamesResponse
+   */
   async listSpanNames(request: ListSpanNamesRequest): Promise<ListSpanNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSpanNamesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开通xtrace和对应的sls
+   *
+   * @param request OpenXtraceServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenXtraceServiceResponse
+   */
   async openXtraceServiceWithOptions(request: OpenXtraceServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenXtraceServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1562,11 +1660,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenXtraceServiceResponse>(await this.callApi(params, req, runtime), new OpenXtraceServiceResponse({}));
   }
 
+  /**
+   * @summary 开通xtrace和对应的sls
+   *
+   * @param request OpenXtraceServiceRequest
+   * @return OpenXtraceServiceResponse
+   */
   async openXtraceService(request: OpenXtraceServiceRequest): Promise<OpenXtraceServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openXtraceServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a metric.
+   *
+   * @param request QueryMetricRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMetricResponse
+   */
   async queryMetricWithOptions(request: QueryMetricRequest, runtime: $Util.RuntimeOptions): Promise<QueryMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1631,11 +1742,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMetricResponse>(await this.callApi(params, req, runtime), new QueryMetricResponse({}));
   }
 
+  /**
+   * @summary Queries a metric.
+   *
+   * @param request QueryMetricRequest
+   * @return QueryMetricResponse
+   */
   async queryMetric(request: QueryMetricRequest): Promise<QueryMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMetricWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries traces by time, application name, IP address, span name, and tag.
+   *
+   * @param request SearchTracesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchTracesResponse
+   */
   async searchTracesWithOptions(request: SearchTracesRequest, runtime: $Util.RuntimeOptions): Promise<SearchTracesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1704,6 +1828,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchTracesResponse>(await this.callApi(params, req, runtime), new SearchTracesResponse({}));
   }
 
+  /**
+   * @summary Queries traces by time, application name, IP address, span name, and tag.
+   *
+   * @param request SearchTracesRequest
+   * @return SearchTracesResponse
+   */
   async searchTraces(request: SearchTracesRequest): Promise<SearchTracesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTracesWithOptions(request, runtime);
