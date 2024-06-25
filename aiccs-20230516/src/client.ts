@@ -111,9 +111,9 @@ export class AddBlacklistResponseBody extends $tea.Model {
 }
 
 export class AddBlacklistResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddBlacklistResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddBlacklistResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -322,9 +322,9 @@ export class AddTaskResponseBody extends $tea.Model {
 }
 
 export class AddTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -455,9 +455,9 @@ export class AgentCancelCallResponseBody extends $tea.Model {
 }
 
 export class AgentCancelCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AgentCancelCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AgentCancelCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -600,9 +600,9 @@ export class AgentRecoverCallResponseBody extends $tea.Model {
 }
 
 export class AgentRecoverCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AgentRecoverCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AgentRecoverCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -757,9 +757,9 @@ export class DetailsResponseBody extends $tea.Model {
 }
 
 export class DetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetailsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -968,9 +968,9 @@ export class EditTaskResponseBody extends $tea.Model {
 }
 
 export class EditTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EditTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EditTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1101,9 +1101,9 @@ export class ImportNumberResponseBody extends $tea.Model {
 }
 
 export class ImportNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ImportNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1228,9 +1228,9 @@ export class PageResponseBody extends $tea.Model {
 }
 
 export class PageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1327,9 +1327,9 @@ export class SmsTemplateCreateResponseBody extends $tea.Model {
 }
 
 export class SmsTemplateCreateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SmsTemplateCreateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SmsTemplateCreateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1432,9 +1432,9 @@ export class SmsTemplatePageListResponseBody extends $tea.Model {
 }
 
 export class SmsTemplatePageListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SmsTemplatePageListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SmsTemplatePageListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1528,9 +1528,9 @@ export class TaskCallChatsResponseBody extends $tea.Model {
 }
 
 export class TaskCallChatsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TaskCallChatsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TaskCallChatsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1615,9 +1615,9 @@ export class TaskCallInfoResponseBody extends $tea.Model {
 }
 
 export class TaskCallInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TaskCallInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TaskCallInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1772,9 +1772,9 @@ export class TaskCallListResponseBody extends $tea.Model {
 }
 
 export class TaskCallListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TaskCallListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TaskCallListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1899,9 +1899,9 @@ export class TaskCancelCallResponseBody extends $tea.Model {
 }
 
 export class TaskCancelCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TaskCancelCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TaskCancelCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1929,6 +1929,7 @@ export class TaskListRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  status?: number;
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1937,6 +1938,7 @@ export class TaskListRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      status: 'Status',
       taskId: 'TaskId',
     };
   }
@@ -1948,6 +1950,7 @@ export class TaskListRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      status: 'number',
       taskId: 'number',
     };
   }
@@ -1958,6 +1961,7 @@ export class TaskListRequest extends $tea.Model {
 }
 
 export class TaskListResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: number;
   message?: string;
   model?: TaskListResponseBodyModel[];
@@ -1966,6 +1970,7 @@ export class TaskListResponseBody extends $tea.Model {
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       model: 'Model',
@@ -1977,6 +1982,7 @@ export class TaskListResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       message: 'string',
       model: { 'type': 'array', 'itemType': TaskListResponseBodyModel },
@@ -1992,9 +1998,9 @@ export class TaskListResponseBody extends $tea.Model {
 }
 
 export class TaskListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TaskListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TaskListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2131,9 +2137,9 @@ export class TaskRecoverCallResponseBody extends $tea.Model {
 }
 
 export class TaskRecoverCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TaskRecoverCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TaskRecoverCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2218,9 +2224,9 @@ export class TemplateListResponseBody extends $tea.Model {
 }
 
 export class TemplateListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TemplateListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TemplateListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2311,9 +2317,9 @@ export class UpdateAgentStatusResponseBody extends $tea.Model {
 }
 
 export class UpdateAgentStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAgentStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAgentStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2432,9 +2438,9 @@ export class UpdateTaskCustomerResponseBody extends $tea.Model {
 }
 
 export class UpdateTaskCustomerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTaskCustomerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTaskCustomerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3201,6 +3207,7 @@ export class TaskListResponseBodyModel extends $tea.Model {
   status?: number;
   taskId?: number;
   taskName?: string;
+  templateId?: string;
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3223,6 +3230,7 @@ export class TaskListResponseBodyModel extends $tea.Model {
       status: 'Status',
       taskId: 'TaskId',
       taskName: 'TaskName',
+      templateId: 'TemplateId',
       templateName: 'TemplateName',
     };
   }
@@ -3248,6 +3256,7 @@ export class TaskListResponseBodyModel extends $tea.Model {
       status: 'number',
       taskId: 'number',
       taskName: 'string',
+      templateId: 'string',
       templateName: 'string',
     };
   }
@@ -3361,6 +3370,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 添加黑名单接口
+   *
+   * @param tmpReq AddBlacklistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddBlacklistResponse
+   */
   async addBlacklistWithOptions(tmpReq: AddBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<AddBlacklistResponse> {
     Util.validateModel(tmpReq);
     let request = new AddBlacklistShrinkRequest({ });
@@ -3411,11 +3427,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddBlacklistResponse>(await this.callApi(params, req, runtime), new AddBlacklistResponse({}));
   }
 
+  /**
+   * @summary 添加黑名单接口
+   *
+   * @param request AddBlacklistRequest
+   * @return AddBlacklistResponse
+   */
   async addBlacklist(request: AddBlacklistRequest): Promise<AddBlacklistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addBlacklistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建任务接口
+   *
+   * @param tmpReq AddTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddTaskResponse
+   */
   async addTaskWithOptions(tmpReq: AddTaskRequest, runtime: $Util.RuntimeOptions): Promise<AddTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new AddTaskShrinkRequest({ });
@@ -3534,11 +3563,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddTaskResponse>(await this.callApi(params, req, runtime), new AddTaskResponse({}));
   }
 
+  /**
+   * @summary 创建任务接口
+   *
+   * @param request AddTaskRequest
+   * @return AddTaskResponse
+   */
   async addTask(request: AddTaskRequest): Promise<AddTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 坐席取消号码外呼
+   *
+   * @param tmpReq AgentCancelCallRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AgentCancelCallResponse
+   */
   async agentCancelCallWithOptions(tmpReq: AgentCancelCallRequest, runtime: $Util.RuntimeOptions): Promise<AgentCancelCallResponse> {
     Util.validateModel(tmpReq);
     let request = new AgentCancelCallShrinkRequest({ });
@@ -3597,11 +3639,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AgentCancelCallResponse>(await this.callApi(params, req, runtime), new AgentCancelCallResponse({}));
   }
 
+  /**
+   * @summary 坐席取消号码外呼
+   *
+   * @param request AgentCancelCallRequest
+   * @return AgentCancelCallResponse
+   */
   async agentCancelCall(request: AgentCancelCallRequest): Promise<AgentCancelCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.agentCancelCallWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 坐席任务恢复号码
+   *
+   * @param tmpReq AgentRecoverCallRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AgentRecoverCallResponse
+   */
   async agentRecoverCallWithOptions(tmpReq: AgentRecoverCallRequest, runtime: $Util.RuntimeOptions): Promise<AgentRecoverCallResponse> {
     Util.validateModel(tmpReq);
     let request = new AgentRecoverCallShrinkRequest({ });
@@ -3668,11 +3723,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AgentRecoverCallResponse>(await this.callApi(params, req, runtime), new AgentRecoverCallResponse({}));
   }
 
+  /**
+   * @summary 坐席任务恢复号码
+   *
+   * @param request AgentRecoverCallRequest
+   * @return AgentRecoverCallResponse
+   */
   async agentRecoverCall(request: AgentRecoverCallRequest): Promise<AgentRecoverCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.agentRecoverCallWithOptions(request, runtime);
   }
 
+  /**
+   * @summary AI批量任务查询号码状态接口
+   *
+   * @param tmpReq DetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetailsResponse
+   */
   async detailsWithOptions(tmpReq: DetailsRequest, runtime: $Util.RuntimeOptions): Promise<DetailsResponse> {
     Util.validateModel(tmpReq);
     let request = new DetailsShrinkRequest({ });
@@ -3743,11 +3811,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetailsResponse>(await this.callApi(params, req, runtime), new DetailsResponse({}));
   }
 
+  /**
+   * @summary AI批量任务查询号码状态接口
+   *
+   * @param request DetailsRequest
+   * @return DetailsResponse
+   */
   async details(request: DetailsRequest): Promise<DetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detailsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 编辑任务接口
+   *
+   * @param tmpReq EditTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EditTaskResponse
+   */
   async editTaskWithOptions(tmpReq: EditTaskRequest, runtime: $Util.RuntimeOptions): Promise<EditTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new EditTaskShrinkRequest({ });
@@ -3866,11 +3947,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EditTaskResponse>(await this.callApi(params, req, runtime), new EditTaskResponse({}));
   }
 
+  /**
+   * @summary 编辑任务接口
+   *
+   * @param request EditTaskRequest
+   * @return EditTaskResponse
+   */
   async editTask(request: EditTaskRequest): Promise<EditTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.editTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 导入号码
+   *
+   * @param tmpReq ImportNumberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportNumberResponse
+   */
   async importNumberWithOptions(tmpReq: ImportNumberRequest, runtime: $Util.RuntimeOptions): Promise<ImportNumberResponse> {
     Util.validateModel(tmpReq);
     let request = new ImportNumberShrinkRequest({ });
@@ -3925,11 +4019,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportNumberResponse>(await this.callApi(params, req, runtime), new ImportNumberResponse({}));
   }
 
+  /**
+   * @summary 导入号码
+   *
+   * @param request ImportNumberRequest
+   * @return ImportNumberResponse
+   */
   async importNumber(request: ImportNumberRequest): Promise<ImportNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importNumberWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询企业黑名单
+   *
+   * @param tmpReq PageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PageResponse
+   */
   async pageWithOptions(tmpReq: PageRequest, runtime: $Util.RuntimeOptions): Promise<PageResponse> {
     Util.validateModel(tmpReq);
     let request = new PageShrinkRequest({ });
@@ -3980,11 +4087,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PageResponse>(await this.callApi(params, req, runtime), new PageResponse({}));
   }
 
+  /**
+   * @summary 查询企业黑名单
+   *
+   * @param request PageRequest
+   * @return PageResponse
+   */
   async page(request: PageRequest): Promise<PageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 短信模板创建
+   *
+   * @param request SmsTemplateCreateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SmsTemplateCreateResponse
+   */
   async smsTemplateCreateWithOptions(request: SmsTemplateCreateRequest, runtime: $Util.RuntimeOptions): Promise<SmsTemplateCreateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4037,11 +4157,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SmsTemplateCreateResponse>(await this.callApi(params, req, runtime), new SmsTemplateCreateResponse({}));
   }
 
+  /**
+   * @summary 短信模板创建
+   *
+   * @param request SmsTemplateCreateRequest
+   * @return SmsTemplateCreateResponse
+   */
   async smsTemplateCreate(request: SmsTemplateCreateRequest): Promise<SmsTemplateCreateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.smsTemplateCreateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 短信模板列表查询
+   *
+   * @param request SmsTemplatePageListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SmsTemplatePageListResponse
+   */
   async smsTemplatePageListWithOptions(request: SmsTemplatePageListRequest, runtime: $Util.RuntimeOptions): Promise<SmsTemplatePageListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4102,11 +4235,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SmsTemplatePageListResponse>(await this.callApi(params, req, runtime), new SmsTemplatePageListResponse({}));
   }
 
+  /**
+   * @summary 短信模板列表查询
+   *
+   * @param request SmsTemplatePageListRequest
+   * @return SmsTemplatePageListResponse
+   */
   async smsTemplatePageList(request: SmsTemplatePageListRequest): Promise<SmsTemplatePageListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.smsTemplatePageListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询聊天记录接口
+   *
+   * @param request TaskCallChatsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TaskCallChatsResponse
+   */
   async taskCallChatsWithOptions(request: TaskCallChatsRequest, runtime: $Util.RuntimeOptions): Promise<TaskCallChatsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4155,11 +4301,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TaskCallChatsResponse>(await this.callApi(params, req, runtime), new TaskCallChatsResponse({}));
   }
 
+  /**
+   * @summary 查询聊天记录接口
+   *
+   * @param request TaskCallChatsRequest
+   * @return TaskCallChatsResponse
+   */
   async taskCallChats(request: TaskCallChatsRequest): Promise<TaskCallChatsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.taskCallChatsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取任务外呼情况接口
+   *
+   * @param request TaskCallInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TaskCallInfoResponse
+   */
   async taskCallInfoWithOptions(request: TaskCallInfoRequest, runtime: $Util.RuntimeOptions): Promise<TaskCallInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4196,11 +4355,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TaskCallInfoResponse>(await this.callApi(params, req, runtime), new TaskCallInfoResponse({}));
   }
 
+  /**
+   * @summary 获取任务外呼情况接口
+   *
+   * @param request TaskCallInfoRequest
+   * @return TaskCallInfoResponse
+   */
   async taskCallInfo(request: TaskCallInfoRequest): Promise<TaskCallInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.taskCallInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary AI批量任务查询外呼记录接口
+   *
+   * @param tmpReq TaskCallListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TaskCallListResponse
+   */
   async taskCallListWithOptions(tmpReq: TaskCallListRequest, runtime: $Util.RuntimeOptions): Promise<TaskCallListResponse> {
     Util.validateModel(tmpReq);
     let request = new TaskCallListShrinkRequest({ });
@@ -4275,11 +4447,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TaskCallListResponse>(await this.callApi(params, req, runtime), new TaskCallListResponse({}));
   }
 
+  /**
+   * @summary AI批量任务查询外呼记录接口
+   *
+   * @param request TaskCallListRequest
+   * @return TaskCallListResponse
+   */
   async taskCallList(request: TaskCallListRequest): Promise<TaskCallListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.taskCallListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量任务取消号码外呼
+   *
+   * @param tmpReq TaskCancelCallRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TaskCancelCallResponse
+   */
   async taskCancelCallWithOptions(tmpReq: TaskCancelCallRequest, runtime: $Util.RuntimeOptions): Promise<TaskCancelCallResponse> {
     Util.validateModel(tmpReq);
     let request = new TaskCancelCallShrinkRequest({ });
@@ -4334,11 +4519,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TaskCancelCallResponse>(await this.callApi(params, req, runtime), new TaskCancelCallResponse({}));
   }
 
+  /**
+   * @summary 批量任务取消号码外呼
+   *
+   * @param request TaskCancelCallRequest
+   * @return TaskCancelCallResponse
+   */
   async taskCancelCall(request: TaskCancelCallRequest): Promise<TaskCancelCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.taskCancelCallWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询任务列表接口
+   *
+   * @param request TaskListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TaskListResponse
+   */
   async taskListWithOptions(request: TaskListRequest, runtime: $Util.RuntimeOptions): Promise<TaskListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4362,6 +4560,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
@@ -4383,11 +4585,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TaskListResponse>(await this.callApi(params, req, runtime), new TaskListResponse({}));
   }
 
+  /**
+   * @summary 查询任务列表接口
+   *
+   * @param request TaskListRequest
+   * @return TaskListResponse
+   */
   async taskList(request: TaskListRequest): Promise<TaskListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.taskListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量任务恢复号码
+   *
+   * @param tmpReq TaskRecoverCallRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TaskRecoverCallResponse
+   */
   async taskRecoverCallWithOptions(tmpReq: TaskRecoverCallRequest, runtime: $Util.RuntimeOptions): Promise<TaskRecoverCallResponse> {
     Util.validateModel(tmpReq);
     let request = new TaskRecoverCallShrinkRequest({ });
@@ -4450,11 +4665,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TaskRecoverCallResponse>(await this.callApi(params, req, runtime), new TaskRecoverCallResponse({}));
   }
 
+  /**
+   * @summary 批量任务恢复号码
+   *
+   * @param request TaskRecoverCallRequest
+   * @return TaskRecoverCallResponse
+   */
   async taskRecoverCall(request: TaskRecoverCallRequest): Promise<TaskRecoverCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.taskRecoverCallWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 话术模板列表查询接口
+   *
+   * @param request TemplateListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TemplateListResponse
+   */
   async templateListWithOptions(request: TemplateListRequest, runtime: $Util.RuntimeOptions): Promise<TemplateListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4491,11 +4719,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TemplateListResponse>(await this.callApi(params, req, runtime), new TemplateListResponse({}));
   }
 
+  /**
+   * @summary 话术模板列表查询接口
+   *
+   * @param request TemplateListRequest
+   * @return TemplateListResponse
+   */
   async templateList(request: TemplateListRequest): Promise<TemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.templateListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改坐席状态
+   *
+   * @param request UpdateAgentStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAgentStatusResponse
+   */
   async updateAgentStatusWithOptions(request: UpdateAgentStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAgentStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4540,11 +4781,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAgentStatusResponse>(await this.callApi(params, req, runtime), new UpdateAgentStatusResponse({}));
   }
 
+  /**
+   * @summary 修改坐席状态
+   *
+   * @param request UpdateAgentStatusRequest
+   * @return UpdateAgentStatusResponse
+   */
   async updateAgentStatus(request: UpdateAgentStatusRequest): Promise<UpdateAgentStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAgentStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新当天导入的号码
+   *
+   * @param tmpReq UpdateTaskCustomerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskCustomerResponse
+   */
   async updateTaskCustomerWithOptions(tmpReq: UpdateTaskCustomerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskCustomerResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateTaskCustomerShrinkRequest({ });
@@ -4591,6 +4845,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTaskCustomerResponse>(await this.callApi(params, req, runtime), new UpdateTaskCustomerResponse({}));
   }
 
+  /**
+   * @summary 更新当天导入的号码
+   *
+   * @param request UpdateTaskCustomerRequest
+   * @return UpdateTaskCustomerResponse
+   */
   async updateTaskCustomer(request: UpdateTaskCustomerRequest): Promise<UpdateTaskCustomerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskCustomerWithOptions(request, runtime);
