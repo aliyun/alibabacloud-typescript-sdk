@@ -5274,18 +5274,18 @@ export class GetTrafficControlTaskTrafficRequest extends $tea.Model {
 
 export class GetTrafficControlTaskTrafficResponseBody extends $tea.Model {
   requestId?: string;
-  trafficControlTaskTraffic?: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic;
+  trafficControlTaskTrafficInfo?: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      trafficControlTaskTraffic: 'TrafficControlTaskTraffic',
+      trafficControlTaskTrafficInfo: 'TrafficControlTaskTrafficInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      trafficControlTaskTraffic: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic,
+      trafficControlTaskTrafficInfo: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo,
     };
   }
 
@@ -5720,12 +5720,16 @@ export class ListExperimentGroupsRequest extends $tea.Model {
   layerId?: string;
   regionId?: string;
   status?: string;
+  timeRangeEnd?: string;
+  timeRangeStart?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       layerId: 'LayerId',
       regionId: 'RegionId',
       status: 'Status',
+      timeRangeEnd: 'TimeRangeEnd',
+      timeRangeStart: 'TimeRangeStart',
     };
   }
 
@@ -5735,6 +5739,8 @@ export class ListExperimentGroupsRequest extends $tea.Model {
       layerId: 'string',
       regionId: 'string',
       status: 'string',
+      timeRangeEnd: 'string',
+      timeRangeStart: 'string',
     };
   }
 
@@ -10380,7 +10386,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $tea
   }
 }
 
-export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics extends $tea.Model {
+export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics extends $tea.Model {
   data?: { [key: string]: any }[];
   trafficContorlTargetId?: string;
   static names(): { [key: string]: string } {
@@ -10402,8 +10408,8 @@ export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTa
   }
 }
 
-export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic extends $tea.Model {
-  targetTraffics?: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics[];
+export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo extends $tea.Model {
+  targetTraffics?: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics[];
   taskTraffics?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -10414,7 +10420,7 @@ export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic e
 
   static types(): { [key: string]: any } {
     return {
-      targetTraffics: { 'type': 'array', 'itemType': GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics },
+      targetTraffics: { 'type': 'array', 'itemType': GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics },
       taskTraffics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -14651,7 +14657,7 @@ export default class Client extends OpenApi {
       action: "GenerateTrafficControlTaskCode",
       version: "2022-12-13",
       protocol: "HTTPS",
-      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/code`,
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/generatecode`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -14696,7 +14702,7 @@ export default class Client extends OpenApi {
       action: "GenerateTrafficControlTaskConfig",
       version: "2022-12-13",
       protocol: "HTTPS",
-      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/config`,
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/generateconfig`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -15544,7 +15550,7 @@ export default class Client extends OpenApi {
       action: "GetTrafficControlTaskTraffic",
       version: "2022-12-13",
       protocol: "HTTPS",
-      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/action/traffic`,
+      pathname: `/api/v1/trafficcontroltasks/${OpenApiUtil.getEncodeParam(TrafficControlTaskId)}/trafficinfo`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -15884,6 +15890,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.timeRangeEnd)) {
+      query["TimeRangeEnd"] = request.timeRangeEnd;
+    }
+
+    if (!Util.isUnset(request.timeRangeStart)) {
+      query["TimeRangeStart"] = request.timeRangeStart;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -16783,7 +16797,7 @@ export default class Client extends OpenApi {
       action: "ListTrafficControlTargetTrafficHistory",
       version: "2022-12-13",
       protocol: "HTTPS",
-      pathname: `/api/v1/trafficcontroltargets/${OpenApiUtil.getEncodeParam(TrafficControlTargetId)}/action/traffichistory`,
+      pathname: `/api/v1/trafficcontroltargets/${OpenApiUtil.getEncodeParam(TrafficControlTargetId)}/traffichistories`,
       method: "GET",
       authType: "AK",
       style: "ROA",
