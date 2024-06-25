@@ -256,6 +256,94 @@ export class AttachAssetGroupToInstanceResponse extends $tea.Model {
   }
 }
 
+export class AttachToPolicyRequest extends $tea.Model {
+  ipPortProtocolList?: AttachToPolicyRequestIpPortProtocolList[];
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipPortProtocolList: 'IpPortProtocolList',
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipPortProtocolList: { 'type': 'array', 'itemType': AttachToPolicyRequestIpPortProtocolList },
+      policyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachToPolicyShrinkRequest extends $tea.Model {
+  ipPortProtocolListShrink?: string;
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipPortProtocolListShrink: 'IpPortProtocolList',
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipPortProtocolListShrink: 'string',
+      policyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachToPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachToPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachToPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachToPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckAccessLogAuthRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
@@ -3650,6 +3738,31 @@ export class AttachAssetGroupToInstanceRequestAssetGroupList extends $tea.Model 
   }
 }
 
+export class AttachToPolicyRequestIpPortProtocolList extends $tea.Model {
+  ip?: string;
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRdMemberListRequestMemberList extends $tea.Model {
   uid?: string;
   static names(): { [key: string]: string } {
@@ -5626,6 +5739,58 @@ export default class Client extends OpenApi {
   async attachAssetGroupToInstance(request: AttachAssetGroupToInstanceRequest): Promise<AttachAssetGroupToInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachAssetGroupToInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 策略绑定
+   *
+   * @param tmpReq AttachToPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachToPolicyResponse
+   */
+  async attachToPolicyWithOptions(tmpReq: AttachToPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AttachToPolicyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AttachToPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ipPortProtocolList)) {
+      request.ipPortProtocolListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipPortProtocolList, "IpPortProtocolList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.ipPortProtocolListShrink)) {
+      query["IpPortProtocolList"] = request.ipPortProtocolListShrink;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachToPolicy",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachToPolicyResponse>(await this.callApi(params, req, runtime), new AttachToPolicyResponse({}));
+  }
+
+  /**
+   * @summary 策略绑定
+   *
+   * @param request AttachToPolicyRequest
+   * @return AttachToPolicyResponse
+   */
+  async attachToPolicy(request: AttachToPolicyRequest): Promise<AttachToPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachToPolicyWithOptions(request, runtime);
   }
 
   /**
