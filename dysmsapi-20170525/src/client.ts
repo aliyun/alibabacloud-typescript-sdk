@@ -71,9 +71,9 @@ export class AddShortUrlResponseBody extends $tea.Model {
 }
 
 export class AddShortUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddShortUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddShortUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -164,9 +164,9 @@ export class AddSmsSignResponseBody extends $tea.Model {
 }
 
 export class AddSmsSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddSmsSignResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddSmsSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -254,9 +254,9 @@ export class AddSmsTemplateResponseBody extends $tea.Model {
 }
 
 export class AddSmsTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddSmsTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddSmsTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -329,9 +329,9 @@ export class CheckMobilesCardSupportResponseBody extends $tea.Model {
 }
 
 export class CheckMobilesCardSupportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckMobilesCardSupportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckMobilesCardSupportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -410,9 +410,9 @@ export class ConversionDataIntlResponseBody extends $tea.Model {
 }
 
 export class ConversionDataIntlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConversionDataIntlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConversionDataIntlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -519,9 +519,9 @@ export class CreateCardSmsTemplateResponseBody extends $tea.Model {
 }
 
 export class CreateCardSmsTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCardSmsTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCardSmsTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -544,33 +544,30 @@ export class CreateCardSmsTemplateResponse extends $tea.Model {
 }
 
 export class CreateSmartShortUrlRequest extends $tea.Model {
-  expiration?: number;
+  outId?: string;
   ownerId?: number;
   phoneNumbers?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  sourceName?: string;
   sourceUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      expiration: 'Expiration',
+      outId: 'OutId',
       ownerId: 'OwnerId',
       phoneNumbers: 'PhoneNumbers',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      sourceName: 'SourceName',
       sourceUrl: 'SourceUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      expiration: 'number',
+      outId: 'string',
       ownerId: 'number',
       phoneNumbers: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      sourceName: 'string',
       sourceUrl: 'string',
     };
   }
@@ -609,9 +606,9 @@ export class CreateSmartShortUrlResponseBody extends $tea.Model {
 }
 
 export class CreateSmartShortUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSmartShortUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSmartShortUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -625,6 +622,323 @@ export class CreateSmartShortUrlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateSmartShortUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsSignRequest extends $tea.Model {
+  applySceneContent?: string;
+  moreData?: string[];
+  ownerId?: number;
+  qualificationId?: number;
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  signName?: string;
+  signSource?: number;
+  signType?: number;
+  thirdParty?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      applySceneContent: 'ApplySceneContent',
+      moreData: 'MoreData',
+      ownerId: 'OwnerId',
+      qualificationId: 'QualificationId',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
+      signSource: 'SignSource',
+      signType: 'SignType',
+      thirdParty: 'ThirdParty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applySceneContent: 'string',
+      moreData: { 'type': 'array', 'itemType': 'string' },
+      ownerId: 'number',
+      qualificationId: 'number',
+      remark: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signName: 'string',
+      signSource: 'number',
+      signType: 'number',
+      thirdParty: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsSignShrinkRequest extends $tea.Model {
+  applySceneContent?: string;
+  moreDataShrink?: string;
+  ownerId?: number;
+  qualificationId?: number;
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  signName?: string;
+  signSource?: number;
+  signType?: number;
+  thirdParty?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      applySceneContent: 'ApplySceneContent',
+      moreDataShrink: 'MoreData',
+      ownerId: 'OwnerId',
+      qualificationId: 'QualificationId',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
+      signSource: 'SignSource',
+      signType: 'SignType',
+      thirdParty: 'ThirdParty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applySceneContent: 'string',
+      moreDataShrink: 'string',
+      ownerId: 'number',
+      qualificationId: 'number',
+      remark: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signName: 'string',
+      signSource: 'number',
+      signType: 'number',
+      thirdParty: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsSignResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  orderId?: string;
+  requestId?: string;
+  signName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      signName: 'SignName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      orderId: 'string',
+      requestId: 'string',
+      signName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsSignResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSmsSignResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSmsSignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsTemplateRequest extends $tea.Model {
+  applySceneContent?: string;
+  intlType?: number;
+  moreData?: string[];
+  ownerId?: number;
+  relatedSignName?: string;
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateContent?: string;
+  templateName?: string;
+  templateRule?: string;
+  templateType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applySceneContent: 'ApplySceneContent',
+      intlType: 'IntlType',
+      moreData: 'MoreData',
+      ownerId: 'OwnerId',
+      relatedSignName: 'RelatedSignName',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateContent: 'TemplateContent',
+      templateName: 'TemplateName',
+      templateRule: 'TemplateRule',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applySceneContent: 'string',
+      intlType: 'number',
+      moreData: { 'type': 'array', 'itemType': 'string' },
+      ownerId: 'number',
+      relatedSignName: 'string',
+      remark: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateContent: 'string',
+      templateName: 'string',
+      templateRule: 'string',
+      templateType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsTemplateShrinkRequest extends $tea.Model {
+  applySceneContent?: string;
+  intlType?: number;
+  moreDataShrink?: string;
+  ownerId?: number;
+  relatedSignName?: string;
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateContent?: string;
+  templateName?: string;
+  templateRule?: string;
+  templateType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applySceneContent: 'ApplySceneContent',
+      intlType: 'IntlType',
+      moreDataShrink: 'MoreData',
+      ownerId: 'OwnerId',
+      relatedSignName: 'RelatedSignName',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateContent: 'TemplateContent',
+      templateName: 'TemplateName',
+      templateRule: 'TemplateRule',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applySceneContent: 'string',
+      intlType: 'number',
+      moreDataShrink: 'string',
+      ownerId: 'number',
+      relatedSignName: 'string',
+      remark: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateContent: 'string',
+      templateName: 'string',
+      templateRule: 'string',
+      templateType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsTemplateResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  orderId?: string;
+  requestId?: string;
+  templateCode?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      orderId: 'string',
+      requestId: 'string',
+      templateCode: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSmsTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSmsTemplateResponseBody,
     };
   }
 
@@ -687,9 +1001,9 @@ export class DeleteShortUrlResponseBody extends $tea.Model {
 }
 
 export class DeleteShortUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteShortUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteShortUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -768,9 +1082,9 @@ export class DeleteSmsSignResponseBody extends $tea.Model {
 }
 
 export class DeleteSmsSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSmsSignResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSmsSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -849,9 +1163,9 @@ export class DeleteSmsTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteSmsTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSmsTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSmsTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -945,9 +1259,9 @@ export class GetCardSmsLinkResponseBody extends $tea.Model {
 }
 
 export class GetCardSmsLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCardSmsLinkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCardSmsLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1029,9 +1343,9 @@ export class GetMediaResourceIdResponseBody extends $tea.Model {
 }
 
 export class GetMediaResourceIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMediaResourceIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaResourceIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1082,9 +1396,9 @@ export class GetOSSInfoForCardTemplateResponseBody extends $tea.Model {
 }
 
 export class GetOSSInfoForCardTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetOSSInfoForCardTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOSSInfoForCardTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1098,6 +1412,333 @@ export class GetOSSInfoForCardTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetOSSInfoForCardTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForUploadFileRequest extends $tea.Model {
+  bizType?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForUploadFileResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  model?: GetOSSInfoForUploadFileResponseBodyModel;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      model: GetOSSInfoForUploadFileResponseBodyModel,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForUploadFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOSSInfoForUploadFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOSSInfoForUploadFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsSignRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  signName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsSignResponseBody extends $tea.Model {
+  applyScene?: string;
+  auditInfo?: GetSmsSignResponseBodyAuditInfo;
+  code?: string;
+  createDate?: string;
+  fileUrlList?: string[];
+  message?: string;
+  orderId?: string;
+  qualificationId?: number;
+  remark?: string;
+  requestId?: string;
+  signCode?: string;
+  signName?: string;
+  signStatus?: number;
+  signTag?: string;
+  signUsage?: string;
+  thirdParty?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      applyScene: 'ApplyScene',
+      auditInfo: 'AuditInfo',
+      code: 'Code',
+      createDate: 'CreateDate',
+      fileUrlList: 'FileUrlList',
+      message: 'Message',
+      orderId: 'OrderId',
+      qualificationId: 'QualificationId',
+      remark: 'Remark',
+      requestId: 'RequestId',
+      signCode: 'SignCode',
+      signName: 'SignName',
+      signStatus: 'SignStatus',
+      signTag: 'SignTag',
+      signUsage: 'SignUsage',
+      thirdParty: 'ThirdParty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyScene: 'string',
+      auditInfo: GetSmsSignResponseBodyAuditInfo,
+      code: 'string',
+      createDate: 'string',
+      fileUrlList: { 'type': 'array', 'itemType': 'string' },
+      message: 'string',
+      orderId: 'string',
+      qualificationId: 'number',
+      remark: 'string',
+      requestId: 'string',
+      signCode: 'string',
+      signName: 'string',
+      signStatus: 'number',
+      signTag: 'string',
+      signUsage: 'string',
+      thirdParty: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsSignResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSmsSignResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSmsSignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsTemplateRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsTemplateResponseBody extends $tea.Model {
+  applyScene?: string;
+  auditInfo?: GetSmsTemplateResponseBodyAuditInfo;
+  code?: string;
+  createDate?: string;
+  fileUrlList?: GetSmsTemplateResponseBodyFileUrlList;
+  intlType?: number;
+  message?: string;
+  moreDataFileUrlList?: GetSmsTemplateResponseBodyMoreDataFileUrlList;
+  orderId?: string;
+  relatedSignName?: string;
+  remark?: string;
+  requestId?: string;
+  templateCode?: string;
+  templateContent?: string;
+  templateName?: string;
+  templateStatus?: string;
+  templateTag?: number;
+  templateType?: string;
+  variableAttribute?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applyScene: 'ApplyScene',
+      auditInfo: 'AuditInfo',
+      code: 'Code',
+      createDate: 'CreateDate',
+      fileUrlList: 'FileUrlList',
+      intlType: 'IntlType',
+      message: 'Message',
+      moreDataFileUrlList: 'MoreDataFileUrlList',
+      orderId: 'OrderId',
+      relatedSignName: 'RelatedSignName',
+      remark: 'Remark',
+      requestId: 'RequestId',
+      templateCode: 'TemplateCode',
+      templateContent: 'TemplateContent',
+      templateName: 'TemplateName',
+      templateStatus: 'TemplateStatus',
+      templateTag: 'TemplateTag',
+      templateType: 'TemplateType',
+      variableAttribute: 'VariableAttribute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyScene: 'string',
+      auditInfo: GetSmsTemplateResponseBodyAuditInfo,
+      code: 'string',
+      createDate: 'string',
+      fileUrlList: GetSmsTemplateResponseBodyFileUrlList,
+      intlType: 'number',
+      message: 'string',
+      moreDataFileUrlList: GetSmsTemplateResponseBodyMoreDataFileUrlList,
+      orderId: 'string',
+      relatedSignName: 'string',
+      remark: 'string',
+      requestId: 'string',
+      templateCode: 'string',
+      templateContent: 'string',
+      templateName: 'string',
+      templateStatus: 'string',
+      templateTag: 'number',
+      templateType: 'string',
+      variableAttribute: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSmsTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSmsTemplateResponseBody,
     };
   }
 
@@ -1181,9 +1822,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1274,9 +1915,9 @@ export class ModifySmsSignResponseBody extends $tea.Model {
 }
 
 export class ModifySmsSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySmsSignResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySmsSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1367,9 +2008,9 @@ export class ModifySmsTemplateResponseBody extends $tea.Model {
 }
 
 export class ModifySmsTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySmsTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySmsTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1439,9 +2080,9 @@ export class QueryCardSmsTemplateResponseBody extends $tea.Model {
 }
 
 export class QueryCardSmsTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCardSmsTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCardSmsTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1517,9 +2158,9 @@ export class QueryCardSmsTemplateReportResponseBody extends $tea.Model {
 }
 
 export class QueryCardSmsTemplateReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCardSmsTemplateReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCardSmsTemplateReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1614,9 +2255,9 @@ export class QueryMobilesCardSupportResponseBody extends $tea.Model {
 }
 
 export class QueryMobilesCardSupportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMobilesCardSupportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMobilesCardSupportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1639,52 +2280,40 @@ export class QueryMobilesCardSupportResponse extends $tea.Model {
 }
 
 export class QueryPageSmartShortUrlLogRequest extends $tea.Model {
-  clickState?: number;
   createDateEnd?: number;
   createDateStart?: number;
-  endId?: number;
   ownerId?: number;
   pageNo?: number;
   pageSize?: number;
   phoneNumber?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  shortName?: string;
   shortUrl?: string;
-  startId?: number;
   static names(): { [key: string]: string } {
     return {
-      clickState: 'ClickState',
       createDateEnd: 'CreateDateEnd',
       createDateStart: 'CreateDateStart',
-      endId: 'EndId',
       ownerId: 'OwnerId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       phoneNumber: 'PhoneNumber',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      shortName: 'ShortName',
       shortUrl: 'ShortUrl',
-      startId: 'StartId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clickState: 'number',
       createDateEnd: 'number',
       createDateStart: 'number',
-      endId: 'number',
       ownerId: 'number',
       pageNo: 'number',
       pageSize: 'number',
       phoneNumber: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      shortName: 'string',
       shortUrl: 'string',
-      startId: 'number',
     };
   }
 
@@ -1725,9 +2354,9 @@ export class QueryPageSmartShortUrlLogResponseBody extends $tea.Model {
 }
 
 export class QueryPageSmartShortUrlLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPageSmartShortUrlLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPageSmartShortUrlLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1821,9 +2450,9 @@ export class QuerySendDetailsResponseBody extends $tea.Model {
 }
 
 export class QuerySendDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySendDetailsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySendDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1920,9 +2549,9 @@ export class QuerySendStatisticsResponseBody extends $tea.Model {
 }
 
 export class QuerySendStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySendStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySendStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2001,9 +2630,9 @@ export class QueryShortUrlResponseBody extends $tea.Model {
 }
 
 export class QueryShortUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryShortUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryShortUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2091,9 +2720,9 @@ export class QuerySmsSignResponseBody extends $tea.Model {
 }
 
 export class QuerySmsSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySmsSignResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySmsSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2184,9 +2813,9 @@ export class QuerySmsSignListResponseBody extends $tea.Model {
 }
 
 export class QuerySmsSignListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySmsSignListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySmsSignListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2283,9 +2912,9 @@ export class QuerySmsTemplateResponseBody extends $tea.Model {
 }
 
 export class QuerySmsTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySmsTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySmsTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2376,9 +3005,9 @@ export class QuerySmsTemplateListResponseBody extends $tea.Model {
 }
 
 export class QuerySmsTemplateListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySmsTemplateListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySmsTemplateListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2484,9 +3113,9 @@ export class SendBatchCardSmsResponseBody extends $tea.Model {
 }
 
 export class SendBatchCardSmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendBatchCardSmsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendBatchCardSmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2580,9 +3209,9 @@ export class SendBatchSmsResponseBody extends $tea.Model {
 }
 
 export class SendBatchSmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendBatchSmsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendBatchSmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2685,9 +3314,9 @@ export class SendCardSmsResponseBody extends $tea.Model {
 }
 
 export class SendCardSmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendCardSmsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendCardSmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2781,9 +3410,9 @@ export class SendSmsResponseBody extends $tea.Model {
 }
 
 export class SendSmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendSmsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendSmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2865,9 +3494,9 @@ export class SmsConversionIntlResponseBody extends $tea.Model {
 }
 
 export class SmsConversionIntlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SmsConversionIntlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SmsConversionIntlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2955,9 +3584,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3048,9 +3677,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3064,6 +3693,329 @@ export class UntagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsSignRequest extends $tea.Model {
+  applySceneContent?: string;
+  moreData?: string[];
+  ownerId?: number;
+  qualificationId?: number;
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  signName?: string;
+  signSource?: number;
+  signType?: number;
+  thirdParty?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      applySceneContent: 'ApplySceneContent',
+      moreData: 'MoreData',
+      ownerId: 'OwnerId',
+      qualificationId: 'QualificationId',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
+      signSource: 'SignSource',
+      signType: 'SignType',
+      thirdParty: 'ThirdParty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applySceneContent: 'string',
+      moreData: { 'type': 'array', 'itemType': 'string' },
+      ownerId: 'number',
+      qualificationId: 'number',
+      remark: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signName: 'string',
+      signSource: 'number',
+      signType: 'number',
+      thirdParty: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsSignShrinkRequest extends $tea.Model {
+  applySceneContent?: string;
+  moreDataShrink?: string;
+  ownerId?: number;
+  qualificationId?: number;
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  signName?: string;
+  signSource?: number;
+  signType?: number;
+  thirdParty?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      applySceneContent: 'ApplySceneContent',
+      moreDataShrink: 'MoreData',
+      ownerId: 'OwnerId',
+      qualificationId: 'QualificationId',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
+      signSource: 'SignSource',
+      signType: 'SignType',
+      thirdParty: 'ThirdParty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applySceneContent: 'string',
+      moreDataShrink: 'string',
+      ownerId: 'number',
+      qualificationId: 'number',
+      remark: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signName: 'string',
+      signSource: 'number',
+      signType: 'number',
+      thirdParty: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsSignResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  orderId?: string;
+  requestId?: string;
+  signName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      signName: 'SignName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      orderId: 'string',
+      requestId: 'string',
+      signName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsSignResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSmsSignResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmsSignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsTemplateRequest extends $tea.Model {
+  applySceneContent?: string;
+  intlType?: number;
+  moreData?: string[];
+  ownerId?: number;
+  relatedSignName?: string;
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateCode?: string;
+  templateContent?: string;
+  templateName?: string;
+  templateRule?: string;
+  templateType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applySceneContent: 'ApplySceneContent',
+      intlType: 'IntlType',
+      moreData: 'MoreData',
+      ownerId: 'OwnerId',
+      relatedSignName: 'RelatedSignName',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateCode: 'TemplateCode',
+      templateContent: 'TemplateContent',
+      templateName: 'TemplateName',
+      templateRule: 'TemplateRule',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applySceneContent: 'string',
+      intlType: 'number',
+      moreData: { 'type': 'array', 'itemType': 'string' },
+      ownerId: 'number',
+      relatedSignName: 'string',
+      remark: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateCode: 'string',
+      templateContent: 'string',
+      templateName: 'string',
+      templateRule: 'string',
+      templateType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsTemplateShrinkRequest extends $tea.Model {
+  applySceneContent?: string;
+  intlType?: number;
+  moreDataShrink?: string;
+  ownerId?: number;
+  relatedSignName?: string;
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateCode?: string;
+  templateContent?: string;
+  templateName?: string;
+  templateRule?: string;
+  templateType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applySceneContent: 'ApplySceneContent',
+      intlType: 'IntlType',
+      moreDataShrink: 'MoreData',
+      ownerId: 'OwnerId',
+      relatedSignName: 'RelatedSignName',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateCode: 'TemplateCode',
+      templateContent: 'TemplateContent',
+      templateName: 'TemplateName',
+      templateRule: 'TemplateRule',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applySceneContent: 'string',
+      intlType: 'number',
+      moreDataShrink: 'string',
+      ownerId: 'number',
+      relatedSignName: 'string',
+      remark: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateCode: 'string',
+      templateContent: 'string',
+      templateName: 'string',
+      templateRule: 'string',
+      templateType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsTemplateResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  orderId?: string;
+  requestId?: string;
+  templateCode?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      orderId: 'string',
+      requestId: 'string',
+      templateCode: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSmsTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmsTemplateResponseBody,
     };
   }
 
@@ -3295,6 +4247,122 @@ export class GetOSSInfoForCardTemplateResponseBodyData extends $tea.Model {
       policy: 'string',
       signature: 'string',
       startPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForUploadFileResponseBodyModel extends $tea.Model {
+  accessKeyId?: string;
+  expireTime?: string;
+  host?: string;
+  policy?: string;
+  signature?: string;
+  startPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      expireTime: 'ExpireTime',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+      startPath: 'StartPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      expireTime: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+      startPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsSignResponseBodyAuditInfo extends $tea.Model {
+  auditDate?: string;
+  rejectInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditDate: 'AuditDate',
+      rejectInfo: 'RejectInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditDate: 'string',
+      rejectInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsTemplateResponseBodyAuditInfo extends $tea.Model {
+  auditDate?: string;
+  rejectInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditDate: 'AuditDate',
+      rejectInfo: 'RejectInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditDate: 'string',
+      rejectInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsTemplateResponseBodyFileUrlList extends $tea.Model {
+  fileUrl?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsTemplateResponseBodyMoreDataFileUrlList extends $tea.Model {
+  moreDataFileUrl?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      moreDataFileUrl: 'MoreDataFileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moreDataFileUrl: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -3963,6 +5031,17 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Creates a short URL.
+   *
+   * @description *   Before you call this operation, you must register the primary domain name of the source URL in the Short Message Service (SMS) console. After the domain name is registered, you can call this operation to create a short URL. For more information, see [Domain name registration](https://help.aliyun.com/document_detail/302325.html#title-mau-zdh-hd0).
+   * *   You can create up to 3,000 short URLs within a natural day.
+   * *   After a short URL is generated, a security review is required. Generally, the review takes 10 minutes to 2 hours to complete. Before the security review is passed, the short URL cannot be directly accessed.
+   *
+   * @param request AddShortUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddShortUrlResponse
+   */
   async addShortUrlWithOptions(request: AddShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<AddShortUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4009,11 +5088,39 @@ export default class Client extends OpenApi {
     return $tea.cast<AddShortUrlResponse>(await this.callApi(params, req, runtime), new AddShortUrlResponse({}));
   }
 
+  /**
+   * @summary Creates a short URL.
+   *
+   * @description *   Before you call this operation, you must register the primary domain name of the source URL in the Short Message Service (SMS) console. After the domain name is registered, you can call this operation to create a short URL. For more information, see [Domain name registration](https://help.aliyun.com/document_detail/302325.html#title-mau-zdh-hd0).
+   * *   You can create up to 3,000 short URLs within a natural day.
+   * *   After a short URL is generated, a security review is required. Generally, the review takes 10 minutes to 2 hours to complete. Before the security review is passed, the short URL cannot be directly accessed.
+   *
+   * @param request AddShortUrlRequest
+   * @return AddShortUrlResponse
+   */
   async addShortUrl(request: AddShortUrlRequest): Promise<AddShortUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addShortUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a signature.
+   *
+   * @description You can call the AddSmsSign operation or use the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm#/overview) to create an SMS signature. The signature must comply with the [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html). You can call the QuerySmsSign operation or use the SMS console to query the review status of the signature.
+   * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+   * ### QPS limit
+   * You can call this operation only once per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * > 
+   * *   You cannot cancel the review of a signature.
+   * *   Individual users can create only one verification code signature, and can create only one general-purpose signature within a natural day. If you need to apply for multiple signatures, we recommend that you upgrade your account to an enterprise user.
+   * *   If you need to use the same signature for messages sent to recipients both in and outside the Chinese mainland, the signature must be a general-purpose signature.
+   * *   If you apply for a signature or message template, you must specify the signature scenario or template type. You must also provide the information of your services, such as a website URL, a domain name with an ICP filing, an application download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
+   * *   An SMS signature must undergo a thorough review process before it can be approved for use.
+   *
+   * @param request AddSmsSignRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddSmsSignResponse
+   */
   async addSmsSignWithOptions(request: AddSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<AddSmsSignResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4068,11 +5175,46 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSmsSignResponse>(await this.callApi(params, req, runtime), new AddSmsSignResponse({}));
   }
 
+  /**
+   * @summary Creates a signature.
+   *
+   * @description You can call the AddSmsSign operation or use the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm#/overview) to create an SMS signature. The signature must comply with the [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html). You can call the QuerySmsSign operation or use the SMS console to query the review status of the signature.
+   * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+   * ### QPS limit
+   * You can call this operation only once per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * > 
+   * *   You cannot cancel the review of a signature.
+   * *   Individual users can create only one verification code signature, and can create only one general-purpose signature within a natural day. If you need to apply for multiple signatures, we recommend that you upgrade your account to an enterprise user.
+   * *   If you need to use the same signature for messages sent to recipients both in and outside the Chinese mainland, the signature must be a general-purpose signature.
+   * *   If you apply for a signature or message template, you must specify the signature scenario or template type. You must also provide the information of your services, such as a website URL, a domain name with an ICP filing, an application download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
+   * *   An SMS signature must undergo a thorough review process before it can be approved for use.
+   *
+   * @param request AddSmsSignRequest
+   * @return AddSmsSignResponse
+   */
   async addSmsSign(request: AddSmsSignRequest): Promise<AddSmsSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addSmsSignWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a message template.
+   *
+   * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to apply for a message template. The template must comply with the [message template specifications](https://help.aliyun.com/document_detail/108253.html). You can call the [QuerySmsTemplate](https://help.aliyun.com/document_detail/419289.html) operation or use the Alibaba Cloud SMS console to check whether the message template is approved.
+   * > 
+   * *   Message templates pending approval can be withdrawn. You can withdraw a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+   * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+   * *   If you call the AddSmsTemplate operation, you can apply for a maximum of 100 message templates in a calendar day. After you apply for a message template, we recommend that you wait for at least 30 seconds before you apply for another one. If you use the Alibaba Cloud SMS console, you can apply for an unlimited number of message templates.
+   * *   Messages sent to the Chinese mainland and messages sent to countries or regions outside the Chinese mainland use separate message templates. Create message templates based on your needs.
+   * *   If you apply for a signature or message template, you must specify the signature scenario or template type. You must also provide the information of your services, such as a website URL, a domain name with an ICP filing, an application download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
+   * *   A signature must undergo a thorough review process before it can be approved for use. For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+   * ### QPS limits
+   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request AddSmsTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddSmsTemplateResponse
+   */
   async addSmsTemplateWithOptions(request: AddSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddSmsTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4121,11 +5263,38 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSmsTemplateResponse>(await this.callApi(params, req, runtime), new AddSmsTemplateResponse({}));
   }
 
+  /**
+   * @summary Creates a message template.
+   *
+   * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to apply for a message template. The template must comply with the [message template specifications](https://help.aliyun.com/document_detail/108253.html). You can call the [QuerySmsTemplate](https://help.aliyun.com/document_detail/419289.html) operation or use the Alibaba Cloud SMS console to check whether the message template is approved.
+   * > 
+   * *   Message templates pending approval can be withdrawn. You can withdraw a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+   * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+   * *   If you call the AddSmsTemplate operation, you can apply for a maximum of 100 message templates in a calendar day. After you apply for a message template, we recommend that you wait for at least 30 seconds before you apply for another one. If you use the Alibaba Cloud SMS console, you can apply for an unlimited number of message templates.
+   * *   Messages sent to the Chinese mainland and messages sent to countries or regions outside the Chinese mainland use separate message templates. Create message templates based on your needs.
+   * *   If you apply for a signature or message template, you must specify the signature scenario or template type. You must also provide the information of your services, such as a website URL, a domain name with an ICP filing, an application download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
+   * *   A signature must undergo a thorough review process before it can be approved for use. For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+   * ### QPS limits
+   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request AddSmsTemplateRequest
+   * @return AddSmsTemplateResponse
+   */
   async addSmsTemplate(request: AddSmsTemplateRequest): Promise<AddSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addSmsTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether a mobile phone number can receive card messages.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 2,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CheckMobilesCardSupportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckMobilesCardSupportResponse
+   */
   async checkMobilesCardSupportWithOptions(request: CheckMobilesCardSupportRequest, runtime: $Util.RuntimeOptions): Promise<CheckMobilesCardSupportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4154,11 +5323,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckMobilesCardSupportResponse>(await this.callApi(params, req, runtime), new CheckMobilesCardSupportResponse({}));
   }
 
+  /**
+   * @summary Checks whether a mobile phone number can receive card messages.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 2,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CheckMobilesCardSupportRequest
+   * @return CheckMobilesCardSupportResponse
+   */
   async checkMobilesCardSupport(request: CheckMobilesCardSupportRequest): Promise<CheckMobilesCardSupportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkMobilesCardSupportWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sends conversion rate information to Alibaba Cloud SMS.
+   *
+   * @param request ConversionDataIntlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConversionDataIntlResponse
+   */
   async conversionDataIntlWithOptions(request: ConversionDataIntlRequest, runtime: $Util.RuntimeOptions): Promise<ConversionDataIntlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4199,11 +5384,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ConversionDataIntlResponse>(await this.callApi(params, req, runtime), new ConversionDataIntlResponse({}));
   }
 
+  /**
+   * @summary Sends conversion rate information to Alibaba Cloud SMS.
+   *
+   * @param request ConversionDataIntlRequest
+   * @return ConversionDataIntlResponse
+   */
   async conversionDataIntl(request: ConversionDataIntlRequest): Promise<ConversionDataIntlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.conversionDataIntlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a card message template.
+   *
+   * @description *   The CreateCardSmsTemplate operation saves the card message template information, submits it to the mobile phone manufacturer for approval, and returns the message template ID.
+   * *   If the type of the message template is not supported or events that are not supported by the mobile phone manufacturer are specified, the template is not submitted. For more information, see [Supported message templates](https://help.aliyun.com/document_detail/434611.html).
+   * *   For information about sample card message templates, see [Sample card message templates](https://help.aliyun.com/document_detail/435361.html).
+   * ### QPS limit
+   * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param tmpReq CreateCardSmsTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCardSmsTemplateResponse
+   */
   async createCardSmsTemplateWithOptions(tmpReq: CreateCardSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCardSmsTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateCardSmsTemplateShrinkRequest({ });
@@ -4246,16 +5450,35 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCardSmsTemplateResponse>(await this.callApi(params, req, runtime), new CreateCardSmsTemplateResponse({}));
   }
 
+  /**
+   * @summary Creates a card message template.
+   *
+   * @description *   The CreateCardSmsTemplate operation saves the card message template information, submits it to the mobile phone manufacturer for approval, and returns the message template ID.
+   * *   If the type of the message template is not supported or events that are not supported by the mobile phone manufacturer are specified, the template is not submitted. For more information, see [Supported message templates](https://help.aliyun.com/document_detail/434611.html).
+   * *   For information about sample card message templates, see [Sample card message templates](https://help.aliyun.com/document_detail/435361.html).
+   * ### QPS limit
+   * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateCardSmsTemplateRequest
+   * @return CreateCardSmsTemplateResponse
+   */
   async createCardSmsTemplate(request: CreateCardSmsTemplateRequest): Promise<CreateCardSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCardSmsTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建短链
+   *
+   * @param request CreateSmartShortUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSmartShortUrlResponse
+   */
   async createSmartShortUrlWithOptions(request: CreateSmartShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmartShortUrlResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.expiration)) {
-      query["Expiration"] = request.expiration;
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -4272,10 +5495,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.sourceName)) {
-      query["SourceName"] = request.sourceName;
     }
 
     if (!Util.isUnset(request.sourceUrl)) {
@@ -4299,11 +5518,207 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSmartShortUrlResponse>(await this.callApi(params, req, runtime), new CreateSmartShortUrlResponse({}));
   }
 
+  /**
+   * @summary 创建短链
+   *
+   * @param request CreateSmartShortUrlRequest
+   * @return CreateSmartShortUrlResponse
+   */
   async createSmartShortUrl(request: CreateSmartShortUrlRequest): Promise<CreateSmartShortUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSmartShortUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建短信签名
+   *
+   * @param tmpReq CreateSmsSignRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSmsSignResponse
+   */
+  async createSmsSignWithOptions(tmpReq: CreateSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmsSignResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateSmsSignShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.moreData)) {
+      request.moreDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.moreData, "MoreData", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.applySceneContent)) {
+      query["ApplySceneContent"] = request.applySceneContent;
+    }
+
+    if (!Util.isUnset(request.moreDataShrink)) {
+      query["MoreData"] = request.moreDataShrink;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qualificationId)) {
+      query["QualificationId"] = request.qualificationId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    if (!Util.isUnset(request.signSource)) {
+      query["SignSource"] = request.signSource;
+    }
+
+    if (!Util.isUnset(request.signType)) {
+      query["SignType"] = request.signType;
+    }
+
+    if (!Util.isUnset(request.thirdParty)) {
+      query["ThirdParty"] = request.thirdParty;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSmsSign",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSmsSignResponse>(await this.callApi(params, req, runtime), new CreateSmsSignResponse({}));
+  }
+
+  /**
+   * @summary 创建短信签名
+   *
+   * @param request CreateSmsSignRequest
+   * @return CreateSmsSignResponse
+   */
+  async createSmsSign(request: CreateSmsSignRequest): Promise<CreateSmsSignResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSmsSignWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 创建短信模板
+   *
+   * @param tmpReq CreateSmsTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSmsTemplateResponse
+   */
+  async createSmsTemplateWithOptions(tmpReq: CreateSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmsTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateSmsTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.moreData)) {
+      request.moreDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.moreData, "MoreData", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.applySceneContent)) {
+      query["ApplySceneContent"] = request.applySceneContent;
+    }
+
+    if (!Util.isUnset(request.intlType)) {
+      query["IntlType"] = request.intlType;
+    }
+
+    if (!Util.isUnset(request.moreDataShrink)) {
+      query["MoreData"] = request.moreDataShrink;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.relatedSignName)) {
+      query["RelatedSignName"] = request.relatedSignName;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateContent)) {
+      query["TemplateContent"] = request.templateContent;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateRule)) {
+      query["TemplateRule"] = request.templateRule;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSmsTemplateResponse>(await this.callApi(params, req, runtime), new CreateSmsTemplateResponse({}));
+  }
+
+  /**
+   * @summary 创建短信模板
+   *
+   * @param request CreateSmsTemplateRequest
+   * @return CreateSmsTemplateResponse
+   */
+  async createSmsTemplate(request: CreateSmsTemplateRequest): Promise<CreateSmsTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSmsTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Deletes a short URL. After you delete a short URL, it cannot be changed to its original state.
+   *
+   * @description ### QPS limits
+   * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteShortUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteShortUrlResponse
+   */
   async deleteShortUrlWithOptions(request: DeleteShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteShortUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4342,11 +5757,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteShortUrlResponse>(await this.callApi(params, req, runtime), new DeleteShortUrlResponse({}));
   }
 
+  /**
+   * @summary Deletes a short URL. After you delete a short URL, it cannot be changed to its original state.
+   *
+   * @description ### QPS limits
+   * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteShortUrlRequest
+   * @return DeleteShortUrlResponse
+   */
   async deleteShortUrl(request: DeleteShortUrlRequest): Promise<DeleteShortUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteShortUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a signature.
+   *
+   * @description *   You cannot delete a signature that has not been approved.
+   * *   After you delete a signature, you cannot recover it. Proceed with caution.
+   * ### QPS limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteSmsSignRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSmsSignResponse
+   */
   async deleteSmsSignWithOptions(request: DeleteSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsSignResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4383,11 +5819,35 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSmsSignResponse>(await this.callApi(params, req, runtime), new DeleteSmsSignResponse({}));
   }
 
+  /**
+   * @summary Deletes a signature.
+   *
+   * @description *   You cannot delete a signature that has not been approved.
+   * *   After you delete a signature, you cannot recover it. Proceed with caution.
+   * ### QPS limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteSmsSignRequest
+   * @return DeleteSmsSignResponse
+   */
   async deleteSmsSign(request: DeleteSmsSignRequest): Promise<DeleteSmsSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSmsSignWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a message template.
+   *
+   * @description *   Message templates pending approval can be withdrawn. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+   * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+   * *   You cannot recover deleted message templates. Proceed with caution.
+   * ### QPS limits
+   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteSmsTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSmsTemplateResponse
+   */
   async deleteSmsTemplateWithOptions(request: DeleteSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4424,11 +5884,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSmsTemplateResponse>(await this.callApi(params, req, runtime), new DeleteSmsTemplateResponse({}));
   }
 
+  /**
+   * @summary Deletes a message template.
+   *
+   * @description *   Message templates pending approval can be withdrawn. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+   * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+   * *   You cannot recover deleted message templates. Proceed with caution.
+   * ### QPS limits
+   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteSmsTemplateRequest
+   * @return DeleteSmsTemplateResponse
+   */
   async deleteSmsTemplate(request: DeleteSmsTemplateRequest): Promise<DeleteSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSmsTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the short URLs of a card messages template.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request GetCardSmsLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCardSmsLinkResponse
+   */
   async getCardSmsLinkWithOptions(request: GetCardSmsLinkRequest, runtime: $Util.RuntimeOptions): Promise<GetCardSmsLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4485,11 +5967,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCardSmsLinkResponse>(await this.callApi(params, req, runtime), new GetCardSmsLinkResponse({}));
   }
 
+  /**
+   * @summary Queries the short URLs of a card messages template.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request GetCardSmsLinkRequest
+   * @return GetCardSmsLinkResponse
+   */
   async getCardSmsLink(request: GetCardSmsLinkRequest): Promise<GetCardSmsLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCardSmsLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Converts a resource uploaded to the specified Object Storage Service (OSS) bucket for unified management. Then, a resource ID is returned. You can manage the resource based on the ID.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request GetMediaResourceIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMediaResourceIdResponse
+   */
   async getMediaResourceIdWithOptions(request: GetMediaResourceIdRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaResourceIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4530,11 +6031,31 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMediaResourceIdResponse>(await this.callApi(params, req, runtime), new GetMediaResourceIdResponse({}));
   }
 
+  /**
+   * @summary Converts a resource uploaded to the specified Object Storage Service (OSS) bucket for unified management. Then, a resource ID is returned. You can manage the resource based on the ID.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request GetMediaResourceIdRequest
+   * @return GetMediaResourceIdResponse
+   */
   async getMediaResourceId(request: GetMediaResourceIdRequest): Promise<GetMediaResourceIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMediaResourceIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the OSS configuration information about card messages.
+   *
+   * @description Resources such as images and videos used for card message templates can be uploaded to Object Storage Service (OSS) buckets for storage. For more information, see [Upload files to OSS](https://help.aliyun.com/document_detail/437303.html).
+   * ### QPS limit
+   * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request GetOSSInfoForCardTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOSSInfoForCardTemplateResponse
+   */
   async getOSSInfoForCardTemplateWithOptions(runtime: $Util.RuntimeOptions): Promise<GetOSSInfoForCardTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -4551,11 +6072,192 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOSSInfoForCardTemplateResponse>(await this.callApi(params, req, runtime), new GetOSSInfoForCardTemplateResponse({}));
   }
 
+  /**
+   * @summary Queries the OSS configuration information about card messages.
+   *
+   * @description Resources such as images and videos used for card message templates can be uploaded to Object Storage Service (OSS) buckets for storage. For more information, see [Upload files to OSS](https://help.aliyun.com/document_detail/437303.html).
+   * ### QPS limit
+   * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @return GetOSSInfoForCardTemplateResponse
+   */
   async getOSSInfoForCardTemplate(): Promise<GetOSSInfoForCardTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOSSInfoForCardTemplateWithOptions(runtime);
   }
 
+  /**
+   * @summary 短信上传文件，获取授权信息
+   *
+   * @param request GetOSSInfoForUploadFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOSSInfoForUploadFileResponse
+   */
+  async getOSSInfoForUploadFileWithOptions(request: GetOSSInfoForUploadFileRequest, runtime: $Util.RuntimeOptions): Promise<GetOSSInfoForUploadFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOSSInfoForUploadFile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOSSInfoForUploadFileResponse>(await this.callApi(params, req, runtime), new GetOSSInfoForUploadFileResponse({}));
+  }
+
+  /**
+   * @summary 短信上传文件，获取授权信息
+   *
+   * @param request GetOSSInfoForUploadFileRequest
+   * @return GetOSSInfoForUploadFileResponse
+   */
+  async getOSSInfoForUploadFile(request: GetOSSInfoForUploadFileRequest): Promise<GetOSSInfoForUploadFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOSSInfoForUploadFileWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询短信签名详情
+   *
+   * @param request GetSmsSignRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSmsSignResponse
+   */
+  async getSmsSignWithOptions(request: GetSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<GetSmsSignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSmsSign",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSmsSignResponse>(await this.callApi(params, req, runtime), new GetSmsSignResponse({}));
+  }
+
+  /**
+   * @summary 查询短信签名详情
+   *
+   * @param request GetSmsSignRequest
+   * @return GetSmsSignResponse
+   */
+  async getSmsSign(request: GetSmsSignRequest): Promise<GetSmsSignResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSmsSignWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询文本短信模板详情
+   *
+   * @param request GetSmsTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSmsTemplateResponse
+   */
+  async getSmsTemplateWithOptions(request: GetSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetSmsTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSmsTemplateResponse>(await this.callApi(params, req, runtime), new GetSmsTemplateResponse({}));
+  }
+
+  /**
+   * @summary 查询文本短信模板详情
+   *
+   * @param request GetSmsTemplateRequest
+   * @return GetSmsTemplateResponse
+   */
+  async getSmsTemplate(request: GetSmsTemplateRequest): Promise<GetSmsTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSmsTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries the tags of a message template.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4616,11 +6318,36 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries the tags of a message template.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a rejected signature and submit it for approval. Signatures that are pending approval or have been approved cannot be modified.
+   *
+   * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to modify an existing signature and submit the signature for approval. The signature must comply with the [signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+   * ### QPS limits
+   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * > 
+   * *   Signatures pending approval cannot be modified.
+   * *   You cannot modify a signature after it is approved. If you no longer need the signature, you can delete it.
+   * *   If you are an individual user, you cannot apply for a new signature on the same day that your signature is rejected or deleted. We recommend that you modify the rejected signature and submit it again.
+   *
+   * @param request ModifySmsSignRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySmsSignResponse
+   */
   async modifySmsSignWithOptions(request: ModifySmsSignRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmsSignResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4675,11 +6402,39 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySmsSignResponse>(await this.callApi(params, req, runtime), new ModifySmsSignResponse({}));
   }
 
+  /**
+   * @summary Modifies a rejected signature and submit it for approval. Signatures that are pending approval or have been approved cannot be modified.
+   *
+   * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to modify an existing signature and submit the signature for approval. The signature must comply with the [signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+   * ### QPS limits
+   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * > 
+   * *   Signatures pending approval cannot be modified.
+   * *   You cannot modify a signature after it is approved. If you no longer need the signature, you can delete it.
+   * *   If you are an individual user, you cannot apply for a new signature on the same day that your signature is rejected or deleted. We recommend that you modify the rejected signature and submit it again.
+   *
+   * @param request ModifySmsSignRequest
+   * @return ModifySmsSignResponse
+   */
   async modifySmsSign(request: ModifySmsSignRequest): Promise<ModifySmsSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySmsSignWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the information of an unapproved message template and submits it for review again.
+   *
+   * @description After you apply for a message template, if the template fails to pass the review, you can call this operation to modify the template and submit the template again. You can call this operation to modify only a template for a specific message type.
+   * The template content must comply with the [SMS template specifications](https://help.aliyun.com/document_detail/108253.html).
+   * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+   * ### QPS limit
+   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifySmsTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySmsTemplateResponse
+   */
   async modifySmsTemplateWithOptions(request: ModifySmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmsTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4732,11 +6487,33 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySmsTemplateResponse>(await this.callApi(params, req, runtime), new ModifySmsTemplateResponse({}));
   }
 
+  /**
+   * @summary Modifies the information of an unapproved message template and submits it for review again.
+   *
+   * @description After you apply for a message template, if the template fails to pass the review, you can call this operation to modify the template and submit the template again. You can call this operation to modify only a template for a specific message type.
+   * The template content must comply with the [SMS template specifications](https://help.aliyun.com/document_detail/108253.html).
+   * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+   * ### QPS limit
+   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifySmsTemplateRequest
+   * @return ModifySmsTemplateResponse
+   */
   async modifySmsTemplate(request: ModifySmsTemplateRequest): Promise<ModifySmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySmsTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the review status of a message template.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QueryCardSmsTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryCardSmsTemplateResponse
+   */
   async queryCardSmsTemplateWithOptions(request: QueryCardSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QueryCardSmsTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4761,11 +6538,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCardSmsTemplateResponse>(await this.callApi(params, req, runtime), new QueryCardSmsTemplateResponse({}));
   }
 
+  /**
+   * @summary Queries the review status of a message template.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QueryCardSmsTemplateRequest
+   * @return QueryCardSmsTemplateResponse
+   */
   async queryCardSmsTemplate(request: QueryCardSmsTemplateRequest): Promise<QueryCardSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCardSmsTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries sent card messages.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QueryCardSmsTemplateReportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryCardSmsTemplateReportResponse
+   */
   async queryCardSmsTemplateReportWithOptions(request: QueryCardSmsTemplateReportRequest, runtime: $Util.RuntimeOptions): Promise<QueryCardSmsTemplateReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4798,11 +6594,27 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCardSmsTemplateReportResponse>(await this.callApi(params, req, runtime), new QueryCardSmsTemplateReportResponse({}));
   }
 
+  /**
+   * @summary Queries sent card messages.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QueryCardSmsTemplateReportRequest
+   * @return QueryCardSmsTemplateReportResponse
+   */
   async queryCardSmsTemplateReport(request: QueryCardSmsTemplateReportRequest): Promise<QueryCardSmsTemplateReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCardSmsTemplateReportWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether a mobile phone number can receive card messages.
+   *
+   * @param tmpReq QueryMobilesCardSupportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMobilesCardSupportResponse
+   */
   async queryMobilesCardSupportWithOptions(tmpReq: QueryMobilesCardSupportRequest, runtime: $Util.RuntimeOptions): Promise<QueryMobilesCardSupportResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryMobilesCardSupportShrinkRequest({ });
@@ -4837,28 +6649,33 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMobilesCardSupportResponse>(await this.callApi(params, req, runtime), new QueryMobilesCardSupportResponse({}));
   }
 
+  /**
+   * @summary Checks whether a mobile phone number can receive card messages.
+   *
+   * @param request QueryMobilesCardSupportRequest
+   * @return QueryMobilesCardSupportResponse
+   */
   async queryMobilesCardSupport(request: QueryMobilesCardSupportRequest): Promise<QueryMobilesCardSupportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMobilesCardSupportWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 点击明细查询
+   *
+   * @param request QueryPageSmartShortUrlLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPageSmartShortUrlLogResponse
+   */
   async queryPageSmartShortUrlLogWithOptions(request: QueryPageSmartShortUrlLogRequest, runtime: $Util.RuntimeOptions): Promise<QueryPageSmartShortUrlLogResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.clickState)) {
-      query["ClickState"] = request.clickState;
-    }
-
     if (!Util.isUnset(request.createDateEnd)) {
       query["CreateDateEnd"] = request.createDateEnd;
     }
 
     if (!Util.isUnset(request.createDateStart)) {
       query["CreateDateStart"] = request.createDateStart;
-    }
-
-    if (!Util.isUnset(request.endId)) {
-      query["EndId"] = request.endId;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -4885,16 +6702,8 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.shortName)) {
-      query["ShortName"] = request.shortName;
-    }
-
     if (!Util.isUnset(request.shortUrl)) {
       query["ShortUrl"] = request.shortUrl;
-    }
-
-    if (!Util.isUnset(request.startId)) {
-      query["StartId"] = request.startId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4914,11 +6723,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPageSmartShortUrlLogResponse>(await this.callApi(params, req, runtime), new QueryPageSmartShortUrlLogResponse({}));
   }
 
+  /**
+   * @summary 点击明细查询
+   *
+   * @param request QueryPageSmartShortUrlLogRequest
+   * @return QueryPageSmartShortUrlLogResponse
+   */
   async queryPageSmartShortUrlLog(request: QueryPageSmartShortUrlLogRequest): Promise<QueryPageSmartShortUrlLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPageSmartShortUrlLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a message.
+   *
+   * @param request QuerySendDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySendDetailsResponse
+   */
   async querySendDetailsWithOptions(request: QuerySendDetailsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4971,11 +6793,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySendDetailsResponse>(await this.callApi(params, req, runtime), new QuerySendDetailsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a message.
+   *
+   * @param request QuerySendDetailsRequest
+   * @return QuerySendDetailsResponse
+   */
   async querySendDetails(request: QuerySendDetailsRequest): Promise<QuerySendDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySendDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries message delivery details.
+   *
+   * @description You can call the operation to query message delivery details, including the number of delivered messages, the number of messages with delivery receipts, and the time that a message is sent. If a large number of messages are sent on the specified date, you can specify the number of items displayed on each page and the number of pages to view the details by page.
+   * ### QPS limits
+   * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QuerySendStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySendStatisticsResponse
+   */
   async querySendStatisticsWithOptions(request: QuerySendStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5036,11 +6875,31 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySendStatisticsResponse>(await this.callApi(params, req, runtime), new QuerySendStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries message delivery details.
+   *
+   * @description You can call the operation to query message delivery details, including the number of delivered messages, the number of messages with delivery receipts, and the time that a message is sent. If a large number of messages are sent on the specified date, you can specify the number of items displayed on each page and the number of pages to view the details by page.
+   * ### QPS limits
+   * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QuerySendStatisticsRequest
+   * @return QuerySendStatisticsResponse
+   */
   async querySendStatistics(request: QuerySendStatisticsRequest): Promise<QuerySendStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySendStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of a short URL.
+   *
+   * @description ### QPS limits
+   * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QueryShortUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryShortUrlResponse
+   */
   async queryShortUrlWithOptions(request: QueryShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<QueryShortUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5079,11 +6938,31 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryShortUrlResponse>(await this.callApi(params, req, runtime), new QueryShortUrlResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a short URL.
+   *
+   * @description ### QPS limits
+   * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QueryShortUrlRequest
+   * @return QueryShortUrlResponse
+   */
   async queryShortUrl(request: QueryShortUrlRequest): Promise<QueryShortUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryShortUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of a signature.
+   *
+   * @description After you apply for an SMS signature, you can query its status by using the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm) or calling the operation. If the signature is rejected, you can modify the signature based on the reason why it is rejected.
+   * ### QPS limits
+   * You can call this API operation up to 500 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QuerySmsSignRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySmsSignResponse
+   */
   async querySmsSignWithOptions(request: QuerySmsSignRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsSignResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5120,11 +6999,32 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySmsSignResponse>(await this.callApi(params, req, runtime), new QuerySmsSignResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a signature.
+   *
+   * @description After you apply for an SMS signature, you can query its status by using the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm) or calling the operation. If the signature is rejected, you can modify the signature based on the reason why it is rejected.
+   * ### QPS limits
+   * You can call this API operation up to 500 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QuerySmsSignRequest
+   * @return QuerySmsSignResponse
+   */
   async querySmsSign(request: QuerySmsSignRequest): Promise<QuerySmsSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySmsSignWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries message signatures by page.
+   *
+   * @description You can call this operation to query the details of message signatures, including the name, creation time, and approval status of each signature. If a message template is rejected, the reason is returned. Modify the message signature based on the reason.
+   * ### QPS limit
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QuerySmsSignListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySmsSignListResponse
+   */
   async querySmsSignListWithOptions(request: QuerySmsSignListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsSignListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5165,11 +7065,32 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySmsSignListResponse>(await this.callApi(params, req, runtime), new QuerySmsSignListResponse({}));
   }
 
+  /**
+   * @summary Queries message signatures by page.
+   *
+   * @description You can call this operation to query the details of message signatures, including the name, creation time, and approval status of each signature. If a message template is rejected, the reason is returned. Modify the message signature based on the reason.
+   * ### QPS limit
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QuerySmsSignListRequest
+   * @return QuerySmsSignListResponse
+   */
   async querySmsSignList(request: QuerySmsSignListRequest): Promise<QuerySmsSignListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySmsSignListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the approval status of a message template.
+   *
+   * @description After you create a message template, you can call this operation to query the approval status of the template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+   * ### QPS limit
+   * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QuerySmsTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySmsTemplateResponse
+   */
   async querySmsTemplateWithOptions(request: QuerySmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5206,11 +7127,32 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySmsTemplateResponse>(await this.callApi(params, req, runtime), new QuerySmsTemplateResponse({}));
   }
 
+  /**
+   * @summary Queries the approval status of a message template.
+   *
+   * @description After you create a message template, you can call this operation to query the approval status of the template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+   * ### QPS limit
+   * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QuerySmsTemplateRequest
+   * @return QuerySmsTemplateResponse
+   */
   async querySmsTemplate(request: QuerySmsTemplateRequest): Promise<QuerySmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySmsTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries message templates.
+   *
+   * @description You can call this operation to query the details of message templates, including the name, creation time, and approval status of each template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+   * ### QPS limit
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QuerySmsTemplateListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySmsTemplateListResponse
+   */
   async querySmsTemplateListWithOptions(request: QuerySmsTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsTemplateListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5251,11 +7193,32 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySmsTemplateListResponse>(await this.callApi(params, req, runtime), new QuerySmsTemplateListResponse({}));
   }
 
+  /**
+   * @summary Queries message templates.
+   *
+   * @description You can call this operation to query the details of message templates, including the name, creation time, and approval status of each template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+   * ### QPS limit
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QuerySmsTemplateListRequest
+   * @return QuerySmsTemplateListResponse
+   */
   async querySmsTemplateList(request: QuerySmsTemplateListRequest): Promise<QuerySmsTemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySmsTemplateListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sends multiple card messages at a time.
+   *
+   * @description You can call the operation to send multiple card messages to a maximum of mobile phone numbers at a time. Different signatures and rollback settings can be specified for the mobile phone numbers.
+   * ### QPS limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request SendBatchCardSmsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SendBatchCardSmsResponse
+   */
   async sendBatchCardSmsWithOptions(request: SendBatchCardSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendBatchCardSmsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5328,11 +7291,30 @@ export default class Client extends OpenApi {
     return $tea.cast<SendBatchCardSmsResponse>(await this.callApi(params, req, runtime), new SendBatchCardSmsResponse({}));
   }
 
+  /**
+   * @summary Sends multiple card messages at a time.
+   *
+   * @description You can call the operation to send multiple card messages to a maximum of mobile phone numbers at a time. Different signatures and rollback settings can be specified for the mobile phone numbers.
+   * ### QPS limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request SendBatchCardSmsRequest
+   * @return SendBatchCardSmsResponse
+   */
   async sendBatchCardSms(request: SendBatchCardSmsRequest): Promise<SendBatchCardSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendBatchCardSmsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Uses a single message template and multiple signatures to send messages to multiple recipients.
+   *
+   * @description You can call the operation to send messages to a maximum of 100 recipients at a time.
+   *
+   * @param request SendBatchSmsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SendBatchSmsResponse
+   */
   async sendBatchSmsWithOptions(request: SendBatchSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendBatchSmsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5391,11 +7373,31 @@ export default class Client extends OpenApi {
     return $tea.cast<SendBatchSmsResponse>(await this.callApi(params, req, runtime), new SendBatchSmsResponse({}));
   }
 
+  /**
+   * @summary Uses a single message template and multiple signatures to send messages to multiple recipients.
+   *
+   * @description You can call the operation to send messages to a maximum of 100 recipients at a time.
+   *
+   * @param request SendBatchSmsRequest
+   * @return SendBatchSmsResponse
+   */
   async sendBatchSms(request: SendBatchSmsRequest): Promise<SendBatchSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendBatchSmsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sends a card message.
+   *
+   * @description *   Make sure that the message template that you want to use has been approved. If the mobile phone number of a recipient does not support card messages, the SendCardSms operation allows the rollback feature to ensure successful delivery.
+   * *   When you call the SendCardSms operation to send card messages, the operation checks whether the mobile phone numbers of the recipients support card messages. If the mobile phone numbers do not support card messages, you can specify whether to enable rollback. Otherwise, the card message cannot be delivered.
+   * ### QPS limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request SendCardSmsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SendCardSmsResponse
+   */
   async sendCardSmsWithOptions(request: SendCardSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendCardSmsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5464,11 +7466,34 @@ export default class Client extends OpenApi {
     return $tea.cast<SendCardSmsResponse>(await this.callApi(params, req, runtime), new SendCardSmsResponse({}));
   }
 
+  /**
+   * @summary Sends a card message.
+   *
+   * @description *   Make sure that the message template that you want to use has been approved. If the mobile phone number of a recipient does not support card messages, the SendCardSms operation allows the rollback feature to ensure successful delivery.
+   * *   When you call the SendCardSms operation to send card messages, the operation checks whether the mobile phone numbers of the recipients support card messages. If the mobile phone numbers do not support card messages, you can specify whether to enable rollback. Otherwise, the card message cannot be delivered.
+   * ### QPS limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request SendCardSmsRequest
+   * @return SendCardSmsResponse
+   */
   async sendCardSms(request: SendCardSmsRequest): Promise<SendCardSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendCardSmsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sends a message. Before you call this operation, submit a message signature and message template, and make sure that the signature and template are approved.
+   *
+   * @description *   This operation is mainly used to send a single message. In special scenarios, you can send multiple messages with the same content to a maximum of 1,000 mobile numbers. Note that group sending may be delayed.
+   * *   To send messages with different signatures and template content to multiple mobile numbers in a single request, call the [SendBatchSms](https://help.aliyun.com/document_detail/102364.html) operation.
+   * *   You are charged for using Alibaba Cloud Short Message Service (SMS) based on the amount of messages sent. For more information, see [Pricing](https://www.aliyun.com/price/product#/sms/detail).
+   * *   If your verification code signature and general-purpose signature have the same name, the system uses the general-purpose signature to send messages by default.
+   *
+   * @param request SendSmsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SendSmsResponse
+   */
   async sendSmsWithOptions(request: SendSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendSmsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5525,11 +7550,35 @@ export default class Client extends OpenApi {
     return $tea.cast<SendSmsResponse>(await this.callApi(params, req, runtime), new SendSmsResponse({}));
   }
 
+  /**
+   * @summary Sends a message. Before you call this operation, submit a message signature and message template, and make sure that the signature and template are approved.
+   *
+   * @description *   This operation is mainly used to send a single message. In special scenarios, you can send multiple messages with the same content to a maximum of 1,000 mobile numbers. Note that group sending may be delayed.
+   * *   To send messages with different signatures and template content to multiple mobile numbers in a single request, call the [SendBatchSms](https://help.aliyun.com/document_detail/102364.html) operation.
+   * *   You are charged for using Alibaba Cloud Short Message Service (SMS) based on the amount of messages sent. For more information, see [Pricing](https://www.aliyun.com/price/product#/sms/detail).
+   * *   If your verification code signature and general-purpose signature have the same name, the system uses the general-purpose signature to send messages by default.
+   *
+   * @param request SendSmsRequest
+   * @return SendSmsResponse
+   */
   async sendSms(request: SendSmsRequest): Promise<SendSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendSmsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Reports the status of an OTP message to Alibaba Cloud SMS.
+   *
+   * @description Metrics:
+   * *   Requested OTP messages
+   * *   Verified OTP messages
+   * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+   * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations: 1. Call the SmsConversion operation in an asynchronous manner by configuring queues or events. 2. Manually degrade your services or use a circuit breaker to automatically degrade services.
+   *
+   * @param request SmsConversionIntlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SmsConversionIntlResponse
+   */
   async smsConversionIntlWithOptions(request: SmsConversionIntlRequest, runtime: $Util.RuntimeOptions): Promise<SmsConversionIntlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5574,11 +7623,33 @@ export default class Client extends OpenApi {
     return $tea.cast<SmsConversionIntlResponse>(await this.callApi(params, req, runtime), new SmsConversionIntlResponse({}));
   }
 
+  /**
+   * @summary Reports the status of an OTP message to Alibaba Cloud SMS.
+   *
+   * @description Metrics:
+   * *   Requested OTP messages
+   * *   Verified OTP messages
+   * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+   * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations: 1. Call the SmsConversion operation in an asynchronous manner by configuring queues or events. 2. Manually degrade your services or use a circuit breaker to automatically degrade services.
+   *
+   * @param request SmsConversionIntlRequest
+   * @return SmsConversionIntlResponse
+   */
   async smsConversionIntl(request: SmsConversionIntlRequest): Promise<SmsConversionIntlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.smsConversionIntlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Attaches tags to a message template.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5631,11 +7702,25 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Attaches tags to a message template.
+   *
+   * @description ### QPS limit
+   * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5692,9 +7777,197 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改文本短信签名
+   *
+   * @param tmpReq UpdateSmsSignRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSmsSignResponse
+   */
+  async updateSmsSignWithOptions(tmpReq: UpdateSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmsSignResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateSmsSignShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.moreData)) {
+      request.moreDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.moreData, "MoreData", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.applySceneContent)) {
+      query["ApplySceneContent"] = request.applySceneContent;
+    }
+
+    if (!Util.isUnset(request.moreDataShrink)) {
+      query["MoreData"] = request.moreDataShrink;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qualificationId)) {
+      query["QualificationId"] = request.qualificationId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    if (!Util.isUnset(request.signSource)) {
+      query["SignSource"] = request.signSource;
+    }
+
+    if (!Util.isUnset(request.signType)) {
+      query["SignType"] = request.signType;
+    }
+
+    if (!Util.isUnset(request.thirdParty)) {
+      query["ThirdParty"] = request.thirdParty;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSmsSign",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmsSignResponse>(await this.callApi(params, req, runtime), new UpdateSmsSignResponse({}));
+  }
+
+  /**
+   * @summary 修改文本短信签名
+   *
+   * @param request UpdateSmsSignRequest
+   * @return UpdateSmsSignResponse
+   */
+  async updateSmsSign(request: UpdateSmsSignRequest): Promise<UpdateSmsSignResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmsSignWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改文本短信模板
+   *
+   * @param tmpReq UpdateSmsTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSmsTemplateResponse
+   */
+  async updateSmsTemplateWithOptions(tmpReq: UpdateSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmsTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateSmsTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.moreData)) {
+      request.moreDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.moreData, "MoreData", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.applySceneContent)) {
+      query["ApplySceneContent"] = request.applySceneContent;
+    }
+
+    if (!Util.isUnset(request.intlType)) {
+      query["IntlType"] = request.intlType;
+    }
+
+    if (!Util.isUnset(request.moreDataShrink)) {
+      query["MoreData"] = request.moreDataShrink;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.relatedSignName)) {
+      query["RelatedSignName"] = request.relatedSignName;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateContent)) {
+      query["TemplateContent"] = request.templateContent;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateRule)) {
+      query["TemplateRule"] = request.templateRule;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmsTemplateResponse>(await this.callApi(params, req, runtime), new UpdateSmsTemplateResponse({}));
+  }
+
+  /**
+   * @summary 修改文本短信模板
+   *
+   * @param request UpdateSmsTemplateRequest
+   * @return UpdateSmsTemplateResponse
+   */
+  async updateSmsTemplate(request: UpdateSmsTemplateRequest): Promise<UpdateSmsTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmsTemplateWithOptions(request, runtime);
   }
 
 }
