@@ -11919,12 +11919,14 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $tea.Mode
   cveList?: string[];
   name?: string;
   necessity?: string;
+  needReboot?: boolean;
   static names(): { [key: string]: string } {
     return {
       aliasName: 'alias_name',
       cveList: 'cve_list',
       name: 'name',
       necessity: 'necessity',
+      needReboot: 'need_reboot',
     };
   }
 
@@ -11934,6 +11936,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $tea.Mode
       cveList: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       necessity: 'string',
+      needReboot: 'boolean',
     };
   }
 
@@ -14136,12 +14139,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI CancelComponentUpgrade is deprecated
+   *
    * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
    *
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
    * @return CancelComponentUpgradeResponse
    */
+  // Deprecated
   async cancelComponentUpgradeWithOptions(clusterId: string, componentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelComponentUpgradeResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -14161,10 +14167,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI CancelComponentUpgrade is deprecated
+   *
    * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
    *
    * @return CancelComponentUpgradeResponse
    */
+  // Deprecated
   async cancelComponentUpgrade(clusterId: string, componentId: string): Promise<CancelComponentUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -18236,12 +18245,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI GetUpgradeStatus is deprecated
+   *
    * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
    *
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
    * @return GetUpgradeStatusResponse
    */
+  // Deprecated
   async getUpgradeStatusWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUpgradeStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -18261,10 +18273,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI GetUpgradeStatus is deprecated
+   *
    * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
    *
    * @return GetUpgradeStatusResponse
    */
+  // Deprecated
   async getUpgradeStatus(ClusterId: string): Promise<GetUpgradeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -19198,12 +19213,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI PauseComponentUpgrade is deprecated
+   *
    * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
    *
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
    * @return PauseComponentUpgradeResponse
    */
+  // Deprecated
   async pauseComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseComponentUpgradeResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -19223,10 +19241,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI PauseComponentUpgrade is deprecated
+   *
    * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
    *
    * @return PauseComponentUpgradeResponse
    */
+  // Deprecated
   async pauseComponentUpgrade(clusterid: string, componentid: string): Promise<PauseComponentUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -19515,12 +19536,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI ResumeComponentUpgrade is deprecated
+   *
    * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
    *
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
    * @return ResumeComponentUpgradeResponse
    */
+  // Deprecated
   async resumeComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeComponentUpgradeResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -19540,10 +19564,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI ResumeComponentUpgrade is deprecated
+   *
    * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
    *
    * @return ResumeComponentUpgradeResponse
    */
+  // Deprecated
   async resumeComponentUpgrade(clusterid: string, componentid: string): Promise<ResumeComponentUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
