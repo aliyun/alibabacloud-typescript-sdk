@@ -1152,6 +1152,78 @@ export class DeleteServerGroupResponse extends $tea.Model {
   }
 }
 
+export class DescribeHdMonitorRegionConfigRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHdMonitorRegionConfigResponseBody extends $tea.Model {
+  logProject?: string;
+  metricStore?: string;
+  regionId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logProject: 'LogProject',
+      metricStore: 'MetricStore',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logProject: 'string',
+      metricStore: 'string',
+      regionId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHdMonitorRegionConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeHdMonitorRegionConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeHdMonitorRegionConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsRequest extends $tea.Model {
   acceptLanguage?: string;
   clientToken?: string;
@@ -3093,6 +3165,84 @@ export class RemoveServersFromServerGroupResponse extends $tea.Model {
   }
 }
 
+export class SetHdMonitorRegionConfigRequest extends $tea.Model {
+  logProject?: string;
+  metricStore?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logProject: 'LogProject',
+      metricStore: 'MetricStore',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logProject: 'string',
+      metricStore: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetHdMonitorRegionConfigResponseBody extends $tea.Model {
+  logProject?: string;
+  metricStore?: string;
+  regionId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logProject: 'LogProject',
+      metricStore: 'MetricStore',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logProject: 'string',
+      metricStore: 'string',
+      regionId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetHdMonitorRegionConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetHdMonitorRegionConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetHdMonitorRegionConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartListenerRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -4535,8 +4685,10 @@ export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
   healthCheckConnectTimeout?: number;
   healthCheckDomain?: string;
   healthCheckEnabled?: boolean;
+  healthCheckExp?: string;
   healthCheckHttpCode?: string[];
   healthCheckInterval?: number;
+  healthCheckReq?: string;
   healthCheckType?: string;
   healthCheckUrl?: string;
   healthyThreshold?: number;
@@ -4548,8 +4700,10 @@ export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckEnabled: 'HealthCheckEnabled',
+      healthCheckExp: 'HealthCheckExp',
       healthCheckHttpCode: 'HealthCheckHttpCode',
       healthCheckInterval: 'HealthCheckInterval',
+      healthCheckReq: 'HealthCheckReq',
       healthCheckType: 'HealthCheckType',
       healthCheckUrl: 'HealthCheckUrl',
       healthyThreshold: 'HealthyThreshold',
@@ -4564,8 +4718,10 @@ export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
       healthCheckConnectTimeout: 'number',
       healthCheckDomain: 'string',
       healthCheckEnabled: 'boolean',
+      healthCheckExp: 'string',
       healthCheckHttpCode: { 'type': 'array', 'itemType': 'string' },
       healthCheckInterval: 'number',
+      healthCheckReq: 'string',
       healthCheckType: 'string',
       healthCheckUrl: 'string',
       healthyThreshold: 'number',
@@ -5631,8 +5787,10 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheck extends $tea.Mo
   healthCheckConnectTimeout?: number;
   healthCheckDomain?: string;
   healthCheckEnabled?: boolean;
+  healthCheckExp?: string;
   healthCheckHttpCode?: string[];
   healthCheckInterval?: number;
+  healthCheckReq?: string;
   healthCheckType?: string;
   healthCheckUrl?: string;
   healthyThreshold?: number;
@@ -5644,8 +5802,10 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheck extends $tea.Mo
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckEnabled: 'HealthCheckEnabled',
+      healthCheckExp: 'HealthCheckExp',
       healthCheckHttpCode: 'HealthCheckHttpCode',
       healthCheckInterval: 'HealthCheckInterval',
+      healthCheckReq: 'HealthCheckReq',
       healthCheckType: 'HealthCheckType',
       healthCheckUrl: 'HealthCheckUrl',
       healthyThreshold: 'HealthyThreshold',
@@ -5660,8 +5820,10 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheck extends $tea.Mo
       healthCheckConnectTimeout: 'number',
       healthCheckDomain: 'string',
       healthCheckEnabled: 'boolean',
+      healthCheckExp: 'string',
       healthCheckHttpCode: { 'type': 'array', 'itemType': 'string' },
       healthCheckInterval: 'number',
+      healthCheckReq: 'string',
       healthCheckType: 'string',
       healthCheckUrl: 'string',
       healthyThreshold: 'number',
@@ -6040,8 +6202,10 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $tea.Mod
   healthCheckConnectTimeout?: number;
   healthCheckDomain?: string;
   healthCheckEnabled?: boolean;
+  healthCheckExp?: string;
   healthCheckHttpCode?: string[];
   healthCheckInterval?: number;
+  healthCheckReq?: string;
   healthCheckType?: string;
   healthCheckUrl?: string;
   healthyThreshold?: number;
@@ -6053,8 +6217,10 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $tea.Mod
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckEnabled: 'HealthCheckEnabled',
+      healthCheckExp: 'HealthCheckExp',
       healthCheckHttpCode: 'HealthCheckHttpCode',
       healthCheckInterval: 'HealthCheckInterval',
+      healthCheckReq: 'HealthCheckReq',
       healthCheckType: 'HealthCheckType',
       healthCheckUrl: 'HealthCheckUrl',
       healthyThreshold: 'HealthyThreshold',
@@ -6069,8 +6235,10 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $tea.Mod
       healthCheckConnectTimeout: 'number',
       healthCheckDomain: 'string',
       healthCheckEnabled: 'boolean',
+      healthCheckExp: 'string',
       healthCheckHttpCode: { 'type': 'array', 'itemType': 'string' },
       healthCheckInterval: 'number',
+      healthCheckReq: 'string',
       healthCheckType: 'string',
       healthCheckUrl: 'string',
       healthyThreshold: 'number',
@@ -6141,6 +6309,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Adds backend servers to a specified server group.
+   *
+   * @param request AddServersToServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddServersToServerGroupResponse
+   */
   async addServersToServerGroupWithOptions(request: AddServersToServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddServersToServerGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6186,19 +6361,27 @@ export default class Client extends OpenApi {
     return $tea.cast<AddServersToServerGroupResponse>(await this.callApi(params, req, runtime), new AddServersToServerGroupResponse({}));
   }
 
+  /**
+   * @summary Adds backend servers to a specified server group.
+   *
+   * @param request AddServersToServerGroupRequest
+   * @return AddServersToServerGroupResponse
+   */
   async addServersToServerGroup(request: AddServersToServerGroupRequest): Promise<AddServersToServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addServersToServerGroupWithOptions(request, runtime);
   }
 
   /**
-    * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
-    * *   If the listener is in the **Associating** state, the additional certificates are being associated.
-    * *   If the listener is in the **Associated** state, the additional certificates are associated.
-    *
-    * @param request AssociateAdditionalCertificatesWithListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateAdditionalCertificatesWithListenerResponse
+   * @summary Associates additional certificates with a listener that uses SSL over TCP.
+   *
+   * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+   * *   If the listener is in the **Associating** state, the additional certificates are being associated.
+   * *   If the listener is in the **Associated** state, the additional certificates are associated.
+   *
+   * @param request AssociateAdditionalCertificatesWithListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateAdditionalCertificatesWithListenerResponse
    */
   async associateAdditionalCertificatesWithListenerWithOptions(request: AssociateAdditionalCertificatesWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     Util.validateModel(request);
@@ -6241,18 +6424,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
-    * *   If the listener is in the **Associating** state, the additional certificates are being associated.
-    * *   If the listener is in the **Associated** state, the additional certificates are associated.
-    *
-    * @param request AssociateAdditionalCertificatesWithListenerRequest
-    * @return AssociateAdditionalCertificatesWithListenerResponse
+   * @summary Associates additional certificates with a listener that uses SSL over TCP.
+   *
+   * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+   * *   If the listener is in the **Associating** state, the additional certificates are being associated.
+   * *   If the listener is in the **Associated** state, the additional certificates are associated.
+   *
+   * @param request AssociateAdditionalCertificatesWithListenerRequest
+   * @return AssociateAdditionalCertificatesWithListenerResponse
    */
   async associateAdditionalCertificatesWithListener(request: AssociateAdditionalCertificatesWithListenerRequest): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateAdditionalCertificatesWithListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 绑定带宽包
+   *
+   * @param request AttachCommonBandwidthPackageToLoadBalancerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+   */
   async attachCommonBandwidthPackageToLoadBalancerWithOptions(request: AttachCommonBandwidthPackageToLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<AttachCommonBandwidthPackageToLoadBalancerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6293,17 +6485,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachCommonBandwidthPackageToLoadBalancerResponse>(await this.callApi(params, req, runtime), new AttachCommonBandwidthPackageToLoadBalancerResponse({}));
   }
 
+  /**
+   * @summary 绑定带宽包
+   *
+   * @param request AttachCommonBandwidthPackageToLoadBalancerRequest
+   * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+   */
   async attachCommonBandwidthPackageToLoadBalancer(request: AttachCommonBandwidthPackageToLoadBalancerRequest): Promise<AttachCommonBandwidthPackageToLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachCommonBandwidthPackageToLoadBalancerWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](~~2411999~~) API operation.
-    *
-    * @param request CancelShiftLoadBalancerZonesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelShiftLoadBalancerZonesResponse
+   * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
+   *
+   * @description Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
+   *
+   * @param request CancelShiftLoadBalancerZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelShiftLoadBalancerZonesResponse
    */
   async cancelShiftLoadBalancerZonesWithOptions(request: CancelShiftLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<CancelShiftLoadBalancerZonesResponse> {
     Util.validateModel(request);
@@ -6346,16 +6546,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](~~2411999~~) API operation.
-    *
-    * @param request CancelShiftLoadBalancerZonesRequest
-    * @return CancelShiftLoadBalancerZonesResponse
+   * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
+   *
+   * @description Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
+   *
+   * @param request CancelShiftLoadBalancerZonesRequest
+   * @return CancelShiftLoadBalancerZonesResponse
    */
   async cancelShiftLoadBalancerZones(request: CancelShiftLoadBalancerZonesRequest): Promise<CancelShiftLoadBalancerZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelShiftLoadBalancerZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
+   *
+   * @param tmpReq CreateListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateListenerResponse
+   */
   async createListenerWithOptions(tmpReq: CreateListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateListenerResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateListenerShrinkRequest({ });
@@ -6474,20 +6683,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateListenerResponse>(await this.callApi(params, req, runtime), new CreateListenerResponse({}));
   }
 
+  /**
+   * @summary Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
+   *
+   * @param request CreateListenerRequest
+   * @return CreateListenerResponse
+   */
   async createListener(request: CreateListenerRequest): Promise<CreateListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createListenerWithOptions(request, runtime);
   }
 
   /**
-    * *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
-    * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~445873~~) to query the status of an NLB instance.
-    *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
-    *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
-    *
-    * @param request CreateLoadBalancerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerResponse
+   * @summary Creates a Network Load Balancer (NLB) instance in a specified region.
+   *
+   * @description *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
+   * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) to query the status of an NLB instance.
+   *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
+   *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
+   *
+   * @param request CreateLoadBalancerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerResponse
    */
   async createLoadBalancerWithOptions(request: CreateLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerResponse> {
     Util.validateModel(request);
@@ -6575,19 +6792,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
-    * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~445873~~) to query the status of an NLB instance.
-    *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
-    *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
-    *
-    * @param request CreateLoadBalancerRequest
-    * @return CreateLoadBalancerResponse
+   * @summary Creates a Network Load Balancer (NLB) instance in a specified region.
+   *
+   * @description *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
+   * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) to query the status of an NLB instance.
+   *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
+   *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
+   *
+   * @param request CreateLoadBalancerRequest
+   * @return CreateLoadBalancerResponse
    */
   async createLoadBalancer(request: CreateLoadBalancerRequest): Promise<CreateLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLoadBalancerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a custom security policy for a Network Load Balancer (NLB) instance.
+   *
+   * @param request CreateSecurityPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSecurityPolicyResponse
+   */
   async createSecurityPolicyWithOptions(request: CreateSecurityPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecurityPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6640,21 +6866,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSecurityPolicyResponse>(await this.callApi(params, req, runtime), new CreateSecurityPolicyResponse({}));
   }
 
+  /**
+   * @summary Creates a custom security policy for a Network Load Balancer (NLB) instance.
+   *
+   * @param request CreateSecurityPolicyRequest
+   * @return CreateSecurityPolicyResponse
+   */
   async createSecurityPolicy(request: CreateSecurityPolicyRequest): Promise<CreateSecurityPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSecurityPolicyWithOptions(request, runtime);
   }
 
   /**
-    * *   **protocol** specifies the protocol used to forward requests to the backend servers.
-    * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
-    * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the creation status of the task.
-    *     *   If the task is in the **Succeeded** status, the server group is created.
-    *     *   If the task is in the **Processing** status, the server group is being created.
-    *
-    * @param request CreateServerGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateServerGroupResponse
+   * @summary Creates a server group in a region.
+   *
+   * @description *   **protocol** specifies the protocol used to forward requests to the backend servers.
+   * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
+   * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
+   *     *   If the task is in the **Succeeded** status, the server group is created.
+   *     *   If the task is in the **Processing** status, the server group is being created.
+   *
+   * @param request CreateServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServerGroupResponse
    */
   async createServerGroupWithOptions(request: CreateServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateServerGroupResponse> {
     Util.validateModel(request);
@@ -6746,20 +6980,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **protocol** specifies the protocol used to forward requests to the backend servers.
-    * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
-    * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the creation status of the task.
-    *     *   If the task is in the **Succeeded** status, the server group is created.
-    *     *   If the task is in the **Processing** status, the server group is being created.
-    *
-    * @param request CreateServerGroupRequest
-    * @return CreateServerGroupResponse
+   * @summary Creates a server group in a region.
+   *
+   * @description *   **protocol** specifies the protocol used to forward requests to the backend servers.
+   * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
+   * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
+   *     *   If the task is in the **Succeeded** status, the server group is created.
+   *     *   If the task is in the **Processing** status, the server group is being created.
+   *
+   * @param request CreateServerGroupRequest
+   * @return CreateServerGroupResponse
    */
   async createServerGroup(request: CreateServerGroupRequest): Promise<CreateServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServerGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除监听
+   *
+   * @param request DeleteListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteListenerResponse
+   */
   async deleteListenerWithOptions(request: DeleteListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteListenerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6796,11 +7039,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteListenerResponse>(await this.callApi(params, req, runtime), new DeleteListenerResponse({}));
   }
 
+  /**
+   * @summary 删除监听
+   *
+   * @param request DeleteListenerRequest
+   * @return DeleteListenerResponse
+   */
   async deleteListener(request: DeleteListenerRequest): Promise<DeleteListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除负载均衡
+   *
+   * @param request DeleteLoadBalancerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLoadBalancerResponse
+   */
   async deleteLoadBalancerWithOptions(request: DeleteLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoadBalancerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6837,11 +7093,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLoadBalancerResponse>(await this.callApi(params, req, runtime), new DeleteLoadBalancerResponse({}));
   }
 
+  /**
+   * @summary 删除负载均衡
+   *
+   * @param request DeleteLoadBalancerRequest
+   * @return DeleteLoadBalancerResponse
+   */
   async deleteLoadBalancer(request: DeleteLoadBalancerRequest): Promise<DeleteLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLoadBalancerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除安全策略
+   *
+   * @param request DeleteSecurityPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSecurityPolicyResponse
+   */
   async deleteSecurityPolicyWithOptions(request: DeleteSecurityPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecurityPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6878,17 +7147,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSecurityPolicyResponse>(await this.callApi(params, req, runtime), new DeleteSecurityPolicyResponse({}));
   }
 
+  /**
+   * @summary 删除安全策略
+   *
+   * @param request DeleteSecurityPolicyRequest
+   * @return DeleteSecurityPolicyResponse
+   */
   async deleteSecurityPolicy(request: DeleteSecurityPolicyRequest): Promise<DeleteSecurityPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSecurityPolicyWithOptions(request, runtime);
   }
 
   /**
-    * You can delete server groups that are not associated with listeners.
-    *
-    * @param request DeleteServerGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteServerGroupResponse
+   * @summary DeleteServerGroup
+   *
+   * @description You can delete server groups that are not associated with listeners.
+   *
+   * @param request DeleteServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServerGroupResponse
    */
   async deleteServerGroupWithOptions(request: DeleteServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServerGroupResponse> {
     Util.validateModel(request);
@@ -6927,16 +7204,67 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can delete server groups that are not associated with listeners.
-    *
-    * @param request DeleteServerGroupRequest
-    * @return DeleteServerGroupResponse
+   * @summary DeleteServerGroup
+   *
+   * @description You can delete server groups that are not associated with listeners.
+   *
+   * @param request DeleteServerGroupRequest
+   * @return DeleteServerGroupResponse
    */
   async deleteServerGroup(request: DeleteServerGroupRequest): Promise<DeleteServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServerGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询秒级监控存储配置
+   *
+   * @param request DescribeHdMonitorRegionConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHdMonitorRegionConfigResponse
+   */
+  async describeHdMonitorRegionConfigWithOptions(request: DescribeHdMonitorRegionConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHdMonitorRegionConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeHdMonitorRegionConfig",
+      version: "2022-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHdMonitorRegionConfigResponse>(await this.callApi(params, req, runtime), new DescribeHdMonitorRegionConfigResponse({}));
+  }
+
+  /**
+   * @summary 查询秒级监控存储配置
+   *
+   * @param request DescribeHdMonitorRegionConfigRequest
+   * @return DescribeHdMonitorRegionConfigResponse
+   */
+  async describeHdMonitorRegionConfig(request: DescribeHdMonitorRegionConfigRequest): Promise<DescribeHdMonitorRegionConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeHdMonitorRegionConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries regions that support Network Load Balancer (NLB) instances.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6971,11 +7299,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries regions that support Network Load Balancer (NLB) instances.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries zones in a region that supports Network Load Balancer (NLB).
+   *
+   * @param request DescribeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7012,11 +7353,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * @summary Queries zones in a region that supports Network Load Balancer (NLB).
+   *
+   * @param request DescribeZonesRequest
+   * @return DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 解绑带宽包
+   *
+   * @param request DetachCommonBandwidthPackageFromLoadBalancerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+   */
   async detachCommonBandwidthPackageFromLoadBalancerWithOptions(request: DetachCommonBandwidthPackageFromLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<DetachCommonBandwidthPackageFromLoadBalancerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7057,11 +7411,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachCommonBandwidthPackageFromLoadBalancerResponse>(await this.callApi(params, req, runtime), new DetachCommonBandwidthPackageFromLoadBalancerResponse({}));
   }
 
+  /**
+   * @summary 解绑带宽包
+   *
+   * @param request DetachCommonBandwidthPackageFromLoadBalancerRequest
+   * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+   */
   async detachCommonBandwidthPackageFromLoadBalancer(request: DetachCommonBandwidthPackageFromLoadBalancerRequest): Promise<DetachCommonBandwidthPackageFromLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachCommonBandwidthPackageFromLoadBalancerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the network type of an IPv6 Network Load Balancer (NLB) instance from Internet-facing to internal-facing.
+   *
+   * @param request DisableLoadBalancerIpv6InternetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableLoadBalancerIpv6InternetResponse
+   */
   async disableLoadBalancerIpv6InternetWithOptions(request: DisableLoadBalancerIpv6InternetRequest, runtime: $Util.RuntimeOptions): Promise<DisableLoadBalancerIpv6InternetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7098,19 +7465,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableLoadBalancerIpv6InternetResponse>(await this.callApi(params, req, runtime), new DisableLoadBalancerIpv6InternetResponse({}));
   }
 
+  /**
+   * @summary Changes the network type of an IPv6 Network Load Balancer (NLB) instance from Internet-facing to internal-facing.
+   *
+   * @param request DisableLoadBalancerIpv6InternetRequest
+   * @return DisableLoadBalancerIpv6InternetResponse
+   */
   async disableLoadBalancerIpv6Internet(request: DisableLoadBalancerIpv6InternetRequest): Promise<DisableLoadBalancerIpv6InternetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableLoadBalancerIpv6InternetWithOptions(request, runtime);
   }
 
   /**
-    * **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
-    * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
-    * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-    *
-    * @param request DisassociateAdditionalCertificatesWithListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DisassociateAdditionalCertificatesWithListenerResponse
+   * @summary Disassociates additional certificates from a listener that uses SSL over TCP.
+   *
+   * @description **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+   * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
+   * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+   *
+   * @param request DisassociateAdditionalCertificatesWithListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisassociateAdditionalCertificatesWithListenerResponse
    */
   async disassociateAdditionalCertificatesWithListenerWithOptions(request: DisassociateAdditionalCertificatesWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<DisassociateAdditionalCertificatesWithListenerResponse> {
     Util.validateModel(request);
@@ -7153,18 +7528,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
-    * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
-    * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-    *
-    * @param request DisassociateAdditionalCertificatesWithListenerRequest
-    * @return DisassociateAdditionalCertificatesWithListenerResponse
+   * @summary Disassociates additional certificates from a listener that uses SSL over TCP.
+   *
+   * @description **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+   * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
+   * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+   *
+   * @param request DisassociateAdditionalCertificatesWithListenerRequest
+   * @return DisassociateAdditionalCertificatesWithListenerResponse
    */
   async disassociateAdditionalCertificatesWithListener(request: DisassociateAdditionalCertificatesWithListenerRequest): Promise<DisassociateAdditionalCertificatesWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disassociateAdditionalCertificatesWithListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
+   *
+   * @param request EnableLoadBalancerIpv6InternetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableLoadBalancerIpv6InternetResponse
+   */
   async enableLoadBalancerIpv6InternetWithOptions(request: EnableLoadBalancerIpv6InternetRequest, runtime: $Util.RuntimeOptions): Promise<EnableLoadBalancerIpv6InternetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7201,11 +7585,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableLoadBalancerIpv6InternetResponse>(await this.callApi(params, req, runtime), new EnableLoadBalancerIpv6InternetResponse({}));
   }
 
+  /**
+   * @summary Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
+   *
+   * @param request EnableLoadBalancerIpv6InternetRequest
+   * @return EnableLoadBalancerIpv6InternetResponse
+   */
   async enableLoadBalancerIpv6Internet(request: EnableLoadBalancerIpv6InternetRequest): Promise<EnableLoadBalancerIpv6InternetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableLoadBalancerIpv6InternetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取工作流状态
+   *
+   * @param request GetJobStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobStatusResponse
+   */
   async getJobStatusWithOptions(request: GetJobStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetJobStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7234,11 +7631,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobStatusResponse>(await this.callApi(params, req, runtime), new GetJobStatusResponse({}));
   }
 
+  /**
+   * @summary 获取工作流状态
+   *
+   * @param request GetJobStatusRequest
+   * @return GetJobStatusResponse
+   */
   async getJobStatus(request: GetJobStatusRequest): Promise<GetJobStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getJobStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a Network Load Balancer (NLB) listener.
+   *
+   * @param request GetListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetListenerAttributeResponse
+   */
   async getListenerAttributeWithOptions(request: GetListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetListenerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7275,11 +7685,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetListenerAttributeResponse>(await this.callApi(params, req, runtime), new GetListenerAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a Network Load Balancer (NLB) listener.
+   *
+   * @param request GetListenerAttributeRequest
+   * @return GetListenerAttributeResponse
+   */
   async getListenerAttribute(request: GetListenerAttributeRequest): Promise<GetListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the health check status of a Network Load Balancer (NLB) instance.
+   *
+   * @param request GetListenerHealthStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetListenerHealthStatusResponse
+   */
   async getListenerHealthStatusWithOptions(request: GetListenerHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetListenerHealthStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7316,11 +7739,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetListenerHealthStatusResponse>(await this.callApi(params, req, runtime), new GetListenerHealthStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the health check status of a Network Load Balancer (NLB) instance.
+   *
+   * @param request GetListenerHealthStatusRequest
+   * @return GetListenerHealthStatusResponse
+   */
   async getListenerHealthStatus(request: GetListenerHealthStatusRequest): Promise<GetListenerHealthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getListenerHealthStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a Network Load Balancer (NLB) instance.
+   *
+   * @param request GetLoadBalancerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLoadBalancerAttributeResponse
+   */
   async getLoadBalancerAttributeWithOptions(request: GetLoadBalancerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetLoadBalancerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7357,11 +7793,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLoadBalancerAttributeResponse>(await this.callApi(params, req, runtime), new GetLoadBalancerAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a Network Load Balancer (NLB) instance.
+   *
+   * @param request GetLoadBalancerAttributeRequest
+   * @return GetLoadBalancerAttributeResponse
+   */
   async getLoadBalancerAttribute(request: GetLoadBalancerAttributeRequest): Promise<GetLoadBalancerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLoadBalancerAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
+   *
+   * @param request ListListenerCertificatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListListenerCertificatesResponse
+   */
   async listListenerCertificatesWithOptions(request: ListListenerCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListListenerCertificatesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7402,11 +7851,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListListenerCertificatesResponse>(await this.callApi(params, req, runtime), new ListListenerCertificatesResponse({}));
   }
 
+  /**
+   * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
+   *
+   * @param request ListListenerCertificatesRequest
+   * @return ListListenerCertificatesResponse
+   */
   async listListenerCertificates(request: ListListenerCertificatesRequest): Promise<ListListenerCertificatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listListenerCertificatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries listeners added to a Network Load Balancer (NLB) instance.
+   *
+   * @param request ListListenersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListListenersResponse
+   */
   async listListenersWithOptions(request: ListListenersRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7455,11 +7917,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListListenersResponse>(await this.callApi(params, req, runtime), new ListListenersResponse({}));
   }
 
+  /**
+   * @summary Queries listeners added to a Network Load Balancer (NLB) instance.
+   *
+   * @param request ListListenersRequest
+   * @return ListListenersResponse
+   */
   async listListeners(request: ListListenersRequest): Promise<ListListenersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listListenersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Network Load Balancer (NLB) instances in a region based on specified conditions.
+   *
+   * @param request ListLoadBalancersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLoadBalancersResponse
+   */
   async listLoadBalancersWithOptions(request: ListLoadBalancersRequest, runtime: $Util.RuntimeOptions): Promise<ListLoadBalancersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7544,11 +8019,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLoadBalancersResponse>(await this.callApi(params, req, runtime), new ListLoadBalancersResponse({}));
   }
 
+  /**
+   * @summary Queries Network Load Balancer (NLB) instances in a region based on specified conditions.
+   *
+   * @param request ListLoadBalancersRequest
+   * @return ListLoadBalancersResponse
+   */
   async listLoadBalancers(request: ListLoadBalancersRequest): Promise<ListLoadBalancersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLoadBalancersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the TLS security policies set for a Network Load Balancer (NLB) instance.
+   *
+   * @param request ListSecurityPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSecurityPolicyResponse
+   */
   async listSecurityPolicyWithOptions(request: ListSecurityPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListSecurityPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7599,11 +8087,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSecurityPolicyResponse>(await this.callApi(params, req, runtime), new ListSecurityPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries the TLS security policies set for a Network Load Balancer (NLB) instance.
+   *
+   * @param request ListSecurityPolicyRequest
+   * @return ListSecurityPolicyResponse
+   */
   async listSecurityPolicy(request: ListSecurityPolicyRequest): Promise<ListSecurityPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSecurityPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the backend servers in a specified server group.
+   *
+   * @param request ListServerGroupServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServerGroupServersResponse
+   */
   async listServerGroupServersWithOptions(request: ListServerGroupServersRequest, runtime: $Util.RuntimeOptions): Promise<ListServerGroupServersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7648,11 +8149,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServerGroupServersResponse>(await this.callApi(params, req, runtime), new ListServerGroupServersResponse({}));
   }
 
+  /**
+   * @summary Queries the backend servers in a specified server group.
+   *
+   * @param request ListServerGroupServersRequest
+   * @return ListServerGroupServersResponse
+   */
   async listServerGroupServers(request: ListServerGroupServersRequest): Promise<ListServerGroupServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServerGroupServersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the server groups of a Network Load Balancer (NLB) instance.
+   *
+   * @param request ListServerGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServerGroupsResponse
+   */
   async listServerGroupsWithOptions(request: ListServerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListServerGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7711,11 +8225,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServerGroupsResponse>(await this.callApi(params, req, runtime), new ListServerGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries the server groups of a Network Load Balancer (NLB) instance.
+   *
+   * @param request ListServerGroupsRequest
+   * @return ListServerGroupsResponse
+   */
   async listServerGroups(request: ListServerGroupsRequest): Promise<ListServerGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServerGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the default TLS policy.
+   *
+   * @param request ListSystemSecurityPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSystemSecurityPolicyResponse
+   */
   async listSystemSecurityPolicyWithOptions(request: ListSystemSecurityPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListSystemSecurityPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7740,11 +8267,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSystemSecurityPolicyResponse>(await this.callApi(params, req, runtime), new ListSystemSecurityPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries the default TLS policy.
+   *
+   * @param request ListSystemSecurityPolicyRequest
+   * @return ListSystemSecurityPolicyResponse
+   */
   async listSystemSecurityPolicy(request: ListSystemSecurityPolicyRequest): Promise<ListSystemSecurityPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSystemSecurityPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tags of a resource.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7794,22 +8334,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries the tags of a resource.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](~~25553~~).
-    * *   An NLB instance can be associated with up to four security groups.
-    * *   You can query the security groups that are associated with an NLB instance by calling the [GetLoadBalancerAttribute](~~214362~~) operation.
-    * *   LoadBalancerJoinSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the status of a task.
-    *     *   If the task is in the **Succeeded** state, the security group is associated.
-    *     *   If the task is in the **Processing** state, the security group is being associated. In this case, you can perform only query operations.
-    *
-    * @param request LoadBalancerJoinSecurityGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return LoadBalancerJoinSecurityGroupResponse
+   * @summary Associates a security group with a Network Load Balancer (NLB) instance.
+   *
+   * @description *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/25553.html).
+   * *   An NLB instance can be associated with up to four security groups.
+   * *   You can query the security groups that are associated with an NLB instance by calling the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation.
+   * *   LoadBalancerJoinSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
+   *     *   If the task is in the **Succeeded** state, the security group is associated.
+   *     *   If the task is in the **Processing** state, the security group is being associated. In this case, you can perform only query operations.
+   *
+   * @param request LoadBalancerJoinSecurityGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LoadBalancerJoinSecurityGroupResponse
    */
   async loadBalancerJoinSecurityGroupWithOptions(request: LoadBalancerJoinSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<LoadBalancerJoinSecurityGroupResponse> {
     Util.validateModel(request);
@@ -7852,15 +8400,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](~~25553~~).
-    * *   An NLB instance can be associated with up to four security groups.
-    * *   You can query the security groups that are associated with an NLB instance by calling the [GetLoadBalancerAttribute](~~214362~~) operation.
-    * *   LoadBalancerJoinSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the status of a task.
-    *     *   If the task is in the **Succeeded** state, the security group is associated.
-    *     *   If the task is in the **Processing** state, the security group is being associated. In this case, you can perform only query operations.
-    *
-    * @param request LoadBalancerJoinSecurityGroupRequest
-    * @return LoadBalancerJoinSecurityGroupResponse
+   * @summary Associates a security group with a Network Load Balancer (NLB) instance.
+   *
+   * @description *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/25553.html).
+   * *   An NLB instance can be associated with up to four security groups.
+   * *   You can query the security groups that are associated with an NLB instance by calling the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation.
+   * *   LoadBalancerJoinSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
+   *     *   If the task is in the **Succeeded** state, the security group is associated.
+   *     *   If the task is in the **Processing** state, the security group is being associated. In this case, you can perform only query operations.
+   *
+   * @param request LoadBalancerJoinSecurityGroupRequest
+   * @return LoadBalancerJoinSecurityGroupResponse
    */
   async loadBalancerJoinSecurityGroup(request: LoadBalancerJoinSecurityGroupRequest): Promise<LoadBalancerJoinSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7868,13 +8418,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the status of a task.
-    * *   If the task is in the **Succeeded** state, the security group is disassociated.
-    * *   If the task is in the **Processing** state, the security group is being disassociated. In this case, you can perform only query operations.
-    *
-    * @param request LoadBalancerLeaveSecurityGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return LoadBalancerLeaveSecurityGroupResponse
+   * @summary Disassociates a security group from a Network Load Balancer (NLB) instance.
+   *
+   * @description LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
+   * *   If the task is in the **Succeeded** state, the security group is disassociated.
+   * *   If the task is in the **Processing** state, the security group is being disassociated. In this case, you can perform only query operations.
+   *
+   * @param request LoadBalancerLeaveSecurityGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LoadBalancerLeaveSecurityGroupResponse
    */
   async loadBalancerLeaveSecurityGroupWithOptions(request: LoadBalancerLeaveSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<LoadBalancerLeaveSecurityGroupResponse> {
     Util.validateModel(request);
@@ -7917,18 +8469,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the status of a task.
-    * *   If the task is in the **Succeeded** state, the security group is disassociated.
-    * *   If the task is in the **Processing** state, the security group is being disassociated. In this case, you can perform only query operations.
-    *
-    * @param request LoadBalancerLeaveSecurityGroupRequest
-    * @return LoadBalancerLeaveSecurityGroupResponse
+   * @summary Disassociates a security group from a Network Load Balancer (NLB) instance.
+   *
+   * @description LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
+   * *   If the task is in the **Succeeded** state, the security group is disassociated.
+   * *   If the task is in the **Processing** state, the security group is being disassociated. In this case, you can perform only query operations.
+   *
+   * @param request LoadBalancerLeaveSecurityGroupRequest
+   * @return LoadBalancerLeaveSecurityGroupResponse
    */
   async loadBalancerLeaveSecurityGroup(request: LoadBalancerLeaveSecurityGroupRequest): Promise<LoadBalancerLeaveSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.loadBalancerLeaveSecurityGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modify the group of resource.
+   *
+   * @param request MoveResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7965,11 +8526,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Modify the group of resource.
+   *
+   * @param request MoveResourceGroupRequest
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes backend servers from a server group of a Network Load Balancer (NLB) instance.
+   *
+   * @param request RemoveServersFromServerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveServersFromServerGroupResponse
+   */
   async removeServersFromServerGroupWithOptions(request: RemoveServersFromServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveServersFromServerGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8010,11 +8584,74 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveServersFromServerGroupResponse>(await this.callApi(params, req, runtime), new RemoveServersFromServerGroupResponse({}));
   }
 
+  /**
+   * @summary Removes backend servers from a server group of a Network Load Balancer (NLB) instance.
+   *
+   * @param request RemoveServersFromServerGroupRequest
+   * @return RemoveServersFromServerGroupResponse
+   */
   async removeServersFromServerGroup(request: RemoveServersFromServerGroupRequest): Promise<RemoveServersFromServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeServersFromServerGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 配置秒级监控存储
+   *
+   * @param request SetHdMonitorRegionConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetHdMonitorRegionConfigResponse
+   */
+  async setHdMonitorRegionConfigWithOptions(request: SetHdMonitorRegionConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetHdMonitorRegionConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.logProject)) {
+      query["LogProject"] = request.logProject;
+    }
+
+    if (!Util.isUnset(request.metricStore)) {
+      query["MetricStore"] = request.metricStore;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetHdMonitorRegionConfig",
+      version: "2022-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetHdMonitorRegionConfigResponse>(await this.callApi(params, req, runtime), new SetHdMonitorRegionConfigResponse({}));
+  }
+
+  /**
+   * @summary 配置秒级监控存储
+   *
+   * @param request SetHdMonitorRegionConfigRequest
+   * @return SetHdMonitorRegionConfigResponse
+   */
+  async setHdMonitorRegionConfig(request: SetHdMonitorRegionConfigRequest): Promise<SetHdMonitorRegionConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setHdMonitorRegionConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Enables a listener for a Network Load Balancer (NLB) instance.
+   *
+   * @param request StartListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartListenerResponse
+   */
   async startListenerWithOptions(request: StartListenerRequest, runtime: $Util.RuntimeOptions): Promise<StartListenerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8051,17 +8688,25 @@ export default class Client extends OpenApi {
     return $tea.cast<StartListenerResponse>(await this.callApi(params, req, runtime), new StartListenerResponse({}));
   }
 
+  /**
+   * @summary Enables a listener for a Network Load Balancer (NLB) instance.
+   *
+   * @param request StartListenerRequest
+   * @return StartListenerResponse
+   */
   async startListener(request: StartListenerRequest): Promise<StartListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startListenerWithOptions(request, runtime);
   }
 
   /**
-    * > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
-    *
-    * @param request StartShiftLoadBalancerZonesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartShiftLoadBalancerZonesResponse
+   * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
+   *
+   * @description > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
+   *
+   * @param request StartShiftLoadBalancerZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartShiftLoadBalancerZonesResponse
    */
   async startShiftLoadBalancerZonesWithOptions(request: StartShiftLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<StartShiftLoadBalancerZonesResponse> {
     Util.validateModel(request);
@@ -8104,16 +8749,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
-    *
-    * @param request StartShiftLoadBalancerZonesRequest
-    * @return StartShiftLoadBalancerZonesResponse
+   * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
+   *
+   * @description > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
+   *
+   * @param request StartShiftLoadBalancerZonesRequest
+   * @return StartShiftLoadBalancerZonesResponse
    */
   async startShiftLoadBalancerZones(request: StartShiftLoadBalancerZonesRequest): Promise<StartShiftLoadBalancerZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startShiftLoadBalancerZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables a listener for a Network Load Balancer (NLB) instance.
+   *
+   * @param request StopListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopListenerResponse
+   */
   async stopListenerWithOptions(request: StopListenerRequest, runtime: $Util.RuntimeOptions): Promise<StopListenerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8150,11 +8804,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopListenerResponse>(await this.callApi(params, req, runtime), new StopListenerResponse({}));
   }
 
+  /**
+   * @summary Disables a listener for a Network Load Balancer (NLB) instance.
+   *
+   * @param request StopListenerRequest
+   * @return StopListenerResponse
+   */
   async stopListener(request: StopListenerRequest): Promise<StopListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds tags to specified resources.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8204,11 +8871,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Adds tags to specified resources.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from resources.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8262,11 +8942,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from resources.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the attributes of a listener, such as the name and the idle connection timeout period.
+   *
+   * @param tmpReq UpdateListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateListenerAttributeResponse
+   */
   async updateListenerAttributeWithOptions(tmpReq: UpdateListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerAttributeResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateListenerAttributeShrinkRequest({ });
@@ -8365,21 +9058,29 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateListenerAttributeResponse>(await this.callApi(params, req, runtime), new UpdateListenerAttributeResponse({}));
   }
 
+  /**
+   * @summary Updates the attributes of a listener, such as the name and the idle connection timeout period.
+   *
+   * @param request UpdateListenerAttributeRequest
+   * @return UpdateListenerAttributeResponse
+   */
   async updateListenerAttribute(request: UpdateListenerAttributeRequest): Promise<UpdateListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateListenerAttributeWithOptions(request, runtime);
   }
 
   /**
-    * *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](~~445868~~).
-    * *   You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the **AddressType** value of an NLB instance after you change the network type.
-    * *   **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the task status:
-    *     *   If the task is in the **Succeeded** state, the network type of the IPv4 address of the NLB instance is changed.
-    *     *   If the task is in the **Processing** state, the network type of the IPv4 address of the NLB instance is being changed. In this case, you can perform only query operations.
-    *
-    * @param request UpdateLoadBalancerAddressTypeConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateLoadBalancerAddressTypeConfigResponse
+   * @summary Changes the network type of the IPv4 address of a Network Load Balancer (NLB) instance.
+   *
+   * @description *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+   * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the **AddressType** value of an NLB instance after you change the network type.
+   * *   **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the task status:
+   *     *   If the task is in the **Succeeded** state, the network type of the IPv4 address of the NLB instance is changed.
+   *     *   If the task is in the **Processing** state, the network type of the IPv4 address of the NLB instance is being changed. In this case, you can perform only query operations.
+   *
+   * @param request UpdateLoadBalancerAddressTypeConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLoadBalancerAddressTypeConfigResponse
    */
   async updateLoadBalancerAddressTypeConfigWithOptions(request: UpdateLoadBalancerAddressTypeConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerAddressTypeConfigResponse> {
     Util.validateModel(request);
@@ -8426,20 +9127,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](~~445868~~).
-    * *   You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the **AddressType** value of an NLB instance after you change the network type.
-    * *   **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the task status:
-    *     *   If the task is in the **Succeeded** state, the network type of the IPv4 address of the NLB instance is changed.
-    *     *   If the task is in the **Processing** state, the network type of the IPv4 address of the NLB instance is being changed. In this case, you can perform only query operations.
-    *
-    * @param request UpdateLoadBalancerAddressTypeConfigRequest
-    * @return UpdateLoadBalancerAddressTypeConfigResponse
+   * @summary Changes the network type of the IPv4 address of a Network Load Balancer (NLB) instance.
+   *
+   * @description *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+   * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the **AddressType** value of an NLB instance after you change the network type.
+   * *   **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the task status:
+   *     *   If the task is in the **Succeeded** state, the network type of the IPv4 address of the NLB instance is changed.
+   *     *   If the task is in the **Processing** state, the network type of the IPv4 address of the NLB instance is being changed. In this case, you can perform only query operations.
+   *
+   * @param request UpdateLoadBalancerAddressTypeConfigRequest
+   * @return UpdateLoadBalancerAddressTypeConfigResponse
    */
   async updateLoadBalancerAddressTypeConfig(request: UpdateLoadBalancerAddressTypeConfigRequest): Promise<UpdateLoadBalancerAddressTypeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateLoadBalancerAddressTypeConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the attributes, including the name, of a Network Load Balancer (NLB) instance.
+   *
+   * @param request UpdateLoadBalancerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLoadBalancerAttributeResponse
+   */
   async updateLoadBalancerAttributeWithOptions(request: UpdateLoadBalancerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerAttributeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8488,17 +9198,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLoadBalancerAttributeResponse>(await this.callApi(params, req, runtime), new UpdateLoadBalancerAttributeResponse({}));
   }
 
+  /**
+   * @summary Updates the attributes, including the name, of a Network Load Balancer (NLB) instance.
+   *
+   * @param request UpdateLoadBalancerAttributeRequest
+   * @return UpdateLoadBalancerAttributeResponse
+   */
   async updateLoadBalancerAttribute(request: UpdateLoadBalancerAttributeRequest): Promise<UpdateLoadBalancerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateLoadBalancerAttributeWithOptions(request, runtime);
   }
 
   /**
-    * > You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the details about deletion protection and the configuration read-only mode.
-    *
-    * @param request UpdateLoadBalancerProtectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateLoadBalancerProtectionResponse
+   * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
+   *
+   * @description > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
+   *
+   * @param request UpdateLoadBalancerProtectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLoadBalancerProtectionResponse
    */
   async updateLoadBalancerProtectionWithOptions(request: UpdateLoadBalancerProtectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerProtectionResponse> {
     Util.validateModel(request);
@@ -8553,10 +9271,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the details about deletion protection and the configuration read-only mode.
-    *
-    * @param request UpdateLoadBalancerProtectionRequest
-    * @return UpdateLoadBalancerProtectionResponse
+   * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
+   *
+   * @description > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
+   *
+   * @param request UpdateLoadBalancerProtectionRequest
+   * @return UpdateLoadBalancerProtectionResponse
    */
   async updateLoadBalancerProtection(request: UpdateLoadBalancerProtectionRequest): Promise<UpdateLoadBalancerProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8564,17 +9284,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
-    * Prerequisites
-    * *   An NLB instance is created. For more information, see [CreateLoadBalancer](~~445868~~).
-    * *   You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the zones and zone attributes of an NLB instance.
-    * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation query to query the status of a task:
-    *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
-    *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
-    *
-    * @param request UpdateLoadBalancerZonesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateLoadBalancerZonesResponse
+   * @summary Modifies the zones and zone attributes of a Network Load Balancer (NLB) instance.
+   *
+   * @description When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
+   * Prerequisites
+   * *   An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+   * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
+   * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
+   *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
+   *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
+   *
+   * @param request UpdateLoadBalancerZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLoadBalancerZonesResponse
    */
   async updateLoadBalancerZonesWithOptions(request: UpdateLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerZonesResponse> {
     Util.validateModel(request);
@@ -8617,22 +9339,31 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
-    * Prerequisites
-    * *   An NLB instance is created. For more information, see [CreateLoadBalancer](~~445868~~).
-    * *   You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the zones and zone attributes of an NLB instance.
-    * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation query to query the status of a task:
-    *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
-    *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
-    *
-    * @param request UpdateLoadBalancerZonesRequest
-    * @return UpdateLoadBalancerZonesResponse
+   * @summary Modifies the zones and zone attributes of a Network Load Balancer (NLB) instance.
+   *
+   * @description When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
+   * Prerequisites
+   * *   An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+   * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
+   * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
+   *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
+   *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
+   *
+   * @param request UpdateLoadBalancerZonesRequest
+   * @return UpdateLoadBalancerZonesResponse
    */
   async updateLoadBalancerZones(request: UpdateLoadBalancerZonesRequest): Promise<UpdateLoadBalancerZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateLoadBalancerZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a security policy for a Network Load Balancer (NLB) instance.
+   *
+   * @param request UpdateSecurityPolicyAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSecurityPolicyAttributeResponse
+   */
   async updateSecurityPolicyAttributeWithOptions(request: UpdateSecurityPolicyAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSecurityPolicyAttributeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8681,11 +9412,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSecurityPolicyAttributeResponse>(await this.callApi(params, req, runtime), new UpdateSecurityPolicyAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a security policy for a Network Load Balancer (NLB) instance.
+   *
+   * @param request UpdateSecurityPolicyAttributeRequest
+   * @return UpdateSecurityPolicyAttributeResponse
+   */
   async updateSecurityPolicyAttribute(request: UpdateSecurityPolicyAttributeRequest): Promise<UpdateSecurityPolicyAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSecurityPolicyAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a server group of Network Load Balancer (NLB).
+   *
+   * @param request UpdateServerGroupAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServerGroupAttributeResponse
+   */
   async updateServerGroupAttributeWithOptions(request: UpdateServerGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServerGroupAttributeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8751,23 +9495,31 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServerGroupAttributeResponse>(await this.callApi(params, req, runtime), new UpdateServerGroupAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a server group of Network Load Balancer (NLB).
+   *
+   * @param request UpdateServerGroupAttributeRequest
+   * @return UpdateServerGroupAttributeResponse
+   */
   async updateServerGroupAttribute(request: UpdateServerGroupAttributeRequest): Promise<UpdateServerGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateServerGroupAttributeWithOptions(request, runtime);
   }
 
   /**
-    * **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-    * 1.  You can call the [ListServerGroups](~~445895~~) operation to query the status of a server group.
-    *     *   If a server group is in the **Configuring** state, the server group is being modified.
-    *     *   If a server group is in the **Available** state, the server group is running.
-    * 2.  You can call the [ListServerGroupServers](~~445896~~) operation to query the status of a backend server.
-    *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
-    *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-    *
-    * @param request UpdateServerGroupServersAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateServerGroupServersAttributeResponse
+   * @summary Modifies the configurations of backend servers in a server group, such as the weight and description.
+   *
+   * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/445895.html) operation to query the status of a server group.
+   *     *   If a server group is in the **Configuring** state, the server group is being modified.
+   *     *   If a server group is in the **Available** state, the server group is running.
+   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/445896.html) operation to query the status of a backend server.
+   *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
+   *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
+   *
+   * @param request UpdateServerGroupServersAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServerGroupServersAttributeResponse
    */
   async updateServerGroupServersAttributeWithOptions(request: UpdateServerGroupServersAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServerGroupServersAttributeResponse> {
     Util.validateModel(request);
@@ -8810,16 +9562,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-    * 1.  You can call the [ListServerGroups](~~445895~~) operation to query the status of a server group.
-    *     *   If a server group is in the **Configuring** state, the server group is being modified.
-    *     *   If a server group is in the **Available** state, the server group is running.
-    * 2.  You can call the [ListServerGroupServers](~~445896~~) operation to query the status of a backend server.
-    *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
-    *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-    *
-    * @param request UpdateServerGroupServersAttributeRequest
-    * @return UpdateServerGroupServersAttributeResponse
+   * @summary Modifies the configurations of backend servers in a server group, such as the weight and description.
+   *
+   * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/445895.html) operation to query the status of a server group.
+   *     *   If a server group is in the **Configuring** state, the server group is being modified.
+   *     *   If a server group is in the **Available** state, the server group is running.
+   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/445896.html) operation to query the status of a backend server.
+   *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
+   *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
+   *
+   * @param request UpdateServerGroupServersAttributeRequest
+   * @return UpdateServerGroupServersAttributeResponse
    */
   async updateServerGroupServersAttribute(request: UpdateServerGroupServersAttributeRequest): Promise<UpdateServerGroupServersAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
