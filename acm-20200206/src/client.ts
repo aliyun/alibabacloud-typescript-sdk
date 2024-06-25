@@ -9,19 +9,19 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class BatchExportConfigurationsRequest extends $tea.Model {
-  namespaceId?: string;
   data?: string;
+  namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      namespaceId: 'NamespaceId',
       data: 'Data',
+      namespaceId: 'NamespaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      namespaceId: 'string',
       data: 'string',
+      namespaceId: 'string',
     };
   }
 
@@ -31,25 +31,25 @@ export class BatchExportConfigurationsRequest extends $tea.Model {
 }
 
 export class BatchExportConfigurationsResponseBody extends $tea.Model {
+  code?: string;
   fileUrl?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       fileUrl: 'FileUrl',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       fileUrl: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -59,11 +59,13 @@ export class BatchExportConfigurationsResponseBody extends $tea.Model {
 }
 
 export class BatchExportConfigurationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: BatchExportConfigurationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchExportConfigurationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -71,6 +73,7 @@ export class BatchExportConfigurationsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BatchExportConfigurationsResponseBody,
     };
   }
@@ -81,22 +84,22 @@ export class BatchExportConfigurationsResponse extends $tea.Model {
 }
 
 export class BatchImportConfigurationsRequest extends $tea.Model {
+  fileUrl?: string;
   namespaceId?: string;
   policy?: string;
-  fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      fileUrl: 'FileUrl',
       namespaceId: 'NamespaceId',
       policy: 'Policy',
-      fileUrl: 'FileUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fileUrl: 'string',
       namespaceId: 'string',
       policy: 'string',
-      fileUrl: 'string',
     };
   }
 
@@ -106,22 +109,22 @@ export class BatchImportConfigurationsRequest extends $tea.Model {
 }
 
 export class BatchImportConfigurationsResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -131,11 +134,13 @@ export class BatchImportConfigurationsResponseBody extends $tea.Model {
 }
 
 export class BatchImportConfigurationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: BatchImportConfigurationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchImportConfigurationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -143,6 +148,7 @@ export class BatchImportConfigurationsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BatchImportConfigurationsResponseBody,
     };
   }
@@ -153,25 +159,25 @@ export class BatchImportConfigurationsResponse extends $tea.Model {
 }
 
 export class CheckConfigurationCloneRequest extends $tea.Model {
-  policy?: string;
+  data?: string;
   namespaceFrom?: string;
   namespaceTo?: string;
-  data?: string;
+  policy?: string;
   static names(): { [key: string]: string } {
     return {
-      policy: 'Policy',
+      data: 'Data',
       namespaceFrom: 'NamespaceFrom',
       namespaceTo: 'NamespaceTo',
-      data: 'Data',
+      policy: 'Policy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policy: 'string',
+      data: 'string',
       namespaceFrom: 'string',
       namespaceTo: 'string',
-      data: 'string',
+      policy: 'string',
     };
   }
 
@@ -181,24 +187,24 @@ export class CheckConfigurationCloneRequest extends $tea.Model {
 }
 
 export class CheckConfigurationCloneResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   result?: CheckConfigurationCloneResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       result: CheckConfigurationCloneResponseBodyResult,
     };
   }
@@ -209,11 +215,13 @@ export class CheckConfigurationCloneResponseBody extends $tea.Model {
 }
 
 export class CheckConfigurationCloneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CheckConfigurationCloneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckConfigurationCloneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -221,6 +229,7 @@ export class CheckConfigurationCloneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CheckConfigurationCloneResponseBody,
     };
   }
@@ -231,19 +240,19 @@ export class CheckConfigurationCloneResponse extends $tea.Model {
 }
 
 export class CheckConfigurationExportRequest extends $tea.Model {
-  namespaceId?: string;
   data?: string;
+  namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      namespaceId: 'NamespaceId',
       data: 'Data',
+      namespaceId: 'NamespaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      namespaceId: 'string',
       data: 'string',
+      namespaceId: 'string',
     };
   }
 
@@ -253,24 +262,24 @@ export class CheckConfigurationExportRequest extends $tea.Model {
 }
 
 export class CheckConfigurationExportResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   result?: CheckConfigurationExportResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       result: CheckConfigurationExportResponseBodyResult,
     };
   }
@@ -281,11 +290,13 @@ export class CheckConfigurationExportResponseBody extends $tea.Model {
 }
 
 export class CheckConfigurationExportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CheckConfigurationExportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckConfigurationExportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -293,6 +304,7 @@ export class CheckConfigurationExportResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CheckConfigurationExportResponseBody,
     };
   }
@@ -303,25 +315,25 @@ export class CheckConfigurationExportResponse extends $tea.Model {
 }
 
 export class CloneConfigurationRequest extends $tea.Model {
-  policy?: string;
+  data?: string;
   namespaceFrom?: string;
   namespaceTo?: string;
-  data?: string;
+  policy?: string;
   static names(): { [key: string]: string } {
     return {
-      policy: 'Policy',
+      data: 'Data',
       namespaceFrom: 'NamespaceFrom',
       namespaceTo: 'NamespaceTo',
-      data: 'Data',
+      policy: 'Policy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policy: 'string',
+      data: 'string',
       namespaceFrom: 'string',
       namespaceTo: 'string',
-      data: 'string',
+      policy: 'string',
     };
   }
 
@@ -331,24 +343,24 @@ export class CloneConfigurationRequest extends $tea.Model {
 }
 
 export class CloneConfigurationResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   result?: CloneConfigurationResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       result: CloneConfigurationResponseBodyResult,
     };
   }
@@ -359,11 +371,13 @@ export class CloneConfigurationResponseBody extends $tea.Model {
 }
 
 export class CloneConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CloneConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -371,6 +385,7 @@ export class CloneConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CloneConfigurationResponseBody,
     };
   }
@@ -381,37 +396,37 @@ export class CloneConfigurationResponse extends $tea.Model {
 }
 
 export class CreateConfigurationRequest extends $tea.Model {
-  dataId?: string;
   appName?: string;
-  group?: string;
-  desc?: string;
-  tags?: string;
   content?: string;
-  type?: string;
+  dataId?: string;
+  desc?: string;
+  group?: string;
   namespaceId?: string;
+  tags?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      dataId: 'DataId',
       appName: 'AppName',
-      group: 'Group',
-      desc: 'Desc',
-      tags: 'Tags',
       content: 'Content',
-      type: 'Type',
+      dataId: 'DataId',
+      desc: 'Desc',
+      group: 'Group',
       namespaceId: 'NamespaceId',
+      tags: 'Tags',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataId: 'string',
       appName: 'string',
-      group: 'string',
-      desc: 'string',
-      tags: 'string',
       content: 'string',
-      type: 'string',
+      dataId: 'string',
+      desc: 'string',
+      group: 'string',
       namespaceId: 'string',
+      tags: 'string',
+      type: 'string',
     };
   }
 
@@ -421,22 +436,22 @@ export class CreateConfigurationRequest extends $tea.Model {
 }
 
 export class CreateConfigurationResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -446,11 +461,13 @@ export class CreateConfigurationResponseBody extends $tea.Model {
 }
 
 export class CreateConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -458,6 +475,7 @@ export class CreateConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateConfigurationResponseBody,
     };
   }
@@ -487,25 +505,25 @@ export class CreateNamespaceRequest extends $tea.Model {
 }
 
 export class CreateNamespaceResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  namespaceId?: string;
   code?: string;
+  message?: string;
+  namespaceId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      namespaceId: 'NamespaceId',
       code: 'Code',
+      message: 'Message',
+      namespaceId: 'NamespaceId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      namespaceId: 'string',
       code: 'string',
+      message: 'string',
+      namespaceId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -515,11 +533,13 @@ export class CreateNamespaceResponseBody extends $tea.Model {
 }
 
 export class CreateNamespaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateNamespaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -527,6 +547,7 @@ export class CreateNamespaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateNamespaceResponseBody,
     };
   }
@@ -562,22 +583,22 @@ export class DeleteConfigurationRequest extends $tea.Model {
 }
 
 export class DeleteConfigurationResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -587,11 +608,13 @@ export class DeleteConfigurationResponseBody extends $tea.Model {
 }
 
 export class DeleteConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -599,6 +622,7 @@ export class DeleteConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteConfigurationResponseBody,
     };
   }
@@ -628,22 +652,22 @@ export class DeleteNamespaceRequest extends $tea.Model {
 }
 
 export class DeleteNamespaceResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -653,11 +677,13 @@ export class DeleteNamespaceResponseBody extends $tea.Model {
 }
 
 export class DeleteNamespaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteNamespaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -665,6 +691,7 @@ export class DeleteNamespaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteNamespaceResponseBody,
     };
   }
@@ -675,40 +702,40 @@ export class DeleteNamespaceResponse extends $tea.Model {
 }
 
 export class DeployConfigurationRequest extends $tea.Model {
-  dataId?: string;
   appName?: string;
-  group?: string;
-  desc?: string;
-  tags?: string;
-  content?: string;
-  type?: string;
-  namespaceId?: string;
   betaIps?: string;
+  content?: string;
+  dataId?: string;
+  desc?: string;
+  group?: string;
+  namespaceId?: string;
+  tags?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      dataId: 'DataId',
       appName: 'AppName',
-      group: 'Group',
-      desc: 'Desc',
-      tags: 'Tags',
-      content: 'Content',
-      type: 'Type',
-      namespaceId: 'NamespaceId',
       betaIps: 'BetaIps',
+      content: 'Content',
+      dataId: 'DataId',
+      desc: 'Desc',
+      group: 'Group',
+      namespaceId: 'NamespaceId',
+      tags: 'Tags',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataId: 'string',
       appName: 'string',
-      group: 'string',
-      desc: 'string',
-      tags: 'string',
-      content: 'string',
-      type: 'string',
-      namespaceId: 'string',
       betaIps: 'string',
+      content: 'string',
+      dataId: 'string',
+      desc: 'string',
+      group: 'string',
+      namespaceId: 'string',
+      tags: 'string',
+      type: 'string',
     };
   }
 
@@ -718,22 +745,22 @@ export class DeployConfigurationRequest extends $tea.Model {
 }
 
 export class DeployConfigurationResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -743,11 +770,13 @@ export class DeployConfigurationResponseBody extends $tea.Model {
 }
 
 export class DeployConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeployConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeployConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -755,6 +784,7 @@ export class DeployConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeployConfigurationResponseBody,
     };
   }
@@ -790,25 +820,25 @@ export class DescribeConfigurationRequest extends $tea.Model {
 }
 
 export class DescribeConfigurationResponseBody extends $tea.Model {
+  code?: string;
+  configuration?: DescribeConfigurationResponseBodyConfiguration;
   message?: string;
   requestId?: string;
-  configuration?: DescribeConfigurationResponseBodyConfiguration;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      configuration: 'Configuration',
       message: 'Message',
       requestId: 'RequestId',
-      configuration: 'Configuration',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      configuration: DescribeConfigurationResponseBodyConfiguration,
       message: 'string',
       requestId: 'string',
-      configuration: DescribeConfigurationResponseBodyConfiguration,
-      code: 'string',
     };
   }
 
@@ -818,11 +848,13 @@ export class DescribeConfigurationResponseBody extends $tea.Model {
 }
 
 export class DescribeConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -830,6 +862,7 @@ export class DescribeConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeConfigurationResponseBody,
     };
   }
@@ -859,25 +892,25 @@ export class DescribeImportFileUrlRequest extends $tea.Model {
 }
 
 export class DescribeImportFileUrlResponseBody extends $tea.Model {
+  code?: string;
   fileUrl?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       fileUrl: 'FileUrl',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       fileUrl: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -887,11 +920,13 @@ export class DescribeImportFileUrlResponseBody extends $tea.Model {
 }
 
 export class DescribeImportFileUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeImportFileUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImportFileUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -899,6 +934,7 @@ export class DescribeImportFileUrlResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeImportFileUrlResponseBody,
     };
   }
@@ -928,25 +964,25 @@ export class DescribeNamespaceRequest extends $tea.Model {
 }
 
 export class DescribeNamespaceResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
   code?: string;
+  message?: string;
   namespace?: DescribeNamespaceResponseBodyNamespace;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
       code: 'Code',
+      message: 'Message',
       namespace: 'Namespace',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
       code: 'string',
+      message: 'string',
       namespace: DescribeNamespaceResponseBodyNamespace,
+      requestId: 'string',
     };
   }
 
@@ -956,11 +992,13 @@ export class DescribeNamespaceResponseBody extends $tea.Model {
 }
 
 export class DescribeNamespaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeNamespaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -968,6 +1006,7 @@ export class DescribeNamespaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeNamespaceResponseBody,
     };
   }
@@ -978,25 +1017,25 @@ export class DescribeNamespaceResponse extends $tea.Model {
 }
 
 export class DescribeNamespacesResponseBody extends $tea.Model {
-  namespaces?: DescribeNamespacesResponseBodyNamespaces[];
-  message?: string;
-  requestId?: string;
   code?: string;
+  message?: string;
+  namespaces?: DescribeNamespacesResponseBodyNamespaces[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      namespaces: 'Namespaces',
-      message: 'Message',
-      requestId: 'RequestId',
       code: 'Code',
+      message: 'Message',
+      namespaces: 'Namespaces',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      namespaces: { 'type': 'array', 'itemType': DescribeNamespacesResponseBodyNamespaces },
-      message: 'string',
-      requestId: 'string',
       code: 'string',
+      message: 'string',
+      namespaces: { 'type': 'array', 'itemType': DescribeNamespacesResponseBodyNamespaces },
+      requestId: 'string',
     };
   }
 
@@ -1006,11 +1045,13 @@ export class DescribeNamespacesResponseBody extends $tea.Model {
 }
 
 export class DescribeNamespacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeNamespacesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNamespacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1018,6 +1059,7 @@ export class DescribeNamespacesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeNamespacesResponseBody,
     };
   }
@@ -1028,25 +1070,25 @@ export class DescribeNamespacesResponse extends $tea.Model {
 }
 
 export class DescribeNamespacesWithCreateResponseBody extends $tea.Model {
-  namespaces?: DescribeNamespacesWithCreateResponseBodyNamespaces[];
-  message?: string;
-  requestId?: string;
   code?: string;
+  message?: string;
+  namespaces?: DescribeNamespacesWithCreateResponseBodyNamespaces[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      namespaces: 'Namespaces',
-      message: 'Message',
-      requestId: 'RequestId',
       code: 'Code',
+      message: 'Message',
+      namespaces: 'Namespaces',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      namespaces: { 'type': 'array', 'itemType': DescribeNamespacesWithCreateResponseBodyNamespaces },
-      message: 'string',
-      requestId: 'string',
       code: 'string',
+      message: 'string',
+      namespaces: { 'type': 'array', 'itemType': DescribeNamespacesWithCreateResponseBodyNamespaces },
+      requestId: 'string',
     };
   }
 
@@ -1056,11 +1098,13 @@ export class DescribeNamespacesWithCreateResponseBody extends $tea.Model {
 }
 
 export class DescribeNamespacesWithCreateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeNamespacesWithCreateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNamespacesWithCreateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1068,6 +1112,7 @@ export class DescribeNamespacesWithCreateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeNamespacesWithCreateResponseBody,
     };
   }
@@ -1079,27 +1124,27 @@ export class DescribeNamespacesWithCreateResponse extends $tea.Model {
 
 export class DescribeTraceByConfigurationRequest extends $tea.Model {
   dataId?: string;
+  endTs?: string;
   group?: string;
   namespaceId?: string;
   startTs?: string;
-  endTs?: string;
   static names(): { [key: string]: string } {
     return {
       dataId: 'DataId',
+      endTs: 'EndTs',
       group: 'Group',
       namespaceId: 'NamespaceId',
       startTs: 'StartTs',
-      endTs: 'EndTs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dataId: 'string',
+      endTs: 'string',
       group: 'string',
       namespaceId: 'string',
       startTs: 'string',
-      endTs: 'string',
     };
   }
 
@@ -1109,25 +1154,25 @@ export class DescribeTraceByConfigurationRequest extends $tea.Model {
 }
 
 export class DescribeTraceByConfigurationResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   traces?: DescribeTraceByConfigurationResponseBodyTraces[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       traces: 'Traces',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       traces: { 'type': 'array', 'itemType': DescribeTraceByConfigurationResponseBodyTraces },
-      code: 'string',
     };
   }
 
@@ -1137,11 +1182,13 @@ export class DescribeTraceByConfigurationResponseBody extends $tea.Model {
 }
 
 export class DescribeTraceByConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeTraceByConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTraceByConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1149,6 +1196,7 @@ export class DescribeTraceByConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeTraceByConfigurationResponseBody,
     };
   }
@@ -1181,22 +1229,22 @@ export class UpdateNamespaceRequest extends $tea.Model {
 }
 
 export class UpdateNamespaceResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1206,11 +1254,13 @@ export class UpdateNamespaceResponseBody extends $tea.Model {
 }
 
 export class UpdateNamespaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateNamespaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1218,6 +1268,7 @@ export class UpdateNamespaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateNamespaceResponseBody,
     };
   }
@@ -1341,37 +1392,43 @@ export class CloneConfigurationResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeConfigurationResponseBodyConfiguration extends $tea.Model {
-  type?: string;
   appName?: string;
-  tags?: string;
-  md5?: string;
-  dataId?: string;
   content?: string;
-  group?: string;
+  dataId?: string;
   desc?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  group?: string;
+  md5?: string;
+  tags?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
       appName: 'AppName',
-      tags: 'Tags',
-      md5: 'Md5',
-      dataId: 'DataId',
       content: 'Content',
-      group: 'Group',
+      dataId: 'DataId',
       desc: 'Desc',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      group: 'Group',
+      md5: 'Md5',
+      tags: 'Tags',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
       appName: 'string',
-      tags: 'string',
-      md5: 'string',
-      dataId: 'string',
       content: 'string',
-      group: 'string',
+      dataId: 'string',
       desc: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      group: 'string',
+      md5: 'string',
+      tags: 'string',
+      type: 'string',
     };
   }
 
@@ -1381,28 +1438,28 @@ export class DescribeConfigurationResponseBodyConfiguration extends $tea.Model {
 }
 
 export class DescribeNamespaceResponseBodyNamespace extends $tea.Model {
-  secretKey?: string;
   accessKey?: string;
   endpoint?: string;
   name?: string;
   regionId?: string;
+  secretKey?: string;
   static names(): { [key: string]: string } {
     return {
-      secretKey: 'SecretKey',
       accessKey: 'AccessKey',
       endpoint: 'Endpoint',
       name: 'Name',
       regionId: 'RegionId',
+      secretKey: 'SecretKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretKey: 'string',
       accessKey: 'string',
       endpoint: 'string',
       name: 'string',
       regionId: 'string',
+      secretKey: 'string',
     };
   }
 
@@ -1412,28 +1469,28 @@ export class DescribeNamespaceResponseBodyNamespace extends $tea.Model {
 }
 
 export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
-  type?: number;
-  quota?: number;
-  namespaceId?: string;
   configCount?: number;
+  namespaceId?: string;
   namespaceName?: string;
+  quota?: number;
+  type?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      quota: 'Quota',
-      namespaceId: 'NamespaceId',
       configCount: 'ConfigCount',
+      namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
+      quota: 'Quota',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'number',
-      quota: 'number',
-      namespaceId: 'string',
       configCount: 'number',
+      namespaceId: 'string',
       namespaceName: 'string',
+      quota: 'number',
+      type: 'number',
     };
   }
 
@@ -1443,28 +1500,28 @@ export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
 }
 
 export class DescribeNamespacesWithCreateResponseBodyNamespaces extends $tea.Model {
-  type?: number;
-  quota?: number;
-  namespaceId?: string;
   configCount?: number;
+  namespaceId?: string;
   namespaceName?: string;
+  quota?: number;
+  type?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      quota: 'Quota',
-      namespaceId: 'NamespaceId',
       configCount: 'ConfigCount',
+      namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
+      quota: 'Quota',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'number',
-      quota: 'number',
-      namespaceId: 'string',
       configCount: 'number',
+      namespaceId: 'string',
       namespaceName: 'string',
+      quota: 'number',
+      type: 'number',
     };
   }
 
@@ -1474,46 +1531,46 @@ export class DescribeNamespacesWithCreateResponseBodyNamespaces extends $tea.Mod
 }
 
 export class DescribeTraceByConfigurationResponseBodyTracesEventGroupsEventDetails extends $tea.Model {
-  type?: string;
+  dataId?: string;
   delay?: string;
-  ts?: string;
-  responseIp?: string;
   event?: string;
   ext?: string;
-  dataId?: string;
-  requestIp?: string;
-  logDate?: string;
-  handleIp?: string;
   group?: string;
+  handleIp?: string;
+  logDate?: string;
+  requestIp?: string;
+  responseIp?: string;
+  ts?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
+      dataId: 'DataId',
       delay: 'Delay',
-      ts: 'Ts',
-      responseIp: 'ResponseIp',
       event: 'Event',
       ext: 'Ext',
-      dataId: 'DataId',
-      requestIp: 'RequestIp',
-      logDate: 'LogDate',
-      handleIp: 'HandleIp',
       group: 'Group',
+      handleIp: 'HandleIp',
+      logDate: 'LogDate',
+      requestIp: 'RequestIp',
+      responseIp: 'ResponseIp',
+      ts: 'Ts',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
+      dataId: 'string',
       delay: 'string',
-      ts: 'string',
-      responseIp: 'string',
       event: 'string',
       ext: 'string',
-      dataId: 'string',
-      requestIp: 'string',
-      logDate: 'string',
-      handleIp: 'string',
       group: 'string',
+      handleIp: 'string',
+      logDate: 'string',
+      requestIp: 'string',
+      responseIp: 'string',
+      ts: 'string',
+      type: 'string',
     };
   }
 
@@ -1523,19 +1580,19 @@ export class DescribeTraceByConfigurationResponseBodyTracesEventGroupsEventDetai
 }
 
 export class DescribeTraceByConfigurationResponseBodyTracesEventGroups extends $tea.Model {
-  eventType?: string;
   eventDetails?: DescribeTraceByConfigurationResponseBodyTracesEventGroupsEventDetails[];
+  eventType?: string;
   static names(): { [key: string]: string } {
     return {
-      eventType: 'EventType',
       eventDetails: 'EventDetails',
+      eventType: 'EventType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eventType: 'string',
       eventDetails: { 'type': 'array', 'itemType': DescribeTraceByConfigurationResponseBodyTracesEventGroupsEventDetails },
+      eventType: 'string',
     };
   }
 
@@ -1545,19 +1602,19 @@ export class DescribeTraceByConfigurationResponseBodyTracesEventGroups extends $
 }
 
 export class DescribeTraceByConfigurationResponseBodyTraces extends $tea.Model {
-  timestamp?: number;
   eventGroups?: DescribeTraceByConfigurationResponseBodyTracesEventGroups[];
+  timestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      timestamp: 'Timestamp',
       eventGroups: 'EventGroups',
+      timestamp: 'Timestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timestamp: 'number',
       eventGroups: { 'type': 'array', 'itemType': DescribeTraceByConfigurationResponseBodyTracesEventGroups },
+      timestamp: 'number',
     };
   }
 
@@ -1589,125 +1646,209 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async batchExportConfigurations(request: BatchExportConfigurationsRequest): Promise<BatchExportConfigurationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.batchExportConfigurationsWithOptions(request, headers, runtime);
-  }
-
+  /**
+   * @param request BatchExportConfigurationsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchExportConfigurationsResponse
+   */
   async batchExportConfigurationsWithOptions(request: BatchExportConfigurationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchExportConfigurationsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.namespaceId)) {
-      query["NamespaceId"] = request.namespaceId;
-    }
-
     if (!Util.isUnset(request.data)) {
       query["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<BatchExportConfigurationsResponse>(await this.doROARequest("BatchExportConfigurations", "2020-02-06", "HTTPS", "GET", "AK", `/diamond-ops/pop/batch/export`, "json", req, runtime), new BatchExportConfigurationsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BatchExportConfigurations",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/batch/export`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchExportConfigurationsResponse>(await this.callApi(params, req, runtime), new BatchExportConfigurationsResponse({}));
   }
 
+  /**
+   * @param request BatchExportConfigurationsRequest
+   * @return BatchExportConfigurationsResponse
+   */
+  async batchExportConfigurations(request: BatchExportConfigurationsRequest): Promise<BatchExportConfigurationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchExportConfigurationsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param request BatchImportConfigurationsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchImportConfigurationsResponse
+   */
+  async batchImportConfigurationsWithOptions(request: BatchImportConfigurationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchImportConfigurationsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      body["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      body["Policy"] = request.policy;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchImportConfigurations",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/batch/import`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchImportConfigurationsResponse>(await this.callApi(params, req, runtime), new BatchImportConfigurationsResponse({}));
+  }
+
+  /**
+   * @param request BatchImportConfigurationsRequest
+   * @return BatchImportConfigurationsResponse
+   */
   async batchImportConfigurations(request: BatchImportConfigurationsRequest): Promise<BatchImportConfigurationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.batchImportConfigurationsWithOptions(request, headers, runtime);
   }
 
-  async batchImportConfigurationsWithOptions(request: BatchImportConfigurationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchImportConfigurationsResponse> {
+  /**
+   * @param request CheckConfigurationCloneRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckConfigurationCloneResponse
+   */
+  async checkConfigurationCloneWithOptions(request: CheckConfigurationCloneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckConfigurationCloneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.namespaceId)) {
-      body["NamespaceId"] = request.namespaceId;
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.namespaceFrom)) {
+      body["NamespaceFrom"] = request.namespaceFrom;
+    }
+
+    if (!Util.isUnset(request.namespaceTo)) {
+      body["NamespaceTo"] = request.namespaceTo;
     }
 
     if (!Util.isUnset(request.policy)) {
       body["Policy"] = request.policy;
     }
 
-    if (!Util.isUnset(request.fileUrl)) {
-      body["FileUrl"] = request.fileUrl;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<BatchImportConfigurationsResponse>(await this.doROARequestWithForm("BatchImportConfigurations", "2020-02-06", "HTTPS", "POST", "AK", `/diamond-ops/pop/batch/import`, "json", req, runtime), new BatchImportConfigurationsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckConfigurationClone",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/batch/checkForClone`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckConfigurationCloneResponse>(await this.callApi(params, req, runtime), new CheckConfigurationCloneResponse({}));
   }
 
+  /**
+   * @param request CheckConfigurationCloneRequest
+   * @return CheckConfigurationCloneResponse
+   */
   async checkConfigurationClone(request: CheckConfigurationCloneRequest): Promise<CheckConfigurationCloneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.checkConfigurationCloneWithOptions(request, headers, runtime);
   }
 
-  async checkConfigurationCloneWithOptions(request: CheckConfigurationCloneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckConfigurationCloneResponse> {
+  /**
+   * @param request CheckConfigurationExportRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckConfigurationExportResponse
+   */
+  async checkConfigurationExportWithOptions(request: CheckConfigurationExportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckConfigurationExportResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.policy)) {
-      body["Policy"] = request.policy;
-    }
-
-    if (!Util.isUnset(request.namespaceFrom)) {
-      body["NamespaceFrom"] = request.namespaceFrom;
-    }
-
-    if (!Util.isUnset(request.namespaceTo)) {
-      body["NamespaceTo"] = request.namespaceTo;
-    }
-
     if (!Util.isUnset(request.data)) {
       body["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      body["NamespaceId"] = request.namespaceId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CheckConfigurationCloneResponse>(await this.doROARequestWithForm("CheckConfigurationClone", "2020-02-06", "HTTPS", "POST", "AK", `/diamond-ops/pop/batch/checkForClone`, "json", req, runtime), new CheckConfigurationCloneResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckConfigurationExport",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/batch/checkForExport`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckConfigurationExportResponse>(await this.callApi(params, req, runtime), new CheckConfigurationExportResponse({}));
   }
 
+  /**
+   * @param request CheckConfigurationExportRequest
+   * @return CheckConfigurationExportResponse
+   */
   async checkConfigurationExport(request: CheckConfigurationExportRequest): Promise<CheckConfigurationExportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.checkConfigurationExportWithOptions(request, headers, runtime);
   }
 
-  async checkConfigurationExportWithOptions(request: CheckConfigurationExportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckConfigurationExportResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.namespaceId)) {
-      body["NamespaceId"] = request.namespaceId;
-    }
-
-    if (!Util.isUnset(request.data)) {
-      body["Data"] = request.data;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    return $tea.cast<CheckConfigurationExportResponse>(await this.doROARequestWithForm("CheckConfigurationExport", "2020-02-06", "HTTPS", "POST", "AK", `/diamond-ops/pop/batch/checkForExport`, "json", req, runtime), new CheckConfigurationExportResponse({}));
-  }
-
-  async cloneConfiguration(request: CloneConfigurationRequest): Promise<CloneConfigurationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.cloneConfigurationWithOptions(request, headers, runtime);
-  }
-
+  /**
+   * @param request CloneConfigurationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneConfigurationResponse
+   */
   async cloneConfigurationWithOptions(request: CloneConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneConfigurationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.policy)) {
-      body["Policy"] = request.policy;
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
     }
 
     if (!Util.isUnset(request.namespaceFrom)) {
@@ -1718,71 +1859,113 @@ export default class Client extends OpenApi {
       body["NamespaceTo"] = request.namespaceTo;
     }
 
-    if (!Util.isUnset(request.data)) {
-      body["Data"] = request.data;
+    if (!Util.isUnset(request.policy)) {
+      body["Policy"] = request.policy;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CloneConfigurationResponse>(await this.doROARequestWithForm("CloneConfiguration", "2020-02-06", "HTTPS", "POST", "AK", `/diamond-ops/pop/batch/clone`, "json", req, runtime), new CloneConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CloneConfiguration",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/batch/clone`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CloneConfigurationResponse>(await this.callApi(params, req, runtime), new CloneConfigurationResponse({}));
   }
 
-  async createConfiguration(request: CreateConfigurationRequest): Promise<CreateConfigurationResponse> {
+  /**
+   * @param request CloneConfigurationRequest
+   * @return CloneConfigurationResponse
+   */
+  async cloneConfiguration(request: CloneConfigurationRequest): Promise<CloneConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createConfigurationWithOptions(request, headers, runtime);
+    return await this.cloneConfigurationWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request CreateConfigurationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateConfigurationResponse
+   */
   async createConfigurationWithOptions(request: CreateConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConfigurationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dataId)) {
-      body["DataId"] = request.dataId;
-    }
-
     if (!Util.isUnset(request.appName)) {
       body["AppName"] = request.appName;
-    }
-
-    if (!Util.isUnset(request.group)) {
-      body["Group"] = request.group;
-    }
-
-    if (!Util.isUnset(request.desc)) {
-      body["Desc"] = request.desc;
-    }
-
-    if (!Util.isUnset(request.tags)) {
-      body["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.content)) {
       body["Content"] = request.content;
     }
 
-    if (!Util.isUnset(request.type)) {
-      body["Type"] = request.type;
+    if (!Util.isUnset(request.dataId)) {
+      body["DataId"] = request.dataId;
+    }
+
+    if (!Util.isUnset(request.desc)) {
+      body["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.group)) {
+      body["Group"] = request.group;
     }
 
     if (!Util.isUnset(request.namespaceId)) {
       body["NamespaceId"] = request.namespaceId;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateConfigurationResponse>(await this.doROARequestWithForm("CreateConfiguration", "2020-02-06", "HTTPS", "POST", "AK", `/diamond-ops/pop/configuration`, "json", req, runtime), new CreateConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateConfiguration",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/configuration`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateConfigurationResponse>(await this.callApi(params, req, runtime), new CreateConfigurationResponse({}));
   }
 
-  async createNamespace(request: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
+  /**
+   * @param request CreateConfigurationRequest
+   * @return CreateConfigurationResponse
+   */
+  async createConfiguration(request: CreateConfigurationRequest): Promise<CreateConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createNamespaceWithOptions(request, headers, runtime);
+    return await this.createConfigurationWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request CreateNamespaceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNamespaceResponse
+   */
   async createNamespaceWithOptions(request: CreateNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateNamespaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -1794,15 +1977,36 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateNamespaceResponse>(await this.doROARequestWithForm("CreateNamespace", "2020-02-06", "HTTPS", "POST", "AK", `/diamond-ops/pop/namespace`, "json", req, runtime), new CreateNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateNamespace",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/namespace`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
   }
 
-  async deleteConfiguration(request: DeleteConfigurationRequest): Promise<DeleteConfigurationResponse> {
+  /**
+   * @param request CreateNamespaceRequest
+   * @return CreateNamespaceResponse
+   */
+  async createNamespace(request: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteConfigurationWithOptions(request, headers, runtime);
+    return await this.createNamespaceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request DeleteConfigurationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteConfigurationResponse
+   */
   async deleteConfigurationWithOptions(request: DeleteConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConfigurationResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1822,15 +2026,36 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteConfigurationResponse>(await this.doROARequest("DeleteConfiguration", "2020-02-06", "HTTPS", "DELETE", "AK", `/diamond-ops/pop/configuration`, "json", req, runtime), new DeleteConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteConfiguration",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/configuration`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteConfigurationResponse({}));
   }
 
-  async deleteNamespace(request: DeleteNamespaceRequest): Promise<DeleteNamespaceResponse> {
+  /**
+   * @param request DeleteConfigurationRequest
+   * @return DeleteConfigurationResponse
+   */
+  async deleteConfiguration(request: DeleteConfigurationRequest): Promise<DeleteConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteNamespaceWithOptions(request, headers, runtime);
+    return await this.deleteConfigurationWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request DeleteNamespaceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNamespaceResponse
+   */
   async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1842,67 +2067,109 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteNamespaceResponse>(await this.doROARequest("DeleteNamespace", "2020-02-06", "HTTPS", "DELETE", "AK", `/diamond-ops/pop/namespace`, "json", req, runtime), new DeleteNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteNamespace",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/namespace`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
   }
 
-  async deployConfiguration(request: DeployConfigurationRequest): Promise<DeployConfigurationResponse> {
+  /**
+   * @param request DeleteNamespaceRequest
+   * @return DeleteNamespaceResponse
+   */
+  async deleteNamespace(request: DeleteNamespaceRequest): Promise<DeleteNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deployConfigurationWithOptions(request, headers, runtime);
+    return await this.deleteNamespaceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request DeployConfigurationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeployConfigurationResponse
+   */
   async deployConfigurationWithOptions(request: DeployConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeployConfigurationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dataId)) {
-      body["DataId"] = request.dataId;
-    }
-
     if (!Util.isUnset(request.appName)) {
       body["AppName"] = request.appName;
-    }
-
-    if (!Util.isUnset(request.group)) {
-      body["Group"] = request.group;
-    }
-
-    if (!Util.isUnset(request.desc)) {
-      body["Desc"] = request.desc;
-    }
-
-    if (!Util.isUnset(request.tags)) {
-      body["Tags"] = request.tags;
-    }
-
-    if (!Util.isUnset(request.content)) {
-      body["Content"] = request.content;
-    }
-
-    if (!Util.isUnset(request.type)) {
-      body["Type"] = request.type;
-    }
-
-    if (!Util.isUnset(request.namespaceId)) {
-      body["NamespaceId"] = request.namespaceId;
     }
 
     if (!Util.isUnset(request.betaIps)) {
       body["BetaIps"] = request.betaIps;
     }
 
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.dataId)) {
+      body["DataId"] = request.dataId;
+    }
+
+    if (!Util.isUnset(request.desc)) {
+      body["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.group)) {
+      body["Group"] = request.group;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      body["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeployConfigurationResponse>(await this.doROARequestWithForm("DeployConfiguration", "2020-02-06", "HTTPS", "PUT", "AK", `/diamond-ops/pop/configuration`, "json", req, runtime), new DeployConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeployConfiguration",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/configuration`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeployConfigurationResponse>(await this.callApi(params, req, runtime), new DeployConfigurationResponse({}));
   }
 
-  async describeConfiguration(request: DescribeConfigurationRequest): Promise<DescribeConfigurationResponse> {
+  /**
+   * @param request DeployConfigurationRequest
+   * @return DeployConfigurationResponse
+   */
+  async deployConfiguration(request: DeployConfigurationRequest): Promise<DeployConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeConfigurationWithOptions(request, headers, runtime);
+    return await this.deployConfigurationWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request DescribeConfigurationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeConfigurationResponse
+   */
   async describeConfigurationWithOptions(request: DescribeConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeConfigurationResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1922,15 +2189,36 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeConfigurationResponse>(await this.doROARequest("DescribeConfiguration", "2020-02-06", "HTTPS", "GET", "AK", `/diamond-ops/pop/configuration`, "json", req, runtime), new DescribeConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeConfiguration",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/configuration`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeConfigurationResponse({}));
   }
 
-  async describeImportFileUrl(request: DescribeImportFileUrlRequest): Promise<DescribeImportFileUrlResponse> {
+  /**
+   * @param request DescribeConfigurationRequest
+   * @return DescribeConfigurationResponse
+   */
+  async describeConfiguration(request: DescribeConfigurationRequest): Promise<DescribeConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeImportFileUrlWithOptions(request, headers, runtime);
+    return await this.describeConfigurationWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request DescribeImportFileUrlRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImportFileUrlResponse
+   */
   async describeImportFileUrlWithOptions(request: DescribeImportFileUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeImportFileUrlResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1942,15 +2230,36 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeImportFileUrlResponse>(await this.doROARequest("DescribeImportFileUrl", "2020-02-06", "HTTPS", "GET", "AK", `/diamond-ops/pop/batch/importFileUrl`, "json", req, runtime), new DescribeImportFileUrlResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeImportFileUrl",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/batch/importFileUrl`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImportFileUrlResponse>(await this.callApi(params, req, runtime), new DescribeImportFileUrlResponse({}));
   }
 
-  async describeNamespace(request: DescribeNamespaceRequest): Promise<DescribeNamespaceResponse> {
+  /**
+   * @param request DescribeImportFileUrlRequest
+   * @return DescribeImportFileUrlResponse
+   */
+  async describeImportFileUrl(request: DescribeImportFileUrlRequest): Promise<DescribeImportFileUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeNamespaceWithOptions(request, headers, runtime);
+    return await this.describeImportFileUrlWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request DescribeNamespaceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNamespaceResponse
+   */
   async describeNamespaceWithOptions(request: DescribeNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNamespaceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1962,46 +2271,109 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeNamespaceResponse>(await this.doROARequest("DescribeNamespace", "2020-02-06", "HTTPS", "GET", "AK", `/diamond-ops/pop/namespace`, "json", req, runtime), new DescribeNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeNamespace",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/namespace`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNamespaceResponse>(await this.callApi(params, req, runtime), new DescribeNamespaceResponse({}));
   }
 
+  /**
+   * @param request DescribeNamespaceRequest
+   * @return DescribeNamespaceResponse
+   */
+  async describeNamespace(request: DescribeNamespaceRequest): Promise<DescribeNamespaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeNamespaceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNamespacesResponse
+   */
+  async describeNamespacesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNamespacesResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNamespaces",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/namespace/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNamespacesResponse>(await this.callApi(params, req, runtime), new DescribeNamespacesResponse({}));
+  }
+
+  /**
+   * @return DescribeNamespacesResponse
+   */
   async describeNamespaces(): Promise<DescribeNamespacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeNamespacesWithOptions(headers, runtime);
   }
 
-  async describeNamespacesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNamespacesResponse> {
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNamespacesWithCreateResponse
+   */
+  async describeNamespacesWithCreateWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNamespacesWithCreateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeNamespacesResponse>(await this.doROARequest("DescribeNamespaces", "2020-02-06", "HTTPS", "GET", "AK", `/diamond-ops/pop/namespace/list`, "json", req, runtime), new DescribeNamespacesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeNamespacesWithCreate",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/namespace/listWithCreate`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNamespacesWithCreateResponse>(await this.callApi(params, req, runtime), new DescribeNamespacesWithCreateResponse({}));
   }
 
+  /**
+   * @return DescribeNamespacesWithCreateResponse
+   */
   async describeNamespacesWithCreate(): Promise<DescribeNamespacesWithCreateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeNamespacesWithCreateWithOptions(headers, runtime);
   }
 
-  async describeNamespacesWithCreateWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNamespacesWithCreateResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<DescribeNamespacesWithCreateResponse>(await this.doROARequest("DescribeNamespacesWithCreate", "2020-02-06", "HTTPS", "GET", "AK", `/diamond-ops/pop/namespace/listWithCreate`, "json", req, runtime), new DescribeNamespacesWithCreateResponse({}));
-  }
-
-  async describeTraceByConfiguration(request: DescribeTraceByConfigurationRequest): Promise<DescribeTraceByConfigurationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.describeTraceByConfigurationWithOptions(request, headers, runtime);
-  }
-
+  /**
+   * @param request DescribeTraceByConfigurationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTraceByConfigurationResponse
+   */
   async describeTraceByConfigurationWithOptions(request: DescribeTraceByConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTraceByConfigurationResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.dataId)) {
       query["DataId"] = request.dataId;
+    }
+
+    if (!Util.isUnset(request.endTs)) {
+      query["EndTs"] = request.endTs;
     }
 
     if (!Util.isUnset(request.group)) {
@@ -2016,23 +2388,40 @@ export default class Client extends OpenApi {
       query["StartTs"] = request.startTs;
     }
 
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeTraceByConfigurationResponse>(await this.doROARequest("DescribeTraceByConfiguration", "2020-02-06", "HTTPS", "GET", "AK", `/diamond-ops/pop/trace/getByConfiguration`, "json", req, runtime), new DescribeTraceByConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTraceByConfiguration",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/trace/getByConfiguration`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTraceByConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeTraceByConfigurationResponse({}));
   }
 
-  async updateNamespace(request: UpdateNamespaceRequest): Promise<UpdateNamespaceResponse> {
+  /**
+   * @param request DescribeTraceByConfigurationRequest
+   * @return DescribeTraceByConfigurationResponse
+   */
+  async describeTraceByConfiguration(request: DescribeTraceByConfigurationRequest): Promise<DescribeTraceByConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateNamespaceWithOptions(request, headers, runtime);
+    return await this.describeTraceByConfigurationWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request UpdateNamespaceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateNamespaceResponse
+   */
   async updateNamespaceWithOptions(request: UpdateNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateNamespaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2048,7 +2437,28 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateNamespaceResponse>(await this.doROARequestWithForm("UpdateNamespace", "2020-02-06", "HTTPS", "PUT", "AK", `/diamond-ops/pop/namespace`, "json", req, runtime), new UpdateNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateNamespace",
+      version: "2020-02-06",
+      protocol: "HTTPS",
+      pathname: `/diamond-ops/pop/namespace`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateNamespaceResponse({}));
+  }
+
+  /**
+   * @param request UpdateNamespaceRequest
+   * @return UpdateNamespaceResponse
+   */
+  async updateNamespace(request: UpdateNamespaceRequest): Promise<UpdateNamespaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateNamespaceWithOptions(request, headers, runtime);
   }
 
 }
