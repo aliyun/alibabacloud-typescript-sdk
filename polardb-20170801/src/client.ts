@@ -7716,6 +7716,7 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
   DBClusterId?: string;
   DBName?: string;
   endTime?: string;
+  nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -7730,6 +7731,7 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
       DBClusterId: 'DBClusterId',
       DBName: 'DBName',
       endTime: 'EndTime',
+      nodeId: 'NodeId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -7747,6 +7749,7 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
       DBClusterId: 'string',
       DBName: 'string',
       endTime: 'string',
+      nodeId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -14793,6 +14796,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
   serverlessType?: string;
   storagePayType?: string;
   storageSpace?: number;
+  storageType?: string;
   storageUsed?: number;
   strictConsistency?: string;
   subCategory?: string;
@@ -14828,6 +14832,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       serverlessType: 'ServerlessType',
       storagePayType: 'StoragePayType',
       storageSpace: 'StorageSpace',
+      storageType: 'StorageType',
       storageUsed: 'StorageUsed',
       strictConsistency: 'StrictConsistency',
       subCategory: 'SubCategory',
@@ -14866,6 +14871,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       serverlessType: 'string',
       storagePayType: 'string',
       storageSpace: 'number',
+      storageType: 'string',
       storageUsed: 'number',
       strictConsistency: 'string',
       subCategory: 'string',
@@ -22670,6 +22676,10 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -24821,7 +24831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the primary zone of a PolarDB cluster.
+   * @summary Changes the primary zone of a PolarDB cluster.
    *
    * @param request ModifyDBClusterPrimaryZoneRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -24900,7 +24910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the primary zone of a PolarDB cluster.
+   * @summary Changes the primary zone of a PolarDB cluster.
    *
    * @param request ModifyDBClusterPrimaryZoneRequest
    * @return ModifyDBClusterPrimaryZoneResponse
@@ -26633,7 +26643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 重启代理
+   * @summary Restarts database links.
    *
    * @param request RestartDBLinkRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -26684,7 +26694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 重启代理
+   * @summary Restarts database links.
    *
    * @param request RestartDBLinkRequest
    * @return RestartDBLinkResponse
