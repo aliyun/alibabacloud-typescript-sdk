@@ -801,6 +801,7 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
   openPublicNet?: boolean;
   packageType?: string;
   payType?: number;
+  productCode?: string;
   regionId?: string;
   runningTime?: number;
   sgId?: string;
@@ -824,6 +825,7 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
       openPublicNet: 'OpenPublicNet',
       packageType: 'PackageType',
       payType: 'PayType',
+      productCode: 'ProductCode',
       regionId: 'RegionId',
       runningTime: 'RunningTime',
       sgId: 'SgId',
@@ -850,6 +852,7 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
       openPublicNet: 'boolean',
       packageType: 'string',
       payType: 'number',
+      productCode: 'string',
       regionId: 'string',
       runningTime: 'number',
       sgId: 'string',
@@ -945,6 +948,7 @@ export class ListInstancesResponseBodyData extends $tea.Model {
   openPublicNet?: boolean;
   packageType?: string;
   payType?: number;
+  productCode?: string;
   regionId?: string;
   runningTime?: number;
   sgId?: string;
@@ -962,6 +966,7 @@ export class ListInstancesResponseBodyData extends $tea.Model {
       openPublicNet: 'OpenPublicNet',
       packageType: 'PackageType',
       payType: 'PayType',
+      productCode: 'ProductCode',
       regionId: 'RegionId',
       runningTime: 'RunningTime',
       sgId: 'SgId',
@@ -982,6 +987,7 @@ export class ListInstancesResponseBodyData extends $tea.Model {
       openPublicNet: 'boolean',
       packageType: 'string',
       payType: 'number',
+      productCode: 'string',
       regionId: 'string',
       runningTime: 'number',
       sgId: 'string',
