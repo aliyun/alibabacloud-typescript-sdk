@@ -345,6 +345,7 @@ export class CreateAppGroupRequest extends $tea.Model {
   appKey?: string;
   appName?: string;
   appType?: number;
+  appVersion?: number;
   description?: string;
   enableLog?: boolean;
   groupId?: string;
@@ -356,12 +357,12 @@ export class CreateAppGroupRequest extends $tea.Model {
   namespaceSource?: string;
   regionId?: string;
   scheduleBusyWorkers?: boolean;
-  version?: number;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
       appName: 'AppName',
       appType: 'AppType',
+      appVersion: 'AppVersion',
       description: 'Description',
       enableLog: 'EnableLog',
       groupId: 'GroupId',
@@ -373,7 +374,6 @@ export class CreateAppGroupRequest extends $tea.Model {
       namespaceSource: 'NamespaceSource',
       regionId: 'RegionId',
       scheduleBusyWorkers: 'ScheduleBusyWorkers',
-      version: 'Version',
     };
   }
 
@@ -382,6 +382,7 @@ export class CreateAppGroupRequest extends $tea.Model {
       appKey: 'string',
       appName: 'string',
       appType: 'number',
+      appVersion: 'number',
       description: 'string',
       enableLog: 'boolean',
       groupId: 'string',
@@ -393,7 +394,6 @@ export class CreateAppGroupRequest extends $tea.Model {
       namespaceSource: 'string',
       regionId: 'string',
       scheduleBusyWorkers: 'boolean',
-      version: 'number',
     };
   }
 
@@ -1242,6 +1242,25 @@ export class DeleteWorkflowResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
     };
   }
 
@@ -3716,31 +3735,31 @@ export class StopInstanceResponse extends $tea.Model {
 }
 
 export class UpdateAppGroupRequest extends $tea.Model {
+  appVersion?: number;
   description?: string;
   groupId?: string;
   maxConcurrency?: number;
   namespace?: string;
   regionId?: string;
-  version?: number;
   static names(): { [key: string]: string } {
     return {
+      appVersion: 'AppVersion',
       description: 'Description',
       groupId: 'GroupId',
       maxConcurrency: 'MaxConcurrency',
       namespace: 'Namespace',
       regionId: 'RegionId',
-      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appVersion: 'number',
       description: 'string',
       groupId: 'string',
       maxConcurrency: 'number',
       namespace: 'string',
       regionId: 'string',
-      version: 'number',
     };
   }
 
@@ -4354,6 +4373,7 @@ export class ExecuteWorkflowResponseBodyData extends $tea.Model {
 export class GetAppGroupResponseBodyData extends $tea.Model {
   appKey?: string;
   appName?: string;
+  appVersion?: string;
   curJobs?: number;
   description?: string;
   groupId?: string;
@@ -4363,6 +4383,7 @@ export class GetAppGroupResponseBodyData extends $tea.Model {
     return {
       appKey: 'AppKey',
       appName: 'AppName',
+      appVersion: 'AppVersion',
       curJobs: 'CurJobs',
       description: 'Description',
       groupId: 'GroupId',
@@ -4375,6 +4396,7 @@ export class GetAppGroupResponseBodyData extends $tea.Model {
     return {
       appKey: 'string',
       appName: 'string',
+      appVersion: 'string',
       curJobs: 'number',
       description: 'string',
       groupId: 'string',
@@ -5124,17 +5146,17 @@ export class ListGroupsResponseBodyDataAppGroups extends $tea.Model {
   appGroupId?: number;
   appKey?: string;
   appName?: string;
+  appVersion?: number;
   description?: string;
   groupId?: string;
-  version?: number;
   static names(): { [key: string]: string } {
     return {
       appGroupId: 'AppGroupId',
       appKey: 'AppKey',
       appName: 'AppName',
+      appVersion: 'AppVersion',
       description: 'Description',
       groupId: 'GroupId',
-      version: 'Version',
     };
   }
 
@@ -5143,9 +5165,9 @@ export class ListGroupsResponseBodyDataAppGroups extends $tea.Model {
       appGroupId: 'number',
       appKey: 'string',
       appName: 'string',
+      appVersion: 'number',
       description: 'string',
       groupId: 'string',
-      version: 'number',
     };
   }
 
@@ -6467,8 +6489,16 @@ export default class Client extends OpenApi {
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
       action: "DescribeRegions",
       version: "2019-04-30",
@@ -6486,11 +6516,12 @@ export default class Client extends OpenApi {
   /**
    * @summary Returns available regions.
    *
+   * @param request DescribeRegionsRequest
    * @return DescribeRegionsResponse
    */
-  async describeRegions(): Promise<DescribeRegionsResponse> {
+  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRegionsWithOptions(runtime);
+    return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
@@ -7803,6 +7834,10 @@ export default class Client extends OpenApi {
   async updateAppGroupWithOptions(request: UpdateAppGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.appVersion)) {
+      query["AppVersion"] = request.appVersion;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
@@ -7821,10 +7856,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
