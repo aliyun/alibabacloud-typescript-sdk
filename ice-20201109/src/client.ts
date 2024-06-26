@@ -6421,6 +6421,78 @@ export class GetSnapshotUrlsResponse extends $tea.Model {
   }
 }
 
+export class GetStorageListRequest extends $tea.Model {
+  appId?: string;
+  status?: string;
+  storageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      status: 'Status',
+      storageType: 'StorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      status: 'string',
+      storageType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStorageListResponseBody extends $tea.Model {
+  requestId?: string;
+  storageInfoList?: GetStorageListResponseBodyStorageInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      storageInfoList: 'StorageInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      storageInfoList: { 'type': 'array', 'itemType': GetStorageListResponseBodyStorageInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStorageListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetStorageListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetStorageListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSystemTemplateRequest extends $tea.Model {
   templateId?: string;
   static names(): { [key: string]: string } {
@@ -20317,6 +20389,49 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $tea.Model {
       triggerSource: 'string',
       type: 'string',
       userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStorageListResponseBodyStorageInfoList extends $tea.Model {
+  appId?: string;
+  creationTime?: string;
+  defaultStorage?: boolean;
+  editingTempFileStorage?: boolean;
+  modifiedTime?: string;
+  path?: string;
+  status?: string;
+  storageLocation?: string;
+  storageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      creationTime: 'CreationTime',
+      defaultStorage: 'DefaultStorage',
+      editingTempFileStorage: 'EditingTempFileStorage',
+      modifiedTime: 'ModifiedTime',
+      path: 'Path',
+      status: 'Status',
+      storageLocation: 'StorageLocation',
+      storageType: 'StorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      creationTime: 'string',
+      defaultStorage: 'boolean',
+      editingTempFileStorage: 'boolean',
+      modifiedTime: 'string',
+      path: 'string',
+      status: 'string',
+      storageLocation: 'string',
+      storageType: 'string',
     };
   }
 
@@ -36379,6 +36494,56 @@ export default class Client extends OpenApi {
   async getSnapshotUrls(request: GetSnapshotUrlsRequest): Promise<GetSnapshotUrlsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSnapshotUrlsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 获取存储地址列表
+   *
+   * @param request GetStorageListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetStorageListResponse
+   */
+  async getStorageListWithOptions(request: GetStorageListRequest, runtime: $Util.RuntimeOptions): Promise<GetStorageListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetStorageList",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStorageListResponse>(await this.callApi(params, req, runtime), new GetStorageListResponse({}));
+  }
+
+  /**
+   * @summary 获取存储地址列表
+   *
+   * @param request GetStorageListRequest
+   * @return GetStorageListResponse
+   */
+  async getStorageList(request: GetStorageListRequest): Promise<GetStorageListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getStorageListWithOptions(request, runtime);
   }
 
   /**
