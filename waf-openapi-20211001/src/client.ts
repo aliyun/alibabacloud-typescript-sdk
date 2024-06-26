@@ -4332,6 +4332,78 @@ export class DescribeMemberAccountsResponse extends $tea.Model {
   }
 }
 
+export class DescribePauseProtectionStatusRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePauseProtectionStatusResponseBody extends $tea.Model {
+  pauseStatus?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pauseStatus: 'PauseStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pauseStatus: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePauseProtectionStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePauseProtectionStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePauseProtectionStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePeakTrendRequest extends $tea.Model {
   endTimestamp?: string;
   instanceId?: string;
@@ -7754,6 +7826,78 @@ export class ModifyMemberAccountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyMemberAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPauseProtectionStatusRequest extends $tea.Model {
+  instanceId?: string;
+  pauseStatus?: number;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pauseStatus: 'PauseStatus',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pauseStatus: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPauseProtectionStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPauseProtectionStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPauseProtectionStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyPauseProtectionStatusResponseBody,
     };
   }
 
@@ -14044,6 +14188,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 获取用户暂停防护状态
+   *
+   * @param request DescribePauseProtectionStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePauseProtectionStatusResponse
+   */
+  async describePauseProtectionStatusWithOptions(request: DescribePauseProtectionStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribePauseProtectionStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePauseProtectionStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePauseProtectionStatusResponse>(await this.callApi(params, req, runtime), new DescribePauseProtectionStatusResponse({}));
+  }
+
+  /**
+   * @summary 获取用户暂停防护状态
+   *
+   * @param request DescribePauseProtectionStatusRequest
+   * @return DescribePauseProtectionStatusResponse
+   */
+  async describePauseProtectionStatus(request: DescribePauseProtectionStatusRequest): Promise<DescribePauseProtectionStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePauseProtectionStatusWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Queries the queries per second (QPS) statistics of a WAF instance.
    *
    * @param request DescribePeakTrendRequest
@@ -16605,6 +16799,60 @@ export default class Client extends OpenApi {
   async modifyMemberAccount(request: ModifyMemberAccountRequest): Promise<ModifyMemberAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyMemberAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改用户暂停防护状态
+   *
+   * @param request ModifyPauseProtectionStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPauseProtectionStatusResponse
+   */
+  async modifyPauseProtectionStatusWithOptions(request: ModifyPauseProtectionStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPauseProtectionStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pauseStatus)) {
+      query["PauseStatus"] = request.pauseStatus;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyPauseProtectionStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyPauseProtectionStatusResponse>(await this.callApi(params, req, runtime), new ModifyPauseProtectionStatusResponse({}));
+  }
+
+  /**
+   * @summary 修改用户暂停防护状态
+   *
+   * @param request ModifyPauseProtectionStatusRequest
+   * @return ModifyPauseProtectionStatusResponse
+   */
+  async modifyPauseProtectionStatus(request: ModifyPauseProtectionStatusRequest): Promise<ModifyPauseProtectionStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyPauseProtectionStatusWithOptions(request, runtime);
   }
 
   /**
