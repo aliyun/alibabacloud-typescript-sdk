@@ -635,6 +635,7 @@ export class CreateMySqlDataSourceRequest extends $tea.Model {
   port?: number;
   schema?: string;
   type?: string;
+  useSsl?: boolean;
   userName?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -648,6 +649,7 @@ export class CreateMySqlDataSourceRequest extends $tea.Model {
       port: 'Port',
       schema: 'Schema',
       type: 'Type',
+      useSsl: 'UseSsl',
       userName: 'UserName',
       vpcId: 'VpcId',
     };
@@ -664,6 +666,7 @@ export class CreateMySqlDataSourceRequest extends $tea.Model {
       port: 'number',
       schema: 'string',
       type: 'string',
+      useSsl: 'boolean',
       userName: 'string',
       vpcId: 'string',
     };
@@ -11140,12 +11143,14 @@ export class SwitchoverInstanceResponse extends $tea.Model {
 }
 
 export class UpdateProjectConfigRequest extends $tea.Model {
+  commonTransferConfig?: UpdateProjectConfigRequestCommonTransferConfig;
   fullTransferConfig?: UpdateProjectConfigRequestFullTransferConfig;
   id?: string;
   incrTransferConfig?: UpdateProjectConfigRequestIncrTransferConfig;
   reverseIncrTransferConfig?: UpdateProjectConfigRequestReverseIncrTransferConfig;
   static names(): { [key: string]: string } {
     return {
+      commonTransferConfig: 'CommonTransferConfig',
       fullTransferConfig: 'FullTransferConfig',
       id: 'Id',
       incrTransferConfig: 'IncrTransferConfig',
@@ -11155,6 +11160,7 @@ export class UpdateProjectConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      commonTransferConfig: UpdateProjectConfigRequestCommonTransferConfig,
       fullTransferConfig: UpdateProjectConfigRequestFullTransferConfig,
       id: 'string',
       incrTransferConfig: UpdateProjectConfigRequestIncrTransferConfig,
@@ -11168,12 +11174,14 @@ export class UpdateProjectConfigRequest extends $tea.Model {
 }
 
 export class UpdateProjectConfigShrinkRequest extends $tea.Model {
+  commonTransferConfigShrink?: string;
   fullTransferConfigShrink?: string;
   id?: string;
   incrTransferConfigShrink?: string;
   reverseIncrTransferConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      commonTransferConfigShrink: 'CommonTransferConfig',
       fullTransferConfigShrink: 'FullTransferConfig',
       id: 'Id',
       incrTransferConfigShrink: 'IncrTransferConfig',
@@ -11183,6 +11191,7 @@ export class UpdateProjectConfigShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      commonTransferConfigShrink: 'string',
       fullTransferConfigShrink: 'string',
       id: 'string',
       incrTransferConfigShrink: 'string',
@@ -11681,6 +11690,8 @@ export class CreateProjectRequestCommonTransferConfig extends $tea.Model {
   rocketMqMsgTags?: string;
   rocketMqProducerGroup?: string;
   rocketMqSendMsgTimeout?: number;
+  sinkStoreFormat?: string;
+  sourceStoreFormat?: string;
   syncSchema?: boolean;
   syncSchemaColumnName?: string;
   tableCategory?: string;
@@ -11697,6 +11708,8 @@ export class CreateProjectRequestCommonTransferConfig extends $tea.Model {
       rocketMqMsgTags: 'RocketMqMsgTags',
       rocketMqProducerGroup: 'RocketMqProducerGroup',
       rocketMqSendMsgTimeout: 'RocketMqSendMsgTimeout',
+      sinkStoreFormat: 'SinkStoreFormat',
+      sourceStoreFormat: 'SourceStoreFormat',
       syncSchema: 'SyncSchema',
       syncSchemaColumnName: 'SyncSchemaColumnName',
       tableCategory: 'TableCategory',
@@ -11716,6 +11729,8 @@ export class CreateProjectRequestCommonTransferConfig extends $tea.Model {
       rocketMqMsgTags: 'string',
       rocketMqProducerGroup: 'string',
       rocketMqSendMsgTimeout: 'number',
+      sinkStoreFormat: 'string',
+      sourceStoreFormat: 'string',
       syncSchema: 'boolean',
       syncSchemaColumnName: 'string',
       tableCategory: 'string',
@@ -17474,6 +17489,8 @@ export class DescribeProjectResponseBodyDataCommonTransferConfig extends $tea.Mo
   rocketMqMsgTags?: string;
   rocketMqProducerGroup?: string;
   rocketMqSendMsgTimeout?: number;
+  sinkStoreFormat?: string;
+  sourceStoreFormat?: string;
   tableCategory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17487,6 +17504,8 @@ export class DescribeProjectResponseBodyDataCommonTransferConfig extends $tea.Mo
       rocketMqMsgTags: 'RocketMqMsgTags',
       rocketMqProducerGroup: 'RocketMqProducerGroup',
       rocketMqSendMsgTimeout: 'RocketMqSendMsgTimeout',
+      sinkStoreFormat: 'SinkStoreFormat',
+      sourceStoreFormat: 'SourceStoreFormat',
       tableCategory: 'TableCategory',
     };
   }
@@ -17503,6 +17522,8 @@ export class DescribeProjectResponseBodyDataCommonTransferConfig extends $tea.Mo
       rocketMqMsgTags: 'string',
       rocketMqProducerGroup: 'string',
       rocketMqSendMsgTimeout: 'number',
+      sinkStoreFormat: 'string',
+      sourceStoreFormat: 'string',
       tableCategory: 'string',
     };
   }
@@ -25332,6 +25353,28 @@ export class SwitchoverInstanceResponseBodyData extends $tea.Model {
   }
 }
 
+export class UpdateProjectConfigRequestCommonTransferConfig extends $tea.Model {
+  sinkStoreFormat?: string;
+  sourceStoreFormat?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sinkStoreFormat: 'SinkStoreFormat',
+      sourceStoreFormat: 'SourceStoreFormat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sinkStoreFormat: 'string',
+      sourceStoreFormat: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateProjectConfigRequestFullTransferConfig extends $tea.Model {
   readWorkerNum?: number;
   throttleIOPS?: number;
@@ -25904,6 +25947,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.type)) {
       body["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.useSsl)) {
+      body["UseSsl"] = request.useSsl;
     }
 
     if (!Util.isUnset(request.userName)) {
@@ -32815,6 +32862,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateProjectConfigShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.commonTransferConfig)) {
+      request.commonTransferConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commonTransferConfig, "CommonTransferConfig", "json");
+    }
+
     if (!Util.isUnset(tmpReq.fullTransferConfig)) {
       request.fullTransferConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fullTransferConfig, "FullTransferConfig", "json");
     }
@@ -32828,6 +32879,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commonTransferConfigShrink)) {
+      body["CommonTransferConfig"] = request.commonTransferConfigShrink;
+    }
+
     if (!Util.isUnset(request.fullTransferConfigShrink)) {
       body["FullTransferConfig"] = request.fullTransferConfigShrink;
     }
