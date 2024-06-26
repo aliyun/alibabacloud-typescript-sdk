@@ -53,9 +53,9 @@ export class BindAliasResponseBody extends $tea.Model {
 }
 
 export class BindAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BindAliasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -122,9 +122,9 @@ export class BindPhoneResponseBody extends $tea.Model {
 }
 
 export class BindPhoneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BindPhoneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindPhoneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -194,9 +194,9 @@ export class BindTagResponseBody extends $tea.Model {
 }
 
 export class BindTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BindTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -260,9 +260,9 @@ export class CancelPushResponseBody extends $tea.Model {
 }
 
 export class CancelPushResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelPushResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelPushResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -335,9 +335,9 @@ export class CheckCertificateResponseBody extends $tea.Model {
 }
 
 export class CheckCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -404,9 +404,9 @@ export class CheckDeviceResponseBody extends $tea.Model {
 }
 
 export class CheckDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -473,9 +473,9 @@ export class CheckDevicesResponseBody extends $tea.Model {
 }
 
 export class CheckDevicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckDevicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckDevicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -542,9 +542,9 @@ export class CompleteContinuouslyPushResponseBody extends $tea.Model {
 }
 
 export class CompleteContinuouslyPushResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CompleteContinuouslyPushResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CompleteContinuouslyPushResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -617,9 +617,9 @@ export class ContinuouslyPushResponseBody extends $tea.Model {
 }
 
 export class ContinuouslyPushResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ContinuouslyPushResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ContinuouslyPushResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -664,9 +664,9 @@ export class ListSummaryAppsResponseBody extends $tea.Model {
 }
 
 export class ListSummaryAppsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSummaryAppsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSummaryAppsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -730,9 +730,9 @@ export class ListTagsResponseBody extends $tea.Model {
 }
 
 export class ListTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -799,9 +799,9 @@ export class MassPushResponseBody extends $tea.Model {
 }
 
 export class MassPushResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MassPushResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MassPushResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -867,6 +867,21 @@ export class PushRequest extends $tea.Model {
   body?: string;
   deviceType?: string;
   expireTime?: string;
+  harmonyAction?: string;
+  harmonyActionType?: string;
+  harmonyCategory?: string;
+  harmonyExtParameters?: string;
+  harmonyImageUrl?: string;
+  harmonyInboxContent?: string;
+  harmonyNotificationSlotType?: string;
+  harmonyNotifyId?: number;
+  harmonyReceiptId?: string;
+  harmonyRemind?: boolean;
+  harmonyRemindBody?: string;
+  harmonyRemindTitle?: string;
+  harmonyRenderStyle?: string;
+  harmonyTestMessage?: boolean;
+  harmonyUri?: string;
   jobKey?: string;
   pushTime?: string;
   pushType?: string;
@@ -942,6 +957,21 @@ export class PushRequest extends $tea.Model {
       body: 'Body',
       deviceType: 'DeviceType',
       expireTime: 'ExpireTime',
+      harmonyAction: 'HarmonyAction',
+      harmonyActionType: 'HarmonyActionType',
+      harmonyCategory: 'HarmonyCategory',
+      harmonyExtParameters: 'HarmonyExtParameters',
+      harmonyImageUrl: 'HarmonyImageUrl',
+      harmonyInboxContent: 'HarmonyInboxContent',
+      harmonyNotificationSlotType: 'HarmonyNotificationSlotType',
+      harmonyNotifyId: 'HarmonyNotifyId',
+      harmonyReceiptId: 'HarmonyReceiptId',
+      harmonyRemind: 'HarmonyRemind',
+      harmonyRemindBody: 'HarmonyRemindBody',
+      harmonyRemindTitle: 'HarmonyRemindTitle',
+      harmonyRenderStyle: 'HarmonyRenderStyle',
+      harmonyTestMessage: 'HarmonyTestMessage',
+      harmonyUri: 'HarmonyUri',
       jobKey: 'JobKey',
       pushTime: 'PushTime',
       pushType: 'PushType',
@@ -1020,6 +1050,21 @@ export class PushRequest extends $tea.Model {
       body: 'string',
       deviceType: 'string',
       expireTime: 'string',
+      harmonyAction: 'string',
+      harmonyActionType: 'string',
+      harmonyCategory: 'string',
+      harmonyExtParameters: 'string',
+      harmonyImageUrl: 'string',
+      harmonyInboxContent: 'string',
+      harmonyNotificationSlotType: 'string',
+      harmonyNotifyId: 'number',
+      harmonyReceiptId: 'string',
+      harmonyRemind: 'boolean',
+      harmonyRemindBody: 'string',
+      harmonyRemindTitle: 'string',
+      harmonyRenderStyle: 'string',
+      harmonyTestMessage: 'boolean',
+      harmonyUri: 'string',
       jobKey: 'string',
       pushTime: 'string',
       pushType: 'string',
@@ -1081,9 +1126,9 @@ export class PushResponseBody extends $tea.Model {
 }
 
 export class PushResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PushResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1165,9 +1210,9 @@ export class PushMessageToAndroidResponseBody extends $tea.Model {
 }
 
 export class PushMessageToAndroidResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PushMessageToAndroidResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushMessageToAndroidResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1249,9 +1294,9 @@ export class PushMessageToiOSResponseBody extends $tea.Model {
 }
 
 export class PushMessageToiOSResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PushMessageToiOSResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushMessageToiOSResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1336,9 +1381,9 @@ export class PushNoticeToAndroidResponseBody extends $tea.Model {
 }
 
 export class PushNoticeToAndroidResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PushNoticeToAndroidResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushNoticeToAndroidResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1423,9 +1468,9 @@ export class PushNoticeToiOSResponseBody extends $tea.Model {
 }
 
 export class PushNoticeToiOSResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PushNoticeToiOSResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushNoticeToiOSResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1492,9 +1537,9 @@ export class QueryAliasesResponseBody extends $tea.Model {
 }
 
 export class QueryAliasesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAliasesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAliasesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1561,9 +1606,9 @@ export class QueryDeviceInfoResponseBody extends $tea.Model {
 }
 
 export class QueryDeviceInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDeviceInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDeviceInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1639,9 +1684,9 @@ export class QueryDeviceStatResponseBody extends $tea.Model {
 }
 
 export class QueryDeviceStatResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDeviceStatResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDeviceStatResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1708,9 +1753,9 @@ export class QueryDevicesByAccountResponseBody extends $tea.Model {
 }
 
 export class QueryDevicesByAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDevicesByAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDevicesByAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1777,9 +1822,9 @@ export class QueryDevicesByAliasResponseBody extends $tea.Model {
 }
 
 export class QueryDevicesByAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDevicesByAliasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDevicesByAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1882,9 +1927,9 @@ export class QueryPushRecordsResponseBody extends $tea.Model {
 }
 
 export class QueryPushRecordsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPushRecordsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPushRecordsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1957,9 +2002,9 @@ export class QueryPushStatByAppResponseBody extends $tea.Model {
 }
 
 export class QueryPushStatByAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPushStatByAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPushStatByAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2026,9 +2071,9 @@ export class QueryPushStatByMsgResponseBody extends $tea.Model {
 }
 
 export class QueryPushStatByMsgResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPushStatByMsgResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPushStatByMsgResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2098,9 +2143,9 @@ export class QueryTagsResponseBody extends $tea.Model {
 }
 
 export class QueryTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2173,9 +2218,9 @@ export class QueryUniqueDeviceStatResponseBody extends $tea.Model {
 }
 
 export class QueryUniqueDeviceStatResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryUniqueDeviceStatResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryUniqueDeviceStatResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2239,9 +2284,9 @@ export class RemoveTagResponseBody extends $tea.Model {
 }
 
 export class RemoveTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2311,9 +2356,9 @@ export class UnbindAliasResponseBody extends $tea.Model {
 }
 
 export class UnbindAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindAliasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2377,9 +2422,9 @@ export class UnbindPhoneResponseBody extends $tea.Model {
 }
 
 export class UnbindPhoneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindPhoneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindPhoneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2449,9 +2494,9 @@ export class UnbindTagResponseBody extends $tea.Model {
 }
 
 export class UnbindTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2680,6 +2725,21 @@ export class MassPushRequestPushTask extends $tea.Model {
   body?: string;
   deviceType?: string;
   expireTime?: string;
+  harmonyAction?: string;
+  harmonyActionType?: string;
+  harmonyCategory?: string;
+  harmonyExtParameters?: string;
+  harmonyImageUrl?: string;
+  harmonyInboxContent?: string;
+  harmonyNotificationSlotType?: string;
+  harmonyNotifyId?: number;
+  harmonyReceiptId?: string;
+  harmonyRemind?: boolean;
+  harmonyRemindBody?: string;
+  harmonyRemindTitle?: string;
+  harmonyRenderStyle?: string;
+  harmonyTestMessage?: boolean;
+  harmonyUri?: string;
   jobKey?: string;
   pushTime?: string;
   pushType?: string;
@@ -2749,6 +2809,21 @@ export class MassPushRequestPushTask extends $tea.Model {
       body: 'Body',
       deviceType: 'DeviceType',
       expireTime: 'ExpireTime',
+      harmonyAction: 'HarmonyAction',
+      harmonyActionType: 'HarmonyActionType',
+      harmonyCategory: 'HarmonyCategory',
+      harmonyExtParameters: 'HarmonyExtParameters',
+      harmonyImageUrl: 'HarmonyImageUrl',
+      harmonyInboxContent: 'HarmonyInboxContent',
+      harmonyNotificationSlotType: 'HarmonyNotificationSlotType',
+      harmonyNotifyId: 'HarmonyNotifyId',
+      harmonyReceiptId: 'HarmonyReceiptId',
+      harmonyRemind: 'HarmonyRemind',
+      harmonyRemindBody: 'HarmonyRemindBody',
+      harmonyRemindTitle: 'HarmonyRemindTitle',
+      harmonyRenderStyle: 'HarmonyRenderStyle',
+      harmonyTestMessage: 'HarmonyTestMessage',
+      harmonyUri: 'HarmonyUri',
       jobKey: 'JobKey',
       pushTime: 'PushTime',
       pushType: 'PushType',
@@ -2821,6 +2896,21 @@ export class MassPushRequestPushTask extends $tea.Model {
       body: 'string',
       deviceType: 'string',
       expireTime: 'string',
+      harmonyAction: 'string',
+      harmonyActionType: 'string',
+      harmonyCategory: 'string',
+      harmonyExtParameters: 'string',
+      harmonyImageUrl: 'string',
+      harmonyInboxContent: 'string',
+      harmonyNotificationSlotType: 'string',
+      harmonyNotifyId: 'number',
+      harmonyReceiptId: 'string',
+      harmonyRemind: 'boolean',
+      harmonyRemindBody: 'string',
+      harmonyRemindTitle: 'string',
+      harmonyRenderStyle: 'string',
+      harmonyTestMessage: 'boolean',
+      harmonyUri: 'string',
       jobKey: 'string',
       pushTime: 'string',
       pushType: 'string',
@@ -3404,6 +3494,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request BindAliasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindAliasResponse
+   */
   async bindAliasWithOptions(request: BindAliasRequest, runtime: $Util.RuntimeOptions): Promise<BindAliasResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3436,11 +3531,20 @@ export default class Client extends OpenApi {
     return $tea.cast<BindAliasResponse>(await this.callApi(params, req, runtime), new BindAliasResponse({}));
   }
 
+  /**
+   * @param request BindAliasRequest
+   * @return BindAliasResponse
+   */
   async bindAlias(request: BindAliasRequest): Promise<BindAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindAliasWithOptions(request, runtime);
   }
 
+  /**
+   * @param request BindPhoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindPhoneResponse
+   */
   async bindPhoneWithOptions(request: BindPhoneRequest, runtime: $Util.RuntimeOptions): Promise<BindPhoneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3473,11 +3577,20 @@ export default class Client extends OpenApi {
     return $tea.cast<BindPhoneResponse>(await this.callApi(params, req, runtime), new BindPhoneResponse({}));
   }
 
+  /**
+   * @param request BindPhoneRequest
+   * @return BindPhoneResponse
+   */
   async bindPhone(request: BindPhoneRequest): Promise<BindPhoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindPhoneWithOptions(request, runtime);
   }
 
+  /**
+   * @param request BindTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindTagResponse
+   */
   async bindTagWithOptions(request: BindTagRequest, runtime: $Util.RuntimeOptions): Promise<BindTagResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3514,11 +3627,20 @@ export default class Client extends OpenApi {
     return $tea.cast<BindTagResponse>(await this.callApi(params, req, runtime), new BindTagResponse({}));
   }
 
+  /**
+   * @param request BindTagRequest
+   * @return BindTagResponse
+   */
   async bindTag(request: BindTagRequest): Promise<BindTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindTagWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CancelPushRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelPushResponse
+   */
   async cancelPushWithOptions(request: CancelPushRequest, runtime: $Util.RuntimeOptions): Promise<CancelPushResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3547,11 +3669,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelPushResponse>(await this.callApi(params, req, runtime), new CancelPushResponse({}));
   }
 
+  /**
+   * @param request CancelPushRequest
+   * @return CancelPushResponse
+   */
   async cancelPush(request: CancelPushRequest): Promise<CancelPushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelPushWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CheckCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckCertificateResponse
+   */
   async checkCertificateWithOptions(request: CheckCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CheckCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3576,17 +3707,21 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckCertificateResponse>(await this.callApi(params, req, runtime), new CheckCertificateResponse({}));
   }
 
+  /**
+   * @param request CheckCertificateRequest
+   * @return CheckCertificateResponse
+   */
   async checkCertificate(request: CheckCertificateRequest): Promise<CheckCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkCertificateWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
-    *
-    * @param request CheckDeviceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CheckDeviceResponse
+   * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
+   *
+   * @param request CheckDeviceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckDeviceResponse
    */
   // Deprecated
   async checkDeviceWithOptions(request: CheckDeviceRequest, runtime: $Util.RuntimeOptions): Promise<CheckDeviceResponse> {
@@ -3618,10 +3753,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
-    *
-    * @param request CheckDeviceRequest
-    * @return CheckDeviceResponse
+   * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
+   *
+   * @param request CheckDeviceRequest
+   * @return CheckDeviceResponse
    */
   // Deprecated
   async checkDevice(request: CheckDeviceRequest): Promise<CheckDeviceResponse> {
@@ -3629,6 +3764,11 @@ export default class Client extends OpenApi {
     return await this.checkDeviceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CheckDevicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckDevicesResponse
+   */
   async checkDevicesWithOptions(request: CheckDevicesRequest, runtime: $Util.RuntimeOptions): Promise<CheckDevicesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3657,11 +3797,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckDevicesResponse>(await this.callApi(params, req, runtime), new CheckDevicesResponse({}));
   }
 
+  /**
+   * @param request CheckDevicesRequest
+   * @return CheckDevicesResponse
+   */
   async checkDevices(request: CheckDevicesRequest): Promise<CheckDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkDevicesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CompleteContinuouslyPushRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CompleteContinuouslyPushResponse
+   */
   async completeContinuouslyPushWithOptions(request: CompleteContinuouslyPushRequest, runtime: $Util.RuntimeOptions): Promise<CompleteContinuouslyPushResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3690,11 +3839,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CompleteContinuouslyPushResponse>(await this.callApi(params, req, runtime), new CompleteContinuouslyPushResponse({}));
   }
 
+  /**
+   * @param request CompleteContinuouslyPushRequest
+   * @return CompleteContinuouslyPushResponse
+   */
   async completeContinuouslyPush(request: CompleteContinuouslyPushRequest): Promise<CompleteContinuouslyPushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.completeContinuouslyPushWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ContinuouslyPushRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ContinuouslyPushResponse
+   */
   async continuouslyPushWithOptions(request: ContinuouslyPushRequest, runtime: $Util.RuntimeOptions): Promise<ContinuouslyPushResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3731,17 +3889,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ContinuouslyPushResponse>(await this.callApi(params, req, runtime), new ContinuouslyPushResponse({}));
   }
 
+  /**
+   * @param request ContinuouslyPushRequest
+   * @return ContinuouslyPushResponse
+   */
   async continuouslyPush(request: ContinuouslyPushRequest): Promise<ContinuouslyPushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.continuouslyPushWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
-    *
-    * @param request ListSummaryAppsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListSummaryAppsResponse
+   * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
+   *
+   * @param request ListSummaryAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSummaryAppsResponse
    */
   // Deprecated
   async listSummaryAppsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSummaryAppsResponse> {
@@ -3761,9 +3923,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
-    *
-    * @return ListSummaryAppsResponse
+   * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
+   *
+   * @return ListSummaryAppsResponse
    */
   // Deprecated
   async listSummaryApps(): Promise<ListSummaryAppsResponse> {
@@ -3771,6 +3933,11 @@ export default class Client extends OpenApi {
     return await this.listSummaryAppsWithOptions(runtime);
   }
 
+  /**
+   * @param request ListTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagsResponse
+   */
   async listTagsWithOptions(request: ListTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3795,11 +3962,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
   }
 
+  /**
+   * @param request ListTagsRequest
+   * @return ListTagsResponse
+   */
   async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request MassPushRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MassPushResponse
+   */
   async massPushWithOptions(request: MassPushRequest, runtime: $Util.RuntimeOptions): Promise<MassPushResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3830,11 +4006,20 @@ export default class Client extends OpenApi {
     return $tea.cast<MassPushResponse>(await this.callApi(params, req, runtime), new MassPushResponse({}));
   }
 
+  /**
+   * @param request MassPushRequest
+   * @return MassPushResponse
+   */
   async massPush(request: MassPushRequest): Promise<MassPushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.massPushWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PushRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushResponse
+   */
   async pushWithOptions(request: PushRequest, runtime: $Util.RuntimeOptions): Promise<PushResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4010,6 +4195,66 @@ export default class Client extends OpenApi {
       query["ExpireTime"] = request.expireTime;
     }
 
+    if (!Util.isUnset(request.harmonyAction)) {
+      query["HarmonyAction"] = request.harmonyAction;
+    }
+
+    if (!Util.isUnset(request.harmonyActionType)) {
+      query["HarmonyActionType"] = request.harmonyActionType;
+    }
+
+    if (!Util.isUnset(request.harmonyCategory)) {
+      query["HarmonyCategory"] = request.harmonyCategory;
+    }
+
+    if (!Util.isUnset(request.harmonyExtParameters)) {
+      query["HarmonyExtParameters"] = request.harmonyExtParameters;
+    }
+
+    if (!Util.isUnset(request.harmonyImageUrl)) {
+      query["HarmonyImageUrl"] = request.harmonyImageUrl;
+    }
+
+    if (!Util.isUnset(request.harmonyInboxContent)) {
+      query["HarmonyInboxContent"] = request.harmonyInboxContent;
+    }
+
+    if (!Util.isUnset(request.harmonyNotificationSlotType)) {
+      query["HarmonyNotificationSlotType"] = request.harmonyNotificationSlotType;
+    }
+
+    if (!Util.isUnset(request.harmonyNotifyId)) {
+      query["HarmonyNotifyId"] = request.harmonyNotifyId;
+    }
+
+    if (!Util.isUnset(request.harmonyReceiptId)) {
+      query["HarmonyReceiptId"] = request.harmonyReceiptId;
+    }
+
+    if (!Util.isUnset(request.harmonyRemind)) {
+      query["HarmonyRemind"] = request.harmonyRemind;
+    }
+
+    if (!Util.isUnset(request.harmonyRemindBody)) {
+      query["HarmonyRemindBody"] = request.harmonyRemindBody;
+    }
+
+    if (!Util.isUnset(request.harmonyRemindTitle)) {
+      query["HarmonyRemindTitle"] = request.harmonyRemindTitle;
+    }
+
+    if (!Util.isUnset(request.harmonyRenderStyle)) {
+      query["HarmonyRenderStyle"] = request.harmonyRenderStyle;
+    }
+
+    if (!Util.isUnset(request.harmonyTestMessage)) {
+      query["HarmonyTestMessage"] = request.harmonyTestMessage;
+    }
+
+    if (!Util.isUnset(request.harmonyUri)) {
+      query["HarmonyUri"] = request.harmonyUri;
+    }
+
     if (!Util.isUnset(request.jobKey)) {
       query["JobKey"] = request.jobKey;
     }
@@ -4147,11 +4392,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushResponse>(await this.callApi(params, req, runtime), new PushResponse({}));
   }
 
+  /**
+   * @param request PushRequest
+   * @return PushResponse
+   */
   async push(request: PushRequest): Promise<PushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PushMessageToAndroidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushMessageToAndroidResponse
+   */
   async pushMessageToAndroidWithOptions(request: PushMessageToAndroidRequest, runtime: $Util.RuntimeOptions): Promise<PushMessageToAndroidResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4200,11 +4454,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushMessageToAndroidResponse>(await this.callApi(params, req, runtime), new PushMessageToAndroidResponse({}));
   }
 
+  /**
+   * @param request PushMessageToAndroidRequest
+   * @return PushMessageToAndroidResponse
+   */
   async pushMessageToAndroid(request: PushMessageToAndroidRequest): Promise<PushMessageToAndroidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushMessageToAndroidWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PushMessageToiOSRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushMessageToiOSResponse
+   */
   async pushMessageToiOSWithOptions(request: PushMessageToiOSRequest, runtime: $Util.RuntimeOptions): Promise<PushMessageToiOSResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4253,11 +4516,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushMessageToiOSResponse>(await this.callApi(params, req, runtime), new PushMessageToiOSResponse({}));
   }
 
+  /**
+   * @param request PushMessageToiOSRequest
+   * @return PushMessageToiOSResponse
+   */
   async pushMessageToiOS(request: PushMessageToiOSRequest): Promise<PushMessageToiOSResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushMessageToiOSWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PushNoticeToAndroidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushNoticeToAndroidResponse
+   */
   async pushNoticeToAndroidWithOptions(request: PushNoticeToAndroidRequest, runtime: $Util.RuntimeOptions): Promise<PushNoticeToAndroidResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4310,11 +4582,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushNoticeToAndroidResponse>(await this.callApi(params, req, runtime), new PushNoticeToAndroidResponse({}));
   }
 
+  /**
+   * @param request PushNoticeToAndroidRequest
+   * @return PushNoticeToAndroidResponse
+   */
   async pushNoticeToAndroid(request: PushNoticeToAndroidRequest): Promise<PushNoticeToAndroidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushNoticeToAndroidWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PushNoticeToiOSRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushNoticeToiOSResponse
+   */
   async pushNoticeToiOSWithOptions(request: PushNoticeToiOSRequest, runtime: $Util.RuntimeOptions): Promise<PushNoticeToiOSResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4367,11 +4648,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushNoticeToiOSResponse>(await this.callApi(params, req, runtime), new PushNoticeToiOSResponse({}));
   }
 
+  /**
+   * @param request PushNoticeToiOSRequest
+   * @return PushNoticeToiOSResponse
+   */
   async pushNoticeToiOS(request: PushNoticeToiOSRequest): Promise<PushNoticeToiOSResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushNoticeToiOSWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryAliasesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryAliasesResponse
+   */
   async queryAliasesWithOptions(request: QueryAliasesRequest, runtime: $Util.RuntimeOptions): Promise<QueryAliasesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4400,11 +4690,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryAliasesResponse>(await this.callApi(params, req, runtime), new QueryAliasesResponse({}));
   }
 
+  /**
+   * @param request QueryAliasesRequest
+   * @return QueryAliasesResponse
+   */
   async queryAliases(request: QueryAliasesRequest): Promise<QueryAliasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAliasesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDeviceInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDeviceInfoResponse
+   */
   async queryDeviceInfoWithOptions(request: QueryDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4433,11 +4732,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceInfoResponse>(await this.callApi(params, req, runtime), new QueryDeviceInfoResponse({}));
   }
 
+  /**
+   * @param request QueryDeviceInfoRequest
+   * @return QueryDeviceInfoResponse
+   */
   async queryDeviceInfo(request: QueryDeviceInfoRequest): Promise<QueryDeviceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDeviceStatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDeviceStatResponse
+   */
   async queryDeviceStatWithOptions(request: QueryDeviceStatRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceStatResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4478,11 +4786,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceStatResponse>(await this.callApi(params, req, runtime), new QueryDeviceStatResponse({}));
   }
 
+  /**
+   * @param request QueryDeviceStatRequest
+   * @return QueryDeviceStatResponse
+   */
   async queryDeviceStat(request: QueryDeviceStatRequest): Promise<QueryDeviceStatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceStatWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDevicesByAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDevicesByAccountResponse
+   */
   async queryDevicesByAccountWithOptions(request: QueryDevicesByAccountRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicesByAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4511,11 +4828,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDevicesByAccountResponse>(await this.callApi(params, req, runtime), new QueryDevicesByAccountResponse({}));
   }
 
+  /**
+   * @param request QueryDevicesByAccountRequest
+   * @return QueryDevicesByAccountResponse
+   */
   async queryDevicesByAccount(request: QueryDevicesByAccountRequest): Promise<QueryDevicesByAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDevicesByAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDevicesByAliasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDevicesByAliasResponse
+   */
   async queryDevicesByAliasWithOptions(request: QueryDevicesByAliasRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicesByAliasResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4544,11 +4870,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDevicesByAliasResponse>(await this.callApi(params, req, runtime), new QueryDevicesByAliasResponse({}));
   }
 
+  /**
+   * @param request QueryDevicesByAliasRequest
+   * @return QueryDevicesByAliasResponse
+   */
   async queryDevicesByAlias(request: QueryDevicesByAliasRequest): Promise<QueryDevicesByAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDevicesByAliasWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryPushRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPushRecordsResponse
+   */
   async queryPushRecordsWithOptions(request: QueryPushRecordsRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4609,11 +4944,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPushRecordsResponse>(await this.callApi(params, req, runtime), new QueryPushRecordsResponse({}));
   }
 
+  /**
+   * @param request QueryPushRecordsRequest
+   * @return QueryPushRecordsResponse
+   */
   async queryPushRecords(request: QueryPushRecordsRequest): Promise<QueryPushRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPushRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryPushStatByAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPushStatByAppResponse
+   */
   async queryPushStatByAppWithOptions(request: QueryPushStatByAppRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushStatByAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4650,11 +4994,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPushStatByAppResponse>(await this.callApi(params, req, runtime), new QueryPushStatByAppResponse({}));
   }
 
+  /**
+   * @param request QueryPushStatByAppRequest
+   * @return QueryPushStatByAppResponse
+   */
   async queryPushStatByApp(request: QueryPushStatByAppRequest): Promise<QueryPushStatByAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPushStatByAppWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryPushStatByMsgRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPushStatByMsgResponse
+   */
   async queryPushStatByMsgWithOptions(request: QueryPushStatByMsgRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushStatByMsgResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4683,11 +5036,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPushStatByMsgResponse>(await this.callApi(params, req, runtime), new QueryPushStatByMsgResponse({}));
   }
 
+  /**
+   * @param request QueryPushStatByMsgRequest
+   * @return QueryPushStatByMsgResponse
+   */
   async queryPushStatByMsg(request: QueryPushStatByMsgRequest): Promise<QueryPushStatByMsgResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPushStatByMsgWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTagsResponse
+   */
   async queryTagsWithOptions(request: QueryTagsRequest, runtime: $Util.RuntimeOptions): Promise<QueryTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4720,11 +5082,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTagsResponse>(await this.callApi(params, req, runtime), new QueryTagsResponse({}));
   }
 
+  /**
+   * @param request QueryTagsRequest
+   * @return QueryTagsResponse
+   */
   async queryTags(request: QueryTagsRequest): Promise<QueryTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryUniqueDeviceStatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryUniqueDeviceStatResponse
+   */
   async queryUniqueDeviceStatWithOptions(request: QueryUniqueDeviceStatRequest, runtime: $Util.RuntimeOptions): Promise<QueryUniqueDeviceStatResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4761,11 +5132,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryUniqueDeviceStatResponse>(await this.callApi(params, req, runtime), new QueryUniqueDeviceStatResponse({}));
   }
 
+  /**
+   * @param request QueryUniqueDeviceStatRequest
+   * @return QueryUniqueDeviceStatResponse
+   */
   async queryUniqueDeviceStat(request: QueryUniqueDeviceStatRequest): Promise<QueryUniqueDeviceStatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryUniqueDeviceStatWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RemoveTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveTagResponse
+   */
   async removeTagWithOptions(request: RemoveTagRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTagResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4794,11 +5174,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveTagResponse>(await this.callApi(params, req, runtime), new RemoveTagResponse({}));
   }
 
+  /**
+   * @param request RemoveTagRequest
+   * @return RemoveTagResponse
+   */
   async removeTag(request: RemoveTagRequest): Promise<RemoveTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeTagWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UnbindAliasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnbindAliasResponse
+   */
   async unbindAliasWithOptions(request: UnbindAliasRequest, runtime: $Util.RuntimeOptions): Promise<UnbindAliasResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4835,11 +5224,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindAliasResponse>(await this.callApi(params, req, runtime), new UnbindAliasResponse({}));
   }
 
+  /**
+   * @param request UnbindAliasRequest
+   * @return UnbindAliasResponse
+   */
   async unbindAlias(request: UnbindAliasRequest): Promise<UnbindAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindAliasWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UnbindPhoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnbindPhoneResponse
+   */
   async unbindPhoneWithOptions(request: UnbindPhoneRequest, runtime: $Util.RuntimeOptions): Promise<UnbindPhoneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4868,11 +5266,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindPhoneResponse>(await this.callApi(params, req, runtime), new UnbindPhoneResponse({}));
   }
 
+  /**
+   * @param request UnbindPhoneRequest
+   * @return UnbindPhoneResponse
+   */
   async unbindPhone(request: UnbindPhoneRequest): Promise<UnbindPhoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindPhoneWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UnbindTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnbindTagResponse
+   */
   async unbindTagWithOptions(request: UnbindTagRequest, runtime: $Util.RuntimeOptions): Promise<UnbindTagResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4909,6 +5316,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindTagResponse>(await this.callApi(params, req, runtime), new UnbindTagResponse({}));
   }
 
+  /**
+   * @param request UnbindTagRequest
+   * @return UnbindTagResponse
+   */
   async unbindTag(request: UnbindTagRequest): Promise<UnbindTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindTagWithOptions(request, runtime);
