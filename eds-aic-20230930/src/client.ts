@@ -428,6 +428,7 @@ export class CreateAndroidInstanceGroupResponse extends $tea.Model {
 
 export class CreateAppRequest extends $tea.Model {
   appName?: string;
+  bizRegionId?: string;
   description?: string;
   fileName?: string;
   filePath?: string;
@@ -437,6 +438,7 @@ export class CreateAppRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
+      bizRegionId: 'BizRegionId',
       description: 'Description',
       fileName: 'FileName',
       filePath: 'FilePath',
@@ -449,6 +451,7 @@ export class CreateAppRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appName: 'string',
+      bizRegionId: 'string',
       description: 'string',
       fileName: 'string',
       filePath: 'string',
@@ -1261,6 +1264,7 @@ export class DescribeAndroidInstancesResponse extends $tea.Model {
 export class DescribeAppsRequest extends $tea.Model {
   appIdList?: string[];
   appName?: string;
+  bizRegionId?: string;
   installationStatus?: string;
   maxResults?: number;
   nextToken?: string;
@@ -1269,6 +1273,7 @@ export class DescribeAppsRequest extends $tea.Model {
     return {
       appIdList: 'AppIdList',
       appName: 'AppName',
+      bizRegionId: 'BizRegionId',
       installationStatus: 'InstallationStatus',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -1280,6 +1285,7 @@ export class DescribeAppsRequest extends $tea.Model {
     return {
       appIdList: { 'type': 'array', 'itemType': 'string' },
       appName: 'string',
+      bizRegionId: 'string',
       installationStatus: 'string',
       maxResults: 'number',
       nextToken: 'string',
@@ -3923,6 +3929,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
   androidAppVersion?: string;
   appId?: number;
   appName?: string;
+  bizRegionId?: string;
   description?: string;
   gmtCreate?: string;
   gmtModified?: string;
@@ -3935,6 +3942,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
       androidAppVersion: 'AndroidAppVersion',
       appId: 'AppId',
       appName: 'AppName',
+      bizRegionId: 'BizRegionId',
       description: 'Description',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
@@ -3950,6 +3958,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
       androidAppVersion: 'string',
       appId: 'number',
       appName: 'string',
+      bizRegionId: 'string',
       description: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
@@ -4682,6 +4691,10 @@ export default class Client extends OpenApi {
       query["AppName"] = request.appName;
     }
 
+    if (!Util.isUnset(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
@@ -5266,6 +5279,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.appName)) {
       query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
     }
 
     if (!Util.isUnset(request.installationStatus)) {
