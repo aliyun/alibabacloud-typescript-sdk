@@ -30288,15 +30288,18 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtr
 
 export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtra extends $tea.Model {
   DBInstanceIds?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtraDBInstanceIds;
+  recoveryModel?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceIds: 'DBInstanceIds',
+      recoveryModel: 'RecoveryModel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBInstanceIds: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtraDBInstanceIds,
+      recoveryModel: 'string',
     };
   }
 
@@ -34866,22 +34869,28 @@ export class DescribeParametersResponseBodyParamGroupInfo extends $tea.Model {
 }
 
 export class DescribeParametersResponseBodyRunningParametersDBInstanceParameter extends $tea.Model {
+  parameterDefaultValue?: string;
   parameterDescription?: string;
   parameterName?: string;
   parameterValue?: string;
+  parameterValueRange?: string;
   static names(): { [key: string]: string } {
     return {
+      parameterDefaultValue: 'ParameterDefaultValue',
       parameterDescription: 'ParameterDescription',
       parameterName: 'ParameterName',
       parameterValue: 'ParameterValue',
+      parameterValueRange: 'ParameterValueRange',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      parameterDefaultValue: 'string',
       parameterDescription: 'string',
       parameterName: 'string',
       parameterValue: 'string',
+      parameterValueRange: 'string',
     };
   }
 
