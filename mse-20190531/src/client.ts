@@ -1701,6 +1701,7 @@ export class AddMigrationTaskRequest extends $tea.Model {
   originInstanceNamespace?: string;
   projectDesc?: string;
   requestPars?: string;
+  syncType?: string;
   targetClusterName?: string;
   targetClusterUrl?: string;
   targetInstanceId?: string;
@@ -1713,6 +1714,7 @@ export class AddMigrationTaskRequest extends $tea.Model {
       originInstanceNamespace: 'OriginInstanceNamespace',
       projectDesc: 'ProjectDesc',
       requestPars: 'RequestPars',
+      syncType: 'SyncType',
       targetClusterName: 'TargetClusterName',
       targetClusterUrl: 'TargetClusterUrl',
       targetInstanceId: 'TargetInstanceId',
@@ -1728,6 +1730,7 @@ export class AddMigrationTaskRequest extends $tea.Model {
       originInstanceNamespace: 'string',
       projectDesc: 'string',
       requestPars: 'string',
+      syncType: 'string',
       targetClusterName: 'string',
       targetClusterUrl: 'string',
       targetInstanceId: 'string',
@@ -21442,6 +21445,7 @@ export class UpdateMigrationTaskRequest extends $tea.Model {
   originInstanceNamespace?: string;
   projectDesc?: string;
   requestPars?: string;
+  syncType?: string;
   targetClusterName?: string;
   targetClusterUrl?: string;
   targetInstanceId?: string;
@@ -21455,6 +21459,7 @@ export class UpdateMigrationTaskRequest extends $tea.Model {
       originInstanceNamespace: 'OriginInstanceNamespace',
       projectDesc: 'ProjectDesc',
       requestPars: 'RequestPars',
+      syncType: 'SyncType',
       targetClusterName: 'TargetClusterName',
       targetClusterUrl: 'TargetClusterUrl',
       targetInstanceId: 'TargetInstanceId',
@@ -21471,6 +21476,7 @@ export class UpdateMigrationTaskRequest extends $tea.Model {
       originInstanceNamespace: 'string',
       projectDesc: 'string',
       requestPars: 'string',
+      syncType: 'string',
       targetClusterName: 'string',
       targetClusterUrl: 'string',
       targetInstanceId: 'string',
@@ -23462,6 +23468,7 @@ export class AddMigrationTaskResponseBodyData extends $tea.Model {
   originInstanceName?: string;
   originInstanceNamespace?: string;
   projectDesc?: string;
+  syncType?: string;
   targetClusterName?: string;
   targetClusterUrl?: string;
   targetInstanceId?: string;
@@ -23474,6 +23481,7 @@ export class AddMigrationTaskResponseBodyData extends $tea.Model {
       originInstanceName: 'OriginInstanceName',
       originInstanceNamespace: 'OriginInstanceNamespace',
       projectDesc: 'ProjectDesc',
+      syncType: 'SyncType',
       targetClusterName: 'TargetClusterName',
       targetClusterUrl: 'TargetClusterUrl',
       targetInstanceId: 'TargetInstanceId',
@@ -23489,6 +23497,7 @@ export class AddMigrationTaskResponseBodyData extends $tea.Model {
       originInstanceName: 'string',
       originInstanceNamespace: 'string',
       projectDesc: 'string',
+      syncType: 'string',
       targetClusterName: 'string',
       targetClusterUrl: 'string',
       targetInstanceId: 'string',
@@ -27527,10 +27536,12 @@ export class GetZookeeperDataImportUrlResponseBodyData extends $tea.Model {
 export class ImportNacosConfigResponseBodyDataFailData extends $tea.Model {
   dataId?: string;
   group?: string;
+  reason?: string;
   static names(): { [key: string]: string } {
     return {
       dataId: 'DataId',
       group: 'Group',
+      reason: 'Reason',
     };
   }
 
@@ -27538,6 +27549,7 @@ export class ImportNacosConfigResponseBodyDataFailData extends $tea.Model {
     return {
       dataId: 'string',
       group: 'string',
+      reason: 'string',
     };
   }
 
@@ -31372,6 +31384,7 @@ export class ListMigrationTaskResponseBodyData extends $tea.Model {
   originInstanceName?: string;
   originInstanceNamespace?: string;
   projectDesc?: string;
+  syncType?: string;
   targetClusterName?: string;
   targetClusterUrl?: string;
   targetInstanceId?: string;
@@ -31386,6 +31399,7 @@ export class ListMigrationTaskResponseBodyData extends $tea.Model {
       originInstanceName: 'OriginInstanceName',
       originInstanceNamespace: 'OriginInstanceNamespace',
       projectDesc: 'ProjectDesc',
+      syncType: 'SyncType',
       targetClusterName: 'TargetClusterName',
       targetClusterUrl: 'TargetClusterUrl',
       targetInstanceId: 'TargetInstanceId',
@@ -31403,6 +31417,7 @@ export class ListMigrationTaskResponseBodyData extends $tea.Model {
       originInstanceName: 'string',
       originInstanceNamespace: 'string',
       projectDesc: 'string',
+      syncType: 'string',
       targetClusterName: 'string',
       targetClusterUrl: 'string',
       targetInstanceId: 'string',
@@ -34594,6 +34609,7 @@ export class UpdateMigrationTaskResponseBodyData extends $tea.Model {
   originInstanceName?: string;
   originInstanceNamespace?: string;
   projectDesc?: string;
+  syncType?: string;
   targetClusterName?: string;
   targetClusterUrl?: string;
   targetInstanceId?: string;
@@ -34608,6 +34624,7 @@ export class UpdateMigrationTaskResponseBodyData extends $tea.Model {
       originInstanceName: 'OriginInstanceName',
       originInstanceNamespace: 'OriginInstanceNamespace',
       projectDesc: 'ProjectDesc',
+      syncType: 'SyncType',
       targetClusterName: 'TargetClusterName',
       targetClusterUrl: 'TargetClusterUrl',
       targetInstanceId: 'TargetInstanceId',
@@ -34625,6 +34642,7 @@ export class UpdateMigrationTaskResponseBodyData extends $tea.Model {
       originInstanceName: 'string',
       originInstanceNamespace: 'string',
       projectDesc: 'string',
+      syncType: 'string',
       targetClusterName: 'string',
       targetClusterUrl: 'string',
       targetInstanceId: 'string',
@@ -35675,6 +35693,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.requestPars)) {
       query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.syncType)) {
+      query["SyncType"] = request.syncType;
     }
 
     if (!Util.isUnset(request.targetClusterName)) {
@@ -41478,7 +41500,47 @@ export default class Client extends OpenApi {
    */
   async listAnsInstancesWithOptions(request: ListAnsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListAnsInstancesResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -41487,7 +41549,7 @@ export default class Client extends OpenApi {
       version: "2019-05-31",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -48319,6 +48381,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.requestPars)) {
       query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.syncType)) {
+      query["SyncType"] = request.syncType;
     }
 
     if (!Util.isUnset(request.targetClusterName)) {
