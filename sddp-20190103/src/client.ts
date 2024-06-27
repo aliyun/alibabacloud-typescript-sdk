@@ -6315,6 +6315,7 @@ export class DescribePackagesResponseBodyItems extends $tea.Model {
 export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
   auditStatus?: number;
   authStatus?: number;
+  authTime?: number;
   clusterStatus?: string;
   connectNode?: string;
   dbNum?: string;
@@ -6335,6 +6336,7 @@ export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
     return {
       auditStatus: 'AuditStatus',
       authStatus: 'AuthStatus',
+      authTime: 'AuthTime',
       clusterStatus: 'ClusterStatus',
       connectNode: 'ConnectNode',
       dbNum: 'DbNum',
@@ -6358,6 +6360,7 @@ export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
     return {
       auditStatus: 'number',
       authStatus: 'number',
+      authTime: 'number',
       clusterStatus: 'string',
       connectNode: 'string',
       dbNum: 'string',
@@ -7513,7 +7516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数据安全中心连接授权的MaxCompute、RDS等数据资产表中列的数据
+   * @summary Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
    *
    * @param request DescribeColumnsV2Request
    * @param runtime runtime options for this request RuntimeOptions
@@ -7592,7 +7595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数据安全中心连接授权的MaxCompute、RDS等数据资产表中列的数据
+   * @summary Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
    *
    * @param request DescribeColumnsV2Request
    * @return DescribeColumnsV2Response
