@@ -5890,6 +5890,31 @@ export class CreateEventStreamingRequestSinkSinkPrometheusParametersData extends
   }
 }
 
+export class CreateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType extends $tea.Model {
   form?: string;
   template?: string;
@@ -6068,6 +6093,7 @@ export class CreateEventStreamingRequestSinkSinkPrometheusParametersVpcId extend
 export class CreateEventStreamingRequestSinkSinkPrometheusParameters extends $tea.Model {
   authorizationType?: CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType;
   data?: CreateEventStreamingRequestSinkSinkPrometheusParametersData;
+  headerParameters?: CreateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters;
   networkType?: CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType;
   password?: CreateEventStreamingRequestSinkSinkPrometheusParametersPassword;
   securityGroupId?: CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId;
@@ -6079,6 +6105,7 @@ export class CreateEventStreamingRequestSinkSinkPrometheusParameters extends $te
     return {
       authorizationType: 'AuthorizationType',
       data: 'Data',
+      headerParameters: 'HeaderParameters',
       networkType: 'NetworkType',
       password: 'Password',
       securityGroupId: 'SecurityGroupId',
@@ -6093,6 +6120,7 @@ export class CreateEventStreamingRequestSinkSinkPrometheusParameters extends $te
     return {
       authorizationType: CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType,
       data: CreateEventStreamingRequestSinkSinkPrometheusParametersData,
+      headerParameters: CreateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters,
       networkType: CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType,
       password: CreateEventStreamingRequestSinkSinkPrometheusParametersPassword,
       securityGroupId: CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId,
@@ -16657,6 +16685,31 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParametersData extends
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType extends $tea.Model {
   form?: string;
   template?: string;
@@ -16835,6 +16888,7 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId extend
 export class UpdateEventStreamingRequestSinkSinkPrometheusParameters extends $tea.Model {
   authorizationType?: UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType;
   data?: UpdateEventStreamingRequestSinkSinkPrometheusParametersData;
+  headerParameters?: UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters;
   networkType?: UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType;
   password?: UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword;
   securityGroupId?: UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId;
@@ -16846,6 +16900,7 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParameters extends $te
     return {
       authorizationType: 'AuthorizationType',
       data: 'Data',
+      headerParameters: 'HeaderParameters',
       networkType: 'NetworkType',
       password: 'Password',
       securityGroupId: 'SecurityGroupId',
@@ -16860,6 +16915,7 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParameters extends $te
     return {
       authorizationType: UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType,
       data: UpdateEventStreamingRequestSinkSinkPrometheusParametersData,
+      headerParameters: UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters,
       networkType: UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType,
       password: UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword,
       securityGroupId: UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId,
