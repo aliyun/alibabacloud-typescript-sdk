@@ -156,11 +156,13 @@ export class CreatePlaybookRequest extends $tea.Model {
   description?: string;
   displayName?: string;
   lang?: string;
+  taskflowType?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       displayName: 'DisplayName',
       lang: 'Lang',
+      taskflowType: 'TaskflowType',
     };
   }
 
@@ -169,6 +171,7 @@ export class CreatePlaybookRequest extends $tea.Model {
       description: 'string',
       displayName: 'string',
       lang: 'string',
+      taskflowType: 'string',
     };
   }
 
@@ -1777,10 +1780,12 @@ export class DescribePlaybooksRequest extends $tea.Model {
   endMillis?: number;
   lang?: string;
   name?: string;
+  order?: string;
   ownType?: string;
   pageNumber?: string;
   pageSize?: string;
   playbookUuid?: string;
+  sort?: string;
   startMillis?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1788,10 +1793,12 @@ export class DescribePlaybooksRequest extends $tea.Model {
       endMillis: 'EndMillis',
       lang: 'Lang',
       name: 'Name',
+      order: 'Order',
       ownType: 'OwnType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       playbookUuid: 'PlaybookUuid',
+      sort: 'Sort',
       startMillis: 'StartMillis',
     };
   }
@@ -1802,10 +1809,12 @@ export class DescribePlaybooksRequest extends $tea.Model {
       endMillis: 'number',
       lang: 'string',
       name: 'string',
+      order: 'string',
       ownType: 'string',
       pageNumber: 'string',
       pageSize: 'string',
       playbookUuid: 'string',
+      sort: 'string',
       startMillis: 'number',
     };
   }
@@ -3805,10 +3814,12 @@ export class DescribeComponentPlaybookResponseBodyPlaybooks extends $tea.Model {
 export class DescribeDistinctReleasesResponseBodyRecords extends $tea.Model {
   description?: string;
   taskflowMd5?: string;
+  taskflowType?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       taskflowMd5: 'TaskflowMd5',
+      taskflowType: 'TaskflowType',
     };
   }
 
@@ -3816,6 +3827,7 @@ export class DescribeDistinctReleasesResponseBodyRecords extends $tea.Model {
     return {
       description: 'string',
       taskflowMd5: 'string',
+      taskflowType: 'string',
     };
   }
 
@@ -4219,6 +4231,7 @@ export class DescribePlaybooksResponseBodyPlaybooks extends $tea.Model {
   active?: number;
   displayName?: string;
   gmtCreate?: number;
+  gmtModified?: string;
   lastRuntime?: number;
   ownType?: string;
   playbookUuid?: string;
@@ -4227,6 +4240,7 @@ export class DescribePlaybooksResponseBodyPlaybooks extends $tea.Model {
       active: 'Active',
       displayName: 'DisplayName',
       gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
       lastRuntime: 'LastRuntime',
       ownType: 'OwnType',
       playbookUuid: 'PlaybookUuid',
@@ -4238,6 +4252,7 @@ export class DescribePlaybooksResponseBodyPlaybooks extends $tea.Model {
       active: 'number',
       displayName: 'string',
       gmtCreate: 'number',
+      gmtModified: 'string',
       lastRuntime: 'number',
       ownType: 'string',
       playbookUuid: 'string',
@@ -4334,6 +4349,9 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $tea.Model {
   creator?: string;
   entityName?: string;
   entityType?: string;
+  errCode?: string;
+  errMsg?: string;
+  errTip?: string;
   gmtCreateMillis?: number;
   gmtModifiedMillis?: number;
   inputParams?: string;
@@ -4347,14 +4365,14 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $tea.Model {
   taskId?: string;
   taskStatus?: number;
   yunCode?: string;
-  errCode?: string;
-  errMsg?: string;
-  errTip?: string;
   static names(): { [key: string]: string } {
     return {
       creator: 'Creator',
       entityName: 'EntityName',
       entityType: 'EntityType',
+      errCode: 'ErrCode',
+      errMsg: 'ErrMsg',
+      errTip: 'ErrTip',
       gmtCreateMillis: 'GmtCreateMillis',
       gmtModifiedMillis: 'GmtModifiedMillis',
       inputParams: 'InputParams',
@@ -4368,9 +4386,6 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $tea.Model {
       taskId: 'TaskId',
       taskStatus: 'TaskStatus',
       yunCode: 'YunCode',
-      errCode: 'errCode',
-      errMsg: 'errMsg',
-      errTip: 'errTip',
     };
   }
 
@@ -4379,6 +4394,9 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $tea.Model {
       creator: 'string',
       entityName: 'string',
       entityType: 'string',
+      errCode: 'string',
+      errMsg: 'string',
+      errTip: 'string',
       gmtCreateMillis: 'number',
       gmtModifiedMillis: 'number',
       inputParams: 'string',
@@ -4392,9 +4410,6 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $tea.Model {
       taskId: 'string',
       taskStatus: 'number',
       yunCode: 'string',
-      errCode: 'string',
-      errMsg: 'string',
-      errTip: 'string',
     };
   }
 
@@ -4747,6 +4762,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Modifies the statuses of playbooks at a time.
+   *
+   * @param request BatchModifyInstanceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchModifyInstanceStatusResponse
+   */
   async batchModifyInstanceStatusWithOptions(request: BatchModifyInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<BatchModifyInstanceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4781,11 +4803,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchModifyInstanceStatusResponse>(await this.callApi(params, req, runtime), new BatchModifyInstanceStatusResponse({}));
   }
 
+  /**
+   * @summary Modifies the statuses of playbooks at a time.
+   *
+   * @param request BatchModifyInstanceStatusRequest
+   * @return BatchModifyInstanceStatusResponse
+   */
   async batchModifyInstanceStatus(request: BatchModifyInstanceStatusRequest): Promise<BatchModifyInstanceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchModifyInstanceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Compares configurations between two versions of a published playbook.
+   *
+   * @param request ComparePlaybooksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ComparePlaybooksResponse
+   */
   async comparePlaybooksWithOptions(request: ComparePlaybooksRequest, runtime: $Util.RuntimeOptions): Promise<ComparePlaybooksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4822,11 +4857,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ComparePlaybooksResponse>(await this.callApi(params, req, runtime), new ComparePlaybooksResponse({}));
   }
 
+  /**
+   * @summary Compares configurations between two versions of a published playbook.
+   *
+   * @param request ComparePlaybooksRequest
+   * @return ComparePlaybooksResponse
+   */
   async comparePlaybooks(request: ComparePlaybooksRequest): Promise<ComparePlaybooksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.comparePlaybooksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a playbook.
+   *
+   * @param request CreatePlaybookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePlaybookResponse
+   */
   async createPlaybookWithOptions(request: CreatePlaybookRequest, runtime: $Util.RuntimeOptions): Promise<CreatePlaybookResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4840,6 +4888,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lang)) {
       body["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.taskflowType)) {
+      body["TaskflowType"] = request.taskflowType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4859,11 +4911,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePlaybookResponse>(await this.callApi(params, req, runtime), new CreatePlaybookResponse({}));
   }
 
+  /**
+   * @summary Creates a playbook.
+   *
+   * @param request CreatePlaybookRequest
+   * @return CreatePlaybookResponse
+   */
   async createPlaybook(request: CreatePlaybookRequest): Promise<CreatePlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPlaybookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Debugs a playbook.
+   *
+   * @param request DebugPlaybookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DebugPlaybookResponse
+   */
   async debugPlaybookWithOptions(request: DebugPlaybookRequest, runtime: $Util.RuntimeOptions): Promise<DebugPlaybookResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4900,11 +4965,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DebugPlaybookResponse>(await this.callApi(params, req, runtime), new DebugPlaybookResponse({}));
   }
 
+  /**
+   * @summary Debugs a playbook.
+   *
+   * @param request DebugPlaybookRequest
+   * @return DebugPlaybookResponse
+   */
   async debugPlaybook(request: DebugPlaybookRequest): Promise<DebugPlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.debugPlaybookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the assets in a component.
+   *
+   * @param request DeleteComponentAssetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteComponentAssetResponse
+   */
   async deleteComponentAssetWithOptions(request: DeleteComponentAssetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteComponentAssetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4933,11 +5011,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteComponentAssetResponse>(await this.callApi(params, req, runtime), new DeleteComponentAssetResponse({}));
   }
 
+  /**
+   * @summary Deletes the assets in a component.
+   *
+   * @param request DeleteComponentAssetRequest
+   * @return DeleteComponentAssetResponse
+   */
   async deleteComponentAsset(request: DeleteComponentAssetRequest): Promise<DeleteComponentAssetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteComponentAssetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a custom playbook.
+   *
+   * @param request DeletePlaybookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePlaybookResponse
+   */
   async deletePlaybookWithOptions(request: DeletePlaybookRequest, runtime: $Util.RuntimeOptions): Promise<DeletePlaybookResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4966,11 +5057,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePlaybookResponse>(await this.callApi(params, req, runtime), new DeletePlaybookResponse({}));
   }
 
+  /**
+   * @summary Deletes a custom playbook.
+   *
+   * @param request DeletePlaybookRequest
+   * @return DeletePlaybookResponse
+   */
   async deletePlaybook(request: DeletePlaybookRequest): Promise<DeletePlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePlaybookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the API operations of the cloud service.
+   *
+   * @param request DescribeApiListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiListResponse
+   */
   async describeApiListWithOptions(request: DescribeApiListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4991,11 +5095,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApiListResponse>(await this.callApi(params, req, runtime), new DescribeApiListResponse({}));
   }
 
+  /**
+   * @summary Queries the API operations of the cloud service.
+   *
+   * @param request DescribeApiListRequest
+   * @return DescribeApiListResponse
+   */
   async describeApiList(request: DescribeApiListRequest): Promise<DescribeApiListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
+   *
+   * @param request DescribeComponentAssetFormRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeComponentAssetFormResponse
+   */
   async describeComponentAssetFormWithOptions(request: DescribeComponentAssetFormRequest, runtime: $Util.RuntimeOptions): Promise<DescribeComponentAssetFormResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5016,11 +5133,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeComponentAssetFormResponse>(await this.callApi(params, req, runtime), new DescribeComponentAssetFormResponse({}));
   }
 
+  /**
+   * @summary Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
+   *
+   * @param request DescribeComponentAssetFormRequest
+   * @return DescribeComponentAssetFormResponse
+   */
   async describeComponentAssetForm(request: DescribeComponentAssetFormRequest): Promise<DescribeComponentAssetFormResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeComponentAssetFormWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of assets in a component.
+   *
+   * @param request DescribeComponentAssetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeComponentAssetsResponse
+   */
   async describeComponentAssetsWithOptions(request: DescribeComponentAssetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeComponentAssetsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5041,11 +5171,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeComponentAssetsResponse>(await this.callApi(params, req, runtime), new DescribeComponentAssetsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of assets in a component.
+   *
+   * @param request DescribeComponentAssetsRequest
+   * @return DescribeComponentAssetsResponse
+   */
   async describeComponentAssets(request: DescribeComponentAssetsRequest): Promise<DescribeComponentAssetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeComponentAssetsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of common components that are available.
+   *
+   * @param request DescribeComponentListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeComponentListResponse
+   */
   async describeComponentListWithOptions(request: DescribeComponentListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeComponentListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5066,11 +5209,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeComponentListResponse>(await this.callApi(params, req, runtime), new DescribeComponentListResponse({}));
   }
 
+  /**
+   * @summary Queries a list of common components that are available.
+   *
+   * @param request DescribeComponentListRequest
+   * @return DescribeComponentListResponse
+   */
   async describeComponentList(request: DescribeComponentListRequest): Promise<DescribeComponentListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeComponentListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of predefined components that are available.
+   *
+   * @param request DescribeComponentPlaybookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeComponentPlaybookResponse
+   */
   async describeComponentPlaybookWithOptions(request: DescribeComponentPlaybookRequest, runtime: $Util.RuntimeOptions): Promise<DescribeComponentPlaybookResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5091,11 +5247,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeComponentPlaybookResponse>(await this.callApi(params, req, runtime), new DescribeComponentPlaybookResponse({}));
   }
 
+  /**
+   * @summary Queries a list of predefined components that are available.
+   *
+   * @param request DescribeComponentPlaybookRequest
+   * @return DescribeComponentPlaybookResponse
+   */
   async describeComponentPlaybook(request: DescribeComponentPlaybookRequest): Promise<DescribeComponentPlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeComponentPlaybookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
+   *
+   * @param request DescribeComponentsJsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeComponentsJsResponse
+   */
   async describeComponentsJsWithOptions(request: DescribeComponentsJsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeComponentsJsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5116,11 +5285,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeComponentsJsResponse>(await this.callApi(params, req, runtime), new DescribeComponentsJsResponse({}));
   }
 
+  /**
+   * @summary Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
+   *
+   * @param request DescribeComponentsJsRequest
+   * @return DescribeComponentsJsResponse
+   */
   async describeComponentsJs(request: DescribeComponentsJsRequest): Promise<DescribeComponentsJsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeComponentsJsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the published versions of a playbook after deduplication.
+   *
+   * @param request DescribeDistinctReleasesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDistinctReleasesResponse
+   */
   async describeDistinctReleasesWithOptions(request: DescribeDistinctReleasesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDistinctReleasesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5141,11 +5323,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDistinctReleasesResponse>(await this.callApi(params, req, runtime), new DescribeDistinctReleasesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the published versions of a playbook after deduplication.
+   *
+   * @param request DescribeDistinctReleasesRequest
+   * @return DescribeDistinctReleasesResponse
+   */
   async describeDistinctReleases(request: DescribeDistinctReleasesRequest): Promise<DescribeDistinctReleasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDistinctReleasesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries enumeration items that are required by a cloud service.
+   *
+   * @param request DescribeEnumItemsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnumItemsResponse
+   */
   async describeEnumItemsWithOptions(request: DescribeEnumItemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnumItemsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5166,11 +5361,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnumItemsResponse>(await this.callApi(params, req, runtime), new DescribeEnumItemsResponse({}));
   }
 
+  /**
+   * @summary Queries enumeration items that are required by a cloud service.
+   *
+   * @param request DescribeEnumItemsRequest
+   * @return DescribeEnumItemsResponse
+   */
   async describeEnumItems(request: DescribeEnumItemsRequest): Promise<DescribeEnumItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnumItemsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the playbooks that are available for an automatic response plan.
+   *
+   * @param request DescribeExecutePlaybooksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExecutePlaybooksResponse
+   */
   async describeExecutePlaybooksWithOptions(request: DescribeExecutePlaybooksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExecutePlaybooksResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5191,11 +5399,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExecutePlaybooksResponse>(await this.callApi(params, req, runtime), new DescribeExecutePlaybooksResponse({}));
   }
 
+  /**
+   * @summary Queries the playbooks that are available for an automatic response plan.
+   *
+   * @param request DescribeExecutePlaybooksRequest
+   * @return DescribeExecutePlaybooksResponse
+   */
   async describeExecutePlaybooks(request: DescribeExecutePlaybooksRequest): Promise<DescribeExecutePlaybooksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExecutePlaybooksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the global configuration information about a cloud service.
+   *
+   * @param request DescribeFieldRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFieldResponse
+   */
   async describeFieldWithOptions(request: DescribeFieldRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFieldResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5216,11 +5437,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFieldResponse>(await this.callApi(params, req, runtime), new DescribeFieldResponse({}));
   }
 
+  /**
+   * @summary Queries the global configuration information about a cloud service.
+   *
+   * @param request DescribeFieldRequest
+   * @return DescribeFieldResponse
+   */
   async describeField(request: DescribeFieldRequest): Promise<DescribeFieldResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFieldWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
+   *
+   * @param request DescribeLatestRecordSchemaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLatestRecordSchemaResponse
+   */
   async describeLatestRecordSchemaWithOptions(request: DescribeLatestRecordSchemaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLatestRecordSchemaResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5241,11 +5475,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLatestRecordSchemaResponse>(await this.callApi(params, req, runtime), new DescribeLatestRecordSchemaResponse({}));
   }
 
+  /**
+   * @summary Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
+   *
+   * @param request DescribeLatestRecordSchemaRequest
+   * @return DescribeLatestRecordSchemaResponse
+   */
   async describeLatestRecordSchema(request: DescribeLatestRecordSchemaRequest): Promise<DescribeLatestRecordSchemaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLatestRecordSchemaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries recommended dynamic input parameters of a component for playbook orchestration.
+   *
+   * @param request DescribeNodeParamTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNodeParamTagsResponse
+   */
   async describeNodeParamTagsWithOptions(request: DescribeNodeParamTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNodeParamTagsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5266,11 +5513,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNodeParamTagsResponse>(await this.callApi(params, req, runtime), new DescribeNodeParamTagsResponse({}));
   }
 
+  /**
+   * @summary Queries recommended dynamic input parameters of a component for playbook orchestration.
+   *
+   * @param request DescribeNodeParamTagsRequest
+   * @return DescribeNodeParamTagsResponse
+   */
   async describeNodeParamTags(request: DescribeNodeParamTagsRequest): Promise<DescribeNodeParamTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNodeParamTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the nodes that reference the same node in a playbook.
+   *
+   * @param request DescribeNodeUsedInfosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNodeUsedInfosResponse
+   */
   async describeNodeUsedInfosWithOptions(request: DescribeNodeUsedInfosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNodeUsedInfosResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5291,11 +5551,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNodeUsedInfosResponse>(await this.callApi(params, req, runtime), new DescribeNodeUsedInfosResponse({}));
   }
 
+  /**
+   * @summary Queries the nodes that reference the same node in a playbook.
+   *
+   * @param request DescribeNodeUsedInfosRequest
+   * @return DescribeNodeUsedInfosResponse
+   */
   async describeNodeUsedInfos(request: DescribeNodeUsedInfosRequest): Promise<DescribeNodeUsedInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNodeUsedInfosWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the XML configuration of a playbook.
+   *
+   * @param request DescribePlaybookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePlaybookResponse
+   */
   async describePlaybookWithOptions(request: DescribePlaybookRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlaybookResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5316,11 +5589,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePlaybookResponse>(await this.callApi(params, req, runtime), new DescribePlaybookResponse({}));
   }
 
+  /**
+   * @summary Queries the XML configuration of a playbook.
+   *
+   * @param request DescribePlaybookRequest
+   * @return DescribePlaybookResponse
+   */
   async describePlaybook(request: DescribePlaybookRequest): Promise<DescribePlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlaybookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the input and output parameter configurations of a playbook.
+   *
+   * @param request DescribePlaybookInputOutputRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePlaybookInputOutputResponse
+   */
   async describePlaybookInputOutputWithOptions(request: DescribePlaybookInputOutputRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlaybookInputOutputResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5341,11 +5627,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePlaybookInputOutputResponse>(await this.callApi(params, req, runtime), new DescribePlaybookInputOutputResponse({}));
   }
 
+  /**
+   * @summary Queries the input and output parameter configurations of a playbook.
+   *
+   * @param request DescribePlaybookInputOutputRequest
+   * @return DescribePlaybookInputOutputResponse
+   */
   async describePlaybookInputOutput(request: DescribePlaybookInputOutputRequest): Promise<DescribePlaybookInputOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlaybookInputOutputWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
+   *
+   * @param request DescribePlaybookMetricsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePlaybookMetricsResponse
+   */
   async describePlaybookMetricsWithOptions(request: DescribePlaybookMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlaybookMetricsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5366,11 +5665,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePlaybookMetricsResponse>(await this.callApi(params, req, runtime), new DescribePlaybookMetricsResponse({}));
   }
 
+  /**
+   * @summary Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
+   *
+   * @param request DescribePlaybookMetricsRequest
+   * @return DescribePlaybookMetricsResponse
+   */
   async describePlaybookMetrics(request: DescribePlaybookMetricsRequest): Promise<DescribePlaybookMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlaybookMetricsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the historical output data of a component node.
+   *
+   * @param request DescribePlaybookNodesOutputRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePlaybookNodesOutputResponse
+   */
   async describePlaybookNodesOutputWithOptions(request: DescribePlaybookNodesOutputRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlaybookNodesOutputResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5391,11 +5703,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePlaybookNodesOutputResponse>(await this.callApi(params, req, runtime), new DescribePlaybookNodesOutputResponse({}));
   }
 
+  /**
+   * @summary Queries the historical output data of a component node.
+   *
+   * @param request DescribePlaybookNodesOutputRequest
+   * @return DescribePlaybookNodesOutputResponse
+   */
   async describePlaybookNodesOutput(request: DescribePlaybookNodesOutputRequest): Promise<DescribePlaybookNodesOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlaybookNodesOutputWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
+   *
+   * @param request DescribePlaybookNumberMetricsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePlaybookNumberMetricsResponse
+   */
   async describePlaybookNumberMetricsWithOptions(request: DescribePlaybookNumberMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlaybookNumberMetricsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5416,11 +5741,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePlaybookNumberMetricsResponse>(await this.callApi(params, req, runtime), new DescribePlaybookNumberMetricsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
+   *
+   * @param request DescribePlaybookNumberMetricsRequest
+   * @return DescribePlaybookNumberMetricsResponse
+   */
   async describePlaybookNumberMetrics(request: DescribePlaybookNumberMetricsRequest): Promise<DescribePlaybookNumberMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlaybookNumberMetricsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the published versions of a playbook.
+   *
+   * @param request DescribePlaybookReleasesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePlaybookReleasesResponse
+   */
   async describePlaybookReleasesWithOptions(request: DescribePlaybookReleasesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlaybookReleasesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5441,11 +5779,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePlaybookReleasesResponse>(await this.callApi(params, req, runtime), new DescribePlaybookReleasesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the published versions of a playbook.
+   *
+   * @param request DescribePlaybookReleasesRequest
+   * @return DescribePlaybookReleasesResponse
+   */
   async describePlaybookReleases(request: DescribePlaybookReleasesRequest): Promise<DescribePlaybookReleasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlaybookReleasesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries playbooks.
+   *
+   * @param request DescribePlaybooksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePlaybooksResponse
+   */
   async describePlaybooksWithOptions(request: DescribePlaybooksRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlaybooksResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5466,11 +5817,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePlaybooksResponse>(await this.callApi(params, req, runtime), new DescribePlaybooksResponse({}));
   }
 
+  /**
+   * @summary Queries playbooks.
+   *
+   * @param request DescribePlaybooksRequest
+   * @return DescribePlaybooksResponse
+   */
   async describePlaybooks(request: DescribePlaybooksRequest): Promise<DescribePlaybooksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlaybooksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an API operation.
+   *
+   * @param request DescribePopApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePopApiResponse
+   */
   async describePopApiWithOptions(request: DescribePopApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribePopApiResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5491,11 +5855,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePopApiResponse>(await this.callApi(params, req, runtime), new DescribePopApiResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an API operation.
+   *
+   * @param request DescribePopApiRequest
+   * @return DescribePopApiResponse
+   */
   async describePopApi(request: DescribePopApiRequest): Promise<DescribePopApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePopApiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of API operations for an Alibaba Cloud service.
+   *
+   * @param request DescribePopApiItemListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePopApiItemListResponse
+   */
   async describePopApiItemListWithOptions(request: DescribePopApiItemListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePopApiItemListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5516,11 +5893,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePopApiItemListResponse>(await this.callApi(params, req, runtime), new DescribePopApiItemListResponse({}));
   }
 
+  /**
+   * @summary Queries a list of API operations for an Alibaba Cloud service.
+   *
+   * @param request DescribePopApiItemListRequest
+   * @return DescribePopApiItemListResponse
+   */
   async describePopApiItemList(request: DescribePopApiItemListRequest): Promise<DescribePopApiItemListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePopApiItemListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the version information of API operations for an Alibaba Cloud service.
+   *
+   * @param request DescribePopApiVersionListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePopApiVersionListResponse
+   */
   async describePopApiVersionListWithOptions(request: DescribePopApiVersionListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePopApiVersionListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5541,11 +5931,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePopApiVersionListResponse>(await this.callApi(params, req, runtime), new DescribePopApiVersionListResponse({}));
   }
 
+  /**
+   * @summary Queries the version information of API operations for an Alibaba Cloud service.
+   *
+   * @param request DescribePopApiVersionListRequest
+   * @return DescribePopApiVersionListResponse
+   */
   async describePopApiVersionList(request: DescribePopApiVersionListRequest): Promise<DescribePopApiVersionListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePopApiVersionListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
+   *
+   * @param request DescribeProcessTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProcessTasksResponse
+   */
   async describeProcessTasksWithOptions(request: DescribeProcessTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProcessTasksResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5566,11 +5969,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProcessTasksResponse>(await this.callApi(params, req, runtime), new DescribeProcessTasksResponse({}));
   }
 
+  /**
+   * @summary Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
+   *
+   * @param request DescribeProcessTasksRequest
+   * @return DescribeProcessTasksResponse
+   */
   async describeProcessTasks(request: DescribeProcessTasksRequest): Promise<DescribeProcessTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProcessTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the data that is returned when a component initiates an action in a playbook task.
+   *
+   * @param request DescribeSoarRecordActionOutputListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSoarRecordActionOutputListResponse
+   */
   async describeSoarRecordActionOutputListWithOptions(request: DescribeSoarRecordActionOutputListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSoarRecordActionOutputListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5591,11 +6007,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSoarRecordActionOutputListResponse>(await this.callApi(params, req, runtime), new DescribeSoarRecordActionOutputListResponse({}));
   }
 
+  /**
+   * @summary Queries the data that is returned when a component initiates an action in a playbook task.
+   *
+   * @param request DescribeSoarRecordActionOutputListRequest
+   * @return DescribeSoarRecordActionOutputListResponse
+   */
   async describeSoarRecordActionOutputList(request: DescribeSoarRecordActionOutputListRequest): Promise<DescribeSoarRecordActionOutputListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSoarRecordActionOutputListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the input and output data of a component action. You can call this operation after a playbook is run.
+   *
+   * @param request DescribeSoarRecordInOutputRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSoarRecordInOutputResponse
+   */
   async describeSoarRecordInOutputWithOptions(request: DescribeSoarRecordInOutputRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSoarRecordInOutputResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5616,11 +6045,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSoarRecordInOutputResponse>(await this.callApi(params, req, runtime), new DescribeSoarRecordInOutputResponse({}));
   }
 
+  /**
+   * @summary Queries the input and output data of a component action. You can call this operation after a playbook is run.
+   *
+   * @param request DescribeSoarRecordInOutputRequest
+   * @return DescribeSoarRecordInOutputResponse
+   */
   async describeSoarRecordInOutput(request: DescribeSoarRecordInOutputRequest): Promise<DescribeSoarRecordInOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSoarRecordInOutputWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the execution records of a playbook.
+   *
+   * @param request DescribeSoarRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSoarRecordsResponse
+   */
   async describeSoarRecordsWithOptions(request: DescribeSoarRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSoarRecordsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5641,11 +6083,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSoarRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSoarRecordsResponse({}));
   }
 
+  /**
+   * @summary Queries the execution records of a playbook.
+   *
+   * @param request DescribeSoarRecordsRequest
+   * @return DescribeSoarRecordsResponse
+   */
   async describeSoarRecords(request: DescribeSoarRecordsRequest): Promise<DescribeSoarRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSoarRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the execution records of a component during the running of a playbook.
+   *
+   * @param request DescribeSoarTaskAndActionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSoarTaskAndActionsResponse
+   */
   async describeSoarTaskAndActionsWithOptions(request: DescribeSoarTaskAndActionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSoarTaskAndActionsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5666,11 +6121,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSoarTaskAndActionsResponse>(await this.callApi(params, req, runtime), new DescribeSoarTaskAndActionsResponse({}));
   }
 
+  /**
+   * @summary Queries the execution records of a component during the running of a playbook.
+   *
+   * @param request DescribeSoarTaskAndActionsRequest
+   * @return DescribeSoarTaskAndActionsResponse
+   */
   async describeSoarTaskAndActions(request: DescribeSoarTaskAndActionsRequest): Promise<DescribeSoarTaskAndActionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSoarTaskAndActionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the commands that can be run to obtain objects.
+   *
+   * @param request DescribeSophonCommandsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSophonCommandsResponse
+   */
   async describeSophonCommandsWithOptions(request: DescribeSophonCommandsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSophonCommandsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5695,11 +6163,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSophonCommandsResponse>(await this.callApi(params, req, runtime), new DescribeSophonCommandsResponse({}));
   }
 
+  /**
+   * @summary Queries the commands that can be run to obtain objects.
+   *
+   * @param request DescribeSophonCommandsRequest
+   * @return DescribeSophonCommandsResponse
+   */
   async describeSophonCommands(request: DescribeSophonCommandsRequest): Promise<DescribeSophonCommandsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSophonCommandsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
+   *
+   * @param request DescriberPython3ScriptLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescriberPython3ScriptLogsResponse
+   */
   async describerPython3ScriptLogsWithOptions(request: DescriberPython3ScriptLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescriberPython3ScriptLogsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5720,11 +6201,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescriberPython3ScriptLogsResponse>(await this.callApi(params, req, runtime), new DescriberPython3ScriptLogsResponse({}));
   }
 
+  /**
+   * @summary Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
+   *
+   * @param request DescriberPython3ScriptLogsRequest
+   * @return DescriberPython3ScriptLogsResponse
+   */
   async describerPython3ScriptLogs(request: DescriberPython3ScriptLogsRequest): Promise<DescriberPython3ScriptLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describerPython3ScriptLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the information about the asset that is configured for a component.
+   *
+   * @param request ModifyComponentAssetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyComponentAssetResponse
+   */
   async modifyComponentAssetWithOptions(request: ModifyComponentAssetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyComponentAssetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5753,11 +6247,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyComponentAssetResponse>(await this.callApi(params, req, runtime), new ModifyComponentAssetResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about the asset that is configured for a component.
+   *
+   * @param request ModifyComponentAssetRequest
+   * @return ModifyComponentAssetResponse
+   */
   async modifyComponentAsset(request: ModifyComponentAssetRequest): Promise<ModifyComponentAssetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyComponentAssetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configuration of a playbook.
+   *
+   * @param request ModifyPlaybookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPlaybookResponse
+   */
   async modifyPlaybookWithOptions(request: ModifyPlaybookRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPlaybookResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5798,11 +6305,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPlaybookResponse>(await this.callApi(params, req, runtime), new ModifyPlaybookResponse({}));
   }
 
+  /**
+   * @summary Modifies the configuration of a playbook.
+   *
+   * @param request ModifyPlaybookRequest
+   * @return ModifyPlaybookResponse
+   */
   async modifyPlaybook(request: ModifyPlaybookRequest): Promise<ModifyPlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPlaybookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the input and output parameters of a playbook.
+   *
+   * @param request ModifyPlaybookInputOutputRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPlaybookInputOutputResponse
+   */
   async modifyPlaybookInputOutputWithOptions(request: ModifyPlaybookInputOutputRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPlaybookInputOutputResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5847,11 +6367,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPlaybookInputOutputResponse>(await this.callApi(params, req, runtime), new ModifyPlaybookInputOutputResponse({}));
   }
 
+  /**
+   * @summary Modifies the input and output parameters of a playbook.
+   *
+   * @param request ModifyPlaybookInputOutputRequest
+   * @return ModifyPlaybookInputOutputResponse
+   */
   async modifyPlaybookInputOutput(request: ModifyPlaybookInputOutputRequest): Promise<ModifyPlaybookInputOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPlaybookInputOutputWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the status of a playbook.
+   *
+   * @param request ModifyPlaybookInstanceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPlaybookInstanceStatusResponse
+   */
   async modifyPlaybookInstanceStatusWithOptions(request: ModifyPlaybookInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPlaybookInstanceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5886,11 +6419,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPlaybookInstanceStatusResponse>(await this.callApi(params, req, runtime), new ModifyPlaybookInstanceStatusResponse({}));
   }
 
+  /**
+   * @summary Modifies the status of a playbook.
+   *
+   * @param request ModifyPlaybookInstanceStatusRequest
+   * @return ModifyPlaybookInstanceStatusResponse
+   */
   async modifyPlaybookInstanceStatus(request: ModifyPlaybookInstanceStatusRequest): Promise<ModifyPlaybookInstanceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPlaybookInstanceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
+   *
+   * @param request PublishPlaybookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishPlaybookResponse
+   */
   async publishPlaybookWithOptions(request: PublishPlaybookRequest, runtime: $Util.RuntimeOptions): Promise<PublishPlaybookResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5919,11 +6465,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishPlaybookResponse>(await this.callApi(params, req, runtime), new PublishPlaybookResponse({}));
   }
 
+  /**
+   * @summary Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
+   *
+   * @param request PublishPlaybookRequest
+   * @return PublishPlaybookResponse
+   */
   async publishPlaybook(request: PublishPlaybookRequest): Promise<PublishPlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishPlaybookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all playbooks at a time.
+   *
+   * @param request QueryTreeDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTreeDataResponse
+   */
   async queryTreeDataWithOptions(request: QueryTreeDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryTreeDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5944,11 +6503,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTreeDataResponse>(await this.callApi(params, req, runtime), new QueryTreeDataResponse({}));
   }
 
+  /**
+   * @summary Queries all playbooks at a time.
+   *
+   * @param request QueryTreeDataRequest
+   * @return QueryTreeDataResponse
+   */
   async queryTreeData(request: QueryTreeDataRequest): Promise<QueryTreeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTreeDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the name of a node in a playbook. You can call this operation during playbook orchestration. After the name of the node is changed, the reference path of the node also changes.
+   *
+   * @param request RenamePlaybookNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenamePlaybookNodeResponse
+   */
   async renamePlaybookNodeWithOptions(request: RenamePlaybookNodeRequest, runtime: $Util.RuntimeOptions): Promise<RenamePlaybookNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5985,11 +6557,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RenamePlaybookNodeResponse>(await this.callApi(params, req, runtime), new RenamePlaybookNodeResponse({}));
   }
 
+  /**
+   * @summary Changes the name of a node in a playbook. You can call this operation during playbook orchestration. After the name of the node is changed, the reference path of the node also changes.
+   *
+   * @param request RenamePlaybookNodeRequest
+   * @return RenamePlaybookNodeResponse
+   */
   async renamePlaybookNode(request: RenamePlaybookNodeRequest): Promise<RenamePlaybookNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renamePlaybookNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
+   *
+   * @param request RevertPlaybookReleaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevertPlaybookReleaseResponse
+   */
   async revertPlaybookReleaseWithOptions(request: RevertPlaybookReleaseRequest, runtime: $Util.RuntimeOptions): Promise<RevertPlaybookReleaseResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6022,17 +6607,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RevertPlaybookReleaseResponse>(await this.callApi(params, req, runtime), new RevertPlaybookReleaseResponse({}));
   }
 
+  /**
+   * @summary Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
+   *
+   * @param request RevertPlaybookReleaseRequest
+   * @return RevertPlaybookReleaseResponse
+   */
   async revertPlaybookRelease(request: RevertPlaybookReleaseRequest): Promise<RevertPlaybookReleaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revertPlaybookReleaseWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-    *
-    * @param request RunPython3ScriptRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RunPython3ScriptResponse
+   * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
+   *
+   * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+   *
+   * @param request RunPython3ScriptRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunPython3ScriptResponse
    */
   async runPython3ScriptWithOptions(request: RunPython3ScriptRequest, runtime: $Util.RuntimeOptions): Promise<RunPython3ScriptResponse> {
     Util.validateModel(request);
@@ -6071,10 +6664,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-    *
-    * @param request RunPython3ScriptRequest
-    * @return RunPython3ScriptResponse
+   * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
+   *
+   * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+   *
+   * @param request RunPython3ScriptRequest
+   * @return RunPython3ScriptResponse
    */
   async runPython3Script(request: RunPython3ScriptRequest): Promise<RunPython3ScriptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6082,11 +6677,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-    *
-    * @param request TriggerPlaybookRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TriggerPlaybookResponse
+   * @summary Triggers an enabled custom playbook or a predefined playbook.
+   *
+   * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+   *
+   * @param request TriggerPlaybookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TriggerPlaybookResponse
    */
   async triggerPlaybookWithOptions(request: TriggerPlaybookRequest, runtime: $Util.RuntimeOptions): Promise<TriggerPlaybookResponse> {
     Util.validateModel(request);
@@ -6117,16 +6714,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-    *
-    * @param request TriggerPlaybookRequest
-    * @return TriggerPlaybookResponse
+   * @summary Triggers an enabled custom playbook or a predefined playbook.
+   *
+   * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+   *
+   * @param request TriggerPlaybookRequest
+   * @return TriggerPlaybookResponse
    */
   async triggerPlaybook(request: TriggerPlaybookRequest): Promise<TriggerPlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.triggerPlaybookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
+   *
+   * @param request TriggerProcessTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TriggerProcessTaskResponse
+   */
   async triggerProcessTaskWithOptions(request: TriggerProcessTaskRequest, runtime: $Util.RuntimeOptions): Promise<TriggerProcessTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6157,17 +6763,25 @@ export default class Client extends OpenApi {
     return $tea.cast<TriggerProcessTaskResponse>(await this.callApi(params, req, runtime), new TriggerProcessTaskResponse({}));
   }
 
+  /**
+   * @summary Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
+   *
+   * @param request TriggerProcessTaskRequest
+   * @return TriggerProcessTaskResponse
+   */
   async triggerProcessTask(request: TriggerProcessTaskRequest): Promise<TriggerProcessTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.triggerProcessTaskWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-    *
-    * @param request TriggerSophonPlaybookRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TriggerSophonPlaybookResponse
+   * @summary Triggers a playbook or a command.
+   *
+   * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+   *
+   * @param request TriggerSophonPlaybookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TriggerSophonPlaybookResponse
    */
   async triggerSophonPlaybookWithOptions(request: TriggerSophonPlaybookRequest, runtime: $Util.RuntimeOptions): Promise<TriggerSophonPlaybookResponse> {
     Util.validateModel(request);
@@ -6210,16 +6824,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-    *
-    * @param request TriggerSophonPlaybookRequest
-    * @return TriggerSophonPlaybookResponse
+   * @summary Triggers a playbook or a command.
+   *
+   * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+   *
+   * @param request TriggerSophonPlaybookRequest
+   * @return TriggerSophonPlaybookResponse
    */
   async triggerSophonPlaybook(request: TriggerSophonPlaybookRequest): Promise<TriggerSophonPlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.triggerSophonPlaybookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
+   *
+   * @param request VerifyPlaybookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyPlaybookResponse
+   */
   async verifyPlaybookWithOptions(request: VerifyPlaybookRequest, runtime: $Util.RuntimeOptions): Promise<VerifyPlaybookResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6248,11 +6871,24 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyPlaybookResponse>(await this.callApi(params, req, runtime), new VerifyPlaybookResponse({}));
   }
 
+  /**
+   * @summary Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
+   *
+   * @param request VerifyPlaybookRequest
+   * @return VerifyPlaybookResponse
+   */
   async verifyPlaybook(request: VerifyPlaybookRequest): Promise<VerifyPlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyPlaybookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether the syntax of a Python code snippet is correct.
+   *
+   * @param request VerifyPythonFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyPythonFileResponse
+   */
   async verifyPythonFileWithOptions(request: VerifyPythonFileRequest, runtime: $Util.RuntimeOptions): Promise<VerifyPythonFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6277,6 +6913,12 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyPythonFileResponse>(await this.callApi(params, req, runtime), new VerifyPythonFileResponse({}));
   }
 
+  /**
+   * @summary Checks whether the syntax of a Python code snippet is correct.
+   *
+   * @param request VerifyPythonFileRequest
+   * @return VerifyPythonFileResponse
+   */
   async verifyPythonFile(request: VerifyPythonFileRequest): Promise<VerifyPythonFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyPythonFileWithOptions(request, runtime);
