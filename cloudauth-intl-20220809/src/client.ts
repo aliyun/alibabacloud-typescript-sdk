@@ -940,6 +940,7 @@ export class DocOcrRequest extends $tea.Model {
   idFaceQuality?: string;
   idOcrPictureBase64?: string;
   idOcrPictureUrl?: string;
+  idThreshold?: string;
   merchantBizId?: string;
   merchantUserId?: string;
   ocr?: string;
@@ -951,6 +952,7 @@ export class DocOcrRequest extends $tea.Model {
       idFaceQuality: 'IdFaceQuality',
       idOcrPictureBase64: 'IdOcrPictureBase64',
       idOcrPictureUrl: 'IdOcrPictureUrl',
+      idThreshold: 'IdThreshold',
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
       ocr: 'Ocr',
@@ -965,6 +967,7 @@ export class DocOcrRequest extends $tea.Model {
       idFaceQuality: 'string',
       idOcrPictureBase64: 'string',
       idOcrPictureUrl: 'string',
+      idThreshold: 'string',
       merchantBizId: 'string',
       merchantUserId: 'string',
       ocr: 'string',
@@ -1041,6 +1044,7 @@ export class EkycVerifyRequest extends $tea.Model {
   facePictureUrl?: string;
   idOcrPictureBase64?: string;
   idOcrPictureUrl?: string;
+  idThreshold?: string;
   merchantBizId?: string;
   merchantUserId?: string;
   productCode?: string;
@@ -1055,6 +1059,7 @@ export class EkycVerifyRequest extends $tea.Model {
       facePictureUrl: 'FacePictureUrl',
       idOcrPictureBase64: 'IdOcrPictureBase64',
       idOcrPictureUrl: 'IdOcrPictureUrl',
+      idThreshold: 'IdThreshold',
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
       productCode: 'ProductCode',
@@ -1072,6 +1077,7 @@ export class EkycVerifyRequest extends $tea.Model {
       facePictureUrl: 'string',
       idOcrPictureBase64: 'string',
       idOcrPictureUrl: 'string',
+      idThreshold: 'string',
       merchantBizId: 'string',
       merchantUserId: 'string',
       productCode: 'string',
@@ -1482,15 +1488,18 @@ export class InitializeRequest extends $tea.Model {
   crop?: string;
   docScanMode?: string;
   docType?: string;
+  docVideo?: string;
   experienceCode?: string;
   facePictureBase64?: string;
   facePictureUrl?: string;
   idFaceQuality?: string;
   idSpoof?: string;
+  idThreshold?: string;
   languageConfig?: string;
   merchantBizId?: string;
   merchantUserId?: string;
   metaInfo?: string;
+  model?: string;
   ocr?: string;
   productCode?: string;
   productFlow?: string;
@@ -1506,15 +1515,18 @@ export class InitializeRequest extends $tea.Model {
       crop: 'Crop',
       docScanMode: 'DocScanMode',
       docType: 'DocType',
+      docVideo: 'DocVideo',
       experienceCode: 'ExperienceCode',
       facePictureBase64: 'FacePictureBase64',
       facePictureUrl: 'FacePictureUrl',
       idFaceQuality: 'IdFaceQuality',
       idSpoof: 'IdSpoof',
+      idThreshold: 'IdThreshold',
       languageConfig: 'LanguageConfig',
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
       metaInfo: 'MetaInfo',
+      model: 'Model',
       ocr: 'Ocr',
       productCode: 'ProductCode',
       productFlow: 'ProductFlow',
@@ -1533,15 +1545,18 @@ export class InitializeRequest extends $tea.Model {
       crop: 'string',
       docScanMode: 'string',
       docType: 'string',
+      docVideo: 'string',
       experienceCode: 'string',
       facePictureBase64: 'string',
       facePictureUrl: 'string',
       idFaceQuality: 'string',
       idSpoof: 'string',
+      idThreshold: 'string',
       languageConfig: 'string',
       merchantBizId: 'string',
       merchantUserId: 'string',
       metaInfo: 'string',
+      model: 'string',
       ocr: 'string',
       productCode: 'string',
       productFlow: 'string',
@@ -3193,6 +3208,10 @@ export default class Client extends OpenApi {
       query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
     }
 
+    if (!Util.isUnset(request.idThreshold)) {
+      query["IdThreshold"] = request.idThreshold;
+    }
+
     if (!Util.isUnset(request.merchantBizId)) {
       query["MerchantBizId"] = request.merchantBizId;
     }
@@ -3283,6 +3302,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.idOcrPictureUrl)) {
       query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
+    }
+
+    if (!Util.isUnset(request.idThreshold)) {
+      query["IdThreshold"] = request.idThreshold;
     }
 
     if (!Util.isUnset(request.merchantBizId)) {
@@ -3609,6 +3632,10 @@ export default class Client extends OpenApi {
       query["DocType"] = request.docType;
     }
 
+    if (!Util.isUnset(request.docVideo)) {
+      query["DocVideo"] = request.docVideo;
+    }
+
     if (!Util.isUnset(request.experienceCode)) {
       query["ExperienceCode"] = request.experienceCode;
     }
@@ -3625,6 +3652,10 @@ export default class Client extends OpenApi {
       query["IdSpoof"] = request.idSpoof;
     }
 
+    if (!Util.isUnset(request.idThreshold)) {
+      query["IdThreshold"] = request.idThreshold;
+    }
+
     if (!Util.isUnset(request.languageConfig)) {
       query["LanguageConfig"] = request.languageConfig;
     }
@@ -3639,6 +3670,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.metaInfo)) {
       query["MetaInfo"] = request.metaInfo;
+    }
+
+    if (!Util.isUnset(request.model)) {
+      query["Model"] = request.model;
     }
 
     if (!Util.isUnset(request.ocr)) {
