@@ -1729,15 +1729,18 @@ export class GetServiceTemplateParameterConstraintsResponse extends $tea.Model {
 
 export class GetUploadCredentialsRequest extends $tea.Model {
   fileName?: string;
+  visibility?: string;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
+      visibility: 'Visibility',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       fileName: 'string',
+      visibility: 'string',
     };
   }
 
@@ -5647,6 +5650,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Adds a shared account of a service.
+   *
    * @param request AddServiceSharedAccountsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return AddServiceSharedAccountsResponse
@@ -5692,6 +5697,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Adds a shared account of a service.
+   *
    * @param request AddServiceSharedAccountsRequest
    * @return AddServiceSharedAccountsResponse
    */
@@ -6119,6 +6126,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Deletes a service.
+   *
    * @param request DeleteServiceRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DeleteServiceResponse
@@ -6160,6 +6169,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Deletes a service.
+   *
    * @param request DeleteServiceRequest
    * @return DeleteServiceResponse
    */
@@ -6628,6 +6639,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.fileName)) {
       query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.visibility)) {
+      query["Visibility"] = request.visibility;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7193,7 +7208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发布部署物
+   * @summary Publishes an artifact.
    *
    * @param request ReleaseArtifactRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -7224,7 +7239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发布部署物
+   * @summary Publishes an artifact.
    *
    * @param request ReleaseArtifactRequest
    * @return ReleaseArtifactResponse
@@ -7631,7 +7646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 变配服务实例
+   * @summary Updates the configurations of a service instance.
    *
    * @param tmpReq UpdateServiceInstanceSpecRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -7688,7 +7703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 变配服务实例
+   * @summary Updates the configurations of a service instance.
    *
    * @param request UpdateServiceInstanceSpecRequest
    * @return UpdateServiceInstanceSpecResponse
