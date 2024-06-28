@@ -956,6 +956,7 @@ export class CreateVirtualNodeResponse extends $tea.Model {
 export class DeleteContainerGroupRequest extends $tea.Model {
   clientToken?: string;
   containerGroupId?: string;
+  force?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -965,6 +966,7 @@ export class DeleteContainerGroupRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       containerGroupId: 'ContainerGroupId',
+      force: 'Force',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -977,6 +979,7 @@ export class DeleteContainerGroupRequest extends $tea.Model {
     return {
       clientToken: 'string',
       containerGroupId: 'string',
+      force: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -11024,6 +11027,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.containerGroupId)) {
       query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
