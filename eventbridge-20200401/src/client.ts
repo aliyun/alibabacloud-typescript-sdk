@@ -13108,7 +13108,107 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceUsername extends $tea.Model {
   form?: string;
   template?: string;
   value?: string;
@@ -13158,7 +13258,57 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersProperties extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId extends $tea.Model {
   form?: string;
   template?: string;
   value?: string;
@@ -13233,32 +13383,106 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVSwitchIds extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVpcId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParameters extends $tea.Model {
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersBody;
+  instanceEndpoint?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint;
   instanceId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceId;
+  instancePassword?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword;
+  instanceType?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceType;
+  instanceUsername?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceUsername;
   keys?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersKeys;
+  network?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork;
   properties?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersProperties;
+  securityGroupId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId;
   tags?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTags;
   topic?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTopic;
+  vSwitchIds?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVSwitchIds;
+  vpcId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVpcId;
   static names(): { [key: string]: string } {
     return {
       body: 'Body',
+      instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
+      instancePassword: 'InstancePassword',
+      instanceType: 'InstanceType',
+      instanceUsername: 'InstanceUsername',
       keys: 'Keys',
+      network: 'Network',
       properties: 'Properties',
+      securityGroupId: 'SecurityGroupId',
       tags: 'Tags',
       topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       body: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersBody,
+      instanceEndpoint: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint,
       instanceId: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceId,
+      instancePassword: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword,
+      instanceType: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceType,
+      instanceUsername: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceUsername,
       keys: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersKeys,
+      network: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork,
       properties: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersProperties,
+      securityGroupId: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId,
       tags: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTags,
       topic: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTopic,
+      vSwitchIds: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVSwitchIds,
+      vpcId: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVpcId,
     };
   }
 
@@ -17224,7 +17448,107 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParametersBody extends $
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceUsername extends $tea.Model {
   form?: string;
   template?: string;
   value?: string;
@@ -17274,7 +17598,57 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParametersKeys extends $
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId extends $tea.Model {
   form?: string;
   template?: string;
   value?: string;
@@ -17349,32 +17723,106 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParametersTopic extends 
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkRocketMQParameters extends $tea.Model {
   body?: UpdateEventStreamingRequestSinkSinkRocketMQParametersBody;
+  instanceEndpoint?: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint;
   instanceId?: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceId;
+  instancePassword?: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword;
+  instanceType?: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceType;
+  instanceUsername?: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceUsername;
   keys?: UpdateEventStreamingRequestSinkSinkRocketMQParametersKeys;
+  network?: UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork;
   properties?: UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties;
+  securityGroupId?: UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId;
   tags?: UpdateEventStreamingRequestSinkSinkRocketMQParametersTags;
   topic?: UpdateEventStreamingRequestSinkSinkRocketMQParametersTopic;
+  vSwitchIds?: UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds;
+  vpcId?: UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId;
   static names(): { [key: string]: string } {
     return {
       body: 'Body',
+      instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
+      instancePassword: 'InstancePassword',
+      instanceType: 'InstanceType',
+      instanceUsername: 'InstanceUsername',
       keys: 'Keys',
+      network: 'Network',
       properties: 'Properties',
+      securityGroupId: 'SecurityGroupId',
       tags: 'Tags',
       topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       body: UpdateEventStreamingRequestSinkSinkRocketMQParametersBody,
+      instanceEndpoint: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint,
       instanceId: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceId,
+      instancePassword: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword,
+      instanceType: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceType,
+      instanceUsername: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceUsername,
       keys: UpdateEventStreamingRequestSinkSinkRocketMQParametersKeys,
+      network: UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork,
       properties: UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties,
+      securityGroupId: UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId,
       tags: UpdateEventStreamingRequestSinkSinkRocketMQParametersTags,
       topic: UpdateEventStreamingRequestSinkSinkRocketMQParametersTopic,
+      vSwitchIds: UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds,
+      vpcId: UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId,
     };
   }
 
