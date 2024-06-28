@@ -1547,6 +1547,150 @@ export class CreateUserGroupResponse extends $tea.Model {
   }
 }
 
+export class DataSetBloodRequest extends $tea.Model {
+  dataSetIds?: string;
+  userId?: string;
+  worksType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSetIds: 'DataSetIds',
+      userId: 'UserId',
+      worksType: 'WorksType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSetIds: 'string',
+      userId: 'string',
+      worksType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataSetBloodResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DataSetBloodResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': DataSetBloodResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataSetBloodResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DataSetBloodResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DataSetBloodResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataSourceBloodRequest extends $tea.Model {
+  dataSourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataSourceBloodResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: string[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': 'string' },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataSourceBloodResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DataSourceBloodResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DataSourceBloodResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DelayTicketExpireTimeRequest extends $tea.Model {
   expireTime?: number;
   ticket?: string;
@@ -3487,6 +3631,171 @@ export class ModifyApiDatasourceParametersResponse extends $tea.Model {
   }
 }
 
+export class QueryApprovalInfoRequest extends $tea.Model {
+  page?: number;
+  pageSize?: number;
+  status?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      page: 'Page',
+      pageSize: 'PageSize',
+      status: 'Status',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      page: 'number',
+      pageSize: 'number',
+      status: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryApprovalInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: QueryApprovalInfoResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: QueryApprovalInfoResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryApprovalInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryApprovalInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryApprovalInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAuditLogRequest extends $tea.Model {
+  endDate?: string;
+  logType?: string;
+  operatorId?: string;
+  operatorTypes?: string;
+  resourceType?: string;
+  startDate?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      logType: 'LogType',
+      operatorId: 'OperatorId',
+      operatorTypes: 'OperatorTypes',
+      resourceType: 'ResourceType',
+      startDate: 'StartDate',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      logType: 'string',
+      operatorId: 'string',
+      operatorTypes: 'string',
+      resourceType: 'string',
+      startDate: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAuditLogResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: QueryAuditLogResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': QueryAuditLogResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAuditLogResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAuditLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryAuditLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryComponentPerformanceRequest extends $tea.Model {
   costTimeAvgMin?: number;
   pageNum?: number;
@@ -3794,6 +4103,84 @@ export class QueryDataServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryDataServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDataServiceListRequest extends $tea.Model {
+  name?: string;
+  pageNo?: number;
+  pageSize?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDataServiceListResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: QueryDataServiceListResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: QueryDataServiceListResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDataServiceListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDataServiceListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDataServiceListResponseBody,
     };
   }
 
@@ -6302,6 +6689,7 @@ export class UpdateTicketNumResponse extends $tea.Model {
 export class UpdateUserRequest extends $tea.Model {
   adminUser?: boolean;
   authAdminUser?: boolean;
+  isDeleted?: boolean;
   nickName?: string;
   roleIds?: string;
   userId?: string;
@@ -6310,6 +6698,7 @@ export class UpdateUserRequest extends $tea.Model {
     return {
       adminUser: 'AdminUser',
       authAdminUser: 'AuthAdminUser',
+      isDeleted: 'IsDeleted',
       nickName: 'NickName',
       roleIds: 'RoleIds',
       userId: 'UserId',
@@ -6321,6 +6710,7 @@ export class UpdateUserRequest extends $tea.Model {
     return {
       adminUser: 'boolean',
       authAdminUser: 'boolean',
+      isDeleted: 'boolean',
       nickName: 'string',
       roleIds: 'string',
       userId: 'string',
@@ -6953,6 +7343,28 @@ export class BatchAddFeishuUsersResponseBodyResult extends $tea.Model {
       failCount: 'number',
       failResults: { 'type': 'array', 'itemType': BatchAddFeishuUsersResponseBodyResultFailResults },
       okCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataSetBloodResponseBodyResult extends $tea.Model {
+  worksId?: string;
+  worksType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      worksId: 'WorksId',
+      worksType: 'WorksType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      worksId: 'string',
+      worksType: 'string',
     };
   }
 
@@ -7796,6 +8208,141 @@ export class ListWorkspaceRolesResponseBodyResult extends $tea.Model {
   }
 }
 
+export class QueryApprovalInfoResponseBodyResultData extends $tea.Model {
+  applicantId?: string;
+  applicantName?: string;
+  applicationId?: string;
+  applyReason?: string;
+  approverId?: string;
+  approverName?: string;
+  deleteFlag?: boolean;
+  expireDate?: number;
+  flagStatus?: number;
+  gmtCreate?: number;
+  gmtModified?: number;
+  handleReason?: string;
+  resourceId?: string;
+  resourceName?: string;
+  resourceType?: string;
+  workspaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicantId: 'ApplicantId',
+      applicantName: 'ApplicantName',
+      applicationId: 'ApplicationId',
+      applyReason: 'ApplyReason',
+      approverId: 'ApproverId',
+      approverName: 'ApproverName',
+      deleteFlag: 'DeleteFlag',
+      expireDate: 'ExpireDate',
+      flagStatus: 'FlagStatus',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      handleReason: 'HandleReason',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+      workspaceName: 'WorkspaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicantId: 'string',
+      applicantName: 'string',
+      applicationId: 'string',
+      applyReason: 'string',
+      approverId: 'string',
+      approverName: 'string',
+      deleteFlag: 'boolean',
+      expireDate: 'number',
+      flagStatus: 'number',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      handleReason: 'string',
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+      workspaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryApprovalInfoResponseBodyResult extends $tea.Model {
+  data?: QueryApprovalInfoResponseBodyResultData[];
+  page?: number;
+  pageSize?: number;
+  start?: number;
+  total?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      page: 'Page',
+      pageSize: 'PageSize',
+      start: 'Start',
+      total: 'Total',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryApprovalInfoResponseBodyResultData },
+      page: 'number',
+      pageSize: 'number',
+      start: 'number',
+      total: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAuditLogResponseBodyResult extends $tea.Model {
+  gmtCreate?: string;
+  operatorAccountName?: string;
+  operatorName?: string;
+  operatorType?: string;
+  targetName?: string;
+  targetType?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      operatorAccountName: 'OperatorAccountName',
+      operatorName: 'OperatorName',
+      operatorType: 'OperatorType',
+      targetName: 'TargetName',
+      targetType: 'TargetType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      operatorAccountName: 'string',
+      operatorName: 'string',
+      operatorType: 'string',
+      targetName: 'string',
+      targetType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryComponentPerformanceResponseBodyResult extends $tea.Model {
   cacheCostTimeAvg?: number;
   cacheQueryCount?: number;
@@ -8115,6 +8662,225 @@ export class QueryDataServiceResponseBodyResult extends $tea.Model {
       headers: { 'type': 'array', 'itemType': QueryDataServiceResponseBodyResultHeaders },
       sql: 'string',
       values: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDataServiceListResponseBodyResultDataContentFilter extends $tea.Model {
+  filters?: { [key: string]: any }[];
+  logicalOperator?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filters: 'Filters',
+      logicalOperator: 'LogicalOperator',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filters: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      logicalOperator: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDataServiceListResponseBodyResultDataContentReturnFieldsField extends $tea.Model {
+  caption?: string;
+  column?: string;
+  dataType?: string;
+  fid?: string;
+  granularity?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caption: 'Caption',
+      column: 'Column',
+      dataType: 'DataType',
+      fid: 'Fid',
+      granularity: 'Granularity',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caption: 'string',
+      column: 'string',
+      dataType: 'string',
+      fid: 'string',
+      granularity: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDataServiceListResponseBodyResultDataContentReturnFields extends $tea.Model {
+  aggregator?: string;
+  alias?: string;
+  desc?: string;
+  field?: QueryDataServiceListResponseBodyResultDataContentReturnFieldsField;
+  orderby?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregator: 'Aggregator',
+      alias: 'Alias',
+      desc: 'Desc',
+      field: 'Field',
+      orderby: 'Orderby',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregator: 'string',
+      alias: 'string',
+      desc: 'string',
+      field: QueryDataServiceListResponseBodyResultDataContentReturnFieldsField,
+      orderby: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDataServiceListResponseBodyResultDataContent extends $tea.Model {
+  cubeId?: string;
+  cubeName?: string;
+  detail?: boolean;
+  filter?: QueryDataServiceListResponseBodyResultDataContentFilter;
+  returnFields?: QueryDataServiceListResponseBodyResultDataContentReturnFields[];
+  static names(): { [key: string]: string } {
+    return {
+      cubeId: 'CubeId',
+      cubeName: 'CubeName',
+      detail: 'Detail',
+      filter: 'Filter',
+      returnFields: 'ReturnFields',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cubeId: 'string',
+      cubeName: 'string',
+      detail: 'boolean',
+      filter: QueryDataServiceListResponseBodyResultDataContentFilter,
+      returnFields: { 'type': 'array', 'itemType': QueryDataServiceListResponseBodyResultDataContentReturnFields },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDataServiceListResponseBodyResultData extends $tea.Model {
+  content?: QueryDataServiceListResponseBodyResultDataContent;
+  creatorId?: string;
+  creatorName?: string;
+  cubeId?: string;
+  cubeName?: string;
+  desc?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  modifierId?: string;
+  modifierName?: string;
+  name?: string;
+  ownerId?: string;
+  ownerName?: string;
+  sid?: string;
+  workspaceId?: string;
+  workspaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      creatorId: 'CreatorId',
+      creatorName: 'CreatorName',
+      cubeId: 'CubeId',
+      cubeName: 'CubeName',
+      desc: 'Desc',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      modifierId: 'ModifierId',
+      modifierName: 'ModifierName',
+      name: 'Name',
+      ownerId: 'OwnerId',
+      ownerName: 'OwnerName',
+      sid: 'Sid',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: QueryDataServiceListResponseBodyResultDataContent,
+      creatorId: 'string',
+      creatorName: 'string',
+      cubeId: 'string',
+      cubeName: 'string',
+      desc: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      modifierId: 'string',
+      modifierName: 'string',
+      name: 'string',
+      ownerId: 'string',
+      ownerName: 'string',
+      sid: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDataServiceListResponseBodyResult extends $tea.Model {
+  data?: QueryDataServiceListResponseBodyResultData[];
+  pageNum?: number;
+  pageSize?: number;
+  totalNum?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      totalNum: 'TotalNum',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryDataServiceListResponseBodyResultData },
+      pageNum: 'number',
+      pageSize: 'number',
+      totalNum: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -9217,6 +9983,8 @@ export class QueryUserListResponseBodyResultData extends $tea.Model {
   accountName?: string;
   adminUser?: boolean;
   authAdminUser?: boolean;
+  joinedDate?: number;
+  lastLoginTime?: number;
   nickName?: string;
   roleIdList?: number[];
   userId?: string;
@@ -9227,6 +9995,8 @@ export class QueryUserListResponseBodyResultData extends $tea.Model {
       accountName: 'AccountName',
       adminUser: 'AdminUser',
       authAdminUser: 'AuthAdminUser',
+      joinedDate: 'JoinedDate',
+      lastLoginTime: 'LastLoginTime',
       nickName: 'NickName',
       roleIdList: 'RoleIdList',
       userId: 'UserId',
@@ -9240,6 +10010,8 @@ export class QueryUserListResponseBodyResultData extends $tea.Model {
       accountName: 'string',
       adminUser: 'boolean',
       authAdminUser: 'boolean',
+      joinedDate: 'number',
+      lastLoginTime: 'number',
       nickName: 'string',
       roleIdList: { 'type': 'array', 'itemType': 'number' },
       userId: 'string',
@@ -9395,6 +10167,8 @@ export class QueryWorksResponseBodyResult extends $tea.Model {
   modifyName?: string;
   ownerId?: string;
   ownerName?: string;
+  publicFlag?: boolean;
+  publicInvalidTime?: number;
   securityLevel?: string;
   status?: number;
   workName?: string;
@@ -9412,6 +10186,8 @@ export class QueryWorksResponseBodyResult extends $tea.Model {
       modifyName: 'ModifyName',
       ownerId: 'OwnerId',
       ownerName: 'OwnerName',
+      publicFlag: 'PublicFlag',
+      publicInvalidTime: 'PublicInvalidTime',
       securityLevel: 'SecurityLevel',
       status: 'Status',
       workName: 'WorkName',
@@ -9432,6 +10208,8 @@ export class QueryWorksResponseBodyResult extends $tea.Model {
       modifyName: 'string',
       ownerId: 'string',
       ownerName: 'string',
+      publicFlag: 'boolean',
+      publicInvalidTime: 'number',
       securityLevel: 'string',
       status: 'number',
       workName: 'string',
@@ -9555,6 +10333,8 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $tea.Model {
   modifyName?: string;
   ownerId?: string;
   ownerName?: string;
+  publicFlag?: boolean;
+  publicInvalidTime?: number;
   securityLevel?: string;
   status?: number;
   workName?: string;
@@ -9572,6 +10352,8 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $tea.Model {
       modifyName: 'ModifyName',
       ownerId: 'OwnerId',
       ownerName: 'OwnerName',
+      publicFlag: 'PublicFlag',
+      publicInvalidTime: 'PublicInvalidTime',
       securityLevel: 'SecurityLevel',
       status: 'Status',
       workName: 'WorkName',
@@ -9592,6 +10374,8 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $tea.Model {
       modifyName: 'string',
       ownerId: 'string',
       ownerName: 'string',
+      publicFlag: 'boolean',
+      publicInvalidTime: 'number',
       securityLevel: 'string',
       status: 'number',
       workName: 'string',
@@ -9675,6 +10459,8 @@ export class QueryWorksByWorkspaceResponseBodyResultData extends $tea.Model {
   modifyName?: string;
   ownerId?: string;
   ownerName?: string;
+  publicFlag?: boolean;
+  publicInvalidTime?: number;
   securityLevel?: string;
   status?: number;
   workName?: string;
@@ -9692,6 +10478,8 @@ export class QueryWorksByWorkspaceResponseBodyResultData extends $tea.Model {
       modifyName: 'ModifyName',
       ownerId: 'OwnerId',
       ownerName: 'OwnerName',
+      publicFlag: 'PublicFlag',
+      publicInvalidTime: 'PublicInvalidTime',
       securityLevel: 'SecurityLevel',
       status: 'Status',
       workName: 'WorkName',
@@ -9712,6 +10500,8 @@ export class QueryWorksByWorkspaceResponseBodyResultData extends $tea.Model {
       modifyName: 'string',
       ownerId: 'string',
       ownerName: 'string',
+      publicFlag: 'boolean',
+      publicInvalidTime: 'number',
       securityLevel: 'string',
       status: 'number',
       workName: 'string',
@@ -10997,6 +11787,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询引用指定数据集下的作品信息
+   *
+   * @param request DataSetBloodRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DataSetBloodResponse
+   */
+  async dataSetBloodWithOptions(request: DataSetBloodRequest, runtime: $Util.RuntimeOptions): Promise<DataSetBloodResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSetIds)) {
+      query["DataSetIds"] = request.dataSetIds;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.worksType)) {
+      query["WorksType"] = request.worksType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DataSetBlood",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DataSetBloodResponse>(await this.callApi(params, req, runtime), new DataSetBloodResponse({}));
+  }
+
+  /**
+   * @summary 查询引用指定数据集下的作品信息
+   *
+   * @param request DataSetBloodRequest
+   * @return DataSetBloodResponse
+   */
+  async dataSetBlood(request: DataSetBloodRequest): Promise<DataSetBloodResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dataSetBloodWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询引用指定数据源下的数据集信息
+   *
+   * @param request DataSourceBloodRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DataSourceBloodResponse
+   */
+  async dataSourceBloodWithOptions(request: DataSourceBloodRequest, runtime: $Util.RuntimeOptions): Promise<DataSourceBloodResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DataSourceBlood",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DataSourceBloodResponse>(await this.callApi(params, req, runtime), new DataSourceBloodResponse({}));
+  }
+
+  /**
+   * @summary 查询引用指定数据源下的数据集信息
+   *
+   * @param request DataSourceBloodRequest
+   * @return DataSourceBloodResponse
+   */
+  async dataSourceBlood(request: DataSourceBloodRequest): Promise<DataSourceBloodResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dataSourceBloodWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Update the expiration time of the ticket embedded in the report.
    *
    * @param request DelayTicketExpireTimeRequest
@@ -12258,6 +13140,126 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 根据审批人获取相应的审批流信息
+   *
+   * @param request QueryApprovalInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryApprovalInfoResponse
+   */
+  async queryApprovalInfoWithOptions(request: QueryApprovalInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryApprovalInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryApprovalInfo",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryApprovalInfoResponse>(await this.callApi(params, req, runtime), new QueryApprovalInfoResponse({}));
+  }
+
+  /**
+   * @summary 根据审批人获取相应的审批流信息
+   *
+   * @param request QueryApprovalInfoRequest
+   * @return QueryApprovalInfoResponse
+   */
+  async queryApprovalInfo(request: QueryApprovalInfoRequest): Promise<QueryApprovalInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryApprovalInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询审计日志信息
+   *
+   * @param request QueryAuditLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryAuditLogResponse
+   */
+  async queryAuditLogWithOptions(request: QueryAuditLogRequest, runtime: $Util.RuntimeOptions): Promise<QueryAuditLogResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!Util.isUnset(request.operatorId)) {
+      query["OperatorId"] = request.operatorId;
+    }
+
+    if (!Util.isUnset(request.operatorTypes)) {
+      query["OperatorTypes"] = request.operatorTypes;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryAuditLog",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAuditLogResponse>(await this.callApi(params, req, runtime), new QueryAuditLogResponse({}));
+  }
+
+  /**
+   * @summary 查询审计日志信息
+   *
+   * @param request QueryAuditLogRequest
+   * @return QueryAuditLogResponse
+   */
+  async queryAuditLog(request: QueryAuditLogRequest): Promise<QueryAuditLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryAuditLogWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 查询组件性能列表
    *
    * @param request QueryComponentPerformanceRequest
@@ -12479,6 +13481,60 @@ export default class Client extends OpenApi {
   async queryDataService(request: QueryDataServiceRequest): Promise<QueryDataServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDataServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询数据服务API列表
+   *
+   * @param request QueryDataServiceListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDataServiceListResponse
+   */
+  async queryDataServiceListWithOptions(request: QueryDataServiceListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDataServiceListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDataServiceList",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDataServiceListResponse>(await this.callApi(params, req, runtime), new QueryDataServiceListResponse({}));
+  }
+
+  /**
+   * @summary 查询数据服务API列表
+   *
+   * @param request QueryDataServiceListRequest
+   * @return QueryDataServiceListResponse
+   */
+  async queryDataServiceList(request: QueryDataServiceListRequest): Promise<QueryDataServiceListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDataServiceListWithOptions(request, runtime);
   }
 
   /**
@@ -14089,6 +15145,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.authAdminUser)) {
       query["AuthAdminUser"] = request.authAdminUser;
+    }
+
+    if (!Util.isUnset(request.isDeleted)) {
+      query["IsDeleted"] = request.isDeleted;
     }
 
     if (!Util.isUnset(request.nickName)) {
