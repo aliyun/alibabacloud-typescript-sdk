@@ -1554,6 +1554,7 @@ export class SubmitDigitalDocStructureJobResponse extends $tea.Model {
 }
 
 export class SubmitDocStructureJobRequest extends $tea.Model {
+  allowPptFormat?: boolean;
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
@@ -1561,6 +1562,7 @@ export class SubmitDocStructureJobRequest extends $tea.Model {
   structureType?: string;
   static names(): { [key: string]: string } {
     return {
+      allowPptFormat: 'AllowPptFormat',
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
@@ -1571,6 +1573,7 @@ export class SubmitDocStructureJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowPptFormat: 'boolean',
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
@@ -1585,6 +1588,7 @@ export class SubmitDocStructureJobRequest extends $tea.Model {
 }
 
 export class SubmitDocStructureJobAdvanceRequest extends $tea.Model {
+  allowPptFormat?: boolean;
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
@@ -1592,6 +1596,7 @@ export class SubmitDocStructureJobAdvanceRequest extends $tea.Model {
   structureType?: string;
   static names(): { [key: string]: string } {
     return {
+      allowPptFormat: 'AllowPptFormat',
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
@@ -1602,6 +1607,7 @@ export class SubmitDocStructureJobAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowPptFormat: 'boolean',
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
@@ -1660,87 +1666,6 @@ export class SubmitDocStructureJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitDocStructureJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocumentCompareJobRequest extends $tea.Model {
-  compareFileName?: string;
-  compareFileUrl?: string;
-  originFileName?: string;
-  originFileUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      compareFileName: 'CompareFileName',
-      compareFileUrl: 'CompareFileUrl',
-      originFileName: 'OriginFileName',
-      originFileUrl: 'OriginFileUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      compareFileName: 'string',
-      compareFileUrl: 'string',
-      originFileName: 'string',
-      originFileUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocumentCompareJobResponseBody extends $tea.Model {
-  code?: string;
-  data?: SubmitDocumentCompareJobResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitDocumentCompareJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocumentCompareJobResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitDocumentCompareJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitDocumentCompareJobResponseBody,
     };
   }
 
@@ -2173,25 +2098,6 @@ export class SubmitDocStructureJobResponseBodyData extends $tea.Model {
   }
 }
 
-export class SubmitDocumentCompareJobResponseBodyData extends $tea.Model {
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SubmitDocumentExtractJobResponseBodyData extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -2311,6 +2217,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 整票识别
+   *
+   * @param tmpReq AyncTradeDocumentPackageExtractSmartAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AyncTradeDocumentPackageExtractSmartAppResponse
+   */
   async ayncTradeDocumentPackageExtractSmartAppWithOptions(tmpReq: AyncTradeDocumentPackageExtractSmartAppRequest, runtime: $Util.RuntimeOptions): Promise<AyncTradeDocumentPackageExtractSmartAppResponse> {
     Util.validateModel(tmpReq);
     let request = new AyncTradeDocumentPackageExtractSmartAppShrinkRequest({ });
@@ -2357,11 +2270,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AyncTradeDocumentPackageExtractSmartAppResponse>(await this.callApi(params, req, runtime), new AyncTradeDocumentPackageExtractSmartAppResponse({}));
   }
 
+  /**
+   * @summary 整票识别
+   *
+   * @param request AyncTradeDocumentPackageExtractSmartAppRequest
+   * @return AyncTradeDocumentPackageExtractSmartAppResponse
+   */
   async ayncTradeDocumentPackageExtractSmartApp(request: AyncTradeDocumentPackageExtractSmartAppRequest): Promise<AyncTradeDocumentPackageExtractSmartAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.ayncTradeDocumentPackageExtractSmartAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档智能解析结果查询
+   *
+   * @param request GetDocStructureResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDocStructureResultResponse
+   */
   async getDocStructureResultWithOptions(request: GetDocStructureResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDocStructureResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2394,11 +2320,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDocStructureResultResponse>(await this.callApi(params, req, runtime), new GetDocStructureResultResponse({}));
   }
 
+  /**
+   * @summary 文档智能解析结果查询
+   *
+   * @param request GetDocStructureResultRequest
+   * @return GetDocStructureResultResponse
+   */
   async getDocStructureResult(request: GetDocStructureResultRequest): Promise<GetDocStructureResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDocStructureResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档对比结果查询
+   *
+   * @param request GetDocumentCompareResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDocumentCompareResultResponse
+   */
   async getDocumentCompareResultWithOptions(request: GetDocumentCompareResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDocumentCompareResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2423,11 +2362,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDocumentCompareResultResponse>(await this.callApi(params, req, runtime), new GetDocumentCompareResultResponse({}));
   }
 
+  /**
+   * @summary 文档对比结果查询
+   *
+   * @param request GetDocumentCompareResultRequest
+   * @return GetDocumentCompareResultResponse
+   */
   async getDocumentCompareResult(request: GetDocumentCompareResultRequest): Promise<GetDocumentCompareResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDocumentCompareResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档转换结果查询
+   *
+   * @param request GetDocumentConvertResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDocumentConvertResultResponse
+   */
   async getDocumentConvertResultWithOptions(request: GetDocumentConvertResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDocumentConvertResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2452,11 +2404,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDocumentConvertResultResponse>(await this.callApi(params, req, runtime), new GetDocumentConvertResultResponse({}));
   }
 
+  /**
+   * @summary 文档转换结果查询
+   *
+   * @param request GetDocumentConvertResultRequest
+   * @return GetDocumentConvertResultResponse
+   */
   async getDocumentConvertResult(request: GetDocumentConvertResultRequest): Promise<GetDocumentConvertResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDocumentConvertResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档抽取结果查询
+   *
+   * @param request GetDocumentExtractResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDocumentExtractResultResponse
+   */
   async getDocumentExtractResultWithOptions(request: GetDocumentExtractResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDocumentExtractResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2481,11 +2446,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDocumentExtractResultResponse>(await this.callApi(params, req, runtime), new GetDocumentExtractResultResponse({}));
   }
 
+  /**
+   * @summary 文档抽取结果查询
+   *
+   * @param request GetDocumentExtractResultRequest
+   * @return GetDocumentExtractResultResponse
+   */
   async getDocumentExtractResult(request: GetDocumentExtractResultRequest): Promise<GetDocumentExtractResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDocumentExtractResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary openmind
+   *
+   * @param request GetPageNumRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPageNumResponse
+   */
   async getPageNumWithOptions(request: GetPageNumRequest, runtime: $Util.RuntimeOptions): Promise<GetPageNumResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2510,11 +2488,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPageNumResponse>(await this.callApi(params, req, runtime), new GetPageNumResponse({}));
   }
 
+  /**
+   * @summary openmind
+   *
+   * @param request GetPageNumRequest
+   * @return GetPageNumResponse
+   */
   async getPageNum(request: GetPageNumRequest): Promise<GetPageNumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPageNumWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 表格智能解析结果查询
+   *
+   * @param request GetTableUnderstandingResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTableUnderstandingResultResponse
+   */
   async getTableUnderstandingResultWithOptions(request: GetTableUnderstandingResultRequest, runtime: $Util.RuntimeOptions): Promise<GetTableUnderstandingResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2539,11 +2530,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTableUnderstandingResultResponse>(await this.callApi(params, req, runtime), new GetTableUnderstandingResultResponse({}));
   }
 
+  /**
+   * @summary 表格智能解析结果查询
+   *
+   * @param request GetTableUnderstandingResultRequest
+   * @return GetTableUnderstandingResultResponse
+   */
   async getTableUnderstandingResult(request: GetTableUnderstandingResultRequest): Promise<GetTableUnderstandingResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTableUnderstandingResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 图片转excel
+   *
+   * @param tmpReq SubmitConvertImageToExcelJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitConvertImageToExcelJobResponse
+   */
   async submitConvertImageToExcelJobWithOptions(tmpReq: SubmitConvertImageToExcelJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertImageToExcelJobResponse> {
     Util.validateModel(tmpReq);
     let request = new SubmitConvertImageToExcelJobShrinkRequest({ });
@@ -2590,11 +2594,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitConvertImageToExcelJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertImageToExcelJobResponse({}));
   }
 
+  /**
+   * @summary 图片转excel
+   *
+   * @param request SubmitConvertImageToExcelJobRequest
+   * @return SubmitConvertImageToExcelJobResponse
+   */
   async submitConvertImageToExcelJob(request: SubmitConvertImageToExcelJobRequest): Promise<SubmitConvertImageToExcelJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitConvertImageToExcelJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 图片转markdown
+   *
+   * @param tmpReq SubmitConvertImageToMarkdownJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitConvertImageToMarkdownJobResponse
+   */
   async submitConvertImageToMarkdownJobWithOptions(tmpReq: SubmitConvertImageToMarkdownJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertImageToMarkdownJobResponse> {
     Util.validateModel(tmpReq);
     let request = new SubmitConvertImageToMarkdownJobShrinkRequest({ });
@@ -2637,11 +2654,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitConvertImageToMarkdownJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertImageToMarkdownJobResponse({}));
   }
 
+  /**
+   * @summary 图片转markdown
+   *
+   * @param request SubmitConvertImageToMarkdownJobRequest
+   * @return SubmitConvertImageToMarkdownJobResponse
+   */
   async submitConvertImageToMarkdownJob(request: SubmitConvertImageToMarkdownJobRequest): Promise<SubmitConvertImageToMarkdownJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitConvertImageToMarkdownJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 图片转pdf
+   *
+   * @param tmpReq SubmitConvertImageToPdfJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitConvertImageToPdfJobResponse
+   */
   async submitConvertImageToPdfJobWithOptions(tmpReq: SubmitConvertImageToPdfJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertImageToPdfJobResponse> {
     Util.validateModel(tmpReq);
     let request = new SubmitConvertImageToPdfJobShrinkRequest({ });
@@ -2684,11 +2714,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitConvertImageToPdfJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertImageToPdfJobResponse({}));
   }
 
+  /**
+   * @summary 图片转pdf
+   *
+   * @param request SubmitConvertImageToPdfJobRequest
+   * @return SubmitConvertImageToPdfJobResponse
+   */
   async submitConvertImageToPdfJob(request: SubmitConvertImageToPdfJobRequest): Promise<SubmitConvertImageToPdfJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitConvertImageToPdfJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 图片转word
+   *
+   * @param tmpReq SubmitConvertImageToWordJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitConvertImageToWordJobResponse
+   */
   async submitConvertImageToWordJobWithOptions(tmpReq: SubmitConvertImageToWordJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertImageToWordJobResponse> {
     Util.validateModel(tmpReq);
     let request = new SubmitConvertImageToWordJobShrinkRequest({ });
@@ -2731,11 +2774,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitConvertImageToWordJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertImageToWordJobResponse({}));
   }
 
+  /**
+   * @summary 图片转word
+   *
+   * @param request SubmitConvertImageToWordJobRequest
+   * @return SubmitConvertImageToWordJobResponse
+   */
   async submitConvertImageToWordJob(request: SubmitConvertImageToWordJobRequest): Promise<SubmitConvertImageToWordJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitConvertImageToWordJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary pdf转excel
+   *
+   * @param request SubmitConvertPdfToExcelJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitConvertPdfToExcelJobResponse
+   */
   async submitConvertPdfToExcelJobWithOptions(request: SubmitConvertPdfToExcelJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertPdfToExcelJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2772,6 +2828,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitConvertPdfToExcelJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertPdfToExcelJobResponse({}));
   }
 
+  /**
+   * @summary pdf转excel
+   *
+   * @param request SubmitConvertPdfToExcelJobRequest
+   * @return SubmitConvertPdfToExcelJobResponse
+   */
   async submitConvertPdfToExcelJob(request: SubmitConvertPdfToExcelJobRequest): Promise<SubmitConvertPdfToExcelJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitConvertPdfToExcelJobWithOptions(request, runtime);
@@ -2784,7 +2846,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2808,12 +2870,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2851,6 +2914,13 @@ export default class Client extends OpenApi {
     return submitConvertPdfToExcelJobResp;
   }
 
+  /**
+   * @summary pdf转图片
+   *
+   * @param request SubmitConvertPdfToImageJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitConvertPdfToImageJobResponse
+   */
   async submitConvertPdfToImageJobWithOptions(request: SubmitConvertPdfToImageJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertPdfToImageJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2879,6 +2949,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitConvertPdfToImageJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertPdfToImageJobResponse({}));
   }
 
+  /**
+   * @summary pdf转图片
+   *
+   * @param request SubmitConvertPdfToImageJobRequest
+   * @return SubmitConvertPdfToImageJobResponse
+   */
   async submitConvertPdfToImageJob(request: SubmitConvertPdfToImageJobRequest): Promise<SubmitConvertPdfToImageJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitConvertPdfToImageJobWithOptions(request, runtime);
@@ -2891,7 +2967,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2915,12 +2991,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2958,6 +3035,13 @@ export default class Client extends OpenApi {
     return submitConvertPdfToImageJobResp;
   }
 
+  /**
+   * @summary pdf转markdown
+   *
+   * @param request SubmitConvertPdfToMarkdownJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitConvertPdfToMarkdownJobResponse
+   */
   async submitConvertPdfToMarkdownJobWithOptions(request: SubmitConvertPdfToMarkdownJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertPdfToMarkdownJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2986,6 +3070,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitConvertPdfToMarkdownJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertPdfToMarkdownJobResponse({}));
   }
 
+  /**
+   * @summary pdf转markdown
+   *
+   * @param request SubmitConvertPdfToMarkdownJobRequest
+   * @return SubmitConvertPdfToMarkdownJobResponse
+   */
   async submitConvertPdfToMarkdownJob(request: SubmitConvertPdfToMarkdownJobRequest): Promise<SubmitConvertPdfToMarkdownJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitConvertPdfToMarkdownJobWithOptions(request, runtime);
@@ -2998,7 +3088,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3022,12 +3112,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3065,6 +3156,13 @@ export default class Client extends OpenApi {
     return submitConvertPdfToMarkdownJobResp;
   }
 
+  /**
+   * @summary pdf转word
+   *
+   * @param request SubmitConvertPdfToWordJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitConvertPdfToWordJobResponse
+   */
   async submitConvertPdfToWordJobWithOptions(request: SubmitConvertPdfToWordJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertPdfToWordJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3097,6 +3195,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitConvertPdfToWordJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertPdfToWordJobResponse({}));
   }
 
+  /**
+   * @summary pdf转word
+   *
+   * @param request SubmitConvertPdfToWordJobRequest
+   * @return SubmitConvertPdfToWordJobResponse
+   */
   async submitConvertPdfToWordJob(request: SubmitConvertPdfToWordJobRequest): Promise<SubmitConvertPdfToWordJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitConvertPdfToWordJobWithOptions(request, runtime);
@@ -3109,7 +3213,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3133,12 +3237,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3176,6 +3281,13 @@ export default class Client extends OpenApi {
     return submitConvertPdfToWordJobResp;
   }
 
+  /**
+   * @summary 电子解析
+   *
+   * @param request SubmitDigitalDocStructureJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitDigitalDocStructureJobResponse
+   */
   async submitDigitalDocStructureJobWithOptions(request: SubmitDigitalDocStructureJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDigitalDocStructureJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3216,6 +3328,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitDigitalDocStructureJobResponse>(await this.callApi(params, req, runtime), new SubmitDigitalDocStructureJobResponse({}));
   }
 
+  /**
+   * @summary 电子解析
+   *
+   * @param request SubmitDigitalDocStructureJobRequest
+   * @return SubmitDigitalDocStructureJobResponse
+   */
   async submitDigitalDocStructureJob(request: SubmitDigitalDocStructureJobRequest): Promise<SubmitDigitalDocStructureJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitDigitalDocStructureJobWithOptions(request, runtime);
@@ -3228,7 +3346,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3252,12 +3370,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3295,9 +3414,20 @@ export default class Client extends OpenApi {
     return submitDigitalDocStructureJobResp;
   }
 
+  /**
+   * @summary 文档智能解析
+   *
+   * @param request SubmitDocStructureJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitDocStructureJobResponse
+   */
   async submitDocStructureJobWithOptions(request: SubmitDocStructureJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDocStructureJobResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.allowPptFormat)) {
+      query["AllowPptFormat"] = request.allowPptFormat;
+    }
+
     if (!Util.isUnset(request.fileName)) {
       query["FileName"] = request.fileName;
     }
@@ -3335,6 +3465,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitDocStructureJobResponse>(await this.callApi(params, req, runtime), new SubmitDocStructureJobResponse({}));
   }
 
+  /**
+   * @summary 文档智能解析
+   *
+   * @param request SubmitDocStructureJobRequest
+   * @return SubmitDocStructureJobResponse
+   */
   async submitDocStructureJob(request: SubmitDocStructureJobRequest): Promise<SubmitDocStructureJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitDocStructureJobWithOptions(request, runtime);
@@ -3347,7 +3483,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3371,12 +3507,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3414,47 +3551,13 @@ export default class Client extends OpenApi {
     return submitDocStructureJobResp;
   }
 
-  async submitDocumentCompareJobWithOptions(request: SubmitDocumentCompareJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDocumentCompareJobResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.compareFileName)) {
-      query["CompareFileName"] = request.compareFileName;
-    }
-
-    if (!Util.isUnset(request.compareFileUrl)) {
-      query["CompareFileUrl"] = request.compareFileUrl;
-    }
-
-    if (!Util.isUnset(request.originFileName)) {
-      query["OriginFileName"] = request.originFileName;
-    }
-
-    if (!Util.isUnset(request.originFileUrl)) {
-      query["OriginFileUrl"] = request.originFileUrl;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SubmitDocumentCompareJob",
-      version: "2022-07-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SubmitDocumentCompareJobResponse>(await this.callApi(params, req, runtime), new SubmitDocumentCompareJobResponse({}));
-  }
-
-  async submitDocumentCompareJob(request: SubmitDocumentCompareJobRequest): Promise<SubmitDocumentCompareJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitDocumentCompareJobWithOptions(request, runtime);
-  }
-
+  /**
+   * @summary 文档抽取
+   *
+   * @param request SubmitDocumentExtractJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitDocumentExtractJobResponse
+   */
   async submitDocumentExtractJobWithOptions(request: SubmitDocumentExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDocumentExtractJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3487,6 +3590,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitDocumentExtractJobResponse>(await this.callApi(params, req, runtime), new SubmitDocumentExtractJobResponse({}));
   }
 
+  /**
+   * @summary 文档抽取
+   *
+   * @param request SubmitDocumentExtractJobRequest
+   * @return SubmitDocumentExtractJobResponse
+   */
   async submitDocumentExtractJob(request: SubmitDocumentExtractJobRequest): Promise<SubmitDocumentExtractJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitDocumentExtractJobWithOptions(request, runtime);
@@ -3499,7 +3608,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3523,12 +3632,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3566,6 +3676,13 @@ export default class Client extends OpenApi {
     return submitDocumentExtractJobResp;
   }
 
+  /**
+   * @summary 表格智能解析
+   *
+   * @param request SubmitTableUnderstandingJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitTableUnderstandingJobResponse
+   */
   async submitTableUnderstandingJobWithOptions(request: SubmitTableUnderstandingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTableUnderstandingJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3598,6 +3715,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitTableUnderstandingJobResponse>(await this.callApi(params, req, runtime), new SubmitTableUnderstandingJobResponse({}));
   }
 
+  /**
+   * @summary 表格智能解析
+   *
+   * @param request SubmitTableUnderstandingJobRequest
+   * @return SubmitTableUnderstandingJobResponse
+   */
   async submitTableUnderstandingJob(request: SubmitTableUnderstandingJobRequest): Promise<SubmitTableUnderstandingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitTableUnderstandingJobWithOptions(request, runtime);
@@ -3610,7 +3733,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3634,12 +3757,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
