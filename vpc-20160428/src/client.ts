@@ -1146,6 +1146,7 @@ export class AllocateEipSegmentAddressResponse extends $tea.Model {
 }
 
 export class AllocateIpv6AddressRequest extends $tea.Model {
+  addressType?: string;
   clientToken?: string;
   dryRun?: boolean;
   ipv6Address?: string;
@@ -1161,6 +1162,7 @@ export class AllocateIpv6AddressRequest extends $tea.Model {
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      addressType: 'AddressType',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ipv6Address: 'Ipv6Address',
@@ -1179,6 +1181,7 @@ export class AllocateIpv6AddressRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addressType: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
       ipv6Address: 'string',
@@ -17241,6 +17244,7 @@ export class DescribeIPv6TranslatorsResponse extends $tea.Model {
 }
 
 export class DescribeIpv6AddressesRequest extends $tea.Model {
+  addressType?: string;
   associatedInstanceId?: string;
   associatedInstanceType?: string;
   includeReservationData?: boolean;
@@ -17263,6 +17267,7 @@ export class DescribeIpv6AddressesRequest extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      addressType: 'AddressType',
       associatedInstanceId: 'AssociatedInstanceId',
       associatedInstanceType: 'AssociatedInstanceType',
       includeReservationData: 'IncludeReservationData',
@@ -17288,6 +17293,7 @@ export class DescribeIpv6AddressesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addressType: 'string',
       associatedInstanceId: 'string',
       associatedInstanceType: 'string',
       includeReservationData: 'boolean',
@@ -23954,6 +23960,87 @@ export class GetPhysicalConnectionServiceStatusResponse extends $tea.Model {
   }
 }
 
+export class GetPublicIpAddressPoolServiceStatusRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicIpAddressPoolServiceStatusResponseBody extends $tea.Model {
+  enabled?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicIpAddressPoolServiceStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPublicIpAddressPoolServiceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPublicIpAddressPoolServiceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTrafficMirrorServiceStatusRequest extends $tea.Model {
   clientToken?: string;
   ownerAccount?: string;
@@ -30205,6 +30292,7 @@ export class ModifyRouteTableAttributesRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  routePropagationEnable?: boolean;
   routeTableId?: string;
   routeTableName?: string;
   static names(): { [key: string]: string } {
@@ -30215,6 +30303,7 @@ export class ModifyRouteTableAttributesRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      routePropagationEnable: 'RoutePropagationEnable',
       routeTableId: 'RouteTableId',
       routeTableName: 'RouteTableName',
     };
@@ -30228,6 +30317,7 @@ export class ModifyRouteTableAttributesRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      routePropagationEnable: 'boolean',
       routeTableId: 'string',
       routeTableName: 'string',
     };
@@ -32860,6 +32950,90 @@ export class OpenPhysicalConnectionServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: OpenPhysicalConnectionServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenPublicIpAddressPoolServiceRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenPublicIpAddressPoolServiceResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenPublicIpAddressPoolServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenPublicIpAddressPoolServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OpenPublicIpAddressPoolServiceResponseBody,
     };
   }
 
@@ -41300,6 +41474,7 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags exten
 }
 
 export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $tea.Model {
+  addressType?: string;
   allocationTime?: string;
   associatedInstanceId?: string;
   associatedInstanceType?: string;
@@ -41320,6 +41495,7 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      addressType: 'AddressType',
       allocationTime: 'AllocationTime',
       associatedInstanceId: 'AssociatedInstanceId',
       associatedInstanceType: 'AssociatedInstanceType',
@@ -41343,6 +41519,7 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
 
   static types(): { [key: string]: any } {
     return {
+      addressType: 'string',
       allocationTime: 'string',
       associatedInstanceId: 'string',
       associatedInstanceType: 'string',
@@ -51817,6 +51994,10 @@ export default class Client extends OpenApi {
   async allocateIpv6AddressWithOptions(request: AllocateIpv6AddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateIpv6AddressResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -57040,6 +57221,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 创建端口初装费订单
+   *
    * @param request CreatePhysicalConnectionSetupOrderRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return CreatePhysicalConnectionSetupOrderResponse
@@ -57113,6 +57296,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 创建端口初装费订单
+   *
    * @param request CreatePhysicalConnectionSetupOrderRequest
    * @return CreatePhysicalConnectionSetupOrderResponse
    */
@@ -66638,6 +66823,10 @@ export default class Client extends OpenApi {
   async describeIpv6AddressesWithOptions(request: DescribeIpv6AddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpv6AddressesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
     if (!Util.isUnset(request.associatedInstanceId)) {
       query["AssociatedInstanceId"] = request.associatedInstanceId;
     }
@@ -66751,6 +66940,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询创建的仅主动出规则。
+   *
    * @param request DescribeIpv6EgressOnlyRulesRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeIpv6EgressOnlyRulesResponse
@@ -66828,6 +67019,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询创建的仅主动出规则。
+   *
    * @param request DescribeIpv6EgressOnlyRulesRequest
    * @return DescribeIpv6EgressOnlyRulesResponse
    */
@@ -71562,6 +71755,72 @@ export default class Client extends OpenApi {
   async getPhysicalConnectionServiceStatus(request: GetPhysicalConnectionServiceStatusRequest): Promise<GetPhysicalConnectionServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPhysicalConnectionServiceStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询IP地址池功能的开通状态。
+   *
+   * @param request GetPublicIpAddressPoolServiceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPublicIpAddressPoolServiceStatusResponse
+   */
+  async getPublicIpAddressPoolServiceStatusWithOptions(request: GetPublicIpAddressPoolServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPublicIpAddressPoolServiceStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPublicIpAddressPoolServiceStatus",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPublicIpAddressPoolServiceStatusResponse>(await this.callApi(params, req, runtime), new GetPublicIpAddressPoolServiceStatusResponse({}));
+  }
+
+  /**
+   * @summary 查询IP地址池功能的开通状态。
+   *
+   * @param request GetPublicIpAddressPoolServiceStatusRequest
+   * @return GetPublicIpAddressPoolServiceStatusResponse
+   */
+  async getPublicIpAddressPoolServiceStatus(request: GetPublicIpAddressPoolServiceStatusRequest): Promise<GetPublicIpAddressPoolServiceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPublicIpAddressPoolServiceStatusWithOptions(request, runtime);
   }
 
   /**
@@ -76897,6 +77156,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.routePropagationEnable)) {
+      query["RoutePropagationEnable"] = request.routePropagationEnable;
+    }
+
     if (!Util.isUnset(request.routeTableId)) {
       query["RouteTableId"] = request.routeTableId;
     }
@@ -79204,6 +79467,72 @@ export default class Client extends OpenApi {
   async openPhysicalConnectionService(request: OpenPhysicalConnectionServiceRequest): Promise<OpenPhysicalConnectionServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openPhysicalConnectionServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 开通IP地址池功能。
+   *
+   * @param request OpenPublicIpAddressPoolServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenPublicIpAddressPoolServiceResponse
+   */
+  async openPublicIpAddressPoolServiceWithOptions(request: OpenPublicIpAddressPoolServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenPublicIpAddressPoolServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OpenPublicIpAddressPoolService",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenPublicIpAddressPoolServiceResponse>(await this.callApi(params, req, runtime), new OpenPublicIpAddressPoolServiceResponse({}));
+  }
+
+  /**
+   * @summary 开通IP地址池功能。
+   *
+   * @param request OpenPublicIpAddressPoolServiceRequest
+   * @return OpenPublicIpAddressPoolServiceResponse
+   */
+  async openPublicIpAddressPoolService(request: OpenPublicIpAddressPoolServiceRequest): Promise<OpenPublicIpAddressPoolServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.openPublicIpAddressPoolServiceWithOptions(request, runtime);
   }
 
   /**
