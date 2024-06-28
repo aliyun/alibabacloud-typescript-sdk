@@ -1014,6 +1014,99 @@ export class AddSkillGroupsToUserResponse extends $tea.Model {
   }
 }
 
+export class AddTicketTaskRequest extends $tea.Model {
+  assignee?: string;
+  comment?: string;
+  instanceId?: string;
+  position?: string;
+  taskId?: string;
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignee: 'Assignee',
+      comment: 'Comment',
+      instanceId: 'InstanceId',
+      position: 'Position',
+      taskId: 'TaskId',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignee: 'string',
+      comment: 'string',
+      instanceId: 'string',
+      position: 'string',
+      taskId: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTicketTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTicketTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTicketTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddTicketTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddUsersToSkillGroupRequest extends $tea.Model {
   instanceId?: string;
   skillGroupId?: string;
@@ -3195,6 +3288,99 @@ export class CreateSkillGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateTicketRequest extends $tea.Model {
+  contactId?: string;
+  context?: string;
+  customerId?: string;
+  instanceId?: string;
+  source?: string;
+  templateId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      context: 'Context',
+      customerId: 'CustomerId',
+      instanceId: 'InstanceId',
+      source: 'Source',
+      templateId: 'TemplateId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      context: 'string',
+      customerId: 'string',
+      instanceId: 'string',
+      source: 'string',
+      templateId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUserRequest extends $tea.Model {
   avatarUrl?: string;
   displayId?: string;
@@ -4048,6 +4234,168 @@ export class DeleteSkillGroupResponse extends $tea.Model {
   }
 }
 
+export class DeleteTicketRequest extends $tea.Model {
+  instanceId?: string;
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTicketResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTicketTemplateRequest extends $tea.Model {
+  instanceId?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTicketTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTicketTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTicketTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTicketTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableSchemaPropertyRequest extends $tea.Model {
   instanceId?: string;
   propertyName?: string;
@@ -4124,6 +4472,87 @@ export class DisableSchemaPropertyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DisableSchemaPropertyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableTicketTemplateRequest extends $tea.Model {
+  instanceId?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableTicketTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableTicketTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableTicketTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableTicketTemplateResponseBody,
     };
   }
 
@@ -4286,6 +4715,87 @@ export class EnableSchemaPropertyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EnableSchemaPropertyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableTicketTemplateRequest extends $tea.Model {
+  instanceId?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableTicketTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableTicketTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableTicketTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableTicketTemplateResponseBody,
     };
   }
 
@@ -6596,6 +7106,276 @@ export class GetSkillGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSkillGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketRequest extends $tea.Model {
+  instanceId?: string;
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetTicketResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetTicketResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketSummaryReportRequest extends $tea.Model {
+  assignee?: string;
+  assigneeType?: string;
+  categoryId?: string;
+  creator?: string;
+  endTime?: number;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  participant?: string;
+  startTime?: number;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignee: 'Assignee',
+      assigneeType: 'AssigneeType',
+      categoryId: 'CategoryId',
+      creator: 'Creator',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      participant: 'Participant',
+      startTime: 'StartTime',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignee: 'string',
+      assigneeType: 'string',
+      categoryId: 'string',
+      creator: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      participant: 'string',
+      startTime: 'number',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketSummaryReportResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetTicketSummaryReportResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetTicketSummaryReportResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketSummaryReportResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTicketSummaryReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTicketSummaryReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketTemplateRequest extends $tea.Model {
+  instanceId?: string;
+  templateId?: string;
+  templateVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      templateId: 'TemplateId',
+      templateVersion: 'TemplateVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      templateId: 'string',
+      templateVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetTicketTemplateResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetTicketTemplateResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTicketTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTicketTemplateResponseBody,
     };
   }
 
@@ -9206,6 +9986,84 @@ export class ListCasesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCasesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommonTicketFieldsRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommonTicketFieldsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListCommonTicketFieldsResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListCommonTicketFieldsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommonTicketFieldsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCommonTicketFieldsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCommonTicketFieldsResponseBody,
     };
   }
 
@@ -12416,6 +13274,204 @@ export class ListSkillLevelsOfUserResponse extends $tea.Model {
   }
 }
 
+export class ListTicketTasksRequest extends $tea.Model {
+  instanceId?: string;
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketTasksResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListTicketTasksResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListTicketTasksResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTicketTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTicketTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketsRequest extends $tea.Model {
+  assignee?: string;
+  assigneeType?: string;
+  categoryId?: string;
+  creator?: string;
+  customerId?: string;
+  endTime?: number;
+  instanceId?: string;
+  jobIdList?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  participant?: string;
+  startTime?: number;
+  state?: string;
+  ticketId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignee: 'Assignee',
+      assigneeType: 'AssigneeType',
+      categoryId: 'CategoryId',
+      creator: 'Creator',
+      customerId: 'CustomerId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      jobIdList: 'JobIdList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      participant: 'Participant',
+      startTime: 'StartTime',
+      state: 'State',
+      ticketId: 'TicketId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignee: 'string',
+      assigneeType: 'string',
+      categoryId: 'string',
+      creator: 'string',
+      customerId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      jobIdList: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      participant: 'string',
+      startTime: 'number',
+      state: 'string',
+      ticketId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListTicketsResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListTicketsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTicketsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTicketsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUnassignedNumbersRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
@@ -14486,6 +15542,165 @@ export class RegisterDevicesResponse extends $tea.Model {
   }
 }
 
+export class RejectChatRequest extends $tea.Model {
+  instanceId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RejectChatResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RejectChatResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RejectChatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RejectChatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RejectTicketRequest extends $tea.Model {
+  comment?: string;
+  instanceId?: string;
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      instanceId: 'InstanceId',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      instanceId: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RejectTicketResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RejectTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RejectTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RejectTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReleaseCallRequest extends $tea.Model {
   channelId?: string;
   deviceId?: string;
@@ -14568,6 +15783,90 @@ export class ReleaseCallResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleaseCallResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseChatRequest extends $tea.Model {
+  instanceId?: string;
+  jobId?: string;
+  token?: string;
+  userId?: string;
+  userType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      token: 'Token',
+      userId: 'UserId',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      jobId: 'string',
+      token: 'string',
+      userId: 'string',
+      userType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseChatResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseChatResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseChatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseChatResponseBody,
     };
   }
 
@@ -15531,6 +16830,90 @@ export class RestoreArchivedRecordingsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RestoreArchivedRecordingsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResubmitTicketRequest extends $tea.Model {
+  comment?: string;
+  instanceId?: string;
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      instanceId: 'InstanceId',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      instanceId: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResubmitTicketResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResubmitTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResubmitTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResubmitTicketResponseBody,
     };
   }
 
@@ -17265,6 +18648,180 @@ export class TakeBreakResponse extends $tea.Model {
   }
 }
 
+export class TerminateTicketRequest extends $tea.Model {
+  comment?: string;
+  instanceId?: string;
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      instanceId: 'InstanceId',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      instanceId: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateTicketResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TerminateTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TerminateTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketTaskRequest extends $tea.Model {
+  assignee?: string;
+  comment?: string;
+  instanceId?: string;
+  taskId?: string;
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignee: 'Assignee',
+      comment: 'Comment',
+      instanceId: 'InstanceId',
+      taskId: 'TaskId',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignee: 'string',
+      comment: 'string',
+      instanceId: 'string',
+      taskId: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransferTicketTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TransferTicketTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnmuteCallRequest extends $tea.Model {
   channelId?: string;
   deviceId?: string;
@@ -17711,6 +19268,180 @@ export class UpdateSchemaPropertyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateSchemaPropertyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTicketRequest extends $tea.Model {
+  context?: string;
+  customerId?: string;
+  instanceId?: string;
+  ticketId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'Context',
+      customerId: 'CustomerId',
+      instanceId: 'InstanceId',
+      ticketId: 'TicketId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: 'string',
+      customerId: 'string',
+      instanceId: 'string',
+      ticketId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTicketResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WithdrawTicketRequest extends $tea.Model {
+  comment?: string;
+  instanceId?: string;
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      instanceId: 'InstanceId',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      instanceId: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WithdrawTicketResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WithdrawTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WithdrawTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WithdrawTicketResponseBody,
     };
   }
 
@@ -21266,6 +22997,244 @@ export class GetSkillGroupResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetTicketResponseBodyData extends $tea.Model {
+  assignee?: string;
+  assigneeName?: string;
+  categoryId?: string;
+  categoryName?: string;
+  closeCode?: string;
+  comment?: string;
+  context?: string;
+  createdTime?: number;
+  creator?: string;
+  creatorName?: string;
+  currentTaskId?: string;
+  currentTaskName?: string;
+  currentTaskStartTime?: number;
+  customerId?: string;
+  endTime?: number;
+  instanceId?: string;
+  jobId?: string;
+  source?: string;
+  startTime?: number;
+  state?: string;
+  templateId?: string;
+  templateVersion?: string;
+  ticketId?: string;
+  title?: string;
+  updatedTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assignee: 'Assignee',
+      assigneeName: 'AssigneeName',
+      categoryId: 'CategoryId',
+      categoryName: 'CategoryName',
+      closeCode: 'CloseCode',
+      comment: 'Comment',
+      context: 'Context',
+      createdTime: 'CreatedTime',
+      creator: 'Creator',
+      creatorName: 'CreatorName',
+      currentTaskId: 'CurrentTaskId',
+      currentTaskName: 'CurrentTaskName',
+      currentTaskStartTime: 'CurrentTaskStartTime',
+      customerId: 'CustomerId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      source: 'Source',
+      startTime: 'StartTime',
+      state: 'State',
+      templateId: 'TemplateId',
+      templateVersion: 'TemplateVersion',
+      ticketId: 'TicketId',
+      title: 'Title',
+      updatedTime: 'UpdatedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignee: 'string',
+      assigneeName: 'string',
+      categoryId: 'string',
+      categoryName: 'string',
+      closeCode: 'string',
+      comment: 'string',
+      context: 'string',
+      createdTime: 'number',
+      creator: 'string',
+      creatorName: 'string',
+      currentTaskId: 'string',
+      currentTaskName: 'string',
+      currentTaskStartTime: 'number',
+      customerId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      jobId: 'string',
+      source: 'string',
+      startTime: 'number',
+      state: 'string',
+      templateId: 'string',
+      templateVersion: 'string',
+      ticketId: 'string',
+      title: 'string',
+      updatedTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketSummaryReportResponseBodyData extends $tea.Model {
+  ticketsAssigned?: string;
+  ticketsCreated?: string;
+  ticketsParticipated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ticketsAssigned: 'TicketsAssigned',
+      ticketsCreated: 'TicketsCreated',
+      ticketsParticipated: 'TicketsParticipated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ticketsAssigned: 'string',
+      ticketsCreated: 'string',
+      ticketsParticipated: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketTemplateResponseBodyDataTicketFields extends $tea.Model {
+  array?: boolean;
+  attributes?: string;
+  createdTime?: number;
+  creator?: string;
+  dataType?: string;
+  description?: string;
+  disabled?: boolean;
+  displayName?: string;
+  displayOrder?: number;
+  editorType?: string;
+  maxLength?: number;
+  maximum?: number;
+  minLength?: number;
+  minimum?: number;
+  name?: string;
+  pattern?: string;
+  patternErrorMessage?: string;
+  readOnly?: boolean;
+  required?: boolean;
+  system?: boolean;
+  updatedTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      array: 'Array',
+      attributes: 'Attributes',
+      createdTime: 'CreatedTime',
+      creator: 'Creator',
+      dataType: 'DataType',
+      description: 'Description',
+      disabled: 'Disabled',
+      displayName: 'DisplayName',
+      displayOrder: 'DisplayOrder',
+      editorType: 'EditorType',
+      maxLength: 'MaxLength',
+      maximum: 'Maximum',
+      minLength: 'MinLength',
+      minimum: 'Minimum',
+      name: 'Name',
+      pattern: 'Pattern',
+      patternErrorMessage: 'PatternErrorMessage',
+      readOnly: 'ReadOnly',
+      required: 'Required',
+      system: 'System',
+      updatedTime: 'UpdatedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      array: 'boolean',
+      attributes: 'string',
+      createdTime: 'number',
+      creator: 'string',
+      dataType: 'string',
+      description: 'string',
+      disabled: 'boolean',
+      displayName: 'string',
+      displayOrder: 'number',
+      editorType: 'string',
+      maxLength: 'number',
+      maximum: 'number',
+      minLength: 'number',
+      minimum: 'number',
+      name: 'string',
+      pattern: 'string',
+      patternErrorMessage: 'string',
+      readOnly: 'boolean',
+      required: 'boolean',
+      system: 'boolean',
+      updatedTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketTemplateResponseBodyData extends $tea.Model {
+  categoryId?: string;
+  editor?: string;
+  instanceId?: string;
+  name?: string;
+  processDefinition?: string;
+  state?: string;
+  templateId?: string;
+  ticketFields?: GetTicketTemplateResponseBodyDataTicketFields[];
+  updatedTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      editor: 'Editor',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      processDefinition: 'ProcessDefinition',
+      state: 'State',
+      templateId: 'TemplateId',
+      ticketFields: 'TicketFields',
+      updatedTime: 'UpdatedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      editor: 'string',
+      instanceId: 'string',
+      name: 'string',
+      processDefinition: 'string',
+      state: 'string',
+      templateId: 'string',
+      ticketFields: { 'type': 'array', 'itemType': GetTicketTemplateResponseBodyDataTicketFields },
+      updatedTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTurnCredentialsResponseBodyData extends $tea.Model {
   password?: string;
   userName?: string;
@@ -23383,6 +25352,37 @@ export class ListCasesResponseBodyData extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommonTicketFieldsResponseBodyData extends $tea.Model {
+  createdTime?: string;
+  id?: string;
+  instanceId?: string;
+  properties?: { [key: string]: DataPropertiesValue };
+  updatedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      properties: 'Properties',
+      updatedTime: 'UpdatedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      id: 'string',
+      instanceId: 'string',
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': DataPropertiesValue },
+      updatedTime: 'string',
     };
   }
 
@@ -29446,6 +31446,183 @@ export class ListSkillLevelsOfUserResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListTicketTasksResponseBodyData extends $tea.Model {
+  action?: string;
+  assignee?: string;
+  assigneeName?: string;
+  comment?: string;
+  endTime?: number;
+  fileKeys?: string[];
+  fileUrls?: string[];
+  instanceId?: string;
+  startTime?: number;
+  taskDefinitionNodeId?: string;
+  taskDefinitionNodeType?: string;
+  taskId?: string;
+  taskName?: string;
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      assignee: 'Assignee',
+      assigneeName: 'AssigneeName',
+      comment: 'Comment',
+      endTime: 'EndTime',
+      fileKeys: 'FileKeys',
+      fileUrls: 'FileUrls',
+      instanceId: 'InstanceId',
+      startTime: 'StartTime',
+      taskDefinitionNodeId: 'TaskDefinitionNodeId',
+      taskDefinitionNodeType: 'TaskDefinitionNodeType',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      assignee: 'string',
+      assigneeName: 'string',
+      comment: 'string',
+      endTime: 'number',
+      fileKeys: { 'type': 'array', 'itemType': 'string' },
+      fileUrls: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      startTime: 'number',
+      taskDefinitionNodeId: 'string',
+      taskDefinitionNodeType: 'string',
+      taskId: 'string',
+      taskName: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketsResponseBodyDataList extends $tea.Model {
+  assignee?: string;
+  assigneeName?: string;
+  categoryId?: string;
+  categoryName?: string;
+  closeCode?: string;
+  comment?: string;
+  context?: string;
+  createdTime?: string;
+  creator?: string;
+  creatorName?: string;
+  currentTaskId?: string;
+  currentTaskName?: string;
+  currentTaskStartTime?: number;
+  customerId?: string;
+  endTime?: number;
+  instanceId?: string;
+  jobId?: string;
+  source?: string;
+  startTime?: number;
+  state?: string;
+  templateId?: string;
+  templateVersion?: string;
+  ticketId?: string;
+  title?: string;
+  updatedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignee: 'Assignee',
+      assigneeName: 'AssigneeName',
+      categoryId: 'CategoryId',
+      categoryName: 'CategoryName',
+      closeCode: 'CloseCode',
+      comment: 'Comment',
+      context: 'Context',
+      createdTime: 'CreatedTime',
+      creator: 'Creator',
+      creatorName: 'CreatorName',
+      currentTaskId: 'CurrentTaskId',
+      currentTaskName: 'CurrentTaskName',
+      currentTaskStartTime: 'CurrentTaskStartTime',
+      customerId: 'CustomerId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      source: 'Source',
+      startTime: 'StartTime',
+      state: 'State',
+      templateId: 'TemplateId',
+      templateVersion: 'TemplateVersion',
+      ticketId: 'TicketId',
+      title: 'Title',
+      updatedTime: 'UpdatedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignee: 'string',
+      assigneeName: 'string',
+      categoryId: 'string',
+      categoryName: 'string',
+      closeCode: 'string',
+      comment: 'string',
+      context: 'string',
+      createdTime: 'string',
+      creator: 'string',
+      creatorName: 'string',
+      currentTaskId: 'string',
+      currentTaskName: 'string',
+      currentTaskStartTime: 'number',
+      customerId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      jobId: 'string',
+      source: 'string',
+      startTime: 'number',
+      state: 'string',
+      templateId: 'string',
+      templateVersion: 'string',
+      ticketId: 'string',
+      title: 'string',
+      updatedTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketsResponseBodyData extends $tea.Model {
+  list?: ListTicketsResponseBodyDataList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListTicketsResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUnassignedNumbersResponseBodyDataList extends $tea.Model {
   city?: string;
   number?: string;
@@ -32995,6 +35172,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request AddTicketTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddTicketTaskResponse
+   */
+  async addTicketTaskWithOptions(request: AddTicketTaskRequest, runtime: $Util.RuntimeOptions): Promise<AddTicketTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assignee)) {
+      query["Assignee"] = request.assignee;
+    }
+
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.position)) {
+      query["Position"] = request.position;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddTicketTask",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddTicketTaskResponse>(await this.callApi(params, req, runtime), new AddTicketTaskResponse({}));
+  }
+
+  /**
+   * @param request AddTicketTaskRequest
+   * @return AddTicketTaskResponse
+   */
+  async addTicketTask(request: AddTicketTaskRequest): Promise<AddTicketTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addTicketTaskWithOptions(request, runtime);
+  }
+
+  /**
    * @param request AddUsersToSkillGroupRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return AddUsersToSkillGroupResponse
@@ -34329,6 +36564,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request CreateTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTicketResponse
+   */
+  async createTicketWithOptions(request: CreateTicketRequest, runtime: $Util.RuntimeOptions): Promise<CreateTicketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.context)) {
+      query["Context"] = request.context;
+    }
+
+    if (!Util.isUnset(request.customerId)) {
+      query["CustomerId"] = request.customerId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTicket",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTicketResponse>(await this.callApi(params, req, runtime), new CreateTicketResponse({}));
+  }
+
+  /**
+   * @param request CreateTicketRequest
+   * @return CreateTicketResponse
+   */
+  async createTicket(request: CreateTicketRequest): Promise<CreateTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTicketWithOptions(request, runtime);
+  }
+
+  /**
    * @param request CreateUserRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return CreateUserResponse
@@ -34835,6 +37132,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request DeleteTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTicketResponse
+   */
+  async deleteTicketWithOptions(request: DeleteTicketRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTicketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTicket",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTicketResponse>(await this.callApi(params, req, runtime), new DeleteTicketResponse({}));
+  }
+
+  /**
+   * @param request DeleteTicketRequest
+   * @return DeleteTicketResponse
+   */
+  async deleteTicket(request: DeleteTicketRequest): Promise<DeleteTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTicketWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DeleteTicketTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTicketTemplateResponse
+   */
+  async deleteTicketTemplateWithOptions(request: DeleteTicketTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTicketTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTicketTemplate",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTicketTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTicketTemplateResponse({}));
+  }
+
+  /**
+   * @param request DeleteTicketTemplateRequest
+   * @return DeleteTicketTemplateResponse
+   */
+  async deleteTicketTemplate(request: DeleteTicketTemplateRequest): Promise<DeleteTicketTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTicketTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * @param request DisableSchemaPropertyRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DisableSchemaPropertyResponse
@@ -34882,6 +37263,48 @@ export default class Client extends OpenApi {
   async disableSchemaProperty(request: DisableSchemaPropertyRequest): Promise<DisableSchemaPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableSchemaPropertyWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DisableTicketTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableTicketTemplateResponse
+   */
+  async disableTicketTemplateWithOptions(request: DisableTicketTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DisableTicketTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableTicketTemplate",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableTicketTemplateResponse>(await this.callApi(params, req, runtime), new DisableTicketTemplateResponse({}));
+  }
+
+  /**
+   * @param request DisableTicketTemplateRequest
+   * @return DisableTicketTemplateResponse
+   */
+  async disableTicketTemplate(request: DisableTicketTemplateRequest): Promise<DisableTicketTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableTicketTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -34978,6 +37401,48 @@ export default class Client extends OpenApi {
   async enableSchemaProperty(request: EnableSchemaPropertyRequest): Promise<EnableSchemaPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableSchemaPropertyWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request EnableTicketTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableTicketTemplateResponse
+   */
+  async enableTicketTemplateWithOptions(request: EnableTicketTemplateRequest, runtime: $Util.RuntimeOptions): Promise<EnableTicketTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableTicketTemplate",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableTicketTemplateResponse>(await this.callApi(params, req, runtime), new EnableTicketTemplateResponse({}));
+  }
+
+  /**
+   * @param request EnableTicketTemplateRequest
+   * @return EnableTicketTemplateResponse
+   */
+  async enableTicketTemplate(request: EnableTicketTemplateRequest): Promise<EnableTicketTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableTicketTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -36266,6 +38731,172 @@ export default class Client extends OpenApi {
   async getSkillGroup(request: GetSkillGroupRequest): Promise<GetSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSkillGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request GetTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTicketResponse
+   */
+  async getTicketWithOptions(request: GetTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetTicketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTicket",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTicketResponse>(await this.callApi(params, req, runtime), new GetTicketResponse({}));
+  }
+
+  /**
+   * @param request GetTicketRequest
+   * @return GetTicketResponse
+   */
+  async getTicket(request: GetTicketRequest): Promise<GetTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTicketWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request GetTicketSummaryReportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTicketSummaryReportResponse
+   */
+  async getTicketSummaryReportWithOptions(request: GetTicketSummaryReportRequest, runtime: $Util.RuntimeOptions): Promise<GetTicketSummaryReportResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assignee)) {
+      query["Assignee"] = request.assignee;
+    }
+
+    if (!Util.isUnset(request.assigneeType)) {
+      query["AssigneeType"] = request.assigneeType;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.creator)) {
+      query["Creator"] = request.creator;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.participant)) {
+      query["Participant"] = request.participant;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTicketSummaryReport",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTicketSummaryReportResponse>(await this.callApi(params, req, runtime), new GetTicketSummaryReportResponse({}));
+  }
+
+  /**
+   * @param request GetTicketSummaryReportRequest
+   * @return GetTicketSummaryReportResponse
+   */
+  async getTicketSummaryReport(request: GetTicketSummaryReportRequest): Promise<GetTicketSummaryReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTicketSummaryReportWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request GetTicketTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTicketTemplateResponse
+   */
+  async getTicketTemplateWithOptions(request: GetTicketTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTicketTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTicketTemplate",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTicketTemplateResponse>(await this.callApi(params, req, runtime), new GetTicketTemplateResponse({}));
+  }
+
+  /**
+   * @param request GetTicketTemplateRequest
+   * @return GetTicketTemplateResponse
+   */
+  async getTicketTemplate(request: GetTicketTemplateRequest): Promise<GetTicketTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTicketTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -37866,6 +40497,44 @@ export default class Client extends OpenApi {
   async listCases(request: ListCasesRequest): Promise<ListCasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCasesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListCommonTicketFieldsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCommonTicketFieldsResponse
+   */
+  async listCommonTicketFieldsWithOptions(request: ListCommonTicketFieldsRequest, runtime: $Util.RuntimeOptions): Promise<ListCommonTicketFieldsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCommonTicketFields",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCommonTicketFieldsResponse>(await this.callApi(params, req, runtime), new ListCommonTicketFieldsResponse({}));
+  }
+
+  /**
+   * @param request ListCommonTicketFieldsRequest
+   * @return ListCommonTicketFieldsResponse
+   */
+  async listCommonTicketFields(request: ListCommonTicketFieldsRequest): Promise<ListCommonTicketFieldsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCommonTicketFieldsWithOptions(request, runtime);
   }
 
   /**
@@ -39849,6 +42518,142 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request ListTicketTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTicketTasksResponse
+   */
+  async listTicketTasksWithOptions(request: ListTicketTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTicketTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTicketTasks",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTicketTasksResponse>(await this.callApi(params, req, runtime), new ListTicketTasksResponse({}));
+  }
+
+  /**
+   * @param request ListTicketTasksRequest
+   * @return ListTicketTasksResponse
+   */
+  async listTicketTasks(request: ListTicketTasksRequest): Promise<ListTicketTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTicketTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListTicketsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTicketsResponse
+   */
+  async listTicketsWithOptions(request: ListTicketsRequest, runtime: $Util.RuntimeOptions): Promise<ListTicketsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assignee)) {
+      query["Assignee"] = request.assignee;
+    }
+
+    if (!Util.isUnset(request.assigneeType)) {
+      query["AssigneeType"] = request.assigneeType;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.creator)) {
+      query["Creator"] = request.creator;
+    }
+
+    if (!Util.isUnset(request.customerId)) {
+      query["CustomerId"] = request.customerId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobIdList)) {
+      query["JobIdList"] = request.jobIdList;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.participant)) {
+      query["Participant"] = request.participant;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTickets",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTicketsResponse>(await this.callApi(params, req, runtime), new ListTicketsResponse({}));
+  }
+
+  /**
+   * @param request ListTicketsRequest
+   * @return ListTicketsResponse
+   */
+  async listTickets(request: ListTicketsRequest): Promise<ListTicketsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTicketsWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 获取未分配号码列表
    *
    * @param request ListUnassignedNumbersRequest
@@ -41125,6 +43930,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request RejectChatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RejectChatResponse
+   */
+  async rejectChatWithOptions(request: RejectChatRequest, runtime: $Util.RuntimeOptions): Promise<RejectChatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RejectChat",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RejectChatResponse>(await this.callApi(params, req, runtime), new RejectChatResponse({}));
+  }
+
+  /**
+   * @param request RejectChatRequest
+   * @return RejectChatResponse
+   */
+  async rejectChat(request: RejectChatRequest): Promise<RejectChatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rejectChatWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request RejectTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RejectTicketResponse
+   */
+  async rejectTicketWithOptions(request: RejectTicketRequest, runtime: $Util.RuntimeOptions): Promise<RejectTicketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RejectTicket",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RejectTicketResponse>(await this.callApi(params, req, runtime), new RejectTicketResponse({}));
+  }
+
+  /**
+   * @param request RejectTicketRequest
+   * @return RejectTicketResponse
+   */
+  async rejectTicket(request: RejectTicketRequest): Promise<RejectTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rejectTicketWithOptions(request, runtime);
+  }
+
+  /**
    * @param request ReleaseCallRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ReleaseCallResponse
@@ -41176,6 +44069,60 @@ export default class Client extends OpenApi {
   async releaseCall(request: ReleaseCallRequest): Promise<ReleaseCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseCallWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ReleaseChatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseChatResponse
+   */
+  async releaseChatWithOptions(request: ReleaseChatRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseChatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userType)) {
+      query["UserType"] = request.userType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseChat",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseChatResponse>(await this.callApi(params, req, runtime), new ReleaseChatResponse({}));
+  }
+
+  /**
+   * @param request ReleaseChatRequest
+   * @return ReleaseChatResponse
+   */
+  async releaseChat(request: ReleaseChatRequest): Promise<ReleaseChatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseChatWithOptions(request, runtime);
   }
 
   /**
@@ -41740,6 +44687,52 @@ export default class Client extends OpenApi {
   async restoreArchivedRecordings(request: RestoreArchivedRecordingsRequest): Promise<RestoreArchivedRecordingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restoreArchivedRecordingsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ResubmitTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResubmitTicketResponse
+   */
+  async resubmitTicketWithOptions(request: ResubmitTicketRequest, runtime: $Util.RuntimeOptions): Promise<ResubmitTicketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResubmitTicket",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResubmitTicketResponse>(await this.callApi(params, req, runtime), new ResubmitTicketResponse({}));
+  }
+
+  /**
+   * @param request ResubmitTicketRequest
+   * @return ResubmitTicketResponse
+   */
+  async resubmitTicket(request: ResubmitTicketRequest): Promise<ResubmitTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resubmitTicketWithOptions(request, runtime);
   }
 
   /**
@@ -42783,6 +45776,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request TerminateTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TerminateTicketResponse
+   */
+  async terminateTicketWithOptions(request: TerminateTicketRequest, runtime: $Util.RuntimeOptions): Promise<TerminateTicketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TerminateTicket",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TerminateTicketResponse>(await this.callApi(params, req, runtime), new TerminateTicketResponse({}));
+  }
+
+  /**
+   * @param request TerminateTicketRequest
+   * @return TerminateTicketResponse
+   */
+  async terminateTicket(request: TerminateTicketRequest): Promise<TerminateTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.terminateTicketWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request TransferTicketTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TransferTicketTaskResponse
+   */
+  async transferTicketTaskWithOptions(request: TransferTicketTaskRequest, runtime: $Util.RuntimeOptions): Promise<TransferTicketTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assignee)) {
+      query["Assignee"] = request.assignee;
+    }
+
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TransferTicketTask",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferTicketTaskResponse>(await this.callApi(params, req, runtime), new TransferTicketTaskResponse({}));
+  }
+
+  /**
+   * @param request TransferTicketTaskRequest
+   * @return TransferTicketTaskResponse
+   */
+  async transferTicketTask(request: TransferTicketTaskRequest): Promise<TransferTicketTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.transferTicketTaskWithOptions(request, runtime);
+  }
+
+  /**
    * @param request UnmuteCallRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return UnmuteCallResponse
@@ -43056,6 +46149,106 @@ export default class Client extends OpenApi {
   async updateSchemaProperty(request: UpdateSchemaPropertyRequest): Promise<UpdateSchemaPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSchemaPropertyWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request UpdateTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTicketResponse
+   */
+  async updateTicketWithOptions(request: UpdateTicketRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTicketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.context)) {
+      query["Context"] = request.context;
+    }
+
+    if (!Util.isUnset(request.customerId)) {
+      query["CustomerId"] = request.customerId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTicket",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTicketResponse>(await this.callApi(params, req, runtime), new UpdateTicketResponse({}));
+  }
+
+  /**
+   * @param request UpdateTicketRequest
+   * @return UpdateTicketResponse
+   */
+  async updateTicket(request: UpdateTicketRequest): Promise<UpdateTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateTicketWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request WithdrawTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return WithdrawTicketResponse
+   */
+  async withdrawTicketWithOptions(request: WithdrawTicketRequest, runtime: $Util.RuntimeOptions): Promise<WithdrawTicketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "WithdrawTicket",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<WithdrawTicketResponse>(await this.callApi(params, req, runtime), new WithdrawTicketResponse({}));
+  }
+
+  /**
+   * @param request WithdrawTicketRequest
+   * @return WithdrawTicketResponse
+   */
+  async withdrawTicket(request: WithdrawTicketRequest): Promise<WithdrawTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.withdrawTicketWithOptions(request, runtime);
   }
 
 }
