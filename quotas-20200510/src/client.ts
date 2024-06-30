@@ -71,9 +71,9 @@ export class CreateQuotaAlarmResponseBody extends $tea.Model {
 }
 
 export class CreateQuotaAlarmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateQuotaAlarmResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateQuotaAlarmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -215,9 +215,9 @@ export class CreateQuotaApplicationResponseBody extends $tea.Model {
 }
 
 export class CreateQuotaApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateQuotaApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateQuotaApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -317,9 +317,9 @@ export class CreateQuotaApplicationsForTemplateResponseBody extends $tea.Model {
 }
 
 export class CreateQuotaApplicationsForTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateQuotaApplicationsForTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateQuotaApplicationsForTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -407,9 +407,9 @@ export class CreateTemplateQuotaItemResponseBody extends $tea.Model {
 }
 
 export class CreateTemplateQuotaItemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTemplateQuotaItemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTemplateQuotaItemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -470,9 +470,9 @@ export class DeleteQuotaAlarmResponseBody extends $tea.Model {
 }
 
 export class DeleteQuotaAlarmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteQuotaAlarmResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteQuotaAlarmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -536,9 +536,9 @@ export class DeleteTemplateQuotaItemResponseBody extends $tea.Model {
 }
 
 export class DeleteTemplateQuotaItemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTemplateQuotaItemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTemplateQuotaItemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -608,9 +608,9 @@ export class GetProductQuotaResponseBody extends $tea.Model {
 }
 
 export class GetProductQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetProductQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetProductQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -680,9 +680,9 @@ export class GetProductQuotaDimensionResponseBody extends $tea.Model {
 }
 
 export class GetProductQuotaDimensionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetProductQuotaDimensionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetProductQuotaDimensionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -746,9 +746,9 @@ export class GetQuotaAlarmResponseBody extends $tea.Model {
 }
 
 export class GetQuotaAlarmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQuotaAlarmResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQuotaAlarmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -812,9 +812,9 @@ export class GetQuotaApplicationResponseBody extends $tea.Model {
 }
 
 export class GetQuotaApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQuotaApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQuotaApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -828,6 +828,96 @@ export class GetQuotaApplicationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetQuotaApplicationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaApplicationApprovalRequest extends $tea.Model {
+  applicationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaApplicationApprovalResponseBody extends $tea.Model {
+  allowRetry?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorArgs?: any[];
+  errorCode?: string;
+  errorMsg?: string;
+  httpStatusCode?: number;
+  module?: GetQuotaApplicationApprovalResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowRetry: 'AllowRetry',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorArgs: 'ErrorArgs',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      httpStatusCode: 'HttpStatusCode',
+      module: 'Module',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRetry: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorArgs: { 'type': 'array', 'itemType': 'any' },
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpStatusCode: 'number',
+      module: GetQuotaApplicationApprovalResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaApplicationApprovalResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQuotaApplicationApprovalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetQuotaApplicationApprovalResponseBody,
     };
   }
 
@@ -878,9 +968,9 @@ export class GetQuotaTemplateServiceStatusResponseBody extends $tea.Model {
 }
 
 export class GetQuotaTemplateServiceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQuotaTemplateServiceStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQuotaTemplateServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -903,6 +993,7 @@ export class GetQuotaTemplateServiceStatusResponse extends $tea.Model {
 }
 
 export class ListAlarmHistoriesRequest extends $tea.Model {
+  alarmId?: string;
   endTime?: number;
   keyword?: string;
   maxResults?: number;
@@ -911,6 +1002,7 @@ export class ListAlarmHistoriesRequest extends $tea.Model {
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
+      alarmId: 'AlarmId',
       endTime: 'EndTime',
       keyword: 'Keyword',
       maxResults: 'MaxResults',
@@ -922,6 +1014,7 @@ export class ListAlarmHistoriesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alarmId: 'string',
       endTime: 'number',
       keyword: 'string',
       maxResults: 'number',
@@ -968,9 +1061,9 @@ export class ListAlarmHistoriesResponseBody extends $tea.Model {
 }
 
 export class ListAlarmHistoriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAlarmHistoriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAlarmHistoriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1037,9 +1130,9 @@ export class ListDependentQuotasResponseBody extends $tea.Model {
 }
 
 export class ListDependentQuotasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDependentQuotasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDependentQuotasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1118,9 +1211,9 @@ export class ListProductDimensionGroupsResponseBody extends $tea.Model {
 }
 
 export class ListProductDimensionGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProductDimensionGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProductDimensionGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1202,9 +1295,9 @@ export class ListProductQuotaDimensionsResponseBody extends $tea.Model {
 }
 
 export class ListProductQuotaDimensionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProductQuotaDimensionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProductQuotaDimensionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1304,9 +1397,9 @@ export class ListProductQuotasResponseBody extends $tea.Model {
 }
 
 export class ListProductQuotasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProductQuotasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProductQuotasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1382,9 +1475,9 @@ export class ListProductsResponseBody extends $tea.Model {
 }
 
 export class ListProductsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProductsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProductsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1472,9 +1565,9 @@ export class ListQuotaAlarmsResponseBody extends $tea.Model {
 }
 
 export class ListQuotaAlarmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListQuotaAlarmsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQuotaAlarmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1565,9 +1658,9 @@ export class ListQuotaApplicationTemplatesResponseBody extends $tea.Model {
 }
 
 export class ListQuotaApplicationTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListQuotaApplicationTemplatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQuotaApplicationTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1590,7 +1683,6 @@ export class ListQuotaApplicationTemplatesResponse extends $tea.Model {
 }
 
 export class ListQuotaApplicationsRequest extends $tea.Model {
-  acceptLanguage?: string;
   dimensions?: ListQuotaApplicationsRequestDimensions[];
   keyWord?: string;
   maxResults?: number;
@@ -1601,7 +1693,6 @@ export class ListQuotaApplicationsRequest extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      acceptLanguage: 'AcceptLanguage',
       dimensions: 'Dimensions',
       keyWord: 'KeyWord',
       maxResults: 'MaxResults',
@@ -1615,7 +1706,6 @@ export class ListQuotaApplicationsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      acceptLanguage: 'string',
       dimensions: { 'type': 'array', 'itemType': ListQuotaApplicationsRequestDimensions },
       keyWord: 'string',
       maxResults: 'number',
@@ -1664,9 +1754,9 @@ export class ListQuotaApplicationsResponseBody extends $tea.Model {
 }
 
 export class ListQuotaApplicationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListQuotaApplicationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQuotaApplicationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1760,9 +1850,9 @@ export class ListQuotaApplicationsDetailForTemplateResponseBody extends $tea.Mod
 }
 
 export class ListQuotaApplicationsDetailForTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListQuotaApplicationsDetailForTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQuotaApplicationsDetailForTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1856,9 +1946,9 @@ export class ListQuotaApplicationsForTemplateResponseBody extends $tea.Model {
 }
 
 export class ListQuotaApplicationsForTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListQuotaApplicationsForTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQuotaApplicationsForTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1922,9 +2012,9 @@ export class ModifyQuotaTemplateServiceStatusResponseBody extends $tea.Model {
 }
 
 export class ModifyQuotaTemplateServiceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyQuotaTemplateServiceStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyQuotaTemplateServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2015,9 +2105,9 @@ export class ModifyTemplateQuotaItemResponseBody extends $tea.Model {
 }
 
 export class ModifyTemplateQuotaItemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyTemplateQuotaItemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTemplateQuotaItemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2031,6 +2121,96 @@ export class ModifyTemplateQuotaItemResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyTemplateQuotaItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemindQuotaApplicationApprovalRequest extends $tea.Model {
+  applicationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemindQuotaApplicationApprovalResponseBody extends $tea.Model {
+  allowRetry?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorArgs?: any[];
+  errorCode?: string;
+  errorMsg?: string;
+  httpStatusCode?: number;
+  module?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowRetry: 'AllowRetry',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorArgs: 'ErrorArgs',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      httpStatusCode: 'HttpStatusCode',
+      module: 'Module',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRetry: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorArgs: { 'type': 'array', 'itemType': 'any' },
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpStatusCode: 'number',
+      module: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemindQuotaApplicationApprovalResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemindQuotaApplicationApprovalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemindQuotaApplicationApprovalResponseBody,
     };
   }
 
@@ -2093,9 +2273,9 @@ export class UpdateQuotaAlarmResponseBody extends $tea.Model {
 }
 
 export class UpdateQuotaAlarmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateQuotaAlarmResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateQuotaAlarmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2299,6 +2479,31 @@ export class GetProductQuotaResponseBodyQuotaQuotaItems extends $tea.Model {
   }
 }
 
+export class GetProductQuotaResponseBodyQuotaUsageMetric extends $tea.Model {
+  metricDimensions?: { [key: string]: string };
+  metricName?: string;
+  metricNamespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metricDimensions: 'MetricDimensions',
+      metricName: 'MetricName',
+      metricNamespace: 'MetricNamespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricDimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      metricName: 'string',
+      metricNamespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetProductQuotaResponseBodyQuota extends $tea.Model {
   adjustable?: boolean;
   applicableRange?: number[];
@@ -2323,6 +2528,7 @@ export class GetProductQuotaResponseBodyQuota extends $tea.Model {
   totalQuota?: number;
   totalUsage?: number;
   unadjustableDetail?: string;
+  usageMetric?: GetProductQuotaResponseBodyQuotaUsageMetric;
   static names(): { [key: string]: string } {
     return {
       adjustable: 'Adjustable',
@@ -2348,6 +2554,7 @@ export class GetProductQuotaResponseBodyQuota extends $tea.Model {
       totalQuota: 'TotalQuota',
       totalUsage: 'TotalUsage',
       unadjustableDetail: 'UnadjustableDetail',
+      usageMetric: 'UsageMetric',
     };
   }
 
@@ -2376,6 +2583,7 @@ export class GetProductQuotaResponseBodyQuota extends $tea.Model {
       totalQuota: 'number',
       totalUsage: 'number',
       unadjustableDetail: 'string',
+      usageMetric: GetProductQuotaResponseBodyQuotaUsageMetric,
     };
   }
 
@@ -2584,6 +2792,34 @@ export class GetQuotaApplicationResponseBodyQuotaApplication extends $tea.Model 
   }
 }
 
+export class GetQuotaApplicationApprovalResponseBodyModule extends $tea.Model {
+  approvalHours?: number;
+  reminderIntervalHours?: number;
+  supportReminder?: boolean;
+  unsupportReminderReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalHours: 'ApprovalHours',
+      reminderIntervalHours: 'ReminderIntervalHours',
+      supportReminder: 'SupportReminder',
+      unsupportReminderReason: 'UnsupportReminderReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalHours: 'number',
+      reminderIntervalHours: 'number',
+      supportReminder: 'boolean',
+      unsupportReminderReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus extends $tea.Model {
   resourceDirectoryId?: string;
   serviceStatus?: number;
@@ -2730,11 +2966,35 @@ export class ListProductDimensionGroupsResponseBodyDimensionGroups extends $tea.
   }
 }
 
+export class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetail extends $tea.Model {
+  dependentDimensions?: ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions[];
   name?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      dependentDimensions: 'DependentDimensions',
       name: 'Name',
       value: 'Value',
     };
@@ -2742,6 +3002,7 @@ export class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValue
 
   static types(): { [key: string]: any } {
     return {
+      dependentDimensions: { 'type': 'array', 'itemType': ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions },
       name: 'string',
       value: 'string',
     };
@@ -2858,6 +3119,31 @@ export class ListProductQuotasResponseBodyQuotasQuotaItems extends $tea.Model {
   }
 }
 
+export class ListProductQuotasResponseBodyQuotasUsageMetric extends $tea.Model {
+  metricDimensions?: { [key: string]: string };
+  metricName?: string;
+  metricNamespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metricDimensions: 'MetricDimensions',
+      metricName: 'MetricName',
+      metricNamespace: 'MetricNamespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricDimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      metricName: 'string',
+      metricNamespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
   adjustable?: boolean;
   applicableRange?: number[];
@@ -2882,6 +3168,7 @@ export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
   totalQuota?: number;
   totalUsage?: number;
   unadjustableDetail?: string;
+  usageMetric?: ListProductQuotasResponseBodyQuotasUsageMetric;
   static names(): { [key: string]: string } {
     return {
       adjustable: 'Adjustable',
@@ -2907,6 +3194,7 @@ export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
       totalQuota: 'TotalQuota',
       totalUsage: 'TotalUsage',
       unadjustableDetail: 'UnadjustableDetail',
+      usageMetric: 'UsageMetric',
     };
   }
 
@@ -2935,6 +3223,7 @@ export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
       totalQuota: 'number',
       totalUsage: 'number',
       unadjustableDetail: 'string',
+      usageMetric: ListProductQuotasResponseBodyQuotasUsageMetric,
     };
   }
 
@@ -3540,11 +3829,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the alert.
-    *
-    * @param request CreateQuotaAlarmRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateQuotaAlarmResponse
+   * @summary The value of the quota dimension.
+   * The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+   * > This parameter is required if you set the ProductCode parameter to ecs, ecs-spec, actiontrail, or ess.
+   *
+   * @description The ID of the alert.
+   *
+   * @param request CreateQuotaAlarmRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQuotaAlarmResponse
    */
   async createQuotaAlarmWithOptions(request: CreateQuotaAlarmRequest, runtime: $Util.RuntimeOptions): Promise<CreateQuotaAlarmResponse> {
     Util.validateModel(request);
@@ -3599,10 +3892,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the alert.
-    *
-    * @param request CreateQuotaAlarmRequest
-    * @return CreateQuotaAlarmResponse
+   * @summary The value of the quota dimension.
+   * The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+   * > This parameter is required if you set the ProductCode parameter to ecs, ecs-spec, actiontrail, or ess.
+   *
+   * @description The ID of the alert.
+   *
+   * @param request CreateQuotaAlarmRequest
+   * @return CreateQuotaAlarmResponse
    */
   async createQuotaAlarm(request: CreateQuotaAlarmRequest): Promise<CreateQuotaAlarmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3610,11 +3907,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
-    *
-    * @param request CreateQuotaApplicationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateQuotaApplicationResponse
+   * @summary Submits an application to increase a quota.
+   *
+   * @description In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
+   *
+   * @param request CreateQuotaApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQuotaApplicationResponse
    */
   async createQuotaApplicationWithOptions(request: CreateQuotaApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateQuotaApplicationResponse> {
     Util.validateModel(request);
@@ -3681,16 +3980,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
-    *
-    * @param request CreateQuotaApplicationRequest
-    * @return CreateQuotaApplicationResponse
+   * @summary Submits an application to increase a quota.
+   *
+   * @description In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
+   *
+   * @param request CreateQuotaApplicationRequest
+   * @return CreateQuotaApplicationResponse
    */
   async createQuotaApplication(request: CreateQuotaApplicationRequest): Promise<CreateQuotaApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQuotaApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a quota increase application. After you add a quota item to a quota template, the system automatically submits quota applications only for new members in the resource directory. The quota values for existing members remain unchanged. If you want to increase the quota values of existing members, you can submit a quota application for the members by applying quota templates to the members.
+   *
+   * @description ### [](#)QPS limit
+   * You can add a maximum of 10 quota items to a quota template at a time.
+   *
+   * @param request CreateQuotaApplicationsForTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQuotaApplicationsForTemplateResponse
+   */
   async createQuotaApplicationsForTemplateWithOptions(request: CreateQuotaApplicationsForTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateQuotaApplicationsForTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3755,11 +4066,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQuotaApplicationsForTemplateResponse>(await this.callApi(params, req, runtime), new CreateQuotaApplicationsForTemplateResponse({}));
   }
 
+  /**
+   * @summary Submits a quota increase application. After you add a quota item to a quota template, the system automatically submits quota applications only for new members in the resource directory. The quota values for existing members remain unchanged. If you want to increase the quota values of existing members, you can submit a quota application for the members by applying quota templates to the members.
+   *
+   * @description ### [](#)QPS limit
+   * You can add a maximum of 10 quota items to a quota template at a time.
+   *
+   * @param request CreateQuotaApplicationsForTemplateRequest
+   * @return CreateQuotaApplicationsForTemplateResponse
+   */
   async createQuotaApplicationsForTemplate(request: CreateQuotaApplicationsForTemplateRequest): Promise<CreateQuotaApplicationsForTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQuotaApplicationsForTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a quota template by using the management account of a resource directory. After you create a quota template, if a member is added to the resource directory, the quota template automatically submits a quota increase request for the member. The quota values for existing members remain unchanged. You can use a quota template to apply for increases on multiple quotas at the same time. This automated approach improves the efficiency of quota management across your organization.
+   *
+   * @description ### [](#)Prerequisites
+   * You must set the `ServiceStatus` parameter to `1`. This ensures that the quota template is enabled.
+   * You can call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of a quota template. If the `ServiceStatus` parameter is set to `0` or `-1`, you must call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to set the ServiceStatus parameter to `1`.
+   *
+   * @param request CreateTemplateQuotaItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTemplateQuotaItemResponse
+   */
   async createTemplateQuotaItemWithOptions(request: CreateTemplateQuotaItemRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateQuotaItemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3816,17 +4147,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTemplateQuotaItemResponse>(await this.callApi(params, req, runtime), new CreateTemplateQuotaItemResponse({}));
   }
 
+  /**
+   * @summary Creates a quota template by using the management account of a resource directory. After you create a quota template, if a member is added to the resource directory, the quota template automatically submits a quota increase request for the member. The quota values for existing members remain unchanged. You can use a quota template to apply for increases on multiple quotas at the same time. This automated approach improves the efficiency of quota management across your organization.
+   *
+   * @description ### [](#)Prerequisites
+   * You must set the `ServiceStatus` parameter to `1`. This ensures that the quota template is enabled.
+   * You can call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of a quota template. If the `ServiceStatus` parameter is set to `0` or `-1`, you must call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to set the ServiceStatus parameter to `1`.
+   *
+   * @param request CreateTemplateQuotaItemRequest
+   * @return CreateTemplateQuotaItemResponse
+   */
   async createTemplateQuotaItem(request: CreateTemplateQuotaItemRequest): Promise<CreateTemplateQuotaItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTemplateQuotaItemWithOptions(request, runtime);
   }
 
   /**
-    * In this example, the operation is called to delete a quota alert whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
-    *
-    * @param request DeleteQuotaAlarmRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteQuotaAlarmResponse
+   * @summary Deletes a quota alert.
+   *
+   * @description In this example, the operation is called to delete a quota alert whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
+   *
+   * @param request DeleteQuotaAlarmRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteQuotaAlarmResponse
    */
   async deleteQuotaAlarmWithOptions(request: DeleteQuotaAlarmRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQuotaAlarmResponse> {
     Util.validateModel(request);
@@ -3853,16 +4196,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to delete a quota alert whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
-    *
-    * @param request DeleteQuotaAlarmRequest
-    * @return DeleteQuotaAlarmResponse
+   * @summary Deletes a quota alert.
+   *
+   * @description In this example, the operation is called to delete a quota alert whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
+   *
+   * @param request DeleteQuotaAlarmRequest
+   * @return DeleteQuotaAlarmResponse
    */
   async deleteQuotaAlarm(request: DeleteQuotaAlarmRequest): Promise<DeleteQuotaAlarmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteQuotaAlarmWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a quota template by using the management account of a resource directory. After you delete a quota template, if a member is added to the resource directory, the quota template no longer automatically submits a quota increase request for the member.
+   *
+   * @param request DeleteTemplateQuotaItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTemplateQuotaItemResponse
+   */
   async deleteTemplateQuotaItemWithOptions(request: DeleteTemplateQuotaItemRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateQuotaItemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3887,17 +4239,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTemplateQuotaItemResponse>(await this.callApi(params, req, runtime), new DeleteTemplateQuotaItemResponse({}));
   }
 
+  /**
+   * @summary Deletes a quota template by using the management account of a resource directory. After you delete a quota template, if a member is added to the resource directory, the quota template no longer automatically submits a quota increase request for the member.
+   *
+   * @param request DeleteTemplateQuotaItemRequest
+   * @return DeleteTemplateQuotaItemResponse
+   */
   async deleteTemplateQuotaItem(request: DeleteTemplateQuotaItemRequest): Promise<DeleteTemplateQuotaItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTemplateQuotaItemWithOptions(request, runtime);
   }
 
   /**
-    * In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
-    *
-    * @param request GetProductQuotaRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetProductQuotaResponse
+   * @summary Queries the details of the specified quota.
+   *
+   * @description In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
+   *
+   * @param request GetProductQuotaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProductQuotaResponse
    */
   async getProductQuotaWithOptions(request: GetProductQuotaRequest, runtime: $Util.RuntimeOptions): Promise<GetProductQuotaResponse> {
     Util.validateModel(request);
@@ -3932,10 +4292,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
-    *
-    * @param request GetProductQuotaRequest
-    * @return GetProductQuotaResponse
+   * @summary Queries the details of the specified quota.
+   *
+   * @description In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
+   *
+   * @param request GetProductQuotaRequest
+   * @return GetProductQuotaResponse
    */
   async getProductQuota(request: GetProductQuotaRequest): Promise<GetProductQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3943,13 +4305,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
-    * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-    * *   The name of the quota dimension is `region`.
-    *
-    * @param request GetProductQuotaDimensionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetProductQuotaDimensionResponse
+   * @summary Queries the details of a quota dimension that is supported by an Alibaba Cloud service.
+   *
+   * @description In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
+   * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
+   * *   The name of the quota dimension is `region`.
+   *
+   * @param request GetProductQuotaDimensionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProductQuotaDimensionResponse
    */
   async getProductQuotaDimensionWithOptions(request: GetProductQuotaDimensionRequest, runtime: $Util.RuntimeOptions): Promise<GetProductQuotaDimensionResponse> {
     Util.validateModel(request);
@@ -3984,12 +4348,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
-    * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-    * *   The name of the quota dimension is `region`.
-    *
-    * @param request GetProductQuotaDimensionRequest
-    * @return GetProductQuotaDimensionResponse
+   * @summary Queries the details of a quota dimension that is supported by an Alibaba Cloud service.
+   *
+   * @description In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
+   * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
+   * *   The name of the quota dimension is `region`.
+   *
+   * @param request GetProductQuotaDimensionRequest
+   * @return GetProductQuotaDimensionResponse
    */
   async getProductQuotaDimension(request: GetProductQuotaDimensionRequest): Promise<GetProductQuotaDimensionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3997,11 +4363,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about common request parameters, see [Common parameters](~~171299~~).
-    *
-    * @param request GetQuotaAlarmRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetQuotaAlarmResponse
+   * @summary In this example, the operation is called to query the details of a quota alert. The details of the alert are returned. The query results include the alert ID, alert name, alert contact, and time when the quota alert was created.
+   *
+   * @description In this example, the operation is called to query the details of a quota alert whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert was created.
+   *
+   * @param request GetQuotaAlarmRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQuotaAlarmResponse
    */
   async getQuotaAlarmWithOptions(request: GetQuotaAlarmRequest, runtime: $Util.RuntimeOptions): Promise<GetQuotaAlarmResponse> {
     Util.validateModel(request);
@@ -4028,10 +4396,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about common request parameters, see [Common parameters](~~171299~~).
-    *
-    * @param request GetQuotaAlarmRequest
-    * @return GetQuotaAlarmResponse
+   * @summary In this example, the operation is called to query the details of a quota alert. The details of the alert are returned. The query results include the alert ID, alert name, alert contact, and time when the quota alert was created.
+   *
+   * @description In this example, the operation is called to query the details of a quota alert whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert was created.
+   *
+   * @param request GetQuotaAlarmRequest
+   * @return GetQuotaAlarmResponse
    */
   async getQuotaAlarm(request: GetQuotaAlarmRequest): Promise<GetQuotaAlarmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4039,11 +4409,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
-    *
-    * @param request GetQuotaApplicationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetQuotaApplicationResponse
+   * @summary Queries the details about a specified application that is submitted to increase a quota.
+   *
+   * @description In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
+   *
+   * @param request GetQuotaApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQuotaApplicationResponse
    */
   async getQuotaApplicationWithOptions(request: GetQuotaApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetQuotaApplicationResponse> {
     Util.validateModel(request);
@@ -4070,16 +4442,73 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
-    *
-    * @param request GetQuotaApplicationRequest
-    * @return GetQuotaApplicationResponse
+   * @summary Queries the details about a specified application that is submitted to increase a quota.
+   *
+   * @description In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
+   *
+   * @param request GetQuotaApplicationRequest
+   * @return GetQuotaApplicationResponse
    */
   async getQuotaApplication(request: GetQuotaApplicationRequest): Promise<GetQuotaApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQuotaApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about quota application approval, such as the average amount of time required for approval, whether approval reminders are supported, and the interval between two consecutive approval reminders.
+   *
+   * @description ### [](#)Prerequisites
+   * Make sure that you have created an application for quota increase. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
+   *
+   * @param request GetQuotaApplicationApprovalRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQuotaApplicationApprovalResponse
+   */
+  async getQuotaApplicationApprovalWithOptions(request: GetQuotaApplicationApprovalRequest, runtime: $Util.RuntimeOptions): Promise<GetQuotaApplicationApprovalResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetQuotaApplicationApproval",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetQuotaApplicationApprovalResponse>(await this.callApi(params, req, runtime), new GetQuotaApplicationApprovalResponse({}));
+  }
+
+  /**
+   * @summary Queries the information about quota application approval, such as the average amount of time required for approval, whether approval reminders are supported, and the interval between two consecutive approval reminders.
+   *
+   * @description ### [](#)Prerequisites
+   * Make sure that you have created an application for quota increase. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
+   *
+   * @param request GetQuotaApplicationApprovalRequest
+   * @return GetQuotaApplicationApprovalResponse
+   */
+  async getQuotaApplicationApproval(request: GetQuotaApplicationApprovalRequest): Promise<GetQuotaApplicationApprovalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getQuotaApplicationApprovalWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries the status of a quota template.
+   *
+   * @param request GetQuotaTemplateServiceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQuotaTemplateServiceStatusResponse
+   */
   async getQuotaTemplateServiceStatusWithOptions(request: GetQuotaTemplateServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetQuotaTemplateServiceStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4104,14 +4533,31 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQuotaTemplateServiceStatusResponse>(await this.callApi(params, req, runtime), new GetQuotaTemplateServiceStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a quota template.
+   *
+   * @param request GetQuotaTemplateServiceStatusRequest
+   * @return GetQuotaTemplateServiceStatusResponse
+   */
   async getQuotaTemplateServiceStatus(request: GetQuotaTemplateServiceStatusRequest): Promise<GetQuotaTemplateServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQuotaTemplateServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the alert records.
+   *
+   * @param request ListAlarmHistoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAlarmHistoriesResponse
+   */
   async listAlarmHistoriesWithOptions(request: ListAlarmHistoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListAlarmHistoriesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alarmId)) {
+      body["AlarmId"] = request.alarmId;
+    }
+
     if (!Util.isUnset(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
@@ -4153,20 +4599,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAlarmHistoriesResponse>(await this.callApi(params, req, runtime), new ListAlarmHistoriesResponse({}));
   }
 
+  /**
+   * @summary Queries the alert records.
+   *
+   * @param request ListAlarmHistoriesRequest
+   * @return ListAlarmHistoriesResponse
+   */
   async listAlarmHistories(request: ListAlarmHistoriesRequest): Promise<ListAlarmHistoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAlarmHistoriesWithOptions(request, runtime);
   }
 
   /**
-    * In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
-    * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-    * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
-    * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
-    *
-    * @param request ListDependentQuotasRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDependentQuotasResponse
+   * @summary Queries the quotas on which a specified quota depends.
+   *
+   * @description In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
+   * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
+   * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
+   * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
+   *
+   * @param request ListDependentQuotasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDependentQuotasResponse
    */
   async listDependentQuotasWithOptions(request: ListDependentQuotasRequest, runtime: $Util.RuntimeOptions): Promise<ListDependentQuotasResponse> {
     Util.validateModel(request);
@@ -4197,13 +4651,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
-    * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-    * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
-    * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
-    *
-    * @param request ListDependentQuotasRequest
-    * @return ListDependentQuotasResponse
+   * @summary Queries the quotas on which a specified quota depends.
+   *
+   * @description In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
+   * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
+   * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
+   * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
+   *
+   * @param request ListDependentQuotasRequest
+   * @return ListDependentQuotasResponse
    */
   async listDependentQuotas(request: ListDependentQuotasRequest): Promise<ListDependentQuotasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4211,11 +4667,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
-    *
-    * @param request ListProductDimensionGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListProductDimensionGroupsResponse
+   * @summary Queries the dimension groups of an Alibaba Cloud service.
+   *
+   * @description This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
+   *
+   * @param request ListProductDimensionGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProductDimensionGroupsResponse
    */
   async listProductDimensionGroupsWithOptions(request: ListProductDimensionGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListProductDimensionGroupsResponse> {
     Util.validateModel(request);
@@ -4250,10 +4708,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
-    *
-    * @param request ListProductDimensionGroupsRequest
-    * @return ListProductDimensionGroupsResponse
+   * @summary Queries the dimension groups of an Alibaba Cloud service.
+   *
+   * @description This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
+   *
+   * @param request ListProductDimensionGroupsRequest
+   * @return ListProductDimensionGroupsResponse
    */
   async listProductDimensionGroups(request: ListProductDimensionGroupsRequest): Promise<ListProductDimensionGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4261,11 +4721,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
-    *
-    * @param request ListProductQuotaDimensionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListProductQuotaDimensionsResponse
+   * @summary Queries the quota dimensions that are supported by the specified Alibaba Cloud service.
+   *
+   * @description In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
+   *
+   * @param request ListProductQuotaDimensionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProductQuotaDimensionsResponse
    */
   async listProductQuotaDimensionsWithOptions(request: ListProductQuotaDimensionsRequest, runtime: $Util.RuntimeOptions): Promise<ListProductQuotaDimensionsResponse> {
     Util.validateModel(request);
@@ -4304,10 +4766,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
-    *
-    * @param request ListProductQuotaDimensionsRequest
-    * @return ListProductQuotaDimensionsResponse
+   * @summary Queries the quota dimensions that are supported by the specified Alibaba Cloud service.
+   *
+   * @description In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
+   *
+   * @param request ListProductQuotaDimensionsRequest
+   * @return ListProductQuotaDimensionsResponse
    */
   async listProductQuotaDimensions(request: ListProductQuotaDimensionsRequest): Promise<ListProductQuotaDimensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4315,11 +4779,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
-    *
-    * @param request ListProductQuotasRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListProductQuotasResponse
+   * @summary Queries the quotas of a specific Alibaba Cloud service.
+   *
+   * @description In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
+   *
+   * @param request ListProductQuotasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProductQuotasResponse
    */
   async listProductQuotasWithOptions(request: ListProductQuotasRequest, runtime: $Util.RuntimeOptions): Promise<ListProductQuotasResponse> {
     Util.validateModel(request);
@@ -4382,16 +4848,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
-    *
-    * @param request ListProductQuotasRequest
-    * @return ListProductQuotasResponse
+   * @summary Queries the quotas of a specific Alibaba Cloud service.
+   *
+   * @description In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
+   *
+   * @param request ListProductQuotasRequest
+   * @return ListProductQuotasResponse
    */
   async listProductQuotas(request: ListProductQuotasRequest): Promise<ListProductQuotasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProductQuotasWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Alibaba Cloud services that support Quota Center.
+   *
+   * @description The services in the query result are the same as the services listed in [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+   *
+   * @param request ListProductsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProductsResponse
+   */
   async listProductsWithOptions(request: ListProductsRequest, runtime: $Util.RuntimeOptions): Promise<ListProductsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4420,11 +4897,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProductsResponse>(await this.callApi(params, req, runtime), new ListProductsResponse({}));
   }
 
+  /**
+   * @summary Queries the Alibaba Cloud services that support Quota Center.
+   *
+   * @description The services in the query result are the same as the services listed in [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+   *
+   * @param request ListProductsRequest
+   * @return ListProductsResponse
+   */
   async listProducts(request: ListProductsRequest): Promise<ListProductsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProductsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries quota alerts.
+   *
+   * @param request ListQuotaAlarmsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQuotaAlarmsResponse
+   */
   async listQuotaAlarmsWithOptions(request: ListQuotaAlarmsRequest, runtime: $Util.RuntimeOptions): Promise<ListQuotaAlarmsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4469,11 +4961,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQuotaAlarmsResponse>(await this.callApi(params, req, runtime), new ListQuotaAlarmsResponse({}));
   }
 
+  /**
+   * @summary Queries quota alerts.
+   *
+   * @param request ListQuotaAlarmsRequest
+   * @return ListQuotaAlarmsResponse
+   */
   async listQuotaAlarms(request: ListQuotaAlarmsRequest): Promise<ListQuotaAlarmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQuotaAlarmsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries quota templates by using the management account of a resource directory.
+   *
+   * @param request ListQuotaApplicationTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQuotaApplicationTemplatesResponse
+   */
   async listQuotaApplicationTemplatesWithOptions(request: ListQuotaApplicationTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListQuotaApplicationTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4524,25 +5029,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQuotaApplicationTemplatesResponse>(await this.callApi(params, req, runtime), new ListQuotaApplicationTemplatesResponse({}));
   }
 
+  /**
+   * @summary Queries quota templates by using the management account of a resource directory.
+   *
+   * @param request ListQuotaApplicationTemplatesRequest
+   * @return ListQuotaApplicationTemplatesResponse
+   */
   async listQuotaApplicationTemplates(request: ListQuotaApplicationTemplatesRequest): Promise<ListQuotaApplicationTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQuotaApplicationTemplatesWithOptions(request, runtime);
   }
 
   /**
-    * In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
-    *
-    * @param request ListQuotaApplicationsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListQuotaApplicationsResponse
+   * @summary Queries the details of an application that is submitted to increase a quota.
+   *
+   * @description In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
+   *
+   * @param request ListQuotaApplicationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQuotaApplicationsResponse
    */
   async listQuotaApplicationsWithOptions(request: ListQuotaApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListQuotaApplicationsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.acceptLanguage)) {
-      body["AcceptLanguage"] = request.acceptLanguage;
-    }
-
     if (!Util.isUnset(request.dimensions)) {
       body["Dimensions"] = request.dimensions;
     }
@@ -4593,16 +5102,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
-    *
-    * @param request ListQuotaApplicationsRequest
-    * @return ListQuotaApplicationsResponse
+   * @summary Queries the details of an application that is submitted to increase a quota.
+   *
+   * @description In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
+   *
+   * @param request ListQuotaApplicationsRequest
+   * @return ListQuotaApplicationsResponse
    */
   async listQuotaApplications(request: ListQuotaApplicationsRequest): Promise<ListQuotaApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQuotaApplicationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a quota increase application for member accounts in a resource directory.
+   *
+   * @param request ListQuotaApplicationsDetailForTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQuotaApplicationsDetailForTemplateResponse
+   */
   async listQuotaApplicationsDetailForTemplateWithOptions(request: ListQuotaApplicationsDetailForTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListQuotaApplicationsDetailForTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4655,11 +5173,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQuotaApplicationsDetailForTemplateResponse>(await this.callApi(params, req, runtime), new ListQuotaApplicationsDetailForTemplateResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a quota increase application for member accounts in a resource directory.
+   *
+   * @param request ListQuotaApplicationsDetailForTemplateRequest
+   * @return ListQuotaApplicationsDetailForTemplateResponse
+   */
   async listQuotaApplicationsDetailForTemplate(request: ListQuotaApplicationsDetailForTemplateRequest): Promise<ListQuotaApplicationsDetailForTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQuotaApplicationsDetailForTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the application records of a quota template that is used to apply for quotas for member accounts.
+   *
+   * @param request ListQuotaApplicationsForTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQuotaApplicationsForTemplateResponse
+   */
   async listQuotaApplicationsForTemplateWithOptions(request: ListQuotaApplicationsForTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListQuotaApplicationsForTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4712,17 +5243,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQuotaApplicationsForTemplateResponse>(await this.callApi(params, req, runtime), new ListQuotaApplicationsForTemplateResponse({}));
   }
 
+  /**
+   * @summary Queries the application records of a quota template that is used to apply for quotas for member accounts.
+   *
+   * @param request ListQuotaApplicationsForTemplateRequest
+   * @return ListQuotaApplicationsForTemplateResponse
+   */
   async listQuotaApplicationsForTemplate(request: ListQuotaApplicationsForTemplateRequest): Promise<ListQuotaApplicationsForTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQuotaApplicationsForTemplateWithOptions(request, runtime);
   }
 
   /**
-    * By default, the quota template is enabled.
-    *
-    * @param request ModifyQuotaTemplateServiceStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyQuotaTemplateServiceStatusResponse
+   * @summary Changes the status of a quota template. By default, the quota template is not configured. If the management account of a resource directory uses a quota template for the first time, you must enable the quota template.
+   *
+   * @description ### [](#)Prerequisites
+   * A resource directory is enabled. For more information, see [EnableResourceDirectory](https://help.aliyun.com/document_detail/604185.html).
+   * ### [](#)Usage notes
+   * If the `ServiceStatus` parameter is set to `0` or `-1`, you can call this operation to set the parameter to `1`. Then, you can call the [CreateTemplateQuotaItem](https://help.aliyun.com/document_detail/450615.html) operation to create a quota template.
+   *
+   * @param request ModifyQuotaTemplateServiceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyQuotaTemplateServiceStatusResponse
    */
   async modifyQuotaTemplateServiceStatusWithOptions(request: ModifyQuotaTemplateServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyQuotaTemplateServiceStatusResponse> {
     Util.validateModel(request);
@@ -4749,16 +5291,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * By default, the quota template is enabled.
-    *
-    * @param request ModifyQuotaTemplateServiceStatusRequest
-    * @return ModifyQuotaTemplateServiceStatusResponse
+   * @summary Changes the status of a quota template. By default, the quota template is not configured. If the management account of a resource directory uses a quota template for the first time, you must enable the quota template.
+   *
+   * @description ### [](#)Prerequisites
+   * A resource directory is enabled. For more information, see [EnableResourceDirectory](https://help.aliyun.com/document_detail/604185.html).
+   * ### [](#)Usage notes
+   * If the `ServiceStatus` parameter is set to `0` or `-1`, you can call this operation to set the parameter to `1`. Then, you can call the [CreateTemplateQuotaItem](https://help.aliyun.com/document_detail/450615.html) operation to create a quota template.
+   *
+   * @param request ModifyQuotaTemplateServiceStatusRequest
+   * @return ModifyQuotaTemplateServiceStatusResponse
    */
   async modifyQuotaTemplateServiceStatus(request: ModifyQuotaTemplateServiceStatusRequest): Promise<ModifyQuotaTemplateServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyQuotaTemplateServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the quota template.
+   *
+   * @param request ModifyTemplateQuotaItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTemplateQuotaItemResponse
+   */
   async modifyTemplateQuotaItemWithOptions(request: ModifyTemplateQuotaItemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTemplateQuotaItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4821,17 +5375,71 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTemplateQuotaItemResponse>(await this.callApi(params, req, runtime), new ModifyTemplateQuotaItemResponse({}));
   }
 
+  /**
+   * @summary The ID of the quota template.
+   *
+   * @param request ModifyTemplateQuotaItemRequest
+   * @return ModifyTemplateQuotaItemResponse
+   */
   async modifyTemplateQuotaItem(request: ModifyTemplateQuotaItemRequest): Promise<ModifyTemplateQuotaItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTemplateQuotaItemWithOptions(request, runtime);
   }
 
   /**
-    * In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
-    *
-    * @param request UpdateQuotaAlarmRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateQuotaAlarmResponse
+   * @summary Reminds the approver of a quota application to review the application. This operation is applicable to quota applications that support the approval reminding feature.
+   *
+   * @description >  You can call this operation to enable the approval reminder feature for quota applications that support this feature. To check whether this feature is supported, you can view the value of `SupportReminder` in the GetQuotaApplicationApproval operation. If the value of SupportReminder is `true`, this feature is supported.
+   *
+   * @param request RemindQuotaApplicationApprovalRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemindQuotaApplicationApprovalResponse
+   */
+  async remindQuotaApplicationApprovalWithOptions(request: RemindQuotaApplicationApprovalRequest, runtime: $Util.RuntimeOptions): Promise<RemindQuotaApplicationApprovalResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemindQuotaApplicationApproval",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemindQuotaApplicationApprovalResponse>(await this.callApi(params, req, runtime), new RemindQuotaApplicationApprovalResponse({}));
+  }
+
+  /**
+   * @summary Reminds the approver of a quota application to review the application. This operation is applicable to quota applications that support the approval reminding feature.
+   *
+   * @description >  You can call this operation to enable the approval reminder feature for quota applications that support this feature. To check whether this feature is supported, you can view the value of `SupportReminder` in the GetQuotaApplicationApproval operation. If the value of SupportReminder is `true`, this feature is supported.
+   *
+   * @param request RemindQuotaApplicationApprovalRequest
+   * @return RemindQuotaApplicationApprovalResponse
+   */
+  async remindQuotaApplicationApproval(request: RemindQuotaApplicationApprovalRequest): Promise<RemindQuotaApplicationApprovalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.remindQuotaApplicationApprovalWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Modifies a quota alert rule.
+   *
+   * @description In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
+   *
+   * @param request UpdateQuotaAlarmRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateQuotaAlarmResponse
    */
   async updateQuotaAlarmWithOptions(request: UpdateQuotaAlarmRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQuotaAlarmResponse> {
     Util.validateModel(request);
@@ -4878,10 +5486,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
-    *
-    * @param request UpdateQuotaAlarmRequest
-    * @return UpdateQuotaAlarmResponse
+   * @summary Modifies a quota alert rule.
+   *
+   * @description In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
+   *
+   * @param request UpdateQuotaAlarmRequest
+   * @return UpdateQuotaAlarmResponse
    */
   async updateQuotaAlarm(request: UpdateQuotaAlarmRequest): Promise<UpdateQuotaAlarmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
