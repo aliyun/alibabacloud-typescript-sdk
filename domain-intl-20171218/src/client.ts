@@ -56,9 +56,9 @@ export class AcknowledgeTaskResultResponseBody extends $tea.Model {
 }
 
 export class AcknowledgeTaskResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AcknowledgeTaskResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AcknowledgeTaskResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -128,9 +128,9 @@ export class BatchFuzzyMatchDomainSensitiveWordResponseBody extends $tea.Model {
 }
 
 export class BatchFuzzyMatchDomainSensitiveWordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchFuzzyMatchDomainSensitiveWordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchFuzzyMatchDomainSensitiveWordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -200,9 +200,9 @@ export class CancelDomainVerificationResponseBody extends $tea.Model {
 }
 
 export class CancelDomainVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelDomainVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelDomainVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -269,9 +269,9 @@ export class CancelTaskResponseBody extends $tea.Model {
 }
 
 export class CancelTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -365,9 +365,9 @@ export class CheckDomainResponseBody extends $tea.Model {
 }
 
 export class CheckDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -440,9 +440,9 @@ export class CheckDomainSunriseClaimResponseBody extends $tea.Model {
 }
 
 export class CheckDomainSunriseClaimResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckDomainSunriseClaimResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckDomainSunriseClaimResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -524,9 +524,9 @@ export class CheckTransferInFeasibilityResponseBody extends $tea.Model {
 }
 
 export class CheckTransferInFeasibilityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckTransferInFeasibilityResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckTransferInFeasibilityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -602,9 +602,9 @@ export class ConfirmTransferInEmailResponseBody extends $tea.Model {
 }
 
 export class ConfirmTransferInEmailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfirmTransferInEmailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfirmTransferInEmailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -677,9 +677,9 @@ export class DeleteEmailVerificationResponseBody extends $tea.Model {
 }
 
 export class DeleteEmailVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEmailVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEmailVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -746,9 +746,9 @@ export class DeleteRegistrantProfileResponseBody extends $tea.Model {
 }
 
 export class DeleteRegistrantProfileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRegistrantProfileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRegistrantProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -815,9 +815,9 @@ export class EmailVerifiedResponseBody extends $tea.Model {
 }
 
 export class EmailVerifiedResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EmailVerifiedResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EmailVerifiedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -893,9 +893,9 @@ export class FuzzyMatchDomainSensitiveWordResponseBody extends $tea.Model {
 }
 
 export class FuzzyMatchDomainSensitiveWordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FuzzyMatchDomainSensitiveWordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FuzzyMatchDomainSensitiveWordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -998,9 +998,9 @@ export class ListEmailVerificationResponseBody extends $tea.Model {
 }
 
 export class ListEmailVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEmailVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEmailVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1082,9 +1082,9 @@ export class LookupTmchNoticeResponseBody extends $tea.Model {
 }
 
 export class LookupTmchNoticeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LookupTmchNoticeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LookupTmchNoticeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1187,9 +1187,9 @@ export class PollTaskResultResponseBody extends $tea.Model {
 }
 
 export class PollTaskResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PollTaskResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PollTaskResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1286,9 +1286,9 @@ export class QueryArtExtensionResponseBody extends $tea.Model {
 }
 
 export class QueryArtExtensionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryArtExtensionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryArtExtensionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1391,9 +1391,9 @@ export class QueryChangeLogListResponseBody extends $tea.Model {
 }
 
 export class QueryChangeLogListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryChangeLogListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryChangeLogListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1499,9 +1499,9 @@ export class QueryContactInfoResponseBody extends $tea.Model {
 }
 
 export class QueryContactInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryContactInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryContactInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1571,9 +1571,9 @@ export class QueryDSRecordResponseBody extends $tea.Model {
 }
 
 export class QueryDSRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDSRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDSRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1643,9 +1643,9 @@ export class QueryDnsHostResponseBody extends $tea.Model {
 }
 
 export class QueryDnsHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDnsHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDnsHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1778,9 +1778,9 @@ export class QueryDomainByDomainNameResponseBody extends $tea.Model {
 }
 
 export class QueryDomainByDomainNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDomainByDomainNameResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDomainByDomainNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1913,9 +1913,9 @@ export class QueryDomainByInstanceIdResponseBody extends $tea.Model {
 }
 
 export class QueryDomainByInstanceIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDomainByInstanceIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDomainByInstanceIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1938,6 +1938,7 @@ export class QueryDomainByInstanceIdResponse extends $tea.Model {
 }
 
 export class QueryDomainListRequest extends $tea.Model {
+  ccompany?: string;
   domainName?: string;
   endExpirationDate?: number;
   endRegistrationDate?: number;
@@ -1953,6 +1954,7 @@ export class QueryDomainListRequest extends $tea.Model {
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
+      ccompany: 'Ccompany',
       domainName: 'DomainName',
       endExpirationDate: 'EndExpirationDate',
       endRegistrationDate: 'EndRegistrationDate',
@@ -1971,6 +1973,7 @@ export class QueryDomainListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ccompany: 'string',
       domainName: 'string',
       endExpirationDate: 'number',
       endRegistrationDate: 'number',
@@ -2033,9 +2036,9 @@ export class QueryDomainListResponseBody extends $tea.Model {
 }
 
 export class QueryDomainListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDomainListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDomainListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2126,9 +2129,9 @@ export class QueryDomainRealNameVerificationInfoResponseBody extends $tea.Model 
 }
 
 export class QueryDomainRealNameVerificationInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDomainRealNameVerificationInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDomainRealNameVerificationInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2198,9 +2201,9 @@ export class QueryEnsAssociationResponseBody extends $tea.Model {
 }
 
 export class QueryEnsAssociationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryEnsAssociationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryEnsAssociationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2273,9 +2276,9 @@ export class QueryFailReasonForDomainRealNameVerificationResponseBody extends $t
 }
 
 export class QueryFailReasonForDomainRealNameVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFailReasonForDomainRealNameVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFailReasonForDomainRealNameVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2345,9 +2348,9 @@ export class QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody
 }
 
 export class QueryFailReasonForRegistrantProfileRealNameVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2417,9 +2420,9 @@ export class QueryLocalEnsAssociationResponseBody extends $tea.Model {
 }
 
 export class QueryLocalEnsAssociationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryLocalEnsAssociationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryLocalEnsAssociationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2510,9 +2513,9 @@ export class QueryRegistrantProfileRealNameVerificationInfoResponseBody extends 
 }
 
 export class QueryRegistrantProfileRealNameVerificationInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRegistrantProfileRealNameVerificationInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRegistrantProfileRealNameVerificationInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2624,9 +2627,9 @@ export class QueryRegistrantProfilesResponseBody extends $tea.Model {
 }
 
 export class QueryRegistrantProfilesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRegistrantProfilesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRegistrantProfilesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2723,9 +2726,9 @@ export class QueryTaskDetailHistoryResponseBody extends $tea.Model {
 }
 
 export class QueryTaskDetailHistoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTaskDetailHistoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTaskDetailHistoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2828,9 +2831,9 @@ export class QueryTaskDetailListResponseBody extends $tea.Model {
 }
 
 export class QueryTaskDetailListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTaskDetailListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTaskDetailListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2924,9 +2927,9 @@ export class QueryTaskInfoHistoryResponseBody extends $tea.Model {
 }
 
 export class QueryTaskInfoHistoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTaskInfoHistoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTaskInfoHistoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3023,9 +3026,9 @@ export class QueryTaskListResponseBody extends $tea.Model {
 }
 
 export class QueryTaskListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTaskListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTaskListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3155,9 +3158,9 @@ export class QueryTransferInByInstanceIdResponseBody extends $tea.Model {
 }
 
 export class QueryTransferInByInstanceIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTransferInByInstanceIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTransferInByInstanceIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3260,9 +3263,9 @@ export class QueryTransferInListResponseBody extends $tea.Model {
 }
 
 export class QueryTransferInListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTransferInListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTransferInListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3350,9 +3353,9 @@ export class QueryTransferOutInfoResponseBody extends $tea.Model {
 }
 
 export class QueryTransferOutInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTransferOutInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTransferOutInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3428,9 +3431,9 @@ export class RegistrantProfileRealNameVerificationResponseBody extends $tea.Mode
 }
 
 export class RegistrantProfileRealNameVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RegistrantProfileRealNameVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RegistrantProfileRealNameVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3503,9 +3506,9 @@ export class ResendEmailVerificationResponseBody extends $tea.Model {
 }
 
 export class ResendEmailVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResendEmailVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResendEmailVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3587,9 +3590,9 @@ export class SaveBatchTaskForCreatingOrderActivateResponseBody extends $tea.Mode
 }
 
 export class SaveBatchTaskForCreatingOrderActivateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveBatchTaskForCreatingOrderActivateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForCreatingOrderActivateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3671,9 +3674,9 @@ export class SaveBatchTaskForCreatingOrderRedeemResponseBody extends $tea.Model 
 }
 
 export class SaveBatchTaskForCreatingOrderRedeemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveBatchTaskForCreatingOrderRedeemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForCreatingOrderRedeemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3755,9 +3758,9 @@ export class SaveBatchTaskForCreatingOrderRenewResponseBody extends $tea.Model {
 }
 
 export class SaveBatchTaskForCreatingOrderRenewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveBatchTaskForCreatingOrderRenewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForCreatingOrderRenewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3839,9 +3842,9 @@ export class SaveBatchTaskForCreatingOrderTransferResponseBody extends $tea.Mode
 }
 
 export class SaveBatchTaskForCreatingOrderTransferResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveBatchTaskForCreatingOrderTransferResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForCreatingOrderTransferResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3914,9 +3917,9 @@ export class SaveBatchTaskForDomainNameProxyServiceResponseBody extends $tea.Mod
 }
 
 export class SaveBatchTaskForDomainNameProxyServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveBatchTaskForDomainNameProxyServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForDomainNameProxyServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3992,9 +3995,9 @@ export class SaveBatchTaskForModifyingDomainDnsResponseBody extends $tea.Model {
 }
 
 export class SaveBatchTaskForModifyingDomainDnsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveBatchTaskForModifyingDomainDnsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForModifyingDomainDnsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4061,9 +4064,9 @@ export class SaveBatchTaskForReserveDropListDomainResponseBody extends $tea.Mode
 }
 
 export class SaveBatchTaskForReserveDropListDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveBatchTaskForReserveDropListDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForReserveDropListDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4136,9 +4139,9 @@ export class SaveBatchTaskForTransferProhibitionLockResponseBody extends $tea.Mo
 }
 
 export class SaveBatchTaskForTransferProhibitionLockResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveBatchTaskForTransferProhibitionLockResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForTransferProhibitionLockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4211,9 +4214,9 @@ export class SaveBatchTaskForUpdateProhibitionLockResponseBody extends $tea.Mode
 }
 
 export class SaveBatchTaskForUpdateProhibitionLockResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveBatchTaskForUpdateProhibitionLockResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForUpdateProhibitionLockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4292,9 +4295,9 @@ export class SaveBatchTaskForUpdatingContactInfoResponseBody extends $tea.Model 
 }
 
 export class SaveBatchTaskForUpdatingContactInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveBatchTaskForUpdatingContactInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForUpdatingContactInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4403,9 +4406,9 @@ export class SaveBatchTaskForUpdatingContactInfoByNewContactResponseBody extends
 }
 
 export class SaveBatchTaskForUpdatingContactInfoByNewContactResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveBatchTaskForUpdatingContactInfoByNewContactResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForUpdatingContactInfoByNewContactResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4517,9 +4520,9 @@ export class SaveRegistrantProfileResponseBody extends $tea.Model {
 }
 
 export class SaveRegistrantProfileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveRegistrantProfileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveRegistrantProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4601,9 +4604,9 @@ export class SaveSingleTaskForAddingDSRecordResponseBody extends $tea.Model {
 }
 
 export class SaveSingleTaskForAddingDSRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForAddingDSRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForAddingDSRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4673,9 +4676,9 @@ export class SaveSingleTaskForApprovingTransferOutResponseBody extends $tea.Mode
 }
 
 export class SaveSingleTaskForApprovingTransferOutResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForApprovingTransferOutResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForApprovingTransferOutResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4748,9 +4751,9 @@ export class SaveSingleTaskForAssociatingEnsResponseBody extends $tea.Model {
 }
 
 export class SaveSingleTaskForAssociatingEnsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForAssociatingEnsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForAssociatingEnsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4820,9 +4823,9 @@ export class SaveSingleTaskForCancelingTransferInResponseBody extends $tea.Model
 }
 
 export class SaveSingleTaskForCancelingTransferInResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForCancelingTransferInResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForCancelingTransferInResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4892,9 +4895,9 @@ export class SaveSingleTaskForCancelingTransferOutResponseBody extends $tea.Mode
 }
 
 export class SaveSingleTaskForCancelingTransferOutResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForCancelingTransferOutResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForCancelingTransferOutResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4970,9 +4973,9 @@ export class SaveSingleTaskForCreatingDnsHostResponseBody extends $tea.Model {
 }
 
 export class SaveSingleTaskForCreatingDnsHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForCreatingDnsHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForCreatingDnsHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5114,9 +5117,9 @@ export class SaveSingleTaskForCreatingOrderActivateResponseBody extends $tea.Mod
 }
 
 export class SaveSingleTaskForCreatingOrderActivateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForCreatingOrderActivateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForCreatingOrderActivateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5201,9 +5204,9 @@ export class SaveSingleTaskForCreatingOrderRedeemResponseBody extends $tea.Model
 }
 
 export class SaveSingleTaskForCreatingOrderRedeemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForCreatingOrderRedeemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForCreatingOrderRedeemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5291,9 +5294,9 @@ export class SaveSingleTaskForCreatingOrderRenewResponseBody extends $tea.Model 
 }
 
 export class SaveSingleTaskForCreatingOrderRenewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForCreatingOrderRenewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForCreatingOrderRenewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5384,9 +5387,9 @@ export class SaveSingleTaskForCreatingOrderTransferResponseBody extends $tea.Mod
 }
 
 export class SaveSingleTaskForCreatingOrderTransferResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForCreatingOrderTransferResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForCreatingOrderTransferResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5459,9 +5462,9 @@ export class SaveSingleTaskForDeletingDSRecordResponseBody extends $tea.Model {
 }
 
 export class SaveSingleTaskForDeletingDSRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForDeletingDSRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForDeletingDSRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5537,9 +5540,9 @@ export class SaveSingleTaskForDeletingDnsHostResponseBody extends $tea.Model {
 }
 
 export class SaveSingleTaskForDeletingDnsHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForDeletingDnsHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForDeletingDnsHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5609,9 +5612,9 @@ export class SaveSingleTaskForDisassociatingEnsResponseBody extends $tea.Model {
 }
 
 export class SaveSingleTaskForDisassociatingEnsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForDisassociatingEnsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForDisassociatingEnsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5684,9 +5687,9 @@ export class SaveSingleTaskForDomainNameProxyServiceResponseBody extends $tea.Mo
 }
 
 export class SaveSingleTaskForDomainNameProxyServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForDomainNameProxyServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForDomainNameProxyServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5768,9 +5771,9 @@ export class SaveSingleTaskForModifyingDSRecordResponseBody extends $tea.Model {
 }
 
 export class SaveSingleTaskForModifyingDSRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForModifyingDSRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForModifyingDSRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5846,9 +5849,9 @@ export class SaveSingleTaskForModifyingDnsHostResponseBody extends $tea.Model {
 }
 
 export class SaveSingleTaskForModifyingDnsHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForModifyingDnsHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForModifyingDnsHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5918,9 +5921,9 @@ export class SaveSingleTaskForQueryingTransferAuthorizationCodeResponseBody exte
 }
 
 export class SaveSingleTaskForQueryingTransferAuthorizationCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForQueryingTransferAuthorizationCodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForQueryingTransferAuthorizationCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6017,9 +6020,9 @@ export class SaveSingleTaskForSaveArtExtensionResponseBody extends $tea.Model {
 }
 
 export class SaveSingleTaskForSaveArtExtensionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForSaveArtExtensionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForSaveArtExtensionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6089,9 +6092,9 @@ export class SaveSingleTaskForSynchronizingDSRecordResponseBody extends $tea.Mod
 }
 
 export class SaveSingleTaskForSynchronizingDSRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForSynchronizingDSRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForSynchronizingDSRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6161,9 +6164,9 @@ export class SaveSingleTaskForSynchronizingDnsHostResponseBody extends $tea.Mode
 }
 
 export class SaveSingleTaskForSynchronizingDnsHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForSynchronizingDnsHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForSynchronizingDnsHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6236,9 +6239,9 @@ export class SaveSingleTaskForTransferProhibitionLockResponseBody extends $tea.M
 }
 
 export class SaveSingleTaskForTransferProhibitionLockResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForTransferProhibitionLockResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForTransferProhibitionLockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6311,9 +6314,9 @@ export class SaveSingleTaskForUpdateProhibitionLockResponseBody extends $tea.Mod
 }
 
 export class SaveSingleTaskForUpdateProhibitionLockResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForUpdateProhibitionLockResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForUpdateProhibitionLockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6395,9 +6398,9 @@ export class SaveSingleTaskForUpdatingContactInfoResponseBody extends $tea.Model
 }
 
 export class SaveSingleTaskForUpdatingContactInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveSingleTaskForUpdatingContactInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForUpdatingContactInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6467,9 +6470,9 @@ export class SaveTaskForSubmittingDomainDeleteResponseBody extends $tea.Model {
 }
 
 export class SaveTaskForSubmittingDomainDeleteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveTaskForSubmittingDomainDeleteResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveTaskForSubmittingDomainDeleteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6548,9 +6551,9 @@ export class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredential
 }
 
 export class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6626,9 +6629,9 @@ export class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileI
 }
 
 export class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6746,9 +6749,9 @@ export class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody e
 }
 
 export class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6824,9 +6827,9 @@ export class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponseBody 
 }
 
 export class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6905,9 +6908,9 @@ export class SubmitEmailVerificationResponseBody extends $tea.Model {
 }
 
 export class SubmitEmailVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitEmailVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitEmailVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6980,9 +6983,9 @@ export class TransferInCheckMailTokenResponseBody extends $tea.Model {
 }
 
 export class TransferInCheckMailTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TransferInCheckMailTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransferInCheckMailTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7052,9 +7055,9 @@ export class TransferInReenterTransferAuthorizationCodeResponseBody extends $tea
 }
 
 export class TransferInReenterTransferAuthorizationCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TransferInReenterTransferAuthorizationCodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransferInReenterTransferAuthorizationCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7121,9 +7124,9 @@ export class TransferInRefetchWhoisEmailResponseBody extends $tea.Model {
 }
 
 export class TransferInRefetchWhoisEmailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TransferInRefetchWhoisEmailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransferInRefetchWhoisEmailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7190,9 +7193,9 @@ export class TransferInResendMailTokenResponseBody extends $tea.Model {
 }
 
 export class TransferInResendMailTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TransferInResendMailTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransferInResendMailTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7295,9 +7298,9 @@ export class VerifyContactFieldResponseBody extends $tea.Model {
 }
 
 export class VerifyContactFieldResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VerifyContactFieldResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VerifyContactFieldResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7364,9 +7367,9 @@ export class VerifyEmailResponseBody extends $tea.Model {
 }
 
 export class VerifyEmailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VerifyEmailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VerifyEmailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9211,15 +9214,21 @@ export class SaveBatchTaskForCreatingOrderTransferRequestOrderTransferParam exte
 }
 
 export class SaveBatchTaskForReserveDropListDomainRequestDomains extends $tea.Model {
+  dns1?: string;
+  dns2?: string;
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
+      dns1: 'Dns1',
+      dns2: 'Dns2',
       domainName: 'DomainName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dns1: 'string',
+      dns2: 'string',
       domainName: 'string',
     };
   }
@@ -9365,6 +9374,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AcknowledgeTaskResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AcknowledgeTaskResultResponse
+   */
   async acknowledgeTaskResultWithOptions(request: AcknowledgeTaskResultRequest, runtime: $Util.RuntimeOptions): Promise<AcknowledgeTaskResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9397,11 +9411,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AcknowledgeTaskResultResponse>(await this.callApi(params, req, runtime), new AcknowledgeTaskResultResponse({}));
   }
 
+  /**
+   * @param request AcknowledgeTaskResultRequest
+   * @return AcknowledgeTaskResultResponse
+   */
   async acknowledgeTaskResult(request: AcknowledgeTaskResultRequest): Promise<AcknowledgeTaskResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.acknowledgeTaskResultWithOptions(request, runtime);
   }
 
+  /**
+   * @param request BatchFuzzyMatchDomainSensitiveWordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchFuzzyMatchDomainSensitiveWordResponse
+   */
   async batchFuzzyMatchDomainSensitiveWordWithOptions(request: BatchFuzzyMatchDomainSensitiveWordRequest, runtime: $Util.RuntimeOptions): Promise<BatchFuzzyMatchDomainSensitiveWordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9434,11 +9457,20 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchFuzzyMatchDomainSensitiveWordResponse>(await this.callApi(params, req, runtime), new BatchFuzzyMatchDomainSensitiveWordResponse({}));
   }
 
+  /**
+   * @param request BatchFuzzyMatchDomainSensitiveWordRequest
+   * @return BatchFuzzyMatchDomainSensitiveWordResponse
+   */
   async batchFuzzyMatchDomainSensitiveWord(request: BatchFuzzyMatchDomainSensitiveWordRequest): Promise<BatchFuzzyMatchDomainSensitiveWordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchFuzzyMatchDomainSensitiveWordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CancelDomainVerificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelDomainVerificationResponse
+   */
   async cancelDomainVerificationWithOptions(request: CancelDomainVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CancelDomainVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9475,11 +9507,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelDomainVerificationResponse>(await this.callApi(params, req, runtime), new CancelDomainVerificationResponse({}));
   }
 
+  /**
+   * @param request CancelDomainVerificationRequest
+   * @return CancelDomainVerificationResponse
+   */
   async cancelDomainVerification(request: CancelDomainVerificationRequest): Promise<CancelDomainVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelDomainVerificationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CancelTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelTaskResponse
+   */
   async cancelTaskWithOptions(request: CancelTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9512,11 +9553,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
   }
 
+  /**
+   * @param request CancelTaskRequest
+   * @return CancelTaskResponse
+   */
   async cancelTask(request: CancelTaskRequest): Promise<CancelTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CheckDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckDomainResponse
+   */
   async checkDomainWithOptions(request: CheckDomainRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9561,11 +9611,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckDomainResponse>(await this.callApi(params, req, runtime), new CheckDomainResponse({}));
   }
 
+  /**
+   * @param request CheckDomainRequest
+   * @return CheckDomainResponse
+   */
   async checkDomain(request: CheckDomainRequest): Promise<CheckDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CheckDomainSunriseClaimRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckDomainSunriseClaimResponse
+   */
   async checkDomainSunriseClaimWithOptions(request: CheckDomainSunriseClaimRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainSunriseClaimResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9598,11 +9657,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckDomainSunriseClaimResponse>(await this.callApi(params, req, runtime), new CheckDomainSunriseClaimResponse({}));
   }
 
+  /**
+   * @param request CheckDomainSunriseClaimRequest
+   * @return CheckDomainSunriseClaimResponse
+   */
   async checkDomainSunriseClaim(request: CheckDomainSunriseClaimRequest): Promise<CheckDomainSunriseClaimResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkDomainSunriseClaimWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CheckTransferInFeasibilityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckTransferInFeasibilityResponse
+   */
   async checkTransferInFeasibilityWithOptions(request: CheckTransferInFeasibilityRequest, runtime: $Util.RuntimeOptions): Promise<CheckTransferInFeasibilityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9639,11 +9707,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckTransferInFeasibilityResponse>(await this.callApi(params, req, runtime), new CheckTransferInFeasibilityResponse({}));
   }
 
+  /**
+   * @param request CheckTransferInFeasibilityRequest
+   * @return CheckTransferInFeasibilityResponse
+   */
   async checkTransferInFeasibility(request: CheckTransferInFeasibilityRequest): Promise<CheckTransferInFeasibilityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkTransferInFeasibilityWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ConfirmTransferInEmailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfirmTransferInEmailResponse
+   */
   async confirmTransferInEmailWithOptions(request: ConfirmTransferInEmailRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmTransferInEmailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9680,11 +9757,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfirmTransferInEmailResponse>(await this.callApi(params, req, runtime), new ConfirmTransferInEmailResponse({}));
   }
 
+  /**
+   * @param request ConfirmTransferInEmailRequest
+   * @return ConfirmTransferInEmailResponse
+   */
   async confirmTransferInEmail(request: ConfirmTransferInEmailRequest): Promise<ConfirmTransferInEmailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.confirmTransferInEmailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteEmailVerificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEmailVerificationResponse
+   */
   async deleteEmailVerificationWithOptions(request: DeleteEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEmailVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9717,11 +9803,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEmailVerificationResponse>(await this.callApi(params, req, runtime), new DeleteEmailVerificationResponse({}));
   }
 
+  /**
+   * @param request DeleteEmailVerificationRequest
+   * @return DeleteEmailVerificationResponse
+   */
   async deleteEmailVerification(request: DeleteEmailVerificationRequest): Promise<DeleteEmailVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEmailVerificationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteRegistrantProfileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRegistrantProfileResponse
+   */
   async deleteRegistrantProfileWithOptions(request: DeleteRegistrantProfileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRegistrantProfileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9754,11 +9849,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRegistrantProfileResponse>(await this.callApi(params, req, runtime), new DeleteRegistrantProfileResponse({}));
   }
 
+  /**
+   * @param request DeleteRegistrantProfileRequest
+   * @return DeleteRegistrantProfileResponse
+   */
   async deleteRegistrantProfile(request: DeleteRegistrantProfileRequest): Promise<DeleteRegistrantProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRegistrantProfileWithOptions(request, runtime);
   }
 
+  /**
+   * @param request EmailVerifiedRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EmailVerifiedResponse
+   */
   async emailVerifiedWithOptions(request: EmailVerifiedRequest, runtime: $Util.RuntimeOptions): Promise<EmailVerifiedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9791,11 +9895,20 @@ export default class Client extends OpenApi {
     return $tea.cast<EmailVerifiedResponse>(await this.callApi(params, req, runtime), new EmailVerifiedResponse({}));
   }
 
+  /**
+   * @param request EmailVerifiedRequest
+   * @return EmailVerifiedResponse
+   */
   async emailVerified(request: EmailVerifiedRequest): Promise<EmailVerifiedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.emailVerifiedWithOptions(request, runtime);
   }
 
+  /**
+   * @param request FuzzyMatchDomainSensitiveWordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FuzzyMatchDomainSensitiveWordResponse
+   */
   async fuzzyMatchDomainSensitiveWordWithOptions(request: FuzzyMatchDomainSensitiveWordRequest, runtime: $Util.RuntimeOptions): Promise<FuzzyMatchDomainSensitiveWordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9828,11 +9941,20 @@ export default class Client extends OpenApi {
     return $tea.cast<FuzzyMatchDomainSensitiveWordResponse>(await this.callApi(params, req, runtime), new FuzzyMatchDomainSensitiveWordResponse({}));
   }
 
+  /**
+   * @param request FuzzyMatchDomainSensitiveWordRequest
+   * @return FuzzyMatchDomainSensitiveWordResponse
+   */
   async fuzzyMatchDomainSensitiveWord(request: FuzzyMatchDomainSensitiveWordRequest): Promise<FuzzyMatchDomainSensitiveWordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fuzzyMatchDomainSensitiveWordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListEmailVerificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEmailVerificationResponse
+   */
   async listEmailVerificationWithOptions(request: ListEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ListEmailVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9885,11 +10007,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEmailVerificationResponse>(await this.callApi(params, req, runtime), new ListEmailVerificationResponse({}));
   }
 
+  /**
+   * @param request ListEmailVerificationRequest
+   * @return ListEmailVerificationResponse
+   */
   async listEmailVerification(request: ListEmailVerificationRequest): Promise<ListEmailVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEmailVerificationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request LookupTmchNoticeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LookupTmchNoticeResponse
+   */
   async lookupTmchNoticeWithOptions(request: LookupTmchNoticeRequest, runtime: $Util.RuntimeOptions): Promise<LookupTmchNoticeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9922,11 +10053,20 @@ export default class Client extends OpenApi {
     return $tea.cast<LookupTmchNoticeResponse>(await this.callApi(params, req, runtime), new LookupTmchNoticeResponse({}));
   }
 
+  /**
+   * @param request LookupTmchNoticeRequest
+   * @return LookupTmchNoticeResponse
+   */
   async lookupTmchNotice(request: LookupTmchNoticeRequest): Promise<LookupTmchNoticeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.lookupTmchNoticeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PollTaskResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PollTaskResultResponse
+   */
   async pollTaskResultWithOptions(request: PollTaskResultRequest, runtime: $Util.RuntimeOptions): Promise<PollTaskResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9979,11 +10119,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PollTaskResultResponse>(await this.callApi(params, req, runtime), new PollTaskResultResponse({}));
   }
 
+  /**
+   * @param request PollTaskResultRequest
+   * @return PollTaskResultResponse
+   */
   async pollTaskResult(request: PollTaskResultRequest): Promise<PollTaskResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pollTaskResultWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryArtExtensionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryArtExtensionResponse
+   */
   async queryArtExtensionWithOptions(request: QueryArtExtensionRequest, runtime: $Util.RuntimeOptions): Promise<QueryArtExtensionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10016,11 +10165,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryArtExtensionResponse>(await this.callApi(params, req, runtime), new QueryArtExtensionResponse({}));
   }
 
+  /**
+   * @param request QueryArtExtensionRequest
+   * @return QueryArtExtensionResponse
+   */
   async queryArtExtension(request: QueryArtExtensionRequest): Promise<QueryArtExtensionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryArtExtensionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryChangeLogListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryChangeLogListResponse
+   */
   async queryChangeLogListWithOptions(request: QueryChangeLogListRequest, runtime: $Util.RuntimeOptions): Promise<QueryChangeLogListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10069,11 +10227,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryChangeLogListResponse>(await this.callApi(params, req, runtime), new QueryChangeLogListResponse({}));
   }
 
+  /**
+   * @param request QueryChangeLogListRequest
+   * @return QueryChangeLogListResponse
+   */
   async queryChangeLogList(request: QueryChangeLogListRequest): Promise<QueryChangeLogListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryChangeLogListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryContactInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryContactInfoResponse
+   */
   async queryContactInfoWithOptions(request: QueryContactInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryContactInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10110,11 +10277,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryContactInfoResponse>(await this.callApi(params, req, runtime), new QueryContactInfoResponse({}));
   }
 
+  /**
+   * @param request QueryContactInfoRequest
+   * @return QueryContactInfoResponse
+   */
   async queryContactInfo(request: QueryContactInfoRequest): Promise<QueryContactInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryContactInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDSRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDSRecordResponse
+   */
   async queryDSRecordWithOptions(request: QueryDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<QueryDSRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10147,11 +10323,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDSRecordResponse>(await this.callApi(params, req, runtime), new QueryDSRecordResponse({}));
   }
 
+  /**
+   * @param request QueryDSRecordRequest
+   * @return QueryDSRecordResponse
+   */
   async queryDSRecord(request: QueryDSRecordRequest): Promise<QueryDSRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDSRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDnsHostRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDnsHostResponse
+   */
   async queryDnsHostWithOptions(request: QueryDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<QueryDnsHostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10184,11 +10369,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDnsHostResponse>(await this.callApi(params, req, runtime), new QueryDnsHostResponse({}));
   }
 
+  /**
+   * @param request QueryDnsHostRequest
+   * @return QueryDnsHostResponse
+   */
   async queryDnsHost(request: QueryDnsHostRequest): Promise<QueryDnsHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDnsHostWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDomainByDomainNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDomainByDomainNameResponse
+   */
   async queryDomainByDomainNameWithOptions(request: QueryDomainByDomainNameRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainByDomainNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10221,11 +10415,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDomainByDomainNameResponse>(await this.callApi(params, req, runtime), new QueryDomainByDomainNameResponse({}));
   }
 
+  /**
+   * @param request QueryDomainByDomainNameRequest
+   * @return QueryDomainByDomainNameResponse
+   */
   async queryDomainByDomainName(request: QueryDomainByDomainNameRequest): Promise<QueryDomainByDomainNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDomainByDomainNameWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDomainByInstanceIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDomainByInstanceIdResponse
+   */
   async queryDomainByInstanceIdWithOptions(request: QueryDomainByInstanceIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainByInstanceIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10258,14 +10461,27 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDomainByInstanceIdResponse>(await this.callApi(params, req, runtime), new QueryDomainByInstanceIdResponse({}));
   }
 
+  /**
+   * @param request QueryDomainByInstanceIdRequest
+   * @return QueryDomainByInstanceIdResponse
+   */
   async queryDomainByInstanceId(request: QueryDomainByInstanceIdRequest): Promise<QueryDomainByInstanceIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDomainByInstanceIdWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDomainListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDomainListResponse
+   */
   async queryDomainListWithOptions(request: QueryDomainListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainListResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.ccompany)) {
+      query["Ccompany"] = request.ccompany;
+    }
+
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
@@ -10335,11 +10551,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDomainListResponse>(await this.callApi(params, req, runtime), new QueryDomainListResponse({}));
   }
 
+  /**
+   * @param request QueryDomainListRequest
+   * @return QueryDomainListResponse
+   */
   async queryDomainList(request: QueryDomainListRequest): Promise<QueryDomainListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDomainListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDomainRealNameVerificationInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDomainRealNameVerificationInfoResponse
+   */
   async queryDomainRealNameVerificationInfoWithOptions(request: QueryDomainRealNameVerificationInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainRealNameVerificationInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10376,11 +10601,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDomainRealNameVerificationInfoResponse>(await this.callApi(params, req, runtime), new QueryDomainRealNameVerificationInfoResponse({}));
   }
 
+  /**
+   * @param request QueryDomainRealNameVerificationInfoRequest
+   * @return QueryDomainRealNameVerificationInfoResponse
+   */
   async queryDomainRealNameVerificationInfo(request: QueryDomainRealNameVerificationInfoRequest): Promise<QueryDomainRealNameVerificationInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDomainRealNameVerificationInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryEnsAssociationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryEnsAssociationResponse
+   */
   async queryEnsAssociationWithOptions(request: QueryEnsAssociationRequest, runtime: $Util.RuntimeOptions): Promise<QueryEnsAssociationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10413,11 +10647,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEnsAssociationResponse>(await this.callApi(params, req, runtime), new QueryEnsAssociationResponse({}));
   }
 
+  /**
+   * @param request QueryEnsAssociationRequest
+   * @return QueryEnsAssociationResponse
+   */
   async queryEnsAssociation(request: QueryEnsAssociationRequest): Promise<QueryEnsAssociationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEnsAssociationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryFailReasonForDomainRealNameVerificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryFailReasonForDomainRealNameVerificationResponse
+   */
   async queryFailReasonForDomainRealNameVerificationWithOptions(request: QueryFailReasonForDomainRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryFailReasonForDomainRealNameVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10454,11 +10697,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryFailReasonForDomainRealNameVerificationResponse>(await this.callApi(params, req, runtime), new QueryFailReasonForDomainRealNameVerificationResponse({}));
   }
 
+  /**
+   * @param request QueryFailReasonForDomainRealNameVerificationRequest
+   * @return QueryFailReasonForDomainRealNameVerificationResponse
+   */
   async queryFailReasonForDomainRealNameVerification(request: QueryFailReasonForDomainRealNameVerificationRequest): Promise<QueryFailReasonForDomainRealNameVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryFailReasonForDomainRealNameVerificationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryFailReasonForRegistrantProfileRealNameVerificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse
+   */
   async queryFailReasonForRegistrantProfileRealNameVerificationWithOptions(request: QueryFailReasonForRegistrantProfileRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryFailReasonForRegistrantProfileRealNameVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10491,11 +10743,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryFailReasonForRegistrantProfileRealNameVerificationResponse>(await this.callApi(params, req, runtime), new QueryFailReasonForRegistrantProfileRealNameVerificationResponse({}));
   }
 
+  /**
+   * @param request QueryFailReasonForRegistrantProfileRealNameVerificationRequest
+   * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse
+   */
   async queryFailReasonForRegistrantProfileRealNameVerification(request: QueryFailReasonForRegistrantProfileRealNameVerificationRequest): Promise<QueryFailReasonForRegistrantProfileRealNameVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryFailReasonForRegistrantProfileRealNameVerificationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryLocalEnsAssociationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryLocalEnsAssociationResponse
+   */
   async queryLocalEnsAssociationWithOptions(request: QueryLocalEnsAssociationRequest, runtime: $Util.RuntimeOptions): Promise<QueryLocalEnsAssociationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10528,11 +10789,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryLocalEnsAssociationResponse>(await this.callApi(params, req, runtime), new QueryLocalEnsAssociationResponse({}));
   }
 
+  /**
+   * @param request QueryLocalEnsAssociationRequest
+   * @return QueryLocalEnsAssociationResponse
+   */
   async queryLocalEnsAssociation(request: QueryLocalEnsAssociationRequest): Promise<QueryLocalEnsAssociationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryLocalEnsAssociationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryRegistrantProfileRealNameVerificationInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryRegistrantProfileRealNameVerificationInfoResponse
+   */
   async queryRegistrantProfileRealNameVerificationInfoWithOptions(request: QueryRegistrantProfileRealNameVerificationInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryRegistrantProfileRealNameVerificationInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10569,11 +10839,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRegistrantProfileRealNameVerificationInfoResponse>(await this.callApi(params, req, runtime), new QueryRegistrantProfileRealNameVerificationInfoResponse({}));
   }
 
+  /**
+   * @param request QueryRegistrantProfileRealNameVerificationInfoRequest
+   * @return QueryRegistrantProfileRealNameVerificationInfoResponse
+   */
   async queryRegistrantProfileRealNameVerificationInfo(request: QueryRegistrantProfileRealNameVerificationInfoRequest): Promise<QueryRegistrantProfileRealNameVerificationInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRegistrantProfileRealNameVerificationInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryRegistrantProfilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryRegistrantProfilesResponse
+   */
   async queryRegistrantProfilesWithOptions(request: QueryRegistrantProfilesRequest, runtime: $Util.RuntimeOptions): Promise<QueryRegistrantProfilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10638,11 +10917,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRegistrantProfilesResponse>(await this.callApi(params, req, runtime), new QueryRegistrantProfilesResponse({}));
   }
 
+  /**
+   * @param request QueryRegistrantProfilesRequest
+   * @return QueryRegistrantProfilesResponse
+   */
   async queryRegistrantProfiles(request: QueryRegistrantProfilesRequest): Promise<QueryRegistrantProfilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRegistrantProfilesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryTaskDetailHistoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTaskDetailHistoryResponse
+   */
   async queryTaskDetailHistoryWithOptions(request: QueryTaskDetailHistoryRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskDetailHistoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10695,11 +10983,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTaskDetailHistoryResponse>(await this.callApi(params, req, runtime), new QueryTaskDetailHistoryResponse({}));
   }
 
+  /**
+   * @param request QueryTaskDetailHistoryRequest
+   * @return QueryTaskDetailHistoryResponse
+   */
   async queryTaskDetailHistory(request: QueryTaskDetailHistoryRequest): Promise<QueryTaskDetailHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTaskDetailHistoryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryTaskDetailListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTaskDetailListResponse
+   */
   async queryTaskDetailListWithOptions(request: QueryTaskDetailListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskDetailListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10752,11 +11049,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTaskDetailListResponse>(await this.callApi(params, req, runtime), new QueryTaskDetailListResponse({}));
   }
 
+  /**
+   * @param request QueryTaskDetailListRequest
+   * @return QueryTaskDetailListResponse
+   */
   async queryTaskDetailList(request: QueryTaskDetailListRequest): Promise<QueryTaskDetailListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTaskDetailListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryTaskInfoHistoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTaskInfoHistoryResponse
+   */
   async queryTaskInfoHistoryWithOptions(request: QueryTaskInfoHistoryRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskInfoHistoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10805,11 +11111,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTaskInfoHistoryResponse>(await this.callApi(params, req, runtime), new QueryTaskInfoHistoryResponse({}));
   }
 
+  /**
+   * @param request QueryTaskInfoHistoryRequest
+   * @return QueryTaskInfoHistoryResponse
+   */
   async queryTaskInfoHistory(request: QueryTaskInfoHistoryRequest): Promise<QueryTaskInfoHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTaskInfoHistoryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryTaskListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTaskListResponse
+   */
   async queryTaskListWithOptions(request: QueryTaskListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10854,11 +11169,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTaskListResponse>(await this.callApi(params, req, runtime), new QueryTaskListResponse({}));
   }
 
+  /**
+   * @param request QueryTaskListRequest
+   * @return QueryTaskListResponse
+   */
   async queryTaskList(request: QueryTaskListRequest): Promise<QueryTaskListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTaskListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryTransferInByInstanceIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTransferInByInstanceIdResponse
+   */
   async queryTransferInByInstanceIdWithOptions(request: QueryTransferInByInstanceIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryTransferInByInstanceIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10891,11 +11215,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTransferInByInstanceIdResponse>(await this.callApi(params, req, runtime), new QueryTransferInByInstanceIdResponse({}));
   }
 
+  /**
+   * @param request QueryTransferInByInstanceIdRequest
+   * @return QueryTransferInByInstanceIdResponse
+   */
   async queryTransferInByInstanceId(request: QueryTransferInByInstanceIdRequest): Promise<QueryTransferInByInstanceIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTransferInByInstanceIdWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryTransferInListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTransferInListResponse
+   */
   async queryTransferInListWithOptions(request: QueryTransferInListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTransferInListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10948,11 +11281,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTransferInListResponse>(await this.callApi(params, req, runtime), new QueryTransferInListResponse({}));
   }
 
+  /**
+   * @param request QueryTransferInListRequest
+   * @return QueryTransferInListResponse
+   */
   async queryTransferInList(request: QueryTransferInListRequest): Promise<QueryTransferInListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTransferInListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryTransferOutInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTransferOutInfoResponse
+   */
   async queryTransferOutInfoWithOptions(request: QueryTransferOutInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryTransferOutInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10985,11 +11327,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTransferOutInfoResponse>(await this.callApi(params, req, runtime), new QueryTransferOutInfoResponse({}));
   }
 
+  /**
+   * @param request QueryTransferOutInfoRequest
+   * @return QueryTransferOutInfoResponse
+   */
   async queryTransferOutInfo(request: QueryTransferOutInfoRequest): Promise<QueryTransferOutInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTransferOutInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RegistrantProfileRealNameVerificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RegistrantProfileRealNameVerificationResponse
+   */
   async registrantProfileRealNameVerificationWithOptions(request: RegistrantProfileRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<RegistrantProfileRealNameVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11036,11 +11387,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RegistrantProfileRealNameVerificationResponse>(await this.callApi(params, req, runtime), new RegistrantProfileRealNameVerificationResponse({}));
   }
 
+  /**
+   * @param request RegistrantProfileRealNameVerificationRequest
+   * @return RegistrantProfileRealNameVerificationResponse
+   */
   async registrantProfileRealNameVerification(request: RegistrantProfileRealNameVerificationRequest): Promise<RegistrantProfileRealNameVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registrantProfileRealNameVerificationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResendEmailVerificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResendEmailVerificationResponse
+   */
   async resendEmailVerificationWithOptions(request: ResendEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ResendEmailVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11073,11 +11433,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResendEmailVerificationResponse>(await this.callApi(params, req, runtime), new ResendEmailVerificationResponse({}));
   }
 
+  /**
+   * @param request ResendEmailVerificationRequest
+   * @return ResendEmailVerificationResponse
+   */
   async resendEmailVerification(request: ResendEmailVerificationRequest): Promise<ResendEmailVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resendEmailVerificationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveBatchTaskForCreatingOrderActivateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveBatchTaskForCreatingOrderActivateResponse
+   */
   async saveBatchTaskForCreatingOrderActivateWithOptions(request: SaveBatchTaskForCreatingOrderActivateRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderActivateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11126,11 +11495,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveBatchTaskForCreatingOrderActivateResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderActivateResponse({}));
   }
 
+  /**
+   * @param request SaveBatchTaskForCreatingOrderActivateRequest
+   * @return SaveBatchTaskForCreatingOrderActivateResponse
+   */
   async saveBatchTaskForCreatingOrderActivate(request: SaveBatchTaskForCreatingOrderActivateRequest): Promise<SaveBatchTaskForCreatingOrderActivateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForCreatingOrderActivateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveBatchTaskForCreatingOrderRedeemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveBatchTaskForCreatingOrderRedeemResponse
+   */
   async saveBatchTaskForCreatingOrderRedeemWithOptions(request: SaveBatchTaskForCreatingOrderRedeemRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderRedeemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11179,11 +11557,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveBatchTaskForCreatingOrderRedeemResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderRedeemResponse({}));
   }
 
+  /**
+   * @param request SaveBatchTaskForCreatingOrderRedeemRequest
+   * @return SaveBatchTaskForCreatingOrderRedeemResponse
+   */
   async saveBatchTaskForCreatingOrderRedeem(request: SaveBatchTaskForCreatingOrderRedeemRequest): Promise<SaveBatchTaskForCreatingOrderRedeemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForCreatingOrderRedeemWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveBatchTaskForCreatingOrderRenewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveBatchTaskForCreatingOrderRenewResponse
+   */
   async saveBatchTaskForCreatingOrderRenewWithOptions(request: SaveBatchTaskForCreatingOrderRenewRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderRenewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11232,11 +11619,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveBatchTaskForCreatingOrderRenewResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderRenewResponse({}));
   }
 
+  /**
+   * @param request SaveBatchTaskForCreatingOrderRenewRequest
+   * @return SaveBatchTaskForCreatingOrderRenewResponse
+   */
   async saveBatchTaskForCreatingOrderRenew(request: SaveBatchTaskForCreatingOrderRenewRequest): Promise<SaveBatchTaskForCreatingOrderRenewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForCreatingOrderRenewWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveBatchTaskForCreatingOrderTransferRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveBatchTaskForCreatingOrderTransferResponse
+   */
   async saveBatchTaskForCreatingOrderTransferWithOptions(request: SaveBatchTaskForCreatingOrderTransferRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderTransferResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11285,11 +11681,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveBatchTaskForCreatingOrderTransferResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderTransferResponse({}));
   }
 
+  /**
+   * @param request SaveBatchTaskForCreatingOrderTransferRequest
+   * @return SaveBatchTaskForCreatingOrderTransferResponse
+   */
   async saveBatchTaskForCreatingOrderTransfer(request: SaveBatchTaskForCreatingOrderTransferRequest): Promise<SaveBatchTaskForCreatingOrderTransferResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForCreatingOrderTransferWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveBatchTaskForDomainNameProxyServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveBatchTaskForDomainNameProxyServiceResponse
+   */
   async saveBatchTaskForDomainNameProxyServiceWithOptions(request: SaveBatchTaskForDomainNameProxyServiceRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForDomainNameProxyServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11326,11 +11731,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveBatchTaskForDomainNameProxyServiceResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForDomainNameProxyServiceResponse({}));
   }
 
+  /**
+   * @param request SaveBatchTaskForDomainNameProxyServiceRequest
+   * @return SaveBatchTaskForDomainNameProxyServiceResponse
+   */
   async saveBatchTaskForDomainNameProxyService(request: SaveBatchTaskForDomainNameProxyServiceRequest): Promise<SaveBatchTaskForDomainNameProxyServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForDomainNameProxyServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveBatchTaskForModifyingDomainDnsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveBatchTaskForModifyingDomainDnsResponse
+   */
   async saveBatchTaskForModifyingDomainDnsWithOptions(request: SaveBatchTaskForModifyingDomainDnsRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForModifyingDomainDnsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11371,11 +11785,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveBatchTaskForModifyingDomainDnsResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForModifyingDomainDnsResponse({}));
   }
 
+  /**
+   * @param request SaveBatchTaskForModifyingDomainDnsRequest
+   * @return SaveBatchTaskForModifyingDomainDnsResponse
+   */
   async saveBatchTaskForModifyingDomainDns(request: SaveBatchTaskForModifyingDomainDnsRequest): Promise<SaveBatchTaskForModifyingDomainDnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForModifyingDomainDnsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 国际站删除抢注批量接口
+   *
+   * @param request SaveBatchTaskForReserveDropListDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveBatchTaskForReserveDropListDomainResponse
+   */
   async saveBatchTaskForReserveDropListDomainWithOptions(request: SaveBatchTaskForReserveDropListDomainRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForReserveDropListDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11404,11 +11829,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveBatchTaskForReserveDropListDomainResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForReserveDropListDomainResponse({}));
   }
 
+  /**
+   * @summary 国际站删除抢注批量接口
+   *
+   * @param request SaveBatchTaskForReserveDropListDomainRequest
+   * @return SaveBatchTaskForReserveDropListDomainResponse
+   */
   async saveBatchTaskForReserveDropListDomain(request: SaveBatchTaskForReserveDropListDomainRequest): Promise<SaveBatchTaskForReserveDropListDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForReserveDropListDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveBatchTaskForTransferProhibitionLockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveBatchTaskForTransferProhibitionLockResponse
+   */
   async saveBatchTaskForTransferProhibitionLockWithOptions(request: SaveBatchTaskForTransferProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForTransferProhibitionLockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11445,11 +11881,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveBatchTaskForTransferProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForTransferProhibitionLockResponse({}));
   }
 
+  /**
+   * @param request SaveBatchTaskForTransferProhibitionLockRequest
+   * @return SaveBatchTaskForTransferProhibitionLockResponse
+   */
   async saveBatchTaskForTransferProhibitionLock(request: SaveBatchTaskForTransferProhibitionLockRequest): Promise<SaveBatchTaskForTransferProhibitionLockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForTransferProhibitionLockWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveBatchTaskForUpdateProhibitionLockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveBatchTaskForUpdateProhibitionLockResponse
+   */
   async saveBatchTaskForUpdateProhibitionLockWithOptions(request: SaveBatchTaskForUpdateProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForUpdateProhibitionLockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11486,11 +11931,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveBatchTaskForUpdateProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForUpdateProhibitionLockResponse({}));
   }
 
+  /**
+   * @param request SaveBatchTaskForUpdateProhibitionLockRequest
+   * @return SaveBatchTaskForUpdateProhibitionLockResponse
+   */
   async saveBatchTaskForUpdateProhibitionLock(request: SaveBatchTaskForUpdateProhibitionLockRequest): Promise<SaveBatchTaskForUpdateProhibitionLockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForUpdateProhibitionLockWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveBatchTaskForUpdatingContactInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveBatchTaskForUpdatingContactInfoResponse
+   */
   async saveBatchTaskForUpdatingContactInfoWithOptions(request: SaveBatchTaskForUpdatingContactInfoRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForUpdatingContactInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11535,11 +11989,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveBatchTaskForUpdatingContactInfoResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForUpdatingContactInfoResponse({}));
   }
 
+  /**
+   * @param request SaveBatchTaskForUpdatingContactInfoRequest
+   * @return SaveBatchTaskForUpdatingContactInfoResponse
+   */
   async saveBatchTaskForUpdatingContactInfo(request: SaveBatchTaskForUpdatingContactInfoRequest): Promise<SaveBatchTaskForUpdatingContactInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForUpdatingContactInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveBatchTaskForUpdatingContactInfoByNewContactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse
+   */
   async saveBatchTaskForUpdatingContactInfoByNewContactWithOptions(request: SaveBatchTaskForUpdatingContactInfoByNewContactRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForUpdatingContactInfoByNewContactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11624,11 +12087,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveBatchTaskForUpdatingContactInfoByNewContactResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForUpdatingContactInfoByNewContactResponse({}));
   }
 
+  /**
+   * @param request SaveBatchTaskForUpdatingContactInfoByNewContactRequest
+   * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse
+   */
   async saveBatchTaskForUpdatingContactInfoByNewContact(request: SaveBatchTaskForUpdatingContactInfoByNewContactRequest): Promise<SaveBatchTaskForUpdatingContactInfoByNewContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForUpdatingContactInfoByNewContactWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveRegistrantProfileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveRegistrantProfileResponse
+   */
   async saveRegistrantProfileWithOptions(request: SaveRegistrantProfileRequest, runtime: $Util.RuntimeOptions): Promise<SaveRegistrantProfileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11717,11 +12189,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveRegistrantProfileResponse>(await this.callApi(params, req, runtime), new SaveRegistrantProfileResponse({}));
   }
 
+  /**
+   * @param request SaveRegistrantProfileRequest
+   * @return SaveRegistrantProfileResponse
+   */
   async saveRegistrantProfile(request: SaveRegistrantProfileRequest): Promise<SaveRegistrantProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveRegistrantProfileWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForAddingDSRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForAddingDSRecordResponse
+   */
   async saveSingleTaskForAddingDSRecordWithOptions(request: SaveSingleTaskForAddingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForAddingDSRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11770,11 +12251,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForAddingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForAddingDSRecordResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForAddingDSRecordRequest
+   * @return SaveSingleTaskForAddingDSRecordResponse
+   */
   async saveSingleTaskForAddingDSRecord(request: SaveSingleTaskForAddingDSRecordRequest): Promise<SaveSingleTaskForAddingDSRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForAddingDSRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForApprovingTransferOutRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForApprovingTransferOutResponse
+   */
   async saveSingleTaskForApprovingTransferOutWithOptions(request: SaveSingleTaskForApprovingTransferOutRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForApprovingTransferOutResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11807,11 +12297,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForApprovingTransferOutResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForApprovingTransferOutResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForApprovingTransferOutRequest
+   * @return SaveSingleTaskForApprovingTransferOutResponse
+   */
   async saveSingleTaskForApprovingTransferOut(request: SaveSingleTaskForApprovingTransferOutRequest): Promise<SaveSingleTaskForApprovingTransferOutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForApprovingTransferOutWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForAssociatingEnsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForAssociatingEnsResponse
+   */
   async saveSingleTaskForAssociatingEnsWithOptions(request: SaveSingleTaskForAssociatingEnsRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForAssociatingEnsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11848,11 +12347,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForAssociatingEnsResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForAssociatingEnsResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForAssociatingEnsRequest
+   * @return SaveSingleTaskForAssociatingEnsResponse
+   */
   async saveSingleTaskForAssociatingEns(request: SaveSingleTaskForAssociatingEnsRequest): Promise<SaveSingleTaskForAssociatingEnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForAssociatingEnsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForCancelingTransferInRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForCancelingTransferInResponse
+   */
   async saveSingleTaskForCancelingTransferInWithOptions(request: SaveSingleTaskForCancelingTransferInRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCancelingTransferInResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11885,11 +12393,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForCancelingTransferInResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCancelingTransferInResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForCancelingTransferInRequest
+   * @return SaveSingleTaskForCancelingTransferInResponse
+   */
   async saveSingleTaskForCancelingTransferIn(request: SaveSingleTaskForCancelingTransferInRequest): Promise<SaveSingleTaskForCancelingTransferInResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForCancelingTransferInWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForCancelingTransferOutRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForCancelingTransferOutResponse
+   */
   async saveSingleTaskForCancelingTransferOutWithOptions(request: SaveSingleTaskForCancelingTransferOutRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCancelingTransferOutResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11922,11 +12439,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForCancelingTransferOutResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCancelingTransferOutResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForCancelingTransferOutRequest
+   * @return SaveSingleTaskForCancelingTransferOutResponse
+   */
   async saveSingleTaskForCancelingTransferOut(request: SaveSingleTaskForCancelingTransferOutRequest): Promise<SaveSingleTaskForCancelingTransferOutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForCancelingTransferOutWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForCreatingDnsHostRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForCreatingDnsHostResponse
+   */
   async saveSingleTaskForCreatingDnsHostWithOptions(request: SaveSingleTaskForCreatingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingDnsHostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11967,11 +12493,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForCreatingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingDnsHostResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForCreatingDnsHostRequest
+   * @return SaveSingleTaskForCreatingDnsHostResponse
+   */
   async saveSingleTaskForCreatingDnsHost(request: SaveSingleTaskForCreatingDnsHostRequest): Promise<SaveSingleTaskForCreatingDnsHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForCreatingDnsHostWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForCreatingOrderActivateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForCreatingOrderActivateResponse
+   */
   async saveSingleTaskForCreatingOrderActivateWithOptions(request: SaveSingleTaskForCreatingOrderActivateRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderActivateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12100,11 +12635,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForCreatingOrderActivateResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderActivateResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForCreatingOrderActivateRequest
+   * @return SaveSingleTaskForCreatingOrderActivateResponse
+   */
   async saveSingleTaskForCreatingOrderActivate(request: SaveSingleTaskForCreatingOrderActivateRequest): Promise<SaveSingleTaskForCreatingOrderActivateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForCreatingOrderActivateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForCreatingOrderRedeemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForCreatingOrderRedeemResponse
+   */
   async saveSingleTaskForCreatingOrderRedeemWithOptions(request: SaveSingleTaskForCreatingOrderRedeemRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderRedeemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12157,11 +12701,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForCreatingOrderRedeemResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderRedeemResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForCreatingOrderRedeemRequest
+   * @return SaveSingleTaskForCreatingOrderRedeemResponse
+   */
   async saveSingleTaskForCreatingOrderRedeem(request: SaveSingleTaskForCreatingOrderRedeemRequest): Promise<SaveSingleTaskForCreatingOrderRedeemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForCreatingOrderRedeemWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForCreatingOrderRenewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForCreatingOrderRenewResponse
+   */
   async saveSingleTaskForCreatingOrderRenewWithOptions(request: SaveSingleTaskForCreatingOrderRenewRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderRenewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12218,11 +12771,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForCreatingOrderRenewResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderRenewResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForCreatingOrderRenewRequest
+   * @return SaveSingleTaskForCreatingOrderRenewResponse
+   */
   async saveSingleTaskForCreatingOrderRenew(request: SaveSingleTaskForCreatingOrderRenewRequest): Promise<SaveSingleTaskForCreatingOrderRenewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForCreatingOrderRenewWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForCreatingOrderTransferRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForCreatingOrderTransferResponse
+   */
   async saveSingleTaskForCreatingOrderTransferWithOptions(request: SaveSingleTaskForCreatingOrderTransferRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderTransferResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12283,11 +12845,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForCreatingOrderTransferResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderTransferResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForCreatingOrderTransferRequest
+   * @return SaveSingleTaskForCreatingOrderTransferResponse
+   */
   async saveSingleTaskForCreatingOrderTransfer(request: SaveSingleTaskForCreatingOrderTransferRequest): Promise<SaveSingleTaskForCreatingOrderTransferResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForCreatingOrderTransferWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForDeletingDSRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForDeletingDSRecordResponse
+   */
   async saveSingleTaskForDeletingDSRecordWithOptions(request: SaveSingleTaskForDeletingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDeletingDSRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12324,11 +12895,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForDeletingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDeletingDSRecordResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForDeletingDSRecordRequest
+   * @return SaveSingleTaskForDeletingDSRecordResponse
+   */
   async saveSingleTaskForDeletingDSRecord(request: SaveSingleTaskForDeletingDSRecordRequest): Promise<SaveSingleTaskForDeletingDSRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForDeletingDSRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForDeletingDnsHostRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForDeletingDnsHostResponse
+   */
   async saveSingleTaskForDeletingDnsHostWithOptions(request: SaveSingleTaskForDeletingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDeletingDnsHostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12369,11 +12949,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForDeletingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDeletingDnsHostResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForDeletingDnsHostRequest
+   * @return SaveSingleTaskForDeletingDnsHostResponse
+   */
   async saveSingleTaskForDeletingDnsHost(request: SaveSingleTaskForDeletingDnsHostRequest): Promise<SaveSingleTaskForDeletingDnsHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForDeletingDnsHostWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForDisassociatingEnsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForDisassociatingEnsResponse
+   */
   async saveSingleTaskForDisassociatingEnsWithOptions(request: SaveSingleTaskForDisassociatingEnsRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDisassociatingEnsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12406,11 +12995,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForDisassociatingEnsResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDisassociatingEnsResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForDisassociatingEnsRequest
+   * @return SaveSingleTaskForDisassociatingEnsResponse
+   */
   async saveSingleTaskForDisassociatingEns(request: SaveSingleTaskForDisassociatingEnsRequest): Promise<SaveSingleTaskForDisassociatingEnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForDisassociatingEnsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForDomainNameProxyServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForDomainNameProxyServiceResponse
+   */
   async saveSingleTaskForDomainNameProxyServiceWithOptions(request: SaveSingleTaskForDomainNameProxyServiceRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDomainNameProxyServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12447,11 +13045,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForDomainNameProxyServiceResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDomainNameProxyServiceResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForDomainNameProxyServiceRequest
+   * @return SaveSingleTaskForDomainNameProxyServiceResponse
+   */
   async saveSingleTaskForDomainNameProxyService(request: SaveSingleTaskForDomainNameProxyServiceRequest): Promise<SaveSingleTaskForDomainNameProxyServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForDomainNameProxyServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForModifyingDSRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForModifyingDSRecordResponse
+   */
   async saveSingleTaskForModifyingDSRecordWithOptions(request: SaveSingleTaskForModifyingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForModifyingDSRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12500,11 +13107,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForModifyingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForModifyingDSRecordResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForModifyingDSRecordRequest
+   * @return SaveSingleTaskForModifyingDSRecordResponse
+   */
   async saveSingleTaskForModifyingDSRecord(request: SaveSingleTaskForModifyingDSRecordRequest): Promise<SaveSingleTaskForModifyingDSRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForModifyingDSRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForModifyingDnsHostRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForModifyingDnsHostResponse
+   */
   async saveSingleTaskForModifyingDnsHostWithOptions(request: SaveSingleTaskForModifyingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForModifyingDnsHostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12545,11 +13161,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForModifyingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForModifyingDnsHostResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForModifyingDnsHostRequest
+   * @return SaveSingleTaskForModifyingDnsHostResponse
+   */
   async saveSingleTaskForModifyingDnsHost(request: SaveSingleTaskForModifyingDnsHostRequest): Promise<SaveSingleTaskForModifyingDnsHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForModifyingDnsHostWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
+   */
   async saveSingleTaskForQueryingTransferAuthorizationCodeWithOptions(request: SaveSingleTaskForQueryingTransferAuthorizationCodeRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForQueryingTransferAuthorizationCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12582,11 +13207,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForQueryingTransferAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForQueryingTransferAuthorizationCodeResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
+   * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
+   */
   async saveSingleTaskForQueryingTransferAuthorizationCode(request: SaveSingleTaskForQueryingTransferAuthorizationCodeRequest): Promise<SaveSingleTaskForQueryingTransferAuthorizationCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForQueryingTransferAuthorizationCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForSaveArtExtensionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForSaveArtExtensionResponse
+   */
   async saveSingleTaskForSaveArtExtensionWithOptions(request: SaveSingleTaskForSaveArtExtensionRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForSaveArtExtensionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12655,11 +13289,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForSaveArtExtensionResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForSaveArtExtensionResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForSaveArtExtensionRequest
+   * @return SaveSingleTaskForSaveArtExtensionResponse
+   */
   async saveSingleTaskForSaveArtExtension(request: SaveSingleTaskForSaveArtExtensionRequest): Promise<SaveSingleTaskForSaveArtExtensionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForSaveArtExtensionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForSynchronizingDSRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForSynchronizingDSRecordResponse
+   */
   async saveSingleTaskForSynchronizingDSRecordWithOptions(request: SaveSingleTaskForSynchronizingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForSynchronizingDSRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12692,11 +13335,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForSynchronizingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForSynchronizingDSRecordResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForSynchronizingDSRecordRequest
+   * @return SaveSingleTaskForSynchronizingDSRecordResponse
+   */
   async saveSingleTaskForSynchronizingDSRecord(request: SaveSingleTaskForSynchronizingDSRecordRequest): Promise<SaveSingleTaskForSynchronizingDSRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForSynchronizingDSRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForSynchronizingDnsHostRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForSynchronizingDnsHostResponse
+   */
   async saveSingleTaskForSynchronizingDnsHostWithOptions(request: SaveSingleTaskForSynchronizingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForSynchronizingDnsHostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12729,11 +13381,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForSynchronizingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForSynchronizingDnsHostResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForSynchronizingDnsHostRequest
+   * @return SaveSingleTaskForSynchronizingDnsHostResponse
+   */
   async saveSingleTaskForSynchronizingDnsHost(request: SaveSingleTaskForSynchronizingDnsHostRequest): Promise<SaveSingleTaskForSynchronizingDnsHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForSynchronizingDnsHostWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForTransferProhibitionLockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForTransferProhibitionLockResponse
+   */
   async saveSingleTaskForTransferProhibitionLockWithOptions(request: SaveSingleTaskForTransferProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForTransferProhibitionLockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12770,11 +13431,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForTransferProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForTransferProhibitionLockResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForTransferProhibitionLockRequest
+   * @return SaveSingleTaskForTransferProhibitionLockResponse
+   */
   async saveSingleTaskForTransferProhibitionLock(request: SaveSingleTaskForTransferProhibitionLockRequest): Promise<SaveSingleTaskForTransferProhibitionLockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForTransferProhibitionLockWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForUpdateProhibitionLockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForUpdateProhibitionLockResponse
+   */
   async saveSingleTaskForUpdateProhibitionLockWithOptions(request: SaveSingleTaskForUpdateProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForUpdateProhibitionLockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12811,11 +13481,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForUpdateProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForUpdateProhibitionLockResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForUpdateProhibitionLockRequest
+   * @return SaveSingleTaskForUpdateProhibitionLockResponse
+   */
   async saveSingleTaskForUpdateProhibitionLock(request: SaveSingleTaskForUpdateProhibitionLockRequest): Promise<SaveSingleTaskForUpdateProhibitionLockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForUpdateProhibitionLockWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveSingleTaskForUpdatingContactInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSingleTaskForUpdatingContactInfoResponse
+   */
   async saveSingleTaskForUpdatingContactInfoWithOptions(request: SaveSingleTaskForUpdatingContactInfoRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForUpdatingContactInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12864,11 +13543,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSingleTaskForUpdatingContactInfoResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForUpdatingContactInfoResponse({}));
   }
 
+  /**
+   * @param request SaveSingleTaskForUpdatingContactInfoRequest
+   * @return SaveSingleTaskForUpdatingContactInfoResponse
+   */
   async saveSingleTaskForUpdatingContactInfo(request: SaveSingleTaskForUpdatingContactInfoRequest): Promise<SaveSingleTaskForUpdatingContactInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForUpdatingContactInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveTaskForSubmittingDomainDeleteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveTaskForSubmittingDomainDeleteResponse
+   */
   async saveTaskForSubmittingDomainDeleteWithOptions(request: SaveTaskForSubmittingDomainDeleteRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForSubmittingDomainDeleteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12901,11 +13589,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveTaskForSubmittingDomainDeleteResponse>(await this.callApi(params, req, runtime), new SaveTaskForSubmittingDomainDeleteResponse({}));
   }
 
+  /**
+   * @param request SaveTaskForSubmittingDomainDeleteRequest
+   * @return SaveTaskForSubmittingDomainDeleteResponse
+   */
   async saveTaskForSubmittingDomainDelete(request: SaveTaskForSubmittingDomainDeleteRequest): Promise<SaveTaskForSubmittingDomainDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveTaskForSubmittingDomainDeleteWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
+   */
   async saveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialWithOptions(request: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12952,11 +13649,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse>(await this.callApi(params, req, runtime), new SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse({}));
   }
 
+  /**
+   * @param request SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
+   * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
+   */
   async saveTaskForSubmittingDomainRealNameVerificationByIdentityCredential(request: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest): Promise<SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
+   */
   async saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDWithOptions(request: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12997,11 +13703,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse>(await this.callApi(params, req, runtime), new SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse({}));
   }
 
+  /**
+   * @param request SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
+   * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
+   */
   async saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID(request: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest): Promise<SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
+   */
   async saveTaskForUpdatingRegistrantInfoByIdentityCredentialWithOptions(request: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13100,11 +13815,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse>(await this.callApi(params, req, runtime), new SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse({}));
   }
 
+  /**
+   * @param request SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
+   * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
+   */
   async saveTaskForUpdatingRegistrantInfoByIdentityCredential(request: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest): Promise<SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveTaskForUpdatingRegistrantInfoByIdentityCredentialWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
+   */
   async saveTaskForUpdatingRegistrantInfoByRegistrantProfileIDWithOptions(request: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13145,11 +13869,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse>(await this.callApi(params, req, runtime), new SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse({}));
   }
 
+  /**
+   * @param request SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
+   * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
+   */
   async saveTaskForUpdatingRegistrantInfoByRegistrantProfileID(request: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest): Promise<SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveTaskForUpdatingRegistrantInfoByRegistrantProfileIDWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SubmitEmailVerificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitEmailVerificationResponse
+   */
   async submitEmailVerificationWithOptions(request: SubmitEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SubmitEmailVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13186,11 +13919,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitEmailVerificationResponse>(await this.callApi(params, req, runtime), new SubmitEmailVerificationResponse({}));
   }
 
+  /**
+   * @param request SubmitEmailVerificationRequest
+   * @return SubmitEmailVerificationResponse
+   */
   async submitEmailVerification(request: SubmitEmailVerificationRequest): Promise<SubmitEmailVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitEmailVerificationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TransferInCheckMailTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TransferInCheckMailTokenResponse
+   */
   async transferInCheckMailTokenWithOptions(request: TransferInCheckMailTokenRequest, runtime: $Util.RuntimeOptions): Promise<TransferInCheckMailTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13223,11 +13965,20 @@ export default class Client extends OpenApi {
     return $tea.cast<TransferInCheckMailTokenResponse>(await this.callApi(params, req, runtime), new TransferInCheckMailTokenResponse({}));
   }
 
+  /**
+   * @param request TransferInCheckMailTokenRequest
+   * @return TransferInCheckMailTokenResponse
+   */
   async transferInCheckMailToken(request: TransferInCheckMailTokenRequest): Promise<TransferInCheckMailTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transferInCheckMailTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TransferInReenterTransferAuthorizationCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TransferInReenterTransferAuthorizationCodeResponse
+   */
   async transferInReenterTransferAuthorizationCodeWithOptions(request: TransferInReenterTransferAuthorizationCodeRequest, runtime: $Util.RuntimeOptions): Promise<TransferInReenterTransferAuthorizationCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13264,11 +14015,20 @@ export default class Client extends OpenApi {
     return $tea.cast<TransferInReenterTransferAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new TransferInReenterTransferAuthorizationCodeResponse({}));
   }
 
+  /**
+   * @param request TransferInReenterTransferAuthorizationCodeRequest
+   * @return TransferInReenterTransferAuthorizationCodeResponse
+   */
   async transferInReenterTransferAuthorizationCode(request: TransferInReenterTransferAuthorizationCodeRequest): Promise<TransferInReenterTransferAuthorizationCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transferInReenterTransferAuthorizationCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TransferInRefetchWhoisEmailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TransferInRefetchWhoisEmailResponse
+   */
   async transferInRefetchWhoisEmailWithOptions(request: TransferInRefetchWhoisEmailRequest, runtime: $Util.RuntimeOptions): Promise<TransferInRefetchWhoisEmailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13301,11 +14061,20 @@ export default class Client extends OpenApi {
     return $tea.cast<TransferInRefetchWhoisEmailResponse>(await this.callApi(params, req, runtime), new TransferInRefetchWhoisEmailResponse({}));
   }
 
+  /**
+   * @param request TransferInRefetchWhoisEmailRequest
+   * @return TransferInRefetchWhoisEmailResponse
+   */
   async transferInRefetchWhoisEmail(request: TransferInRefetchWhoisEmailRequest): Promise<TransferInRefetchWhoisEmailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transferInRefetchWhoisEmailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TransferInResendMailTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TransferInResendMailTokenResponse
+   */
   async transferInResendMailTokenWithOptions(request: TransferInResendMailTokenRequest, runtime: $Util.RuntimeOptions): Promise<TransferInResendMailTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13338,11 +14107,20 @@ export default class Client extends OpenApi {
     return $tea.cast<TransferInResendMailTokenResponse>(await this.callApi(params, req, runtime), new TransferInResendMailTokenResponse({}));
   }
 
+  /**
+   * @param request TransferInResendMailTokenRequest
+   * @return TransferInResendMailTokenResponse
+   */
   async transferInResendMailToken(request: TransferInResendMailTokenRequest): Promise<TransferInResendMailTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transferInResendMailTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @param request VerifyContactFieldRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyContactFieldResponse
+   */
   async verifyContactFieldWithOptions(request: VerifyContactFieldRequest, runtime: $Util.RuntimeOptions): Promise<VerifyContactFieldResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13423,11 +14201,20 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyContactFieldResponse>(await this.callApi(params, req, runtime), new VerifyContactFieldResponse({}));
   }
 
+  /**
+   * @param request VerifyContactFieldRequest
+   * @return VerifyContactFieldResponse
+   */
   async verifyContactField(request: VerifyContactFieldRequest): Promise<VerifyContactFieldResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyContactFieldWithOptions(request, runtime);
   }
 
+  /**
+   * @param request VerifyEmailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyEmailResponse
+   */
   async verifyEmailWithOptions(request: VerifyEmailRequest, runtime: $Util.RuntimeOptions): Promise<VerifyEmailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13460,6 +14247,10 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyEmailResponse>(await this.callApi(params, req, runtime), new VerifyEmailResponse({}));
   }
 
+  /**
+   * @param request VerifyEmailRequest
+   * @return VerifyEmailResponse
+   */
   async verifyEmail(request: VerifyEmailRequest): Promise<VerifyEmailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyEmailWithOptions(request, runtime);
