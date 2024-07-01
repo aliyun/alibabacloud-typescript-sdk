@@ -266,6 +266,31 @@ export class ModuleFlightItemListItemListSubItemsShoppingItemMapValue extends $t
   }
 }
 
+export class ModuleAgentInfosAttributeShowInfoMapValue extends $tea.Model {
+  code?: string;
+  name?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      name: 'name',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModuleAgentInfoAttributeShowInfoMapValue extends $tea.Model {
   code?: string;
   name?: string;
@@ -1715,6 +1740,373 @@ export class AccessTokenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AccessTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDepartmentHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDepartmentRequest extends $tea.Model {
+  deptName?: string;
+  managerEmployeeIdList?: string[];
+  outDeptId?: string;
+  outDeptPid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'dept_name',
+      managerEmployeeIdList: 'manager_employee_id_list',
+      outDeptId: 'out_dept_id',
+      outDeptPid: 'out_dept_pid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      managerEmployeeIdList: { 'type': 'array', 'itemType': 'string' },
+      outDeptId: 'string',
+      outDeptPid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDepartmentShrinkRequest extends $tea.Model {
+  deptName?: string;
+  managerEmployeeIdListShrink?: string;
+  outDeptId?: string;
+  outDeptPid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'dept_name',
+      managerEmployeeIdListShrink: 'manager_employee_id_list',
+      outDeptId: 'out_dept_id',
+      outDeptPid: 'out_dept_pid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      managerEmployeeIdListShrink: 'string',
+      outDeptId: 'string',
+      outDeptPid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDepartmentResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDepartmentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDepartmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddDepartmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEmployeeHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEmployeeRequest extends $tea.Model {
+  avatar?: string;
+  baseCityCodeList?: string[];
+  birthday?: string;
+  certList?: AddEmployeeRequestCertList[];
+  customRoleCodeList?: string[];
+  email?: string;
+  gender?: string;
+  isAdmin?: boolean;
+  isBoss?: boolean;
+  isDeptLeader?: boolean;
+  jobNo?: string;
+  managerUserId?: string;
+  outDeptIdList?: string[];
+  phone?: string;
+  positionLevel?: string;
+  realName?: string;
+  realNameEn?: string;
+  unionId?: string;
+  userId?: string;
+  userNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      baseCityCodeList: 'base_city_code_list',
+      birthday: 'birthday',
+      certList: 'cert_list',
+      customRoleCodeList: 'custom_role_code_list',
+      email: 'email',
+      gender: 'gender',
+      isAdmin: 'is_admin',
+      isBoss: 'is_boss',
+      isDeptLeader: 'is_dept_leader',
+      jobNo: 'job_no',
+      managerUserId: 'manager_user_id',
+      outDeptIdList: 'out_dept_id_list',
+      phone: 'phone',
+      positionLevel: 'position_level',
+      realName: 'real_name',
+      realNameEn: 'real_name_en',
+      unionId: 'union_id',
+      userId: 'user_id',
+      userNick: 'user_nick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      baseCityCodeList: { 'type': 'array', 'itemType': 'string' },
+      birthday: 'string',
+      certList: { 'type': 'array', 'itemType': AddEmployeeRequestCertList },
+      customRoleCodeList: { 'type': 'array', 'itemType': 'string' },
+      email: 'string',
+      gender: 'string',
+      isAdmin: 'boolean',
+      isBoss: 'boolean',
+      isDeptLeader: 'boolean',
+      jobNo: 'string',
+      managerUserId: 'string',
+      outDeptIdList: { 'type': 'array', 'itemType': 'string' },
+      phone: 'string',
+      positionLevel: 'string',
+      realName: 'string',
+      realNameEn: 'string',
+      unionId: 'string',
+      userId: 'string',
+      userNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEmployeeShrinkRequest extends $tea.Model {
+  avatar?: string;
+  baseCityCodeListShrink?: string;
+  birthday?: string;
+  certListShrink?: string;
+  customRoleCodeListShrink?: string;
+  email?: string;
+  gender?: string;
+  isAdmin?: boolean;
+  isBoss?: boolean;
+  isDeptLeader?: boolean;
+  jobNo?: string;
+  managerUserId?: string;
+  outDeptIdListShrink?: string;
+  phone?: string;
+  positionLevel?: string;
+  realName?: string;
+  realNameEn?: string;
+  unionId?: string;
+  userId?: string;
+  userNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      baseCityCodeListShrink: 'base_city_code_list',
+      birthday: 'birthday',
+      certListShrink: 'cert_list',
+      customRoleCodeListShrink: 'custom_role_code_list',
+      email: 'email',
+      gender: 'gender',
+      isAdmin: 'is_admin',
+      isBoss: 'is_boss',
+      isDeptLeader: 'is_dept_leader',
+      jobNo: 'job_no',
+      managerUserId: 'manager_user_id',
+      outDeptIdListShrink: 'out_dept_id_list',
+      phone: 'phone',
+      positionLevel: 'position_level',
+      realName: 'real_name',
+      realNameEn: 'real_name_en',
+      unionId: 'union_id',
+      userId: 'user_id',
+      userNick: 'user_nick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      baseCityCodeListShrink: 'string',
+      birthday: 'string',
+      certListShrink: 'string',
+      customRoleCodeListShrink: 'string',
+      email: 'string',
+      gender: 'string',
+      isAdmin: 'boolean',
+      isBoss: 'boolean',
+      isDeptLeader: 'boolean',
+      jobNo: 'string',
+      managerUserId: 'string',
+      outDeptIdListShrink: 'string',
+      phone: 'string',
+      positionLevel: 'string',
+      realName: 'string',
+      realNameEn: 'string',
+      unionId: 'string',
+      userId: 'string',
+      userNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEmployeeResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEmployeeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddEmployeeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddEmployeeResponseBody,
     };
   }
 
@@ -6226,6 +6618,103 @@ export class DeleteCustomRoleResponse extends $tea.Model {
   }
 }
 
+export class DeleteDepartmentHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDepartmentRequest extends $tea.Model {
+  outDeptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outDeptId: 'out_dept_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outDeptId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDepartmentResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDepartmentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDepartmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDepartmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEmployeesFromCustomRoleHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripCorpToken?: string;
@@ -7216,6 +7705,388 @@ export class ExceedApplySyncResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ExceedApplySyncResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserAddHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserAddRequest extends $tea.Model {
+  birthday?: string;
+  certRequestList?: ExternalUserAddRequestCertRequestList[];
+  email?: string;
+  externalUserId?: string;
+  phone?: string;
+  realName?: string;
+  realNameEn?: string;
+  userType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      birthday: 'birthday',
+      certRequestList: 'cert_request_list',
+      email: 'email',
+      externalUserId: 'external_user_id',
+      phone: 'phone',
+      realName: 'real_name',
+      realNameEn: 'real_name_en',
+      userType: 'user_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      birthday: 'string',
+      certRequestList: { 'type': 'array', 'itemType': ExternalUserAddRequestCertRequestList },
+      email: 'string',
+      externalUserId: 'string',
+      phone: 'string',
+      realName: 'string',
+      realNameEn: 'string',
+      userType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserAddShrinkRequest extends $tea.Model {
+  birthday?: string;
+  certRequestListShrink?: string;
+  email?: string;
+  externalUserId?: string;
+  phone?: string;
+  realName?: string;
+  realNameEn?: string;
+  userType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      birthday: 'birthday',
+      certRequestListShrink: 'cert_request_list',
+      email: 'email',
+      externalUserId: 'external_user_id',
+      phone: 'phone',
+      realName: 'real_name',
+      realNameEn: 'real_name_en',
+      userType: 'user_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      birthday: 'string',
+      certRequestListShrink: 'string',
+      email: 'string',
+      externalUserId: 'string',
+      phone: 'string',
+      realName: 'string',
+      realNameEn: 'string',
+      userType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserAddResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserAddResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExternalUserAddResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExternalUserAddResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserDeleteHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserDeleteResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserDeleteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExternalUserDeleteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExternalUserDeleteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserUpdateHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserUpdateRequest extends $tea.Model {
+  birthday?: string;
+  certRequestList?: ExternalUserUpdateRequestCertRequestList[];
+  email?: string;
+  phone?: string;
+  realName?: string;
+  realNameEn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      birthday: 'birthday',
+      certRequestList: 'cert_request_list',
+      email: 'email',
+      phone: 'phone',
+      realName: 'real_name',
+      realNameEn: 'real_name_en',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      birthday: 'string',
+      certRequestList: { 'type': 'array', 'itemType': ExternalUserUpdateRequestCertRequestList },
+      email: 'string',
+      phone: 'string',
+      realName: 'string',
+      realNameEn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserUpdateShrinkRequest extends $tea.Model {
+  birthday?: string;
+  certRequestListShrink?: string;
+  email?: string;
+  phone?: string;
+  realName?: string;
+  realNameEn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      birthday: 'birthday',
+      certRequestListShrink: 'cert_request_list',
+      email: 'email',
+      phone: 'phone',
+      realName: 'real_name',
+      realNameEn: 'real_name_en',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      birthday: 'string',
+      certRequestListShrink: 'string',
+      email: 'string',
+      phone: 'string',
+      realName: 'string',
+      realNameEn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserUpdateResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserUpdateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExternalUserUpdateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExternalUserUpdateResponseBody,
     };
   }
 
@@ -14231,6 +15102,121 @@ export class HotelStaticInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: HotelStaticInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestRequest extends $tea.Model {
+  btripUserId?: string;
+  checkIn?: string;
+  checkOut?: string;
+  cityCode?: string;
+  keyword?: string;
+  searchType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      btripUserId: 'btrip_user_id',
+      checkIn: 'check_in',
+      checkOut: 'check_out',
+      cityCode: 'city_code',
+      keyword: 'keyword',
+      searchType: 'search_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      btripUserId: 'string',
+      checkIn: 'string',
+      checkOut: 'string',
+      cityCode: 'string',
+      keyword: 'string',
+      searchType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: HotelSuggestResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: HotelSuggestResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HotelSuggestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: HotelSuggestResponseBody,
     };
   }
 
@@ -23307,6 +24293,473 @@ export class UpdateCustomRoleResponse extends $tea.Model {
   }
 }
 
+export class UpdateDepartmentHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDepartmentRequest extends $tea.Model {
+  deptName?: string;
+  managerEmployeeIdList?: string[];
+  outDeptId?: string;
+  outDeptPid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'dept_name',
+      managerEmployeeIdList: 'manager_employee_id_list',
+      outDeptId: 'out_dept_id',
+      outDeptPid: 'out_dept_pid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      managerEmployeeIdList: { 'type': 'array', 'itemType': 'string' },
+      outDeptId: 'string',
+      outDeptPid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDepartmentShrinkRequest extends $tea.Model {
+  deptName?: string;
+  managerEmployeeIdListShrink?: string;
+  outDeptId?: string;
+  outDeptPid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'dept_name',
+      managerEmployeeIdListShrink: 'manager_employee_id_list',
+      outDeptId: 'out_dept_id',
+      outDeptPid: 'out_dept_pid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      managerEmployeeIdListShrink: 'string',
+      outDeptId: 'string',
+      outDeptPid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDepartmentResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDepartmentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDepartmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDepartmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEmployeeHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEmployeeRequest extends $tea.Model {
+  avatar?: string;
+  baseCityCodeList?: string[];
+  birthday?: string;
+  certList?: UpdateEmployeeRequestCertList[];
+  customRoleCodeList?: string[];
+  email?: string;
+  gender?: string;
+  isAdmin?: boolean;
+  isBoss?: boolean;
+  isDeptLeader?: boolean;
+  jobNo?: string;
+  managerUserId?: string;
+  outDeptIdList?: string[];
+  phone?: string;
+  positionLevel?: string;
+  realName?: string;
+  realNameEn?: string;
+  userId?: string;
+  userNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      baseCityCodeList: 'base_city_code_list',
+      birthday: 'birthday',
+      certList: 'cert_list',
+      customRoleCodeList: 'custom_role_code_list',
+      email: 'email',
+      gender: 'gender',
+      isAdmin: 'is_admin',
+      isBoss: 'is_boss',
+      isDeptLeader: 'is_dept_leader',
+      jobNo: 'job_no',
+      managerUserId: 'manager_user_id',
+      outDeptIdList: 'out_dept_id_list',
+      phone: 'phone',
+      positionLevel: 'position_level',
+      realName: 'real_name',
+      realNameEn: 'real_name_en',
+      userId: 'user_id',
+      userNick: 'user_nick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      baseCityCodeList: { 'type': 'array', 'itemType': 'string' },
+      birthday: 'string',
+      certList: { 'type': 'array', 'itemType': UpdateEmployeeRequestCertList },
+      customRoleCodeList: { 'type': 'array', 'itemType': 'string' },
+      email: 'string',
+      gender: 'string',
+      isAdmin: 'boolean',
+      isBoss: 'boolean',
+      isDeptLeader: 'boolean',
+      jobNo: 'string',
+      managerUserId: 'string',
+      outDeptIdList: { 'type': 'array', 'itemType': 'string' },
+      phone: 'string',
+      positionLevel: 'string',
+      realName: 'string',
+      realNameEn: 'string',
+      userId: 'string',
+      userNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEmployeeShrinkRequest extends $tea.Model {
+  avatar?: string;
+  baseCityCodeListShrink?: string;
+  birthday?: string;
+  certListShrink?: string;
+  customRoleCodeListShrink?: string;
+  email?: string;
+  gender?: string;
+  isAdmin?: boolean;
+  isBoss?: boolean;
+  isDeptLeader?: boolean;
+  jobNo?: string;
+  managerUserId?: string;
+  outDeptIdListShrink?: string;
+  phone?: string;
+  positionLevel?: string;
+  realName?: string;
+  realNameEn?: string;
+  userId?: string;
+  userNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      baseCityCodeListShrink: 'base_city_code_list',
+      birthday: 'birthday',
+      certListShrink: 'cert_list',
+      customRoleCodeListShrink: 'custom_role_code_list',
+      email: 'email',
+      gender: 'gender',
+      isAdmin: 'is_admin',
+      isBoss: 'is_boss',
+      isDeptLeader: 'is_dept_leader',
+      jobNo: 'job_no',
+      managerUserId: 'manager_user_id',
+      outDeptIdListShrink: 'out_dept_id_list',
+      phone: 'phone',
+      positionLevel: 'position_level',
+      realName: 'real_name',
+      realNameEn: 'real_name_en',
+      userId: 'user_id',
+      userNick: 'user_nick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      baseCityCodeListShrink: 'string',
+      birthday: 'string',
+      certListShrink: 'string',
+      customRoleCodeListShrink: 'string',
+      email: 'string',
+      gender: 'string',
+      isAdmin: 'boolean',
+      isBoss: 'boolean',
+      isDeptLeader: 'boolean',
+      jobNo: 'string',
+      managerUserId: 'string',
+      outDeptIdListShrink: 'string',
+      phone: 'string',
+      positionLevel: 'string',
+      realName: 'string',
+      realNameEn: 'string',
+      userId: 'string',
+      userNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEmployeeResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEmployeeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEmployeeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEmployeeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEmployeeLeaveStatusHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEmployeeLeaveStatusRequest extends $tea.Model {
+  isLeave?: boolean;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isLeave: 'is_leave',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isLeave: 'boolean',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEmployeeLeaveStatusResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEmployeeLeaveStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEmployeeLeaveStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEmployeeLeaveStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UserQueryHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -24968,6 +26421,52 @@ export class AccessTokenResponseBodyModule extends $tea.Model {
       expire: 'number',
       start: 'number',
       token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEmployeeRequestCertList extends $tea.Model {
+  birthday?: string;
+  certExpiredTime?: string;
+  certNation?: string;
+  certNo?: string;
+  certType?: number;
+  gender?: string;
+  nationality?: string;
+  phone?: string;
+  realName?: string;
+  realNameEn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      birthday: 'birthday',
+      certExpiredTime: 'cert_expired_time',
+      certNation: 'cert_nation',
+      certNo: 'cert_no',
+      certType: 'cert_type',
+      gender: 'gender',
+      nationality: 'nationality',
+      phone: 'phone',
+      realName: 'real_name',
+      realNameEn: 'real_name_en',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      birthday: 'string',
+      certExpiredTime: 'string',
+      certNation: 'string',
+      certNo: 'string',
+      certType: 'number',
+      gender: 'string',
+      nationality: 'string',
+      phone: 'string',
+      realName: 'string',
+      realNameEn: 'string',
     };
   }
 
@@ -28185,6 +29684,7 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
   specialTypes?: string[];
   takenTime?: string;
   thirdpartApplyId?: string;
+  thirdpartBusinessId?: string;
   thirdpartItineraryId?: string;
   toAddress?: string;
   toCityAdCode?: string;
@@ -28241,6 +29741,7 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
       specialTypes: 'special_types',
       takenTime: 'taken_time',
       thirdpartApplyId: 'thirdpart_apply_id',
+      thirdpartBusinessId: 'thirdpart_business_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
       toAddress: 'to_address',
       toCityAdCode: 'to_city_ad_code',
@@ -28300,6 +29801,7 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
       specialTypes: { 'type': 'array', 'itemType': 'string' },
       takenTime: 'string',
       thirdpartApplyId: 'string',
+      thirdpartBusinessId: 'string',
       thirdpartItineraryId: 'string',
       toAddress: 'string',
       toCityAdCode: 'string',
@@ -28480,6 +29982,7 @@ export class CarOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
   subOrderId?: number;
   thirdDepartId?: string;
   thirdpartApplyId?: string;
+  thirdpartBusinessId?: string;
   thirdpartItineraryId?: string;
   userId?: string;
   userName?: string;
@@ -28500,6 +30003,7 @@ export class CarOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
       subOrderId: 'sub_order_id',
       thirdDepartId: 'third_depart_id',
       thirdpartApplyId: 'thirdpart_apply_id',
+      thirdpartBusinessId: 'thirdpart_business_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
       userId: 'user_id',
       userName: 'user_name',
@@ -28523,6 +30027,7 @@ export class CarOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
       subOrderId: 'number',
       thirdDepartId: 'string',
       thirdpartApplyId: 'string',
+      thirdpartBusinessId: 'string',
       thirdpartItineraryId: 'string',
       userId: 'string',
       userName: 'string',
@@ -30073,6 +31578,68 @@ export class EstimatedPriceQueryResponseBodyModule extends $tea.Model {
       hotelFeeDetail: { 'type': 'array', 'itemType': EstimatedPriceQueryResponseBodyModuleHotelFeeDetail },
       totalHotelFee: 'number',
       trafficFee: EstimatedPriceQueryResponseBodyModuleTrafficFee,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserAddRequestCertRequestList extends $tea.Model {
+  certExpiredTime?: string;
+  certNation?: string;
+  certNo?: string;
+  certType?: number;
+  nationality?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certExpiredTime: 'cert_expired_time',
+      certNation: 'cert_nation',
+      certNo: 'cert_no',
+      certType: 'cert_type',
+      nationality: 'nationality',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certExpiredTime: 'string',
+      certNation: 'string',
+      certNo: 'string',
+      certType: 'number',
+      nationality: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserUpdateRequestCertRequestList extends $tea.Model {
+  certExpiredTime?: string;
+  certNation?: string;
+  certNo?: string;
+  certType?: number;
+  nationality?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certExpiredTime: 'cert_expired_time',
+      certNation: 'cert_nation',
+      certNo: 'cert_no',
+      certType: 'cert_type',
+      nationality: 'nationality',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certExpiredTime: 'string',
+      certNation: 'string',
+      certNo: 'string',
+      certType: 'number',
+      nationality: 'string',
     };
   }
 
@@ -34017,6 +35584,181 @@ export class FlightModifyOtaSearchV2RequestSelectedSegments extends $tea.Model {
   }
 }
 
+export class FlightModifyOtaSearchV2ResponseBodyModuleAgentInfosCabinClassInfo extends $tea.Model {
+  cabinClass?: string;
+  className?: string;
+  innerCabinClass?: number;
+  quantity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cabinClass: 'cabin_class',
+      className: 'class_name',
+      innerCabinClass: 'inner_cabin_class',
+      quantity: 'quantity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cabinClass: 'string',
+      className: 'string',
+      innerCabinClass: 'number',
+      quantity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightModifyOtaSearchV2ResponseBodyModuleAgentInfosPriceInfoDTOReShopPriceInfoDTO extends $tea.Model {
+  reShopAdultChangeFee?: number;
+  reShopAdultPrice?: number;
+  reShopAdultPriceGap?: number;
+  reShopChildChangeFee?: number;
+  reShopChildPrice?: number;
+  reShopChildPriceGap?: number;
+  reShopInfChangeFee?: number;
+  reShopInfPrice?: number;
+  reShopInfPriceGap?: number;
+  static names(): { [key: string]: string } {
+    return {
+      reShopAdultChangeFee: 're_shop_adult_change_fee',
+      reShopAdultPrice: 're_shop_adult_price',
+      reShopAdultPriceGap: 're_shop_adult_price_gap',
+      reShopChildChangeFee: 're_shop_child_change_fee',
+      reShopChildPrice: 're_shop_child_price',
+      reShopChildPriceGap: 're_shop_child_price_gap',
+      reShopInfChangeFee: 're_shop_inf_change_fee',
+      reShopInfPrice: 're_shop_inf_price',
+      reShopInfPriceGap: 're_shop_inf_price_gap',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reShopAdultChangeFee: 'number',
+      reShopAdultPrice: 'number',
+      reShopAdultPriceGap: 'number',
+      reShopChildChangeFee: 'number',
+      reShopChildPrice: 'number',
+      reShopChildPriceGap: 'number',
+      reShopInfChangeFee: 'number',
+      reShopInfPrice: 'number',
+      reShopInfPriceGap: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightModifyOtaSearchV2ResponseBodyModuleAgentInfosPriceInfoDTO extends $tea.Model {
+  adultPrice?: number;
+  adultTax?: number;
+  adultTotalPrice?: number;
+  beforeControlPrice?: number;
+  childPrice?: number;
+  childTax?: number;
+  childTotalPrice?: number;
+  infantPrice?: number;
+  infantTax?: number;
+  infantTotalPrice?: number;
+  originalAdultPrice?: number;
+  originalAdultTotalPrice?: number;
+  reShopPriceInfoDTO?: FlightModifyOtaSearchV2ResponseBodyModuleAgentInfosPriceInfoDTOReShopPriceInfoDTO;
+  static names(): { [key: string]: string } {
+    return {
+      adultPrice: 'adult_price',
+      adultTax: 'adult_tax',
+      adultTotalPrice: 'adult_total_price',
+      beforeControlPrice: 'before_control_price',
+      childPrice: 'child_price',
+      childTax: 'child_tax',
+      childTotalPrice: 'child_total_price',
+      infantPrice: 'infant_price',
+      infantTax: 'infant_tax',
+      infantTotalPrice: 'infant_total_price',
+      originalAdultPrice: 'original_adult_price',
+      originalAdultTotalPrice: 'original_adult_total_price',
+      reShopPriceInfoDTO: 're_shop_price_info_d_t_o',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adultPrice: 'number',
+      adultTax: 'number',
+      adultTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      childPrice: 'number',
+      childTax: 'number',
+      childTotalPrice: 'number',
+      infantPrice: 'number',
+      infantTax: 'number',
+      infantTotalPrice: 'number',
+      originalAdultPrice: 'number',
+      originalAdultTotalPrice: 'number',
+      reShopPriceInfoDTO: FlightModifyOtaSearchV2ResponseBodyModuleAgentInfosPriceInfoDTOReShopPriceInfoDTO,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightModifyOtaSearchV2ResponseBodyModuleAgentInfos extends $tea.Model {
+  attributeShowInfoMap?: { [key: string]: ModuleAgentInfosAttributeShowInfoMapValue[] };
+  bestDiscount?: number;
+  cabinClassInfo?: FlightModifyOtaSearchV2ResponseBodyModuleAgentInfosCabinClassInfo;
+  cabinCode?: number;
+  cabinName?: string;
+  itemId?: string;
+  modifyTypeDesc?: string;
+  modifyTypeName?: string;
+  priceInfoDTO?: FlightModifyOtaSearchV2ResponseBodyModuleAgentInfosPriceInfoDTO;
+  quantity?: number;
+  supportChildTicket?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      attributeShowInfoMap: 'attribute_show_info_map',
+      bestDiscount: 'best_discount',
+      cabinClassInfo: 'cabin_class_info',
+      cabinCode: 'cabin_code',
+      cabinName: 'cabin_name',
+      itemId: 'item_id',
+      modifyTypeDesc: 'modify_type_desc',
+      modifyTypeName: 'modify_type_name',
+      priceInfoDTO: 'price_info_d_t_o',
+      quantity: 'quantity',
+      supportChildTicket: 'support_child_ticket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeShowInfoMap: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': ModuleAgentInfosAttributeShowInfoMapValue } },
+      bestDiscount: 'number',
+      cabinClassInfo: FlightModifyOtaSearchV2ResponseBodyModuleAgentInfosCabinClassInfo,
+      cabinCode: 'number',
+      cabinName: 'string',
+      itemId: 'string',
+      modifyTypeDesc: 'string',
+      modifyTypeName: 'string',
+      priceInfoDTO: FlightModifyOtaSearchV2ResponseBodyModuleAgentInfosPriceInfoDTO,
+      quantity: 'number',
+      supportChildTicket: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlightModifyOtaSearchV2ResponseBodyModuleAgentInfoCabinClassInfo extends $tea.Model {
   cabinClass?: string;
   className?: string;
@@ -34480,6 +36222,7 @@ export class FlightModifyOtaSearchV2ResponseBodyModulePassengerCount extends $te
 }
 
 export class FlightModifyOtaSearchV2ResponseBodyModule extends $tea.Model {
+  agentInfos?: FlightModifyOtaSearchV2ResponseBodyModuleAgentInfos[];
   agentInfo?: FlightModifyOtaSearchV2ResponseBodyModuleAgentInfo;
   cacheKey?: string;
   flightSegmentInfos?: FlightModifyOtaSearchV2ResponseBodyModuleFlightSegmentInfos[][];
@@ -34487,6 +36230,7 @@ export class FlightModifyOtaSearchV2ResponseBodyModule extends $tea.Model {
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentInfos: 'agentInfos',
       agentInfo: 'agent_info',
       cacheKey: 'cache_key',
       flightSegmentInfos: 'flight_segment_infos',
@@ -34497,6 +36241,7 @@ export class FlightModifyOtaSearchV2ResponseBodyModule extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentInfos: { 'type': 'array', 'itemType': FlightModifyOtaSearchV2ResponseBodyModuleAgentInfos },
       agentInfo: FlightModifyOtaSearchV2ResponseBodyModuleAgentInfo,
       cacheKey: 'string',
       flightSegmentInfos: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': FlightModifyOtaSearchV2ResponseBodyModuleFlightSegmentInfos } },
@@ -35666,6 +37411,7 @@ export class FlightOrderListQueryResponseBodyModule extends $tea.Model {
   status?: number;
   thirdPartProjectId?: string;
   thirdpartApplyId?: string;
+  thirdpartBusinessId?: string;
   thirdpartItineraryId?: string;
   tripType?: number;
   userAffiliateList?: FlightOrderListQueryResponseBodyModuleUserAffiliateList[];
@@ -35706,6 +37452,7 @@ export class FlightOrderListQueryResponseBodyModule extends $tea.Model {
       status: 'status',
       thirdPartProjectId: 'third_part_project_id',
       thirdpartApplyId: 'thirdpart_apply_id',
+      thirdpartBusinessId: 'thirdpart_business_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
       tripType: 'trip_type',
       userAffiliateList: 'user_affiliate_list',
@@ -35749,6 +37496,7 @@ export class FlightOrderListQueryResponseBodyModule extends $tea.Model {
       status: 'number',
       thirdPartProjectId: 'string',
       thirdpartApplyId: 'string',
+      thirdpartBusinessId: 'string',
       thirdpartItineraryId: 'string',
       tripType: 'number',
       userAffiliateList: { 'type': 'array', 'itemType': FlightOrderListQueryResponseBodyModuleUserAffiliateList },
@@ -36172,6 +37920,7 @@ export class FlightOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model 
   orderId?: number;
   orderStatus?: number;
   thirdpartApplyId?: string;
+  thirdpartBusinessId?: string;
   thirdpartCorpId?: string;
   thirdpartItineraryId?: string;
   tripType?: number;
@@ -36193,6 +37942,7 @@ export class FlightOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model 
       orderId: 'order_id',
       orderStatus: 'order_status',
       thirdpartApplyId: 'thirdpart_apply_id',
+      thirdpartBusinessId: 'thirdpart_business_id',
       thirdpartCorpId: 'thirdpart_corp_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
       tripType: 'trip_type',
@@ -36217,6 +37967,7 @@ export class FlightOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model 
       orderId: 'number',
       orderStatus: 'number',
       thirdpartApplyId: 'string',
+      thirdpartBusinessId: 'string',
       thirdpartCorpId: 'string',
       thirdpartItineraryId: 'string',
       tripType: 'number',
@@ -42352,6 +44103,7 @@ export class HotelAskingPriceResponseBodyModule extends $tea.Model {
 }
 
 export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
+  agreementPromotionFee?: number;
   alipayTradeNo?: string;
   applyArrCityCode?: string;
   applyArrCityName?: string;
@@ -42430,6 +44182,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   voucherType?: number;
   static names(): { [key: string]: string } {
     return {
+      agreementPromotionFee: 'agreement_promotion_fee',
       alipayTradeNo: 'alipay_trade_no',
       applyArrCityCode: 'apply_arr_city_code',
       applyArrCityName: 'apply_arr_city_name',
@@ -42511,6 +44264,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      agreementPromotionFee: 'number',
       alipayTradeNo: 'string',
       applyArrCityCode: 'string',
       applyArrCityName: 'string',
@@ -44197,6 +45951,7 @@ export class HotelOrderListQueryResponseBodyModule extends $tea.Model {
   roomNum?: number;
   roomType?: string;
   thirdpartApplyId?: string;
+  thirdpartBusinessId?: string;
   thirdpartItineraryId?: string;
   thirdpartProjectId?: string;
   userAffiliateList?: HotelOrderListQueryResponseBodyModuleUserAffiliateList[];
@@ -44236,6 +45991,7 @@ export class HotelOrderListQueryResponseBodyModule extends $tea.Model {
       roomNum: 'room_num',
       roomType: 'room_type',
       thirdpartApplyId: 'thirdpart_apply_id',
+      thirdpartBusinessId: 'thirdpart_business_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
       thirdpartProjectId: 'thirdpart_project_id',
       userAffiliateList: 'user_affiliate_list',
@@ -44278,6 +46034,7 @@ export class HotelOrderListQueryResponseBodyModule extends $tea.Model {
       roomNum: 'number',
       roomType: 'string',
       thirdpartApplyId: 'string',
+      thirdpartBusinessId: 'string',
       thirdpartItineraryId: 'string',
       thirdpartProjectId: 'string',
       userAffiliateList: { 'type': 'array', 'itemType': HotelOrderListQueryResponseBodyModuleUserAffiliateList },
@@ -44700,6 +46457,7 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
   orderStatus?: number;
   orderType?: number;
   thirdpartApplyId?: string;
+  thirdpartBusinessId?: string;
   thirdpartDepartId?: string;
   thirdpartItineraryId?: string;
   userId?: string;
@@ -44721,6 +46479,7 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
       orderStatus: 'order_status',
       orderType: 'order_type',
       thirdpartApplyId: 'thirdpart_apply_id',
+      thirdpartBusinessId: 'thirdpart_business_id',
       thirdpartDepartId: 'thirdpart_depart_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
       userId: 'user_id',
@@ -44745,6 +46504,7 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
       orderStatus: 'number',
       orderType: 'number',
       thirdpartApplyId: 'string',
+      thirdpartBusinessId: 'string',
       thirdpartDepartId: 'string',
       thirdpartItineraryId: 'string',
       userId: 'string',
@@ -45847,6 +47607,78 @@ export class HotelStaticInfoResponseBodyModule extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       hotelStaticInfos: { 'type': 'array', 'itemType': HotelStaticInfoResponseBodyModuleHotelStaticInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestResponseBodyModulePopularSuggestInfosPopularInfos extends $tea.Model {
+  displayName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'display_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestResponseBodyModulePopularSuggestInfos extends $tea.Model {
+  icon?: string;
+  popularInfos?: HotelSuggestResponseBodyModulePopularSuggestInfosPopularInfos[];
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icon: 'icon',
+      popularInfos: 'popular_infos',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icon: 'string',
+      popularInfos: { 'type': 'array', 'itemType': HotelSuggestResponseBodyModulePopularSuggestInfosPopularInfos },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestResponseBodyModule extends $tea.Model {
+  guessSuggestInfos?: KeywordSuggestInfo[];
+  keywordSuggestInfos?: KeywordSuggestInfo[];
+  popularSuggestInfos?: HotelSuggestResponseBodyModulePopularSuggestInfos[];
+  tips?: string;
+  static names(): { [key: string]: string } {
+    return {
+      guessSuggestInfos: 'guess_suggest_infos',
+      keywordSuggestInfos: 'keyword_suggest_infos',
+      popularSuggestInfos: 'popular_suggest_infos',
+      tips: 'tips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      guessSuggestInfos: { 'type': 'array', 'itemType': KeywordSuggestInfo },
+      keywordSuggestInfos: { 'type': 'array', 'itemType': KeywordSuggestInfo },
+      popularSuggestInfos: { 'type': 'array', 'itemType': HotelSuggestResponseBodyModulePopularSuggestInfos },
+      tips: 'string',
     };
   }
 
@@ -55632,6 +57464,7 @@ export class TrainOrderListQueryResponseBodyModule extends $tea.Model {
   runTime?: string;
   seatType?: string;
   status?: number;
+  thirdPartBusinessId?: string;
   thirdPartProjectId?: string;
   thirdpartApplyId?: string;
   thirdpartItineraryId?: string;
@@ -55672,6 +57505,7 @@ export class TrainOrderListQueryResponseBodyModule extends $tea.Model {
       runTime: 'run_time',
       seatType: 'seat_type',
       status: 'status',
+      thirdPartBusinessId: 'thirdPart_business_id',
       thirdPartProjectId: 'third_part_project_id',
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
@@ -55715,6 +57549,7 @@ export class TrainOrderListQueryResponseBodyModule extends $tea.Model {
       runTime: 'string',
       seatType: 'string',
       status: 'number',
+      thirdPartBusinessId: 'string',
       thirdPartProjectId: 'string',
       thirdpartApplyId: 'string',
       thirdpartItineraryId: 'string',
@@ -56347,6 +58182,7 @@ export class TrainOrderQueryV2ResponseBodyModuleOrderBaseInfo extends $tea.Model
   itineraryId?: string;
   orderId?: number;
   orderStatus?: number;
+  thirdPartBusinessId?: string;
   thirdpartApplyId?: string;
   thirdpartDepartId?: string;
   thirdpartItineraryId?: string;
@@ -56370,6 +58206,7 @@ export class TrainOrderQueryV2ResponseBodyModuleOrderBaseInfo extends $tea.Model
       itineraryId: 'itinerary_id',
       orderId: 'order_id',
       orderStatus: 'order_status',
+      thirdPartBusinessId: 'thirdPart_business_id',
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartDepartId: 'thirdpart_depart_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
@@ -56396,6 +58233,7 @@ export class TrainOrderQueryV2ResponseBodyModuleOrderBaseInfo extends $tea.Model
       itineraryId: 'string',
       orderId: 'number',
       orderStatus: 'number',
+      thirdPartBusinessId: 'string',
       thirdpartApplyId: 'string',
       thirdpartDepartId: 'string',
       thirdpartItineraryId: 'string',
@@ -57352,6 +59190,52 @@ export class TripTaskQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class UpdateEmployeeRequestCertList extends $tea.Model {
+  birthday?: string;
+  certExpiredTime?: string;
+  certNation?: string;
+  certNo?: string;
+  certType?: number;
+  gender?: string;
+  nationality?: string;
+  phone?: string;
+  realName?: string;
+  realNameEn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      birthday: 'birthday',
+      certExpiredTime: 'cert_expired_time',
+      certNation: 'cert_nation',
+      certNo: 'cert_no',
+      certType: 'cert_type',
+      gender: 'gender',
+      nationality: 'nationality',
+      phone: 'phone',
+      realName: 'real_name',
+      realNameEn: 'real_name_en',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      birthday: 'string',
+      certExpiredTime: 'string',
+      certNation: 'string',
+      certNo: 'string',
+      certType: 'number',
+      gender: 'string',
+      nationality: 'string',
+      phone: 'string',
+      realName: 'string',
+      realNameEn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UserQueryResponseBodyModuleItems extends $tea.Model {
   employeeNick?: string;
   leaveStatus?: number;
@@ -57468,6 +59352,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
   invoiceType?: number;
   invoiceTypeDesc?: string;
   machineCode?: string;
+  ofdOssUrl?: string;
   ossUrl?: string;
   passwordArea?: string;
   pdfOssUrl?: string;
@@ -57505,6 +59390,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       invoiceType: 'invoice_type',
       invoiceTypeDesc: 'invoice_type_desc',
       machineCode: 'machine_code',
+      ofdOssUrl: 'ofd_oss_url',
       ossUrl: 'oss_url',
       passwordArea: 'password_area',
       pdfOssUrl: 'pdf_oss_url',
@@ -57545,6 +59431,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       invoiceType: 'number',
       invoiceTypeDesc: 'string',
       machineCode: 'string',
+      ofdOssUrl: 'string',
       ossUrl: 'string',
       passwordArea: 'string',
       pdfOssUrl: 'string',
@@ -57748,6 +59635,226 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.accessTokenWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 创建企业部门
+   *
+   * @param tmpReq AddDepartmentRequest
+   * @param headers AddDepartmentHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDepartmentResponse
+   */
+  async addDepartmentWithOptions(tmpReq: AddDepartmentRequest, headers: AddDepartmentHeaders, runtime: $Util.RuntimeOptions): Promise<AddDepartmentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddDepartmentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.managerEmployeeIdList)) {
+      request.managerEmployeeIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.managerEmployeeIdList, "manager_employee_id_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deptName)) {
+      body["dept_name"] = request.deptName;
+    }
+
+    if (!Util.isUnset(request.managerEmployeeIdListShrink)) {
+      body["manager_employee_id_list"] = request.managerEmployeeIdListShrink;
+    }
+
+    if (!Util.isUnset(request.outDeptId)) {
+      body["out_dept_id"] = request.outDeptId;
+    }
+
+    if (!Util.isUnset(request.outDeptPid)) {
+      body["out_dept_pid"] = request.outDeptPid;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddDepartment",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/department/v2/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDepartmentResponse>(await this.callApi(params, req, runtime), new AddDepartmentResponse({}));
+  }
+
+  /**
+   * @summary 创建企业部门
+   *
+   * @param request AddDepartmentRequest
+   * @return AddDepartmentResponse
+   */
+  async addDepartment(request: AddDepartmentRequest): Promise<AddDepartmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AddDepartmentHeaders({ });
+    return await this.addDepartmentWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 添加员工
+   *
+   * @param tmpReq AddEmployeeRequest
+   * @param headers AddEmployeeHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddEmployeeResponse
+   */
+  async addEmployeeWithOptions(tmpReq: AddEmployeeRequest, headers: AddEmployeeHeaders, runtime: $Util.RuntimeOptions): Promise<AddEmployeeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddEmployeeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.baseCityCodeList)) {
+      request.baseCityCodeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.baseCityCodeList, "base_city_code_list", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.certList)) {
+      request.certListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.certList, "cert_list", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.customRoleCodeList)) {
+      request.customRoleCodeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customRoleCodeList, "custom_role_code_list", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.outDeptIdList)) {
+      request.outDeptIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outDeptIdList, "out_dept_id_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.avatar)) {
+      body["avatar"] = request.avatar;
+    }
+
+    if (!Util.isUnset(request.baseCityCodeListShrink)) {
+      body["base_city_code_list"] = request.baseCityCodeListShrink;
+    }
+
+    if (!Util.isUnset(request.birthday)) {
+      body["birthday"] = request.birthday;
+    }
+
+    if (!Util.isUnset(request.certListShrink)) {
+      body["cert_list"] = request.certListShrink;
+    }
+
+    if (!Util.isUnset(request.customRoleCodeListShrink)) {
+      body["custom_role_code_list"] = request.customRoleCodeListShrink;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      body["email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.gender)) {
+      body["gender"] = request.gender;
+    }
+
+    if (!Util.isUnset(request.isAdmin)) {
+      body["is_admin"] = request.isAdmin;
+    }
+
+    if (!Util.isUnset(request.isBoss)) {
+      body["is_boss"] = request.isBoss;
+    }
+
+    if (!Util.isUnset(request.isDeptLeader)) {
+      body["is_dept_leader"] = request.isDeptLeader;
+    }
+
+    if (!Util.isUnset(request.jobNo)) {
+      body["job_no"] = request.jobNo;
+    }
+
+    if (!Util.isUnset(request.managerUserId)) {
+      body["manager_user_id"] = request.managerUserId;
+    }
+
+    if (!Util.isUnset(request.outDeptIdListShrink)) {
+      body["out_dept_id_list"] = request.outDeptIdListShrink;
+    }
+
+    if (!Util.isUnset(request.phone)) {
+      body["phone"] = request.phone;
+    }
+
+    if (!Util.isUnset(request.positionLevel)) {
+      body["position_level"] = request.positionLevel;
+    }
+
+    if (!Util.isUnset(request.realName)) {
+      body["real_name"] = request.realName;
+    }
+
+    if (!Util.isUnset(request.realNameEn)) {
+      body["real_name_en"] = request.realNameEn;
+    }
+
+    if (!Util.isUnset(request.unionId)) {
+      body["union_id"] = request.unionId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userNick)) {
+      body["user_nick"] = request.userNick;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddEmployee",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/employee/v2/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddEmployeeResponse>(await this.callApi(params, req, runtime), new AddEmployeeResponse({}));
+  }
+
+  /**
+   * @summary 添加员工
+   *
+   * @param request AddEmployeeRequest
+   * @return AddEmployeeResponse
+   */
+  async addEmployee(request: AddEmployeeRequest): Promise<AddEmployeeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AddEmployeeHeaders({ });
+    return await this.addEmployeeWithOptions(request, headers, runtime);
   }
 
   /**
@@ -60537,6 +62644,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 删除企业部门
+   *
+   * @param request DeleteDepartmentRequest
+   * @param headers DeleteDepartmentHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDepartmentResponse
+   */
+  async deleteDepartmentWithOptions(request: DeleteDepartmentRequest, headers: DeleteDepartmentHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteDepartmentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.outDeptId)) {
+      body["out_dept_id"] = request.outDeptId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDepartment",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/department/v2/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDepartmentResponse>(await this.callApi(params, req, runtime), new DeleteDepartmentResponse({}));
+  }
+
+  /**
+   * @summary 删除企业部门
+   *
+   * @param request DeleteDepartmentRequest
+   * @return DeleteDepartmentResponse
+   */
+  async deleteDepartment(request: DeleteDepartmentRequest): Promise<DeleteDepartmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteDepartmentHeaders({ });
+    return await this.deleteDepartmentWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @summary 批量删除企业自定义角色下人员
    *
    * @param tmpReq DeleteEmployeesFromCustomRoleRequest
@@ -61080,6 +63241,219 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ExceedApplySyncHeaders({ });
     return await this.exceedApplySyncWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 添加外部出行人与证件信息
+   *
+   * @param tmpReq ExternalUserAddRequest
+   * @param headers ExternalUserAddHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExternalUserAddResponse
+   */
+  async externalUserAddWithOptions(tmpReq: ExternalUserAddRequest, headers: ExternalUserAddHeaders, runtime: $Util.RuntimeOptions): Promise<ExternalUserAddResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ExternalUserAddShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.certRequestList)) {
+      request.certRequestListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.certRequestList, "cert_request_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.birthday)) {
+      body["birthday"] = request.birthday;
+    }
+
+    if (!Util.isUnset(request.certRequestListShrink)) {
+      body["cert_request_list"] = request.certRequestListShrink;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      body["email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.externalUserId)) {
+      body["external_user_id"] = request.externalUserId;
+    }
+
+    if (!Util.isUnset(request.phone)) {
+      body["phone"] = request.phone;
+    }
+
+    if (!Util.isUnset(request.realName)) {
+      body["real_name"] = request.realName;
+    }
+
+    if (!Util.isUnset(request.realNameEn)) {
+      body["real_name_en"] = request.realNameEn;
+    }
+
+    if (!Util.isUnset(request.userType)) {
+      body["user_type"] = request.userType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExternalUserAdd",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/user/v1/externalUsers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExternalUserAddResponse>(await this.callApi(params, req, runtime), new ExternalUserAddResponse({}));
+  }
+
+  /**
+   * @summary 添加外部出行人与证件信息
+   *
+   * @param request ExternalUserAddRequest
+   * @return ExternalUserAddResponse
+   */
+  async externalUserAdd(request: ExternalUserAddRequest): Promise<ExternalUserAddResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ExternalUserAddHeaders({ });
+    return await this.externalUserAddWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 删除外部出行人
+   *
+   * @param headers ExternalUserDeleteHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExternalUserDeleteResponse
+   */
+  async externalUserDeleteWithOptions(externalUserId: string, headers: ExternalUserDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<ExternalUserDeleteResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "ExternalUserDelete",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/user/v1/externalUsers/${OpenApiUtil.getEncodeParam(externalUserId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExternalUserDeleteResponse>(await this.callApi(params, req, runtime), new ExternalUserDeleteResponse({}));
+  }
+
+  /**
+   * @summary 删除外部出行人
+   *
+   * @return ExternalUserDeleteResponse
+   */
+  async externalUserDelete(externalUserId: string): Promise<ExternalUserDeleteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ExternalUserDeleteHeaders({ });
+    return await this.externalUserDeleteWithOptions(externalUserId, headers, runtime);
+  }
+
+  /**
+   * @summary 修改外部出行人与证件信息
+   *
+   * @param tmpReq ExternalUserUpdateRequest
+   * @param headers ExternalUserUpdateHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExternalUserUpdateResponse
+   */
+  async externalUserUpdateWithOptions(externalUserId: string, tmpReq: ExternalUserUpdateRequest, headers: ExternalUserUpdateHeaders, runtime: $Util.RuntimeOptions): Promise<ExternalUserUpdateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ExternalUserUpdateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.certRequestList)) {
+      request.certRequestListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.certRequestList, "cert_request_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.birthday)) {
+      body["birthday"] = request.birthday;
+    }
+
+    if (!Util.isUnset(request.certRequestListShrink)) {
+      body["cert_request_list"] = request.certRequestListShrink;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      body["email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.phone)) {
+      body["phone"] = request.phone;
+    }
+
+    if (!Util.isUnset(request.realName)) {
+      body["real_name"] = request.realName;
+    }
+
+    if (!Util.isUnset(request.realNameEn)) {
+      body["real_name_en"] = request.realNameEn;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExternalUserUpdate",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/user/v1/externalUsers/${OpenApiUtil.getEncodeParam(externalUserId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExternalUserUpdateResponse>(await this.callApi(params, req, runtime), new ExternalUserUpdateResponse({}));
+  }
+
+  /**
+   * @summary 修改外部出行人与证件信息
+   *
+   * @param request ExternalUserUpdateRequest
+   * @return ExternalUserUpdateResponse
+   */
+  async externalUserUpdate(externalUserId: string, request: ExternalUserUpdateRequest): Promise<ExternalUserUpdateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ExternalUserUpdateHeaders({ });
+    return await this.externalUserUpdateWithOptions(externalUserId, request, headers, runtime);
   }
 
   /**
@@ -65246,6 +67620,80 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelStaticInfoHeaders({ });
     return await this.hotelStaticInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 酒店关键词搜索
+   *
+   * @param request HotelSuggestRequest
+   * @param headers HotelSuggestHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelSuggestResponse
+   */
+  async hotelSuggestWithOptions(request: HotelSuggestRequest, headers: HotelSuggestHeaders, runtime: $Util.RuntimeOptions): Promise<HotelSuggestResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.btripUserId)) {
+      query["btrip_user_id"] = request.btripUserId;
+    }
+
+    if (!Util.isUnset(request.checkIn)) {
+      query["check_in"] = request.checkIn;
+    }
+
+    if (!Util.isUnset(request.checkOut)) {
+      query["check_out"] = request.checkOut;
+    }
+
+    if (!Util.isUnset(request.cityCode)) {
+      query["city_code"] = request.cityCode;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.searchType)) {
+      query["search_type"] = request.searchType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "HotelSuggest",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-hotel/v1/suggest-infos`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<HotelSuggestResponse>(await this.callApi(params, req, runtime), new HotelSuggestResponse({}));
+  }
+
+  /**
+   * @summary 酒店关键词搜索
+   *
+   * @param request HotelSuggestRequest
+   * @return HotelSuggestResponse
+   */
+  async hotelSuggest(request: HotelSuggestRequest): Promise<HotelSuggestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new HotelSuggestHeaders({ });
+    return await this.hotelSuggestWithOptions(request, headers, runtime);
   }
 
   /**
@@ -70541,6 +72989,280 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UpdateCustomRoleHeaders({ });
     return await this.updateCustomRoleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 修改企业部门
+   *
+   * @param tmpReq UpdateDepartmentRequest
+   * @param headers UpdateDepartmentHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDepartmentResponse
+   */
+  async updateDepartmentWithOptions(tmpReq: UpdateDepartmentRequest, headers: UpdateDepartmentHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateDepartmentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDepartmentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.managerEmployeeIdList)) {
+      request.managerEmployeeIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.managerEmployeeIdList, "manager_employee_id_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deptName)) {
+      body["dept_name"] = request.deptName;
+    }
+
+    if (!Util.isUnset(request.managerEmployeeIdListShrink)) {
+      body["manager_employee_id_list"] = request.managerEmployeeIdListShrink;
+    }
+
+    if (!Util.isUnset(request.outDeptId)) {
+      body["out_dept_id"] = request.outDeptId;
+    }
+
+    if (!Util.isUnset(request.outDeptPid)) {
+      body["out_dept_pid"] = request.outDeptPid;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDepartment",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/department/v2/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDepartmentResponse>(await this.callApi(params, req, runtime), new UpdateDepartmentResponse({}));
+  }
+
+  /**
+   * @summary 修改企业部门
+   *
+   * @param request UpdateDepartmentRequest
+   * @return UpdateDepartmentResponse
+   */
+  async updateDepartment(request: UpdateDepartmentRequest): Promise<UpdateDepartmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateDepartmentHeaders({ });
+    return await this.updateDepartmentWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 更新员工信息
+   *
+   * @param tmpReq UpdateEmployeeRequest
+   * @param headers UpdateEmployeeHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEmployeeResponse
+   */
+  async updateEmployeeWithOptions(tmpReq: UpdateEmployeeRequest, headers: UpdateEmployeeHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateEmployeeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateEmployeeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.baseCityCodeList)) {
+      request.baseCityCodeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.baseCityCodeList, "base_city_code_list", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.certList)) {
+      request.certListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.certList, "cert_list", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.customRoleCodeList)) {
+      request.customRoleCodeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customRoleCodeList, "custom_role_code_list", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.outDeptIdList)) {
+      request.outDeptIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outDeptIdList, "out_dept_id_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.avatar)) {
+      body["avatar"] = request.avatar;
+    }
+
+    if (!Util.isUnset(request.baseCityCodeListShrink)) {
+      body["base_city_code_list"] = request.baseCityCodeListShrink;
+    }
+
+    if (!Util.isUnset(request.birthday)) {
+      body["birthday"] = request.birthday;
+    }
+
+    if (!Util.isUnset(request.certListShrink)) {
+      body["cert_list"] = request.certListShrink;
+    }
+
+    if (!Util.isUnset(request.customRoleCodeListShrink)) {
+      body["custom_role_code_list"] = request.customRoleCodeListShrink;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      body["email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.gender)) {
+      body["gender"] = request.gender;
+    }
+
+    if (!Util.isUnset(request.isAdmin)) {
+      body["is_admin"] = request.isAdmin;
+    }
+
+    if (!Util.isUnset(request.isBoss)) {
+      body["is_boss"] = request.isBoss;
+    }
+
+    if (!Util.isUnset(request.isDeptLeader)) {
+      body["is_dept_leader"] = request.isDeptLeader;
+    }
+
+    if (!Util.isUnset(request.jobNo)) {
+      body["job_no"] = request.jobNo;
+    }
+
+    if (!Util.isUnset(request.managerUserId)) {
+      body["manager_user_id"] = request.managerUserId;
+    }
+
+    if (!Util.isUnset(request.outDeptIdListShrink)) {
+      body["out_dept_id_list"] = request.outDeptIdListShrink;
+    }
+
+    if (!Util.isUnset(request.phone)) {
+      body["phone"] = request.phone;
+    }
+
+    if (!Util.isUnset(request.positionLevel)) {
+      body["position_level"] = request.positionLevel;
+    }
+
+    if (!Util.isUnset(request.realName)) {
+      body["real_name"] = request.realName;
+    }
+
+    if (!Util.isUnset(request.realNameEn)) {
+      body["real_name_en"] = request.realNameEn;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userNick)) {
+      body["user_nick"] = request.userNick;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEmployee",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/employee/v2/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEmployeeResponse>(await this.callApi(params, req, runtime), new UpdateEmployeeResponse({}));
+  }
+
+  /**
+   * @summary 更新员工信息
+   *
+   * @param request UpdateEmployeeRequest
+   * @return UpdateEmployeeResponse
+   */
+  async updateEmployee(request: UpdateEmployeeRequest): Promise<UpdateEmployeeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateEmployeeHeaders({ });
+    return await this.updateEmployeeWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 更新员工在职状态
+   *
+   * @param request UpdateEmployeeLeaveStatusRequest
+   * @param headers UpdateEmployeeLeaveStatusHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEmployeeLeaveStatusResponse
+   */
+  async updateEmployeeLeaveStatusWithOptions(request: UpdateEmployeeLeaveStatusRequest, headers: UpdateEmployeeLeaveStatusHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateEmployeeLeaveStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.isLeave)) {
+      body["is_leave"] = request.isLeave;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEmployeeLeaveStatus",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/employee/v2/updateLeaveStatus`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEmployeeLeaveStatusResponse>(await this.callApi(params, req, runtime), new UpdateEmployeeLeaveStatusResponse({}));
+  }
+
+  /**
+   * @summary 更新员工在职状态
+   *
+   * @param request UpdateEmployeeLeaveStatusRequest
+   * @return UpdateEmployeeLeaveStatusResponse
+   */
+  async updateEmployeeLeaveStatus(request: UpdateEmployeeLeaveStatusRequest): Promise<UpdateEmployeeLeaveStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateEmployeeLeaveStatusHeaders({ });
+    return await this.updateEmployeeLeaveStatusWithOptions(request, headers, runtime);
   }
 
   /**
