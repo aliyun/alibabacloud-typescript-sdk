@@ -989,10 +989,12 @@ export class TableSummaryModel extends $tea.Model {
 export class AllocateClusterPublicConnectionRequest extends $tea.Model {
   connectionStringPrefix?: string;
   DBClusterId?: string;
+  engine?: string;
   static names(): { [key: string]: string } {
     return {
       connectionStringPrefix: 'ConnectionStringPrefix',
       DBClusterId: 'DBClusterId',
+      engine: 'Engine',
     };
   }
 
@@ -1000,6 +1002,7 @@ export class AllocateClusterPublicConnectionRequest extends $tea.Model {
     return {
       connectionStringPrefix: 'string',
       DBClusterId: 'string',
+      engine: 'string',
     };
   }
 
@@ -1394,6 +1397,7 @@ export class CreateAccountRequest extends $tea.Model {
   accountPassword?: string;
   accountType?: string;
   DBClusterId?: string;
+  engine?: string;
   static names(): { [key: string]: string } {
     return {
       accountDescription: 'AccountDescription',
@@ -1401,6 +1405,7 @@ export class CreateAccountRequest extends $tea.Model {
       accountPassword: 'AccountPassword',
       accountType: 'AccountType',
       DBClusterId: 'DBClusterId',
+      engine: 'Engine',
     };
   }
 
@@ -1411,6 +1416,7 @@ export class CreateAccountRequest extends $tea.Model {
       accountPassword: 'string',
       accountType: 'string',
       DBClusterId: 'string',
+      engine: 'string',
     };
   }
 
@@ -1469,7 +1475,9 @@ export class CreateDBClusterRequest extends $tea.Model {
   DBClusterDescription?: string;
   DBClusterNetworkType?: string;
   DBClusterVersion?: string;
+  diskEncryption?: boolean;
   enableDefaultResourcePool?: boolean;
+  kmsId?: string;
   payType?: string;
   period?: string;
   productForm?: string;
@@ -1493,7 +1501,9 @@ export class CreateDBClusterRequest extends $tea.Model {
       DBClusterDescription: 'DBClusterDescription',
       DBClusterNetworkType: 'DBClusterNetworkType',
       DBClusterVersion: 'DBClusterVersion',
+      diskEncryption: 'DiskEncryption',
       enableDefaultResourcePool: 'EnableDefaultResourcePool',
+      kmsId: 'KmsId',
       payType: 'PayType',
       period: 'Period',
       productForm: 'ProductForm',
@@ -1520,7 +1530,9 @@ export class CreateDBClusterRequest extends $tea.Model {
       DBClusterDescription: 'string',
       DBClusterNetworkType: 'string',
       DBClusterVersion: 'string',
+      diskEncryption: 'boolean',
       enableDefaultResourcePool: 'boolean',
+      kmsId: 'string',
       payType: 'string',
       period: 'string',
       productForm: 'string',
@@ -1914,6 +1926,148 @@ export class CreateOssSubDirectoryResponse extends $tea.Model {
   }
 }
 
+export class CreatePerformanceViewRequest extends $tea.Model {
+  createFromViewType?: string;
+  DBClusterId?: string;
+  fillOriginViewKeys?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  viewDetail?: CreatePerformanceViewRequestViewDetail;
+  viewName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createFromViewType: 'CreateFromViewType',
+      DBClusterId: 'DBClusterId',
+      fillOriginViewKeys: 'FillOriginViewKeys',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      viewDetail: 'ViewDetail',
+      viewName: 'ViewName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createFromViewType: 'string',
+      DBClusterId: 'string',
+      fillOriginViewKeys: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      viewDetail: CreatePerformanceViewRequestViewDetail,
+      viewName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePerformanceViewShrinkRequest extends $tea.Model {
+  createFromViewType?: string;
+  DBClusterId?: string;
+  fillOriginViewKeys?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  viewDetailShrink?: string;
+  viewName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createFromViewType: 'CreateFromViewType',
+      DBClusterId: 'DBClusterId',
+      fillOriginViewKeys: 'FillOriginViewKeys',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      viewDetailShrink: 'ViewDetail',
+      viewName: 'ViewName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createFromViewType: 'string',
+      DBClusterId: 'string',
+      fillOriginViewKeys: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      viewDetailShrink: 'string',
+      viewName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePerformanceViewResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  createStatus?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      createStatus: 'CreateStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      createStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePerformanceViewResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePerformanceViewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePerformanceViewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSparkTemplateRequest extends $tea.Model {
   appType?: string;
   DBClusterId?: string;
@@ -1995,10 +2149,12 @@ export class CreateSparkTemplateResponse extends $tea.Model {
 export class DeleteAccountRequest extends $tea.Model {
   accountName?: string;
   DBClusterId?: string;
+  engine?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
       DBClusterId: 'DBClusterId',
+      engine: 'Engine',
     };
   }
 
@@ -2006,6 +2162,7 @@ export class DeleteAccountRequest extends $tea.Model {
     return {
       accountName: 'string',
       DBClusterId: 'string',
+      engine: 'string',
     };
   }
 
@@ -2248,6 +2405,93 @@ export class DeleteElasticPlanResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteElasticPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePerformanceViewRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  viewName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      viewName: 'ViewName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      viewName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePerformanceViewResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  deleteStatus?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      deleteStatus: 'DeleteStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      deleteStatus: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePerformanceViewResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePerformanceViewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePerformanceViewResponseBody,
     };
   }
 
@@ -2751,11 +2995,13 @@ export class DescribeAccountPrivilegesResponse extends $tea.Model {
 export class DescribeAccountsRequest extends $tea.Model {
   accountName?: string;
   DBClusterId?: string;
+  engine?: string;
   ownerId?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
       DBClusterId: 'DBClusterId',
+      engine: 'Engine',
       ownerId: 'OwnerId',
     };
   }
@@ -2764,6 +3010,7 @@ export class DescribeAccountsRequest extends $tea.Model {
     return {
       accountName: 'string',
       DBClusterId: 'string',
+      engine: 'string',
       ownerId: 'string',
     };
   }
@@ -3206,6 +3453,7 @@ export class DescribeApsActionLogsRequest extends $tea.Model {
 }
 
 export class DescribeApsActionLogsResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   actionLogs?: DescribeApsActionLogsResponseBodyActionLogs[];
   DBClusterId?: string;
   pageNumber?: string;
@@ -3215,6 +3463,7 @@ export class DescribeApsActionLogsResponseBody extends $tea.Model {
   workloadId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       actionLogs: 'ActionLogs',
       DBClusterId: 'DBClusterId',
       pageNumber: 'PageNumber',
@@ -3227,6 +3476,7 @@ export class DescribeApsActionLogsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       actionLogs: { 'type': 'array', 'itemType': DescribeApsActionLogsResponseBodyActionLogs },
       DBClusterId: 'string',
       pageNumber: 'string',
@@ -3743,15 +3993,18 @@ export class DescribeClusterAccessWhiteListResponse extends $tea.Model {
 
 export class DescribeClusterNetInfoRequest extends $tea.Model {
   DBClusterId?: string;
+  engine?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      engine: 'Engine',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      engine: 'string',
     };
   }
 
@@ -4196,6 +4449,7 @@ export class DescribeDBClusterHealthStatusRequest extends $tea.Model {
 }
 
 export class DescribeDBClusterHealthStatusResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   CS?: DescribeDBClusterHealthStatusResponseBodyCS;
   executor?: DescribeDBClusterHealthStatusResponseBodyExecutor;
   instanceStatus?: string;
@@ -4203,6 +4457,7 @@ export class DescribeDBClusterHealthStatusResponseBody extends $tea.Model {
   worker?: DescribeDBClusterHealthStatusResponseBodyWorker;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       CS: 'CS',
       executor: 'Executor',
       instanceStatus: 'InstanceStatus',
@@ -4213,6 +4468,7 @@ export class DescribeDBClusterHealthStatusResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       CS: DescribeDBClusterHealthStatusResponseBodyCS,
       executor: DescribeDBClusterHealthStatusResponseBodyExecutor,
       instanceStatus: 'string',
@@ -5000,10 +5256,12 @@ export class DescribeDownloadRecordsRequest extends $tea.Model {
 }
 
 export class DescribeDownloadRecordsResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   records?: DescribeDownloadRecordsResponseBodyRecords[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       records: 'Records',
       requestId: 'RequestId',
     };
@@ -5011,6 +5269,7 @@ export class DescribeDownloadRecordsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       records: { 'type': 'array', 'itemType': DescribeDownloadRecordsResponseBodyRecords },
       requestId: 'string',
     };
@@ -5454,6 +5713,123 @@ export class DescribeEnabledPrivilegesResponse extends $tea.Model {
   }
 }
 
+export class DescribeExcessivePrimaryKeysRequest extends $tea.Model {
+  DBClusterId?: string;
+  endTime?: string;
+  lang?: string;
+  order?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      order: 'Order',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      endTime: 'string',
+      lang: 'string',
+      order: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExcessivePrimaryKeysResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  DBClusterId?: string;
+  detectionItems?: DescribeExcessivePrimaryKeysResponseBodyDetectionItems[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  tables?: DescribeExcessivePrimaryKeysResponseBodyTables[];
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      DBClusterId: 'DBClusterId',
+      detectionItems: 'DetectionItems',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      tables: 'Tables',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      DBClusterId: 'string',
+      detectionItems: { 'type': 'array', 'itemType': DescribeExcessivePrimaryKeysResponseBodyDetectionItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      tables: { 'type': 'array', 'itemType': DescribeExcessivePrimaryKeysResponseBodyTables },
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExcessivePrimaryKeysResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeExcessivePrimaryKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeExcessivePrimaryKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeJobResourceUsageRequest extends $tea.Model {
   DBClusterId?: string;
   endTime?: string;
@@ -5613,6 +5989,189 @@ export class DescribePatternPerformanceResponse extends $tea.Model {
   }
 }
 
+export class DescribePerformanceViewAttributeRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  viewName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      viewName: 'ViewName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      viewName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePerformanceViewAttributeResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  createFromViewType?: string;
+  DBClusterId?: string;
+  fillOriginViewKeys?: boolean;
+  requestId?: string;
+  viewDetail?: DescribePerformanceViewAttributeResponseBodyViewDetail;
+  viewName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      createFromViewType: 'CreateFromViewType',
+      DBClusterId: 'DBClusterId',
+      fillOriginViewKeys: 'FillOriginViewKeys',
+      requestId: 'RequestId',
+      viewDetail: 'ViewDetail',
+      viewName: 'ViewName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      createFromViewType: 'string',
+      DBClusterId: 'string',
+      fillOriginViewKeys: 'boolean',
+      requestId: 'string',
+      viewDetail: DescribePerformanceViewAttributeResponseBodyViewDetail,
+      viewName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePerformanceViewAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePerformanceViewAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePerformanceViewAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePerformanceViewsRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePerformanceViewsResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  requestId?: string;
+  views?: DescribePerformanceViewsResponseBodyViews[];
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      requestId: 'RequestId',
+      views: 'Views',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      requestId: 'string',
+      views: { 'type': 'array', 'itemType': DescribePerformanceViewsResponseBodyViews },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePerformanceViewsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePerformanceViewsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePerformanceViewsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsRequest extends $tea.Model {
   acceptLanguage?: string;
   ownerAccount?: string;
@@ -5735,6 +6294,7 @@ export class DescribeSQLPatternsRequest extends $tea.Model {
 }
 
 export class DescribeSQLPatternsResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   pageNumber?: number;
   pageSize?: number;
   patternDetails?: DescribeSQLPatternsResponseBodyPatternDetails[];
@@ -5742,6 +6302,7 @@ export class DescribeSQLPatternsResponseBody extends $tea.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       patternDetails: 'PatternDetails',
@@ -5752,6 +6313,7 @@ export class DescribeSQLPatternsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       patternDetails: { 'type': 'array', 'itemType': DescribeSQLPatternsResponseBodyPatternDetails },
@@ -8968,11 +9530,13 @@ export class ModifyAccountDescriptionRequest extends $tea.Model {
   accountDescription?: string;
   accountName?: string;
   DBClusterId?: string;
+  engine?: string;
   static names(): { [key: string]: string } {
     return {
       accountDescription: 'AccountDescription',
       accountName: 'AccountName',
       DBClusterId: 'DBClusterId',
+      engine: 'Engine',
     };
   }
 
@@ -8981,6 +9545,7 @@ export class ModifyAccountDescriptionRequest extends $tea.Model {
       accountDescription: 'string',
       accountName: 'string',
       DBClusterId: 'string',
+      engine: 'string',
     };
   }
 
@@ -9914,6 +10479,136 @@ export class ModifyElasticPlanResponse extends $tea.Model {
   }
 }
 
+export class ModifyPerformanceViewRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  viewDetail?: ModifyPerformanceViewRequestViewDetail;
+  viewName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      viewDetail: 'ViewDetail',
+      viewName: 'ViewName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      viewDetail: ModifyPerformanceViewRequestViewDetail,
+      viewName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPerformanceViewShrinkRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  viewDetailShrink?: string;
+  viewName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      viewDetailShrink: 'ViewDetail',
+      viewName: 'ViewName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      viewDetailShrink: 'string',
+      viewName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPerformanceViewResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  modifyStatus?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      modifyStatus: 'ModifyStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      modifyStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPerformanceViewResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPerformanceViewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyPerformanceViewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreloadSparkAppMetricsRequest extends $tea.Model {
   appId?: string;
   DBClusterId?: string;
@@ -9985,15 +10680,18 @@ export class PreloadSparkAppMetricsResponse extends $tea.Model {
 
 export class ReleaseClusterPublicConnectionRequest extends $tea.Model {
   DBClusterId?: string;
+  engine?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      engine: 'Engine',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      engine: 'string',
     };
   }
 
@@ -10123,12 +10821,14 @@ export class ResetAccountPasswordRequest extends $tea.Model {
   accountName?: string;
   accountPassword?: string;
   DBClusterId?: string;
+  engine?: string;
   static names(): { [key: string]: string } {
     return {
       accountDescription: 'AccountDescription',
       accountName: 'AccountName',
       accountPassword: 'AccountPassword',
       DBClusterId: 'DBClusterId',
+      engine: 'Engine',
     };
   }
 
@@ -10138,6 +10838,7 @@ export class ResetAccountPasswordRequest extends $tea.Model {
       accountName: 'string',
       accountPassword: 'string',
       DBClusterId: 'string',
+      engine: 'string',
     };
   }
 
@@ -10881,6 +11582,75 @@ export class CreateOssSubDirectoryResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreatePerformanceViewRequestViewDetailCategoriesKeys extends $tea.Model {
+  keyName?: string;
+  selected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      keyName: 'KeyName',
+      selected: 'Selected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyName: 'string',
+      selected: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePerformanceViewRequestViewDetailCategories extends $tea.Model {
+  category?: string;
+  keys?: CreatePerformanceViewRequestViewDetailCategoriesKeys[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      keys: 'Keys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      keys: { 'type': 'array', 'itemType': CreatePerformanceViewRequestViewDetailCategoriesKeys },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePerformanceViewRequestViewDetail extends $tea.Model {
+  categories?: CreatePerformanceViewRequestViewDetailCategories[];
+  chartLinked?: boolean;
+  chartsPerLine?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      chartLinked: 'ChartLinked',
+      chartsPerLine: 'ChartsPerLine',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': CreatePerformanceViewRequestViewDetailCategories },
+      chartLinked: 'boolean',
+      chartsPerLine: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSparkTemplateResponseBodyData extends $tea.Model {
   succeeded?: boolean;
   static names(): { [key: string]: string } {
@@ -11102,6 +11872,7 @@ export class DescribeAccountsResponseBodyAccountListDBAccount extends $tea.Model
   accountName?: string;
   accountStatus?: string;
   accountType?: string;
+  engine?: string;
   ramUsers?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11109,6 +11880,7 @@ export class DescribeAccountsResponseBodyAccountListDBAccount extends $tea.Model
       accountName: 'AccountName',
       accountStatus: 'AccountStatus',
       accountType: 'AccountType',
+      engine: 'Engine',
       ramUsers: 'RamUsers',
     };
   }
@@ -11119,6 +11891,7 @@ export class DescribeAccountsResponseBodyAccountListDBAccount extends $tea.Model
       accountName: 'string',
       accountStatus: 'string',
       accountType: 'string',
+      engine: 'string',
       ramUsers: 'string',
     };
   }
@@ -11546,12 +12319,54 @@ export class DescribeClusterAccessWhiteListResponseBodyItems extends $tea.Model 
   }
 }
 
+export class DescribeClusterNetInfoResponseBodyItemsAddressPortsPorts extends $tea.Model {
+  port?: string;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'string',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNetInfoResponseBodyItemsAddressPorts extends $tea.Model {
+  ports?: DescribeClusterNetInfoResponseBodyItemsAddressPortsPorts[];
+  static names(): { [key: string]: string } {
+    return {
+      ports: 'ports',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ports: { 'type': 'array', 'itemType': DescribeClusterNetInfoResponseBodyItemsAddressPortsPorts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNetInfoResponseBodyItemsAddress extends $tea.Model {
   connectionString?: string;
   connectionStringPrefix?: string;
   IPAddress?: string;
   netType?: string;
   port?: string;
+  ports?: DescribeClusterNetInfoResponseBodyItemsAddressPorts;
   VPCId?: string;
   vSwitchId?: string;
   static names(): { [key: string]: string } {
@@ -11561,6 +12376,7 @@ export class DescribeClusterNetInfoResponseBodyItemsAddress extends $tea.Model {
       IPAddress: 'IPAddress',
       netType: 'NetType',
       port: 'Port',
+      ports: 'Ports',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
     };
@@ -11573,6 +12389,7 @@ export class DescribeClusterNetInfoResponseBodyItemsAddress extends $tea.Model {
       IPAddress: 'string',
       netType: 'string',
       port: 'string',
+      ports: DescribeClusterNetInfoResponseBodyItemsAddressPorts,
       VPCId: 'string',
       vSwitchId: 'string',
     };
@@ -11892,6 +12709,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBClusterTags extends $t
 }
 
 export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.Model {
+  clickhouseEngineCacheSize?: number;
+  clickhouseEngineEnabled?: boolean;
   commodityCode?: string;
   computeResource?: string;
   computeResourceTotal?: string;
@@ -11907,6 +12726,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
   engineVersion?: string;
   expireTime?: string;
   expired?: string;
+  kmsId?: string;
   lockMode?: string;
   lockReason?: string;
   maintainTime?: string;
@@ -11914,6 +12734,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
   payType?: string;
   port?: number;
   productForm?: string;
+  productVersion?: string;
   regionId?: string;
   reservedACU?: string;
   reservedNodeCount?: number;
@@ -11929,6 +12750,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      clickhouseEngineCacheSize: 'ClickhouseEngineCacheSize',
+      clickhouseEngineEnabled: 'ClickhouseEngineEnabled',
       commodityCode: 'CommodityCode',
       computeResource: 'ComputeResource',
       computeResourceTotal: 'ComputeResourceTotal',
@@ -11944,6 +12767,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
       expired: 'Expired',
+      kmsId: 'KmsId',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
       maintainTime: 'MaintainTime',
@@ -11951,6 +12775,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       payType: 'PayType',
       port: 'Port',
       productForm: 'ProductForm',
+      productVersion: 'ProductVersion',
       regionId: 'RegionId',
       reservedACU: 'ReservedACU',
       reservedNodeCount: 'ReservedNodeCount',
@@ -11969,6 +12794,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      clickhouseEngineCacheSize: 'number',
+      clickhouseEngineEnabled: 'boolean',
       commodityCode: 'string',
       computeResource: 'string',
       computeResourceTotal: 'string',
@@ -11984,6 +12811,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       engineVersion: 'string',
       expireTime: 'string',
       expired: 'string',
+      kmsId: 'string',
       lockMode: 'string',
       lockReason: 'string',
       maintainTime: 'string',
@@ -11991,6 +12819,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       payType: 'string',
       port: 'number',
       productForm: 'string',
+      productVersion: 'string',
       regionId: 'string',
       reservedACU: 'string',
       reservedNodeCount: 'number',
@@ -12460,6 +13289,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
   payType?: string;
   port?: string;
   productForm?: string;
+  productVersion?: string;
   rdsInstanceId?: string;
   regionId?: string;
   reservedACU?: string;
@@ -12504,6 +13334,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       payType: 'PayType',
       port: 'Port',
       productForm: 'ProductForm',
+      productVersion: 'ProductVersion',
       rdsInstanceId: 'RdsInstanceId',
       regionId: 'RegionId',
       reservedACU: 'ReservedACU',
@@ -12551,6 +13382,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       payType: 'string',
       port: 'string',
       productForm: 'string',
+      productVersion: 'string',
       rdsInstanceId: 'string',
       regionId: 'string',
       reservedACU: 'string',
@@ -13015,14 +13847,83 @@ export class DescribeEnabledPrivilegesResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeExcessivePrimaryKeysResponseBodyDetectionItems extends $tea.Model {
+  message?: string;
+  name?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      name: 'Name',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      name: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExcessivePrimaryKeysResponseBodyTables extends $tea.Model {
+  columnCount?: number;
+  primaryKeyColumns?: string;
+  primaryKeyCount?: number;
+  primaryKeyIndexSize?: number;
+  schemaName?: string;
+  spaceRatio?: number;
+  tableName?: string;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      columnCount: 'ColumnCount',
+      primaryKeyColumns: 'PrimaryKeyColumns',
+      primaryKeyCount: 'PrimaryKeyCount',
+      primaryKeyIndexSize: 'PrimaryKeyIndexSize',
+      schemaName: 'SchemaName',
+      spaceRatio: 'SpaceRatio',
+      tableName: 'TableName',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnCount: 'number',
+      primaryKeyColumns: 'string',
+      primaryKeyCount: 'number',
+      primaryKeyIndexSize: 'number',
+      schemaName: 'string',
+      spaceRatio: 'number',
+      tableName: 'string',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail extends $tea.Model {
   elasticAcuNumber?: number;
   reservedAcuNumber?: number;
+  spotAcuNumber?: number;
+  spotAcuPercentage?: number;
   totalAcuNumber?: number;
   static names(): { [key: string]: string } {
     return {
       elasticAcuNumber: 'ElasticAcuNumber',
       reservedAcuNumber: 'ReservedAcuNumber',
+      spotAcuNumber: 'SpotAcuNumber',
+      spotAcuPercentage: 'SpotAcuPercentage',
       totalAcuNumber: 'TotalAcuNumber',
     };
   }
@@ -13031,6 +13932,8 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
     return {
       elasticAcuNumber: 'number',
       reservedAcuNumber: 'number',
+      spotAcuNumber: 'number',
+      spotAcuPercentage: 'number',
       totalAcuNumber: 'number',
     };
   }
@@ -13138,6 +14041,100 @@ export class DescribePatternPerformanceResponseBodyPerformances extends $tea.Mod
       key: 'string',
       series: { 'type': 'array', 'itemType': DescribePatternPerformanceResponseBodyPerformancesSeries },
       unit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKeys extends $tea.Model {
+  keyName?: string;
+  selected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      keyName: 'KeyName',
+      selected: 'Selected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyName: 'string',
+      selected: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePerformanceViewAttributeResponseBodyViewDetailCategories extends $tea.Model {
+  category?: string;
+  keys?: DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKeys[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      keys: 'Keys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      keys: { 'type': 'array', 'itemType': DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKeys },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePerformanceViewAttributeResponseBodyViewDetail extends $tea.Model {
+  categories?: DescribePerformanceViewAttributeResponseBodyViewDetailCategories[];
+  chartLinked?: boolean;
+  chartsPerLine?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      chartLinked: 'ChartLinked',
+      chartsPerLine: 'ChartsPerLine',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': DescribePerformanceViewAttributeResponseBodyViewDetailCategories },
+      chartLinked: 'boolean',
+      chartsPerLine: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePerformanceViewsResponseBodyViews extends $tea.Model {
+  createTime?: string;
+  updateTime?: string;
+  viewName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      updateTime: 'UpdateTime',
+      viewName: 'ViewName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      updateTime: 'string',
+      viewName: 'string',
     };
   }
 
@@ -14109,6 +15106,75 @@ export class ModifyDBResourceGroupRequestRules extends $tea.Model {
   }
 }
 
+export class ModifyPerformanceViewRequestViewDetailCategoriesKeys extends $tea.Model {
+  keyName?: string;
+  selected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      keyName: 'KeyName',
+      selected: 'Selected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyName: 'string',
+      selected: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPerformanceViewRequestViewDetailCategories extends $tea.Model {
+  category?: string;
+  keys?: ModifyPerformanceViewRequestViewDetailCategoriesKeys[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      keys: 'Keys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      keys: { 'type': 'array', 'itemType': ModifyPerformanceViewRequestViewDetailCategoriesKeys },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPerformanceViewRequestViewDetail extends $tea.Model {
+  categories?: ModifyPerformanceViewRequestViewDetailCategories[];
+  chartLinked?: boolean;
+  chartsPerLine?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      chartLinked: 'ChartLinked',
+      chartsPerLine: 'ChartsPerLine',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': ModifyPerformanceViewRequestViewDetailCategories },
+      chartLinked: 'boolean',
+      chartsPerLine: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreloadSparkAppMetricsResponseBodyDataScanMetrics extends $tea.Model {
   outputRowsCount?: number;
   totalReadFileSizeInByte?: number;
@@ -14356,7 +15422,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Applies for a public endpoint for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request AllocateClusterPublicConnectionRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -14371,6 +15437,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14393,7 +15463,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Applies for a public endpoint for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request AllocateClusterPublicConnectionRequest
    * @return AllocateClusterPublicConnectionResponse
@@ -14681,6 +15751,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -14743,8 +15817,16 @@ export default class Client extends OpenApi {
       query["DBClusterVersion"] = request.DBClusterVersion;
     }
 
+    if (!Util.isUnset(request.diskEncryption)) {
+      query["DiskEncryption"] = request.diskEncryption;
+    }
+
     if (!Util.isUnset(request.enableDefaultResourcePool)) {
       query["EnableDefaultResourcePool"] = request.enableDefaultResourcePool;
+    }
+
+    if (!Util.isUnset(request.kmsId)) {
+      query["KmsId"] = request.kmsId;
     }
 
     if (!Util.isUnset(request.payType)) {
@@ -14844,7 +15926,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Creates a resource group for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param tmpReq CreateDBResourceGroupRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -14927,7 +16009,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Creates a resource group for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request CreateDBResourceGroupRequest
    * @return CreateDBResourceGroupResponse
@@ -15074,6 +16156,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq CreatePerformanceViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePerformanceViewResponse
+   */
+  async createPerformanceViewWithOptions(tmpReq: CreatePerformanceViewRequest, runtime: $Util.RuntimeOptions): Promise<CreatePerformanceViewResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePerformanceViewShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.viewDetail)) {
+      request.viewDetailShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.viewDetail, "ViewDetail", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.createFromViewType)) {
+      query["CreateFromViewType"] = request.createFromViewType;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.fillOriginViewKeys)) {
+      query["FillOriginViewKeys"] = request.fillOriginViewKeys;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.viewDetailShrink)) {
+      query["ViewDetail"] = request.viewDetailShrink;
+    }
+
+    if (!Util.isUnset(request.viewName)) {
+      query["ViewName"] = request.viewName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePerformanceView",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePerformanceViewResponse>(await this.callApi(params, req, runtime), new CreatePerformanceViewResponse({}));
+  }
+
+  /**
+   * @param request CreatePerformanceViewRequest
+   * @return CreatePerformanceViewResponse
+   */
+  async createPerformanceView(request: CreatePerformanceViewRequest): Promise<CreatePerformanceViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPerformanceViewWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Creates a Spark application template.
    *
    * @description *   General endpoint: `adb.aliyuncs.com`.
@@ -15142,6 +16304,8 @@ export default class Client extends OpenApi {
   /**
    * @summary Deletes a database account from an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   *
    * @param request DeleteAccountRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DeleteAccountResponse
@@ -15155,6 +16319,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -15176,6 +16344,8 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Deletes a database account from an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request DeleteAccountRequest
    * @return DeleteAccountResponse
@@ -15336,6 +16506,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request DeletePerformanceViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePerformanceViewResponse
+   */
+  async deletePerformanceViewWithOptions(request: DeletePerformanceViewRequest, runtime: $Util.RuntimeOptions): Promise<DeletePerformanceViewResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.viewName)) {
+      query["ViewName"] = request.viewName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePerformanceView",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePerformanceViewResponse>(await this.callApi(params, req, runtime), new DeletePerformanceViewResponse({}));
+  }
+
+  /**
+   * @param request DeletePerformanceViewRequest
+   * @return DeletePerformanceViewResponse
+   */
+  async deletePerformanceView(request: DeletePerformanceViewRequest): Promise<DeletePerformanceViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePerformanceViewWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Deletes a worflow instance from an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
    * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
@@ -15452,6 +16684,10 @@ export default class Client extends OpenApi {
   /**
    * @summary Deletes Spark template files.
    *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DeleteSparkTemplateFileRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DeleteSparkTemplateFileResponse
@@ -15486,6 +16722,10 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Deletes Spark template files.
+   *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DeleteSparkTemplateFileRequest
    * @return DeleteSparkTemplateFileResponse
@@ -15725,6 +16965,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -15760,7 +17004,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 用于查询ADB for MySQL实例下某个数据库某个表的列的列表
+   * @summary Queries the information about table columns for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribeAdbMySqlColumnsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -15803,7 +17050,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 用于查询ADB for MySQL实例下某个数据库某个表的列的列表
+   * @summary Queries the information about table columns for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribeAdbMySqlColumnsRequest
    * @return DescribeAdbMySqlColumnsResponse
@@ -15815,6 +17065,9 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries a list of databases for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribeAdbMySqlSchemasRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -15851,6 +17104,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries a list of databases for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DescribeAdbMySqlSchemasRequest
    * @return DescribeAdbMySqlSchemasResponse
    */
@@ -15861,6 +17117,9 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries a list of tables for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribeAdbMySqlTablesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -15901,6 +17160,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries a list of tables for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DescribeAdbMySqlTablesRequest
    * @return DescribeAdbMySqlTablesResponse
    */
@@ -15911,6 +17173,9 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries a list of databases, tables, and columns in an AnalyticDB for MySQL cluster.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribeAllDataSourceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -15955,6 +17220,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries a list of databases, tables, and columns in an AnalyticDB for MySQL cluster.
    *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DescribeAllDataSourceRequest
    * @return DescribeAllDataSourceResponse
    */
@@ -15964,6 +17232,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DescribeApsActionLogsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeApsActionLogsResponse
@@ -16045,6 +17319,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DescribeApsActionLogsRequest
    * @return DescribeApsActionLogsResponse
    */
@@ -16054,7 +17334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about resource groups of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the resource metrics.
+   * @summary Queries the information about resource groups of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
    * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
@@ -16096,7 +17376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about resource groups of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the resource metrics.
+   * @summary Queries the information about resource groups of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
    * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
@@ -16113,9 +17393,7 @@ export default class Client extends OpenApi {
    * @summary Queries the SQL audit logs of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
    * @description *   SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
-   * *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request DescribeAuditLogRecordsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -16221,9 +17499,7 @@ export default class Client extends OpenApi {
    * @summary Queries the SQL audit logs of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
    * @description *   SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
-   * *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request DescribeAuditLogRecordsRequest
    * @return DescribeAuditLogRecordsResponse
@@ -16435,6 +17711,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16548,6 +17828,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries a list of columns in a table.
    *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DescribeColumnsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeColumnsResponse
@@ -16590,6 +17873,9 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries a list of columns in a table.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribeColumnsRequest
    * @return DescribeColumnsResponse
@@ -16752,9 +18038,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the performance data of an AnalyticDB for MySQL cluster.
    *
-   * @description *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request DescribeDBClusterPerformanceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -16807,9 +18091,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the performance data of an AnalyticDB for MySQL cluster.
    *
-   * @description *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request DescribeDBClusterPerformanceRequest
    * @return DescribeDBClusterPerformanceResponse
@@ -17312,6 +18594,8 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the last five SQL query download tasks of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   *
    * @param request DescribeDownloadRecordsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeDownloadRecordsResponse
@@ -17350,6 +18634,8 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries the last five SQL query download tasks of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request DescribeDownloadRecordsRequest
    * @return DescribeDownloadRecordsResponse
@@ -17412,7 +18698,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries a list of scaling plan jobs for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request DescribeElasticPlanJobsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -17469,7 +18755,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries a list of scaling plan jobs for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request DescribeElasticPlanJobsRequest
    * @return DescribeElasticPlanJobsResponse
@@ -17480,7 +18766,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resource specifications that can be scaled for different types of scaling plans of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * @summary Queries the resource specifications that are supported by different types of scaling plans of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request DescribeElasticPlanSpecificationsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -17519,7 +18807,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resource specifications that can be scaled for different types of scaling plans of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * @summary Queries the resource specifications that are supported by different types of scaling plans of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request DescribeElasticPlanSpecificationsRequest
    * @return DescribeElasticPlanSpecificationsResponse
@@ -17634,6 +18924,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the information about tables that have excessive primary key fields in an AnalyticDB for MySQL Data Lakehouse Edition (V5.0) cluster.
+   *
+   * @param request DescribeExcessivePrimaryKeysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExcessivePrimaryKeysResponse
+   */
+  async describeExcessivePrimaryKeysWithOptions(request: DescribeExcessivePrimaryKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExcessivePrimaryKeysResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeExcessivePrimaryKeys",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExcessivePrimaryKeysResponse>(await this.callApi(params, req, runtime), new DescribeExcessivePrimaryKeysResponse({}));
+  }
+
+  /**
+   * @summary Queries the information about tables that have excessive primary key fields in an AnalyticDB for MySQL Data Lakehouse Edition (V5.0) cluster.
+   *
+   * @param request DescribeExcessivePrimaryKeysRequest
+   * @return DescribeExcessivePrimaryKeysResponse
+   */
+  async describeExcessivePrimaryKeys(request: DescribeExcessivePrimaryKeysRequest): Promise<DescribeExcessivePrimaryKeysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeExcessivePrimaryKeysWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 获取作业资源使用统计
    *
    * @param request DescribeJobResourceUsageRequest
@@ -17686,7 +19062,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribePatternPerformanceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -17735,7 +19113,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribePatternPerformanceRequest
    * @return DescribePatternPerformanceResponse
@@ -17743,6 +19123,126 @@ export default class Client extends OpenApi {
   async describePatternPerformance(request: DescribePatternPerformanceRequest): Promise<DescribePatternPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePatternPerformanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribePerformanceViewAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePerformanceViewAttributeResponse
+   */
+  async describePerformanceViewAttributeWithOptions(request: DescribePerformanceViewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribePerformanceViewAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.viewName)) {
+      query["ViewName"] = request.viewName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePerformanceViewAttribute",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePerformanceViewAttributeResponse>(await this.callApi(params, req, runtime), new DescribePerformanceViewAttributeResponse({}));
+  }
+
+  /**
+   * @param request DescribePerformanceViewAttributeRequest
+   * @return DescribePerformanceViewAttributeResponse
+   */
+  async describePerformanceViewAttribute(request: DescribePerformanceViewAttributeRequest): Promise<DescribePerformanceViewAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePerformanceViewAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribePerformanceViewsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePerformanceViewsResponse
+   */
+  async describePerformanceViewsWithOptions(request: DescribePerformanceViewsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePerformanceViewsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePerformanceViews",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePerformanceViewsResponse>(await this.callApi(params, req, runtime), new DescribePerformanceViewsResponse({}));
+  }
+
+  /**
+   * @param request DescribePerformanceViewsRequest
+   * @return DescribePerformanceViewsResponse
+   */
+  async describePerformanceViews(request: DescribePerformanceViewsRequest): Promise<DescribePerformanceViewsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePerformanceViewsWithOptions(request, runtime);
   }
 
   /**
@@ -17810,6 +19310,10 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries a list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
    *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DescribeSQLPatternsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeSQLPatternsResponse
@@ -17873,6 +19377,10 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries a list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
    *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DescribeSQLPatternsRequest
    * @return DescribeSQLPatternsResponse
    */
@@ -17883,6 +19391,9 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries a list of databases in an AnalyticDB for MySQL cluster.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribeSchemasRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -17919,6 +19430,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries a list of databases in an AnalyticDB for MySQL cluster.
    *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DescribeSchemasRequest
    * @return DescribeSchemasResponse
    */
@@ -17928,7 +19442,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询Spark code的执行日志
+   * @summary Queries the execution logs of Spark code.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribeSparkCodeLogRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -17967,7 +19484,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询Spark code的执行日志
+   * @summary Queries the execution logs of Spark code.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribeSparkCodeLogRequest
    * @return DescribeSparkCodeLogResponse
@@ -18036,6 +19556,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the URL of the web UI for a Spark application.
    *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DescribeSparkCodeWebUiRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeSparkCodeWebUiResponse
@@ -18074,6 +19597,9 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries the URL of the web UI for a Spark application.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribeSparkCodeWebUiRequest
    * @return DescribeSparkCodeWebUiResponse
@@ -18284,6 +19810,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries a list of tables in a database.
    *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request DescribeTablesRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeTablesResponse
@@ -18322,6 +19851,9 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries a list of tables in a database.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request DescribeTablesRequest
    * @return DescribeTablesResponse
@@ -18624,6 +20156,10 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries whether a running SQL engine exists.
    *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request ExistRunningSQLEngineRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ExistRunningSQLEngineResponse
@@ -18658,6 +20194,10 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries whether a running SQL engine exists.
+   *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request ExistRunningSQLEngineRequest
    * @return ExistRunningSQLEngineResponse
@@ -18806,6 +20346,10 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the information about an Spark application.
    *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+   *
    * @param request GetSparkAppInfoRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return GetSparkAppInfoResponse
@@ -18842,6 +20386,10 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries the information about an Spark application.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
    *
    * @param request GetSparkAppInfoRequest
    * @return GetSparkAppInfoResponse
@@ -19140,9 +20688,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the common definitions of Spark applications.
    *
-   * @description *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
    *
    * @param request GetSparkDefinitionsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -19175,9 +20723,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the common definitions of Spark applications.
    *
-   * @description *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
    *
    * @param request GetSparkDefinitionsRequest
    * @return GetSparkDefinitionsResponse
@@ -19240,6 +20788,10 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the state information about the Spark SQL engine.
    *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request GetSparkSQLEngineStateRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return GetSparkSQLEngineStateResponse
@@ -19274,6 +20826,10 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries the state information about the Spark SQL engine.
+   *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request GetSparkSQLEngineStateRequest
    * @return GetSparkSQLEngineStateResponse
@@ -19440,15 +20996,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI GetTable is deprecated
-   *
    * @summary 获取表
    *
    * @param request GetTableRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return GetTableResponse
    */
-  // Deprecated
   async getTableWithOptions(request: GetTableRequest, runtime: $Util.RuntimeOptions): Promise<GetTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19486,14 +21039,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI GetTable is deprecated
-   *
    * @summary 获取表
    *
    * @param request GetTableRequest
    * @return GetTableResponse
    */
-  // Deprecated
   async getTable(request: GetTableRequest): Promise<GetTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTableWithOptions(request, runtime);
@@ -19501,6 +21051,9 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries the information about columns.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request GetTableColumnsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -19557,6 +21110,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the information about columns.
    *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request GetTableColumnsRequest
    * @return GetTableColumnsResponse
    */
@@ -19567,6 +21123,9 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries the statement that is used to create a table.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request GetTableDDLRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -19610,6 +21169,9 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Queries the statement that is used to create a table.
+   *
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request GetTableDDLRequest
    * @return GetTableDDLResponse
@@ -20270,7 +21832,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies the description of a database account for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request ModifyAccountDescriptionRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -20289,6 +21851,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -20311,7 +21877,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies the description of a database account for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request ModifyAccountDescriptionRequest
    * @return ModifyAccountDescriptionResponse
@@ -20322,7 +21888,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改某一用户的权限
+   * @summary Modifies the permissions of a database account.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param tmpReq ModifyAccountPrivilegesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -20371,7 +21939,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改某一用户的权限
+   * @summary Modifies the permissions of a database account.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request ModifyAccountPrivilegesRequest
    * @return ModifyAccountPrivilegesResponse
@@ -20383,6 +21953,8 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Modifies the SQL audit configuration of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request ModifyAuditLogConfigRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -20438,6 +22010,8 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Modifies the SQL audit configuration of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request ModifyAuditLogConfigRequest
    * @return ModifyAuditLogConfigResponse
@@ -20532,7 +22106,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies the IP address whitelist of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request ModifyClusterAccessWhiteListRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -20581,7 +22155,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies the IP address whitelist of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request ModifyClusterAccessWhiteListRequest
    * @return ModifyClusterAccessWhiteListResponse
@@ -20654,10 +22228,10 @@ export default class Client extends OpenApi {
    *
    * @description ### [](#)
    * *   During a scaling event, you are not allowed to execute the `SUBMIT JOB` statement to submit asynchronous jobs. If your business requires asynchronous jobs, perform scaling during appropriate periods.
-   * *   When cluster specifications are scaled up or down, data in the cluster is migrated for redistribution. The amount of time that is required for data migration is proportional to the volume of data. During a scaling event, the services provided by the cluster are not interrupted. During a scale-down event, data migration can take up to dozens of hours to complete. Proceed with caution especially when your cluster contains a large amount of data.
+   * *   When you scale a cluster, data in the cluster is migrated for redistribution. The amount of time that is required to migrate data is proportional to the data volume. During a scaling event, the services provided by the cluster are not interrupted. When you downgrade cluster specifications, data migration may require up to dozens of hours to complete. Proceed with caution especially if your cluster contains a large amount of data.
    * *   If the cluster has a built-in dataset loaded, make sure that the cluster has reserved storage resources of at least 24 AnalyticDB compute units (ACUs). Otherwise, the built-in dataset cannot be used.
-   * *   When the scaling process is about to end, your service may encounter transient connections. We recommend that you scale your cluster during off-peak hours or make sure that your application is configured to automatically reconnect to your cluster.
-   * *   You can change an AnalyticDB for MySQL cluster from Data Warehouse Edition (V3.0) to Data Lakehouse Edition (V3.0), but not the other way around. For more information, see Change a cluster from Data Warehouse Edition to Data Lakehouse Edition.
+   * *   When the scaling process is about to end, transient connections may occur. We recommend that you scale your cluster during off-peak hours or make sure that your application is configured to automatically reconnect to your cluster.
+   * *   You can change an AnalyticDB for MySQL cluster from Data Warehouse Edition (V3.0) to Data Lakehouse Edition (V3.0), but not the other way around. For more information, see Change a cluster from Data Warehouse Edition to Data Lakehouse Edition. For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request ModifyDBClusterRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -20728,10 +22302,10 @@ export default class Client extends OpenApi {
    *
    * @description ### [](#)
    * *   During a scaling event, you are not allowed to execute the `SUBMIT JOB` statement to submit asynchronous jobs. If your business requires asynchronous jobs, perform scaling during appropriate periods.
-   * *   When cluster specifications are scaled up or down, data in the cluster is migrated for redistribution. The amount of time that is required for data migration is proportional to the volume of data. During a scaling event, the services provided by the cluster are not interrupted. During a scale-down event, data migration can take up to dozens of hours to complete. Proceed with caution especially when your cluster contains a large amount of data.
+   * *   When you scale a cluster, data in the cluster is migrated for redistribution. The amount of time that is required to migrate data is proportional to the data volume. During a scaling event, the services provided by the cluster are not interrupted. When you downgrade cluster specifications, data migration may require up to dozens of hours to complete. Proceed with caution especially if your cluster contains a large amount of data.
    * *   If the cluster has a built-in dataset loaded, make sure that the cluster has reserved storage resources of at least 24 AnalyticDB compute units (ACUs). Otherwise, the built-in dataset cannot be used.
-   * *   When the scaling process is about to end, your service may encounter transient connections. We recommend that you scale your cluster during off-peak hours or make sure that your application is configured to automatically reconnect to your cluster.
-   * *   You can change an AnalyticDB for MySQL cluster from Data Warehouse Edition (V3.0) to Data Lakehouse Edition (V3.0), but not the other way around. For more information, see Change a cluster from Data Warehouse Edition to Data Lakehouse Edition.
+   * *   When the scaling process is about to end, transient connections may occur. We recommend that you scale your cluster during off-peak hours or make sure that your application is configured to automatically reconnect to your cluster.
+   * *   You can change an AnalyticDB for MySQL cluster from Data Warehouse Edition (V3.0) to Data Lakehouse Edition (V3.0), but not the other way around. For more information, see Change a cluster from Data Warehouse Edition to Data Lakehouse Edition. For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request ModifyDBClusterRequest
    * @return ModifyDBClusterResponse
@@ -20940,7 +22514,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies a scaling plan for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request ModifyElasticPlanRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -20993,7 +22567,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies a scaling plan for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    *
-   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
    *
    * @param request ModifyElasticPlanRequest
    * @return ModifyElasticPlanResponse
@@ -21004,7 +22578,83 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq ModifyPerformanceViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPerformanceViewResponse
+   */
+  async modifyPerformanceViewWithOptions(tmpReq: ModifyPerformanceViewRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPerformanceViewResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyPerformanceViewShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.viewDetail)) {
+      request.viewDetailShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.viewDetail, "ViewDetail", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.viewDetailShrink)) {
+      query["ViewDetail"] = request.viewDetailShrink;
+    }
+
+    if (!Util.isUnset(request.viewName)) {
+      query["ViewName"] = request.viewName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyPerformanceView",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyPerformanceViewResponse>(await this.callApi(params, req, runtime), new ModifyPerformanceViewResponse({}));
+  }
+
+  /**
+   * @param request ModifyPerformanceViewRequest
+   * @return ModifyPerformanceViewResponse
+   */
+  async modifyPerformanceView(request: ModifyPerformanceViewRequest): Promise<ModifyPerformanceViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyPerformanceViewWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Preloads metrics for a Spark application.
+   *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request PreloadSparkAppMetricsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -21043,6 +22693,10 @@ export default class Client extends OpenApi {
   /**
    * @summary Preloads metrics for a Spark application.
    *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request PreloadSparkAppMetricsRequest
    * @return PreloadSparkAppMetricsResponse
    */
@@ -21061,6 +22715,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -21091,6 +22749,10 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Renames a Spark template file.
+   *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request RenameSparkTemplateFileRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -21131,6 +22793,10 @@ export default class Client extends OpenApi {
   /**
    * @summary Renames a Spark template file.
    *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request RenameSparkTemplateFileRequest
    * @return RenameSparkTemplateFileResponse
    */
@@ -21141,6 +22807,8 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Resets the password of a database account for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request ResetAccountPasswordRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -21165,6 +22833,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21184,6 +22856,8 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Resets the password of a database account for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    *
    * @param request ResetAccountPasswordRequest
    * @return ResetAccountPasswordResponse
@@ -21254,9 +22928,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Starts the Spark SQL engine.
    *
-   * @description *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
    *
    * @param request StartSparkSQLEngineRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -21313,9 +22987,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Starts the Spark SQL engine.
    *
-   * @description *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
    *
    * @param request StartSparkSQLEngineRequest
    * @return StartSparkSQLEngineResponse
@@ -21406,6 +23080,10 @@ export default class Client extends OpenApi {
   /**
    * @summary Submits a Spark log analysis task and queries the analysis results.
    *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   *
    * @param request SubmitSparkLogAnalyzeTaskRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return SubmitSparkLogAnalyzeTaskResponse
@@ -21436,6 +23114,10 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Submits a Spark log analysis task and queries the analysis results.
+   *
+   * @description *   General endpoint: `adb.aliyuncs.com`.
+   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    *
    * @param request SubmitSparkLogAnalyzeTaskRequest
    * @return SubmitSparkLogAnalyzeTaskResponse
