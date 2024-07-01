@@ -175,6 +175,7 @@ export class CreateServiceInstanceRequest extends $tea.Model {
   operationMetadata?: CreateServiceInstanceRequestOperationMetadata;
   parameters?: { [key: string]: any };
   regionId?: string;
+  resourceAutoPay?: boolean;
   resourceGroupId?: string;
   serviceId?: string;
   serviceVersion?: string;
@@ -195,6 +196,7 @@ export class CreateServiceInstanceRequest extends $tea.Model {
       operationMetadata: 'OperationMetadata',
       parameters: 'Parameters',
       regionId: 'RegionId',
+      resourceAutoPay: 'ResourceAutoPay',
       resourceGroupId: 'ResourceGroupId',
       serviceId: 'ServiceId',
       serviceVersion: 'ServiceVersion',
@@ -218,6 +220,7 @@ export class CreateServiceInstanceRequest extends $tea.Model {
       operationMetadata: CreateServiceInstanceRequestOperationMetadata,
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       regionId: 'string',
+      resourceAutoPay: 'boolean',
       resourceGroupId: 'string',
       serviceId: 'string',
       serviceVersion: 'string',
@@ -245,6 +248,7 @@ export class CreateServiceInstanceShrinkRequest extends $tea.Model {
   operationMetadata?: CreateServiceInstanceShrinkRequestOperationMetadata;
   parametersShrink?: string;
   regionId?: string;
+  resourceAutoPay?: boolean;
   resourceGroupId?: string;
   serviceId?: string;
   serviceVersion?: string;
@@ -265,6 +269,7 @@ export class CreateServiceInstanceShrinkRequest extends $tea.Model {
       operationMetadata: 'OperationMetadata',
       parametersShrink: 'Parameters',
       regionId: 'RegionId',
+      resourceAutoPay: 'ResourceAutoPay',
       resourceGroupId: 'ResourceGroupId',
       serviceId: 'ServiceId',
       serviceVersion: 'ServiceVersion',
@@ -288,6 +293,7 @@ export class CreateServiceInstanceShrinkRequest extends $tea.Model {
       operationMetadata: CreateServiceInstanceShrinkRequestOperationMetadata,
       parametersShrink: 'string',
       regionId: 'string',
+      resourceAutoPay: 'boolean',
       resourceGroupId: 'string',
       serviceId: 'string',
       serviceVersion: 'string',
@@ -2430,6 +2436,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceAutoPay)) {
+      query["ResourceAutoPay"] = request.resourceAutoPay;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
