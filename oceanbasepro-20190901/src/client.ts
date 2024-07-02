@@ -166,6 +166,75 @@ export class BatchKillProcessListResponse extends $tea.Model {
   }
 }
 
+export class BatchKillSessionListRequest extends $tea.Model {
+  instanceId?: string;
+  sessionList?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      sessionList: 'SessionList',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      sessionList: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchKillSessionListResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchKillSessionListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchKillSessionListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchKillSessionListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelProjectModifyRecordRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -6285,6 +6354,75 @@ export class DescribeSecurityIpGroupsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeSecurityIpGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSessionListRequest extends $tea.Model {
+  instanceId?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSessionListResponseBody extends $tea.Model {
+  data?: DescribeSessionListResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSessionListResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSessionListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSessionListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSessionListResponseBody,
     };
   }
 
@@ -20592,6 +20730,28 @@ export class DescribeSecurityIpGroupsResponseBodySecurityIpGroups extends $tea.M
   }
 }
 
+export class DescribeSessionListResponseBodyData extends $tea.Model {
+  host?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'Host',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSlowSQLHistoryListResponseBodySlowSQLHistoryListList extends $tea.Model {
   affectedRows?: number;
   appWaitTime?: number;
@@ -25594,6 +25754,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 异步关闭集群租户的会话信息；关闭oceanbase云服务和业务之间的会话信息
+   *
+   * @param request BatchKillSessionListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchKillSessionListResponse
+   */
+  async batchKillSessionListWithOptions(request: BatchKillSessionListRequest, runtime: $Util.RuntimeOptions): Promise<BatchKillSessionListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.sessionList)) {
+      body["SessionList"] = request.sessionList;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchKillSessionList",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchKillSessionListResponse>(await this.callApi(params, req, runtime), new BatchKillSessionListResponse({}));
+  }
+
+  /**
+   * @summary 异步关闭集群租户的会话信息；关闭oceanbase云服务和业务之间的会话信息
+   *
+   * @param request BatchKillSessionListRequest
+   * @return BatchKillSessionListResponse
+   */
+  async batchKillSessionList(request: BatchKillSessionListRequest): Promise<BatchKillSessionListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchKillSessionListWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 根据记录id取消修改操作 （仅支持处于 PENDING 状态的修改记录）
    *
    * @param request CancelProjectModifyRecordRequest
@@ -29830,6 +30040,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询集群租户的会话信息；展示oceanbase云服务和业务之间的会话信息
+   *
+   * @param request DescribeSessionListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSessionListResponse
+   */
+  async describeSessionListWithOptions(request: DescribeSessionListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSessionListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSessionList",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSessionListResponse>(await this.callApi(params, req, runtime), new DescribeSessionListResponse({}));
+  }
+
+  /**
+   * @summary 查询集群租户的会话信息；展示oceanbase云服务和业务之间的会话信息
+   *
+   * @param request DescribeSessionListRequest
+   * @return DescribeSessionListResponse
+   */
+  async describeSessionList(request: DescribeSessionListRequest): Promise<DescribeSessionListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSessionListWithOptions(request, runtime);
+  }
+
+  /**
    * @summary You can call this operation to query the execution history of an SQL statement by SQL ID that is determined as a slow SQL statement during a specified period of time.
    *
    * @param request DescribeSlowSQLHistoryListRequest
@@ -30216,7 +30472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询租户同步位点信息
+   * @summary You can call this operation to query the maximum readable timestamp of a tenant.
    *
    * @param request DescribeTenantReadableScnRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -30251,7 +30507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询租户同步位点信息
+   * @summary You can call this operation to query the maximum readable timestamp of a tenant.
    *
    * @param request DescribeTenantReadableScnRequest
    * @return DescribeTenantReadableScnResponse
