@@ -97,6 +97,7 @@ export class CreateDataLimitRequest extends $tea.Model {
   engineType?: string;
   eventStatus?: number;
   featureType?: number;
+  instantlyScan?: boolean;
   lang?: string;
   logStoreDay?: number;
   ocrStatus?: number;
@@ -117,6 +118,7 @@ export class CreateDataLimitRequest extends $tea.Model {
       engineType: 'EngineType',
       eventStatus: 'EventStatus',
       featureType: 'FeatureType',
+      instantlyScan: 'InstantlyScan',
       lang: 'Lang',
       logStoreDay: 'LogStoreDay',
       ocrStatus: 'OcrStatus',
@@ -140,6 +142,7 @@ export class CreateDataLimitRequest extends $tea.Model {
       engineType: 'string',
       eventStatus: 'number',
       featureType: 'number',
+      instantlyScan: 'boolean',
       lang: 'string',
       logStoreDay: 'number',
       ocrStatus: 'number',
@@ -6833,6 +6836,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.featureType)) {
       query["FeatureType"] = request.featureType;
+    }
+
+    if (!Util.isUnset(request.instantlyScan)) {
+      query["InstantlyScan"] = request.instantlyScan;
     }
 
     if (!Util.isUnset(request.lang)) {
