@@ -1796,6 +1796,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
   uiCustomUrl?: string;
   userId?: string;
   validityDate?: string;
+  videoEvidence?: string;
   voluntaryCustomizedContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1832,6 +1833,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       uiCustomUrl: 'UiCustomUrl',
       userId: 'UserId',
       validityDate: 'ValidityDate',
+      videoEvidence: 'VideoEvidence',
       voluntaryCustomizedContent: 'VoluntaryCustomizedContent',
     };
   }
@@ -1871,6 +1873,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       uiCustomUrl: 'string',
       userId: 'string',
       validityDate: 'string',
+      videoEvidence: 'string',
       voluntaryCustomizedContent: 'string',
     };
   }
@@ -4984,6 +4987,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.validityDate)) {
       query["ValidityDate"] = request.validityDate;
+    }
+
+    if (!Util.isUnset(request.videoEvidence)) {
+      query["VideoEvidence"] = request.videoEvidence;
     }
 
     if (!Util.isUnset(request.voluntaryCustomizedContent)) {
