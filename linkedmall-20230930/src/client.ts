@@ -501,11 +501,15 @@ export class Good extends $tea.Model {
   goodName?: string;
   productId?: string;
   quantity?: number;
+  skuId?: string;
+  skuTitle?: string;
   static names(): { [key: string]: string } {
     return {
       goodName: 'goodName',
       productId: 'productId',
       quantity: 'quantity',
+      skuId: 'skuId',
+      skuTitle: 'skuTitle',
     };
   }
 
@@ -514,6 +518,8 @@ export class Good extends $tea.Model {
       goodName: 'string',
       productId: 'string',
       quantity: 'number',
+      skuId: 'string',
+      skuTitle: 'string',
     };
   }
 
@@ -1380,10 +1386,12 @@ export class ProductSpec extends $tea.Model {
 
 export class ProductSpecValue extends $tea.Model {
   value?: string;
+  valueAlias?: string;
   valueId?: number;
   static names(): { [key: string]: string } {
     return {
       value: 'value',
+      valueAlias: 'valueAlias',
       valueId: 'valueId',
     };
   }
@@ -1391,6 +1399,7 @@ export class ProductSpecValue extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       value: 'string',
+      valueAlias: 'string',
       valueId: 'number',
     };
   }
@@ -2193,12 +2202,14 @@ export class SkuSpec extends $tea.Model {
   key?: string;
   keyId?: number;
   value?: string;
+  valueAlias?: string;
   valueId?: number;
   static names(): { [key: string]: string } {
     return {
       key: 'key',
       keyId: 'keyId',
       value: 'value',
+      valueAlias: 'valueAlias',
       valueId: 'valueId',
     };
   }
@@ -2208,6 +2219,7 @@ export class SkuSpec extends $tea.Model {
       key: 'string',
       keyId: 'number',
       value: 'string',
+      valueAlias: 'string',
       valueId: 'number',
     };
   }
