@@ -3948,6 +3948,75 @@ export class CreateHoneypotProbeBindResponse extends $tea.Model {
   }
 }
 
+export class CreateHybridProxyClusterRequest extends $tea.Model {
+  clusterName?: string;
+  ip?: string;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterName: 'ClusterName',
+      ip: 'Ip',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterName: 'string',
+      ip: 'string',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHybridProxyClusterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHybridProxyClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateHybridProxyClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateHybridProxyClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInterceptionRuleRequest extends $tea.Model {
   clusterId?: string;
   clusterName?: string;
@@ -55050,6 +55119,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   filePath?: string;
   firstScanTimestamp?: number;
   highLight?: string;
+  id?: number;
   image?: string;
   imageUuid?: string;
   instanceName?: string;
@@ -55082,6 +55152,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
       filePath: 'FilePath',
       firstScanTimestamp: 'FirstScanTimestamp',
       highLight: 'HighLight',
+      id: 'Id',
       image: 'Image',
       imageUuid: 'ImageUuid',
       instanceName: 'InstanceName',
@@ -55117,6 +55188,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
       filePath: 'string',
       firstScanTimestamp: 'number',
       highLight: 'string',
+      id: 'number',
       image: 'string',
       imageUuid: 'string',
       instanceName: 'string',
@@ -56107,10 +56179,12 @@ export class DescribeBackupPoliciesResponseBodyPolicies extends $tea.Model {
   healthClientCount?: number;
   healthClientUuidList?: string[];
   id?: number;
+  lastStatusSyncTime?: number;
   name?: string;
   policy?: string;
   policyRegionId?: string;
   policyVersion?: string;
+  preStatus?: string;
   remarkedUuidList?: string[];
   serverType?: string;
   serviceErrorCount?: number;
@@ -56126,10 +56200,12 @@ export class DescribeBackupPoliciesResponseBodyPolicies extends $tea.Model {
       healthClientCount: 'HealthClientCount',
       healthClientUuidList: 'HealthClientUuidList',
       id: 'Id',
+      lastStatusSyncTime: 'LastStatusSyncTime',
       name: 'Name',
       policy: 'Policy',
       policyRegionId: 'PolicyRegionId',
       policyVersion: 'PolicyVersion',
+      preStatus: 'PreStatus',
       remarkedUuidList: 'RemarkedUuidList',
       serverType: 'ServerType',
       serviceErrorCount: 'ServiceErrorCount',
@@ -56148,10 +56224,12 @@ export class DescribeBackupPoliciesResponseBodyPolicies extends $tea.Model {
       healthClientCount: 'number',
       healthClientUuidList: { 'type': 'array', 'itemType': 'string' },
       id: 'number',
+      lastStatusSyncTime: 'number',
       name: 'string',
       policy: 'string',
       policyRegionId: 'string',
       policyVersion: 'string',
+      preStatus: 'string',
       remarkedUuidList: { 'type': 'array', 'itemType': 'string' },
       serverType: 'string',
       serviceErrorCount: 'number',
@@ -59874,6 +59952,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $tea.Mo
   uuid?: string;
   vulCount?: number;
   vulStatus?: string;
+  lastScanTime?: number;
   static names(): { [key: string]: string } {
     return {
       alarmCount: 'AlarmCount',
@@ -59903,6 +59982,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $tea.Mo
       uuid: 'Uuid',
       vulCount: 'VulCount',
       vulStatus: 'VulStatus',
+      lastScanTime: 'lastScanTime',
     };
   }
 
@@ -59935,6 +60015,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $tea.Mo
       uuid: 'string',
       vulCount: 'number',
       vulStatus: 'string',
+      lastScanTime: 'number',
     };
   }
 
@@ -60572,9 +60653,11 @@ export class DescribeImageSensitiveFileListResponseBodyPageInfo extends $tea.Mod
 }
 
 export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends $tea.Model {
+  advice?: string;
   classKey?: string;
   className?: string;
   count?: number;
+  description?: string;
   firstScanTime?: number;
   lastScanTime?: number;
   riskLevel?: string;
@@ -60583,9 +60666,11 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
   unprocessedNum?: number;
   static names(): { [key: string]: string } {
     return {
+      advice: 'Advice',
       classKey: 'ClassKey',
       className: 'ClassName',
       count: 'Count',
+      description: 'Description',
       firstScanTime: 'FirstScanTime',
       lastScanTime: 'LastScanTime',
       riskLevel: 'RiskLevel',
@@ -60597,9 +60682,11 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
 
   static types(): { [key: string]: any } {
     return {
+      advice: 'string',
       classKey: 'string',
       className: 'string',
       count: 'number',
+      description: 'string',
       firstScanTime: 'number',
       lastScanTime: 'number',
       riskLevel: 'string',
@@ -60982,6 +61069,7 @@ export class DescribeInstanceStatisticsResponseBodyData extends $tea.Model {
   agentlessAll?: number;
   agentlessBaseline?: number;
   agentlessMalicious?: number;
+  agentlessSensitiveFile?: number;
   agentlessVulCve?: number;
   agentlessVulSca?: number;
   agentlessVulSys?: number;
@@ -61004,6 +61092,7 @@ export class DescribeInstanceStatisticsResponseBodyData extends $tea.Model {
       agentlessAll: 'AgentlessAll',
       agentlessBaseline: 'AgentlessBaseline',
       agentlessMalicious: 'AgentlessMalicious',
+      agentlessSensitiveFile: 'AgentlessSensitiveFile',
       agentlessVulCve: 'AgentlessVulCve',
       agentlessVulSca: 'AgentlessVulSca',
       agentlessVulSys: 'AgentlessVulSys',
@@ -61029,6 +61118,7 @@ export class DescribeInstanceStatisticsResponseBodyData extends $tea.Model {
       agentlessAll: 'number',
       agentlessBaseline: 'number',
       agentlessMalicious: 'number',
+      agentlessSensitiveFile: 'number',
       agentlessVulCve: 'number',
       agentlessVulSca: 'number',
       agentlessVulSys: 'number',
@@ -82261,6 +82351,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 创建代理集群
+   *
+   * @param request CreateHybridProxyClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHybridProxyClusterResponse
+   */
+  async createHybridProxyClusterWithOptions(request: CreateHybridProxyClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateHybridProxyClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateHybridProxyCluster",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateHybridProxyClusterResponse>(await this.callApi(params, req, runtime), new CreateHybridProxyClusterResponse({}));
+  }
+
+  /**
+   * @summary 创建代理集群
+   *
+   * @param request CreateHybridProxyClusterRequest
+   * @return CreateHybridProxyClusterResponse
+   */
+  async createHybridProxyCluster(request: CreateHybridProxyClusterRequest): Promise<CreateHybridProxyClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createHybridProxyClusterWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Creates a defense rule in the container firewall module.
    *
    * @param tmpReq CreateInterceptionRuleRequest
@@ -85193,7 +85333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete a list of vulnerabilities that can be automatically fixed. After the list is deleted, you can not select the list when you create a vulnerability fixing task on the Playbook page.
+   * @summary Deletes configurations of of an automatic vulnerability fixing task at a time on the Playbook page.
    *
    * @param request DeleteVulAutoRepairConfigRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -85232,7 +85372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete a list of vulnerabilities that can be automatically fixed. After the list is deleted, you can not select the list when you create a vulnerability fixing task on the Playbook page.
+   * @summary Deletes configurations of of an automatic vulnerability fixing task at a time on the Playbook page.
    *
    * @param request DeleteVulAutoRepairConfigRequest
    * @return DeleteVulAutoRepairConfigResponse
@@ -97028,7 +97168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询漏洞rasp防御统计
+   * @summary Queries the vulnerability defense statistics in Security Center.
    *
    * @param request DescribeVulDefendCountStatisticsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -97059,7 +97199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询漏洞rasp防御统计
+   * @summary Queries the vulnerability defense statistics in Security Center.
    *
    * @param request DescribeVulDefendCountStatisticsRequest
    * @return DescribeVulDefendCountStatisticsResponse
@@ -97379,7 +97519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询漏洞库信息统计
+   * @summary Queries the statistics of vulnerabilities in Security Center.
    *
    * @param request DescribeVulMetaCountStatisticsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -97402,7 +97542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询漏洞库信息统计
+   * @summary Queries the statistics of vulnerabilities in Security Center.
    *
    * @return DescribeVulMetaCountStatisticsResponse
    */
