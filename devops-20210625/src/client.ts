@@ -9863,6 +9863,190 @@ export class LinkMergeRequestLabelResponse extends $tea.Model {
   }
 }
 
+export class ListAllReleaseWorkflowsRequest extends $tea.Model {
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAllReleaseWorkflowsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAllReleaseWorkflowsResponseBody[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': ListAllReleaseWorkflowsResponseBody },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppReleaseStageExecutionIntegratedMetadataRequest extends $tea.Model {
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppReleaseStageExecutionIntegratedMetadataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppReleaseStageExecutionIntegratedMetadataResponseBody[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': ListAppReleaseStageExecutionIntegratedMetadataResponseBody },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppReleaseStageExecutionsRequest extends $tea.Model {
+  nextToken?: string;
+  orderBy?: string;
+  organizationId?: string;
+  page?: number;
+  pagination?: string;
+  perPage?: number;
+  sort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      orderBy: 'orderBy',
+      organizationId: 'organizationId',
+      page: 'page',
+      pagination: 'pagination',
+      perPage: 'perPage',
+      sort: 'sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      orderBy: 'string',
+      organizationId: 'string',
+      page: 'number',
+      pagination: 'string',
+      perPage: 'number',
+      sort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppReleaseStageExecutionsResponseBody extends $tea.Model {
+  current?: number;
+  data?: ListAppReleaseStageExecutionsResponseBodyData[];
+  nextToken?: string;
+  pages?: number;
+  perPage?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'current',
+      data: 'data',
+      nextToken: 'nextToken',
+      pages: 'pages',
+      perPage: 'perPage',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      data: { 'type': 'array', 'itemType': ListAppReleaseStageExecutionsResponseBodyData },
+      nextToken: 'string',
+      pages: 'number',
+      perPage: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppReleaseStageExecutionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppReleaseStageExecutionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAppReleaseStageExecutionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApplicationMembersRequest extends $tea.Model {
   organizationId?: string;
   static names(): { [key: string]: string } {
@@ -17164,6 +17348,81 @@ export class UpdateMergeRequestPersonnelResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateMergeRequestPersonnelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOrganizationMemberRequest extends $tea.Model {
+  organizationMemberName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      organizationMemberName: 'organizationMemberName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationMemberName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOrganizationMemberResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  member?: UpdateOrganizationMemberResponseBodyMember;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      member: 'member',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      member: UpdateOrganizationMemberResponseBodyMember,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOrganizationMemberResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateOrganizationMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateOrganizationMemberResponseBody,
     };
   }
 
@@ -26711,6 +26970,192 @@ export class LinkMergeRequestLabelResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListAllReleaseWorkflowsResponseBodyReleaseStagesVariableGroups extends $tea.Model {
+  name?: string;
+  displayName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      displayName: 'displayName',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      displayName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAllReleaseWorkflowsResponseBodyReleaseStages extends $tea.Model {
+  appName?: string;
+  name?: string;
+  sn?: string;
+  releaseWorkflowSn?: string;
+  order?: string;
+  variableGroups?: ListAllReleaseWorkflowsResponseBodyReleaseStagesVariableGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'appName',
+      name: 'name',
+      sn: 'sn',
+      releaseWorkflowSn: 'releaseWorkflowSn',
+      order: 'order',
+      variableGroups: 'variableGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      name: 'string',
+      sn: 'string',
+      releaseWorkflowSn: 'string',
+      order: 'string',
+      variableGroups: { 'type': 'array', 'itemType': ListAllReleaseWorkflowsResponseBodyReleaseStagesVariableGroups },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAllReleaseWorkflowsResponseBody extends $tea.Model {
+  appName?: string;
+  sn?: string;
+  name?: string;
+  order?: string;
+  releaseStages?: ListAllReleaseWorkflowsResponseBodyReleaseStages[];
+  note?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'appName',
+      sn: 'sn',
+      name: 'name',
+      order: 'order',
+      releaseStages: 'releaseStages',
+      note: 'note',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      sn: 'string',
+      name: 'string',
+      order: 'string',
+      releaseStages: { 'type': 'array', 'itemType': ListAllReleaseWorkflowsResponseBodyReleaseStages },
+      note: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppReleaseStageExecutionIntegratedMetadataResponseBodyChangeRequests extends $tea.Model {
+  sn?: string;
+  name?: string;
+  branchName?: string;
+  commitId?: string;
+  ownerAccountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sn: 'sn',
+      name: 'name',
+      branchName: 'branchName',
+      commitId: 'commitId',
+      ownerAccountId: 'ownerAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sn: 'string',
+      name: 'string',
+      branchName: 'string',
+      commitId: 'string',
+      ownerAccountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppReleaseStageExecutionIntegratedMetadataResponseBody extends $tea.Model {
+  releaseBranch?: string;
+  releaseRevision?: string;
+  repoUrl?: string;
+  repoType?: string;
+  changeRequests?: ListAppReleaseStageExecutionIntegratedMetadataResponseBodyChangeRequests[];
+  static names(): { [key: string]: string } {
+    return {
+      releaseBranch: 'releaseBranch',
+      releaseRevision: 'releaseRevision',
+      repoUrl: 'repoUrl',
+      repoType: 'repoType',
+      changeRequests: 'changeRequests',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      releaseBranch: 'string',
+      releaseRevision: 'string',
+      repoUrl: 'string',
+      repoType: 'string',
+      changeRequests: { 'type': 'array', 'itemType': ListAppReleaseStageExecutionIntegratedMetadataResponseBodyChangeRequests },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppReleaseStageExecutionsResponseBodyData extends $tea.Model {
+  endTime?: string;
+  number?: string;
+  startTime?: string;
+  state?: string;
+  triggerMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      number: 'number',
+      startTime: 'startTime',
+      state: 'state',
+      triggerMode: 'triggerMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      number: 'string',
+      startTime: 'string',
+      state: 'string',
+      triggerMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApplicationMembersResponseBodyRecordsRoleList extends $tea.Model {
   displayName?: string;
   name?: string;
@@ -32081,6 +32526,28 @@ export class UpdateMergeRequestPersonnelResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOrganizationMemberResponseBodyMember extends $tea.Model {
+  accountId?: string;
+  organizationMemberName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      organizationMemberName: 'organizationMemberName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      organizationMemberName: 'string',
     };
   }
 
@@ -40472,6 +40939,165 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查找应用下所有的研发流程
+   *
+   * @param request ListAllReleaseWorkflowsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAllReleaseWorkflowsResponse
+   */
+  async listAllReleaseWorkflowsWithOptions(appName: string, request: ListAllReleaseWorkflowsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAllReleaseWorkflowsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAllReleaseWorkflows",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/releaseWorkflows`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<ListAllReleaseWorkflowsResponse>(await this.callApi(params, req, runtime), new ListAllReleaseWorkflowsResponse({}));
+  }
+
+  /**
+   * @summary 查找应用下所有的研发流程
+   *
+   * @param request ListAllReleaseWorkflowsRequest
+   * @return ListAllReleaseWorkflowsResponse
+   */
+  async listAllReleaseWorkflows(appName: string, request: ListAllReleaseWorkflowsRequest): Promise<ListAllReleaseWorkflowsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAllReleaseWorkflowsWithOptions(appName, request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询研发阶段执行记录集成变更信息
+   *
+   * @param request ListAppReleaseStageExecutionIntegratedMetadataRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAppReleaseStageExecutionIntegratedMetadataResponse
+   */
+  async listAppReleaseStageExecutionIntegratedMetadataWithOptions(appName: string, releaseWorkflowSn: string, releaseStageSn: string, executionNumber: string, request: ListAppReleaseStageExecutionIntegratedMetadataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAppReleaseStageExecutionIntegratedMetadataResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAppReleaseStageExecutionIntegratedMetadata",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/releaseWorkflows/${OpenApiUtil.getEncodeParam(releaseWorkflowSn)}/releaseStages/${OpenApiUtil.getEncodeParam(releaseStageSn)}/executions/${OpenApiUtil.getEncodeParam(executionNumber)}/integratedMetadata`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<ListAppReleaseStageExecutionIntegratedMetadataResponse>(await this.callApi(params, req, runtime), new ListAppReleaseStageExecutionIntegratedMetadataResponse({}));
+  }
+
+  /**
+   * @summary 查询研发阶段执行记录集成变更信息
+   *
+   * @param request ListAppReleaseStageExecutionIntegratedMetadataRequest
+   * @return ListAppReleaseStageExecutionIntegratedMetadataResponse
+   */
+  async listAppReleaseStageExecutionIntegratedMetadata(appName: string, releaseWorkflowSn: string, releaseStageSn: string, executionNumber: string, request: ListAppReleaseStageExecutionIntegratedMetadataRequest): Promise<ListAppReleaseStageExecutionIntegratedMetadataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAppReleaseStageExecutionIntegratedMetadataWithOptions(appName, releaseWorkflowSn, releaseStageSn, executionNumber, request, headers, runtime);
+  }
+
+  /**
+   * @summary 批量查询研发阶段执行记录
+   *
+   * @param request ListAppReleaseStageExecutionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAppReleaseStageExecutionsResponse
+   */
+  async listAppReleaseStageExecutionsWithOptions(appName: string, releaseWorkflowSn: string, releaseStageSn: string, request: ListAppReleaseStageExecutionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAppReleaseStageExecutionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pagination)) {
+      query["pagination"] = request.pagination;
+    }
+
+    if (!Util.isUnset(request.perPage)) {
+      query["perPage"] = request.perPage;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["sort"] = request.sort;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAppReleaseStageExecutions",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/releaseWorkflows/${OpenApiUtil.getEncodeParam(releaseWorkflowSn)}/releaseStages/${OpenApiUtil.getEncodeParam(releaseStageSn)}/executions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAppReleaseStageExecutionsResponse>(await this.callApi(params, req, runtime), new ListAppReleaseStageExecutionsResponse({}));
+  }
+
+  /**
+   * @summary 批量查询研发阶段执行记录
+   *
+   * @param request ListAppReleaseStageExecutionsRequest
+   * @return ListAppReleaseStageExecutionsResponse
+   */
+  async listAppReleaseStageExecutions(appName: string, releaseWorkflowSn: string, releaseStageSn: string, request: ListAppReleaseStageExecutionsRequest): Promise<ListAppReleaseStageExecutionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAppReleaseStageExecutionsWithOptions(appName, releaseWorkflowSn, releaseStageSn, request, headers, runtime);
+  }
+
+  /**
    * @summary 查找应用成员列表
    *
    * @param request ListApplicationMembersRequest
@@ -45509,6 +46135,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateMergeRequestPersonnelWithOptions(repositoryId, localId, personType, request, headers, runtime);
+  }
+
+  /**
+   * @summary 当前用户加入的企业列表
+   *
+   * @param request UpdateOrganizationMemberRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateOrganizationMemberResponse
+   */
+  async updateOrganizationMemberWithOptions(organizationId: string, accountId: string, request: UpdateOrganizationMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOrganizationMemberResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationMemberName)) {
+      query["organizationMemberName"] = request.organizationMemberName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateOrganizationMember",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/members/${OpenApiUtil.getEncodeParam(accountId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateOrganizationMemberResponse>(await this.callApi(params, req, runtime), new UpdateOrganizationMemberResponse({}));
+  }
+
+  /**
+   * @summary 当前用户加入的企业列表
+   *
+   * @param request UpdateOrganizationMemberRequest
+   * @return UpdateOrganizationMemberResponse
+   */
+  async updateOrganizationMember(organizationId: string, accountId: string, request: UpdateOrganizationMemberRequest): Promise<UpdateOrganizationMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateOrganizationMemberWithOptions(organizationId, accountId, request, headers, runtime);
   }
 
   /**
