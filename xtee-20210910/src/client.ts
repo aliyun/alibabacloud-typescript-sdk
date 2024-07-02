@@ -2263,15 +2263,21 @@ export class CreateSampleApiRequest extends $tea.Model {
 }
 
 export class CreateSampleApiResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      message: 'string',
       requestId: 'string',
     };
   }
