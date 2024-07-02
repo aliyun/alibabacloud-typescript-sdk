@@ -322,6 +322,7 @@ export class CheckResourceStockResponse extends $tea.Model {
 }
 
 export class CreateAndroidInstanceGroupRequest extends $tea.Model {
+  amount?: number;
   autoPay?: boolean;
   autoRenew?: boolean;
   bizRegionId?: string;
@@ -337,6 +338,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      amount: 'Amount',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       bizRegionId: 'BizRegionId',
@@ -355,6 +357,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      amount: 'number',
       autoPay: 'boolean',
       autoRenew: 'boolean',
       bizRegionId: 'string',
@@ -2753,15 +2756,18 @@ export class ModifyPolicyGroupResponse extends $tea.Model {
 
 export class RebootAndroidInstancesInGroupRequest extends $tea.Model {
   androidInstanceIds?: string[];
+  forceStop?: boolean;
   static names(): { [key: string]: string } {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
+      forceStop: 'ForceStop',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      forceStop: 'boolean',
     };
   }
 
@@ -3314,15 +3320,18 @@ export class StartAndroidInstanceResponse extends $tea.Model {
 
 export class StopAndroidInstanceRequest extends $tea.Model {
   androidInstanceIds?: string[];
+  forceStop?: boolean;
   static names(): { [key: string]: string } {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
+      forceStop: 'ForceStop',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      forceStop: 'boolean',
     };
   }
 
@@ -3776,6 +3785,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   chargeType?: string;
   cpu?: string;
   disks?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks[];
+  errorCode?: string;
   gmtCreate?: string;
   gmtExpired?: string;
   gmtModified?: string;
@@ -3803,6 +3813,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       chargeType: 'ChargeType',
       cpu: 'Cpu',
       disks: 'Disks',
+      errorCode: 'ErrorCode',
       gmtCreate: 'GmtCreate',
       gmtExpired: 'GmtExpired',
       gmtModified: 'GmtModified',
@@ -3833,6 +3844,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       chargeType: 'string',
       cpu: 'string',
       disks: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks },
+      errorCode: 'string',
       gmtCreate: 'string',
       gmtExpired: 'string',
       gmtModified: 'string',
@@ -4599,6 +4611,10 @@ export default class Client extends OpenApi {
   async createAndroidInstanceGroupWithOptions(request: CreateAndroidInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAndroidInstanceGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
@@ -5116,7 +5132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询安卓实例组
+   * @summary 查询实例组
    *
    * @param request DescribeAndroidInstanceGroupsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -5183,7 +5199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询安卓实例组
+   * @summary 查询实例组
    *
    * @param request DescribeAndroidInstanceGroupsRequest
    * @return DescribeAndroidInstanceGroupsResponse
@@ -6316,6 +6332,10 @@ export default class Client extends OpenApi {
       query["AndroidInstanceIds"] = request.androidInstanceIds;
     }
 
+    if (!Util.isUnset(request.forceStop)) {
+      query["ForceStop"] = request.forceStop;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6698,6 +6718,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.androidInstanceIds)) {
       query["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    if (!Util.isUnset(request.forceStop)) {
+      query["ForceStop"] = request.forceStop;
     }
 
     let req = new $OpenApi.OpenApiRequest({
