@@ -3753,6 +3753,87 @@ export class ListInstancesResponse extends $tea.Model {
   }
 }
 
+export class ListLogsRequest extends $tea.Model {
+  endTime?: string;
+  pageNum?: string;
+  pageSize?: string;
+  query?: string;
+  startTime?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      pageNum: 'pageNum',
+      pageSize: 'pageSize',
+      query: 'query',
+      startTime: 'startTime',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      pageNum: 'string',
+      pageSize: 'string',
+      query: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLogsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListLogsResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListLogsResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLogsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOnlineConfigsRequest extends $tea.Model {
   domain?: string;
   static names(): { [key: string]: string } {
@@ -10552,6 +10633,28 @@ export class ListInstancesResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListLogsResponseBodyResult extends $tea.Model {
+  result?: any[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: { 'type': 'array', 'itemType': 'any' },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOnlineConfigsResponseBodyResult extends $tea.Model {
   config?: string;
   indexName?: string;
@@ -14536,6 +14639,67 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param request ListLogsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLogsResponse
+   */
+  async listLogsWithOptions(instanceId: string, request: ListLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["pageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLogs",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLogsResponse>(await this.callApi(params, req, runtime), new ListLogsResponse({}));
+  }
+
+  /**
+   * @param request ListLogsRequest
+   * @return ListLogsResponse
+   */
+  async listLogs(instanceId: string, request: ListLogsRequest): Promise<ListLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLogsWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
