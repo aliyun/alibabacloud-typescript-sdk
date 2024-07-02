@@ -10,17 +10,17 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class RunCompletionRequest extends $tea.Model {
   dialogue?: RunCompletionRequestDialogue;
-  dimensions?: RunCompletionRequestDimensions[];
   fields?: RunCompletionRequestFields[];
   modelCode?: string;
+  serviceInspection?: RunCompletionRequestServiceInspection;
   stream?: boolean;
   templateIds?: number[];
   static names(): { [key: string]: string } {
     return {
       dialogue: 'Dialogue',
-      dimensions: 'Dimensions',
       fields: 'Fields',
       modelCode: 'ModelCode',
+      serviceInspection: 'ServiceInspection',
       stream: 'Stream',
       templateIds: 'TemplateIds',
     };
@@ -29,9 +29,9 @@ export class RunCompletionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dialogue: RunCompletionRequestDialogue,
-      dimensions: { 'type': 'array', 'itemType': RunCompletionRequestDimensions },
       fields: { 'type': 'array', 'itemType': RunCompletionRequestFields },
       modelCode: 'string',
+      serviceInspection: RunCompletionRequestServiceInspection,
       stream: 'boolean',
       templateIds: { 'type': 'array', 'itemType': 'number' },
     };
@@ -214,20 +214,20 @@ export class RunCompletionRequestDialogue extends $tea.Model {
   }
 }
 
-export class RunCompletionRequestDimensions extends $tea.Model {
+export class RunCompletionRequestFieldsEnumValues extends $tea.Model {
   desc?: string;
-  name?: string;
+  enumValue?: string;
   static names(): { [key: string]: string } {
     return {
       desc: 'Desc',
-      name: 'Name',
+      enumValue: 'EnumValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       desc: 'string',
-      name: 'string',
+      enumValue: 'string',
     };
   }
 
@@ -239,13 +239,13 @@ export class RunCompletionRequestDimensions extends $tea.Model {
 export class RunCompletionRequestFields extends $tea.Model {
   code?: string;
   desc?: string;
-  enums?: string[];
+  enumValues?: RunCompletionRequestFieldsEnumValues[];
   name?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       desc: 'Desc',
-      enums: 'Enums',
+      enumValues: 'EnumValues',
       name: 'Name',
     };
   }
@@ -254,8 +254,55 @@ export class RunCompletionRequestFields extends $tea.Model {
     return {
       code: 'string',
       desc: 'string',
-      enums: { 'type': 'array', 'itemType': 'string' },
+      enumValues: { 'type': 'array', 'itemType': RunCompletionRequestFieldsEnumValues },
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCompletionRequestServiceInspectionInspectionContents extends $tea.Model {
+  content?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCompletionRequestServiceInspection extends $tea.Model {
+  inspectionContents?: RunCompletionRequestServiceInspectionInspectionContents[];
+  inspectionIntroduction?: string;
+  sceneIntroduction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inspectionContents: 'InspectionContents',
+      inspectionIntroduction: 'InspectionIntroduction',
+      sceneIntroduction: 'SceneIntroduction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inspectionContents: { 'type': 'array', 'itemType': RunCompletionRequestServiceInspectionInspectionContents },
+      inspectionIntroduction: 'string',
+      sceneIntroduction: 'string',
     };
   }
 
@@ -324,16 +371,16 @@ export default class Client extends OpenApi {
       body["Dialogue"] = request.dialogue;
     }
 
-    if (!Util.isUnset(request.dimensions)) {
-      body["Dimensions"] = request.dimensions;
-    }
-
     if (!Util.isUnset(request.fields)) {
       body["Fields"] = request.fields;
     }
 
     if (!Util.isUnset(request.modelCode)) {
       body["ModelCode"] = request.modelCode;
+    }
+
+    if (!Util.isUnset(request.serviceInspection)) {
+      body["ServiceInspection"] = request.serviceInspection;
     }
 
     if (!Util.isUnset(request.stream)) {
