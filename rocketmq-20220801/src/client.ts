@@ -1833,14 +1833,35 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
   }
 }
 
+export class CreateInstanceRequestNetworkInfoVpcInfoVSwitches extends $tea.Model {
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'vSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestNetworkInfoVpcInfo extends $tea.Model {
   securityGroupIds?: string;
   vSwitchId?: string;
+  vSwitches?: CreateInstanceRequestNetworkInfoVpcInfoVSwitches[];
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       securityGroupIds: 'securityGroupIds',
       vSwitchId: 'vSwitchId',
+      vSwitches: 'vSwitches',
       vpcId: 'vpcId',
     };
   }
@@ -1849,6 +1870,7 @@ export class CreateInstanceRequestNetworkInfoVpcInfo extends $tea.Model {
     return {
       securityGroupIds: 'string',
       vSwitchId: 'string',
+      vSwitches: { 'type': 'array', 'itemType': CreateInstanceRequestNetworkInfoVpcInfoVSwitches },
       vpcId: 'string',
     };
   }
