@@ -753,6 +753,93 @@ export class CreatePostpaidInstanceResponse extends $tea.Model {
   }
 }
 
+export class CreateSM2CertRequest extends $tea.Model {
+  certName?: string;
+  encryptCertificate?: string;
+  encryptPrivateKey?: string;
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  signCertificate?: string;
+  signPrivateKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certName: 'CertName',
+      encryptCertificate: 'EncryptCertificate',
+      encryptPrivateKey: 'EncryptPrivateKey',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      signCertificate: 'SignCertificate',
+      signPrivateKey: 'SignPrivateKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certName: 'string',
+      encryptCertificate: 'string',
+      encryptPrivateKey: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      signCertificate: 'string',
+      signPrivateKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSM2CertResponseBody extends $tea.Model {
+  certIdentifier?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certIdentifier: 'CertIdentifier',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certIdentifier: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSM2CertResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSM2CertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSM2CertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteApisecAbnormalRequest extends $tea.Model {
   abnormalId?: string;
   clusterId?: string;
@@ -2299,6 +2386,78 @@ export class DescribeCloudResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCloudResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDDoSStatusRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDDoSStatusResponseBody extends $tea.Model {
+  DDoSStatus?: DescribeDDoSStatusResponseBodyDDoSStatus[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DDoSStatus: 'DDoSStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DDoSStatus: { 'type': 'array', 'itemType': DescribeDDoSStatusResponseBodyDDoSStatus },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDDoSStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDDoSStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDDoSStatusResponseBody,
     };
   }
 
@@ -8728,6 +8887,28 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $tea.Model
   }
 }
 
+export class DescribeDDoSStatusResponseBodyDDoSStatus extends $tea.Model {
+  eventType?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventType: 'EventType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventType: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDefenseResourceResponseBodyResource extends $tea.Model {
   acwCookieStatus?: number;
   acwSecureStatus?: number;
@@ -11502,6 +11683,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 上传国密证书
+   *
+   * @param request CreateSM2CertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSM2CertResponse
+   */
+  async createSM2CertWithOptions(request: CreateSM2CertRequest, runtime: $Util.RuntimeOptions): Promise<CreateSM2CertResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certName)) {
+      query["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.encryptCertificate)) {
+      query["EncryptCertificate"] = request.encryptCertificate;
+    }
+
+    if (!Util.isUnset(request.encryptPrivateKey)) {
+      query["EncryptPrivateKey"] = request.encryptPrivateKey;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.signCertificate)) {
+      query["SignCertificate"] = request.signCertificate;
+    }
+
+    if (!Util.isUnset(request.signPrivateKey)) {
+      query["SignPrivateKey"] = request.signPrivateKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSM2Cert",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSM2CertResponse>(await this.callApi(params, req, runtime), new CreateSM2CertResponse({}));
+  }
+
+  /**
+   * @summary 上传国密证书
+   *
+   * @param request CreateSM2CertRequest
+   * @return CreateSM2CertResponse
+   */
+  async createSM2Cert(request: CreateSM2CertRequest): Promise<CreateSM2CertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSM2CertWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 删除API安全风险
    *
    * @param request DeleteApisecAbnormalRequest
@@ -12242,7 +12493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取API安全日志订阅列表
+   * @summary Queries the configurations of API security log subscription.
    *
    * @param request DescribeApisecLogDeliveriesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -12281,7 +12532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取API安全日志订阅列表
+   * @summary Queries the configurations of API security log subscription.
    *
    * @param request DescribeApisecLogDeliveriesRequest
    * @return DescribeApisecLogDeliveriesResponse
@@ -12374,7 +12625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询日志服务SLS的LogStore列表
+   * @summary Queries the Logstores whose names start with apisec- in Simple Log Service.
    *
    * @param request DescribeApisecSlsLogStoresRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -12421,7 +12672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询日志服务SLS的LogStore列表
+   * @summary Queries the Logstores whose names start with apisec- in Simple Log Service.
    *
    * @param request DescribeApisecSlsLogStoresRequest
    * @return DescribeApisecSlsLogStoresResponse
@@ -12432,7 +12683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询日志服务SLS的Project列表
+   * @summary Queries the projects whose names start with apisec- in Simple Log Service.
    *
    * @param request DescribeApisecSlsProjectsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -12475,7 +12726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询日志服务SLS的Project列表
+   * @summary Queries the projects whose names start with apisec- in Simple Log Service.
    *
    * @param request DescribeApisecSlsProjectsRequest
    * @return DescribeApisecSlsProjectsResponse
@@ -12693,6 +12944,56 @@ export default class Client extends OpenApi {
   async describeCloudResources(request: DescribeCloudResourcesRequest): Promise<DescribeCloudResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
+   *
+   * @param request DescribeDDoSStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDDoSStatusResponse
+   */
+  async describeDDoSStatusWithOptions(request: DescribeDDoSStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDoSStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDDoSStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDDoSStatusResponse>(await this.callApi(params, req, runtime), new DescribeDDoSStatusResponse({}));
+  }
+
+  /**
+   * @summary Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
+   *
+   * @param request DescribeDDoSStatusRequest
+   * @return DescribeDDoSStatusResponse
+   */
+  async describeDDoSStatus(request: DescribeDDoSStatusRequest): Promise<DescribeDDoSStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDDoSStatusWithOptions(request, runtime);
   }
 
   /**
@@ -15928,7 +16229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改API安全日志订阅
+   * @summary Modifies the configurations of API security log subscription.
    *
    * @param request ModifyApisecLogDeliveryRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -15983,7 +16284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改API安全日志订阅
+   * @summary Modifies the configurations of API security log subscription.
    *
    * @param request ModifyApisecLogDeliveryRequest
    * @return ModifyApisecLogDeliveryResponse
@@ -15994,7 +16295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改API安全日志订阅状态
+   * @summary Modifies the status of API security log subscription.
    *
    * @param request ModifyApisecLogDeliveryStatusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -16041,7 +16342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改API安全日志订阅状态
+   * @summary Modifies the status of API security log subscription.
    *
    * @param request ModifyApisecLogDeliveryStatusRequest
    * @return ModifyApisecLogDeliveryStatusResponse
