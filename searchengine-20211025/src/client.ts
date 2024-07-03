@@ -479,6 +479,78 @@ export class CloneSqlInstanceResponse extends $tea.Model {
   }
 }
 
+export class CreateAliasRequest extends $tea.Model {
+  alias?: string;
+  index?: string;
+  newMode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'alias',
+      index: 'index',
+      newMode: 'newMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      index: 'string',
+      newMode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAliasResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAliasResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAliasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAliasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequest extends $tea.Model {
   autoLoad?: boolean;
   dataNode?: CreateClusterRequestDataNode;
@@ -1267,6 +1339,53 @@ export class DeleteAdvanceConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteAdvanceConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAliasResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAliasResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAliasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAliasResponseBody,
     };
   }
 
@@ -3049,6 +3168,53 @@ export class ListAdvanceConfigsResponse extends $tea.Model {
   }
 }
 
+export class ListAliasesResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListAliasesResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListAliasesResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAliasesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAliasesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAliasesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClusterNamesResponseBody extends $tea.Model {
   requestId?: string;
   result?: ListClusterNamesResponseBodyResult;
@@ -4755,6 +4921,75 @@ export class ModifyAdvanceConfigFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyAdvanceConfigFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAliasRequest extends $tea.Model {
+  alias?: string;
+  index?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'alias',
+      index: 'index',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      index: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAliasResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAliasResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAliasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAliasResponseBody,
     };
   }
 
@@ -9619,6 +9854,28 @@ export class ListAdvanceConfigsResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListAliasesResponseBodyResult extends $tea.Model {
+  alias?: string;
+  index?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'alias',
+      index: 'index',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      index: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClusterNamesResponseBodyResult extends $tea.Model {
   description?: string;
   id?: number;
@@ -11913,6 +12170,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request CreateAliasRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAliasResponse
+   */
+  async createAliasWithOptions(instanceId: string, request: CreateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAliasResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.newMode)) {
+      query["newMode"] = request.newMode;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alias)) {
+      body["alias"] = request.alias;
+    }
+
+    if (!Util.isUnset(request.index)) {
+      body["index"] = request.index;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAlias",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/aliases`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
+  }
+
+  /**
+   * @param request CreateAliasRequest
+   * @return CreateAliasResponse
+   */
+  async createAlias(instanceId: string, request: CreateAliasRequest): Promise<CreateAliasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAliasWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * @summary Creates a cluster.
    *
    * @description ### Method
@@ -12569,6 +12877,38 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAdvanceConfigWithOptions(instanceId, configName, headers, runtime);
+  }
+
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAliasResponse
+   */
+  async deleteAliasWithOptions(instanceId: string, alias: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAliasResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAlias",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/aliases/${OpenApiUtil.getEncodeParam(alias)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
+  }
+
+  /**
+   * @return DeleteAliasResponse
+   */
+  async deleteAlias(instanceId: string, alias: string): Promise<DeleteAliasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAliasWithOptions(instanceId, alias, headers, runtime);
   }
 
   /**
@@ -14024,6 +14364,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAliasesResponse
+   */
+  async listAliasesWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAliasesResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAliases",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/aliases`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
+  }
+
+  /**
+   * @return ListAliasesResponse
+   */
+  async listAliases(instanceId: string): Promise<ListAliasesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAliasesWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
    * @summary Queries cluster names.
    *
    * @description ### Method
@@ -15411,6 +15783,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modifyAdvanceConfigFileWithOptions(instanceId, configName, request, headers, runtime);
+  }
+
+  /**
+   * @param request ModifyAliasRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAliasResponse
+   */
+  async modifyAliasWithOptions(instanceId: string, alias: string, request: ModifyAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyAliasResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alias)) {
+      body["alias"] = request.alias;
+    }
+
+    if (!Util.isUnset(request.index)) {
+      body["index"] = request.index;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAlias",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/aliases/${OpenApiUtil.getEncodeParam(alias)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAliasResponse>(await this.callApi(params, req, runtime), new ModifyAliasResponse({}));
+  }
+
+  /**
+   * @param request ModifyAliasRequest
+   * @return ModifyAliasResponse
+   */
+  async modifyAlias(instanceId: string, alias: string, request: ModifyAliasRequest): Promise<ModifyAliasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyAliasWithOptions(instanceId, alias, request, headers, runtime);
   }
 
   /**
