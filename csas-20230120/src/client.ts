@@ -3391,6 +3391,102 @@ export class ListIdpDepartmentsResponse extends $tea.Model {
   }
 }
 
+export class ListNacUserCertRequest extends $tea.Model {
+  currentPage?: string;
+  department?: string;
+  deviceType?: string;
+  endTime?: number;
+  pageSize?: string;
+  startTime?: number;
+  status?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      department: 'Department',
+      deviceType: 'DeviceType',
+      endTime: 'EndTime',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      status: 'Status',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'string',
+      department: 'string',
+      deviceType: 'string',
+      endTime: 'number',
+      pageSize: 'string',
+      startTime: 'number',
+      status: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNacUserCertResponseBody extends $tea.Model {
+  code?: number;
+  dataList?: ListNacUserCertResponseBodyDataList[];
+  message?: string;
+  requestId?: string;
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataList: 'DataList',
+      message: 'Message',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      dataList: { 'type': 'array', 'itemType': ListNacUserCertResponseBodyDataList },
+      message: 'string',
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNacUserCertResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNacUserCertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNacUserCertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPolicesForPrivateAccessApplicationRequest extends $tea.Model {
   applicationIds?: string[];
   static names(): { [key: string]: string } {
@@ -5438,6 +5534,78 @@ export class UpdateIdpDepartmentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateIdpDepartmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNacUserCertStatusRequest extends $tea.Model {
+  idList?: UpdateNacUserCertStatusRequestIdList[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idList: 'IdList',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idList: { 'type': 'array', 'itemType': UpdateNacUserCertStatusRequestIdList },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNacUserCertStatusResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNacUserCertStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateNacUserCertStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateNacUserCertStatusResponseBody,
     };
   }
 
@@ -7758,6 +7926,52 @@ export class ListIdpDepartmentsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListNacUserCertResponseBodyDataList extends $tea.Model {
+  aliuid?: string;
+  department?: string;
+  devTag?: string;
+  deviceType?: string;
+  expiredTime?: string;
+  hostname?: string;
+  mac?: string;
+  status?: string;
+  userId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliuid: 'Aliuid',
+      department: 'Department',
+      devTag: 'DevTag',
+      deviceType: 'DeviceType',
+      expiredTime: 'ExpiredTime',
+      hostname: 'Hostname',
+      mac: 'Mac',
+      status: 'Status',
+      userId: 'UserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliuid: 'string',
+      department: 'string',
+      devTag: 'string',
+      deviceType: 'string',
+      expiredTime: 'string',
+      hostname: 'string',
+      mac: 'string',
+      status: 'string',
+      userId: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPoliciesCustomUserAttributes extends $tea.Model {
   idpId?: number;
   relation?: string;
@@ -9132,6 +9346,28 @@ export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyAppl
       saseUserId: 'string',
       status: 'string',
       username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNacUserCertStatusRequestIdList extends $tea.Model {
+  devTag?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      devTag: 'DevTag',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      devTag: 'string',
+      userId: 'string',
     };
   }
 
@@ -11752,6 +11988,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 入网用户列表
+   *
+   * @param request ListNacUserCertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNacUserCertResponse
+   */
+  async listNacUserCertWithOptions(request: ListNacUserCertRequest, runtime: $Util.RuntimeOptions): Promise<ListNacUserCertResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.department)) {
+      query["Department"] = request.department;
+    }
+
+    if (!Util.isUnset(request.deviceType)) {
+      query["DeviceType"] = request.deviceType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListNacUserCert",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListNacUserCertResponse>(await this.callApi(params, req, runtime), new ListNacUserCertResponse({}));
+  }
+
+  /**
+   * @summary 入网用户列表
+   *
+   * @param request ListNacUserCertRequest
+   * @return ListNacUserCertResponse
+   */
+  async listNacUserCert(request: ListNacUserCertRequest): Promise<ListNacUserCertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNacUserCertWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 批量查询内网访问应用的策略
    *
    * @param request ListPolicesForPrivateAccessApplicationRequest
@@ -12901,6 +13207,57 @@ export default class Client extends OpenApi {
   async updateIdpDepartment(request: UpdateIdpDepartmentRequest): Promise<UpdateIdpDepartmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIdpDepartmentWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 更新NAC User 状态
+   *
+   * @param request UpdateNacUserCertStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateNacUserCertStatusResponse
+   */
+  async updateNacUserCertStatusWithOptions(request: UpdateNacUserCertStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacUserCertStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.idList)) {
+      bodyFlat["IdList"] = request.idList;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateNacUserCertStatus",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateNacUserCertStatusResponse>(await this.callApi(params, req, runtime), new UpdateNacUserCertStatusResponse({}));
+  }
+
+  /**
+   * @summary 更新NAC User 状态
+   *
+   * @param request UpdateNacUserCertStatusRequest
+   * @return UpdateNacUserCertStatusResponse
+   */
+  async updateNacUserCertStatus(request: UpdateNacUserCertStatusRequest): Promise<UpdateNacUserCertStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateNacUserCertStatusWithOptions(request, runtime);
   }
 
   /**
