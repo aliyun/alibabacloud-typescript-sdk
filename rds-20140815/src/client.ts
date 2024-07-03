@@ -2901,6 +2901,99 @@ export class CreateDBInstanceForRebuildResponse extends $tea.Model {
   }
 }
 
+export class CreateDBInstanceSecurityGroupRuleRequest extends $tea.Model {
+  DBInstanceId?: string;
+  description?: string;
+  ipProtocol?: string;
+  ownerAccount?: string;
+  ownerId?: string;
+  portRange?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  sourceCidrIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      description: 'Description',
+      ipProtocol: 'IpProtocol',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      portRange: 'PortRange',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sourceCidrIp: 'SourceCidrIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      description: 'string',
+      ipProtocol: 'string',
+      ownerAccount: 'string',
+      ownerId: 'string',
+      portRange: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sourceCidrIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceSecurityGroupRuleResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceSecurityGroupRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDBInstanceSecurityGroupRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDBInstanceSecurityGroupRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBNodesRequest extends $tea.Model {
   clientToken?: string;
   DBInstanceId?: string;
@@ -5392,6 +5485,96 @@ export class DeleteDBInstanceEndpointAddressResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteDBInstanceEndpointAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBInstanceSecurityGroupRuleRequest extends $tea.Model {
+  clientToken?: string;
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityGroupRuleIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityGroupRuleIds: 'SecurityGroupRuleIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityGroupRuleIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBInstanceSecurityGroupRuleResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBInstanceSecurityGroupRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDBInstanceSecurityGroupRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDBInstanceSecurityGroupRuleResponseBody,
     };
   }
 
@@ -10613,6 +10796,90 @@ export class DescribeDBInstanceSSLResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDBInstanceSSLResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceSecurityGroupRuleRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceSecurityGroupRuleResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceSecurityGroupRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceSecurityGroupRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceSecurityGroupRuleResponseBody,
     };
   }
 
@@ -21984,6 +22251,102 @@ export class ModifyDBInstanceSSLResponse extends $tea.Model {
   }
 }
 
+export class ModifyDBInstanceSecurityGroupRuleRequest extends $tea.Model {
+  DBInstanceId?: string;
+  description?: string;
+  ipProtocol?: string;
+  ownerAccount?: string;
+  ownerId?: string;
+  portRange?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityGroupRuleId?: string;
+  sourceCidrIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      description: 'Description',
+      ipProtocol: 'IpProtocol',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      portRange: 'PortRange',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityGroupRuleId: 'SecurityGroupRuleId',
+      sourceCidrIp: 'SourceCidrIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      description: 'string',
+      ipProtocol: 'string',
+      ownerAccount: 'string',
+      ownerId: 'string',
+      portRange: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityGroupRuleId: 'string',
+      sourceCidrIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceSecurityGroupRuleResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceSecurityGroupRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceSecurityGroupRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBInstanceSecurityGroupRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBInstanceSpecRequest extends $tea.Model {
   autoUseCoupon?: boolean;
   burstingEnabled?: boolean;
@@ -29428,6 +29791,8 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
   copyOnlyBackup?: string;
   DBInstanceId?: string;
   encryption?: string;
+  engine?: string;
+  engineVersion?: string;
   hostInstanceID?: string;
   isAvail?: number;
   metaStatus?: string;
@@ -29453,6 +29818,8 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
       copyOnlyBackup: 'CopyOnlyBackup',
       DBInstanceId: 'DBInstanceId',
       encryption: 'Encryption',
+      engine: 'Engine',
+      engineVersion: 'EngineVersion',
       hostInstanceID: 'HostInstanceID',
       isAvail: 'IsAvail',
       metaStatus: 'MetaStatus',
@@ -29481,6 +29848,8 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
       copyOnlyBackup: 'string',
       DBInstanceId: 'string',
       encryption: 'string',
+      engine: 'string',
+      engineVersion: 'string',
       hostInstanceID: 'string',
       isAvail: 'number',
       metaStatus: 'string',
@@ -40127,6 +40496,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 创建实例主机安全组规则
+   *
+   * @param request CreateDBInstanceSecurityGroupRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBInstanceSecurityGroupRuleResponse
+   */
+  async createDBInstanceSecurityGroupRuleWithOptions(request: CreateDBInstanceSecurityGroupRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceSecurityGroupRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.ipProtocol)) {
+      query["IpProtocol"] = request.ipProtocol;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.portRange)) {
+      query["PortRange"] = request.portRange;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceCidrIp)) {
+      query["SourceCidrIp"] = request.sourceCidrIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDBInstanceSecurityGroupRule",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDBInstanceSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceSecurityGroupRuleResponse({}));
+  }
+
+  /**
+   * @summary 创建实例主机安全组规则
+   *
+   * @param request CreateDBInstanceSecurityGroupRuleRequest
+   * @return CreateDBInstanceSecurityGroupRuleResponse
+   */
+  async createDBInstanceSecurityGroupRule(request: CreateDBInstanceSecurityGroupRuleRequest): Promise<CreateDBInstanceSecurityGroupRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDBInstanceSecurityGroupRuleWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Adds a node to an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition. An RDS instance that runs RDS Cluster Edition is referred to as an RDS cluster.
    *
    * @description ### Supported database engines
@@ -42444,6 +42887,76 @@ export default class Client extends OpenApi {
   async deleteDBInstanceEndpointAddress(request: DeleteDBInstanceEndpointAddressRequest): Promise<DeleteDBInstanceEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBInstanceEndpointAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 删除实例主机安全组规则
+   *
+   * @param request DeleteDBInstanceSecurityGroupRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBInstanceSecurityGroupRuleResponse
+   */
+  async deleteDBInstanceSecurityGroupRuleWithOptions(request: DeleteDBInstanceSecurityGroupRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceSecurityGroupRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityGroupRuleIds)) {
+      query["SecurityGroupRuleIds"] = request.securityGroupRuleIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDBInstanceSecurityGroupRule",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDBInstanceSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new DeleteDBInstanceSecurityGroupRuleResponse({}));
+  }
+
+  /**
+   * @summary 删除实例主机安全组规则
+   *
+   * @param request DeleteDBInstanceSecurityGroupRuleRequest
+   * @return DeleteDBInstanceSecurityGroupRuleResponse
+   */
+  async deleteDBInstanceSecurityGroupRule(request: DeleteDBInstanceSecurityGroupRuleRequest): Promise<DeleteDBInstanceSecurityGroupRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDBInstanceSecurityGroupRuleWithOptions(request, runtime);
   }
 
   /**
@@ -46748,6 +47261,64 @@ export default class Client extends OpenApi {
   async describeDBInstanceSSL(request: DescribeDBInstanceSSLRequest): Promise<DescribeDBInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceSSLWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 描述实例主机安全组规则
+   *
+   * @param request DescribeDBInstanceSecurityGroupRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceSecurityGroupRuleResponse
+   */
+  async describeDBInstanceSecurityGroupRuleWithOptions(request: DescribeDBInstanceSecurityGroupRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSecurityGroupRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceSecurityGroupRule",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSecurityGroupRuleResponse({}));
+  }
+
+  /**
+   * @summary 描述实例主机安全组规则
+   *
+   * @param request DescribeDBInstanceSecurityGroupRuleRequest
+   * @return DescribeDBInstanceSecurityGroupRuleResponse
+   */
+  async describeDBInstanceSecurityGroupRule(request: DescribeDBInstanceSecurityGroupRuleRequest): Promise<DescribeDBInstanceSecurityGroupRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBInstanceSecurityGroupRuleWithOptions(request, runtime);
   }
 
   /**
@@ -52312,16 +52883,17 @@ export default class Client extends OpenApi {
    * @summary Queries the statistics on slow query logs.
    *
    * @description ### [](#)Supported database engines
-   * *   MySQL
+   * *   RDS MySQL
    *     **
    *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
-   * *   SQL Server
+   * *   RDS SQL Server
    *     **
    *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
-   * *   MariaDB
+   * *   RDS MariaDB
    * ### [](#)Precautions
    * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
-   * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
+   * *   If the return result is empty, check whether the StartTime and EndTime parameters are in UTC. If yes, no slow logs are generated within the specified time range.
+   * *   Starting from December 13, 2023, the optimized template algorithm is used for slow queries. As a result, different **SQLHash** values are generated for the same SQLText before and after optimization. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2637024~~).
    *
    * @param request DescribeSlowLogsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -52395,16 +52967,17 @@ export default class Client extends OpenApi {
    * @summary Queries the statistics on slow query logs.
    *
    * @description ### [](#)Supported database engines
-   * *   MySQL
+   * *   RDS MySQL
    *     **
    *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
-   * *   SQL Server
+   * *   RDS SQL Server
    *     **
    *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
-   * *   MariaDB
+   * *   RDS MariaDB
    * ### [](#)Precautions
    * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
-   * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
+   * *   If the return result is empty, check whether the StartTime and EndTime parameters are in UTC. If yes, no slow logs are generated within the specified time range.
+   * *   Starting from December 13, 2023, the optimized template algorithm is used for slow queries. As a result, different **SQLHash** values are generated for the same SQLText before and after optimization. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2637024~~).
    *
    * @param request DescribeSlowLogsRequest
    * @return DescribeSlowLogsResponse
@@ -52649,12 +53222,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance.
+   * @summary Queries the check report for a major engine version upgrade of an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance.
    *
    * @description ### [](#)Supported database engines
+   * MySQL
    * PostgreSQL
    * ### [](#)References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Check report for the major engine version upgrade of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2794383.html)
    * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
    * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/218391.html)
    *
@@ -52719,12 +53294,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance.
+   * @summary Queries the check report for a major engine version upgrade of an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance.
    *
    * @description ### [](#)Supported database engines
+   * MySQL
    * PostgreSQL
    * ### [](#)References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Check report for the major engine version upgrade of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2794383.html)
    * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
    * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/218391.html)
    *
@@ -56684,6 +57261,84 @@ export default class Client extends OpenApi {
   async modifyDBInstanceSSL(request: ModifyDBInstanceSSLRequest): Promise<ModifyDBInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceSSLWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改实例主机安全组规则
+   *
+   * @param request ModifyDBInstanceSecurityGroupRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceSecurityGroupRuleResponse
+   */
+  async modifyDBInstanceSecurityGroupRuleWithOptions(request: ModifyDBInstanceSecurityGroupRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceSecurityGroupRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.ipProtocol)) {
+      query["IpProtocol"] = request.ipProtocol;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.portRange)) {
+      query["PortRange"] = request.portRange;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityGroupRuleId)) {
+      query["SecurityGroupRuleId"] = request.securityGroupRuleId;
+    }
+
+    if (!Util.isUnset(request.sourceCidrIp)) {
+      query["SourceCidrIp"] = request.sourceCidrIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceSecurityGroupRule",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceSecurityGroupRuleResponse({}));
+  }
+
+  /**
+   * @summary 修改实例主机安全组规则
+   *
+   * @param request ModifyDBInstanceSecurityGroupRuleRequest
+   * @return ModifyDBInstanceSecurityGroupRuleResponse
+   */
+  async modifyDBInstanceSecurityGroupRule(request: ModifyDBInstanceSecurityGroupRuleRequest): Promise<ModifyDBInstanceSecurityGroupRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBInstanceSecurityGroupRuleWithOptions(request, runtime);
   }
 
   /**
