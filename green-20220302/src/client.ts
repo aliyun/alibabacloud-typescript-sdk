@@ -1451,6 +1451,7 @@ export class DescribeImageModerationResultResponseBodyData extends $tea.Model {
   frameNum?: number;
   reqId?: string;
   result?: DescribeImageModerationResultResponseBodyDataResult[];
+  riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
       dataId: 'DataId',
@@ -1458,6 +1459,7 @@ export class DescribeImageModerationResultResponseBodyData extends $tea.Model {
       frameNum: 'FrameNum',
       reqId: 'ReqId',
       result: 'Result',
+      riskLevel: 'RiskLevel',
     };
   }
 
@@ -1468,6 +1470,7 @@ export class DescribeImageModerationResultResponseBodyData extends $tea.Model {
       frameNum: 'number',
       reqId: 'string',
       result: { 'type': 'array', 'itemType': DescribeImageModerationResultResponseBodyDataResult },
+      riskLevel: 'string',
     };
   }
 
@@ -1748,6 +1751,106 @@ export class ImageAsyncModerationResponseBodyData extends $tea.Model {
   }
 }
 
+export class ImageModerationResponseBodyDataExtCustomImage extends $tea.Model {
+  imageId?: string;
+  libId?: string;
+  libName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      libId: 'LibId',
+      libName: 'LibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      libId: 'string',
+      libName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtLogoDataLocation extends $tea.Model {
+  h?: number;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtLogoDataLogo extends $tea.Model {
+  confidence?: number;
+  label?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      label: 'Label',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      label: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtLogoData extends $tea.Model {
+  location?: ImageModerationResponseBodyDataExtLogoDataLocation;
+  logo?: ImageModerationResponseBodyDataExtLogoDataLogo[];
+  static names(): { [key: string]: string } {
+    return {
+      location: 'Location',
+      logo: 'Logo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      location: ImageModerationResponseBodyDataExtLogoDataLocation,
+      logo: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtLogoDataLogo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageModerationResponseBodyDataExtOcrResultLocation extends $tea.Model {
   h?: number;
   w?: number;
@@ -1798,6 +1901,28 @@ export class ImageModerationResponseBodyDataExtOcrResult extends $tea.Model {
   }
 }
 
+export class ImageModerationResponseBodyDataExtPublicFigure extends $tea.Model {
+  figureId?: string;
+  figureName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      figureId: 'FigureId',
+      figureName: 'FigureName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figureId: 'string',
+      figureName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageModerationResponseBodyDataExtRecognition extends $tea.Model {
   classification?: string;
   confidence?: number;
@@ -1820,20 +1945,132 @@ export class ImageModerationResponseBodyDataExtRecognition extends $tea.Model {
   }
 }
 
-export class ImageModerationResponseBodyDataExt extends $tea.Model {
-  ocrResult?: ImageModerationResponseBodyDataExtOcrResult[];
-  recognition?: ImageModerationResponseBodyDataExtRecognition[];
+export class ImageModerationResponseBodyDataExtTextInImageCustomText extends $tea.Model {
+  keyWords?: string;
+  libId?: string;
+  libName?: string;
   static names(): { [key: string]: string } {
     return {
-      ocrResult: 'OcrResult',
-      recognition: 'Recognition',
+      keyWords: 'KeyWords',
+      libId: 'LibId',
+      libName: 'LibName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      keyWords: 'string',
+      libId: 'string',
+      libName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtTextInImageOcrResultLocation extends $tea.Model {
+  h?: number;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtTextInImageOcrResult extends $tea.Model {
+  location?: ImageModerationResponseBodyDataExtTextInImageOcrResultLocation;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      location: 'Location',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      location: ImageModerationResponseBodyDataExtTextInImageOcrResultLocation,
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtTextInImage extends $tea.Model {
+  customText?: ImageModerationResponseBodyDataExtTextInImageCustomText[];
+  ocrResult?: ImageModerationResponseBodyDataExtTextInImageOcrResult[];
+  riskWord?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      customText: 'CustomText',
+      ocrResult: 'OcrResult',
+      riskWord: 'RiskWord',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customText: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtTextInImageCustomText },
+      ocrResult: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtTextInImageOcrResult },
+      riskWord: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExt extends $tea.Model {
+  customImage?: ImageModerationResponseBodyDataExtCustomImage[];
+  logoData?: ImageModerationResponseBodyDataExtLogoData[];
+  ocrResult?: ImageModerationResponseBodyDataExtOcrResult[];
+  publicFigure?: ImageModerationResponseBodyDataExtPublicFigure[];
+  recognition?: ImageModerationResponseBodyDataExtRecognition[];
+  textInImage?: ImageModerationResponseBodyDataExtTextInImage;
+  static names(): { [key: string]: string } {
+    return {
+      customImage: 'CustomImage',
+      logoData: 'LogoData',
+      ocrResult: 'OcrResult',
+      publicFigure: 'PublicFigure',
+      recognition: 'Recognition',
+      textInImage: 'TextInImage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customImage: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtCustomImage },
+      logoData: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtLogoData },
       ocrResult: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtOcrResult },
+      publicFigure: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtPublicFigure },
       recognition: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtRecognition },
+      textInImage: ImageModerationResponseBodyDataExtTextInImage,
     };
   }
 
@@ -1868,11 +2105,13 @@ export class ImageModerationResponseBodyData extends $tea.Model {
   dataId?: string;
   ext?: ImageModerationResponseBodyDataExt;
   result?: ImageModerationResponseBodyDataResult[];
+  riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
       dataId: 'DataId',
       ext: 'Ext',
       result: 'Result',
+      riskLevel: 'RiskLevel',
     };
   }
 
@@ -1881,6 +2120,7 @@ export class ImageModerationResponseBodyData extends $tea.Model {
       dataId: 'string',
       ext: ImageModerationResponseBodyDataExt,
       result: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataResult },
+      riskLevel: 'string',
     };
   }
 
@@ -1995,11 +2235,13 @@ export class TextModerationPlusResponseBodyDataResult extends $tea.Model {
 export class TextModerationPlusResponseBodyData extends $tea.Model {
   advice?: TextModerationPlusResponseBodyDataAdvice[];
   result?: TextModerationPlusResponseBodyDataResult[];
+  riskLevel?: string;
   score?: number;
   static names(): { [key: string]: string } {
     return {
       advice: 'Advice',
       result: 'Result',
+      riskLevel: 'RiskLevel',
       score: 'Score',
     };
   }
@@ -2008,6 +2250,7 @@ export class TextModerationPlusResponseBodyData extends $tea.Model {
     return {
       advice: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataAdvice },
       result: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataResult },
+      riskLevel: 'string',
       score: 'number',
     };
   }
