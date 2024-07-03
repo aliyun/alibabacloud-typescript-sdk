@@ -385,6 +385,7 @@ export class Model extends $tea.Model {
 
 export class ModelVersion extends $tea.Model {
   approvalStatus?: string;
+  compressionSpec?: { [key: string]: any };
   evaluationSpec?: { [key: string]: any };
   extraInfo?: { [key: string]: any };
   formatType?: string;
@@ -406,6 +407,7 @@ export class ModelVersion extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       approvalStatus: 'ApprovalStatus',
+      compressionSpec: 'CompressionSpec',
       evaluationSpec: 'EvaluationSpec',
       extraInfo: 'ExtraInfo',
       formatType: 'FormatType',
@@ -430,6 +432,7 @@ export class ModelVersion extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approvalStatus: 'string',
+      compressionSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       evaluationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       formatType: 'string',
@@ -1276,6 +1279,7 @@ export class CreateModelLabelsResponse extends $tea.Model {
 
 export class CreateModelVersionRequest extends $tea.Model {
   approvalStatus?: string;
+  compressionSpec?: { [key: string]: any };
   evaluationSpec?: { [key: string]: any };
   extraInfo?: { [key: string]: any };
   formatType?: string;
@@ -1293,6 +1297,7 @@ export class CreateModelVersionRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       approvalStatus: 'ApprovalStatus',
+      compressionSpec: 'CompressionSpec',
       evaluationSpec: 'EvaluationSpec',
       extraInfo: 'ExtraInfo',
       formatType: 'FormatType',
@@ -1313,6 +1318,7 @@ export class CreateModelVersionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approvalStatus: 'string',
+      compressionSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       evaluationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       formatType: 'string',
@@ -2792,6 +2798,7 @@ export class GetModelResponse extends $tea.Model {
 
 export class GetModelVersionResponseBody extends $tea.Model {
   approvalStatus?: string;
+  compressionSpec?: { [key: string]: any };
   evaluationSpec?: { [key: string]: any };
   extraInfo?: { [key: string]: any };
   formatType?: string;
@@ -2814,6 +2821,7 @@ export class GetModelVersionResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       approvalStatus: 'ApprovalStatus',
+      compressionSpec: 'CompressionSpec',
       evaluationSpec: 'EvaluationSpec',
       extraInfo: 'ExtraInfo',
       formatType: 'FormatType',
@@ -2839,6 +2847,7 @@ export class GetModelVersionResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approvalStatus: 'string',
+      compressionSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       evaluationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       formatType: 'string',
@@ -4853,6 +4862,7 @@ export class UpdateModelResponse extends $tea.Model {
 
 export class UpdateModelVersionRequest extends $tea.Model {
   approvalStatus?: string;
+  compressionSpec?: { [key: string]: any };
   evaluationSpec?: { [key: string]: any };
   extraInfo?: { [key: string]: any };
   inferenceSpec?: { [key: string]: any };
@@ -4865,6 +4875,7 @@ export class UpdateModelVersionRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       approvalStatus: 'ApprovalStatus',
+      compressionSpec: 'CompressionSpec',
       evaluationSpec: 'EvaluationSpec',
       extraInfo: 'ExtraInfo',
       inferenceSpec: 'InferenceSpec',
@@ -4880,6 +4891,7 @@ export class UpdateModelVersionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approvalStatus: 'string',
+      compressionSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       evaluationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       inferenceSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -6638,6 +6650,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.approvalStatus)) {
       body["ApprovalStatus"] = request.approvalStatus;
+    }
+
+    if (!Util.isUnset(request.compressionSpec)) {
+      body["CompressionSpec"] = request.compressionSpec;
     }
 
     if (!Util.isUnset(request.evaluationSpec)) {
@@ -9149,6 +9165,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.approvalStatus)) {
       body["ApprovalStatus"] = request.approvalStatus;
+    }
+
+    if (!Util.isUnset(request.compressionSpec)) {
+      body["CompressionSpec"] = request.compressionSpec;
     }
 
     if (!Util.isUnset(request.evaluationSpec)) {
