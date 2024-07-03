@@ -4978,15 +4978,18 @@ export class PutConcurrencyConfigResponse extends $tea.Model {
 }
 
 export class PutLayerACLRequest extends $tea.Model {
+  acl?: string;
   public?: string;
   static names(): { [key: string]: string } {
     return {
+      acl: 'acl',
       public: 'public',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      acl: 'string',
       public: 'string',
     };
   }
@@ -5446,6 +5449,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 创建函数别名。
+   *
+   * @param request CreateAliasRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAliasResponse
+   */
   async createAliasWithOptions(functionName: string, request: CreateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAliasResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5466,12 +5477,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
   }
 
+  /**
+   * @summary 创建函数别名。
+   *
+   * @param request CreateAliasRequest
+   * @return CreateAliasResponse
+   */
   async createAlias(functionName: string, request: CreateAliasRequest): Promise<CreateAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createAliasWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建自定义域名。
+   *
+   * @param request CreateCustomDomainRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomDomainResponse
+   */
   async createCustomDomainWithOptions(request: CreateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCustomDomainResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5492,12 +5517,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCustomDomainResponse>(await this.callApi(params, req, runtime), new CreateCustomDomainResponse({}));
   }
 
+  /**
+   * @summary 创建自定义域名。
+   *
+   * @param request CreateCustomDomainRequest
+   * @return CreateCustomDomainResponse
+   */
   async createCustomDomain(request: CreateCustomDomainRequest): Promise<CreateCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCustomDomainWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a function.
+   *
+   * @param request CreateFunctionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFunctionResponse
+   */
   async createFunctionWithOptions(request: CreateFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFunctionResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5518,12 +5557,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFunctionResponse>(await this.callApi(params, req, runtime), new CreateFunctionResponse({}));
   }
 
+  /**
+   * @summary Creates a function.
+   *
+   * @param request CreateFunctionRequest
+   * @return CreateFunctionResponse
+   */
   async createFunction(request: CreateFunctionRequest): Promise<CreateFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createFunctionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建层版本。
+   *
+   * @param request CreateLayerVersionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLayerVersionResponse
+   */
   async createLayerVersionWithOptions(layerName: string, request: CreateLayerVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLayerVersionResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5544,12 +5597,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLayerVersionResponse>(await this.callApi(params, req, runtime), new CreateLayerVersionResponse({}));
   }
 
+  /**
+   * @summary 创建层版本。
+   *
+   * @param request CreateLayerVersionRequest
+   * @return CreateLayerVersionResponse
+   */
   async createLayerVersion(layerName: string, request: CreateLayerVersionRequest): Promise<CreateLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createLayerVersionWithOptions(layerName, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建函数触发器。
+   *
+   * @param request CreateTriggerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTriggerResponse
+   */
   async createTriggerWithOptions(functionName: string, request: CreateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5570,12 +5637,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
   }
 
+  /**
+   * @summary 创建函数触发器。
+   *
+   * @param request CreateTriggerRequest
+   * @return CreateTriggerResponse
+   */
   async createTrigger(functionName: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTriggerWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a VPC connection.
+   *
+   * @param request CreateVpcBindingRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpcBindingResponse
+   */
   async createVpcBindingWithOptions(functionName: string, request: CreateVpcBindingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVpcBindingResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5596,12 +5677,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcBindingResponse>(await this.callApi(params, req, runtime), new CreateVpcBindingResponse({}));
   }
 
+  /**
+   * @summary Creates a VPC connection.
+   *
+   * @param request CreateVpcBindingRequest
+   * @return CreateVpcBindingResponse
+   */
   async createVpcBinding(functionName: string, request: CreateVpcBindingRequest): Promise<CreateVpcBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createVpcBindingWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes an alias.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAliasResponse
+   */
   async deleteAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5620,12 +5714,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
   }
 
+  /**
+   * @summary Deletes an alias.
+   *
+   * @return DeleteAliasResponse
+   */
   async deleteAlias(functionName: string, aliasName: string): Promise<DeleteAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAliasWithOptions(functionName, aliasName, headers, runtime);
   }
 
+  /**
+   * @summary Deletes an asynchronous invocation configuration.
+   *
+   * @param request DeleteAsyncInvokeConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAsyncInvokeConfigResponse
+   */
   async deleteAsyncInvokeConfigWithOptions(functionName: string, request: DeleteAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAsyncInvokeConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5651,12 +5758,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new DeleteAsyncInvokeConfigResponse({}));
   }
 
+  /**
+   * @summary Deletes an asynchronous invocation configuration.
+   *
+   * @param request DeleteAsyncInvokeConfigRequest
+   * @return DeleteAsyncInvokeConfigResponse
+   */
   async deleteAsyncInvokeConfig(functionName: string, request: DeleteAsyncInvokeConfigRequest): Promise<DeleteAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a concurrency configuration.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteConcurrencyConfigResponse
+   */
   async deleteConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConcurrencyConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5675,12 +5795,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new DeleteConcurrencyConfigResponse({}));
   }
 
+  /**
+   * @summary Deletes a concurrency configuration.
+   *
+   * @return DeleteConcurrencyConfigResponse
+   */
   async deleteConcurrencyConfig(functionName: string): Promise<DeleteConcurrencyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteConcurrencyConfigWithOptions(functionName, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a custom domain name.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomDomainResponse
+   */
   async deleteCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCustomDomainResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5699,12 +5831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCustomDomainResponse>(await this.callApi(params, req, runtime), new DeleteCustomDomainResponse({}));
   }
 
+  /**
+   * @summary Deletes a custom domain name.
+   *
+   * @return DeleteCustomDomainResponse
+   */
   async deleteCustomDomain(domainName: string): Promise<DeleteCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCustomDomainWithOptions(domainName, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a function.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFunctionResponse
+   */
   async deleteFunctionWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5723,12 +5867,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResponse({}));
   }
 
+  /**
+   * @summary Deletes a function.
+   *
+   * @return DeleteFunctionResponse
+   */
   async deleteFunction(functionName: string): Promise<DeleteFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFunctionWithOptions(functionName, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a function version.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFunctionVersionResponse
+   */
   async deleteFunctionVersionWithOptions(functionName: string, versionId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5747,12 +5903,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFunctionVersionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionVersionResponse({}));
   }
 
+  /**
+   * @summary Deletes a function version.
+   *
+   * @return DeleteFunctionVersionResponse
+   */
   async deleteFunctionVersion(functionName: string, versionId: string): Promise<DeleteFunctionVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFunctionVersionWithOptions(functionName, versionId, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a layer version.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLayerVersionResponse
+   */
   async deleteLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLayerVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5771,12 +5939,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLayerVersionResponse>(await this.callApi(params, req, runtime), new DeleteLayerVersionResponse({}));
   }
 
+  /**
+   * @summary Deletes a layer version.
+   *
+   * @return DeleteLayerVersionResponse
+   */
   async deleteLayerVersion(layerName: string, version: string): Promise<DeleteLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteLayerVersionWithOptions(layerName, version, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a provisioned configuration.
+   *
+   * @param request DeleteProvisionConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteProvisionConfigResponse
+   */
   async deleteProvisionConfigWithOptions(functionName: string, request: DeleteProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProvisionConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5802,12 +5983,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProvisionConfigResponse>(await this.callApi(params, req, runtime), new DeleteProvisionConfigResponse({}));
   }
 
+  /**
+   * @summary Deletes a provisioned configuration.
+   *
+   * @param request DeleteProvisionConfigRequest
+   * @return DeleteProvisionConfigResponse
+   */
   async deleteProvisionConfig(functionName: string, request: DeleteProvisionConfigRequest): Promise<DeleteProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProvisionConfigWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a trigger.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTriggerResponse
+   */
   async deleteTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5826,12 +6020,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
   }
 
+  /**
+   * @summary Deletes a trigger.
+   *
+   * @return DeleteTriggerResponse
+   */
   async deleteTrigger(functionName: string, triggerName: string): Promise<DeleteTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTriggerWithOptions(functionName, triggerName, headers, runtime);
   }
 
+  /**
+   * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpcBindingResponse
+   */
   async deleteVpcBindingWithOptions(functionName: string, vpcId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVpcBindingResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5850,12 +6056,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcBindingResponse>(await this.callApi(params, req, runtime), new DeleteVpcBindingResponse({}));
   }
 
+  /**
+   * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
+   *
+   * @return DeleteVpcBindingResponse
+   */
   async deleteVpcBinding(functionName: string, vpcId: string): Promise<DeleteVpcBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteVpcBindingWithOptions(functionName, vpcId, headers, runtime);
   }
 
+  /**
+   * @summary Queries information about an alias.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAliasResponse
+   */
   async getAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5874,12 +6092,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAliasResponse>(await this.callApi(params, req, runtime), new GetAliasResponse({}));
   }
 
+  /**
+   * @summary Queries information about an alias.
+   *
+   * @return GetAliasResponse
+   */
   async getAlias(functionName: string, aliasName: string): Promise<GetAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAliasWithOptions(functionName, aliasName, headers, runtime);
   }
 
+  /**
+   * @summary Gets asynchronous invocation configurations of a function.
+   *
+   * @param request GetAsyncInvokeConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAsyncInvokeConfigResponse
+   */
   async getAsyncInvokeConfigWithOptions(functionName: string, request: GetAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncInvokeConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5905,12 +6136,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new GetAsyncInvokeConfigResponse({}));
   }
 
+  /**
+   * @summary Gets asynchronous invocation configurations of a function.
+   *
+   * @param request GetAsyncInvokeConfigRequest
+   * @return GetAsyncInvokeConfigResponse
+   */
   async getAsyncInvokeConfig(functionName: string, request: GetAsyncInvokeConfigRequest): Promise<GetAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about an asynchronous task.
+   *
+   * @param request GetAsyncTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAsyncTaskResponse
+   */
   async getAsyncTaskWithOptions(functionName: string, taskId: string, request: GetAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncTaskResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5936,12 +6181,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsyncTaskResponse>(await this.callApi(params, req, runtime), new GetAsyncTaskResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an asynchronous task.
+   *
+   * @param request GetAsyncTaskRequest
+   * @return GetAsyncTaskResponse
+   */
   async getAsyncTask(functionName: string, taskId: string, request: GetAsyncTaskRequest): Promise<GetAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAsyncTaskWithOptions(functionName, taskId, request, headers, runtime);
   }
 
+  /**
+   * @summary Obtains a concurrency configuration.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetConcurrencyConfigResponse
+   */
   async getConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConcurrencyConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5960,12 +6218,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new GetConcurrencyConfigResponse({}));
   }
 
+  /**
+   * @summary Obtains a concurrency configuration.
+   *
+   * @return GetConcurrencyConfigResponse
+   */
   async getConcurrencyConfig(functionName: string): Promise<GetConcurrencyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getConcurrencyConfigWithOptions(functionName, headers, runtime);
   }
 
+  /**
+   * @summary Queries information about a custom domain name.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCustomDomainResponse
+   */
   async getCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCustomDomainResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5984,12 +6254,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCustomDomainResponse>(await this.callApi(params, req, runtime), new GetCustomDomainResponse({}));
   }
 
+  /**
+   * @summary Queries information about a custom domain name.
+   *
+   * @return GetCustomDomainResponse
+   */
   async getCustomDomain(domainName: string): Promise<GetCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCustomDomainWithOptions(domainName, headers, runtime);
   }
 
+  /**
+   * @summary Queries information about a function.
+   *
+   * @param request GetFunctionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFunctionResponse
+   */
   async getFunctionWithOptions(functionName: string, request: GetFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6015,12 +6298,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFunctionResponse>(await this.callApi(params, req, runtime), new GetFunctionResponse({}));
   }
 
+  /**
+   * @summary Queries information about a function.
+   *
+   * @param request GetFunctionRequest
+   * @return GetFunctionResponse
+   */
   async getFunction(functionName: string, request: GetFunctionRequest): Promise<GetFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFunctionWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a code package of a function.
+   *
+   * @param request GetFunctionCodeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFunctionCodeResponse
+   */
   async getFunctionCodeWithOptions(functionName: string, request: GetFunctionCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionCodeResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6046,12 +6343,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFunctionCodeResponse>(await this.callApi(params, req, runtime), new GetFunctionCodeResponse({}));
   }
 
+  /**
+   * @summary Queries a code package of a function.
+   *
+   * @param request GetFunctionCodeRequest
+   * @return GetFunctionCodeResponse
+   */
   async getFunctionCode(functionName: string, request: GetFunctionCodeRequest): Promise<GetFunctionCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFunctionCodeWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries versions of a layer.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLayerVersionResponse
+   */
   async getLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6070,12 +6380,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLayerVersionResponse>(await this.callApi(params, req, runtime), new GetLayerVersionResponse({}));
   }
 
+  /**
+   * @summary Queries versions of a layer.
+   *
+   * @return GetLayerVersionResponse
+   */
   async getLayerVersion(layerName: string, version: string): Promise<GetLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLayerVersionWithOptions(layerName, version, headers, runtime);
   }
 
+  /**
+   * @summary Obtain version information of a layer by using ARNs.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLayerVersionByArnResponse
+   */
   async getLayerVersionByArnWithOptions(arn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionByArnResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6094,12 +6416,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLayerVersionByArnResponse>(await this.callApi(params, req, runtime), new GetLayerVersionByArnResponse({}));
   }
 
+  /**
+   * @summary Obtain version information of a layer by using ARNs.
+   *
+   * @return GetLayerVersionByArnResponse
+   */
   async getLayerVersionByArn(arn: string): Promise<GetLayerVersionByArnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLayerVersionByArnWithOptions(arn, headers, runtime);
   }
 
+  /**
+   * @summary Queries provisioned configurations.
+   *
+   * @param request GetProvisionConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProvisionConfigResponse
+   */
   async getProvisionConfigWithOptions(functionName: string, request: GetProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProvisionConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6125,12 +6460,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProvisionConfigResponse>(await this.callApi(params, req, runtime), new GetProvisionConfigResponse({}));
   }
 
+  /**
+   * @summary Queries provisioned configurations.
+   *
+   * @param request GetProvisionConfigRequest
+   * @return GetProvisionConfigResponse
+   */
   async getProvisionConfig(functionName: string, request: GetProvisionConfigRequest): Promise<GetProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProvisionConfigWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries information about a trigger.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTriggerResponse
+   */
   async getTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6149,12 +6497,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTriggerResponse>(await this.callApi(params, req, runtime), new GetTriggerResponse({}));
   }
 
+  /**
+   * @summary Queries information about a trigger.
+   *
+   * @return GetTriggerResponse
+   */
   async getTrigger(functionName: string, triggerName: string): Promise<GetTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTriggerWithOptions(functionName, triggerName, headers, runtime);
   }
 
+  /**
+   * @summary Invokes a function.
+   *
+   * @param request InvokeFunctionRequest
+   * @param headers InvokeFunctionHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InvokeFunctionResponse
+   */
   async invokeFunctionWithOptions(functionName: string, request: InvokeFunctionRequest, headers: InvokeFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<InvokeFunctionResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6216,12 +6577,26 @@ export default class Client extends OpenApi {
     return res;
   }
 
+  /**
+   * @summary Invokes a function.
+   *
+   * @param request InvokeFunctionRequest
+   * @return InvokeFunctionResponse
+   */
   async invokeFunction(functionName: string, request: InvokeFunctionRequest): Promise<InvokeFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InvokeFunctionHeaders({ });
     return await this.invokeFunctionWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries aliases.
+   *
+   * @param request ListAliasesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAliasesResponse
+   */
   async listAliasesWithOptions(functionName: string, request: ListAliasesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAliasesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6255,12 +6630,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
   }
 
+  /**
+   * @summary Queries aliases.
+   *
+   * @param request ListAliasesRequest
+   * @return ListAliasesResponse
+   */
   async listAliases(functionName: string, request: ListAliasesRequest): Promise<ListAliasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAliasesWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries all asynchronous configurations of a function.
+   *
+   * @param request ListAsyncInvokeConfigsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAsyncInvokeConfigsResponse
+   */
   async listAsyncInvokeConfigsWithOptions(request: ListAsyncInvokeConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAsyncInvokeConfigsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6294,12 +6683,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAsyncInvokeConfigsResponse>(await this.callApi(params, req, runtime), new ListAsyncInvokeConfigsResponse({}));
   }
 
+  /**
+   * @summary Queries all asynchronous configurations of a function.
+   *
+   * @param request ListAsyncInvokeConfigsRequest
+   * @return ListAsyncInvokeConfigsResponse
+   */
   async listAsyncInvokeConfigs(request: ListAsyncInvokeConfigsRequest): Promise<ListAsyncInvokeConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAsyncInvokeConfigsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Lists asynchronous tasks.
+   *
+   * @param request ListAsyncTasksRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAsyncTasksResponse
+   */
   async listAsyncTasksWithOptions(functionName: string, request: ListAsyncTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAsyncTasksResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6357,12 +6760,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAsyncTasksResponse>(await this.callApi(params, req, runtime), new ListAsyncTasksResponse({}));
   }
 
+  /**
+   * @summary Lists asynchronous tasks.
+   *
+   * @param request ListAsyncTasksRequest
+   * @return ListAsyncTasksResponse
+   */
   async listAsyncTasks(functionName: string, request: ListAsyncTasksRequest): Promise<ListAsyncTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAsyncTasksWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary 列出函数并发度配置。
+   *
+   * @param request ListConcurrencyConfigsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConcurrencyConfigsResponse
+   */
   async listConcurrencyConfigsWithOptions(request: ListConcurrencyConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConcurrencyConfigsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6396,12 +6813,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConcurrencyConfigsResponse>(await this.callApi(params, req, runtime), new ListConcurrencyConfigsResponse({}));
   }
 
+  /**
+   * @summary 列出函数并发度配置。
+   *
+   * @param request ListConcurrencyConfigsRequest
+   * @return ListConcurrencyConfigsResponse
+   */
   async listConcurrencyConfigs(request: ListConcurrencyConfigsRequest): Promise<ListConcurrencyConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConcurrencyConfigsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries custom domain names.
+   *
+   * @param request ListCustomDomainsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomDomainsResponse
+   */
   async listCustomDomainsWithOptions(request: ListCustomDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCustomDomainsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6435,12 +6866,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListCustomDomainsResponse({}));
   }
 
+  /**
+   * @summary Queries custom domain names.
+   *
+   * @param request ListCustomDomainsRequest
+   * @return ListCustomDomainsResponse
+   */
   async listCustomDomains(request: ListCustomDomainsRequest): Promise<ListCustomDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCustomDomainsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries versions of a function.
+   *
+   * @param request ListFunctionVersionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFunctionVersionsResponse
+   */
   async listFunctionVersionsWithOptions(functionName: string, request: ListFunctionVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionVersionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6474,12 +6919,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFunctionVersionsResponse>(await this.callApi(params, req, runtime), new ListFunctionVersionsResponse({}));
   }
 
+  /**
+   * @summary Queries versions of a function.
+   *
+   * @param request ListFunctionVersionsRequest
+   * @return ListFunctionVersionsResponse
+   */
   async listFunctionVersions(functionName: string, request: ListFunctionVersionsRequest): Promise<ListFunctionVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFunctionVersionsWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary 列出函数。
+   *
+   * @param request ListFunctionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFunctionsResponse
+   */
   async listFunctionsWithOptions(request: ListFunctionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6513,12 +6972,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
   }
 
+  /**
+   * @summary 列出函数。
+   *
+   * @param request ListFunctionsRequest
+   * @return ListFunctionsResponse
+   */
   async listFunctions(request: ListFunctionsRequest): Promise<ListFunctionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFunctionsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of function instances.
+   *
+   * @param request ListInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
+   */
   async listInstancesWithOptions(functionName: string, request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6548,12 +7021,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of function instances.
+   *
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
+   */
   async listInstances(functionName: string, request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Gets a list of layer versions.
+   *
+   * @param request ListLayerVersionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLayerVersionsResponse
+   */
   async listLayerVersionsWithOptions(layerName: string, request: ListLayerVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayerVersionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6583,12 +7070,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLayerVersionsResponse>(await this.callApi(params, req, runtime), new ListLayerVersionsResponse({}));
   }
 
+  /**
+   * @summary Gets a list of layer versions.
+   *
+   * @param request ListLayerVersionsRequest
+   * @return ListLayerVersionsResponse
+   */
   async listLayerVersions(layerName: string, request: ListLayerVersionsRequest): Promise<ListLayerVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLayerVersionsWithOptions(layerName, request, headers, runtime);
   }
 
+  /**
+   * @summary Gets a list of layers.
+   *
+   * @param request ListLayersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLayersResponse
+   */
   async listLayersWithOptions(request: ListLayersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6630,12 +7131,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLayersResponse>(await this.callApi(params, req, runtime), new ListLayersResponse({}));
   }
 
+  /**
+   * @summary Gets a list of layers.
+   *
+   * @param request ListLayersRequest
+   * @return ListLayersResponse
+   */
   async listLayers(request: ListLayersRequest): Promise<ListLayersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLayersWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of provisioned configurations.
+   *
+   * @param request ListProvisionConfigsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProvisionConfigsResponse
+   */
   async listProvisionConfigsWithOptions(request: ListProvisionConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProvisionConfigsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6669,12 +7184,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProvisionConfigsResponse>(await this.callApi(params, req, runtime), new ListProvisionConfigsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of provisioned configurations.
+   *
+   * @param request ListProvisionConfigsRequest
+   * @return ListProvisionConfigsResponse
+   */
   async listProvisionConfigs(request: ListProvisionConfigsRequest): Promise<ListProvisionConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProvisionConfigsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Lists all tagged resources.
+   *
+   * @param tmpReq ListTagResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTagResourcesShrinkRequest({ });
@@ -6726,12 +7255,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Lists all tagged resources.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the triggers of a function.
+   *
+   * @param request ListTriggersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTriggersResponse
+   */
   async listTriggersWithOptions(functionName: string, request: ListTriggersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6765,12 +7308,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTriggersResponse>(await this.callApi(params, req, runtime), new ListTriggersResponse({}));
   }
 
+  /**
+   * @summary Queries the triggers of a function.
+   *
+   * @param request ListTriggersRequest
+   * @return ListTriggersResponse
+   */
   async listTriggers(functionName: string, request: ListTriggersRequest): Promise<ListTriggersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTriggersWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of existing VPC connections.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcBindingsResponse
+   */
   async listVpcBindingsWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVpcBindingsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6789,12 +7345,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcBindingsResponse>(await this.callApi(params, req, runtime), new ListVpcBindingsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of existing VPC connections.
+   *
+   * @return ListVpcBindingsResponse
+   */
   async listVpcBindings(functionName: string): Promise<ListVpcBindingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listVpcBindingsWithOptions(functionName, headers, runtime);
   }
 
+  /**
+   * @summary Publishes a function version.
+   *
+   * @param request PublishFunctionVersionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishFunctionVersionResponse
+   */
   async publishFunctionVersionWithOptions(functionName: string, request: PublishFunctionVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishFunctionVersionResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6815,12 +7384,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishFunctionVersionResponse>(await this.callApi(params, req, runtime), new PublishFunctionVersionResponse({}));
   }
 
+  /**
+   * @summary Publishes a function version.
+   *
+   * @param request PublishFunctionVersionRequest
+   * @return PublishFunctionVersionResponse
+   */
   async publishFunctionVersion(functionName: string, request: PublishFunctionVersionRequest): Promise<PublishFunctionVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.publishFunctionVersionWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Creates or modifies an asynchronous invocation configuration for a function.
+   *
+   * @param request PutAsyncInvokeConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PutAsyncInvokeConfigResponse
+   */
   async putAsyncInvokeConfigWithOptions(functionName: string, request: PutAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutAsyncInvokeConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6847,12 +7430,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PutAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new PutAsyncInvokeConfigResponse({}));
   }
 
+  /**
+   * @summary Creates or modifies an asynchronous invocation configuration for a function.
+   *
+   * @param request PutAsyncInvokeConfigRequest
+   * @return PutAsyncInvokeConfigResponse
+   */
   async putAsyncInvokeConfig(functionName: string, request: PutAsyncInvokeConfigRequest): Promise<PutAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Configures concurrency of a function.
+   *
+   * @param request PutConcurrencyConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PutConcurrencyConfigResponse
+   */
   async putConcurrencyConfigWithOptions(functionName: string, request: PutConcurrencyConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutConcurrencyConfigResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6873,15 +7470,33 @@ export default class Client extends OpenApi {
     return $tea.cast<PutConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new PutConcurrencyConfigResponse({}));
   }
 
+  /**
+   * @summary Configures concurrency of a function.
+   *
+   * @param request PutConcurrencyConfigRequest
+   * @return PutConcurrencyConfigResponse
+   */
   async putConcurrencyConfig(functionName: string, request: PutConcurrencyConfigRequest): Promise<PutConcurrencyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putConcurrencyConfigWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Modifies permissions of a layer.
+   *
+   * @param request PutLayerACLRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PutLayerACLResponse
+   */
   async putLayerACLWithOptions(layerName: string, request: PutLayerACLRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutLayerACLResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acl)) {
+      query["acl"] = request.acl;
+    }
+
     if (!Util.isUnset(request.public)) {
       query["public"] = request.public;
     }
@@ -6904,12 +7519,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PutLayerACLResponse>(await this.callApi(params, req, runtime), new PutLayerACLResponse({}));
   }
 
+  /**
+   * @summary Modifies permissions of a layer.
+   *
+   * @param request PutLayerACLRequest
+   * @return PutLayerACLResponse
+   */
   async putLayerACL(layerName: string, request: PutLayerACLRequest): Promise<PutLayerACLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putLayerACLWithOptions(layerName, request, headers, runtime);
   }
 
+  /**
+   * @summary Creates provisioned configurations.
+   *
+   * @param request PutProvisionConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PutProvisionConfigResponse
+   */
   async putProvisionConfigWithOptions(functionName: string, request: PutProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutProvisionConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6936,12 +7565,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PutProvisionConfigResponse>(await this.callApi(params, req, runtime), new PutProvisionConfigResponse({}));
   }
 
+  /**
+   * @summary Creates provisioned configurations.
+   *
+   * @param request PutProvisionConfigRequest
+   * @return PutProvisionConfigResponse
+   */
   async putProvisionConfig(functionName: string, request: PutProvisionConfigRequest): Promise<PutProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putProvisionConfigWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Stops an asynchronous task.
+   *
+   * @param request StopAsyncTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopAsyncTaskResponse
+   */
   async stopAsyncTaskWithOptions(functionName: string, taskId: string, request: StopAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAsyncTaskResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6967,12 +7610,26 @@ export default class Client extends OpenApi {
     return $tea.cast<StopAsyncTaskResponse>(await this.callApi(params, req, runtime), new StopAsyncTaskResponse({}));
   }
 
+  /**
+   * @summary Stops an asynchronous task.
+   *
+   * @param request StopAsyncTaskRequest
+   * @return StopAsyncTaskResponse
+   */
   async stopAsyncTask(functionName: string, taskId: string, request: StopAsyncTaskRequest): Promise<StopAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopAsyncTaskWithOptions(functionName, taskId, request, headers, runtime);
   }
 
+  /**
+   * @summary Adds tags to a resource.
+   *
+   * @param request TagResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6993,12 +7650,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Adds tags to a resource.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Removes tags from a resource.
+   *
+   * @param tmpReq UntagResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(tmpReq: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new UntagResourcesShrinkRequest({ });
@@ -7046,12 +7717,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from a resource.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Updates an alias.
+   *
+   * @param request UpdateAliasRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAliasResponse
+   */
   async updateAliasWithOptions(functionName: string, aliasName: string, request: UpdateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAliasResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7072,12 +7757,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
   }
 
+  /**
+   * @summary Updates an alias.
+   *
+   * @param request UpdateAliasRequest
+   * @return UpdateAliasResponse
+   */
   async updateAlias(functionName: string, aliasName: string, request: UpdateAliasRequest): Promise<UpdateAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAliasWithOptions(functionName, aliasName, request, headers, runtime);
   }
 
+  /**
+   * @summary Update a custom domain name.
+   *
+   * @param request UpdateCustomDomainRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCustomDomainResponse
+   */
   async updateCustomDomainWithOptions(domainName: string, request: UpdateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCustomDomainResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7098,12 +7797,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCustomDomainResponse>(await this.callApi(params, req, runtime), new UpdateCustomDomainResponse({}));
   }
 
+  /**
+   * @summary Update a custom domain name.
+   *
+   * @param request UpdateCustomDomainRequest
+   * @return UpdateCustomDomainResponse
+   */
   async updateCustomDomain(domainName: string, request: UpdateCustomDomainRequest): Promise<UpdateCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCustomDomainWithOptions(domainName, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the information about a function.
+   *
+   * @param request UpdateFunctionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFunctionResponse
+   */
   async updateFunctionWithOptions(functionName: string, request: UpdateFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFunctionResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7124,12 +7837,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFunctionResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResponse({}));
   }
 
+  /**
+   * @summary Updates the information about a function.
+   *
+   * @param request UpdateFunctionRequest
+   * @return UpdateFunctionResponse
+   */
   async updateFunction(functionName: string, request: UpdateFunctionRequest): Promise<UpdateFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateFunctionWithOptions(functionName, request, headers, runtime);
   }
 
+  /**
+   * @summary Modifies a trigger.
+   *
+   * @param request UpdateTriggerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTriggerResponse
+   */
   async updateTriggerWithOptions(functionName: string, triggerName: string, request: UpdateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTriggerResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7150,6 +7877,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTriggerResponse>(await this.callApi(params, req, runtime), new UpdateTriggerResponse({}));
   }
 
+  /**
+   * @summary Modifies a trigger.
+   *
+   * @param request UpdateTriggerRequest
+   * @return UpdateTriggerResponse
+   */
   async updateTrigger(functionName: string, triggerName: string, request: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
