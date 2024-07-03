@@ -1830,6 +1830,96 @@ export class DescribeSpecResponse extends $tea.Model {
   }
 }
 
+export class DescribeTasksRequest extends $tea.Model {
+  invokeId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  resourceIds?: string[];
+  taskIds?: string[];
+  taskStatus?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      invokeId: 'InvokeId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceIds: 'ResourceIds',
+      taskIds: 'TaskIds',
+      taskStatus: 'TaskStatus',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invokeId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      taskIds: { 'type': 'array', 'itemType': 'string' },
+      taskStatus: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTasksResponseBody extends $tea.Model {
+  data?: DescribeTasksResponseBodyData[];
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeTasksResponseBodyData },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetachKeyPairRequest extends $tea.Model {
   instanceIds?: string[];
   keyPairId?: string;
@@ -4211,6 +4301,46 @@ export class DescribeSpecResponseBodySpecInfoModel extends $tea.Model {
   }
 }
 
+export class DescribeTasksResponseBodyData extends $tea.Model {
+  finishTime?: string;
+  invokeId?: string;
+  regionId?: string;
+  resourceId?: string;
+  startTime?: string;
+  taskId?: string;
+  taskStatus?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      finishTime: 'FinishTime',
+      invokeId: 'InvokeId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      startTime: 'StartTime',
+      taskId: 'TaskId',
+      taskStatus: 'TaskStatus',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      finishTime: 'string',
+      invokeId: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      startTime: 'string',
+      taskId: 'string',
+      taskStatus: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetachKeyPairResponseBodyData extends $tea.Model {
   detachedInstanceIds?: string[];
   failCount?: number;
@@ -5670,6 +5800,72 @@ export default class Client extends OpenApi {
   async describeSpec(request: DescribeSpecRequest): Promise<DescribeSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSpecWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询异步任务
+   *
+   * @param request DescribeTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTasksResponse
+   */
+  async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.invokeId)) {
+      query["InvokeId"] = request.invokeId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!Util.isUnset(request.taskIds)) {
+      query["TaskIds"] = request.taskIds;
+    }
+
+    if (!Util.isUnset(request.taskStatus)) {
+      query["TaskStatus"] = request.taskStatus;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTasks",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
+  }
+
+  /**
+   * @summary 查询异步任务
+   *
+   * @param request DescribeTasksRequest
+   * @return DescribeTasksResponse
+   */
+  async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTasksWithOptions(request, runtime);
   }
 
   /**
