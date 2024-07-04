@@ -176,6 +176,193 @@ export class ApplyFileUploadLeaseResponse extends $tea.Model {
   }
 }
 
+export class CreateIndexRequest extends $tea.Model {
+  categoryIds?: string[];
+  chunkSize?: number;
+  columns?: CreateIndexRequestColumns[];
+  description?: string;
+  documentIds?: string[];
+  embeddingModelName?: string;
+  name?: string;
+  overlapSize?: number;
+  rerankMinScore?: number;
+  rerankModelName?: string;
+  separator?: string;
+  sinkInstanceId?: string;
+  sinkRegion?: string;
+  sinkType?: string;
+  sourceType?: string;
+  structureType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryIds: 'CategoryIds',
+      chunkSize: 'ChunkSize',
+      columns: 'Columns',
+      description: 'Description',
+      documentIds: 'DocumentIds',
+      embeddingModelName: 'EmbeddingModelName',
+      name: 'Name',
+      overlapSize: 'OverlapSize',
+      rerankMinScore: 'RerankMinScore',
+      rerankModelName: 'RerankModelName',
+      separator: 'Separator',
+      sinkInstanceId: 'SinkInstanceId',
+      sinkRegion: 'SinkRegion',
+      sinkType: 'SinkType',
+      sourceType: 'SourceType',
+      structureType: 'StructureType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryIds: { 'type': 'array', 'itemType': 'string' },
+      chunkSize: 'number',
+      columns: { 'type': 'array', 'itemType': CreateIndexRequestColumns },
+      description: 'string',
+      documentIds: { 'type': 'array', 'itemType': 'string' },
+      embeddingModelName: 'string',
+      name: 'string',
+      overlapSize: 'number',
+      rerankMinScore: 'number',
+      rerankModelName: 'string',
+      separator: 'string',
+      sinkInstanceId: 'string',
+      sinkRegion: 'string',
+      sinkType: 'string',
+      sourceType: 'string',
+      structureType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndexShrinkRequest extends $tea.Model {
+  categoryIdsShrink?: string;
+  chunkSize?: number;
+  columnsShrink?: string;
+  description?: string;
+  documentIdsShrink?: string;
+  embeddingModelName?: string;
+  name?: string;
+  overlapSize?: number;
+  rerankMinScore?: number;
+  rerankModelName?: string;
+  separator?: string;
+  sinkInstanceId?: string;
+  sinkRegion?: string;
+  sinkType?: string;
+  sourceType?: string;
+  structureType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryIdsShrink: 'CategoryIds',
+      chunkSize: 'ChunkSize',
+      columnsShrink: 'Columns',
+      description: 'Description',
+      documentIdsShrink: 'DocumentIds',
+      embeddingModelName: 'EmbeddingModelName',
+      name: 'Name',
+      overlapSize: 'OverlapSize',
+      rerankMinScore: 'RerankMinScore',
+      rerankModelName: 'RerankModelName',
+      separator: 'Separator',
+      sinkInstanceId: 'SinkInstanceId',
+      sinkRegion: 'SinkRegion',
+      sinkType: 'SinkType',
+      sourceType: 'SourceType',
+      structureType: 'StructureType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryIdsShrink: 'string',
+      chunkSize: 'number',
+      columnsShrink: 'string',
+      description: 'string',
+      documentIdsShrink: 'string',
+      embeddingModelName: 'string',
+      name: 'string',
+      overlapSize: 'number',
+      rerankMinScore: 'number',
+      rerankModelName: 'string',
+      separator: 'string',
+      sinkInstanceId: 'string',
+      sinkRegion: 'string',
+      sinkType: 'string',
+      sourceType: 'string',
+      structureType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndexResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateIndexResponseBodyData;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateIndexResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndexResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileResponseBody extends $tea.Model {
   code?: string;
   data?: DescribeFileResponseBodyData;
@@ -227,6 +414,322 @@ export class DescribeFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIndexJobStatusRequest extends $tea.Model {
+  indexId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexId: 'IndexId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIndexJobStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetIndexJobStatusResponseBodyData;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetIndexJobStatusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIndexJobStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIndexJobStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIndexJobStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveRequest extends $tea.Model {
+  denseSimilarityTopK?: number;
+  enableReranking?: boolean;
+  enableRewrite?: boolean;
+  indexId?: string;
+  query?: string;
+  rerank?: RetrieveRequestRerank[];
+  rerankMinScore?: number;
+  rerankTopN?: number;
+  rewrite?: RetrieveRequestRewrite[];
+  saveRetrieverHistory?: boolean;
+  sparseSimilarityTopK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      denseSimilarityTopK: 'DenseSimilarityTopK',
+      enableReranking: 'EnableReranking',
+      enableRewrite: 'EnableRewrite',
+      indexId: 'IndexId',
+      query: 'Query',
+      rerank: 'Rerank',
+      rerankMinScore: 'RerankMinScore',
+      rerankTopN: 'RerankTopN',
+      rewrite: 'Rewrite',
+      saveRetrieverHistory: 'SaveRetrieverHistory',
+      sparseSimilarityTopK: 'SparseSimilarityTopK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      denseSimilarityTopK: 'number',
+      enableReranking: 'boolean',
+      enableRewrite: 'boolean',
+      indexId: 'string',
+      query: 'string',
+      rerank: { 'type': 'array', 'itemType': RetrieveRequestRerank },
+      rerankMinScore: 'number',
+      rerankTopN: 'number',
+      rewrite: { 'type': 'array', 'itemType': RetrieveRequestRewrite },
+      saveRetrieverHistory: 'boolean',
+      sparseSimilarityTopK: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveShrinkRequest extends $tea.Model {
+  denseSimilarityTopK?: number;
+  enableReranking?: boolean;
+  enableRewrite?: boolean;
+  indexId?: string;
+  query?: string;
+  rerankShrink?: string;
+  rerankMinScore?: number;
+  rerankTopN?: number;
+  rewriteShrink?: string;
+  saveRetrieverHistory?: boolean;
+  sparseSimilarityTopK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      denseSimilarityTopK: 'DenseSimilarityTopK',
+      enableReranking: 'EnableReranking',
+      enableRewrite: 'EnableRewrite',
+      indexId: 'IndexId',
+      query: 'Query',
+      rerankShrink: 'Rerank',
+      rerankMinScore: 'RerankMinScore',
+      rerankTopN: 'RerankTopN',
+      rewriteShrink: 'Rewrite',
+      saveRetrieverHistory: 'SaveRetrieverHistory',
+      sparseSimilarityTopK: 'SparseSimilarityTopK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      denseSimilarityTopK: 'number',
+      enableReranking: 'boolean',
+      enableRewrite: 'boolean',
+      indexId: 'string',
+      query: 'string',
+      rerankShrink: 'string',
+      rerankMinScore: 'number',
+      rerankTopN: 'number',
+      rewriteShrink: 'string',
+      saveRetrieverHistory: 'boolean',
+      sparseSimilarityTopK: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveResponseBody extends $tea.Model {
+  code?: string;
+  data?: RetrieveResponseBodyData;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RetrieveResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RetrieveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RetrieveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIndexJobRequest extends $tea.Model {
+  indexId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexId: 'IndexId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIndexJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: SubmitIndexJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitIndexJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIndexJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitIndexJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitIndexJobResponseBody,
     };
   }
 
@@ -307,6 +810,56 @@ export class ApplyFileUploadLeaseResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateIndexRequestColumns extends $tea.Model {
+  column?: string;
+  isRecall?: boolean;
+  isSearch?: boolean;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      column: 'Column',
+      isRecall: 'IsRecall',
+      isSearch: 'IsSearch',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: 'string',
+      isRecall: 'boolean',
+      isSearch: 'boolean',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndexResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileResponseBodyData extends $tea.Model {
   categoryId?: string;
   createTime?: string;
@@ -339,6 +892,166 @@ export class DescribeFileResponseBodyData extends $tea.Model {
       parser: 'string',
       sizeInBytes: 'number',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIndexJobStatusResponseBodyDataDocuments extends $tea.Model {
+  code?: string;
+  docId?: string;
+  docName?: string;
+  message?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      docId: 'DocId',
+      docName: 'DocName',
+      message: 'Message',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      docId: 'string',
+      docName: 'string',
+      message: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIndexJobStatusResponseBodyData extends $tea.Model {
+  documents?: GetIndexJobStatusResponseBodyDataDocuments[];
+  jobId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documents: 'Documents',
+      jobId: 'JobId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documents: { 'type': 'array', 'itemType': GetIndexJobStatusResponseBodyDataDocuments },
+      jobId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveRequestRerank extends $tea.Model {
+  modelName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modelName: 'ModelName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveRequestRewrite extends $tea.Model {
+  modelName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modelName: 'ModelName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveResponseBodyDataNodes extends $tea.Model {
+  metadata?: any;
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metadata: 'Metadata',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metadata: 'any',
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveResponseBodyData extends $tea.Model {
+  nodes?: RetrieveResponseBodyDataNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': RetrieveResponseBodyDataNodes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIndexJobResponseBodyData extends $tea.Model {
+  id?: string;
+  indexId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      indexId: 'IndexId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      indexId: 'string',
     };
   }
 
@@ -477,6 +1190,125 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 创建并运行pipeline
+   *
+   * @param tmpReq CreateIndexRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIndexResponse
+   */
+  async createIndexWithOptions(WorkspaceId: string, tmpReq: CreateIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIndexResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateIndexShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.categoryIds)) {
+      request.categoryIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categoryIds, "CategoryIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.columns)) {
+      request.columnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.columns, "Columns", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.documentIds)) {
+      request.documentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentIds, "DocumentIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryIdsShrink)) {
+      query["CategoryIds"] = request.categoryIdsShrink;
+    }
+
+    if (!Util.isUnset(request.chunkSize)) {
+      query["ChunkSize"] = request.chunkSize;
+    }
+
+    if (!Util.isUnset(request.columnsShrink)) {
+      query["Columns"] = request.columnsShrink;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.documentIdsShrink)) {
+      query["DocumentIds"] = request.documentIdsShrink;
+    }
+
+    if (!Util.isUnset(request.embeddingModelName)) {
+      query["EmbeddingModelName"] = request.embeddingModelName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.overlapSize)) {
+      query["OverlapSize"] = request.overlapSize;
+    }
+
+    if (!Util.isUnset(request.rerankMinScore)) {
+      query["RerankMinScore"] = request.rerankMinScore;
+    }
+
+    if (!Util.isUnset(request.rerankModelName)) {
+      query["RerankModelName"] = request.rerankModelName;
+    }
+
+    if (!Util.isUnset(request.separator)) {
+      query["Separator"] = request.separator;
+    }
+
+    if (!Util.isUnset(request.sinkInstanceId)) {
+      query["SinkInstanceId"] = request.sinkInstanceId;
+    }
+
+    if (!Util.isUnset(request.sinkRegion)) {
+      query["SinkRegion"] = request.sinkRegion;
+    }
+
+    if (!Util.isUnset(request.sinkType)) {
+      query["SinkType"] = request.sinkType;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.structureType)) {
+      query["StructureType"] = request.structureType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateIndex",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/index/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIndexResponse>(await this.callApi(params, req, runtime), new CreateIndexResponse({}));
+  }
+
+  /**
+   * @summary 创建并运行pipeline
+   *
+   * @param request CreateIndexRequest
+   * @return CreateIndexResponse
+   */
+  async createIndex(WorkspaceId: string, request: CreateIndexRequest): Promise<CreateIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createIndexWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * @summary 获取文档基本信息，包括文档名称、类型、状态等。
    *
    * @param headers map
@@ -510,6 +1342,195 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeFileWithOptions(WorkspaceId, FileId, headers, runtime);
+  }
+
+  /**
+   * @summary 获取Index运行状态
+   *
+   * @param request GetIndexJobStatusRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIndexJobStatusResponse
+   */
+  async getIndexJobStatusWithOptions(WorkspaceId: string, request: GetIndexJobStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIndexJobStatusResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.indexId)) {
+      query["IndexId"] = request.indexId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIndexJobStatus",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/index/job/status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIndexJobStatusResponse>(await this.callApi(params, req, runtime), new GetIndexJobStatusResponse({}));
+  }
+
+  /**
+   * @summary 获取Index运行状态
+   *
+   * @param request GetIndexJobStatusRequest
+   * @return GetIndexJobStatusResponse
+   */
+  async getIndexJobStatus(WorkspaceId: string, request: GetIndexJobStatusRequest): Promise<GetIndexJobStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getIndexJobStatusWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 召回测试
+   *
+   * @param tmpReq RetrieveRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RetrieveResponse
+   */
+  async retrieveWithOptions(WorkspaceId: string, tmpReq: RetrieveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RetrieveResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RetrieveShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.rerank)) {
+      request.rerankShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rerank, "Rerank", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.rewrite)) {
+      request.rewriteShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rewrite, "Rewrite", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.denseSimilarityTopK)) {
+      query["DenseSimilarityTopK"] = request.denseSimilarityTopK;
+    }
+
+    if (!Util.isUnset(request.enableReranking)) {
+      query["EnableReranking"] = request.enableReranking;
+    }
+
+    if (!Util.isUnset(request.enableRewrite)) {
+      query["EnableRewrite"] = request.enableRewrite;
+    }
+
+    if (!Util.isUnset(request.indexId)) {
+      query["IndexId"] = request.indexId;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.rerankShrink)) {
+      query["Rerank"] = request.rerankShrink;
+    }
+
+    if (!Util.isUnset(request.rerankMinScore)) {
+      query["RerankMinScore"] = request.rerankMinScore;
+    }
+
+    if (!Util.isUnset(request.rerankTopN)) {
+      query["RerankTopN"] = request.rerankTopN;
+    }
+
+    if (!Util.isUnset(request.rewriteShrink)) {
+      query["Rewrite"] = request.rewriteShrink;
+    }
+
+    if (!Util.isUnset(request.saveRetrieverHistory)) {
+      query["SaveRetrieverHistory"] = request.saveRetrieverHistory;
+    }
+
+    if (!Util.isUnset(request.sparseSimilarityTopK)) {
+      query["SparseSimilarityTopK"] = request.sparseSimilarityTopK;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Retrieve",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/index/retrieve`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RetrieveResponse>(await this.callApi(params, req, runtime), new RetrieveResponse({}));
+  }
+
+  /**
+   * @summary 召回测试
+   *
+   * @param request RetrieveRequest
+   * @return RetrieveResponse
+   */
+  async retrieve(WorkspaceId: string, request: RetrieveRequest): Promise<RetrieveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.retrieveWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 提交索引任务
+   *
+   * @param request SubmitIndexJobRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitIndexJobResponse
+   */
+  async submitIndexJobWithOptions(WorkspaceId: string, request: SubmitIndexJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitIndexJobResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.indexId)) {
+      query["IndexId"] = request.indexId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitIndexJob",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/index/submit_index_job`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitIndexJobResponse>(await this.callApi(params, req, runtime), new SubmitIndexJobResponse({}));
+  }
+
+  /**
+   * @summary 提交索引任务
+   *
+   * @param request SubmitIndexJobRequest
+   * @return SubmitIndexJobResponse
+   */
+  async submitIndexJob(WorkspaceId: string, request: SubmitIndexJobRequest): Promise<SubmitIndexJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitIndexJobWithOptions(WorkspaceId, request, headers, runtime);
   }
 
 }
