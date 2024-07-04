@@ -4628,6 +4628,8 @@ export class DescribeScheduledTasksRequest extends $tea.Model {
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
+  recurrenceType?: string;
+  recurrenceValue?: string;
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -4635,12 +4637,16 @@ export class DescribeScheduledTasksRequest extends $tea.Model {
   scheduledActions?: string[];
   scheduledTaskIds?: string[];
   scheduledTaskNames?: string[];
+  taskEnabled?: boolean;
+  taskName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      recurrenceType: 'RecurrenceType',
+      recurrenceValue: 'RecurrenceValue',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -4648,6 +4654,8 @@ export class DescribeScheduledTasksRequest extends $tea.Model {
       scheduledActions: 'ScheduledActions',
       scheduledTaskIds: 'ScheduledTaskIds',
       scheduledTaskNames: 'ScheduledTaskNames',
+      taskEnabled: 'TaskEnabled',
+      taskName: 'TaskName',
     };
   }
 
@@ -4657,6 +4665,8 @@ export class DescribeScheduledTasksRequest extends $tea.Model {
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      recurrenceType: 'string',
+      recurrenceValue: 'string',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -4664,6 +4674,8 @@ export class DescribeScheduledTasksRequest extends $tea.Model {
       scheduledActions: { 'type': 'array', 'itemType': 'string' },
       scheduledTaskIds: { 'type': 'array', 'itemType': 'string' },
       scheduledTaskNames: { 'type': 'array', 'itemType': 'string' },
+      taskEnabled: 'boolean',
+      taskName: 'string',
     };
   }
 
@@ -20431,6 +20443,14 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.recurrenceType)) {
+      query["RecurrenceType"] = request.recurrenceType;
+    }
+
+    if (!Util.isUnset(request.recurrenceValue)) {
+      query["RecurrenceValue"] = request.recurrenceValue;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -20457,6 +20477,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.scheduledTaskNames)) {
       query["ScheduledTaskNames"] = request.scheduledTaskNames;
+    }
+
+    if (!Util.isUnset(request.taskEnabled)) {
+      query["TaskEnabled"] = request.taskEnabled;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
