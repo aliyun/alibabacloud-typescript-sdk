@@ -1957,11 +1957,13 @@ export class CreateEnsRouteEntryResponse extends $tea.Model {
 export class CreateEnsSaleControlRequest extends $tea.Model {
   aliUidAccount?: string;
   commodityCode?: string;
+  customAccount?: string;
   saleControls?: CreateEnsSaleControlRequestSaleControls[];
   static names(): { [key: string]: string } {
     return {
       aliUidAccount: 'AliUidAccount',
       commodityCode: 'CommodityCode',
+      customAccount: 'CustomAccount',
       saleControls: 'SaleControls',
     };
   }
@@ -1970,6 +1972,7 @@ export class CreateEnsSaleControlRequest extends $tea.Model {
     return {
       aliUidAccount: 'string',
       commodityCode: 'string',
+      customAccount: 'string',
       saleControls: { 'type': 'array', 'itemType': CreateEnsSaleControlRequestSaleControls },
     };
   }
@@ -1982,11 +1985,13 @@ export class CreateEnsSaleControlRequest extends $tea.Model {
 export class CreateEnsSaleControlShrinkRequest extends $tea.Model {
   aliUidAccount?: string;
   commodityCode?: string;
+  customAccount?: string;
   saleControlsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       aliUidAccount: 'AliUidAccount',
       commodityCode: 'CommodityCode',
+      customAccount: 'CustomAccount',
       saleControlsShrink: 'SaleControls',
     };
   }
@@ -1995,6 +2000,7 @@ export class CreateEnsSaleControlShrinkRequest extends $tea.Model {
     return {
       aliUidAccount: 'string',
       commodityCode: 'string',
+      customAccount: 'string',
       saleControlsShrink: 'string',
     };
   }
@@ -4462,11 +4468,13 @@ export class DeleteEnsRouteEntryResponse extends $tea.Model {
 export class DeleteEnsSaleConditionControlRequest extends $tea.Model {
   aliUidAccount?: string;
   commodityCode?: string;
+  customAccount?: string;
   saleControls?: DeleteEnsSaleConditionControlRequestSaleControls[];
   static names(): { [key: string]: string } {
     return {
       aliUidAccount: 'AliUidAccount',
       commodityCode: 'CommodityCode',
+      customAccount: 'CustomAccount',
       saleControls: 'SaleControls',
     };
   }
@@ -4475,6 +4483,7 @@ export class DeleteEnsSaleConditionControlRequest extends $tea.Model {
     return {
       aliUidAccount: 'string',
       commodityCode: 'string',
+      customAccount: 'string',
       saleControls: { 'type': 'array', 'itemType': DeleteEnsSaleConditionControlRequestSaleControls },
     };
   }
@@ -4487,11 +4496,13 @@ export class DeleteEnsSaleConditionControlRequest extends $tea.Model {
 export class DeleteEnsSaleConditionControlShrinkRequest extends $tea.Model {
   aliUidAccount?: string;
   commodityCode?: string;
+  customAccount?: string;
   saleControlsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       aliUidAccount: 'AliUidAccount',
       commodityCode: 'CommodityCode',
+      customAccount: 'CustomAccount',
       saleControlsShrink: 'SaleControls',
     };
   }
@@ -4500,6 +4511,7 @@ export class DeleteEnsSaleConditionControlShrinkRequest extends $tea.Model {
     return {
       aliUidAccount: 'string',
       commodityCode: 'string',
+      customAccount: 'string',
       saleControlsShrink: 'string',
     };
   }
@@ -4556,11 +4568,13 @@ export class DeleteEnsSaleConditionControlResponse extends $tea.Model {
 export class DeleteEnsSaleControlRequest extends $tea.Model {
   aliUidAccount?: string;
   commodityCode?: string;
+  customAccount?: string;
   saleControls?: DeleteEnsSaleControlRequestSaleControls[];
   static names(): { [key: string]: string } {
     return {
       aliUidAccount: 'AliUidAccount',
       commodityCode: 'CommodityCode',
+      customAccount: 'CustomAccount',
       saleControls: 'SaleControls',
     };
   }
@@ -4569,6 +4583,7 @@ export class DeleteEnsSaleControlRequest extends $tea.Model {
     return {
       aliUidAccount: 'string',
       commodityCode: 'string',
+      customAccount: 'string',
       saleControls: { 'type': 'array', 'itemType': DeleteEnsSaleControlRequestSaleControls },
     };
   }
@@ -4581,11 +4596,13 @@ export class DeleteEnsSaleControlRequest extends $tea.Model {
 export class DeleteEnsSaleControlShrinkRequest extends $tea.Model {
   aliUidAccount?: string;
   commodityCode?: string;
+  customAccount?: string;
   saleControlsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       aliUidAccount: 'AliUidAccount',
       commodityCode: 'CommodityCode',
+      customAccount: 'CustomAccount',
       saleControlsShrink: 'SaleControls',
     };
   }
@@ -4594,6 +4611,7 @@ export class DeleteEnsSaleControlShrinkRequest extends $tea.Model {
     return {
       aliUidAccount: 'string',
       commodityCode: 'string',
+      customAccount: 'string',
       saleControlsShrink: 'string',
     };
   }
@@ -5466,15 +5484,18 @@ export class DeleteSDGShrinkRequest extends $tea.Model {
 }
 
 export class DeleteSDGResponseBody extends $tea.Model {
+  data?: DeleteSDGResponseBodyData;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      data: 'Data',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: DeleteSDGResponseBodyData,
       requestId: 'string',
     };
   }
@@ -5819,6 +5840,103 @@ export class DeleteVSwitchResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteVSwitchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployInstanceSDGRequest extends $tea.Model {
+  deploymentType?: string;
+  instanceIds?: string[];
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentType: 'DeploymentType',
+      instanceIds: 'InstanceIds',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentType: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployInstanceSDGShrinkRequest extends $tea.Model {
+  deploymentType?: string;
+  instanceIdsShrink?: string;
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentType: 'DeploymentType',
+      instanceIdsShrink: 'InstanceIds',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentType: 'string',
+      instanceIdsShrink: 'string',
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployInstanceSDGResponseBody extends $tea.Model {
+  data?: DeployInstanceSDGResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeployInstanceSDGResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployInstanceSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeployInstanceSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeployInstanceSDGResponseBody,
     };
   }
 
@@ -9779,6 +9897,7 @@ export class DescribeInstancesRequest extends $tea.Model {
   instanceIds?: string;
   instanceName?: string;
   instanceResourceType?: string;
+  instanceType?: string;
   intranetIp?: string;
   networkId?: string;
   orderByParams?: string;
@@ -9799,6 +9918,7 @@ export class DescribeInstancesRequest extends $tea.Model {
       instanceIds: 'InstanceIds',
       instanceName: 'InstanceName',
       instanceResourceType: 'InstanceResourceType',
+      instanceType: 'InstanceType',
       intranetIp: 'IntranetIp',
       networkId: 'NetworkId',
       orderByParams: 'OrderByParams',
@@ -9822,6 +9942,7 @@ export class DescribeInstancesRequest extends $tea.Model {
       instanceIds: 'string',
       instanceName: 'string',
       instanceResourceType: 'string',
+      instanceType: 'string',
       intranetIp: 'string',
       networkId: 'string',
       orderByParams: 'string',
@@ -9849,6 +9970,7 @@ export class DescribeInstancesShrinkRequest extends $tea.Model {
   instanceIds?: string;
   instanceName?: string;
   instanceResourceType?: string;
+  instanceType?: string;
   intranetIp?: string;
   networkId?: string;
   orderByParams?: string;
@@ -9869,6 +9991,7 @@ export class DescribeInstancesShrinkRequest extends $tea.Model {
       instanceIds: 'InstanceIds',
       instanceName: 'InstanceName',
       instanceResourceType: 'InstanceResourceType',
+      instanceType: 'InstanceType',
       intranetIp: 'IntranetIp',
       networkId: 'NetworkId',
       orderByParams: 'OrderByParams',
@@ -9892,6 +10015,7 @@ export class DescribeInstancesShrinkRequest extends $tea.Model {
       instanceIds: 'string',
       instanceName: 'string',
       instanceResourceType: 'string',
+      instanceType: 'string',
       intranetIp: 'string',
       networkId: 'string',
       orderByParams: 'string',
@@ -10208,6 +10332,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
   serverCertificateId?: string;
   status?: string;
   unhealthyThreshold?: number;
+  XForwardedFor?: string;
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -10231,6 +10356,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
       serverCertificateId: 'ServerCertificateId',
       status: 'Status',
       unhealthyThreshold: 'UnhealthyThreshold',
+      XForwardedFor: 'XForwardedFor',
     };
   }
 
@@ -10257,6 +10383,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
       serverCertificateId: 'string',
       status: 'string',
       unhealthyThreshold: 'number',
+      XForwardedFor: 'string',
     };
   }
 
@@ -12043,6 +12170,112 @@ export class DescribeResourceTimelineResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeResourceTimelineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSDGRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  SDGIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      SDGIds: 'SDGIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      SDGIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSDGShrinkRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  SDGIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      SDGIdsShrink: 'SDGIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      SDGIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSDGResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  SDGs?: DescribeSDGResponseBodySDGs[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      SDGs: 'SDGs',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      SDGs: { 'type': 'array', 'itemType': DescribeSDGResponseBodySDGs },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSDGResponseBody,
     };
   }
 
@@ -14428,6 +14661,84 @@ export class ListObjectsResponse extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequest extends $tea.Model {
+  nextToken?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyEnsEipAddressAttributeRequest extends $tea.Model {
   allocationId?: string;
   bandwidth?: number;
@@ -15536,6 +15847,109 @@ export class ModifyVSwitchAttributeResponse extends $tea.Model {
   }
 }
 
+export class PreloadRegionSDGRequest extends $tea.Model {
+  destinationRegionIds?: string[];
+  namespaces?: string[];
+  redundantNum?: number;
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationRegionIds: 'DestinationRegionIds',
+      namespaces: 'Namespaces',
+      redundantNum: 'RedundantNum',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationRegionIds: { 'type': 'array', 'itemType': 'string' },
+      namespaces: { 'type': 'array', 'itemType': 'string' },
+      redundantNum: 'number',
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreloadRegionSDGShrinkRequest extends $tea.Model {
+  destinationRegionIdsShrink?: string;
+  namespacesShrink?: string;
+  redundantNum?: number;
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationRegionIdsShrink: 'DestinationRegionIds',
+      namespacesShrink: 'Namespaces',
+      redundantNum: 'RedundantNum',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationRegionIdsShrink: 'string',
+      namespacesShrink: 'string',
+      redundantNum: 'number',
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreloadRegionSDGResponseBody extends $tea.Model {
+  data?: PreloadRegionSDGResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: PreloadRegionSDGResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreloadRegionSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PreloadRegionSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PreloadRegionSDGResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PushApplicationDataRequest extends $tea.Model {
   appId?: string;
   data?: string;
@@ -15615,6 +16029,7 @@ export class PutBucketRequest extends $tea.Model {
   bucketAcl?: string;
   bucketName?: string;
   comment?: string;
+  dispatchScope?: string;
   ensRegionId?: string;
   logicalBucketType?: string;
   static names(): { [key: string]: string } {
@@ -15622,6 +16037,7 @@ export class PutBucketRequest extends $tea.Model {
       bucketAcl: 'BucketAcl',
       bucketName: 'BucketName',
       comment: 'Comment',
+      dispatchScope: 'DispatchScope',
       ensRegionId: 'EnsRegionId',
       logicalBucketType: 'LogicalBucketType',
     };
@@ -15632,6 +16048,7 @@ export class PutBucketRequest extends $tea.Model {
       bucketAcl: 'string',
       bucketName: 'string',
       comment: 'string',
+      dispatchScope: 'string',
       ensRegionId: 'string',
       logicalBucketType: 'string',
     };
@@ -16840,6 +17257,94 @@ export class RemoveBackendServersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RemoveBackendServersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveInstanceSDGRequest extends $tea.Model {
+  instanceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveInstanceSDGShrinkRequest extends $tea.Model {
+  instanceIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdsShrink: 'InstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveInstanceSDGResponseBody extends $tea.Model {
+  code?: number;
+  data?: RemoveInstanceSDGResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: RemoveInstanceSDGResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveInstanceSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveInstanceSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveInstanceSDGResponseBody,
     };
   }
 
@@ -18524,6 +19029,7 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
   requestTimeout?: number;
   scheduler?: string;
   unhealthyThreshold?: number;
+  XForwardedFor?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -18542,6 +19048,7 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       requestTimeout: 'RequestTimeout',
       scheduler: 'Scheduler',
       unhealthyThreshold: 'UnhealthyThreshold',
+      XForwardedFor: 'XForwardedFor',
     };
   }
 
@@ -18563,6 +19070,7 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       requestTimeout: 'number',
       scheduler: 'string',
       unhealthyThreshold: 'number',
+      XForwardedFor: 'string',
     };
   }
 
@@ -19697,6 +20205,75 @@ export class StopSnatIpForSnatEntryResponse extends $tea.Model {
   }
 }
 
+export class TagResourcesRequest extends $tea.Model {
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnAssociateEnsEipAddressRequest extends $tea.Model {
   allocationId?: string;
   static names(): { [key: string]: string } {
@@ -19892,14 +20469,185 @@ export class UnassociateNetworkAclResponse extends $tea.Model {
   }
 }
 
+export class UnloadRegionSDGRequest extends $tea.Model {
+  destinationRegionIds?: string[];
+  namespaces?: string[];
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationRegionIds: 'DestinationRegionIds',
+      namespaces: 'Namespaces',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationRegionIds: { 'type': 'array', 'itemType': 'string' },
+      namespaces: { 'type': 'array', 'itemType': 'string' },
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnloadRegionSDGShrinkRequest extends $tea.Model {
+  destinationRegionIdsShrink?: string;
+  namespacesShrink?: string;
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationRegionIdsShrink: 'DestinationRegionIds',
+      namespacesShrink: 'Namespaces',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationRegionIdsShrink: 'string',
+      namespacesShrink: 'string',
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnloadRegionSDGResponseBody extends $tea.Model {
+  data?: UnloadRegionSDGResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UnloadRegionSDGResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnloadRegionSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnloadRegionSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnloadRegionSDGResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  resourceId?: string[];
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEnsSaleControlRequest extends $tea.Model {
   aliUidAccount?: string;
   commodityCode?: string;
+  customAccount?: string;
   saleControls?: UpdateEnsSaleControlRequestSaleControls[];
   static names(): { [key: string]: string } {
     return {
       aliUidAccount: 'AliUidAccount',
       commodityCode: 'CommodityCode',
+      customAccount: 'CustomAccount',
       saleControls: 'SaleControls',
     };
   }
@@ -19908,6 +20656,7 @@ export class UpdateEnsSaleControlRequest extends $tea.Model {
     return {
       aliUidAccount: 'string',
       commodityCode: 'string',
+      customAccount: 'string',
       saleControls: { 'type': 'array', 'itemType': UpdateEnsSaleControlRequestSaleControls },
     };
   }
@@ -19920,11 +20669,13 @@ export class UpdateEnsSaleControlRequest extends $tea.Model {
 export class UpdateEnsSaleControlShrinkRequest extends $tea.Model {
   aliUidAccount?: string;
   commodityCode?: string;
+  customAccount?: string;
   saleControlsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       aliUidAccount: 'AliUidAccount',
       commodityCode: 'CommodityCode',
+      customAccount: 'CustomAccount',
       saleControlsShrink: 'SaleControls',
     };
   }
@@ -19933,6 +20684,7 @@ export class UpdateEnsSaleControlShrinkRequest extends $tea.Model {
     return {
       aliUidAccount: 'string',
       commodityCode: 'string',
+      customAccount: 'string',
       saleControlsShrink: 'string',
     };
   }
@@ -20629,6 +21381,169 @@ export class DeleteEnsSaleControlRequestSaleControls extends $tea.Model {
     return {
       moduleCode: 'string',
       orderType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSDGResponseBodyDataResultFailedItemsItem extends $tea.Model {
+  sdgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sdgId: 'SdgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sdgId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSDGResponseBodyDataResultFailedItems extends $tea.Model {
+  errMessage?: string;
+  item?: DeleteSDGResponseBodyDataResultFailedItemsItem;
+  static names(): { [key: string]: string } {
+    return {
+      errMessage: 'ErrMessage',
+      item: 'Item',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errMessage: 'string',
+      item: DeleteSDGResponseBodyDataResultFailedItemsItem,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSDGResponseBodyDataResult extends $tea.Model {
+  failedCount?: number;
+  failedItems?: DeleteSDGResponseBodyDataResultFailedItems[];
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedItems: 'FailedItems',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedItems: { 'type': 'array', 'itemType': DeleteSDGResponseBodyDataResultFailedItems },
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSDGResponseBodyData extends $tea.Model {
+  message?: string;
+  result?: DeleteSDGResponseBodyDataResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      result: DeleteSDGResponseBodyDataResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployInstanceSDGResponseBodyDataResultFailedItems extends $tea.Model {
+  errMessage?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errMessage: 'ErrMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployInstanceSDGResponseBodyDataResult extends $tea.Model {
+  failedCount?: number;
+  failedItems?: DeployInstanceSDGResponseBodyDataResultFailedItems[];
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedItems: 'FailedItems',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedItems: { 'type': 'array', 'itemType': DeployInstanceSDGResponseBodyDataResultFailedItems },
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployInstanceSDGResponseBodyData extends $tea.Model {
+  message?: string;
+  result?: DeployInstanceSDGResponseBodyDataResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      result: DeployInstanceSDGResponseBodyDataResult,
+      success: 'boolean',
     };
   }
 
@@ -27027,6 +27942,114 @@ export class DescribeResourceTimelineResponseBodyReserveEvents extends $tea.Mode
   }
 }
 
+export class DescribeSDGResponseBodySDGsAvaliableRegionIds extends $tea.Model {
+  creationTime?: string;
+  regionId?: string;
+  snapshotId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      regionId: 'RegionId',
+      snapshotId: 'SnapshotId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      regionId: 'string',
+      snapshotId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSDGResponseBodySDGsPreloadInfos extends $tea.Model {
+  creationTime?: string;
+  namespace?: string;
+  redundantNum?: number;
+  regionId?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      namespace: 'Namespace',
+      redundantNum: 'RedundantNum',
+      regionId: 'RegionId',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      namespace: 'string',
+      redundantNum: 'number',
+      regionId: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSDGResponseBodySDGs extends $tea.Model {
+  avaliableRegionIds?: DescribeSDGResponseBodySDGsAvaliableRegionIds[];
+  creationInstanceId?: string;
+  creationRegionId?: string;
+  creationTime?: string;
+  description?: string;
+  parentSDGId?: string;
+  preloadInfos?: DescribeSDGResponseBodySDGsPreloadInfos[];
+  SDGId?: string;
+  size?: number;
+  status?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avaliableRegionIds: 'AvaliableRegionIds',
+      creationInstanceId: 'CreationInstanceId',
+      creationRegionId: 'CreationRegionId',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      parentSDGId: 'ParentSDGId',
+      preloadInfos: 'PreloadInfos',
+      SDGId: 'SDGId',
+      size: 'Size',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avaliableRegionIds: { 'type': 'array', 'itemType': DescribeSDGResponseBodySDGsAvaliableRegionIds },
+      creationInstanceId: 'string',
+      creationRegionId: 'string',
+      creationTime: 'string',
+      description: 'string',
+      parentSDGId: 'string',
+      preloadInfos: { 'type': 'array', 'itemType': DescribeSDGResponseBodySDGsPreloadInfos },
+      SDGId: 'string',
+      size: 'number',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $tea.Model {
   instanceId?: string;
   mountType?: string;
@@ -28052,6 +29075,128 @@ export class ListObjectsResponseBodyContents extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreloadRegionSDGResponseBodyDataResultFailedItems extends $tea.Model {
+  destinationRegionId?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationRegionId: 'DestinationRegionId',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationRegionId: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreloadRegionSDGResponseBodyDataResult extends $tea.Model {
+  failedCount?: number;
+  failedItems?: PreloadRegionSDGResponseBodyDataResultFailedItems[];
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedItems: 'FailedItems',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedItems: { 'type': 'array', 'itemType': PreloadRegionSDGResponseBodyDataResultFailedItems },
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreloadRegionSDGResponseBodyData extends $tea.Model {
+  message?: string;
+  result?: PreloadRegionSDGResponseBodyDataResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      result: PreloadRegionSDGResponseBodyDataResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PushApplicationDataResponseBodyPushResultsPushResult extends $tea.Model {
   name?: string;
   resultCode?: number;
@@ -28172,6 +29317,78 @@ export class RemoveBackendServersResponseBodyBackendServers extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backendServer: { 'type': 'array', 'itemType': RemoveBackendServersResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveInstanceSDGResponseBodyDataResultFailedItems extends $tea.Model {
+  errMessage?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errMessage: 'ErrMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveInstanceSDGResponseBodyDataResult extends $tea.Model {
+  failedCount?: number;
+  failedItems?: RemoveInstanceSDGResponseBodyDataResultFailedItems[];
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedItems: 'FailedItems',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedItems: { 'type': 'array', 'itemType': RemoveInstanceSDGResponseBodyDataResultFailedItems },
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveInstanceSDGResponseBodyData extends $tea.Model {
+  message?: string;
+  result?: RemoveInstanceSDGResponseBodyDataResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      result: RemoveInstanceSDGResponseBodyDataResult,
+      success: 'boolean',
     };
   }
 
@@ -28433,6 +29650,28 @@ export class SetBackendServersResponseBodyBackendServers extends $tea.Model {
   }
 }
 
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnassociateNetworkAclRequestResource extends $tea.Model {
   resourceId?: string;
   resourceType?: string;
@@ -28447,6 +29686,78 @@ export class UnassociateNetworkAclRequestResource extends $tea.Model {
     return {
       resourceId: 'string',
       resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnloadRegionSDGResponseBodyDataResultFailedItems extends $tea.Model {
+  destinationRegionId?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationRegionId: 'DestinationRegionId',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationRegionId: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnloadRegionSDGResponseBodyDataResult extends $tea.Model {
+  failedCount?: number;
+  failedItems?: UnloadRegionSDGResponseBodyDataResultFailedItems[];
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedItems: 'FailedItems',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedItems: { 'type': 'array', 'itemType': UnloadRegionSDGResponseBodyDataResultFailedItems },
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnloadRegionSDGResponseBodyData extends $tea.Model {
+  message?: string;
+  result?: UnloadRegionSDGResponseBodyDataResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      result: UnloadRegionSDGResponseBodyDataResult,
+      success: 'boolean',
     };
   }
 
@@ -29731,6 +31042,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.commodityCode)) {
       query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.customAccount)) {
+      query["CustomAccount"] = request.customAccount;
     }
 
     if (!Util.isUnset(request.saleControlsShrink)) {
@@ -31657,6 +32972,10 @@ export default class Client extends OpenApi {
       query["CommodityCode"] = request.commodityCode;
     }
 
+    if (!Util.isUnset(request.customAccount)) {
+      query["CustomAccount"] = request.customAccount;
+    }
+
     if (!Util.isUnset(request.saleControlsShrink)) {
       query["SaleControls"] = request.saleControlsShrink;
     }
@@ -31711,6 +33030,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.commodityCode)) {
       query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.customAccount)) {
+      query["CustomAccount"] = request.customAccount;
     }
 
     if (!Util.isUnset(request.saleControlsShrink)) {
@@ -32307,7 +33630,11 @@ export default class Client extends OpenApi {
       request.SDGIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.SDGId, "SDGId", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.SDGIdShrink)) {
+      query["SDGId"] = request.SDGIdShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -32316,7 +33643,7 @@ export default class Client extends OpenApi {
       version: "2017-11-10",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -32559,6 +33886,62 @@ export default class Client extends OpenApi {
   async deleteVSwitch(request: DeleteVSwitchRequest): Promise<DeleteVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVSwitchWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 部署SDG到计算实例
+   *
+   * @param tmpReq DeployInstanceSDGRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeployInstanceSDGResponse
+   */
+  async deployInstanceSDGWithOptions(tmpReq: DeployInstanceSDGRequest, runtime: $Util.RuntimeOptions): Promise<DeployInstanceSDGResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeployInstanceSDGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.deploymentType)) {
+      query["DeploymentType"] = request.deploymentType;
+    }
+
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.SDGId)) {
+      query["SDGId"] = request.SDGId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeployInstanceSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeployInstanceSDGResponse>(await this.callApi(params, req, runtime), new DeployInstanceSDGResponse({}));
+  }
+
+  /**
+   * @summary 部署SDG到计算实例
+   *
+   * @param request DeployInstanceSDGRequest
+   * @return DeployInstanceSDGResponse
+   */
+  async deployInstanceSDG(request: DeployInstanceSDGRequest): Promise<DeployInstanceSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deployInstanceSDGWithOptions(request, runtime);
   }
 
   /**
@@ -35135,6 +36518,10 @@ export default class Client extends OpenApi {
       query["InstanceResourceType"] = request.instanceResourceType;
     }
 
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
     if (!Util.isUnset(request.intranetIp)) {
       query["IntranetIp"] = request.intranetIp;
     }
@@ -35314,8 +36701,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the configuration of an HTTP listener.
    *
-   * @description > 
-   * *   You can call this operation up to 100 times per second per account.
+   * @description *   You can call this operation up to 100 times per second per account.
    * *   You can call this operation up to 10 times per second per user.
    *
    * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
@@ -35353,8 +36739,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the configuration of an HTTP listener.
    *
-   * @description > 
-   * *   You can call this operation up to 100 times per second per account.
+   * @description *   You can call this operation up to 100 times per second per account.
    * *   You can call this operation up to 10 times per second per user.
    *
    * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
@@ -36301,6 +37686,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询SDG信息
+   *
+   * @param tmpReq DescribeSDGRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSDGResponse
+   */
+  async describeSDGWithOptions(tmpReq: DescribeSDGRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSDGResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeSDGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.SDGIds)) {
+      request.SDGIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.SDGIds, "SDGIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.SDGIdsShrink)) {
+      query["SDGIds"] = request.SDGIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSDGResponse>(await this.callApi(params, req, runtime), new DescribeSDGResponse({}));
+  }
+
+  /**
+   * @summary 查询SDG信息
+   *
+   * @param request DescribeSDGRequest
+   * @return DescribeSDGResponse
+   */
+  async describeSDG(request: DescribeSDGRequest): Promise<DescribeSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSDGWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Queries the deployment status of the shared data group (SDG).
    *
    * @param request DescribeSDGDeploymentStatusRequest
@@ -36357,7 +37798,15 @@ export default class Client extends OpenApi {
       request.SDGIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.SDGIds, "SDGIds", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.SDGIdsShrink)) {
+      query["SDGIds"] = request.SDGIdsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -36366,7 +37815,7 @@ export default class Client extends OpenApi {
       version: "2017-11-10",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -37723,7 +39172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Lists all objects in a bucket.
+   * @summary Queries the information about all objects in a bucket.
    *
    * @param request ListObjectsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -37778,7 +39227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Lists all objects in a bucket.
+   * @summary Queries the information about all objects in a bucket.
    *
    * @param request ListObjectsRequest
    * @return ListObjectsResponse
@@ -37786,6 +39235,60 @@ export default class Client extends OpenApi {
   async listObjects(request: ListObjectsRequest): Promise<ListObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listObjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询资源标签
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  /**
+   * @summary 查询资源标签
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -38611,6 +40114,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 节点及AIC的命名空间粒度预热SDG
+   *
+   * @param tmpReq PreloadRegionSDGRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PreloadRegionSDGResponse
+   */
+  async preloadRegionSDGWithOptions(tmpReq: PreloadRegionSDGRequest, runtime: $Util.RuntimeOptions): Promise<PreloadRegionSDGResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PreloadRegionSDGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.destinationRegionIds)) {
+      request.destinationRegionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.destinationRegionIds, "DestinationRegionIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.namespaces)) {
+      request.namespacesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.namespaces, "Namespaces", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.destinationRegionIdsShrink)) {
+      query["DestinationRegionIds"] = request.destinationRegionIdsShrink;
+    }
+
+    if (!Util.isUnset(request.namespacesShrink)) {
+      query["Namespaces"] = request.namespacesShrink;
+    }
+
+    if (!Util.isUnset(request.redundantNum)) {
+      query["RedundantNum"] = request.redundantNum;
+    }
+
+    if (!Util.isUnset(request.SDGId)) {
+      query["SDGId"] = request.SDGId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PreloadRegionSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PreloadRegionSDGResponse>(await this.callApi(params, req, runtime), new PreloadRegionSDGResponse({}));
+  }
+
+  /**
+   * @summary 节点及AIC的命名空间粒度预热SDG
+   *
+   * @param request PreloadRegionSDGRequest
+   * @return PreloadRegionSDGResponse
+   */
+  async preloadRegionSDG(request: PreloadRegionSDGRequest): Promise<PreloadRegionSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.preloadRegionSDGWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Pushes the business or service data of an application to file servers.
    *
    * @param request PushApplicationDataRequest
@@ -38684,6 +40251,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.comment)) {
       body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.dispatchScope)) {
+      body["DispatchScope"] = request.dispatchScope;
     }
 
     if (!Util.isUnset(request.ensRegionId)) {
@@ -38771,8 +40342,8 @@ export default class Client extends OpenApi {
   /**
    * @summary Configures lifecycle rules for objects.
    *
-   * @description - You can configure up to 1000 rules. 
-   * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
+   * @description *   You can configure up to 1,000 rules.
+   * *   If an object meets multiple rules, the rule that has the earliest expiration time prevails.
    *
    * @param request PutBucketLifecycleRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -38829,8 +40400,8 @@ export default class Client extends OpenApi {
   /**
    * @summary Configures lifecycle rules for objects.
    *
-   * @description - You can configure up to 1000 rules. 
-   * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
+   * @description *   You can configure up to 1,000 rules.
+   * *   If an object meets multiple rules, the rule that has the earliest expiration time prevails.
    *
    * @param request PutBucketLifecycleRequest
    * @return PutBucketLifecycleResponse
@@ -39484,6 +41055,54 @@ export default class Client extends OpenApi {
   async removeBackendServers(request: RemoveBackendServersRequest): Promise<RemoveBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeBackendServersWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 移除计算实例上已挂载的SDG
+   *
+   * @param tmpReq RemoveInstanceSDGRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveInstanceSDGResponse
+   */
+  async removeInstanceSDGWithOptions(tmpReq: RemoveInstanceSDGRequest, runtime: $Util.RuntimeOptions): Promise<RemoveInstanceSDGResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RemoveInstanceSDGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveInstanceSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveInstanceSDGResponse>(await this.callApi(params, req, runtime), new RemoveInstanceSDGResponse({}));
+  }
+
+  /**
+   * @summary 移除计算实例上已挂载的SDG
+   *
+   * @param request RemoveInstanceSDGRequest
+   * @return RemoveInstanceSDGResponse
+   */
+  async removeInstanceSDG(request: RemoveInstanceSDGRequest): Promise<RemoveInstanceSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeInstanceSDGWithOptions(request, runtime);
   }
 
   /**
@@ -40711,6 +42330,10 @@ export default class Client extends OpenApi {
       query["UnhealthyThreshold"] = request.unhealthyThreshold;
     }
 
+    if (!Util.isUnset(request.XForwardedFor)) {
+      query["XForwardedFor"] = request.XForwardedFor;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -41597,6 +43220,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 资源打用户标签
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  /**
+   * @summary 资源打用户标签
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Disassociates an elastic IP address (EIP) from an instance.
    *
    * @param request UnAssociateEnsEipAddressRequest
@@ -41731,6 +43404,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 释放预热的节点及AIC的命名空间粒度SDG
+   *
+   * @param tmpReq UnloadRegionSDGRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnloadRegionSDGResponse
+   */
+  async unloadRegionSDGWithOptions(tmpReq: UnloadRegionSDGRequest, runtime: $Util.RuntimeOptions): Promise<UnloadRegionSDGResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UnloadRegionSDGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.destinationRegionIds)) {
+      request.destinationRegionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.destinationRegionIds, "DestinationRegionIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.namespaces)) {
+      request.namespacesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.namespaces, "Namespaces", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.destinationRegionIdsShrink)) {
+      query["DestinationRegionIds"] = request.destinationRegionIdsShrink;
+    }
+
+    if (!Util.isUnset(request.namespacesShrink)) {
+      query["Namespaces"] = request.namespacesShrink;
+    }
+
+    if (!Util.isUnset(request.SDGId)) {
+      query["SDGId"] = request.SDGId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnloadRegionSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnloadRegionSDGResponse>(await this.callApi(params, req, runtime), new UnloadRegionSDGResponse({}));
+  }
+
+  /**
+   * @summary 释放预热的节点及AIC的命名空间粒度SDG
+   *
+   * @param request UnloadRegionSDGRequest
+   * @return UnloadRegionSDGResponse
+   */
+  async unloadRegionSDG(request: UnloadRegionSDGRequest): Promise<UnloadRegionSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unloadRegionSDGWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 资源去除用户标签
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  /**
+   * @summary 资源去除用户标签
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 修改售卖约束
    *
    * @param tmpReq UpdateEnsSaleControlRequest
@@ -41752,6 +43539,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.commodityCode)) {
       query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.customAccount)) {
+      query["CustomAccount"] = request.customAccount;
     }
 
     if (!Util.isUnset(request.saleControlsShrink)) {
