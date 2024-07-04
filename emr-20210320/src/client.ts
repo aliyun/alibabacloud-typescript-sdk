@@ -3632,6 +3632,81 @@ export class CreateNodeGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateScriptRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  scriptType?: string;
+  scripts?: Script[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+      scriptType: 'ScriptType',
+      scripts: 'Scripts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+      scriptType: 'string',
+      scripts: { 'type': 'array', 'itemType': Script },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScriptResponseBody extends $tea.Model {
+  requestId?: string;
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      scriptId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScriptResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateScriptResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateScriptResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DecreaseNodesRequest extends $tea.Model {
   clusterId?: string;
   decreaseNodeCount?: number;
@@ -3846,6 +3921,78 @@ export class DeleteClusterResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteScriptRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  scriptId?: string;
+  scriptType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+      scriptId: 'ScriptId',
+      scriptType: 'ScriptType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+      scriptId: 'string',
+      scriptType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteScriptResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteScriptResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteScriptResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteScriptResponseBody,
     };
   }
 
@@ -5396,6 +5543,7 @@ export class GetOperationResponse extends $tea.Model {
 export class IncreaseNodesRequest extends $tea.Model {
   applicationConfigs?: ApplicationConfig[];
   autoPayOrder?: boolean;
+  autoRenew?: boolean;
   clusterId?: string;
   increaseNodeCount?: number;
   minIncreaseNodeCount?: number;
@@ -5407,6 +5555,7 @@ export class IncreaseNodesRequest extends $tea.Model {
     return {
       applicationConfigs: 'ApplicationConfigs',
       autoPayOrder: 'AutoPayOrder',
+      autoRenew: 'AutoRenew',
       clusterId: 'ClusterId',
       increaseNodeCount: 'IncreaseNodeCount',
       minIncreaseNodeCount: 'MinIncreaseNodeCount',
@@ -5421,6 +5570,7 @@ export class IncreaseNodesRequest extends $tea.Model {
     return {
       applicationConfigs: { 'type': 'array', 'itemType': ApplicationConfig },
       autoPayOrder: 'boolean',
+      autoRenew: 'boolean',
       clusterId: 'string',
       increaseNodeCount: 'number',
       minIncreaseNodeCount: 'number',
@@ -7307,6 +7457,105 @@ export class ListDoctorReportsResponse extends $tea.Model {
   }
 }
 
+export class ListInspectionHistoryRequest extends $tea.Model {
+  clusterId?: string;
+  component?: string;
+  instanceId?: string;
+  language?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  service?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      component: 'Component',
+      instanceId: 'InstanceId',
+      language: 'Language',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      service: 'Service',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      component: 'string',
+      instanceId: 'string',
+      language: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      service: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInspectionHistoryResponseBody extends $tea.Model {
+  data?: ListInspectionHistoryResponseBodyData[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListInspectionHistoryResponseBodyData },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInspectionHistoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInspectionHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInspectionHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceTypesRequest extends $tea.Model {
   clusterId?: string;
   clusterType?: string;
@@ -7686,6 +7935,111 @@ export class ListReleaseVersionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListReleaseVersionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceHealthInspectionsRequest extends $tea.Model {
+  applicationName?: string;
+  clusterId?: string;
+  componentName?: string;
+  healthStatuses?: string[];
+  language?: string;
+  maxResults?: number;
+  nextToken?: string;
+  nodeIds?: string[];
+  nodeNames?: string[];
+  regionId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationName: 'ApplicationName',
+      clusterId: 'ClusterId',
+      componentName: 'ComponentName',
+      healthStatuses: 'HealthStatuses',
+      language: 'Language',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      nodeIds: 'NodeIds',
+      nodeNames: 'NodeNames',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationName: 'string',
+      clusterId: 'string',
+      componentName: 'string',
+      healthStatuses: { 'type': 'array', 'itemType': 'string' },
+      language: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+      nodeNames: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceHealthInspectionsResponseBody extends $tea.Model {
+  healthInspections?: ListResourceHealthInspectionsResponseBodyHealthInspections[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      healthInspections: 'HealthInspections',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthInspections: { 'type': 'array', 'itemType': ListResourceHealthInspectionsResponseBodyHealthInspections },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceHealthInspectionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceHealthInspectionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListResourceHealthInspectionsResponseBody,
     };
   }
 
@@ -8420,6 +8774,7 @@ export class UpdateApplicationConfigsRequest extends $tea.Model {
   description?: string;
   nodeGroupId?: string;
   nodeId?: string;
+  refreshConfig?: boolean;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8431,6 +8786,7 @@ export class UpdateApplicationConfigsRequest extends $tea.Model {
       description: 'Description',
       nodeGroupId: 'NodeGroupId',
       nodeId: 'NodeId',
+      refreshConfig: 'RefreshConfig',
       regionId: 'RegionId',
     };
   }
@@ -8445,6 +8801,7 @@ export class UpdateApplicationConfigsRequest extends $tea.Model {
       description: 'string',
       nodeGroupId: 'string',
       nodeId: 'string',
+      refreshConfig: 'boolean',
       regionId: 'string',
     };
   }
@@ -8493,6 +8850,112 @@ export class UpdateApplicationConfigsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateApplicationConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScriptRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  script?: Script;
+  scriptId?: string;
+  scriptType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+      script: 'Script',
+      scriptId: 'ScriptId',
+      scriptType: 'ScriptType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+      script: Script,
+      scriptId: 'string',
+      scriptType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScriptShrinkRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  scriptShrink?: string;
+  scriptId?: string;
+  scriptType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+      scriptShrink: 'Script',
+      scriptId: 'ScriptId',
+      scriptType: 'ScriptType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+      scriptShrink: 'string',
+      scriptId: 'string',
+      scriptType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScriptResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScriptResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateScriptResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateScriptResponseBody,
     };
   }
 
@@ -9115,7 +9578,6 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
   adjustmentType?: string;
   adjustmentValue?: number;
   metricsTrigger?: MetricsTrigger;
-  minAdjustmentValue?: number;
   ruleName?: string;
   timeTrigger?: TimeTrigger;
   triggerType?: string;
@@ -9125,7 +9587,6 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
       adjustmentType: 'AdjustmentType',
       adjustmentValue: 'AdjustmentValue',
       metricsTrigger: 'MetricsTrigger',
-      minAdjustmentValue: 'MinAdjustmentValue',
       ruleName: 'RuleName',
       timeTrigger: 'TimeTrigger',
       triggerType: 'TriggerType',
@@ -9138,7 +9599,6 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
       adjustmentType: 'string',
       adjustmentValue: 'number',
       metricsTrigger: MetricsTrigger,
-      minAdjustmentValue: 'number',
       ruleName: 'string',
       timeTrigger: TimeTrigger,
       triggerType: 'string',
@@ -25101,6 +25561,34 @@ export class ListDoctorReportsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListInspectionHistoryResponseBodyData extends $tea.Model {
+  changeMessage?: string;
+  healthStatus?: string;
+  inspectionItems?: { [key: string]: string }[];
+  reportTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeMessage: 'ChangeMessage',
+      healthStatus: 'HealthStatus',
+      inspectionItems: 'InspectionItems',
+      reportTime: 'ReportTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeMessage: 'string',
+      healthStatus: 'string',
+      inspectionItems: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      reportTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
   iaasType?: string;
   releaseVersion?: string;
@@ -25118,6 +25606,49 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
       iaasType: 'string',
       releaseVersion: 'string',
       series: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceHealthInspectionsResponseBodyHealthInspections extends $tea.Model {
+  applicationName?: string;
+  componentName?: string;
+  healthMessage?: string;
+  healthStatus?: string;
+  inspectionName?: string;
+  nodeId?: string;
+  nodeName?: string;
+  reportTime?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationName: 'ApplicationName',
+      componentName: 'ComponentName',
+      healthMessage: 'HealthMessage',
+      healthStatus: 'HealthStatus',
+      inspectionName: 'InspectionName',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      reportTime: 'ReportTime',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationName: 'string',
+      componentName: 'string',
+      healthMessage: 'string',
+      healthStatus: 'string',
+      inspectionName: 'string',
+      nodeId: 'string',
+      nodeName: 'string',
+      reportTime: 'number',
+      ruleName: 'string',
     };
   }
 
@@ -25509,9 +26040,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request CreateScriptRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateScriptResponse
+   */
+  async createScriptWithOptions(request: CreateScriptRequest, runtime: $Util.RuntimeOptions): Promise<CreateScriptResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.scriptType)) {
+      query["ScriptType"] = request.scriptType;
+    }
+
+    if (!Util.isUnset(request.scripts)) {
+      query["Scripts"] = request.scripts;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateScript",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateScriptResponse>(await this.callApi(params, req, runtime), new CreateScriptResponse({}));
+  }
+
+  /**
+   * @param request CreateScriptRequest
+   * @return CreateScriptResponse
+   */
+  async createScript(request: CreateScriptRequest): Promise<CreateScriptResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createScriptWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Perform a scale-out operation on the target node group.
-   *
-   * @description 缩容节点。
    *
    * @param request DecreaseNodesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -25559,8 +26138,6 @@ export default class Client extends OpenApi {
 
   /**
    * @summary Perform a scale-out operation on the target node group.
-   *
-   * @description 缩容节点。
    *
    * @param request DecreaseNodesRequest
    * @return DecreaseNodesResponse
@@ -25664,6 +26241,56 @@ export default class Client extends OpenApi {
   async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DeleteScriptRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteScriptResponse
+   */
+  async deleteScriptWithOptions(request: DeleteScriptRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScriptResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!Util.isUnset(request.scriptType)) {
+      query["ScriptType"] = request.scriptType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteScript",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteScriptResponse>(await this.callApi(params, req, runtime), new DeleteScriptResponse({}));
+  }
+
+  /**
+   * @param request DeleteScriptRequest
+   * @return DeleteScriptResponse
+   */
+  async deleteScript(request: DeleteScriptRequest): Promise<DeleteScriptResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteScriptWithOptions(request, runtime);
   }
 
   /**
@@ -26749,8 +27376,6 @@ export default class Client extends OpenApi {
   /**
    * @summary Gets the details of an asynchronous operation.
    *
-   * @description 获取操作详情。
-   *
    * @param request GetOperationRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return GetOperationResponse
@@ -26790,8 +27415,6 @@ export default class Client extends OpenApi {
   /**
    * @summary Gets the details of an asynchronous operation.
    *
-   * @description 获取操作详情。
-   *
    * @param request GetOperationRequest
    * @return GetOperationResponse
    */
@@ -26816,6 +27439,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.autoPayOrder)) {
       query["AutoPayOrder"] = request.autoPayOrder;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
     }
 
     if (!Util.isUnset(request.clusterId)) {
@@ -28261,6 +28888,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request ListInspectionHistoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInspectionHistoryResponse
+   */
+  async listInspectionHistoryWithOptions(request: ListInspectionHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListInspectionHistoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.component)) {
+      query["Component"] = request.component;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.service)) {
+      query["Service"] = request.service;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInspectionHistory",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInspectionHistoryResponse>(await this.callApi(params, req, runtime), new ListInspectionHistoryResponse({}));
+  }
+
+  /**
+   * @param request ListInspectionHistoryRequest
+   * @return ListInspectionHistoryResponse
+   */
+  async listInspectionHistory(request: ListInspectionHistoryRequest): Promise<ListInspectionHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInspectionHistoryWithOptions(request, runtime);
+  }
+
+  /**
    * @param request ListInstanceTypesRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ListInstanceTypesResponse
@@ -28545,8 +29242,88 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询集群脚本。
+   * @description 查询资源巡检项。
    *
+   * @param request ListResourceHealthInspectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListResourceHealthInspectionsResponse
+   */
+  async listResourceHealthInspectionsWithOptions(request: ListResourceHealthInspectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceHealthInspectionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.componentName)) {
+      query["ComponentName"] = request.componentName;
+    }
+
+    if (!Util.isUnset(request.healthStatuses)) {
+      query["HealthStatuses"] = request.healthStatuses;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.nodeIds)) {
+      query["NodeIds"] = request.nodeIds;
+    }
+
+    if (!Util.isUnset(request.nodeNames)) {
+      query["NodeNames"] = request.nodeNames;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListResourceHealthInspections",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourceHealthInspectionsResponse>(await this.callApi(params, req, runtime), new ListResourceHealthInspectionsResponse({}));
+  }
+
+  /**
+   * @description 查询资源巡检项。
+   *
+   * @param request ListResourceHealthInspectionsRequest
+   * @return ListResourceHealthInspectionsResponse
+   */
+  async listResourceHealthInspections(request: ListResourceHealthInspectionsRequest): Promise<ListResourceHealthInspectionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listResourceHealthInspectionsWithOptions(request, runtime);
+  }
+
+  /**
    * @param request ListScriptsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ListScriptsResponse
@@ -28592,8 +29369,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询集群脚本。
-   *
    * @param request ListScriptsRequest
    * @return ListScriptsResponse
    */
@@ -28773,8 +29548,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 执行集群模板
-   *
    * @param request RunApiTemplateRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return RunApiTemplateResponse
@@ -28816,8 +29589,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 执行集群模板
-   *
    * @param request RunApiTemplateRequest
    * @return RunApiTemplateResponse
    */
@@ -28953,8 +29724,6 @@ export default class Client extends OpenApi {
   /**
    * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
    *
-   * @description 删除指定资源标签。
-   *
    * @param request UntagResourcesRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return UntagResourcesResponse
@@ -29002,8 +29771,6 @@ export default class Client extends OpenApi {
   /**
    * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
    *
-   * @description 删除指定资源标签。
-   *
    * @param request UntagResourcesRequest
    * @return UntagResourcesResponse
    */
@@ -29013,6 +29780,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Updates an API operation template.
+   *
    * @description 修改集群模板
    *
    * @param request UpdateApiTemplateRequest
@@ -29064,6 +29833,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Updates an API operation template.
+   *
    * @description 修改集群模板
    *
    * @param request UpdateApiTemplateRequest
@@ -29114,6 +29885,10 @@ export default class Client extends OpenApi {
       query["NodeId"] = request.nodeId;
     }
 
+    if (!Util.isUnset(request.refreshConfig)) {
+      query["RefreshConfig"] = request.refreshConfig;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -29142,6 +29917,66 @@ export default class Client extends OpenApi {
   async updateApplicationConfigs(request: UpdateApplicationConfigsRequest): Promise<UpdateApplicationConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateApplicationConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq UpdateScriptRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateScriptResponse
+   */
+  async updateScriptWithOptions(tmpReq: UpdateScriptRequest, runtime: $Util.RuntimeOptions): Promise<UpdateScriptResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateScriptShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.script)) {
+      request.scriptShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.script, "Script", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.scriptShrink)) {
+      query["Script"] = request.scriptShrink;
+    }
+
+    if (!Util.isUnset(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!Util.isUnset(request.scriptType)) {
+      query["ScriptType"] = request.scriptType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateScript",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateScriptResponse>(await this.callApi(params, req, runtime), new UpdateScriptResponse({}));
+  }
+
+  /**
+   * @param request UpdateScriptRequest
+   * @return UpdateScriptResponse
+   */
+  async updateScript(request: UpdateScriptRequest): Promise<UpdateScriptResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateScriptWithOptions(request, runtime);
   }
 
 }
