@@ -15202,7 +15202,7 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodes exte
   logicalZone?: string;
   nodeCopyId?: number;
   nodeId?: string;
-  nodeResource?: DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource[];
+  nodeResource?: DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource;
   nodeStatus?: string;
   readOnlyCopyId?: number;
   replicaType?: string;
@@ -15225,7 +15225,7 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodes exte
       logicalZone: 'string',
       nodeCopyId: 'number',
       nodeId: 'string',
-      nodeResource: { 'type': 'array', 'itemType': DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource },
+      nodeResource: DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource,
       nodeStatus: 'string',
       readOnlyCopyId: 'number',
       replicaType: 'string',
