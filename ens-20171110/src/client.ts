@@ -3991,6 +3991,97 @@ export class CreateSnatEntryResponse extends $tea.Model {
   }
 }
 
+export class CreateStorageGatewayRequest extends $tea.Model {
+  orderDetails?: CreateStorageGatewayRequestOrderDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      orderDetails: 'OrderDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderDetails: { 'type': 'array', 'itemType': CreateStorageGatewayRequestOrderDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStorageGatewayShrinkRequest extends $tea.Model {
+  orderDetailsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderDetailsShrink: 'OrderDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderDetailsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStorageGatewayResponseBody extends $tea.Model {
+  allocationId?: CreateStorageGatewayResponseBodyAllocationId[];
+  bizStatusCode?: string;
+  requestId?: string;
+  unAllocationId?: CreateStorageGatewayResponseBodyUnAllocationId[];
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      bizStatusCode: 'BizStatusCode',
+      requestId: 'RequestId',
+      unAllocationId: 'UnAllocationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: { 'type': 'array', 'itemType': CreateStorageGatewayResponseBodyAllocationId },
+      bizStatusCode: 'string',
+      requestId: 'string',
+      unAllocationId: { 'type': 'array', 'itemType': CreateStorageGatewayResponseBodyUnAllocationId },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStorageGatewayResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateStorageGatewayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateStorageGatewayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVSwitchRequest extends $tea.Model {
   cidrBlock?: string;
   description?: string;
@@ -5777,6 +5868,69 @@ export class DeleteSnatIpForSnatEntryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSnatIpForSnatEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStorageGatewayRequest extends $tea.Model {
+  gatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStorageGatewayResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStorageGatewayResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteStorageGatewayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteStorageGatewayResponseBody,
     };
   }
 
@@ -21320,6 +21474,81 @@ export class CreateInstanceResponseBodyInstanceIds extends $tea.Model {
   }
 }
 
+export class CreateStorageGatewayRequestOrderDetails extends $tea.Model {
+  description?: string;
+  ensRegionId?: string;
+  gatewayName?: string;
+  gatewayType?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ensRegionId: 'EnsRegionId',
+      gatewayName: 'GatewayName',
+      gatewayType: 'GatewayType',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ensRegionId: 'string',
+      gatewayName: 'string',
+      gatewayType: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStorageGatewayResponseBodyAllocationId extends $tea.Model {
+  ensRegionId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStorageGatewayResponseBodyUnAllocationId extends $tea.Model {
+  ensRegionId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEnsSaleConditionControlRequestSaleControlsConditionControls extends $tea.Model {
   conditionControlModuleCode?: string;
   conditionControlModuleValue?: string;
@@ -32625,6 +32854,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Creates a storage gateway.
+   *
+   * @param tmpReq CreateStorageGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateStorageGatewayResponse
+   */
+  async createStorageGatewayWithOptions(tmpReq: CreateStorageGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateStorageGatewayResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateStorageGatewayShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.orderDetails)) {
+      request.orderDetailsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.orderDetails, "OrderDetails", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.orderDetailsShrink)) {
+      query["OrderDetails"] = request.orderDetailsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateStorageGateway",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateStorageGatewayResponse>(await this.callApi(params, req, runtime), new CreateStorageGatewayResponse({}));
+  }
+
+  /**
+   * @summary Creates a storage gateway.
+   *
+   * @param request CreateStorageGatewayRequest
+   * @return CreateStorageGatewayResponse
+   */
+  async createStorageGateway(request: CreateStorageGatewayRequest): Promise<CreateStorageGatewayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createStorageGatewayWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Creates a vSwitch.
    *
    * @param request CreateVSwitchRequest
@@ -33840,6 +34117,48 @@ export default class Client extends OpenApi {
   async deleteSnatIpForSnatEntry(request: DeleteSnatIpForSnatEntryRequest): Promise<DeleteSnatIpForSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSnatIpForSnatEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Deletes a storage gateway.
+   *
+   * @param request DeleteStorageGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteStorageGatewayResponse
+   */
+  async deleteStorageGatewayWithOptions(request: DeleteStorageGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStorageGatewayResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteStorageGateway",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteStorageGatewayResponse>(await this.callApi(params, req, runtime), new DeleteStorageGatewayResponse({}));
+  }
+
+  /**
+   * @summary Deletes a storage gateway.
+   *
+   * @param request DeleteStorageGatewayRequest
+   * @return DeleteStorageGatewayResponse
+   */
+  async deleteStorageGateway(request: DeleteStorageGatewayRequest): Promise<DeleteStorageGatewayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteStorageGatewayWithOptions(request, runtime);
   }
 
   /**
