@@ -875,6 +875,290 @@ export class GetNetworkReachableAnalysisResponse extends $tea.Model {
   }
 }
 
+export class GetNisNetworkMetricsRequest extends $tea.Model {
+  accountIds?: string[];
+  beginTime?: number;
+  dimensions?: GetNisNetworkMetricsRequestDimensions[];
+  endTime?: number;
+  metricName?: string;
+  regionNo?: string;
+  resourceType?: string;
+  scanBy?: string;
+  useCrossAccount?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      beginTime: 'BeginTime',
+      dimensions: 'Dimensions',
+      endTime: 'EndTime',
+      metricName: 'MetricName',
+      regionNo: 'RegionNo',
+      resourceType: 'ResourceType',
+      scanBy: 'ScanBy',
+      useCrossAccount: 'UseCrossAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      beginTime: 'number',
+      dimensions: { 'type': 'array', 'itemType': GetNisNetworkMetricsRequestDimensions },
+      endTime: 'number',
+      metricName: 'string',
+      regionNo: 'string',
+      resourceType: 'string',
+      scanBy: 'string',
+      useCrossAccount: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkMetricsShrinkRequest extends $tea.Model {
+  accountIds?: string[];
+  beginTime?: number;
+  dimensionsShrink?: string;
+  endTime?: number;
+  metricName?: string;
+  regionNo?: string;
+  resourceType?: string;
+  scanBy?: string;
+  useCrossAccount?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      beginTime: 'BeginTime',
+      dimensionsShrink: 'Dimensions',
+      endTime: 'EndTime',
+      metricName: 'MetricName',
+      regionNo: 'RegionNo',
+      resourceType: 'ResourceType',
+      scanBy: 'ScanBy',
+      useCrossAccount: 'UseCrossAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      beginTime: 'number',
+      dimensionsShrink: 'string',
+      endTime: 'number',
+      metricName: 'string',
+      regionNo: 'string',
+      resourceType: 'string',
+      scanBy: 'string',
+      useCrossAccount: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkMetricsResponseBody extends $tea.Model {
+  data?: GetNisNetworkMetricsResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetNisNetworkMetricsResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkMetricsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNisNetworkMetricsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNisNetworkMetricsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkRankingRequest extends $tea.Model {
+  accountIds?: string[];
+  beginTime?: number;
+  direction?: string;
+  endTime?: number;
+  filter?: GetNisNetworkRankingRequestFilter[];
+  groupBy?: string;
+  orderBy?: string;
+  regionNo?: string;
+  resourceType?: string;
+  sort?: string;
+  topN?: number;
+  useCrossAccount?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      beginTime: 'BeginTime',
+      direction: 'Direction',
+      endTime: 'EndTime',
+      filter: 'Filter',
+      groupBy: 'GroupBy',
+      orderBy: 'OrderBy',
+      regionNo: 'RegionNo',
+      resourceType: 'ResourceType',
+      sort: 'Sort',
+      topN: 'TopN',
+      useCrossAccount: 'UseCrossAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      beginTime: 'number',
+      direction: 'string',
+      endTime: 'number',
+      filter: { 'type': 'array', 'itemType': GetNisNetworkRankingRequestFilter },
+      groupBy: 'string',
+      orderBy: 'string',
+      regionNo: 'string',
+      resourceType: 'string',
+      sort: 'string',
+      topN: 'number',
+      useCrossAccount: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkRankingShrinkRequest extends $tea.Model {
+  accountIds?: string[];
+  beginTime?: number;
+  direction?: string;
+  endTime?: number;
+  filterShrink?: string;
+  groupBy?: string;
+  orderBy?: string;
+  regionNo?: string;
+  resourceType?: string;
+  sort?: string;
+  topN?: number;
+  useCrossAccount?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      beginTime: 'BeginTime',
+      direction: 'Direction',
+      endTime: 'EndTime',
+      filterShrink: 'Filter',
+      groupBy: 'GroupBy',
+      orderBy: 'OrderBy',
+      regionNo: 'RegionNo',
+      resourceType: 'ResourceType',
+      sort: 'Sort',
+      topN: 'TopN',
+      useCrossAccount: 'UseCrossAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      beginTime: 'number',
+      direction: 'string',
+      endTime: 'number',
+      filterShrink: 'string',
+      groupBy: 'string',
+      orderBy: 'string',
+      regionNo: 'string',
+      resourceType: 'string',
+      sort: 'string',
+      topN: 'number',
+      useCrossAccount: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkRankingResponseBody extends $tea.Model {
+  data?: GetNisNetworkRankingResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetNisNetworkRankingResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkRankingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNisNetworkRankingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNisNetworkRankingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTransitRouterFlowTopNRequest extends $tea.Model {
   accountIds?: number[];
   bandwithPackageId?: string;
@@ -1448,6 +1732,203 @@ export class GetNatTopNResponseBodyNatGatewayTopN extends $tea.Model {
   }
 }
 
+export class GetNisNetworkMetricsRequestDimensions extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkMetricsResponseBodyDataMetrics extends $tea.Model {
+  timeStamp?: number;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeStamp: 'number',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkMetricsResponseBodyData extends $tea.Model {
+  metrics?: GetNisNetworkMetricsResponseBodyDataMetrics[];
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metrics: 'Metrics',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metrics: { 'type': 'array', 'itemType': GetNisNetworkMetricsResponseBodyDataMetrics },
+      unit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkRankingRequestFilter extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkRankingResponseBodyData extends $tea.Model {
+  activeSessionCount?: number;
+  asn?: string;
+  attachmentId?: string;
+  bandwidthPackageId?: string;
+  byteCount?: number;
+  city?: string;
+  country?: string;
+  destinationIp?: string;
+  destinationIsp?: string;
+  destinationPort?: string;
+  destinationRegionNo?: string;
+  destinationZone?: string;
+  IP?: string;
+  inBps?: number;
+  inPps?: number;
+  instanceId?: string;
+  isp?: string;
+  newSessionPerSecond?: number;
+  outBps?: number;
+  outPps?: number;
+  packetCount?: number;
+  protocol?: string;
+  province?: string;
+  RTT?: number;
+  regionNo?: string;
+  retransmitRate?: number;
+  sourceIp?: string;
+  sourceIsp?: string;
+  sourcePort?: string;
+  sourceZone?: string;
+  vbrId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeSessionCount: 'ActiveSessionCount',
+      asn: 'Asn',
+      attachmentId: 'AttachmentId',
+      bandwidthPackageId: 'BandwidthPackageId',
+      byteCount: 'ByteCount',
+      city: 'City',
+      country: 'Country',
+      destinationIp: 'DestinationIp',
+      destinationIsp: 'DestinationIsp',
+      destinationPort: 'DestinationPort',
+      destinationRegionNo: 'DestinationRegionNo',
+      destinationZone: 'DestinationZone',
+      IP: 'IP',
+      inBps: 'InBps',
+      inPps: 'InPps',
+      instanceId: 'InstanceId',
+      isp: 'Isp',
+      newSessionPerSecond: 'NewSessionPerSecond',
+      outBps: 'OutBps',
+      outPps: 'OutPps',
+      packetCount: 'PacketCount',
+      protocol: 'Protocol',
+      province: 'Province',
+      RTT: 'RTT',
+      regionNo: 'RegionNo',
+      retransmitRate: 'RetransmitRate',
+      sourceIp: 'SourceIp',
+      sourceIsp: 'SourceIsp',
+      sourcePort: 'SourcePort',
+      sourceZone: 'SourceZone',
+      vbrId: 'VbrId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeSessionCount: 'number',
+      asn: 'string',
+      attachmentId: 'string',
+      bandwidthPackageId: 'string',
+      byteCount: 'number',
+      city: 'string',
+      country: 'string',
+      destinationIp: 'string',
+      destinationIsp: 'string',
+      destinationPort: 'string',
+      destinationRegionNo: 'string',
+      destinationZone: 'string',
+      IP: 'string',
+      inBps: 'number',
+      inPps: 'number',
+      instanceId: 'string',
+      isp: 'string',
+      newSessionPerSecond: 'number',
+      outBps: 'number',
+      outPps: 'number',
+      packetCount: 'number',
+      protocol: 'string',
+      province: 'string',
+      RTT: 'number',
+      regionNo: 'string',
+      retransmitRate: 'number',
+      sourceIp: 'string',
+      sourceIsp: 'string',
+      sourcePort: 'string',
+      sourceZone: 'string',
+      vbrId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN extends $tea.Model {
   accountId?: string;
   bandwithPackageId?: string;
@@ -1579,11 +2060,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
-    *
-    * @param request CreateAndAnalyzeNetworkPathRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAndAnalyzeNetworkPathResponse
+   * @summary Initiates a task for analyzing network reachability.
+   *
+   * @description You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
+   *
+   * @param request CreateAndAnalyzeNetworkPathRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAndAnalyzeNetworkPathResponse
    */
   async createAndAnalyzeNetworkPathWithOptions(request: CreateAndAnalyzeNetworkPathRequest, runtime: $Util.RuntimeOptions): Promise<CreateAndAnalyzeNetworkPathResponse> {
     Util.validateModel(request);
@@ -1606,10 +2089,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
-    *
-    * @param request CreateAndAnalyzeNetworkPathRequest
-    * @return CreateAndAnalyzeNetworkPathResponse
+   * @summary Initiates a task for analyzing network reachability.
+   *
+   * @description You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
+   *
+   * @param request CreateAndAnalyzeNetworkPathRequest
+   * @return CreateAndAnalyzeNetworkPathResponse
    */
   async createAndAnalyzeNetworkPath(request: CreateAndAnalyzeNetworkPathRequest): Promise<CreateAndAnalyzeNetworkPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1617,12 +2102,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
-    * *   You can create up to 100 network paths within one Alibaba Cloud account.
-    *
-    * @param request CreateNetworkPathRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateNetworkPathResponse
+   * @summary Creates a network path in the cloud for reachability analysis.
+   *
+   * @description *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
+   * *   You can create up to 100 network paths within one Alibaba Cloud account.
+   *
+   * @param request CreateNetworkPathRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNetworkPathResponse
    */
   async createNetworkPathWithOptions(request: CreateNetworkPathRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkPathResponse> {
     Util.validateModel(request);
@@ -1701,11 +2188,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
-    * *   You can create up to 100 network paths within one Alibaba Cloud account.
-    *
-    * @param request CreateNetworkPathRequest
-    * @return CreateNetworkPathResponse
+   * @summary Creates a network path in the cloud for reachability analysis.
+   *
+   * @description *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
+   * *   You can create up to 100 network paths within one Alibaba Cloud account.
+   *
+   * @param request CreateNetworkPathRequest
+   * @return CreateNetworkPathResponse
    */
   async createNetworkPath(request: CreateNetworkPathRequest): Promise<CreateNetworkPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1713,13 +2202,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
-    * *   The **CreateNetworkReachableAnalysis** operation can be called to repeatedly analyze the reachability of a network path.
-    * *   You can create up to 1,000 reachability analysis records within one Alibaba Cloud account.
-    *
-    * @param request CreateNetworkReachableAnalysisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateNetworkReachableAnalysisResponse
+   * @summary Creates a task for analyzing network reachability.
+   *
+   * @description *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
+   * *   The **CreateNetworkReachableAnalysis** operation can be called to repeatedly analyze the reachability of a network path.
+   * *   You can create up to 1,000 reachability analysis records within one Alibaba Cloud account.
+   *
+   * @param request CreateNetworkReachableAnalysisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNetworkReachableAnalysisResponse
    */
   async createNetworkReachableAnalysisWithOptions(request: CreateNetworkReachableAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkReachableAnalysisResponse> {
     Util.validateModel(request);
@@ -1754,18 +2245,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
-    * *   The **CreateNetworkReachableAnalysis** operation can be called to repeatedly analyze the reachability of a network path.
-    * *   You can create up to 1,000 reachability analysis records within one Alibaba Cloud account.
-    *
-    * @param request CreateNetworkReachableAnalysisRequest
-    * @return CreateNetworkReachableAnalysisResponse
+   * @summary Creates a task for analyzing network reachability.
+   *
+   * @description *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
+   * *   The **CreateNetworkReachableAnalysis** operation can be called to repeatedly analyze the reachability of a network path.
+   * *   You can create up to 1,000 reachability analysis records within one Alibaba Cloud account.
+   *
+   * @param request CreateNetworkReachableAnalysisRequest
+   * @return CreateNetworkReachableAnalysisResponse
    */
   async createNetworkReachableAnalysis(request: CreateNetworkReachableAnalysisRequest): Promise<CreateNetworkReachableAnalysisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkReachableAnalysisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a network path.
+   *
+   * @param tmpReq DeleteNetworkPathRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNetworkPathResponse
+   */
   async deleteNetworkPathWithOptions(tmpReq: DeleteNetworkPathRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkPathResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteNetworkPathShrinkRequest({ });
@@ -1800,11 +2300,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkPathResponse>(await this.callApi(params, req, runtime), new DeleteNetworkPathResponse({}));
   }
 
+  /**
+   * @summary Deletes a network path.
+   *
+   * @param request DeleteNetworkPathRequest
+   * @return DeleteNetworkPathResponse
+   */
   async deleteNetworkPath(request: DeleteNetworkPathRequest): Promise<DeleteNetworkPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkPathWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a task for analyzing network reachability.
+   *
+   * @param tmpReq DeleteNetworkReachableAnalysisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNetworkReachableAnalysisResponse
+   */
   async deleteNetworkReachableAnalysisWithOptions(tmpReq: DeleteNetworkReachableAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkReachableAnalysisResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteNetworkReachableAnalysisShrinkRequest({ });
@@ -1839,11 +2352,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkReachableAnalysisResponse>(await this.callApi(params, req, runtime), new DeleteNetworkReachableAnalysisResponse({}));
   }
 
+  /**
+   * @summary Deletes a task for analyzing network reachability.
+   *
+   * @param request DeleteNetworkReachableAnalysisRequest
+   * @return DeleteNetworkReachableAnalysisResponse
+   */
   async deleteNetworkReachableAnalysis(request: DeleteNetworkReachableAnalysisRequest): Promise<DeleteNetworkReachableAnalysisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkReachableAnalysisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+   *
+   * @param tmpReq GetInternetTupleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInternetTupleResponse
+   */
   async getInternetTupleWithOptions(tmpReq: GetInternetTupleRequest, runtime: $Util.RuntimeOptions): Promise<GetInternetTupleResponse> {
     Util.validateModel(tmpReq);
     let request = new GetInternetTupleShrinkRequest({ });
@@ -1962,11 +2488,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInternetTupleResponse>(await this.callApi(params, req, runtime), new GetInternetTupleResponse({}));
   }
 
+  /**
+   * @summary Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+   *
+   * @param request GetInternetTupleRequest
+   * @return GetInternetTupleResponse
+   */
   async getInternetTuple(request: GetInternetTupleRequest): Promise<GetInternetTupleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInternetTupleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the real-time SNAT performance ranking of a NAT gateway.
+   *
+   * @param request GetNatTopNRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNatTopNResponse
+   */
   async getNatTopNWithOptions(request: GetNatTopNRequest, runtime: $Util.RuntimeOptions): Promise<GetNatTopNResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2015,19 +2554,27 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNatTopNResponse>(await this.callApi(params, req, runtime), new GetNatTopNResponse({}));
   }
 
+  /**
+   * @summary Queries the real-time SNAT performance ranking of a NAT gateway.
+   *
+   * @param request GetNatTopNRequest
+   * @return GetNatTopNResponse
+   */
   async getNatTopN(request: GetNatTopNRequest): Promise<GetNatTopNResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNatTopNWithOptions(request, runtime);
   }
 
   /**
-    * **GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
-    * *   The **init** state indicates that the task is in progress.
-    * *   The **finish** state indicates that the task is complete. In this state, you can obtain the analysis result.
-    *
-    * @param request GetNetworkReachableAnalysisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetNetworkReachableAnalysisResponse
+   * @summary Obtains the results of network reachability analysis.
+   *
+   * @description **GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
+   * *   The **init** state indicates that the task is in progress.
+   * *   The **finish** state indicates that the task is complete. In this state, you can obtain the analysis result.
+   *
+   * @param request GetNetworkReachableAnalysisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNetworkReachableAnalysisResponse
    */
   async getNetworkReachableAnalysisWithOptions(request: GetNetworkReachableAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<GetNetworkReachableAnalysisResponse> {
     Util.validateModel(request);
@@ -2058,18 +2605,199 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
-    * *   The **init** state indicates that the task is in progress.
-    * *   The **finish** state indicates that the task is complete. In this state, you can obtain the analysis result.
-    *
-    * @param request GetNetworkReachableAnalysisRequest
-    * @return GetNetworkReachableAnalysisResponse
+   * @summary Obtains the results of network reachability analysis.
+   *
+   * @description **GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
+   * *   The **init** state indicates that the task is in progress.
+   * *   The **finish** state indicates that the task is complete. In this state, you can obtain the analysis result.
+   *
+   * @param request GetNetworkReachableAnalysisRequest
+   * @return GetNetworkReachableAnalysisResponse
    */
   async getNetworkReachableAnalysis(request: GetNetworkReachableAnalysisRequest): Promise<GetNetworkReachableAnalysisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNetworkReachableAnalysisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取云网络指标趋势
+   *
+   * @param tmpReq GetNisNetworkMetricsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNisNetworkMetricsResponse
+   */
+  async getNisNetworkMetricsWithOptions(tmpReq: GetNisNetworkMetricsRequest, runtime: $Util.RuntimeOptions): Promise<GetNisNetworkMetricsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetNisNetworkMetricsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dimensions)) {
+      request.dimensionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dimensions, "Dimensions", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.accountIds)) {
+      query["AccountIds"] = request.accountIds;
+    }
+
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.dimensionsShrink)) {
+      query["Dimensions"] = request.dimensionsShrink;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!Util.isUnset(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.scanBy)) {
+      query["ScanBy"] = request.scanBy;
+    }
+
+    if (!Util.isUnset(request.useCrossAccount)) {
+      query["UseCrossAccount"] = request.useCrossAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetNisNetworkMetrics",
+      version: "2021-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetNisNetworkMetricsResponse>(await this.callApi(params, req, runtime), new GetNisNetworkMetricsResponse({}));
+  }
+
+  /**
+   * @summary 获取云网络指标趋势
+   *
+   * @param request GetNisNetworkMetricsRequest
+   * @return GetNisNetworkMetricsResponse
+   */
+  async getNisNetworkMetrics(request: GetNisNetworkMetricsRequest): Promise<GetNisNetworkMetricsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getNisNetworkMetricsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 获取云网络指标排名
+   *
+   * @param tmpReq GetNisNetworkRankingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNisNetworkRankingResponse
+   */
+  async getNisNetworkRankingWithOptions(tmpReq: GetNisNetworkRankingRequest, runtime: $Util.RuntimeOptions): Promise<GetNisNetworkRankingResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetNisNetworkRankingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.accountIds)) {
+      query["AccountIds"] = request.accountIds;
+    }
+
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
+    }
+
+    if (!Util.isUnset(request.groupBy)) {
+      query["GroupBy"] = request.groupBy;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.topN)) {
+      query["TopN"] = request.topN;
+    }
+
+    if (!Util.isUnset(request.useCrossAccount)) {
+      query["UseCrossAccount"] = request.useCrossAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetNisNetworkRanking",
+      version: "2021-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetNisNetworkRankingResponse>(await this.callApi(params, req, runtime), new GetNisNetworkRankingResponse({}));
+  }
+
+  /**
+   * @summary 获取云网络指标排名
+   *
+   * @param request GetNisNetworkRankingRequest
+   * @return GetNisNetworkRankingResponse
+   */
+  async getNisNetworkRanking(request: GetNisNetworkRankingRequest): Promise<GetNisNetworkRankingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getNisNetworkRankingWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries the rankings of inter-region traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Inter-region traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+   *
+   * @param tmpReq GetTransitRouterFlowTopNRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTransitRouterFlowTopNResponse
+   */
   async getTransitRouterFlowTopNWithOptions(tmpReq: GetTransitRouterFlowTopNRequest, runtime: $Util.RuntimeOptions): Promise<GetTransitRouterFlowTopNResponse> {
     Util.validateModel(tmpReq);
     let request = new GetTransitRouterFlowTopNShrinkRequest({ });
@@ -2168,11 +2896,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTransitRouterFlowTopNResponse>(await this.callApi(params, req, runtime), new GetTransitRouterFlowTopNResponse({}));
   }
 
+  /**
+   * @summary Queries the rankings of inter-region traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Inter-region traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+   *
+   * @param request GetTransitRouterFlowTopNRequest
+   * @return GetTransitRouterFlowTopNResponse
+   */
   async getTransitRouterFlowTopN(request: GetTransitRouterFlowTopNRequest): Promise<GetTransitRouterFlowTopNResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTransitRouterFlowTopNWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the rankings of hybrid cloud traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Hybrid cloud traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+   *
+   * @param tmpReq GetVbrFlowTopNRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVbrFlowTopNResponse
+   */
   async getVbrFlowTopNWithOptions(tmpReq: GetVbrFlowTopNRequest, runtime: $Util.RuntimeOptions): Promise<GetVbrFlowTopNResponse> {
     Util.validateModel(tmpReq);
     let request = new GetVbrFlowTopNShrinkRequest({ });
@@ -2271,6 +3012,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVbrFlowTopNResponse>(await this.callApi(params, req, runtime), new GetVbrFlowTopNResponse({}));
   }
 
+  /**
+   * @summary Queries the rankings of hybrid cloud traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Hybrid cloud traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+   *
+   * @param request GetVbrFlowTopNRequest
+   * @return GetVbrFlowTopNResponse
+   */
   async getVbrFlowTopN(request: GetVbrFlowTopNRequest): Promise<GetVbrFlowTopNResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVbrFlowTopNWithOptions(request, runtime);
