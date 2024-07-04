@@ -70,6 +70,34 @@ export class AliyunAccounts extends $tea.Model {
   }
 }
 
+export class AssumeUserInfo extends $tea.Model {
+  accessKeyId?: string;
+  id?: string;
+  securityToken?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      id: 'Id',
+      securityToken: 'SecurityToken',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      id: 'string',
+      securityToken: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CodeSourceItem extends $tea.Model {
   codeBranch?: string;
   codeCommit?: string;
@@ -148,6 +176,87 @@ export class ContainerSpec extends $tea.Model {
       name: 'string',
       resources: ResourceRequirements,
       workingDir: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialConfig extends $tea.Model {
+  aliyunEnvRoleKey?: string;
+  credentialConfigItems?: CredentialConfigItem[];
+  enableCredentialInject?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunEnvRoleKey: 'AliyunEnvRoleKey',
+      credentialConfigItems: 'CredentialConfigItems',
+      enableCredentialInject: 'EnableCredentialInject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunEnvRoleKey: 'string',
+      credentialConfigItems: { 'type': 'array', 'itemType': CredentialConfigItem },
+      enableCredentialInject: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialConfigItem extends $tea.Model {
+  key?: string;
+  roles?: CredentialRole[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      roles: 'Roles',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      roles: { 'type': 'array', 'itemType': CredentialRole },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialRole extends $tea.Model {
+  assumeRoleFor?: string;
+  assumeUserInfo?: AssumeUserInfo;
+  policy?: string;
+  roleArn?: string;
+  roleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assumeRoleFor: 'AssumeRoleFor',
+      assumeUserInfo: 'AssumeUserInfo',
+      policy: 'Policy',
+      roleArn: 'RoleArn',
+      roleType: 'RoleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumeRoleFor: 'string',
+      assumeUserInfo: AssumeUserInfo,
+      policy: 'string',
+      roleArn: 'string',
+      roleType: 'string',
     };
   }
 
@@ -796,6 +905,7 @@ export class JobElasticSpec extends $tea.Model {
 
 export class JobItem extends $tea.Model {
   codeSource?: JobItemCodeSource;
+  credentialConfig?: CredentialConfig;
   dataSources?: JobItemDataSources[];
   displayName?: string;
   duration?: number;
@@ -832,6 +942,7 @@ export class JobItem extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       codeSource: 'CodeSource',
+      credentialConfig: 'CredentialConfig',
       dataSources: 'DataSources',
       displayName: 'DisplayName',
       duration: 'Duration',
@@ -871,6 +982,7 @@ export class JobItem extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       codeSource: JobItemCodeSource,
+      credentialConfig: CredentialConfig,
       dataSources: { 'type': 'array', 'itemType': JobItemDataSources },
       displayName: 'string',
       duration: 'number',
