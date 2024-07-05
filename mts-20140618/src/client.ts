@@ -62,9 +62,9 @@ export class ActivateMediaWorkflowResponseBody extends $tea.Model {
 }
 
 export class ActivateMediaWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ActivateMediaWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ActivateMediaWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -167,9 +167,9 @@ export class AddMediaResponseBody extends $tea.Model {
 }
 
 export class AddMediaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddMediaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddMediaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -245,9 +245,9 @@ export class AddMediaTagResponseBody extends $tea.Model {
 }
 
 export class AddMediaTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddMediaTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddMediaTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -329,9 +329,9 @@ export class AddMediaWorkflowResponseBody extends $tea.Model {
 }
 
 export class AddMediaWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddMediaWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddMediaWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -419,9 +419,9 @@ export class AddPipelineResponseBody extends $tea.Model {
 }
 
 export class AddPipelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddPipelineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddPipelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -453,6 +453,8 @@ export class AddSmarttagTemplateRequest extends $tea.Model {
   knowledgeConfig?: string;
   labelType?: string;
   labelVersion?: string;
+  landmarkGroupIds?: string;
+  objectGroupIds?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -470,6 +472,8 @@ export class AddSmarttagTemplateRequest extends $tea.Model {
       knowledgeConfig: 'KnowledgeConfig',
       labelType: 'LabelType',
       labelVersion: 'LabelVersion',
+      landmarkGroupIds: 'LandmarkGroupIds',
+      objectGroupIds: 'ObjectGroupIds',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -490,6 +494,8 @@ export class AddSmarttagTemplateRequest extends $tea.Model {
       knowledgeConfig: 'string',
       labelType: 'string',
       labelVersion: 'string',
+      landmarkGroupIds: 'string',
+      objectGroupIds: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -527,9 +533,9 @@ export class AddSmarttagTemplateResponseBody extends $tea.Model {
 }
 
 export class AddSmarttagTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddSmarttagTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddSmarttagTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -620,9 +626,9 @@ export class AddTemplateResponseBody extends $tea.Model {
 }
 
 export class AddTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -701,9 +707,9 @@ export class AddWaterMarkTemplateResponseBody extends $tea.Model {
 }
 
 export class AddWaterMarkTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddWaterMarkTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddWaterMarkTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -732,7 +738,6 @@ export class BindInputBucketRequest extends $tea.Model {
   referer?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  roleArn?: string;
   static names(): { [key: string]: string } {
     return {
       bucket: 'Bucket',
@@ -741,7 +746,6 @@ export class BindInputBucketRequest extends $tea.Model {
       referer: 'Referer',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      roleArn: 'RoleArn',
     };
   }
 
@@ -753,7 +757,6 @@ export class BindInputBucketRequest extends $tea.Model {
       referer: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      roleArn: 'string',
     };
   }
 
@@ -782,9 +785,9 @@ export class BindInputBucketResponseBody extends $tea.Model {
 }
 
 export class BindInputBucketResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BindInputBucketResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindInputBucketResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -812,7 +815,6 @@ export class BindOutputBucketRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  roleArn?: string;
   static names(): { [key: string]: string } {
     return {
       bucket: 'Bucket',
@@ -820,7 +822,6 @@ export class BindOutputBucketRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      roleArn: 'RoleArn',
     };
   }
 
@@ -831,7 +832,6 @@ export class BindOutputBucketRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      roleArn: 'string',
     };
   }
 
@@ -860,9 +860,9 @@ export class BindOutputBucketResponseBody extends $tea.Model {
 }
 
 export class BindOutputBucketResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BindOutputBucketResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindOutputBucketResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -938,9 +938,9 @@ export class CancelJobResponseBody extends $tea.Model {
 }
 
 export class CancelJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -954,6 +954,177 @@ export class CancelJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CancelJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomEntityRequest extends $tea.Model {
+  algorithm?: string;
+  customEntityInfo?: string;
+  customEntityName?: string;
+  customGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      customEntityInfo: 'CustomEntityInfo',
+      customEntityName: 'CustomEntityName',
+      customGroupId: 'CustomGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      customEntityInfo: 'string',
+      customEntityName: 'string',
+      customGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomEntityResponseBody extends $tea.Model {
+  customEntityId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customEntityId: 'CustomEntityId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customEntityId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomEntityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCustomEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCustomEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomGroupRequest extends $tea.Model {
+  algorithm?: string;
+  customGroupDescription?: string;
+  customGroupName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      customGroupDescription: 'CustomGroupDescription',
+      customGroupName: 'CustomGroupName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      customGroupDescription: 'string',
+      customGroupName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomGroupResponseBody extends $tea.Model {
+  customGroupId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customGroupId: 'CustomGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCustomGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCustomGroupResponseBody,
     };
   }
 
@@ -1025,9 +1196,9 @@ export class CreateFpShotDBResponseBody extends $tea.Model {
 }
 
 export class CreateFpShotDBResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFpShotDBResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFpShotDBResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1103,9 +1274,9 @@ export class DeactivateMediaWorkflowResponseBody extends $tea.Model {
 }
 
 export class DeactivateMediaWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeactivateMediaWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeactivateMediaWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1119,6 +1290,249 @@ export class DeactivateMediaWorkflowResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeactivateMediaWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomEntityRequest extends $tea.Model {
+  algorithm?: string;
+  customEntityId?: string;
+  customGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      customEntityId: 'CustomEntityId',
+      customGroupId: 'CustomGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      customEntityId: 'string',
+      customGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomEntityResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomEntityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomGroupRequest extends $tea.Model {
+  algorithm?: string;
+  customGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      customGroupId: 'CustomGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      customGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomViewRequest extends $tea.Model {
+  algorithm?: string;
+  customEntityId?: string;
+  customGroupId?: string;
+  customViewId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      customEntityId: 'CustomEntityId',
+      customGroupId: 'CustomGroupId',
+      customViewId: 'CustomViewId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      customEntityId: 'string',
+      customGroupId: 'string',
+      customViewId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomViewResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomViewResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomViewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomViewResponseBody,
     };
   }
 
@@ -1178,9 +1592,9 @@ export class DeleteMediaResponseBody extends $tea.Model {
 }
 
 export class DeleteMediaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteMediaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMediaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1256,9 +1670,9 @@ export class DeleteMediaTagResponseBody extends $tea.Model {
 }
 
 export class DeleteMediaTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteMediaTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMediaTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1334,9 +1748,9 @@ export class DeleteMediaWorkflowResponseBody extends $tea.Model {
 }
 
 export class DeleteMediaWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteMediaWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMediaWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1412,9 +1826,9 @@ export class DeletePipelineResponseBody extends $tea.Model {
 }
 
 export class DeletePipelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePipelineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePipelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1487,9 +1901,9 @@ export class DeleteSmarttagTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteSmarttagTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSmarttagTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSmarttagTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1565,9 +1979,9 @@ export class DeleteTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1643,9 +2057,9 @@ export class DeleteWaterMarkTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteWaterMarkTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteWaterMarkTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteWaterMarkTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1736,9 +2150,9 @@ export class ImAuditResponseBody extends $tea.Model {
 }
 
 export class ImAuditResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ImAuditResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImAuditResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1826,9 +2240,9 @@ export class ImportFpShotJobResponseBody extends $tea.Model {
 }
 
 export class ImportFpShotJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ImportFpShotJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportFpShotJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1910,9 +2324,9 @@ export class ListAllMediaBucketResponseBody extends $tea.Model {
 }
 
 export class ListAllMediaBucketResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAllMediaBucketResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAllMediaBucketResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1926,6 +2340,195 @@ export class ListAllMediaBucketResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAllMediaBucketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomEntitiesRequest extends $tea.Model {
+  algorithm?: string;
+  customGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      customGroupId: 'CustomGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      customGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomEntitiesResponseBody extends $tea.Model {
+  customEntities?: ListCustomEntitiesResponseBodyCustomEntities;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      customEntities: 'CustomEntities',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customEntities: ListCustomEntitiesResponseBodyCustomEntities,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomEntitiesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomEntitiesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomEntitiesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomGroupsRequest extends $tea.Model {
+  algorithm?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomGroupsResponseBody extends $tea.Model {
+  customGroups?: ListCustomGroupsResponseBodyCustomGroups;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      customGroups: 'CustomGroups',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customGroups: ListCustomGroupsResponseBodyCustomGroups,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomGroupsResponseBody,
     };
   }
 
@@ -1991,9 +2594,9 @@ export class ListCustomPersonsResponseBody extends $tea.Model {
 }
 
 export class ListCustomPersonsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCustomPersonsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomPersonsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2007,6 +2610,105 @@ export class ListCustomPersonsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCustomPersonsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomViewsRequest extends $tea.Model {
+  algorithm?: string;
+  customEntityId?: string;
+  customGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      customEntityId: 'CustomEntityId',
+      customGroupId: 'CustomGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      customEntityId: 'string',
+      customGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomViewsResponseBody extends $tea.Model {
+  customViews?: ListCustomViewsResponseBodyCustomViews;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      customViews: 'CustomViews',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customViews: ListCustomViewsResponseBodyCustomViews,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomViewsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomViewsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomViewsResponseBody,
     };
   }
 
@@ -2072,9 +2774,9 @@ export class ListFpShotDBResponseBody extends $tea.Model {
 }
 
 export class ListFpShotDBResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFpShotDBResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFpShotDBResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2097,6 +2799,7 @@ export class ListFpShotDBResponse extends $tea.Model {
 }
 
 export class ListFpShotFilesRequest extends $tea.Model {
+  endTime?: string;
   fpDBId?: string;
   nextPageToken?: string;
   ownerAccount?: string;
@@ -2104,8 +2807,10 @@ export class ListFpShotFilesRequest extends $tea.Model {
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       fpDBId: 'FpDBId',
       nextPageToken: 'NextPageToken',
       ownerAccount: 'OwnerAccount',
@@ -2113,11 +2818,13 @@ export class ListFpShotFilesRequest extends $tea.Model {
       pageSize: 'PageSize',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'string',
       fpDBId: 'string',
       nextPageToken: 'string',
       ownerAccount: 'string',
@@ -2125,6 +2832,7 @@ export class ListFpShotFilesRequest extends $tea.Model {
       pageSize: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      startTime: 'string',
     };
   }
 
@@ -2159,9 +2867,9 @@ export class ListFpShotFilesResponseBody extends $tea.Model {
 }
 
 export class ListFpShotFilesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFpShotFilesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFpShotFilesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2240,9 +2948,9 @@ export class ListFpShotImportJobResponseBody extends $tea.Model {
 }
 
 export class ListFpShotImportJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFpShotImportJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFpShotImportJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2336,9 +3044,9 @@ export class ListJobResponseBody extends $tea.Model {
 }
 
 export class ListJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2429,9 +3137,9 @@ export class ListMediaWorkflowExecutionsResponseBody extends $tea.Model {
 }
 
 export class ListMediaWorkflowExecutionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListMediaWorkflowExecutionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMediaWorkflowExecutionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2510,9 +3218,9 @@ export class QueryAnalysisJobListResponseBody extends $tea.Model {
 }
 
 export class QueryAnalysisJobListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAnalysisJobListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAnalysisJobListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2526,87 +3234,6 @@ export class QueryAnalysisJobListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryAnalysisJobListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListRequest extends $tea.Model {
-  jobIds?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      jobIds: 'JobIds',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobIds: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBody extends $tea.Model {
-  jobList?: QueryEditingJobListResponseBodyJobList;
-  nonExistJobIds?: QueryEditingJobListResponseBodyNonExistJobIds;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobList: 'JobList',
-      nonExistJobIds: 'NonExistJobIds',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobList: QueryEditingJobListResponseBodyJobList,
-      nonExistJobIds: QueryEditingJobListResponseBodyNonExistJobIds,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryEditingJobListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryEditingJobListResponseBody,
     };
   }
 
@@ -2672,9 +3299,9 @@ export class QueryFpDBDeleteJobListResponseBody extends $tea.Model {
 }
 
 export class QueryFpDBDeleteJobListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFpDBDeleteJobListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFpDBDeleteJobListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2753,9 +3380,9 @@ export class QueryFpFileDeleteJobListResponseBody extends $tea.Model {
 }
 
 export class QueryFpFileDeleteJobListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFpFileDeleteJobListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFpFileDeleteJobListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2778,28 +3405,46 @@ export class QueryFpFileDeleteJobListResponse extends $tea.Model {
 }
 
 export class QueryFpShotJobListRequest extends $tea.Model {
+  endOfJobCreatedTimeRange?: string;
   jobIds?: string;
+  maximumPageSize?: number;
+  nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  startOfJobCreatedTimeRange?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
+      endOfJobCreatedTimeRange: 'EndOfJobCreatedTimeRange',
       jobIds: 'JobIds',
+      maximumPageSize: 'MaximumPageSize',
+      nextPageToken: 'NextPageToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      pipelineId: 'PipelineId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      startOfJobCreatedTimeRange: 'StartOfJobCreatedTimeRange',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endOfJobCreatedTimeRange: 'string',
       jobIds: 'string',
+      maximumPageSize: 'number',
+      nextPageToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      pipelineId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      startOfJobCreatedTimeRange: 'string',
+      state: 'string',
     };
   }
 
@@ -2810,11 +3455,13 @@ export class QueryFpShotJobListRequest extends $tea.Model {
 
 export class QueryFpShotJobListResponseBody extends $tea.Model {
   fpShotJobList?: QueryFpShotJobListResponseBodyFpShotJobList;
+  nextPageToken?: string;
   nonExistIds?: QueryFpShotJobListResponseBodyNonExistIds;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       fpShotJobList: 'FpShotJobList',
+      nextPageToken: 'NextPageToken',
       nonExistIds: 'NonExistIds',
       requestId: 'RequestId',
     };
@@ -2823,6 +3470,7 @@ export class QueryFpShotJobListResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       fpShotJobList: QueryFpShotJobListResponseBodyFpShotJobList,
+      nextPageToken: 'string',
       nonExistIds: QueryFpShotJobListResponseBodyNonExistIds,
       requestId: 'string',
     };
@@ -2834,9 +3482,9 @@ export class QueryFpShotJobListResponseBody extends $tea.Model {
 }
 
 export class QueryFpShotJobListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFpShotJobListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFpShotJobListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2936,9 +3584,9 @@ export class QueryIProductionJobResponseBody extends $tea.Model {
 }
 
 export class QueryIProductionJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryIProductionJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryIProductionJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3017,9 +3665,9 @@ export class QueryJobListResponseBody extends $tea.Model {
 }
 
 export class QueryJobListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryJobListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryJobListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3101,9 +3749,9 @@ export class QueryMediaCensorJobDetailResponseBody extends $tea.Model {
 }
 
 export class QueryMediaCensorJobDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMediaCensorJobDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMediaCensorJobDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3127,7 +3775,7 @@ export class QueryMediaCensorJobDetailResponse extends $tea.Model {
 
 export class QueryMediaCensorJobListRequest extends $tea.Model {
   endOfJobCreatedTimeRange?: string;
-  jobId?: string;
+  jobIds?: string;
   maximumPageSize?: number;
   nextPageToken?: string;
   ownerAccount?: string;
@@ -3140,7 +3788,7 @@ export class QueryMediaCensorJobListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       endOfJobCreatedTimeRange: 'EndOfJobCreatedTimeRange',
-      jobId: 'JobId',
+      jobIds: 'JobIds',
       maximumPageSize: 'MaximumPageSize',
       nextPageToken: 'NextPageToken',
       ownerAccount: 'OwnerAccount',
@@ -3156,7 +3804,7 @@ export class QueryMediaCensorJobListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endOfJobCreatedTimeRange: 'string',
-      jobId: 'string',
+      jobIds: 'string',
       maximumPageSize: 'number',
       nextPageToken: 'string',
       ownerAccount: 'string',
@@ -3203,9 +3851,9 @@ export class QueryMediaCensorJobListResponseBody extends $tea.Model {
 }
 
 export class QueryMediaCensorJobListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMediaCensorJobListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMediaCensorJobListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3284,9 +3932,9 @@ export class QueryMediaInfoJobListResponseBody extends $tea.Model {
 }
 
 export class QueryMediaInfoJobListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMediaInfoJobListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMediaInfoJobListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3377,9 +4025,9 @@ export class QueryMediaListResponseBody extends $tea.Model {
 }
 
 export class QueryMediaListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMediaListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMediaListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3470,9 +4118,9 @@ export class QueryMediaListByURLResponseBody extends $tea.Model {
 }
 
 export class QueryMediaListByURLResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMediaListByURLResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMediaListByURLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3551,9 +4199,9 @@ export class QueryMediaWorkflowExecutionListResponseBody extends $tea.Model {
 }
 
 export class QueryMediaWorkflowExecutionListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMediaWorkflowExecutionListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMediaWorkflowExecutionListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3632,9 +4280,9 @@ export class QueryMediaWorkflowListResponseBody extends $tea.Model {
 }
 
 export class QueryMediaWorkflowListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMediaWorkflowListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMediaWorkflowListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3713,9 +4361,9 @@ export class QueryPipelineListResponseBody extends $tea.Model {
 }
 
 export class QueryPipelineListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPipelineListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPipelineListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3800,9 +4448,9 @@ export class QuerySmarttagJobResponseBody extends $tea.Model {
 }
 
 export class QuerySmarttagJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySmarttagJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySmarttagJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3878,9 +4526,9 @@ export class QuerySmarttagTemplateListResponseBody extends $tea.Model {
 }
 
 export class QuerySmarttagTemplateListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySmarttagTemplateListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySmarttagTemplateListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3980,9 +4628,9 @@ export class QuerySnapshotJobListResponseBody extends $tea.Model {
 }
 
 export class QuerySnapshotJobListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySnapshotJobListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySnapshotJobListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4061,9 +4709,9 @@ export class QueryTemplateListResponseBody extends $tea.Model {
 }
 
 export class QueryTemplateListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTemplateListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTemplateListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4077,81 +4725,6 @@ export class QueryTemplateListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryTemplateListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryVideoQualityJobRequest extends $tea.Model {
-  jobId?: string;
-  userId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-      userId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryVideoQualityJobResponseBody extends $tea.Model {
-  code?: string;
-  job?: QueryVideoQualityJobResponseBodyJob;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      job: 'Job',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      job: QueryVideoQualityJobResponseBodyJob,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryVideoQualityJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryVideoQualityJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryVideoQualityJobResponseBody,
     };
   }
 
@@ -4217,9 +4790,9 @@ export class QueryWaterMarkTemplateListResponseBody extends $tea.Model {
 }
 
 export class QueryWaterMarkTemplateListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryWaterMarkTemplateListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryWaterMarkTemplateListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4301,9 +4874,9 @@ export class RegisterCustomFaceResponseBody extends $tea.Model {
 }
 
 export class RegisterCustomFaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RegisterCustomFaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RegisterCustomFaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4325,35 +4898,38 @@ export class RegisterCustomFaceResponse extends $tea.Model {
   }
 }
 
-export class ReportFpShotJobResultRequest extends $tea.Model {
-  details?: string;
-  jobId?: string;
+export class RegisterCustomViewRequest extends $tea.Model {
+  algorithm?: string;
+  customEntityId?: string;
+  customGroupId?: string;
+  imageUrl?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  result?: string;
   static names(): { [key: string]: string } {
     return {
-      details: 'Details',
-      jobId: 'JobId',
+      algorithm: 'Algorithm',
+      customEntityId: 'CustomEntityId',
+      customGroupId: 'CustomGroupId',
+      imageUrl: 'ImageUrl',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      details: 'string',
-      jobId: 'string',
+      algorithm: 'string',
+      customEntityId: 'string',
+      customGroupId: 'string',
+      imageUrl: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      result: 'string',
     };
   }
 
@@ -4362,19 +4938,19 @@ export class ReportFpShotJobResultRequest extends $tea.Model {
   }
 }
 
-export class ReportFpShotJobResultResponseBody extends $tea.Model {
-  jobId?: string;
+export class RegisterCustomViewResponseBody extends $tea.Model {
+  customViewId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
+      customViewId: 'CustomViewId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
+      customViewId: 'string',
       requestId: 'string',
     };
   }
@@ -4384,10 +4960,10 @@ export class ReportFpShotJobResultResponseBody extends $tea.Model {
   }
 }
 
-export class ReportFpShotJobResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReportFpShotJobResultResponseBody;
+export class RegisterCustomViewResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RegisterCustomViewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4400,7 +4976,7 @@ export class ReportFpShotJobResultResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: ReportFpShotJobResultResponseBody,
+      body: RegisterCustomViewResponseBody,
     };
   }
 
@@ -4478,9 +5054,9 @@ export class SearchMediaWorkflowResponseBody extends $tea.Model {
 }
 
 export class SearchMediaWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchMediaWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchMediaWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4571,9 +5147,9 @@ export class SearchPipelineResponseBody extends $tea.Model {
 }
 
 export class SearchPipelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchPipelineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchPipelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4596,6 +5172,7 @@ export class SearchPipelineResponse extends $tea.Model {
 }
 
 export class SearchTemplateRequest extends $tea.Model {
+  namePrefix?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -4605,6 +5182,7 @@ export class SearchTemplateRequest extends $tea.Model {
   state?: string;
   static names(): { [key: string]: string } {
     return {
+      namePrefix: 'NamePrefix',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -4617,6 +5195,7 @@ export class SearchTemplateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      namePrefix: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -4664,9 +5243,9 @@ export class SearchTemplateResponseBody extends $tea.Model {
 }
 
 export class SearchTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4757,9 +5336,9 @@ export class SearchWaterMarkTemplateResponseBody extends $tea.Model {
 }
 
 export class SearchWaterMarkTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchWaterMarkTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchWaterMarkTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4847,9 +5426,9 @@ export class SubmitAnalysisJobResponseBody extends $tea.Model {
 }
 
 export class SubmitAnalysisJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitAnalysisJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitAnalysisJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4863,105 +5442,6 @@ export class SubmitAnalysisJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitAnalysisJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsRequest extends $tea.Model {
-  editingInputs?: string;
-  editingJobOssFileRoleArn?: string;
-  editingJobOssFileUid?: number;
-  editingJobOutputs?: string;
-  editingJobURL?: string;
-  outputBucket?: string;
-  outputLocation?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  pipelineId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      editingInputs: 'EditingInputs',
-      editingJobOssFileRoleArn: 'EditingJobOssFileRoleArn',
-      editingJobOssFileUid: 'EditingJobOssFileUid',
-      editingJobOutputs: 'EditingJobOutputs',
-      editingJobURL: 'EditingJobURL',
-      outputBucket: 'OutputBucket',
-      outputLocation: 'OutputLocation',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      pipelineId: 'PipelineId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      editingInputs: 'string',
-      editingJobOssFileRoleArn: 'string',
-      editingJobOssFileUid: 'number',
-      editingJobOutputs: 'string',
-      editingJobURL: 'string',
-      outputBucket: 'string',
-      outputLocation: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      pipelineId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBody extends $tea.Model {
-  jobResultList?: SubmitEditingJobsResponseBodyJobResultList;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobResultList: 'JobResultList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobResultList: SubmitEditingJobsResponseBodyJobResultList,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitEditingJobsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitEditingJobsResponseBody,
     };
   }
 
@@ -5033,9 +5513,9 @@ export class SubmitFpDBDeleteJobResponseBody extends $tea.Model {
 }
 
 export class SubmitFpDBDeleteJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitFpDBDeleteJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitFpDBDeleteJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5063,6 +5543,7 @@ export class SubmitFpFileDeleteJobRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   pipelineId?: string;
+  primaryKeys?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   userData?: string;
@@ -5073,6 +5554,7 @@ export class SubmitFpFileDeleteJobRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pipelineId: 'PipelineId',
+      primaryKeys: 'PrimaryKeys',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       userData: 'UserData',
@@ -5086,6 +5568,7 @@ export class SubmitFpFileDeleteJobRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       pipelineId: 'string',
+      primaryKeys: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       userData: 'string',
@@ -5120,9 +5603,9 @@ export class SubmitFpFileDeleteJobResponseBody extends $tea.Model {
 }
 
 export class SubmitFpFileDeleteJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitFpFileDeleteJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitFpFileDeleteJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5207,9 +5690,9 @@ export class SubmitFpShotJobResponseBody extends $tea.Model {
 }
 
 export class SubmitFpShotJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitFpShotJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitFpShotJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5312,9 +5795,9 @@ export class SubmitIProductionJobResponseBody extends $tea.Model {
 }
 
 export class SubmitIProductionJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitIProductionJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitIProductionJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5402,9 +5885,9 @@ export class SubmitJobsResponseBody extends $tea.Model {
 }
 
 export class SubmitJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5504,9 +5987,9 @@ export class SubmitMediaCensorJobResponseBody extends $tea.Model {
 }
 
 export class SubmitMediaCensorJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitMediaCensorJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitMediaCensorJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5591,9 +6074,9 @@ export class SubmitMediaInfoJobResponseBody extends $tea.Model {
 }
 
 export class SubmitMediaInfoJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitMediaInfoJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitMediaInfoJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5625,6 +6108,7 @@ export class SubmitSmarttagJobRequest extends $tea.Model {
   ownerId?: number;
   params?: string;
   pipelineId?: string;
+  priority?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   templateId?: string;
@@ -5641,6 +6125,7 @@ export class SubmitSmarttagJobRequest extends $tea.Model {
       ownerId: 'OwnerId',
       params: 'Params',
       pipelineId: 'PipelineId',
+      priority: 'Priority',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       templateId: 'TemplateId',
@@ -5660,6 +6145,7 @@ export class SubmitSmarttagJobRequest extends $tea.Model {
       ownerId: 'number',
       params: 'string',
       pipelineId: 'string',
+      priority: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       templateId: 'string',
@@ -5696,9 +6182,9 @@ export class SubmitSmarttagJobResponseBody extends $tea.Model {
 }
 
 export class SubmitSmarttagJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitSmarttagJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitSmarttagJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5783,9 +6269,9 @@ export class SubmitSnapshotJobResponseBody extends $tea.Model {
 }
 
 export class SubmitSnapshotJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitSnapshotJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitSnapshotJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5799,105 +6285,6 @@ export class SubmitSnapshotJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitSnapshotJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitVideoQualityJobRequest extends $tea.Model {
-  input?: string;
-  jobParams?: string;
-  modelId?: string;
-  notifyUrl?: string;
-  output?: string;
-  pipelineId?: string;
-  scheduleParams?: string;
-  sourceType?: string;
-  userData?: string;
-  userId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      input: 'Input',
-      jobParams: 'JobParams',
-      modelId: 'ModelId',
-      notifyUrl: 'NotifyUrl',
-      output: 'Output',
-      pipelineId: 'PipelineId',
-      scheduleParams: 'ScheduleParams',
-      sourceType: 'SourceType',
-      userData: 'UserData',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      input: 'string',
-      jobParams: 'string',
-      modelId: 'string',
-      notifyUrl: 'string',
-      output: 'string',
-      pipelineId: 'string',
-      scheduleParams: 'string',
-      sourceType: 'string',
-      userData: 'string',
-      userId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitVideoQualityJobResponseBody extends $tea.Model {
-  code?: string;
-  jobId?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      jobId: 'JobId',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      jobId: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitVideoQualityJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitVideoQualityJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitVideoQualityJobResponseBody,
     };
   }
 
@@ -5972,9 +6359,9 @@ export class TagCustomPersonResponseBody extends $tea.Model {
 }
 
 export class TagCustomPersonResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagCustomPersonResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagCustomPersonResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6050,9 +6437,9 @@ export class UnbindInputBucketResponseBody extends $tea.Model {
 }
 
 export class UnbindInputBucketResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindInputBucketResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindInputBucketResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6125,9 +6512,9 @@ export class UnbindOutputBucketResponseBody extends $tea.Model {
 }
 
 export class UnbindOutputBucketResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindOutputBucketResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindOutputBucketResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6206,9 +6593,9 @@ export class UnregisterCustomFaceResponseBody extends $tea.Model {
 }
 
 export class UnregisterCustomFaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnregisterCustomFaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnregisterCustomFaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6299,9 +6686,9 @@ export class UpdateMediaResponseBody extends $tea.Model {
 }
 
 export class UpdateMediaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateMediaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6377,9 +6764,9 @@ export class UpdateMediaCategoryResponseBody extends $tea.Model {
 }
 
 export class UpdateMediaCategoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateMediaCategoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaCategoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6455,9 +6842,9 @@ export class UpdateMediaCoverResponseBody extends $tea.Model {
 }
 
 export class UpdateMediaCoverResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateMediaCoverResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaCoverResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6533,9 +6920,9 @@ export class UpdateMediaPublishStateResponseBody extends $tea.Model {
 }
 
 export class UpdateMediaPublishStateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateMediaPublishStateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaPublishStateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6559,30 +6946,36 @@ export class UpdateMediaPublishStateResponse extends $tea.Model {
 
 export class UpdateMediaWorkflowRequest extends $tea.Model {
   mediaWorkflowId?: string;
+  name?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   topology?: string;
+  triggerMode?: string;
   static names(): { [key: string]: string } {
     return {
       mediaWorkflowId: 'MediaWorkflowId',
+      name: 'Name',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       topology: 'Topology',
+      triggerMode: 'TriggerMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       mediaWorkflowId: 'string',
+      name: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       topology: 'string',
+      triggerMode: 'string',
     };
   }
 
@@ -6614,9 +7007,9 @@ export class UpdateMediaWorkflowResponseBody extends $tea.Model {
 }
 
 export class UpdateMediaWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateMediaWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6695,9 +7088,9 @@ export class UpdateMediaWorkflowTriggerModeResponseBody extends $tea.Model {
 }
 
 export class UpdateMediaWorkflowTriggerModeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateMediaWorkflowTriggerModeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaWorkflowTriggerModeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6720,6 +7113,7 @@ export class UpdateMediaWorkflowTriggerModeResponse extends $tea.Model {
 }
 
 export class UpdatePipelineRequest extends $tea.Model {
+  extendConfig?: string;
   name?: string;
   notifyConfig?: string;
   ownerAccount?: string;
@@ -6731,6 +7125,7 @@ export class UpdatePipelineRequest extends $tea.Model {
   state?: string;
   static names(): { [key: string]: string } {
     return {
+      extendConfig: 'ExtendConfig',
       name: 'Name',
       notifyConfig: 'NotifyConfig',
       ownerAccount: 'OwnerAccount',
@@ -6745,6 +7140,7 @@ export class UpdatePipelineRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      extendConfig: 'string',
       name: 'string',
       notifyConfig: 'string',
       ownerAccount: 'string',
@@ -6785,9 +7181,9 @@ export class UpdatePipelineResponseBody extends $tea.Model {
 }
 
 export class UpdatePipelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePipelineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePipelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6819,6 +7215,8 @@ export class UpdateSmarttagTemplateRequest extends $tea.Model {
   knowledgeConfig?: string;
   labelType?: string;
   labelVersion?: string;
+  landmarkGroupIds?: string;
+  objectGroupIds?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -6837,6 +7235,8 @@ export class UpdateSmarttagTemplateRequest extends $tea.Model {
       knowledgeConfig: 'KnowledgeConfig',
       labelType: 'LabelType',
       labelVersion: 'LabelVersion',
+      landmarkGroupIds: 'LandmarkGroupIds',
+      objectGroupIds: 'ObjectGroupIds',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -6858,6 +7258,8 @@ export class UpdateSmarttagTemplateRequest extends $tea.Model {
       knowledgeConfig: 'string',
       labelType: 'string',
       labelVersion: 'string',
+      landmarkGroupIds: 'string',
+      objectGroupIds: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -6893,9 +7295,9 @@ export class UpdateSmarttagTemplateResponseBody extends $tea.Model {
 }
 
 export class UpdateSmarttagTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSmarttagTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSmarttagTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6989,9 +7391,9 @@ export class UpdateTemplateResponseBody extends $tea.Model {
 }
 
 export class UpdateTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7073,9 +7475,9 @@ export class UpdateWaterMarkTemplateResponseBody extends $tea.Model {
 }
 
 export class UpdateWaterMarkTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateWaterMarkTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateWaterMarkTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7361,19 +7763,31 @@ export class AddPipelineResponseBodyPipeline extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplateAudioVolume extends $tea.Model {
+  integratedLoudnessTarget?: string;
   level?: string;
+  loudnessRangeTarget?: string;
   method?: string;
+  peakLevel?: string;
+  truePeak?: string;
   static names(): { [key: string]: string } {
     return {
+      integratedLoudnessTarget: 'IntegratedLoudnessTarget',
       level: 'Level',
+      loudnessRangeTarget: 'LoudnessRangeTarget',
       method: 'Method',
+      peakLevel: 'PeakLevel',
+      truePeak: 'TruePeak',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      integratedLoudnessTarget: 'string',
       level: 'string',
+      loudnessRangeTarget: 'string',
       method: 'string',
+      peakLevel: 'string',
+      truePeak: 'string',
     };
   }
 
@@ -7594,6 +8008,31 @@ export class AddTemplateResponseBodyTemplateVideoBitrateBnd extends $tea.Model {
   }
 }
 
+export class AddTemplateResponseBodyTemplateVideoNarrowBand extends $tea.Model {
+  abrmax?: number;
+  maxAbrRatio?: number;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abrmax: 'Abrmax',
+      maxAbrRatio: 'MaxAbrRatio',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abrmax: 'number',
+      maxAbrRatio: 'number',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddTemplateResponseBodyTemplateVideo extends $tea.Model {
   bitrate?: string;
   bitrateBnd?: AddTemplateResponseBodyTemplateVideoBitrateBnd;
@@ -7604,10 +8043,12 @@ export class AddTemplateResponseBodyTemplateVideo extends $tea.Model {
   degrain?: string;
   fps?: string;
   gop?: string;
+  hdr2sdr?: string;
   height?: string;
   longShortMode?: string;
   maxFps?: string;
   maxrate?: string;
+  narrowBand?: AddTemplateResponseBodyTemplateVideoNarrowBand;
   pad?: string;
   pixFmt?: string;
   preset?: string;
@@ -7628,10 +8069,12 @@ export class AddTemplateResponseBodyTemplateVideo extends $tea.Model {
       degrain: 'Degrain',
       fps: 'Fps',
       gop: 'Gop',
+      hdr2sdr: 'Hdr2sdr',
       height: 'Height',
       longShortMode: 'LongShortMode',
       maxFps: 'MaxFps',
       maxrate: 'Maxrate',
+      narrowBand: 'NarrowBand',
       pad: 'Pad',
       pixFmt: 'PixFmt',
       preset: 'Preset',
@@ -7655,10 +8098,12 @@ export class AddTemplateResponseBodyTemplateVideo extends $tea.Model {
       degrain: 'string',
       fps: 'string',
       gop: 'string',
+      hdr2sdr: 'string',
       height: 'string',
       longShortMode: 'string',
       maxFps: 'string',
       maxrate: 'string',
+      narrowBand: AddTemplateResponseBodyTemplateVideoNarrowBand,
       pad: 'string',
       pixFmt: 'string',
       preset: 'string',
@@ -7911,17 +8356,223 @@ export class DeleteMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
   }
 }
 
+export class ImAuditResponseBodyImageResultsResultResultsFrames extends $tea.Model {
+  rate?: number;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rate: 'rate',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rate: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImAuditResponseBodyImageResultsResultResultsHintWordsInfo extends $tea.Model {
+  context?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImAuditResponseBodyImageResultsResultResultsLogoData extends $tea.Model {
+  h?: number;
+  name?: string;
+  type?: string;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'h',
+      name: 'name',
+      type: 'type',
+      w: 'w',
+      x: 'x',
+      y: 'y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      name: 'string',
+      type: 'string',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImAuditResponseBodyImageResultsResultResultsProgramCodeData extends $tea.Model {
+  h?: number;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'h',
+      w: 'w',
+      x: 'x',
+      y: 'y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImAuditResponseBodyImageResultsResultResultsQrcodeLocations extends $tea.Model {
+  h?: number;
+  qrcode?: string;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'h',
+      qrcode: 'qrcode',
+      w: 'w',
+      x: 'x',
+      y: 'y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      qrcode: 'string',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImAuditResponseBodyImageResultsResultResultsSfaceDataFaces extends $tea.Model {
+  idid?: string;
+  name?: string;
+  re?: number;
+  static names(): { [key: string]: string } {
+    return {
+      idid: 'idid',
+      name: 'name',
+      re: 're',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idid: 'string',
+      name: 'string',
+      re: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImAuditResponseBodyImageResultsResultResultsSfaceData extends $tea.Model {
+  faces?: ImAuditResponseBodyImageResultsResultResultsSfaceDataFaces[];
+  h?: number;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      faces: 'faces',
+      h: 'h',
+      w: 'w',
+      x: 'x',
+      y: 'y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faces: { 'type': 'array', 'itemType': ImAuditResponseBodyImageResultsResultResultsSfaceDataFaces },
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImAuditResponseBodyImageResultsResultResults extends $tea.Model {
   label?: string;
   rate?: number;
   scene?: string;
   suggestion?: string;
+  frames?: ImAuditResponseBodyImageResultsResultResultsFrames[];
+  hintWordsInfo?: ImAuditResponseBodyImageResultsResultResultsHintWordsInfo[];
+  logoData?: ImAuditResponseBodyImageResultsResultResultsLogoData[];
+  ocrData?: string[];
+  programCodeData?: ImAuditResponseBodyImageResultsResultResultsProgramCodeData[];
+  qrcodeData?: string[];
+  qrcodeLocations?: ImAuditResponseBodyImageResultsResultResultsQrcodeLocations[];
+  sfaceData?: ImAuditResponseBodyImageResultsResultResultsSfaceData[];
   static names(): { [key: string]: string } {
     return {
       label: 'Label',
       rate: 'Rate',
       scene: 'Scene',
       suggestion: 'Suggestion',
+      frames: 'frames',
+      hintWordsInfo: 'hintWordsInfo',
+      logoData: 'logoData',
+      ocrData: 'ocrData',
+      programCodeData: 'programCodeData',
+      qrcodeData: 'qrcodeData',
+      qrcodeLocations: 'qrcodeLocations',
+      sfaceData: 'sfaceData',
     };
   }
 
@@ -7931,6 +8582,14 @@ export class ImAuditResponseBodyImageResultsResultResults extends $tea.Model {
       rate: 'number',
       scene: 'string',
       suggestion: 'string',
+      frames: { 'type': 'array', 'itemType': ImAuditResponseBodyImageResultsResultResultsFrames },
+      hintWordsInfo: { 'type': 'array', 'itemType': ImAuditResponseBodyImageResultsResultResultsHintWordsInfo },
+      logoData: { 'type': 'array', 'itemType': ImAuditResponseBodyImageResultsResultResultsLogoData },
+      ocrData: { 'type': 'array', 'itemType': 'string' },
+      programCodeData: { 'type': 'array', 'itemType': ImAuditResponseBodyImageResultsResultResultsProgramCodeData },
+      qrcodeData: { 'type': 'array', 'itemType': 'string' },
+      qrcodeLocations: { 'type': 'array', 'itemType': ImAuditResponseBodyImageResultsResultResultsQrcodeLocations },
+      sfaceData: { 'type': 'array', 'itemType': ImAuditResponseBodyImageResultsResultResultsSfaceData },
     };
   }
 
@@ -7995,17 +8654,51 @@ export class ImAuditResponseBodyImageResults extends $tea.Model {
   }
 }
 
+export class ImAuditResponseBodyTextResultsResultResultsDetailsContexts extends $tea.Model {
+  context?: string;
+  libCode?: string;
+  libName?: string;
+  positions?: string[];
+  ruleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      libCode: 'libCode',
+      libName: 'libName',
+      positions: 'positions',
+      ruleType: 'ruleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: 'string',
+      libCode: 'string',
+      libName: 'string',
+      positions: { 'type': 'array', 'itemType': 'string' },
+      ruleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImAuditResponseBodyTextResultsResultResultsDetails extends $tea.Model {
   label?: string;
+  contexts?: ImAuditResponseBodyTextResultsResultResultsDetailsContexts[];
   static names(): { [key: string]: string } {
     return {
       label: 'Label',
+      contexts: 'contexts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       label: 'string',
+      contexts: { 'type': 'array', 'itemType': ImAuditResponseBodyTextResultsResultResultsDetailsContexts },
     };
   }
 
@@ -8134,6 +8827,94 @@ export class ListAllMediaBucketResponseBodyMediaBucketList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       mediaBucket: { 'type': 'array', 'itemType': ListAllMediaBucketResponseBodyMediaBucketListMediaBucket },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomEntitiesResponseBodyCustomEntitiesCustomEntity extends $tea.Model {
+  customEntityId?: string;
+  customEntityInfo?: string;
+  customEntityName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customEntityId: 'CustomEntityId',
+      customEntityInfo: 'CustomEntityInfo',
+      customEntityName: 'CustomEntityName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customEntityId: 'string',
+      customEntityInfo: 'string',
+      customEntityName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomEntitiesResponseBodyCustomEntities extends $tea.Model {
+  customEntity?: ListCustomEntitiesResponseBodyCustomEntitiesCustomEntity[];
+  static names(): { [key: string]: string } {
+    return {
+      customEntity: 'CustomEntity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customEntity: { 'type': 'array', 'itemType': ListCustomEntitiesResponseBodyCustomEntitiesCustomEntity },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomGroupsResponseBodyCustomGroupsCustomGroup extends $tea.Model {
+  customGroupDescription?: string;
+  customGroupId?: string;
+  customGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customGroupDescription: 'CustomGroupDescription',
+      customGroupId: 'CustomGroupId',
+      customGroupName: 'CustomGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customGroupDescription: 'string',
+      customGroupId: 'string',
+      customGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomGroupsResponseBodyCustomGroups extends $tea.Model {
+  customGroup?: ListCustomGroupsResponseBodyCustomGroupsCustomGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      customGroup: 'CustomGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customGroup: { 'type': 'array', 'itemType': ListCustomGroupsResponseBodyCustomGroupsCustomGroup },
     };
   }
 
@@ -8277,6 +9058,47 @@ export class ListCustomPersonsResponseBodyCategories extends $tea.Model {
   }
 }
 
+export class ListCustomViewsResponseBodyCustomViewsCustomView extends $tea.Model {
+  customViewId?: string;
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customViewId: 'CustomViewId',
+      imageUrl: 'ImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customViewId: 'string',
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomViewsResponseBodyCustomViews extends $tea.Model {
+  customView?: ListCustomViewsResponseBodyCustomViewsCustomView[];
+  static names(): { [key: string]: string } {
+    return {
+      customView: 'CustomView',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customView: { 'type': 'array', 'itemType': ListCustomViewsResponseBodyCustomViewsCustomView },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFpShotDBResponseBodyFpShotDBListFpShotDB extends $tea.Model {
   description?: string;
   fpDBId?: string;
@@ -8375,11 +9197,13 @@ export class ListFpShotFilesResponseBodyFpShotFileListFpShotFile extends $tea.Mo
   fileId?: string;
   inputFile?: ListFpShotFilesResponseBodyFpShotFileListFpShotFileInputFile;
   primaryKey?: string;
+  storeTime?: string;
   static names(): { [key: string]: string } {
     return {
       fileId: 'FileId',
       inputFile: 'InputFile',
       primaryKey: 'PrimaryKey',
+      storeTime: 'StoreTime',
     };
   }
 
@@ -8388,6 +9212,7 @@ export class ListFpShotFilesResponseBodyFpShotFileListFpShotFile extends $tea.Mo
       fileId: 'string',
       inputFile: ListFpShotFilesResponseBodyFpShotFileListFpShotFileInputFile,
       primaryKey: 'string',
+      storeTime: 'string',
     };
   }
 
@@ -10661,1785 +11486,6 @@ export class QueryAnalysisJobListResponseBodyNonExistAnalysisJobIds extends $tea
   }
 }
 
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigAudioVolume extends $tea.Model {
-  level?: string;
-  method?: string;
-  static names(): { [key: string]: string } {
-    return {
-      level: 'Level',
-      method: 'Method',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      level: 'string',
-      method: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigAudio extends $tea.Model {
-  bitrate?: string;
-  channels?: string;
-  codec?: string;
-  profile?: string;
-  qscale?: string;
-  samplerate?: string;
-  volume?: QueryEditingJobListResponseBodyJobListJobEditingConfigAudioVolume;
-  static names(): { [key: string]: string } {
-    return {
-      bitrate: 'Bitrate',
-      channels: 'Channels',
-      codec: 'Codec',
-      profile: 'Profile',
-      qscale: 'Qscale',
-      samplerate: 'Samplerate',
-      volume: 'Volume',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bitrate: 'string',
-      channels: 'string',
-      codec: 'string',
-      profile: 'string',
-      qscale: 'string',
-      samplerate: 'string',
-      volume: QueryEditingJobListResponseBodyJobListJobEditingConfigAudioVolume,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigClipTimeSpan extends $tea.Model {
-  duration?: string;
-  seek?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      seek: 'Seek',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'string',
-      seek: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigClip extends $tea.Model {
-  timeSpan?: QueryEditingJobListResponseBodyJobListJobEditingConfigClipTimeSpan;
-  static names(): { [key: string]: string } {
-    return {
-      timeSpan: 'TimeSpan',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timeSpan: QueryEditingJobListResponseBodyJobListJobEditingConfigClipTimeSpan,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigContainer extends $tea.Model {
-  format?: string;
-  static names(): { [key: string]: string } {
-    return {
-      format: 'Format',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      format: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigDigiWaterMarkInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigDigiWaterMark extends $tea.Model {
-  alpha?: string;
-  inputFile?: QueryEditingJobListResponseBodyJobListJobEditingConfigDigiWaterMarkInputFile;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alpha: 'Alpha',
-      inputFile: 'InputFile',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alpha: 'string',
-      inputFile: QueryEditingJobListResponseBodyJobListJobEditingConfigDigiWaterMarkInputFile,
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipListClipEffectsEffect extends $tea.Model {
-  effect?: string;
-  effectConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      effect: 'Effect',
-      effectConfig: 'EffectConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effect: 'string',
-      effectConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipListClipEffects extends $tea.Model {
-  effect?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipListClipEffectsEffect[];
-  static names(): { [key: string]: string } {
-    return {
-      effect: 'Effect',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effect: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipListClipEffectsEffect },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipListClip extends $tea.Model {
-  effects?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipListClipEffects;
-  id?: string;
-  in?: string;
-  out?: string;
-  sourceID?: string;
-  sourceStrmMap?: string;
-  sourceType?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      effects: 'Effects',
-      id: 'Id',
-      in: 'In',
-      out: 'Out',
-      sourceID: 'SourceID',
-      sourceStrmMap: 'SourceStrmMap',
-      sourceType: 'SourceType',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effects: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipListClipEffects,
-      id: 'string',
-      in: 'string',
-      out: 'string',
-      sourceID: 'string',
-      sourceStrmMap: 'string',
-      sourceType: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipList extends $tea.Model {
-  clip?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipListClip[];
-  static names(): { [key: string]: string } {
-    return {
-      clip: 'Clip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clip: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipListClip },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio extends $tea.Model {
-  channelLayout?: string;
-  channels?: string;
-  samplerate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      channelLayout: 'ChannelLayout',
-      channels: 'Channels',
-      samplerate: 'Samplerate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channelLayout: 'string',
-      channels: 'string',
-      samplerate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo extends $tea.Model {
-  bgColor?: string;
-  fps?: string;
-  height?: string;
-  isGpuData?: string;
-  isOneTrackData?: string;
-  reclosePrec?: string;
-  renderRatio?: string;
-  width?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bgColor: 'BgColor',
-      fps: 'Fps',
-      height: 'Height',
-      isGpuData: 'IsGpuData',
-      isOneTrackData: 'IsOneTrackData',
-      reclosePrec: 'ReclosePrec',
-      renderRatio: 'RenderRatio',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bgColor: 'string',
-      fps: 'string',
-      height: 'string',
-      isGpuData: 'string',
-      isOneTrackData: 'string',
-      reclosePrec: 'string',
-      renderRatio: 'string',
-      width: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTimelineConfig extends $tea.Model {
-  timelineConfigAudio?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio;
-  timelineConfigVideo?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo;
-  static names(): { [key: string]: string } {
-    return {
-      timelineConfigAudio: 'TimelineConfigAudio',
-      timelineConfigVideo: 'TimelineConfigVideo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timelineConfigAudio: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio,
-      timelineConfigVideo: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo extends $tea.Model {
-  l?: string;
-  t?: string;
-  static names(): { [key: string]: string } {
-    return {
-      l: 'L',
-      t: 'T',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      l: 'string',
-      t: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig extends $tea.Model {
-  clipsConfigVideo?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo;
-  static names(): { [key: string]: string } {
-    return {
-      clipsConfigVideo: 'ClipsConfigVideo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipsConfigVideo: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClipsClip extends $tea.Model {
-  clipsConfig?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig;
-  in?: string;
-  out?: string;
-  clipID?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clipsConfig: 'ClipsConfig',
-      in: 'In',
-      out: 'Out',
-      clipID: 'clipID',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipsConfig: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig,
-      in: 'string',
-      out: 'string',
-      clipID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClips extends $tea.Model {
-  clip?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClipsClip[];
-  static names(): { [key: string]: string } {
-    return {
-      clip: 'Clip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clip: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClipsClip },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrack extends $tea.Model {
-  clips?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClips;
-  id?: string;
-  order?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clips: 'Clips',
-      id: 'Id',
-      order: 'Order',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clips: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrackClips,
-      id: 'string',
-      order: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackList extends $tea.Model {
-  track?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrack[];
-  static names(): { [key: string]: string } {
-    return {
-      track: 'Track',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      track: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackListTrack },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimeline extends $tea.Model {
-  timelineConfig?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTimelineConfig;
-  trackList?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackList;
-  static names(): { [key: string]: string } {
-    return {
-      timelineConfig: 'TimelineConfig',
-      trackList: 'TrackList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timelineConfig: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTimelineConfig,
-      trackList: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimelineTrackList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEditing extends $tea.Model {
-  clipList?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipList;
-  timeline?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimeline;
-  static names(): { [key: string]: string } {
-    return {
-      clipList: 'ClipList',
-      timeline: 'Timeline',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipList: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingClipList,
-      timeline: QueryEditingJobListResponseBodyJobListJobEditingConfigEditingTimeline,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigEncryption extends $tea.Model {
-  id?: string;
-  key?: string;
-  keyType?: string;
-  keyUri?: string;
-  skipCnt?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      key: 'Key',
-      keyType: 'KeyType',
-      keyUri: 'KeyUri',
-      skipCnt: 'SkipCnt',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      key: 'string',
-      keyType: 'string',
-      keyUri: 'string',
-      skipCnt: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigM3U8NonStandardSupportTS extends $tea.Model {
-  md5Support?: boolean;
-  sizeSupport?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      md5Support: 'Md5Support',
-      sizeSupport: 'SizeSupport',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      md5Support: 'boolean',
-      sizeSupport: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigM3U8NonStandardSupport extends $tea.Model {
-  TS?: QueryEditingJobListResponseBodyJobListJobEditingConfigM3U8NonStandardSupportTS;
-  static names(): { [key: string]: string } {
-    return {
-      TS: 'TS',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      TS: QueryEditingJobListResponseBodyJobListJobEditingConfigM3U8NonStandardSupportTS,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigMergeListMerge extends $tea.Model {
-  duration?: string;
-  mergeURL?: string;
-  roleArn?: string;
-  start?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      mergeURL: 'MergeURL',
-      roleArn: 'RoleArn',
-      start: 'Start',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'string',
-      mergeURL: 'string',
-      roleArn: 'string',
-      start: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigMergeList extends $tea.Model {
-  merge?: QueryEditingJobListResponseBodyJobListJobEditingConfigMergeListMerge[];
-  static names(): { [key: string]: string } {
-    return {
-      merge: 'Merge',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      merge: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingConfigMergeListMerge },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigMuxConfigGif extends $tea.Model {
-  ditherMode?: string;
-  finalDelay?: string;
-  isCustomPalette?: string;
-  loop?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ditherMode: 'DitherMode',
-      finalDelay: 'FinalDelay',
-      isCustomPalette: 'IsCustomPalette',
-      loop: 'Loop',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ditherMode: 'string',
-      finalDelay: 'string',
-      isCustomPalette: 'string',
-      loop: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigMuxConfigSegment extends $tea.Model {
-  duration?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigMuxConfig extends $tea.Model {
-  gif?: QueryEditingJobListResponseBodyJobListJobEditingConfigMuxConfigGif;
-  segment?: QueryEditingJobListResponseBodyJobListJobEditingConfigMuxConfigSegment;
-  static names(): { [key: string]: string } {
-    return {
-      gif: 'Gif',
-      segment: 'Segment',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gif: QueryEditingJobListResponseBodyJobListJobEditingConfigMuxConfigGif,
-      segment: QueryEditingJobListResponseBodyJobListJobEditingConfigMuxConfigSegment,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigOutputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  roleArn?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-      roleArn: 'RoleArn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-      roleArn: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesFormat extends $tea.Model {
-  bitrate?: string;
-  duration?: string;
-  formatLongName?: string;
-  formatName?: string;
-  numPrograms?: string;
-  numStreams?: string;
-  size?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bitrate: 'Bitrate',
-      duration: 'Duration',
-      formatLongName: 'FormatLongName',
-      formatName: 'FormatName',
-      numPrograms: 'NumPrograms',
-      numStreams: 'NumStreams',
-      size: 'Size',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bitrate: 'string',
-      duration: 'string',
-      formatLongName: 'string',
-      formatName: 'string',
-      numPrograms: 'string',
-      numStreams: 'string',
-      size: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsAudioStreamListAudioStream extends $tea.Model {
-  bitrate?: string;
-  channelLayout?: string;
-  channels?: string;
-  codecLongName?: string;
-  codecName?: string;
-  codecTag?: string;
-  codecTagString?: string;
-  codecTimeBase?: string;
-  duration?: string;
-  index?: string;
-  lang?: string;
-  numFrames?: string;
-  sampleFmt?: string;
-  samplerate?: string;
-  startTime?: string;
-  timebase?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bitrate: 'Bitrate',
-      channelLayout: 'ChannelLayout',
-      channels: 'Channels',
-      codecLongName: 'CodecLongName',
-      codecName: 'CodecName',
-      codecTag: 'CodecTag',
-      codecTagString: 'CodecTagString',
-      codecTimeBase: 'CodecTimeBase',
-      duration: 'Duration',
-      index: 'Index',
-      lang: 'Lang',
-      numFrames: 'NumFrames',
-      sampleFmt: 'SampleFmt',
-      samplerate: 'Samplerate',
-      startTime: 'StartTime',
-      timebase: 'Timebase',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bitrate: 'string',
-      channelLayout: 'string',
-      channels: 'string',
-      codecLongName: 'string',
-      codecName: 'string',
-      codecTag: 'string',
-      codecTagString: 'string',
-      codecTimeBase: 'string',
-      duration: 'string',
-      index: 'string',
-      lang: 'string',
-      numFrames: 'string',
-      sampleFmt: 'string',
-      samplerate: 'string',
-      startTime: 'string',
-      timebase: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsAudioStreamList extends $tea.Model {
-  audioStream?: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsAudioStreamListAudioStream[];
-  static names(): { [key: string]: string } {
-    return {
-      audioStream: 'AudioStream',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      audioStream: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsAudioStreamListAudioStream },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsSubtitleStreamListSubtitleStream extends $tea.Model {
-  index?: string;
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      index: 'Index',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      index: 'string',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsSubtitleStreamList extends $tea.Model {
-  subtitleStream?: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsSubtitleStreamListSubtitleStream[];
-  static names(): { [key: string]: string } {
-    return {
-      subtitleStream: 'SubtitleStream',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subtitleStream: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsSubtitleStreamListSubtitleStream },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
-  avgBitrate?: string;
-  costBandwidth?: string;
-  preloadTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      avgBitrate: 'AvgBitrate',
-      costBandwidth: 'CostBandwidth',
-      preloadTime: 'PreloadTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      avgBitrate: 'string',
-      costBandwidth: 'string',
-      preloadTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsVideoStreamListVideoStream extends $tea.Model {
-  avgFPS?: string;
-  bitrate?: string;
-  codecLongName?: string;
-  codecName?: string;
-  codecTag?: string;
-  codecTagString?: string;
-  codecTimeBase?: string;
-  dar?: string;
-  duration?: string;
-  fps?: string;
-  hasBFrames?: string;
-  height?: string;
-  index?: string;
-  lang?: string;
-  level?: string;
-  networkCost?: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsVideoStreamListVideoStreamNetworkCost;
-  numFrames?: string;
-  pixFmt?: string;
-  profile?: string;
-  sar?: string;
-  startTime?: string;
-  timebase?: string;
-  width?: string;
-  static names(): { [key: string]: string } {
-    return {
-      avgFPS: 'AvgFPS',
-      bitrate: 'Bitrate',
-      codecLongName: 'CodecLongName',
-      codecName: 'CodecName',
-      codecTag: 'CodecTag',
-      codecTagString: 'CodecTagString',
-      codecTimeBase: 'CodecTimeBase',
-      dar: 'Dar',
-      duration: 'Duration',
-      fps: 'Fps',
-      hasBFrames: 'HasBFrames',
-      height: 'Height',
-      index: 'Index',
-      lang: 'Lang',
-      level: 'Level',
-      networkCost: 'NetworkCost',
-      numFrames: 'NumFrames',
-      pixFmt: 'PixFmt',
-      profile: 'Profile',
-      sar: 'Sar',
-      startTime: 'StartTime',
-      timebase: 'Timebase',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      avgFPS: 'string',
-      bitrate: 'string',
-      codecLongName: 'string',
-      codecName: 'string',
-      codecTag: 'string',
-      codecTagString: 'string',
-      codecTimeBase: 'string',
-      dar: 'string',
-      duration: 'string',
-      fps: 'string',
-      hasBFrames: 'string',
-      height: 'string',
-      index: 'string',
-      lang: 'string',
-      level: 'string',
-      networkCost: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsVideoStreamListVideoStreamNetworkCost,
-      numFrames: 'string',
-      pixFmt: 'string',
-      profile: 'string',
-      sar: 'string',
-      startTime: 'string',
-      timebase: 'string',
-      width: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsVideoStreamList extends $tea.Model {
-  videoStream?: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsVideoStreamListVideoStream[];
-  static names(): { [key: string]: string } {
-    return {
-      videoStream: 'VideoStream',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoStream: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsVideoStreamListVideoStream },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreams extends $tea.Model {
-  audioStreamList?: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsAudioStreamList;
-  subtitleStreamList?: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsSubtitleStreamList;
-  videoStreamList?: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsVideoStreamList;
-  static names(): { [key: string]: string } {
-    return {
-      audioStreamList: 'AudioStreamList',
-      subtitleStreamList: 'SubtitleStreamList',
-      videoStreamList: 'VideoStreamList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      audioStreamList: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsAudioStreamList,
-      subtitleStreamList: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsSubtitleStreamList,
-      videoStreamList: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreamsVideoStreamList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigProperties extends $tea.Model {
-  bitrate?: string;
-  duration?: string;
-  fileFormat?: string;
-  fileSize?: string;
-  format?: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesFormat;
-  fps?: string;
-  height?: string;
-  streams?: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreams;
-  width?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bitrate: 'Bitrate',
-      duration: 'Duration',
-      fileFormat: 'FileFormat',
-      fileSize: 'FileSize',
-      format: 'Format',
-      fps: 'Fps',
-      height: 'Height',
-      streams: 'Streams',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bitrate: 'string',
-      duration: 'string',
-      fileFormat: 'string',
-      fileSize: 'string',
-      format: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesFormat,
-      fps: 'string',
-      height: 'string',
-      streams: QueryEditingJobListResponseBodyJobListJobEditingConfigPropertiesStreams,
-      width: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle extends $tea.Model {
-  charEnc?: string;
-  fontName?: string;
-  input?: QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput;
-  static names(): { [key: string]: string } {
-    return {
-      charEnc: 'CharEnc',
-      fontName: 'FontName',
-      input: 'Input',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      charEnc: 'string',
-      fontName: 'string',
-      input: QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigExtSubtitleList extends $tea.Model {
-  extSubtitle?: QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle[];
-  static names(): { [key: string]: string } {
-    return {
-      extSubtitle: 'ExtSubtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extSubtitle: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigSubtitleListSubtitle extends $tea.Model {
-  map?: string;
-  static names(): { [key: string]: string } {
-    return {
-      map: 'Map',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      map: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigSubtitleList extends $tea.Model {
-  subtitle?: QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigSubtitleListSubtitle[];
-  static names(): { [key: string]: string } {
-    return {
-      subtitle: 'Subtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subtitle: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigSubtitleListSubtitle },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfig extends $tea.Model {
-  extSubtitleList?: QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigExtSubtitleList;
-  subtitleList?: QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigSubtitleList;
-  static names(): { [key: string]: string } {
-    return {
-      extSubtitleList: 'ExtSubtitleList',
-      subtitleList: 'SubtitleList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extSubtitleList: QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigExtSubtitleList,
-      subtitleList: QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfigSubtitleList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigSuperReso extends $tea.Model {
-  isHalfSample?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isHalfSample: 'IsHalfSample',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isHalfSample: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigTransConfig extends $tea.Model {
-  adjDarMethod?: string;
-  duration?: string;
-  isCheckAudioBitrate?: string;
-  isCheckAudioBitrateFail?: string;
-  isCheckReso?: string;
-  isCheckResoFail?: string;
-  isCheckVideoBitrate?: string;
-  isCheckVideoBitrateFail?: string;
-  transMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adjDarMethod: 'AdjDarMethod',
-      duration: 'Duration',
-      isCheckAudioBitrate: 'IsCheckAudioBitrate',
-      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
-      isCheckReso: 'IsCheckReso',
-      isCheckResoFail: 'IsCheckResoFail',
-      isCheckVideoBitrate: 'IsCheckVideoBitrate',
-      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
-      transMode: 'TransMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adjDarMethod: 'string',
-      duration: 'string',
-      isCheckAudioBitrate: 'string',
-      isCheckAudioBitrateFail: 'string',
-      isCheckReso: 'string',
-      isCheckResoFail: 'string',
-      isCheckVideoBitrate: 'string',
-      isCheckVideoBitrateFail: 'string',
-      transMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigVideoBitrateBnd extends $tea.Model {
-  max?: string;
-  min?: string;
-  static names(): { [key: string]: string } {
-    return {
-      max: 'Max',
-      min: 'Min',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      max: 'string',
-      min: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigVideo extends $tea.Model {
-  bitrate?: string;
-  bitrateBnd?: QueryEditingJobListResponseBodyJobListJobEditingConfigVideoBitrateBnd;
-  bufsize?: string;
-  codec?: string;
-  crf?: string;
-  crop?: string;
-  degrain?: string;
-  fps?: string;
-  gop?: string;
-  height?: string;
-  maxFps?: string;
-  maxrate?: string;
-  pad?: string;
-  pixFmt?: string;
-  preset?: string;
-  profile?: string;
-  qscale?: string;
-  scanMode?: string;
-  width?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bitrate: 'Bitrate',
-      bitrateBnd: 'BitrateBnd',
-      bufsize: 'Bufsize',
-      codec: 'Codec',
-      crf: 'Crf',
-      crop: 'Crop',
-      degrain: 'Degrain',
-      fps: 'Fps',
-      gop: 'Gop',
-      height: 'Height',
-      maxFps: 'MaxFps',
-      maxrate: 'Maxrate',
-      pad: 'Pad',
-      pixFmt: 'PixFmt',
-      preset: 'Preset',
-      profile: 'Profile',
-      qscale: 'Qscale',
-      scanMode: 'ScanMode',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bitrate: 'string',
-      bitrateBnd: QueryEditingJobListResponseBodyJobListJobEditingConfigVideoBitrateBnd,
-      bufsize: 'string',
-      codec: 'string',
-      crf: 'string',
-      crop: 'string',
-      degrain: 'string',
-      fps: 'string',
-      gop: 'string',
-      height: 'string',
-      maxFps: 'string',
-      maxrate: 'string',
-      pad: 'string',
-      pixFmt: 'string',
-      preset: 'string',
-      profile: 'string',
-      qscale: 'string',
-      scanMode: 'string',
-      width: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigWaterMarkListWaterMarkInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigWaterMarkListWaterMark extends $tea.Model {
-  dx?: string;
-  dy?: string;
-  height?: string;
-  inputFile?: QueryEditingJobListResponseBodyJobListJobEditingConfigWaterMarkListWaterMarkInputFile;
-  referPos?: string;
-  type?: string;
-  waterMarkTemplateId?: string;
-  width?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dx: 'Dx',
-      dy: 'Dy',
-      height: 'Height',
-      inputFile: 'InputFile',
-      referPos: 'ReferPos',
-      type: 'Type',
-      waterMarkTemplateId: 'WaterMarkTemplateId',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dx: 'string',
-      dy: 'string',
-      height: 'string',
-      inputFile: QueryEditingJobListResponseBodyJobListJobEditingConfigWaterMarkListWaterMarkInputFile,
-      referPos: 'string',
-      type: 'string',
-      waterMarkTemplateId: 'string',
-      width: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfigWaterMarkList extends $tea.Model {
-  waterMark?: QueryEditingJobListResponseBodyJobListJobEditingConfigWaterMarkListWaterMark[];
-  static names(): { [key: string]: string } {
-    return {
-      waterMark: 'WaterMark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      waterMark: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingConfigWaterMarkListWaterMark },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingConfig extends $tea.Model {
-  audio?: QueryEditingJobListResponseBodyJobListJobEditingConfigAudio;
-  audioStreamMap?: string;
-  clip?: QueryEditingJobListResponseBodyJobListJobEditingConfigClip;
-  container?: QueryEditingJobListResponseBodyJobListJobEditingConfigContainer;
-  deWatermark?: string;
-  digiWaterMark?: QueryEditingJobListResponseBodyJobListJobEditingConfigDigiWaterMark;
-  editing?: QueryEditingJobListResponseBodyJobListJobEditingConfigEditing;
-  encryption?: QueryEditingJobListResponseBodyJobListJobEditingConfigEncryption;
-  m3U8NonStandardSupport?: QueryEditingJobListResponseBodyJobListJobEditingConfigM3U8NonStandardSupport;
-  mergeConfigUrl?: string;
-  mergeList?: QueryEditingJobListResponseBodyJobListJobEditingConfigMergeList;
-  muxConfig?: QueryEditingJobListResponseBodyJobListJobEditingConfigMuxConfig;
-  outputFile?: QueryEditingJobListResponseBodyJobListJobEditingConfigOutputFile;
-  priority?: string;
-  properties?: QueryEditingJobListResponseBodyJobListJobEditingConfigProperties;
-  rotate?: string;
-  subtitleConfig?: QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfig;
-  superReso?: QueryEditingJobListResponseBodyJobListJobEditingConfigSuperReso;
-  templateId?: string;
-  transConfig?: QueryEditingJobListResponseBodyJobListJobEditingConfigTransConfig;
-  userData?: string;
-  video?: QueryEditingJobListResponseBodyJobListJobEditingConfigVideo;
-  videoStreamMap?: string;
-  waterMarkConfigUrl?: string;
-  waterMarkList?: QueryEditingJobListResponseBodyJobListJobEditingConfigWaterMarkList;
-  static names(): { [key: string]: string } {
-    return {
-      audio: 'Audio',
-      audioStreamMap: 'AudioStreamMap',
-      clip: 'Clip',
-      container: 'Container',
-      deWatermark: 'DeWatermark',
-      digiWaterMark: 'DigiWaterMark',
-      editing: 'Editing',
-      encryption: 'Encryption',
-      m3U8NonStandardSupport: 'M3U8NonStandardSupport',
-      mergeConfigUrl: 'MergeConfigUrl',
-      mergeList: 'MergeList',
-      muxConfig: 'MuxConfig',
-      outputFile: 'OutputFile',
-      priority: 'Priority',
-      properties: 'Properties',
-      rotate: 'Rotate',
-      subtitleConfig: 'SubtitleConfig',
-      superReso: 'SuperReso',
-      templateId: 'TemplateId',
-      transConfig: 'TransConfig',
-      userData: 'UserData',
-      video: 'Video',
-      videoStreamMap: 'VideoStreamMap',
-      waterMarkConfigUrl: 'WaterMarkConfigUrl',
-      waterMarkList: 'WaterMarkList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      audio: QueryEditingJobListResponseBodyJobListJobEditingConfigAudio,
-      audioStreamMap: 'string',
-      clip: QueryEditingJobListResponseBodyJobListJobEditingConfigClip,
-      container: QueryEditingJobListResponseBodyJobListJobEditingConfigContainer,
-      deWatermark: 'string',
-      digiWaterMark: QueryEditingJobListResponseBodyJobListJobEditingConfigDigiWaterMark,
-      editing: QueryEditingJobListResponseBodyJobListJobEditingConfigEditing,
-      encryption: QueryEditingJobListResponseBodyJobListJobEditingConfigEncryption,
-      m3U8NonStandardSupport: QueryEditingJobListResponseBodyJobListJobEditingConfigM3U8NonStandardSupport,
-      mergeConfigUrl: 'string',
-      mergeList: QueryEditingJobListResponseBodyJobListJobEditingConfigMergeList,
-      muxConfig: QueryEditingJobListResponseBodyJobListJobEditingConfigMuxConfig,
-      outputFile: QueryEditingJobListResponseBodyJobListJobEditingConfigOutputFile,
-      priority: 'string',
-      properties: QueryEditingJobListResponseBodyJobListJobEditingConfigProperties,
-      rotate: 'string',
-      subtitleConfig: QueryEditingJobListResponseBodyJobListJobEditingConfigSubtitleConfig,
-      superReso: QueryEditingJobListResponseBodyJobListJobEditingConfigSuperReso,
-      templateId: 'string',
-      transConfig: QueryEditingJobListResponseBodyJobListJobEditingConfigTransConfig,
-      userData: 'string',
-      video: QueryEditingJobListResponseBodyJobListJobEditingConfigVideo,
-      videoStreamMap: 'string',
-      waterMarkConfigUrl: 'string',
-      waterMarkList: QueryEditingJobListResponseBodyJobListJobEditingConfigWaterMarkList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingInputsEditingInputInputConfig extends $tea.Model {
-  deinterlaceMethod?: string;
-  isNormalSar?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deinterlaceMethod: 'DeinterlaceMethod',
-      isNormalSar: 'IsNormalSar',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deinterlaceMethod: 'string',
-      isNormalSar: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingInputsEditingInputInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingInputsEditingInput extends $tea.Model {
-  id?: string;
-  inputConfig?: QueryEditingJobListResponseBodyJobListJobEditingInputsEditingInputInputConfig;
-  inputFile?: QueryEditingJobListResponseBodyJobListJobEditingInputsEditingInputInputFile;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      inputConfig: 'InputConfig',
-      inputFile: 'InputFile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      inputConfig: QueryEditingJobListResponseBodyJobListJobEditingInputsEditingInputInputConfig,
-      inputFile: QueryEditingJobListResponseBodyJobListJobEditingInputsEditingInputInputFile,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobEditingInputs extends $tea.Model {
-  editingInput?: QueryEditingJobListResponseBodyJobListJobEditingInputsEditingInput[];
-  static names(): { [key: string]: string } {
-    return {
-      editingInput: 'EditingInput',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      editingInput: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJobEditingInputsEditingInput },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJobMNSMessageResult extends $tea.Model {
-  errorCode?: string;
-  errorMessage?: string;
-  messageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      messageId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobListJob extends $tea.Model {
-  code?: string;
-  creationTime?: string;
-  editingConfig?: QueryEditingJobListResponseBodyJobListJobEditingConfig;
-  editingInputs?: QueryEditingJobListResponseBodyJobListJobEditingInputs;
-  finishTime?: string;
-  jobId?: string;
-  MNSMessageResult?: QueryEditingJobListResponseBodyJobListJobMNSMessageResult;
-  message?: string;
-  percent?: number;
-  pipelineId?: string;
-  state?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      creationTime: 'CreationTime',
-      editingConfig: 'EditingConfig',
-      editingInputs: 'EditingInputs',
-      finishTime: 'FinishTime',
-      jobId: 'JobId',
-      MNSMessageResult: 'MNSMessageResult',
-      message: 'Message',
-      percent: 'Percent',
-      pipelineId: 'PipelineId',
-      state: 'State',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      creationTime: 'string',
-      editingConfig: QueryEditingJobListResponseBodyJobListJobEditingConfig,
-      editingInputs: QueryEditingJobListResponseBodyJobListJobEditingInputs,
-      finishTime: 'string',
-      jobId: 'string',
-      MNSMessageResult: QueryEditingJobListResponseBodyJobListJobMNSMessageResult,
-      message: 'string',
-      percent: 'number',
-      pipelineId: 'string',
-      state: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyJobList extends $tea.Model {
-  job?: QueryEditingJobListResponseBodyJobListJob[];
-  static names(): { [key: string]: string } {
-    return {
-      job: 'Job',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      job: { 'type': 'array', 'itemType': QueryEditingJobListResponseBodyJobListJob },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEditingJobListResponseBodyNonExistJobIds extends $tea.Model {
-  string?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      string: 'String',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      string: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryFpDBDeleteJobListResponseBodyFpDBDeleteJobListFpDBDeleteJob extends $tea.Model {
   code?: string;
   creationTime?: string;
@@ -13063,6 +12109,7 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobInputFile exten
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJob extends $tea.Model {
   code?: string;
   creationTime?: string;
+  duration?: number;
   fileId?: string;
   finishTime?: string;
   fpShotConfig?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotConfig;
@@ -13078,6 +12125,7 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJob extends $tea.M
     return {
       code: 'Code',
       creationTime: 'CreationTime',
+      duration: 'Duration',
       fileId: 'FileId',
       finishTime: 'FinishTime',
       fpShotConfig: 'FpShotConfig',
@@ -13096,6 +12144,7 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJob extends $tea.M
     return {
       code: 'string',
       creationTime: 'string',
+      duration: 'number',
       fileId: 'string',
       finishTime: 'string',
       fpShotConfig: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotConfig,
@@ -13436,6 +12485,46 @@ export class QueryJobListResponseBodyJobListJobOutputMergeList extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       merge: { 'type': 'array', 'itemType': QueryJobListResponseBodyJobListJobOutputMergeListMerge },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryJobListResponseBodyJobListJobOutputMultiSpeedInfo extends $tea.Model {
+  code?: string;
+  downgradePolicy?: string;
+  duration?: number;
+  enable?: string;
+  message?: string;
+  realSpeed?: number;
+  settingSpeed?: number;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      downgradePolicy: 'DowngradePolicy',
+      duration: 'Duration',
+      enable: 'Enable',
+      message: 'Message',
+      realSpeed: 'RealSpeed',
+      settingSpeed: 'SettingSpeed',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      downgradePolicy: 'string',
+      duration: 'number',
+      enable: 'string',
+      message: 'string',
+      realSpeed: 'number',
+      settingSpeed: 'number',
+      timeCost: 'number',
     };
   }
 
@@ -14533,6 +13622,7 @@ export class QueryJobListResponseBodyJobListJobOutput extends $tea.Model {
   m3U8NonStandardSupport?: QueryJobListResponseBodyJobListJobOutputM3U8NonStandardSupport;
   mergeConfigUrl?: string;
   mergeList?: QueryJobListResponseBodyJobListJobOutputMergeList;
+  multiSpeedInfo?: QueryJobListResponseBodyJobListJobOutputMultiSpeedInfo;
   muxConfig?: QueryJobListResponseBodyJobListJobOutputMuxConfig;
   openingList?: QueryJobListResponseBodyJobListJobOutputOpeningList;
   outSubtitleList?: QueryJobListResponseBodyJobListJobOutputOutSubtitleList;
@@ -14562,6 +13652,7 @@ export class QueryJobListResponseBodyJobListJobOutput extends $tea.Model {
       m3U8NonStandardSupport: 'M3U8NonStandardSupport',
       mergeConfigUrl: 'MergeConfigUrl',
       mergeList: 'MergeList',
+      multiSpeedInfo: 'MultiSpeedInfo',
       muxConfig: 'MuxConfig',
       openingList: 'OpeningList',
       outSubtitleList: 'OutSubtitleList',
@@ -14594,6 +13685,7 @@ export class QueryJobListResponseBodyJobListJobOutput extends $tea.Model {
       m3U8NonStandardSupport: QueryJobListResponseBodyJobListJobOutputM3U8NonStandardSupport,
       mergeConfigUrl: 'string',
       mergeList: QueryJobListResponseBodyJobListJobOutputMergeList,
+      multiSpeedInfo: QueryJobListResponseBodyJobListJobOutputMultiSpeedInfo,
       muxConfig: QueryJobListResponseBodyJobListJobOutputMuxConfig,
       openingList: QueryJobListResponseBodyJobListJobOutputOpeningList,
       outSubtitleList: QueryJobListResponseBodyJobListJobOutputOutSubtitleList,
@@ -14631,6 +13723,7 @@ export class QueryJobListResponseBodyJobListJob extends $tea.Model {
   percent?: number;
   pipelineId?: string;
   state?: string;
+  submitTime?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -14644,6 +13737,7 @@ export class QueryJobListResponseBodyJobListJob extends $tea.Model {
       percent: 'Percent',
       pipelineId: 'PipelineId',
       state: 'State',
+      submitTime: 'SubmitTime',
     };
   }
 
@@ -14660,6 +13754,7 @@ export class QueryJobListResponseBodyJobListJob extends $tea.Model {
       percent: 'number',
       pipelineId: 'string',
       state: 'string',
+      submitTime: 'string',
     };
   }
 
@@ -14698,6 +13793,78 @@ export class QueryJobListResponseBodyNonExistJobIds extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       string: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailAudioCensorResultAudioDetailResultListAudioDetailResult extends $tea.Model {
+  endTime?: number;
+  label?: string;
+  startTime?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      label: 'Label',
+      startTime: 'StartTime',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      label: 'string',
+      startTime: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailAudioCensorResultAudioDetailResultList extends $tea.Model {
+  audioDetailResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailAudioCensorResultAudioDetailResultListAudioDetailResult[];
+  static names(): { [key: string]: string } {
+    return {
+      audioDetailResult: 'AudioDetailResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioDetailResult: { 'type': 'array', 'itemType': QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailAudioCensorResultAudioDetailResultListAudioDetailResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailAudioCensorResult extends $tea.Model {
+  audioDetailResultList?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailAudioCensorResultAudioDetailResultList;
+  label?: string;
+  suggestion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioDetailResultList: 'AudioDetailResultList',
+      label: 'Label',
+      suggestion: 'Suggestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioDetailResultList: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailAudioCensorResultAudioDetailResultList,
+      label: 'string',
+      suggestion: 'string',
     };
   }
 
@@ -15123,6 +14290,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCenso
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $tea.Model {
+  audioCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailAudioCensorResult;
   barrageCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCensorResult;
   code?: string;
   coverImageCensorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResults;
@@ -15141,6 +14309,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
   videoCensorConfig?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfig;
   static names(): { [key: string]: string } {
     return {
+      audioCensorResult: 'AudioCensorResult',
       barrageCensorResult: 'BarrageCensorResult',
       code: 'Code',
       coverImageCensorResults: 'CoverImageCensorResults',
@@ -15162,6 +14331,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
 
   static types(): { [key: string]: any } {
     return {
+      audioCensorResult: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailAudioCensorResult,
       barrageCensorResult: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCensorResult,
       code: 'string',
       coverImageCensorResults: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResults,
@@ -15178,6 +14348,28 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
       userData: 'string',
       vensorCensorResult: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResult,
       videoCensorConfig: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobAudioCensorResult extends $tea.Model {
+  label?: string;
+  suggestion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      suggestion: 'Suggestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      suggestion: 'string',
     };
   }
 
@@ -15603,6 +14795,7 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob extends $tea.Model {
+  audioCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobAudioCensorResult;
   barrageCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobBarrageCensorResult;
   code?: string;
   coverImageCensorResults?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResults;
@@ -15621,6 +14814,7 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
   videoCensorConfig?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfig;
   static names(): { [key: string]: string } {
     return {
+      audioCensorResult: 'AudioCensorResult',
       barrageCensorResult: 'BarrageCensorResult',
       code: 'Code',
       coverImageCensorResults: 'CoverImageCensorResults',
@@ -15642,6 +14836,7 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
   static types(): { [key: string]: any } {
     return {
+      audioCensorResult: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobAudioCensorResult,
       barrageCensorResult: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobBarrageCensorResult,
       code: 'string',
       coverImageCensorResults: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResults,
@@ -18067,6 +17262,31 @@ export class QueryPipelineListResponseBodyNonExistPids extends $tea.Model {
   }
 }
 
+export class QueryPipelineListResponseBodyPipelineListPipelineExtendConfig extends $tea.Model {
+  isBoostNew?: boolean;
+  maxMultiSpeed?: number;
+  multiSpeedDowngradePolicy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isBoostNew: 'IsBoostNew',
+      maxMultiSpeed: 'MaxMultiSpeed',
+      multiSpeedDowngradePolicy: 'MultiSpeedDowngradePolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isBoostNew: 'boolean',
+      maxMultiSpeed: 'number',
+      multiSpeedDowngradePolicy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryPipelineListResponseBodyPipelineListPipelineNotifyConfig extends $tea.Model {
   mqTag?: string;
   mqTopic?: string;
@@ -18096,6 +17316,7 @@ export class QueryPipelineListResponseBodyPipelineListPipelineNotifyConfig exten
 }
 
 export class QueryPipelineListResponseBodyPipelineListPipeline extends $tea.Model {
+  extendConfig?: QueryPipelineListResponseBodyPipelineListPipelineExtendConfig;
   id?: string;
   name?: string;
   notifyConfig?: QueryPipelineListResponseBodyPipelineListPipelineNotifyConfig;
@@ -18106,6 +17327,7 @@ export class QueryPipelineListResponseBodyPipelineListPipeline extends $tea.Mode
   state?: string;
   static names(): { [key: string]: string } {
     return {
+      extendConfig: 'ExtendConfig',
       id: 'Id',
       name: 'Name',
       notifyConfig: 'NotifyConfig',
@@ -18119,6 +17341,7 @@ export class QueryPipelineListResponseBodyPipelineListPipeline extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      extendConfig: QueryPipelineListResponseBodyPipelineListPipelineExtendConfig,
       id: 'string',
       name: 'string',
       notifyConfig: QueryPipelineListResponseBodyPipelineListPipelineNotifyConfig,
@@ -18205,6 +17428,8 @@ export class QuerySmarttagTemplateListResponseBodyTemplatesTemplate extends $tea
   knowledgeConfig?: string;
   labelType?: string;
   labelVersion?: string;
+  landmarkGroupIds?: string;
+  objectGroupIds?: string;
   scene?: string;
   templateId?: string;
   templateName?: string;
@@ -18219,6 +17444,8 @@ export class QuerySmarttagTemplateListResponseBodyTemplatesTemplate extends $tea
       knowledgeConfig: 'KnowledgeConfig',
       labelType: 'LabelType',
       labelVersion: 'LabelVersion',
+      landmarkGroupIds: 'LandmarkGroupIds',
+      objectGroupIds: 'ObjectGroupIds',
       scene: 'Scene',
       templateId: 'TemplateId',
       templateName: 'TemplateName',
@@ -18236,6 +17463,8 @@ export class QuerySmarttagTemplateListResponseBodyTemplatesTemplate extends $tea
       knowledgeConfig: 'string',
       labelType: 'string',
       labelVersion: 'string',
+      landmarkGroupIds: 'string',
+      objectGroupIds: 'string',
       scene: 'string',
       templateId: 'string',
       templateName: 'string',
@@ -18437,6 +17666,25 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
   }
 }
 
+export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTimeArray extends $tea.Model {
+  timePointList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      timePointList: 'TimePointList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timePointList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfig extends $tea.Model {
   frameType?: string;
   height?: string;
@@ -18446,6 +17694,7 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
   tileOut?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOut;
   tileOutputFile?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOutputFile;
   time?: string;
+  timeArray?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTimeArray;
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18457,6 +17706,7 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
       tileOut: 'TileOut',
       tileOutputFile: 'TileOutputFile',
       time: 'Time',
+      timeArray: 'TimeArray',
       width: 'Width',
     };
   }
@@ -18471,6 +17721,7 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
       tileOut: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOut,
       tileOutputFile: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOutputFile,
       time: 'string',
+      timeArray: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTimeArray,
       width: 'string',
     };
   }
@@ -18570,6 +17821,40 @@ export class QueryTemplateListResponseBodyNonExistTids extends $tea.Model {
   }
 }
 
+export class QueryTemplateListResponseBodyTemplateListTemplateAudioVolume extends $tea.Model {
+  integratedLoudnessTarget?: string;
+  level?: string;
+  loudnessRangeTarget?: string;
+  method?: string;
+  peakLevel?: string;
+  truePeak?: string;
+  static names(): { [key: string]: string } {
+    return {
+      integratedLoudnessTarget: 'IntegratedLoudnessTarget',
+      level: 'Level',
+      loudnessRangeTarget: 'LoudnessRangeTarget',
+      method: 'Method',
+      peakLevel: 'PeakLevel',
+      truePeak: 'TruePeak',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      integratedLoudnessTarget: 'string',
+      level: 'string',
+      loudnessRangeTarget: 'string',
+      method: 'string',
+      peakLevel: 'string',
+      truePeak: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryTemplateListResponseBodyTemplateListTemplateAudio extends $tea.Model {
   bitrate?: string;
   channels?: string;
@@ -18578,6 +17863,7 @@ export class QueryTemplateListResponseBodyTemplateListTemplateAudio extends $tea
   qscale?: string;
   remove?: string;
   samplerate?: string;
+  volume?: QueryTemplateListResponseBodyTemplateListTemplateAudioVolume;
   static names(): { [key: string]: string } {
     return {
       bitrate: 'Bitrate',
@@ -18587,6 +17873,7 @@ export class QueryTemplateListResponseBodyTemplateListTemplateAudio extends $tea
       qscale: 'Qscale',
       remove: 'Remove',
       samplerate: 'Samplerate',
+      volume: 'Volume',
     };
   }
 
@@ -18599,6 +17886,7 @@ export class QueryTemplateListResponseBodyTemplateListTemplateAudio extends $tea
       qscale: 'string',
       remove: 'string',
       samplerate: 'string',
+      volume: QueryTemplateListResponseBodyTemplateListTemplateAudioVolume,
     };
   }
 
@@ -18779,6 +18067,31 @@ export class QueryTemplateListResponseBodyTemplateListTemplateVideoBitrateBnd ex
   }
 }
 
+export class QueryTemplateListResponseBodyTemplateListTemplateVideoNarrowBand extends $tea.Model {
+  abrmax?: number;
+  maxAbrRatio?: number;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abrmax: 'Abrmax',
+      maxAbrRatio: 'MaxAbrRatio',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abrmax: 'number',
+      maxAbrRatio: 'number',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryTemplateListResponseBodyTemplateListTemplateVideo extends $tea.Model {
   bitrate?: string;
   bitrateBnd?: QueryTemplateListResponseBodyTemplateListTemplateVideoBitrateBnd;
@@ -18789,10 +18102,12 @@ export class QueryTemplateListResponseBodyTemplateListTemplateVideo extends $tea
   degrain?: string;
   fps?: string;
   gop?: string;
+  hdr2sdr?: string;
   height?: string;
   longShortMode?: string;
   maxFps?: string;
   maxrate?: string;
+  narrowBand?: QueryTemplateListResponseBodyTemplateListTemplateVideoNarrowBand;
   pad?: string;
   pixFmt?: string;
   preset?: string;
@@ -18813,10 +18128,12 @@ export class QueryTemplateListResponseBodyTemplateListTemplateVideo extends $tea
       degrain: 'Degrain',
       fps: 'Fps',
       gop: 'Gop',
+      hdr2sdr: 'Hdr2sdr',
       height: 'Height',
       longShortMode: 'LongShortMode',
       maxFps: 'MaxFps',
       maxrate: 'Maxrate',
+      narrowBand: 'NarrowBand',
       pad: 'Pad',
       pixFmt: 'PixFmt',
       preset: 'Preset',
@@ -18840,10 +18157,12 @@ export class QueryTemplateListResponseBodyTemplateListTemplateVideo extends $tea
       degrain: 'string',
       fps: 'string',
       gop: 'string',
+      hdr2sdr: 'string',
       height: 'string',
       longShortMode: 'string',
       maxFps: 'string',
       maxrate: 'string',
+      narrowBand: QueryTemplateListResponseBodyTemplateListTemplateVideoNarrowBand,
       pad: 'string',
       pixFmt: 'string',
       preset: 'string',
@@ -18864,6 +18183,7 @@ export class QueryTemplateListResponseBodyTemplateListTemplateVideo extends $tea
 export class QueryTemplateListResponseBodyTemplateListTemplate extends $tea.Model {
   audio?: QueryTemplateListResponseBodyTemplateListTemplateAudio;
   container?: QueryTemplateListResponseBodyTemplateListTemplateContainer;
+  creationTime?: string;
   id?: string;
   muxConfig?: QueryTemplateListResponseBodyTemplateListTemplateMuxConfig;
   name?: string;
@@ -18874,6 +18194,7 @@ export class QueryTemplateListResponseBodyTemplateListTemplate extends $tea.Mode
     return {
       audio: 'Audio',
       container: 'Container',
+      creationTime: 'CreationTime',
       id: 'Id',
       muxConfig: 'MuxConfig',
       name: 'Name',
@@ -18887,6 +18208,7 @@ export class QueryTemplateListResponseBodyTemplateListTemplate extends $tea.Mode
     return {
       audio: QueryTemplateListResponseBodyTemplateListTemplateAudio,
       container: QueryTemplateListResponseBodyTemplateListTemplateContainer,
+      creationTime: 'string',
       id: 'string',
       muxConfig: QueryTemplateListResponseBodyTemplateListTemplateMuxConfig,
       name: 'string',
@@ -18912,40 +18234,6 @@ export class QueryTemplateListResponseBodyTemplateList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       template: { 'type': 'array', 'itemType': QueryTemplateListResponseBodyTemplateListTemplate },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryVideoQualityJobResponseBodyJob extends $tea.Model {
-  jobId?: string;
-  message?: string;
-  output?: string;
-  status?: string;
-  userId?: number;
-  videoQualityResults?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      message: 'Message',
-      output: 'Output',
-      status: 'Status',
-      userId: 'UserId',
-      videoQualityResults: 'VideoQualityResults',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-      message: 'string',
-      output: 'string',
-      status: 'string',
-      userId: 'number',
-      videoQualityResults: 'string',
     };
   }
 
@@ -19173,6 +18461,7 @@ export class SearchPipelineResponseBodyPipelineListPipelineNotifyConfig extends 
 }
 
 export class SearchPipelineResponseBodyPipelineListPipeline extends $tea.Model {
+  creationTime?: string;
   id?: string;
   name?: string;
   notifyConfig?: SearchPipelineResponseBodyPipelineListPipelineNotifyConfig;
@@ -19183,6 +18472,7 @@ export class SearchPipelineResponseBodyPipelineListPipeline extends $tea.Model {
   state?: string;
   static names(): { [key: string]: string } {
     return {
+      creationTime: 'CreationTime',
       id: 'Id',
       name: 'Name',
       notifyConfig: 'NotifyConfig',
@@ -19196,6 +18486,7 @@ export class SearchPipelineResponseBodyPipelineListPipeline extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      creationTime: 'string',
       id: 'string',
       name: 'string',
       notifyConfig: SearchPipelineResponseBodyPipelineListPipelineNotifyConfig,
@@ -19418,6 +18709,31 @@ export class SearchTemplateResponseBodyTemplateListTemplateVideoBitrateBnd exten
   }
 }
 
+export class SearchTemplateResponseBodyTemplateListTemplateVideoNarrowBand extends $tea.Model {
+  abrmax?: number;
+  maxAbrRatio?: number;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abrmax: 'Abrmax',
+      maxAbrRatio: 'MaxAbrRatio',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abrmax: 'number',
+      maxAbrRatio: 'number',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchTemplateResponseBodyTemplateListTemplateVideo extends $tea.Model {
   bitrate?: string;
   bitrateBnd?: SearchTemplateResponseBodyTemplateListTemplateVideoBitrateBnd;
@@ -19428,16 +18744,19 @@ export class SearchTemplateResponseBodyTemplateListTemplateVideo extends $tea.Mo
   degrain?: string;
   fps?: string;
   gop?: string;
+  hdr2sdr?: string;
   height?: string;
   longShortMode?: string;
   maxFps?: string;
   maxrate?: string;
+  narrowBand?: SearchTemplateResponseBodyTemplateListTemplateVideoNarrowBand;
   pad?: string;
   pixFmt?: string;
   preset?: string;
   profile?: string;
   qscale?: string;
   remove?: string;
+  resoPriority?: string;
   scanMode?: string;
   width?: string;
   static names(): { [key: string]: string } {
@@ -19451,16 +18770,19 @@ export class SearchTemplateResponseBodyTemplateListTemplateVideo extends $tea.Mo
       degrain: 'Degrain',
       fps: 'Fps',
       gop: 'Gop',
+      hdr2sdr: 'Hdr2sdr',
       height: 'Height',
       longShortMode: 'LongShortMode',
       maxFps: 'MaxFps',
       maxrate: 'Maxrate',
+      narrowBand: 'NarrowBand',
       pad: 'Pad',
       pixFmt: 'PixFmt',
       preset: 'Preset',
       profile: 'Profile',
       qscale: 'Qscale',
       remove: 'Remove',
+      resoPriority: 'ResoPriority',
       scanMode: 'ScanMode',
       width: 'Width',
     };
@@ -19477,16 +18799,19 @@ export class SearchTemplateResponseBodyTemplateListTemplateVideo extends $tea.Mo
       degrain: 'string',
       fps: 'string',
       gop: 'string',
+      hdr2sdr: 'string',
       height: 'string',
       longShortMode: 'string',
       maxFps: 'string',
       maxrate: 'string',
+      narrowBand: SearchTemplateResponseBodyTemplateListTemplateVideoNarrowBand,
       pad: 'string',
       pixFmt: 'string',
       preset: 'string',
       profile: 'string',
       qscale: 'string',
       remove: 'string',
+      resoPriority: 'string',
       scanMode: 'string',
       width: 'string',
     };
@@ -19500,6 +18825,7 @@ export class SearchTemplateResponseBodyTemplateListTemplateVideo extends $tea.Mo
 export class SearchTemplateResponseBodyTemplateListTemplate extends $tea.Model {
   audio?: SearchTemplateResponseBodyTemplateListTemplateAudio;
   container?: SearchTemplateResponseBodyTemplateListTemplateContainer;
+  creationTime?: string;
   id?: string;
   muxConfig?: SearchTemplateResponseBodyTemplateListTemplateMuxConfig;
   name?: string;
@@ -19510,6 +18836,7 @@ export class SearchTemplateResponseBodyTemplateListTemplate extends $tea.Model {
     return {
       audio: 'Audio',
       container: 'Container',
+      creationTime: 'CreationTime',
       id: 'Id',
       muxConfig: 'MuxConfig',
       name: 'Name',
@@ -19523,6 +18850,7 @@ export class SearchTemplateResponseBodyTemplateListTemplate extends $tea.Model {
     return {
       audio: SearchTemplateResponseBodyTemplateListTemplateAudio,
       container: SearchTemplateResponseBodyTemplateListTemplateContainer,
+      creationTime: 'string',
       id: 'string',
       muxConfig: SearchTemplateResponseBodyTemplateListTemplateMuxConfig,
       name: 'string',
@@ -20148,1794 +19476,6 @@ export class SubmitAnalysisJobResponseBodyAnalysisJob extends $tea.Model {
       state: 'string',
       templateList: SubmitAnalysisJobResponseBodyAnalysisJobTemplateList,
       userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudioVolume extends $tea.Model {
-  level?: string;
-  method?: string;
-  static names(): { [key: string]: string } {
-    return {
-      level: 'Level',
-      method: 'Method',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      level: 'string',
-      method: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudio extends $tea.Model {
-  bitrate?: string;
-  channels?: string;
-  codec?: string;
-  profile?: string;
-  qscale?: string;
-  samplerate?: string;
-  volume?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudioVolume;
-  static names(): { [key: string]: string } {
-    return {
-      bitrate: 'Bitrate',
-      channels: 'Channels',
-      codec: 'Codec',
-      profile: 'Profile',
-      qscale: 'Qscale',
-      samplerate: 'Samplerate',
-      volume: 'Volume',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bitrate: 'string',
-      channels: 'string',
-      codec: 'string',
-      profile: 'string',
-      qscale: 'string',
-      samplerate: 'string',
-      volume: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudioVolume,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClipTimeSpan extends $tea.Model {
-  duration?: string;
-  seek?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      seek: 'Seek',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'string',
-      seek: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClip extends $tea.Model {
-  timeSpan?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClipTimeSpan;
-  static names(): { [key: string]: string } {
-    return {
-      timeSpan: 'TimeSpan',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timeSpan: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClipTimeSpan,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigContainer extends $tea.Model {
-  format?: string;
-  static names(): { [key: string]: string } {
-    return {
-      format: 'Format',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      format: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMarkInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMark extends $tea.Model {
-  alpha?: string;
-  inputFile?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMarkInputFile;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alpha: 'Alpha',
-      inputFile: 'InputFile',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alpha: 'string',
-      inputFile: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMarkInputFile,
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffectsEffect extends $tea.Model {
-  effect?: string;
-  effectConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      effect: 'Effect',
-      effectConfig: 'EffectConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effect: 'string',
-      effectConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffects extends $tea.Model {
-  effect?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffectsEffect[];
-  static names(): { [key: string]: string } {
-    return {
-      effect: 'Effect',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effect: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffectsEffect },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClip extends $tea.Model {
-  effects?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffects;
-  id?: string;
-  in?: string;
-  out?: string;
-  sourceID?: string;
-  sourceStrmMap?: string;
-  sourceType?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      effects: 'Effects',
-      id: 'Id',
-      in: 'In',
-      out: 'Out',
-      sourceID: 'SourceID',
-      sourceStrmMap: 'SourceStrmMap',
-      sourceType: 'SourceType',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effects: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffects,
-      id: 'string',
-      in: 'string',
-      out: 'string',
-      sourceID: 'string',
-      sourceStrmMap: 'string',
-      sourceType: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipList extends $tea.Model {
-  clip?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClip[];
-  static names(): { [key: string]: string } {
-    return {
-      clip: 'Clip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clip: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClip },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio extends $tea.Model {
-  channelLayout?: string;
-  channels?: string;
-  samplerate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      channelLayout: 'ChannelLayout',
-      channels: 'Channels',
-      samplerate: 'Samplerate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channelLayout: 'string',
-      channels: 'string',
-      samplerate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo extends $tea.Model {
-  bgColor?: string;
-  fps?: string;
-  height?: string;
-  isGpuData?: string;
-  isOneTrackData?: string;
-  reclosePrec?: string;
-  renderRatio?: string;
-  width?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bgColor: 'BgColor',
-      fps: 'Fps',
-      height: 'Height',
-      isGpuData: 'IsGpuData',
-      isOneTrackData: 'IsOneTrackData',
-      reclosePrec: 'ReclosePrec',
-      renderRatio: 'RenderRatio',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bgColor: 'string',
-      fps: 'string',
-      height: 'string',
-      isGpuData: 'string',
-      isOneTrackData: 'string',
-      reclosePrec: 'string',
-      renderRatio: 'string',
-      width: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfig extends $tea.Model {
-  timelineConfigAudio?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio;
-  timelineConfigVideo?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo;
-  static names(): { [key: string]: string } {
-    return {
-      timelineConfigAudio: 'TimelineConfigAudio',
-      timelineConfigVideo: 'TimelineConfigVideo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timelineConfigAudio: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio,
-      timelineConfigVideo: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo extends $tea.Model {
-  l?: string;
-  t?: string;
-  static names(): { [key: string]: string } {
-    return {
-      l: 'L',
-      t: 'T',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      l: 'string',
-      t: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig extends $tea.Model {
-  clipsConfigVideo?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo;
-  static names(): { [key: string]: string } {
-    return {
-      clipsConfigVideo: 'ClipsConfigVideo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipsConfigVideo: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClip extends $tea.Model {
-  clipsConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig;
-  in?: string;
-  out?: string;
-  clipID?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clipsConfig: 'ClipsConfig',
-      in: 'In',
-      out: 'Out',
-      clipID: 'clipID',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipsConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig,
-      in: 'string',
-      out: 'string',
-      clipID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClips extends $tea.Model {
-  clip?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClip[];
-  static names(): { [key: string]: string } {
-    return {
-      clip: 'Clip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clip: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClip },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrack extends $tea.Model {
-  clips?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClips;
-  id?: string;
-  order?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clips: 'Clips',
-      id: 'Id',
-      order: 'Order',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clips: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClips,
-      id: 'string',
-      order: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackList extends $tea.Model {
-  track?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrack[];
-  static names(): { [key: string]: string } {
-    return {
-      track: 'Track',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      track: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrack },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimeline extends $tea.Model {
-  timelineConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfig;
-  trackList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackList;
-  static names(): { [key: string]: string } {
-    return {
-      timelineConfig: 'TimelineConfig',
-      trackList: 'TrackList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timelineConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfig,
-      trackList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditing extends $tea.Model {
-  clipList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipList;
-  timeline?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimeline;
-  static names(): { [key: string]: string } {
-    return {
-      clipList: 'ClipList',
-      timeline: 'Timeline',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipList,
-      timeline: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimeline,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEncryption extends $tea.Model {
-  id?: string;
-  key?: string;
-  keyType?: string;
-  keyUri?: string;
-  skipCnt?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      key: 'Key',
-      keyType: 'KeyType',
-      keyUri: 'KeyUri',
-      skipCnt: 'SkipCnt',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      key: 'string',
-      keyType: 'string',
-      keyUri: 'string',
-      skipCnt: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupportTS extends $tea.Model {
-  md5Support?: boolean;
-  sizeSupport?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      md5Support: 'Md5Support',
-      sizeSupport: 'SizeSupport',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      md5Support: 'boolean',
-      sizeSupport: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupport extends $tea.Model {
-  TS?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupportTS;
-  static names(): { [key: string]: string } {
-    return {
-      TS: 'TS',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      TS: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupportTS,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeListMerge extends $tea.Model {
-  duration?: string;
-  mergeURL?: string;
-  roleArn?: string;
-  start?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      mergeURL: 'MergeURL',
-      roleArn: 'RoleArn',
-      start: 'Start',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'string',
-      mergeURL: 'string',
-      roleArn: 'string',
-      start: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeList extends $tea.Model {
-  merge?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeListMerge[];
-  static names(): { [key: string]: string } {
-    return {
-      merge: 'Merge',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      merge: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeListMerge },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigGif extends $tea.Model {
-  ditherMode?: string;
-  finalDelay?: string;
-  isCustomPalette?: string;
-  loop?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ditherMode: 'DitherMode',
-      finalDelay: 'FinalDelay',
-      isCustomPalette: 'IsCustomPalette',
-      loop: 'Loop',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ditherMode: 'string',
-      finalDelay: 'string',
-      isCustomPalette: 'string',
-      loop: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigSegment extends $tea.Model {
-  duration?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfig extends $tea.Model {
-  gif?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigGif;
-  segment?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigSegment;
-  static names(): { [key: string]: string } {
-    return {
-      gif: 'Gif',
-      segment: 'Segment',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gif: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigGif,
-      segment: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigSegment,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigOutputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  roleArn?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-      roleArn: 'RoleArn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-      roleArn: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesFormat extends $tea.Model {
-  bitrate?: string;
-  duration?: string;
-  formatLongName?: string;
-  formatName?: string;
-  numPrograms?: string;
-  numStreams?: string;
-  size?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bitrate: 'Bitrate',
-      duration: 'Duration',
-      formatLongName: 'FormatLongName',
-      formatName: 'FormatName',
-      numPrograms: 'NumPrograms',
-      numStreams: 'NumStreams',
-      size: 'Size',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bitrate: 'string',
-      duration: 'string',
-      formatLongName: 'string',
-      formatName: 'string',
-      numPrograms: 'string',
-      numStreams: 'string',
-      size: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsAudioStreamListAudioStream extends $tea.Model {
-  bitrate?: string;
-  channelLayout?: string;
-  channels?: string;
-  codecLongName?: string;
-  codecName?: string;
-  codecTag?: string;
-  codecTagString?: string;
-  codecTimeBase?: string;
-  duration?: string;
-  index?: string;
-  lang?: string;
-  numFrames?: string;
-  sampleFmt?: string;
-  samplerate?: string;
-  startTime?: string;
-  timebase?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bitrate: 'Bitrate',
-      channelLayout: 'ChannelLayout',
-      channels: 'Channels',
-      codecLongName: 'CodecLongName',
-      codecName: 'CodecName',
-      codecTag: 'CodecTag',
-      codecTagString: 'CodecTagString',
-      codecTimeBase: 'CodecTimeBase',
-      duration: 'Duration',
-      index: 'Index',
-      lang: 'Lang',
-      numFrames: 'NumFrames',
-      sampleFmt: 'SampleFmt',
-      samplerate: 'Samplerate',
-      startTime: 'StartTime',
-      timebase: 'Timebase',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bitrate: 'string',
-      channelLayout: 'string',
-      channels: 'string',
-      codecLongName: 'string',
-      codecName: 'string',
-      codecTag: 'string',
-      codecTagString: 'string',
-      codecTimeBase: 'string',
-      duration: 'string',
-      index: 'string',
-      lang: 'string',
-      numFrames: 'string',
-      sampleFmt: 'string',
-      samplerate: 'string',
-      startTime: 'string',
-      timebase: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsAudioStreamList extends $tea.Model {
-  audioStream?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsAudioStreamListAudioStream[];
-  static names(): { [key: string]: string } {
-    return {
-      audioStream: 'AudioStream',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      audioStream: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsAudioStreamListAudioStream },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsSubtitleStreamListSubtitleStream extends $tea.Model {
-  index?: string;
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      index: 'Index',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      index: 'string',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsSubtitleStreamList extends $tea.Model {
-  subtitleStream?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsSubtitleStreamListSubtitleStream[];
-  static names(): { [key: string]: string } {
-    return {
-      subtitleStream: 'SubtitleStream',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subtitleStream: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsSubtitleStreamListSubtitleStream },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
-  avgBitrate?: string;
-  costBandwidth?: string;
-  preloadTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      avgBitrate: 'AvgBitrate',
-      costBandwidth: 'CostBandwidth',
-      preloadTime: 'PreloadTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      avgBitrate: 'string',
-      costBandwidth: 'string',
-      preloadTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamListVideoStream extends $tea.Model {
-  avgFPS?: string;
-  bitrate?: string;
-  codecLongName?: string;
-  codecName?: string;
-  codecTag?: string;
-  codecTagString?: string;
-  codecTimeBase?: string;
-  dar?: string;
-  duration?: string;
-  fps?: string;
-  hasBFrames?: string;
-  height?: string;
-  index?: string;
-  lang?: string;
-  level?: string;
-  networkCost?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamListVideoStreamNetworkCost;
-  numFrames?: string;
-  pixFmt?: string;
-  profile?: string;
-  sar?: string;
-  startTime?: string;
-  timebase?: string;
-  width?: string;
-  static names(): { [key: string]: string } {
-    return {
-      avgFPS: 'AvgFPS',
-      bitrate: 'Bitrate',
-      codecLongName: 'CodecLongName',
-      codecName: 'CodecName',
-      codecTag: 'CodecTag',
-      codecTagString: 'CodecTagString',
-      codecTimeBase: 'CodecTimeBase',
-      dar: 'Dar',
-      duration: 'Duration',
-      fps: 'Fps',
-      hasBFrames: 'HasBFrames',
-      height: 'Height',
-      index: 'Index',
-      lang: 'Lang',
-      level: 'Level',
-      networkCost: 'NetworkCost',
-      numFrames: 'NumFrames',
-      pixFmt: 'PixFmt',
-      profile: 'Profile',
-      sar: 'Sar',
-      startTime: 'StartTime',
-      timebase: 'Timebase',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      avgFPS: 'string',
-      bitrate: 'string',
-      codecLongName: 'string',
-      codecName: 'string',
-      codecTag: 'string',
-      codecTagString: 'string',
-      codecTimeBase: 'string',
-      dar: 'string',
-      duration: 'string',
-      fps: 'string',
-      hasBFrames: 'string',
-      height: 'string',
-      index: 'string',
-      lang: 'string',
-      level: 'string',
-      networkCost: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamListVideoStreamNetworkCost,
-      numFrames: 'string',
-      pixFmt: 'string',
-      profile: 'string',
-      sar: 'string',
-      startTime: 'string',
-      timebase: 'string',
-      width: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamList extends $tea.Model {
-  videoStream?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamListVideoStream[];
-  static names(): { [key: string]: string } {
-    return {
-      videoStream: 'VideoStream',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoStream: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamListVideoStream },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreams extends $tea.Model {
-  audioStreamList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsAudioStreamList;
-  subtitleStreamList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsSubtitleStreamList;
-  videoStreamList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamList;
-  static names(): { [key: string]: string } {
-    return {
-      audioStreamList: 'AudioStreamList',
-      subtitleStreamList: 'SubtitleStreamList',
-      videoStreamList: 'VideoStreamList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      audioStreamList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsAudioStreamList,
-      subtitleStreamList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsSubtitleStreamList,
-      videoStreamList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigProperties extends $tea.Model {
-  bitrate?: string;
-  duration?: string;
-  fileFormat?: string;
-  fileSize?: string;
-  format?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesFormat;
-  fps?: string;
-  height?: string;
-  streams?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreams;
-  width?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bitrate: 'Bitrate',
-      duration: 'Duration',
-      fileFormat: 'FileFormat',
-      fileSize: 'FileSize',
-      format: 'Format',
-      fps: 'Fps',
-      height: 'Height',
-      streams: 'Streams',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bitrate: 'string',
-      duration: 'string',
-      fileFormat: 'string',
-      fileSize: 'string',
-      format: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesFormat,
-      fps: 'string',
-      height: 'string',
-      streams: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreams,
-      width: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle extends $tea.Model {
-  charEnc?: string;
-  fontName?: string;
-  input?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput;
-  static names(): { [key: string]: string } {
-    return {
-      charEnc: 'CharEnc',
-      fontName: 'FontName',
-      input: 'Input',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      charEnc: 'string',
-      fontName: 'string',
-      input: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleList extends $tea.Model {
-  extSubtitle?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle[];
-  static names(): { [key: string]: string } {
-    return {
-      extSubtitle: 'ExtSubtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extSubtitle: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleListSubtitle extends $tea.Model {
-  map?: string;
-  static names(): { [key: string]: string } {
-    return {
-      map: 'Map',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      map: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleList extends $tea.Model {
-  subtitle?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleListSubtitle[];
-  static names(): { [key: string]: string } {
-    return {
-      subtitle: 'Subtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subtitle: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleListSubtitle },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfig extends $tea.Model {
-  extSubtitleList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleList;
-  subtitleList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleList;
-  static names(): { [key: string]: string } {
-    return {
-      extSubtitleList: 'ExtSubtitleList',
-      subtitleList: 'SubtitleList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extSubtitleList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleList,
-      subtitleList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSuperReso extends $tea.Model {
-  isHalfSample?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isHalfSample: 'IsHalfSample',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isHalfSample: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigTransConfig extends $tea.Model {
-  adjDarMethod?: string;
-  duration?: string;
-  isCheckAudioBitrate?: string;
-  isCheckAudioBitrateFail?: string;
-  isCheckReso?: string;
-  isCheckResoFail?: string;
-  isCheckVideoBitrate?: string;
-  isCheckVideoBitrateFail?: string;
-  transMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adjDarMethod: 'AdjDarMethod',
-      duration: 'Duration',
-      isCheckAudioBitrate: 'IsCheckAudioBitrate',
-      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
-      isCheckReso: 'IsCheckReso',
-      isCheckResoFail: 'IsCheckResoFail',
-      isCheckVideoBitrate: 'IsCheckVideoBitrate',
-      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
-      transMode: 'TransMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adjDarMethod: 'string',
-      duration: 'string',
-      isCheckAudioBitrate: 'string',
-      isCheckAudioBitrateFail: 'string',
-      isCheckReso: 'string',
-      isCheckResoFail: 'string',
-      isCheckVideoBitrate: 'string',
-      isCheckVideoBitrateFail: 'string',
-      transMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideoBitrateBnd extends $tea.Model {
-  max?: string;
-  min?: string;
-  static names(): { [key: string]: string } {
-    return {
-      max: 'Max',
-      min: 'Min',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      max: 'string',
-      min: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideo extends $tea.Model {
-  bitrate?: string;
-  bitrateBnd?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideoBitrateBnd;
-  bufsize?: string;
-  codec?: string;
-  crf?: string;
-  crop?: string;
-  degrain?: string;
-  fps?: string;
-  gop?: string;
-  height?: string;
-  maxFps?: string;
-  maxrate?: string;
-  pad?: string;
-  pixFmt?: string;
-  preset?: string;
-  profile?: string;
-  qscale?: string;
-  scanMode?: string;
-  width?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bitrate: 'Bitrate',
-      bitrateBnd: 'BitrateBnd',
-      bufsize: 'Bufsize',
-      codec: 'Codec',
-      crf: 'Crf',
-      crop: 'Crop',
-      degrain: 'Degrain',
-      fps: 'Fps',
-      gop: 'Gop',
-      height: 'Height',
-      maxFps: 'MaxFps',
-      maxrate: 'Maxrate',
-      pad: 'Pad',
-      pixFmt: 'PixFmt',
-      preset: 'Preset',
-      profile: 'Profile',
-      qscale: 'Qscale',
-      scanMode: 'ScanMode',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bitrate: 'string',
-      bitrateBnd: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideoBitrateBnd,
-      bufsize: 'string',
-      codec: 'string',
-      crf: 'string',
-      crop: 'string',
-      degrain: 'string',
-      fps: 'string',
-      gop: 'string',
-      height: 'string',
-      maxFps: 'string',
-      maxrate: 'string',
-      pad: 'string',
-      pixFmt: 'string',
-      preset: 'string',
-      profile: 'string',
-      qscale: 'string',
-      scanMode: 'string',
-      width: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkListWaterMarkInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkListWaterMark extends $tea.Model {
-  dx?: string;
-  dy?: string;
-  height?: string;
-  inputFile?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkListWaterMarkInputFile;
-  referPos?: string;
-  type?: string;
-  waterMarkTemplateId?: string;
-  width?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dx: 'Dx',
-      dy: 'Dy',
-      height: 'Height',
-      inputFile: 'InputFile',
-      referPos: 'ReferPos',
-      type: 'Type',
-      waterMarkTemplateId: 'WaterMarkTemplateId',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dx: 'string',
-      dy: 'string',
-      height: 'string',
-      inputFile: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkListWaterMarkInputFile,
-      referPos: 'string',
-      type: 'string',
-      waterMarkTemplateId: 'string',
-      width: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkList extends $tea.Model {
-  waterMark?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkListWaterMark[];
-  static names(): { [key: string]: string } {
-    return {
-      waterMark: 'WaterMark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      waterMark: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkListWaterMark },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig extends $tea.Model {
-  audio?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudio;
-  audioStreamMap?: string;
-  clip?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClip;
-  container?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigContainer;
-  deWatermark?: string;
-  digiWaterMark?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMark;
-  editing?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditing;
-  encryption?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEncryption;
-  m3U8NonStandardSupport?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupport;
-  mergeConfigUrl?: string;
-  mergeList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeList;
-  muxConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfig;
-  outputFile?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigOutputFile;
-  priority?: string;
-  properties?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigProperties;
-  rotate?: string;
-  subtitleConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfig;
-  superReso?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSuperReso;
-  templateId?: string;
-  transConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigTransConfig;
-  userData?: string;
-  video?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideo;
-  videoStreamMap?: string;
-  waterMarkConfigUrl?: string;
-  waterMarkList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkList;
-  static names(): { [key: string]: string } {
-    return {
-      audio: 'Audio',
-      audioStreamMap: 'AudioStreamMap',
-      clip: 'Clip',
-      container: 'Container',
-      deWatermark: 'DeWatermark',
-      digiWaterMark: 'DigiWaterMark',
-      editing: 'Editing',
-      encryption: 'Encryption',
-      m3U8NonStandardSupport: 'M3U8NonStandardSupport',
-      mergeConfigUrl: 'MergeConfigUrl',
-      mergeList: 'MergeList',
-      muxConfig: 'MuxConfig',
-      outputFile: 'OutputFile',
-      priority: 'Priority',
-      properties: 'Properties',
-      rotate: 'Rotate',
-      subtitleConfig: 'SubtitleConfig',
-      superReso: 'SuperReso',
-      templateId: 'TemplateId',
-      transConfig: 'TransConfig',
-      userData: 'UserData',
-      video: 'Video',
-      videoStreamMap: 'VideoStreamMap',
-      waterMarkConfigUrl: 'WaterMarkConfigUrl',
-      waterMarkList: 'WaterMarkList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      audio: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudio,
-      audioStreamMap: 'string',
-      clip: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClip,
-      container: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigContainer,
-      deWatermark: 'string',
-      digiWaterMark: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMark,
-      editing: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditing,
-      encryption: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEncryption,
-      m3U8NonStandardSupport: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupport,
-      mergeConfigUrl: 'string',
-      mergeList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeList,
-      muxConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfig,
-      outputFile: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigOutputFile,
-      priority: 'string',
-      properties: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigProperties,
-      rotate: 'string',
-      subtitleConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfig,
-      superReso: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSuperReso,
-      templateId: 'string',
-      transConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigTransConfig,
-      userData: 'string',
-      video: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideo,
-      videoStreamMap: 'string',
-      waterMarkConfigUrl: 'string',
-      waterMarkList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputConfig extends $tea.Model {
-  deinterlaceMethod?: string;
-  isNormalSar?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deinterlaceMethod: 'DeinterlaceMethod',
-      isNormalSar: 'IsNormalSar',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deinterlaceMethod: 'string',
-      isNormalSar: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInput extends $tea.Model {
-  id?: string;
-  inputConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputConfig;
-  inputFile?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputFile;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      inputConfig: 'InputConfig',
-      inputFile: 'InputFile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      inputConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputConfig,
-      inputFile: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputFile,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputs extends $tea.Model {
-  editingInput?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInput[];
-  static names(): { [key: string]: string } {
-    return {
-      editingInput: 'EditingInput',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      editingInput: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInput },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobMNSMessageResult extends $tea.Model {
-  errorCode?: string;
-  errorMessage?: string;
-  messageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      messageId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJob extends $tea.Model {
-  code?: string;
-  creationTime?: string;
-  editingConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig;
-  editingInputs?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputs;
-  finishTime?: string;
-  jobId?: string;
-  MNSMessageResult?: SubmitEditingJobsResponseBodyJobResultListJobResultJobMNSMessageResult;
-  message?: string;
-  percent?: number;
-  pipelineId?: string;
-  state?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      creationTime: 'CreationTime',
-      editingConfig: 'EditingConfig',
-      editingInputs: 'EditingInputs',
-      finishTime: 'FinishTime',
-      jobId: 'JobId',
-      MNSMessageResult: 'MNSMessageResult',
-      message: 'Message',
-      percent: 'Percent',
-      pipelineId: 'PipelineId',
-      state: 'State',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      creationTime: 'string',
-      editingConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig,
-      editingInputs: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputs,
-      finishTime: 'string',
-      jobId: 'string',
-      MNSMessageResult: SubmitEditingJobsResponseBodyJobResultListJobResultJobMNSMessageResult,
-      message: 'string',
-      percent: 'number',
-      pipelineId: 'string',
-      state: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResult extends $tea.Model {
-  code?: string;
-  job?: SubmitEditingJobsResponseBodyJobResultListJobResultJob;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      job: 'Job',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      job: SubmitEditingJobsResponseBodyJobResultListJobResultJob,
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultList extends $tea.Model {
-  jobResult?: SubmitEditingJobsResponseBodyJobResultListJobResult[];
-  static names(): { [key: string]: string } {
-    return {
-      jobResult: 'JobResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobResult: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResult },
     };
   }
 
@@ -24207,6 +21747,25 @@ export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTileOutputFil
   }
 }
 
+export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTimeArray extends $tea.Model {
+  timePointList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      timePointList: 'TimePointList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timePointList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfig extends $tea.Model {
   frameType?: string;
   height?: string;
@@ -24216,6 +21775,7 @@ export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfig extends $tea
   tileOut?: SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTileOut;
   tileOutputFile?: SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTileOutputFile;
   time?: string;
+  timeArray?: SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTimeArray;
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24227,6 +21787,7 @@ export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfig extends $tea
       tileOut: 'TileOut',
       tileOutputFile: 'TileOutputFile',
       time: 'Time',
+      timeArray: 'TimeArray',
       width: 'Width',
     };
   }
@@ -24241,6 +21802,7 @@ export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfig extends $tea
       tileOut: SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTileOut,
       tileOutputFile: SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTileOutputFile,
       time: 'string',
+      timeArray: SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTimeArray,
       width: 'string',
     };
   }
@@ -24565,6 +22127,40 @@ export class UpdatePipelineResponseBodyPipeline extends $tea.Model {
   }
 }
 
+export class UpdateTemplateResponseBodyTemplateAudioVolume extends $tea.Model {
+  integratedLoudnessTarget?: string;
+  level?: string;
+  loudnessRangeTarget?: string;
+  method?: string;
+  peakLevel?: string;
+  truePeak?: string;
+  static names(): { [key: string]: string } {
+    return {
+      integratedLoudnessTarget: 'IntegratedLoudnessTarget',
+      level: 'Level',
+      loudnessRangeTarget: 'LoudnessRangeTarget',
+      method: 'Method',
+      peakLevel: 'PeakLevel',
+      truePeak: 'TruePeak',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      integratedLoudnessTarget: 'string',
+      level: 'string',
+      loudnessRangeTarget: 'string',
+      method: 'string',
+      peakLevel: 'string',
+      truePeak: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTemplateResponseBodyTemplateAudio extends $tea.Model {
   bitrate?: string;
   channels?: string;
@@ -24573,6 +22169,7 @@ export class UpdateTemplateResponseBodyTemplateAudio extends $tea.Model {
   qscale?: string;
   remove?: string;
   samplerate?: string;
+  volume?: UpdateTemplateResponseBodyTemplateAudioVolume;
   static names(): { [key: string]: string } {
     return {
       bitrate: 'Bitrate',
@@ -24582,6 +22179,7 @@ export class UpdateTemplateResponseBodyTemplateAudio extends $tea.Model {
       qscale: 'Qscale',
       remove: 'Remove',
       samplerate: 'Samplerate',
+      volume: 'Volume',
     };
   }
 
@@ -24594,6 +22192,7 @@ export class UpdateTemplateResponseBodyTemplateAudio extends $tea.Model {
       qscale: 'string',
       remove: 'string',
       samplerate: 'string',
+      volume: UpdateTemplateResponseBodyTemplateAudioVolume,
     };
   }
 
@@ -24774,6 +22373,31 @@ export class UpdateTemplateResponseBodyTemplateVideoBitrateBnd extends $tea.Mode
   }
 }
 
+export class UpdateTemplateResponseBodyTemplateVideoNarrowBand extends $tea.Model {
+  abrmax?: number;
+  maxAbrRatio?: number;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abrmax: 'Abrmax',
+      maxAbrRatio: 'MaxAbrRatio',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abrmax: 'number',
+      maxAbrRatio: 'number',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTemplateResponseBodyTemplateVideo extends $tea.Model {
   bitrate?: string;
   bitrateBnd?: UpdateTemplateResponseBodyTemplateVideoBitrateBnd;
@@ -24784,10 +22408,12 @@ export class UpdateTemplateResponseBodyTemplateVideo extends $tea.Model {
   degrain?: string;
   fps?: string;
   gop?: string;
+  hdr2sdr?: string;
   height?: string;
   longShortMode?: string;
   maxFps?: string;
   maxrate?: string;
+  narrowBand?: UpdateTemplateResponseBodyTemplateVideoNarrowBand;
   pad?: string;
   pixFmt?: string;
   preset?: string;
@@ -24808,10 +22434,12 @@ export class UpdateTemplateResponseBodyTemplateVideo extends $tea.Model {
       degrain: 'Degrain',
       fps: 'Fps',
       gop: 'Gop',
+      hdr2sdr: 'Hdr2sdr',
       height: 'Height',
       longShortMode: 'LongShortMode',
       maxFps: 'MaxFps',
       maxrate: 'Maxrate',
+      narrowBand: 'NarrowBand',
       pad: 'Pad',
       pixFmt: 'PixFmt',
       preset: 'Preset',
@@ -24835,10 +22463,12 @@ export class UpdateTemplateResponseBodyTemplateVideo extends $tea.Model {
       degrain: 'string',
       fps: 'string',
       gop: 'string',
+      hdr2sdr: 'string',
       height: 'string',
       longShortMode: 'string',
       maxFps: 'string',
       maxrate: 'string',
+      narrowBand: UpdateTemplateResponseBodyTemplateVideoNarrowBand,
       pad: 'string',
       pixFmt: 'string',
       preset: 'string',
@@ -25062,6 +22692,17 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Activates a media workflow.
+   *
+   * @description You can call this operation to activate a media workflow that has been deactivated. After you activate a media workflow, you cannot modify the workflow information, such as the name, topology, or trigger mode. A media workflow is activated by default after it is created.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ActivateMediaWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ActivateMediaWorkflowResponse
+   */
   async activateMediaWorkflowWithOptions(request: ActivateMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<ActivateMediaWorkflowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25102,11 +22743,33 @@ export default class Client extends OpenApi {
     return $tea.cast<ActivateMediaWorkflowResponse>(await this.callApi(params, req, runtime), new ActivateMediaWorkflowResponse({}));
   }
 
+  /**
+   * @summary Activates a media workflow.
+   *
+   * @description You can call this operation to activate a media workflow that has been deactivated. After you activate a media workflow, you cannot modify the workflow information, such as the name, topology, or trigger mode. A media workflow is activated by default after it is created.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ActivateMediaWorkflowRequest
+   * @return ActivateMediaWorkflowResponse
+   */
   async activateMediaWorkflow(request: ActivateMediaWorkflowRequest): Promise<ActivateMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.activateMediaWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a media file.
+   *
+   * @description *   You can call this operation to process videos that are uploaded to Object Storage Service (OSS) but not processed. This way, you do not need to upload the videos to OSS again. If you have configured media workflows, OSS automatically notifies ApsaraVideo Media Processing (MPS) when a media file is uploaded to OSS. MPS automatically finds the corresponding workflow in the Active state based on the specified OSS bucket and object. Therefore, in most cases, you do not need to manually call the AddMedia operation to process the media file.
+   * *   Media information is automatically obtained only when the specified media workflow is in the Active state. If no media workflow is specified or the specified media workflow is not in the Active state, media information is not obtained.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request AddMediaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddMediaResponse
+   */
   async addMediaWithOptions(request: AddMediaRequest, runtime: $Util.RuntimeOptions): Promise<AddMediaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25183,11 +22846,33 @@ export default class Client extends OpenApi {
     return $tea.cast<AddMediaResponse>(await this.callApi(params, req, runtime), new AddMediaResponse({}));
   }
 
+  /**
+   * @summary Adds a media file.
+   *
+   * @description *   You can call this operation to process videos that are uploaded to Object Storage Service (OSS) but not processed. This way, you do not need to upload the videos to OSS again. If you have configured media workflows, OSS automatically notifies ApsaraVideo Media Processing (MPS) when a media file is uploaded to OSS. MPS automatically finds the corresponding workflow in the Active state based on the specified OSS bucket and object. Therefore, in most cases, you do not need to manually call the AddMedia operation to process the media file.
+   * *   Media information is automatically obtained only when the specified media workflow is in the Active state. If no media workflow is specified or the specified media workflow is not in the Active state, media information is not obtained.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request AddMediaRequest
+   * @return AddMediaResponse
+   */
   async addMedia(request: AddMediaRequest): Promise<AddMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addMediaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a tag to a media file.
+   *
+   * @description You can call this operation to add only one tag. To add multiple tags at a time, you can call the [UpdateMedia](https://help.aliyun.com/document_detail/44464.html) operation.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request AddMediaTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddMediaTagResponse
+   */
   async addMediaTagWithOptions(request: AddMediaTagRequest, runtime: $Util.RuntimeOptions): Promise<AddMediaTagResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25232,11 +22917,33 @@ export default class Client extends OpenApi {
     return $tea.cast<AddMediaTagResponse>(await this.callApi(params, req, runtime), new AddMediaTagResponse({}));
   }
 
+  /**
+   * @summary Adds a tag to a media file.
+   *
+   * @description You can call this operation to add only one tag. To add multiple tags at a time, you can call the [UpdateMedia](https://help.aliyun.com/document_detail/44464.html) operation.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request AddMediaTagRequest
+   * @return AddMediaTagResponse
+   */
   async addMediaTag(request: AddMediaTagRequest): Promise<AddMediaTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addMediaTagWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a media workflow.
+   *
+   * @description *   You can call this operation to define the topology, activities, and dependencies of a media workflow. The topology is represented by a directed acyclic graph (DAG) in the console. For more information, see [Workflow activities](https://help.aliyun.com/document_detail/68494.html). You can view and run the workflows that are created by calling this operation in the ApsaraVideo Media Processing (MPS) console.
+   * *   MPS media workflows can be automatically triggered only by using the prefix of the file path. Automatic triggering by using the suffix is not supported. For more information about the trigger rules, see [Workflow triggering rules for files](https://help.aliyun.com/document_detail/68574.html).
+   * ### [](#qps)QPS limits
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request AddMediaWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddMediaWorkflowResponse
+   */
   async addMediaWorkflowWithOptions(request: AddMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<AddMediaWorkflowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25285,11 +22992,29 @@ export default class Client extends OpenApi {
     return $tea.cast<AddMediaWorkflowResponse>(await this.callApi(params, req, runtime), new AddMediaWorkflowResponse({}));
   }
 
+  /**
+   * @summary Creates a media workflow.
+   *
+   * @description *   You can call this operation to define the topology, activities, and dependencies of a media workflow. The topology is represented by a directed acyclic graph (DAG) in the console. For more information, see [Workflow activities](https://help.aliyun.com/document_detail/68494.html). You can view and run the workflows that are created by calling this operation in the ApsaraVideo Media Processing (MPS) console.
+   * *   MPS media workflows can be automatically triggered only by using the prefix of the file path. Automatic triggering by using the suffix is not supported. For more information about the trigger rules, see [Workflow triggering rules for files](https://help.aliyun.com/document_detail/68574.html).
+   * ### [](#qps)QPS limits
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request AddMediaWorkflowRequest
+   * @return AddMediaWorkflowResponse
+   */
   async addMediaWorkflow(request: AddMediaWorkflowRequest): Promise<AddMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addMediaWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds an ApsaraVideo Media Processing (MPS) queue.
+   *
+   * @param request AddPipelineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddPipelineResponse
+   */
   async addPipelineWithOptions(request: AddPipelineRequest, runtime: $Util.RuntimeOptions): Promise<AddPipelineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25346,11 +23071,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddPipelineResponse>(await this.callApi(params, req, runtime), new AddPipelineResponse({}));
   }
 
+  /**
+   * @summary Adds an ApsaraVideo Media Processing (MPS) queue.
+   *
+   * @param request AddPipelineRequest
+   * @return AddPipelineResponse
+   */
   async addPipeline(request: AddPipelineRequest): Promise<AddPipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPipelineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 添加labelVersion、knowledgeConfig配置
+   *
+   * @param request AddSmarttagTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddSmarttagTemplateResponse
+   */
   async addSmarttagTemplateWithOptions(request: AddSmarttagTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddSmarttagTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25388,6 +23126,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.labelVersion)) {
       query["LabelVersion"] = request.labelVersion;
+    }
+
+    if (!Util.isUnset(request.landmarkGroupIds)) {
+      query["LandmarkGroupIds"] = request.landmarkGroupIds;
+    }
+
+    if (!Util.isUnset(request.objectGroupIds)) {
+      query["ObjectGroupIds"] = request.objectGroupIds;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -25431,11 +23177,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSmarttagTemplateResponse>(await this.callApi(params, req, runtime), new AddSmarttagTemplateResponse({}));
   }
 
+  /**
+   * @summary 添加labelVersion、knowledgeConfig配置
+   *
+   * @param request AddSmarttagTemplateRequest
+   * @return AddSmarttagTemplateResponse
+   */
   async addSmarttagTemplate(request: AddSmarttagTemplateRequest): Promise<AddSmarttagTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addSmarttagTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a custom transcoding template. You need to configure the information such as the container format, video stream settings, and audio stream settings.
+   *
+   * @description When you call this operation, you need to set transcoding parameters such as those related to the container format, video stream, and audio stream. If you do not specify some parameters, streams that are generated by using the template do not contain the information specified by those parameters.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request AddTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddTemplateResponse
+   */
   async addTemplateWithOptions(request: AddTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25496,11 +23259,32 @@ export default class Client extends OpenApi {
     return $tea.cast<AddTemplateResponse>(await this.callApi(params, req, runtime), new AddTemplateResponse({}));
   }
 
+  /**
+   * @summary Creates a custom transcoding template. You need to configure the information such as the container format, video stream settings, and audio stream settings.
+   *
+   * @description When you call this operation, you need to set transcoding parameters such as those related to the container format, video stream, and audio stream. If you do not specify some parameters, streams that are generated by using the template do not contain the information specified by those parameters.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request AddTemplateRequest
+   * @return AddTemplateResponse
+   */
   async addTemplate(request: AddTemplateRequest): Promise<AddTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a watermark template.
+   *
+   * @description After you create a watermark template by calling this operation, you can specify the watermark template and watermark asset when you [submit a transcoding job](https://help.aliyun.com/document_detail/29226.html). This allows you to add watermark information to the output video.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request AddWaterMarkTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddWaterMarkTemplateResponse
+   */
   async addWaterMarkTemplateWithOptions(request: AddWaterMarkTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddWaterMarkTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25545,11 +23329,32 @@ export default class Client extends OpenApi {
     return $tea.cast<AddWaterMarkTemplateResponse>(await this.callApi(params, req, runtime), new AddWaterMarkTemplateResponse({}));
   }
 
+  /**
+   * @summary Creates a watermark template.
+   *
+   * @description After you create a watermark template by calling this operation, you can specify the watermark template and watermark asset when you [submit a transcoding job](https://help.aliyun.com/document_detail/29226.html). This allows you to add watermark information to the output video.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request AddWaterMarkTemplateRequest
+   * @return AddWaterMarkTemplateResponse
+   */
   async addWaterMarkTemplate(request: AddWaterMarkTemplateRequest): Promise<AddWaterMarkTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addWaterMarkTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Binds an input media bucket.
+   *
+   * @description Before you call this operation to bind an input media bucket, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request BindInputBucketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindInputBucketResponse
+   */
   async bindInputBucketWithOptions(request: BindInputBucketRequest, runtime: $Util.RuntimeOptions): Promise<BindInputBucketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25577,10 +23382,6 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.roleArn)) {
-      query["RoleArn"] = request.roleArn;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25598,11 +23399,32 @@ export default class Client extends OpenApi {
     return $tea.cast<BindInputBucketResponse>(await this.callApi(params, req, runtime), new BindInputBucketResponse({}));
   }
 
+  /**
+   * @summary Binds an input media bucket.
+   *
+   * @description Before you call this operation to bind an input media bucket, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request BindInputBucketRequest
+   * @return BindInputBucketResponse
+   */
   async bindInputBucket(request: BindInputBucketRequest): Promise<BindInputBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindInputBucketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Binds an output media bucket to the media library.
+   *
+   * @description Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request BindOutputBucketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindOutputBucketResponse
+   */
   async bindOutputBucketWithOptions(request: BindOutputBucketRequest, runtime: $Util.RuntimeOptions): Promise<BindOutputBucketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25626,10 +23448,6 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.roleArn)) {
-      query["RoleArn"] = request.roleArn;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25647,11 +23465,33 @@ export default class Client extends OpenApi {
     return $tea.cast<BindOutputBucketResponse>(await this.callApi(params, req, runtime), new BindOutputBucketResponse({}));
   }
 
+  /**
+   * @summary Binds an output media bucket to the media library.
+   *
+   * @description Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request BindOutputBucketRequest
+   * @return BindOutputBucketResponse
+   */
   async bindOutputBucket(request: BindOutputBucketRequest): Promise<BindOutputBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindOutputBucketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Cancels a transcoding job.
+   *
+   * @description *   You can cancel a transcoding job only if the job is in the Submitted state.
+   * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request CancelJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelJobResponse
+   */
   async cancelJobWithOptions(request: CancelJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25692,11 +23532,163 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelJobResponse>(await this.callApi(params, req, runtime), new CancelJobResponse({}));
   }
 
+  /**
+   * @summary Cancels a transcoding job.
+   *
+   * @description *   You can cancel a transcoding job only if the job is in the Submitted state.
+   * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request CancelJobRequest
+   * @return CancelJobResponse
+   */
   async cancelJob(request: CancelJobRequest): Promise<CancelJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelJobWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateCustomEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomEntityResponse
+   */
+  async createCustomEntityWithOptions(request: CreateCustomEntityRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomEntityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.customEntityInfo)) {
+      query["CustomEntityInfo"] = request.customEntityInfo;
+    }
+
+    if (!Util.isUnset(request.customEntityName)) {
+      query["CustomEntityName"] = request.customEntityName;
+    }
+
+    if (!Util.isUnset(request.customGroupId)) {
+      query["CustomGroupId"] = request.customGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomEntity",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomEntityResponse>(await this.callApi(params, req, runtime), new CreateCustomEntityResponse({}));
+  }
+
+  /**
+   * @param request CreateCustomEntityRequest
+   * @return CreateCustomEntityResponse
+   */
+  async createCustomEntity(request: CreateCustomEntityRequest): Promise<CreateCustomEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCustomEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request CreateCustomGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomGroupResponse
+   */
+  async createCustomGroupWithOptions(request: CreateCustomGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.customGroupDescription)) {
+      query["CustomGroupDescription"] = request.customGroupDescription;
+    }
+
+    if (!Util.isUnset(request.customGroupName)) {
+      query["CustomGroupName"] = request.customGroupName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomGroup",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomGroupResponse>(await this.callApi(params, req, runtime), new CreateCustomGroupResponse({}));
+  }
+
+  /**
+   * @param request CreateCustomGroupRequest
+   * @return CreateCustomGroupResponse
+   */
+  async createCustomGroup(request: CreateCustomGroupRequest): Promise<CreateCustomGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCustomGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Submits a job of creating a media fingerprint library.
+   *
+   * @description *   You can call this operation to submit a job to create a video or text fingerprint library. You can use a text fingerprint library to store fingerprints for text.
+   * *   You can submit a job of creating a text fingerprint library only in the China (Shanghai) region.
+   * *   By default, you can submit up to 10 jobs of creating a video fingerprint library to an ApsaraVideo Media Processing (MPS) queue at a time. If you submit more than 10 jobs at a time, the call may fail.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request CreateFpShotDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFpShotDBResponse
+   */
   async createFpShotDBWithOptions(request: CreateFpShotDBRequest, runtime: $Util.RuntimeOptions): Promise<CreateFpShotDBResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25749,11 +23741,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFpShotDBResponse>(await this.callApi(params, req, runtime), new CreateFpShotDBResponse({}));
   }
 
+  /**
+   * @summary Submits a job of creating a media fingerprint library.
+   *
+   * @description *   You can call this operation to submit a job to create a video or text fingerprint library. You can use a text fingerprint library to store fingerprints for text.
+   * *   You can submit a job of creating a text fingerprint library only in the China (Shanghai) region.
+   * *   By default, you can submit up to 10 jobs of creating a video fingerprint library to an ApsaraVideo Media Processing (MPS) queue at a time. If you submit more than 10 jobs at a time, the call may fail.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request CreateFpShotDBRequest
+   * @return CreateFpShotDBResponse
+   */
   async createFpShotDB(request: CreateFpShotDBRequest): Promise<CreateFpShotDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFpShotDBWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables a media workflow.
+   *
+   * @description The time when the media workflow was created.
+   *
+   * @param request DeactivateMediaWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeactivateMediaWorkflowResponse
+   */
   async deactivateMediaWorkflowWithOptions(request: DeactivateMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<DeactivateMediaWorkflowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25794,11 +23807,232 @@ export default class Client extends OpenApi {
     return $tea.cast<DeactivateMediaWorkflowResponse>(await this.callApi(params, req, runtime), new DeactivateMediaWorkflowResponse({}));
   }
 
+  /**
+   * @summary Disables a media workflow.
+   *
+   * @description The time when the media workflow was created.
+   *
+   * @param request DeactivateMediaWorkflowRequest
+   * @return DeactivateMediaWorkflowResponse
+   */
   async deactivateMediaWorkflow(request: DeactivateMediaWorkflowRequest): Promise<DeactivateMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deactivateMediaWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a custom entity from a custom library.
+   *
+   * @param request DeleteCustomEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomEntityResponse
+   */
+  async deleteCustomEntityWithOptions(request: DeleteCustomEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomEntityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.customEntityId)) {
+      query["CustomEntityId"] = request.customEntityId;
+    }
+
+    if (!Util.isUnset(request.customGroupId)) {
+      query["CustomGroupId"] = request.customGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomEntity",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomEntityResponse>(await this.callApi(params, req, runtime), new DeleteCustomEntityResponse({}));
+  }
+
+  /**
+   * @summary Deletes a custom entity from a custom library.
+   *
+   * @param request DeleteCustomEntityRequest
+   * @return DeleteCustomEntityResponse
+   */
+  async deleteCustomEntity(request: DeleteCustomEntityRequest): Promise<DeleteCustomEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Delete a custom image library.
+   *
+   * @description You can call this operation only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions.
+   * ### QPS limit
+   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteCustomGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomGroupResponse
+   */
+  async deleteCustomGroupWithOptions(request: DeleteCustomGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.customGroupId)) {
+      query["CustomGroupId"] = request.customGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomGroup",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomGroupResponse>(await this.callApi(params, req, runtime), new DeleteCustomGroupResponse({}));
+  }
+
+  /**
+   * @summary Delete a custom image library.
+   *
+   * @description You can call this operation only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions.
+   * ### QPS limit
+   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteCustomGroupRequest
+   * @return DeleteCustomGroupResponse
+   */
+  async deleteCustomGroup(request: DeleteCustomGroupRequest): Promise<DeleteCustomGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DeleteCustomViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomViewResponse
+   */
+  async deleteCustomViewWithOptions(request: DeleteCustomViewRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomViewResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.customEntityId)) {
+      query["CustomEntityId"] = request.customEntityId;
+    }
+
+    if (!Util.isUnset(request.customGroupId)) {
+      query["CustomGroupId"] = request.customGroupId;
+    }
+
+    if (!Util.isUnset(request.customViewId)) {
+      query["CustomViewId"] = request.customViewId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomView",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomViewResponse>(await this.callApi(params, req, runtime), new DeleteCustomViewResponse({}));
+  }
+
+  /**
+   * @param request DeleteCustomViewRequest
+   * @return DeleteCustomViewResponse
+   */
+  async deleteCustomView(request: DeleteCustomViewRequest): Promise<DeleteCustomViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomViewWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Deletes media files from ApsaraVideo Media Processing (MPS).
+   *
+   * @description This operation allows you to logically delete a media file. The media file can no longer be processed, but the corresponding objects in the input and output Object Storage Service (OSS) buckets are retained.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteMediaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMediaResponse
+   */
   async deleteMediaWithOptions(request: DeleteMediaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25839,11 +24073,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMediaResponse>(await this.callApi(params, req, runtime), new DeleteMediaResponse({}));
   }
 
+  /**
+   * @summary Deletes media files from ApsaraVideo Media Processing (MPS).
+   *
+   * @description This operation allows you to logically delete a media file. The media file can no longer be processed, but the corresponding objects in the input and output Object Storage Service (OSS) buckets are retained.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteMediaRequest
+   * @return DeleteMediaResponse
+   */
   async deleteMedia(request: DeleteMediaRequest): Promise<DeleteMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMediaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes a tag for a media file.
+   *
+   * @description You can call this operation to remove only one tag at a time.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteMediaTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMediaTagResponse
+   */
   async deleteMediaTagWithOptions(request: DeleteMediaTagRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaTagResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25888,11 +24143,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMediaTagResponse>(await this.callApi(params, req, runtime), new DeleteMediaTagResponse({}));
   }
 
+  /**
+   * @summary Removes a tag for a media file.
+   *
+   * @description You can call this operation to remove only one tag at a time.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteMediaTagRequest
+   * @return DeleteMediaTagResponse
+   */
   async deleteMediaTag(request: DeleteMediaTagRequest): Promise<DeleteMediaTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMediaTagWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a media workflow. This does not affect workflow instances that are running.
+   *
+   * @description After you delete or disable a workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteMediaWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMediaWorkflowResponse
+   */
   async deleteMediaWorkflowWithOptions(request: DeleteMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaWorkflowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25933,11 +24209,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMediaWorkflowResponse>(await this.callApi(params, req, runtime), new DeleteMediaWorkflowResponse({}));
   }
 
+  /**
+   * @summary Deletes a media workflow. This does not affect workflow instances that are running.
+   *
+   * @description After you delete or disable a workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteMediaWorkflowRequest
+   * @return DeleteMediaWorkflowResponse
+   */
   async deleteMediaWorkflow(request: DeleteMediaWorkflowRequest): Promise<DeleteMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMediaWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an ApsaraVideo Media Processing (MPS) queue.
+   *
+   * @description You can call this operation to delete only one MPS queue at a time.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeletePipelineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePipelineResponse
+   */
   async deletePipelineWithOptions(request: DeletePipelineRequest, runtime: $Util.RuntimeOptions): Promise<DeletePipelineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25978,11 +24275,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePipelineResponse>(await this.callApi(params, req, runtime), new DeletePipelineResponse({}));
   }
 
+  /**
+   * @summary Deletes an ApsaraVideo Media Processing (MPS) queue.
+   *
+   * @description You can call this operation to delete only one MPS queue at a time.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeletePipelineRequest
+   * @return DeletePipelineResponse
+   */
   async deletePipeline(request: DeletePipelineRequest): Promise<DeletePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePipelineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a template.
+   *
+   * @description You can call this operation to delete only one template at a time.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteSmarttagTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSmarttagTemplateResponse
+   */
   async deleteSmarttagTemplateWithOptions(request: DeleteSmarttagTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmarttagTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26023,11 +24341,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSmarttagTemplateResponse>(await this.callApi(params, req, runtime), new DeleteSmarttagTemplateResponse({}));
   }
 
+  /**
+   * @summary Deletes a template.
+   *
+   * @description You can call this operation to delete only one template at a time.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteSmarttagTemplateRequest
+   * @return DeleteSmarttagTemplateResponse
+   */
   async deleteSmarttagTemplate(request: DeleteSmarttagTemplateRequest): Promise<DeleteSmarttagTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSmarttagTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a custom transcoding template.
+   *
+   * @description A custom transcoding template cannot be deleted if it is being used by a job that has been submitted.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTemplateResponse
+   */
   async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26068,11 +24407,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
+  /**
+   * @summary Deletes a custom transcoding template.
+   *
+   * @description A custom transcoding template cannot be deleted if it is being used by a job that has been submitted.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteTemplateRequest
+   * @return DeleteTemplateResponse
+   */
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a watermark template.
+   *
+   * @description A watermark template cannot be deleted if it is being used by a submitted job.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteWaterMarkTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWaterMarkTemplateResponse
+   */
   async deleteWaterMarkTemplateWithOptions(request: DeleteWaterMarkTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWaterMarkTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26113,11 +24473,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWaterMarkTemplateResponse>(await this.callApi(params, req, runtime), new DeleteWaterMarkTemplateResponse({}));
   }
 
+  /**
+   * @summary Deletes a watermark template.
+   *
+   * @description A watermark template cannot be deleted if it is being used by a submitted job.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request DeleteWaterMarkTemplateRequest
+   * @return DeleteWaterMarkTemplateResponse
+   */
   async deleteWaterMarkTemplate(request: DeleteWaterMarkTemplateRequest): Promise<DeleteWaterMarkTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWaterMarkTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Reviews images and text and returns the review results.
+   *
+   * @description *   The moderation results are synchronously returned after the moderation is complete.
+   * *   You can use the image and text moderation feature only in the China (Beijing), China (Shanghai), and Singapore regions.
+   * ### QPS limits
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ImAuditRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImAuditResponse
+   */
   async imAuditWithOptions(request: ImAuditRequest, runtime: $Util.RuntimeOptions): Promise<ImAuditResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26166,11 +24548,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ImAuditResponse>(await this.callApi(params, req, runtime), new ImAuditResponse({}));
   }
 
+  /**
+   * @summary Reviews images and text and returns the review results.
+   *
+   * @description *   The moderation results are synchronously returned after the moderation is complete.
+   * *   You can use the image and text moderation feature only in the China (Beijing), China (Shanghai), and Singapore regions.
+   * ### QPS limits
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ImAuditRequest
+   * @return ImAuditResponse
+   */
   async imAudit(request: ImAuditRequest): Promise<ImAuditResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.imAuditWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a job of importing text files to a text fingerprint library.
+   *
+   * @description *   You can call this operation to import multiple text files to a text fingerprint library at a time. The system extracts fingerprints from the text files and saves the fingerprints to the text fingerprint library.
+   * *   You can call this operation only in the China (Shanghai) region.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ImportFpShotJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportFpShotJobResponse
+   */
   async importFpShotJobWithOptions(request: ImportFpShotJobRequest, runtime: $Util.RuntimeOptions): Promise<ImportFpShotJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26227,11 +24632,33 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportFpShotJobResponse>(await this.callApi(params, req, runtime), new ImportFpShotJobResponse({}));
   }
 
+  /**
+   * @summary Submits a job of importing text files to a text fingerprint library.
+   *
+   * @description *   You can call this operation to import multiple text files to a text fingerprint library at a time. The system extracts fingerprints from the text files and saves the fingerprints to the text fingerprint library.
+   * *   You can call this operation only in the China (Shanghai) region.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ImportFpShotJobRequest
+   * @return ImportFpShotJobResponse
+   */
   async importFpShotJob(request: ImportFpShotJobRequest): Promise<ImportFpShotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importFpShotJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all media buckets bound to the media library.
+   *
+   * @description A maximum of 100 media buckets can be returned.
+   * ### QPS limit
+   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListAllMediaBucketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAllMediaBucketResponse
+   */
   async listAllMediaBucketWithOptions(request: ListAllMediaBucketRequest, runtime: $Util.RuntimeOptions): Promise<ListAllMediaBucketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26276,11 +24703,164 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAllMediaBucketResponse>(await this.callApi(params, req, runtime), new ListAllMediaBucketResponse({}));
   }
 
+  /**
+   * @summary Queries all media buckets bound to the media library.
+   *
+   * @description A maximum of 100 media buckets can be returned.
+   * ### QPS limit
+   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListAllMediaBucketRequest
+   * @return ListAllMediaBucketResponse
+   */
   async listAllMediaBucket(request: ListAllMediaBucketRequest): Promise<ListAllMediaBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAllMediaBucketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of entities in a custom library.
+   *
+   * @param request ListCustomEntitiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomEntitiesResponse
+   */
+  async listCustomEntitiesWithOptions(request: ListCustomEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomEntitiesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.customGroupId)) {
+      query["CustomGroupId"] = request.customGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomEntities",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomEntitiesResponse>(await this.callApi(params, req, runtime), new ListCustomEntitiesResponse({}));
+  }
+
+  /**
+   * @summary Queries a list of entities in a custom library.
+   *
+   * @param request ListCustomEntitiesRequest
+   * @return ListCustomEntitiesResponse
+   */
+  async listCustomEntities(request: ListCustomEntitiesRequest): Promise<ListCustomEntitiesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomEntitiesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListCustomGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomGroupsResponse
+   */
+  async listCustomGroupsWithOptions(request: ListCustomGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomGroups",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomGroupsResponse>(await this.callApi(params, req, runtime), new ListCustomGroupsResponse({}));
+  }
+
+  /**
+   * @param request ListCustomGroupsRequest
+   * @return ListCustomGroupsResponse
+   */
+  async listCustomGroups(request: ListCustomGroupsRequest): Promise<ListCustomGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries the information about all figures and faces in a specific figure library.
+   *
+   * @description You can specify the ID of a figure or a figure library to query the corresponding information. If neither the figure ID nor figure library ID is specified, the operation returns the information about all figures and faces in all figure libraries within the current RAM user.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListCustomPersonsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomPersonsResponse
+   */
   async listCustomPersonsWithOptions(request: ListCustomPersonsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomPersonsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26325,11 +24905,104 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCustomPersonsResponse>(await this.callApi(params, req, runtime), new ListCustomPersonsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about all figures and faces in a specific figure library.
+   *
+   * @description You can specify the ID of a figure or a figure library to query the corresponding information. If neither the figure ID nor figure library ID is specified, the operation returns the information about all figures and faces in all figure libraries within the current RAM user.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListCustomPersonsRequest
+   * @return ListCustomPersonsResponse
+   */
   async listCustomPersons(request: ListCustomPersonsRequest): Promise<ListCustomPersonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomPersonsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListCustomViewsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomViewsResponse
+   */
+  async listCustomViewsWithOptions(request: ListCustomViewsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomViewsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.customEntityId)) {
+      query["CustomEntityId"] = request.customEntityId;
+    }
+
+    if (!Util.isUnset(request.customGroupId)) {
+      query["CustomGroupId"] = request.customGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomViews",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomViewsResponse>(await this.callApi(params, req, runtime), new ListCustomViewsResponse({}));
+  }
+
+  /**
+   * @param request ListCustomViewsRequest
+   * @return ListCustomViewsResponse
+   */
+  async listCustomViews(request: ListCustomViewsRequest): Promise<ListCustomViewsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomViewsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries media fingerprint libraries.
+   *
+   * @description *   You can call this operation to query the status and information about the media fingerprint libraries based on the specified IDs.
+   * *   You can query text fingerprint libraries only in the China (Shanghai) region.
+   * *   You can call this operation to query up to 10 media fingerprint libraries.
+   * ### QPS limit
+   * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListFpShotDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFpShotDBResponse
+   */
   async listFpShotDBWithOptions(request: ListFpShotDBRequest, runtime: $Util.RuntimeOptions): Promise<ListFpShotDBResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26370,14 +25043,42 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFpShotDBResponse>(await this.callApi(params, req, runtime), new ListFpShotDBResponse({}));
   }
 
+  /**
+   * @summary Queries media fingerprint libraries.
+   *
+   * @description *   You can call this operation to query the status and information about the media fingerprint libraries based on the specified IDs.
+   * *   You can query text fingerprint libraries only in the China (Shanghai) region.
+   * *   You can call this operation to query up to 10 media fingerprint libraries.
+   * ### QPS limit
+   * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListFpShotDBRequest
+   * @return ListFpShotDBResponse
+   */
   async listFpShotDB(request: ListFpShotDBRequest): Promise<ListFpShotDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFpShotDBWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries media files in a media fingerprint library.
+   *
+   * @description *   You can call this operation to query media files in a specific media fingerprint library based on the library ID. This operation supports paged queries.
+   * *   You can call this operation only in the China (Beijing), China (Hangzhou), China (Shanghai), and Singapore regions.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListFpShotFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFpShotFilesResponse
+   */
   async listFpShotFilesWithOptions(request: ListFpShotFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListFpShotFilesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!Util.isUnset(request.fpDBId)) {
       query["FpDBId"] = request.fpDBId;
     }
@@ -26406,6 +25107,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26423,11 +25128,33 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFpShotFilesResponse>(await this.callApi(params, req, runtime), new ListFpShotFilesResponse({}));
   }
 
+  /**
+   * @summary Queries media files in a media fingerprint library.
+   *
+   * @description *   You can call this operation to query media files in a specific media fingerprint library based on the library ID. This operation supports paged queries.
+   * *   You can call this operation only in the China (Beijing), China (Hangzhou), China (Shanghai), and Singapore regions.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListFpShotFilesRequest
+   * @return ListFpShotFilesResponse
+   */
   async listFpShotFiles(request: ListFpShotFilesRequest): Promise<ListFpShotFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFpShotFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries jobs of importing text files to a text fingerprint library.
+   *
+   * @description You can call this operation only in the China (Shanghai) region.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListFpShotImportJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFpShotImportJobResponse
+   */
   async listFpShotImportJobWithOptions(request: ListFpShotImportJobRequest, runtime: $Util.RuntimeOptions): Promise<ListFpShotImportJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26468,11 +25195,35 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFpShotImportJobResponse>(await this.callApi(params, req, runtime), new ListFpShotImportJobResponse({}));
   }
 
+  /**
+   * @summary Queries jobs of importing text files to a text fingerprint library.
+   *
+   * @description You can call this operation only in the China (Shanghai) region.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListFpShotImportJobRequest
+   * @return ListFpShotImportJobResponse
+   */
   async listFpShotImportJob(request: ListFpShotImportJobRequest): Promise<ListFpShotImportJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFpShotImportJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Traverses transcoding jobs
+   *
+   * @description *   By default, the returned transcoding jobs are sorted by CreationTime in descending order.
+   * *   You can call this operation to return transcoding jobs of the last 90 days. The jobs are returned based on the specified time range.
+   * *   You can filter query results by configuring request parameters such as job status, creation time interval, and ApsaraVideo Media Processing (MPS) queue for transcoding.
+   * *   By default, MPS does not allow you to access data across regions within the same account. Before you call this operation, make sure that the region that you specify is the same as the region of the transcoding jobs to be queried. Otherwise, this operation may fail to be called, or invalid information may be returned.
+   * ### [](#qps)QPS limits
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListJobResponse
+   */
   async listJobWithOptions(request: ListJobRequest, runtime: $Util.RuntimeOptions): Promise<ListJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26533,11 +25284,35 @@ export default class Client extends OpenApi {
     return $tea.cast<ListJobResponse>(await this.callApi(params, req, runtime), new ListJobResponse({}));
   }
 
+  /**
+   * @summary Traverses transcoding jobs
+   *
+   * @description *   By default, the returned transcoding jobs are sorted by CreationTime in descending order.
+   * *   You can call this operation to return transcoding jobs of the last 90 days. The jobs are returned based on the specified time range.
+   * *   You can filter query results by configuring request parameters such as job status, creation time interval, and ApsaraVideo Media Processing (MPS) queue for transcoding.
+   * *   By default, MPS does not allow you to access data across regions within the same account. Before you call this operation, make sure that the region that you specify is the same as the region of the transcoding jobs to be queried. Otherwise, this operation may fail to be called, or invalid information may be returned.
+   * ### [](#qps)QPS limits
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListJobRequest
+   * @return ListJobResponse
+   */
   async listJob(request: ListJobRequest): Promise<ListJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the execution instances of a media workflow.
+   *
+   * @description This operation returns execution instances only in the recent 90 days.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListMediaWorkflowExecutionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMediaWorkflowExecutionsResponse
+   */
   async listMediaWorkflowExecutionsWithOptions(request: ListMediaWorkflowExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaWorkflowExecutionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26594,11 +25369,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMediaWorkflowExecutionsResponse>(await this.callApi(params, req, runtime), new ListMediaWorkflowExecutionsResponse({}));
   }
 
+  /**
+   * @summary Queries the execution instances of a media workflow.
+   *
+   * @description This operation returns execution instances only in the recent 90 days.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request ListMediaWorkflowExecutionsRequest
+   * @return ListMediaWorkflowExecutionsResponse
+   */
   async listMediaWorkflowExecutions(request: ListMediaWorkflowExecutionsRequest): Promise<ListMediaWorkflowExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMediaWorkflowExecutionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the template analysis job and returns a list of available preset templates when the template analysis job is complete.
+   *
+   * @description The time when the job was created.
+   *
+   * @param request QueryAnalysisJobListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryAnalysisJobListResponse
+   */
   async queryAnalysisJobListWithOptions(request: QueryAnalysisJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryAnalysisJobListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26639,56 +25433,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryAnalysisJobListResponse>(await this.callApi(params, req, runtime), new QueryAnalysisJobListResponse({}));
   }
 
+  /**
+   * @summary Queries the template analysis job and returns a list of available preset templates when the template analysis job is complete.
+   *
+   * @description The time when the job was created.
+   *
+   * @param request QueryAnalysisJobListRequest
+   * @return QueryAnalysisJobListResponse
+   */
   async queryAnalysisJobList(request: QueryAnalysisJobListRequest): Promise<QueryAnalysisJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAnalysisJobListWithOptions(request, runtime);
   }
 
-  async queryEditingJobListWithOptions(request: QueryEditingJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryEditingJobListResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.jobIds)) {
-      query["JobIds"] = request.jobIds;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryEditingJobList",
-      version: "2014-06-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryEditingJobListResponse>(await this.callApi(params, req, runtime), new QueryEditingJobListResponse({}));
-  }
-
-  async queryEditingJobList(request: QueryEditingJobListRequest): Promise<QueryEditingJobListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryEditingJobListWithOptions(request, runtime);
-  }
-
+  /**
+   * @summary Queries the jobs of clearing or deleting a media fingerprint library.
+   *
+   * @description You can call this operation to query the specified jobs of clearing or deleting a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryFpDBDeleteJobListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryFpDBDeleteJobListResponse
+   */
   async queryFpDBDeleteJobListWithOptions(request: QueryFpDBDeleteJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryFpDBDeleteJobListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26729,11 +25497,32 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryFpDBDeleteJobListResponse>(await this.callApi(params, req, runtime), new QueryFpDBDeleteJobListResponse({}));
   }
 
+  /**
+   * @summary Queries the jobs of clearing or deleting a media fingerprint library.
+   *
+   * @description You can call this operation to query the specified jobs of clearing or deleting a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryFpDBDeleteJobListRequest
+   * @return QueryFpDBDeleteJobListResponse
+   */
   async queryFpDBDeleteJobList(request: QueryFpDBDeleteJobListRequest): Promise<QueryFpDBDeleteJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryFpDBDeleteJobListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the jobs of deleting media files from a media fingerprint library.
+   *
+   * @description You can call this operation to query the specified jobs of deleting media files from a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+   * ### QPS limit
+   * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryFpFileDeleteJobListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryFpFileDeleteJobListResponse
+   */
   async queryFpFileDeleteJobListWithOptions(request: QueryFpFileDeleteJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryFpFileDeleteJobListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26774,16 +25563,50 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryFpFileDeleteJobListResponse>(await this.callApi(params, req, runtime), new QueryFpFileDeleteJobListResponse({}));
   }
 
+  /**
+   * @summary Queries the jobs of deleting media files from a media fingerprint library.
+   *
+   * @description You can call this operation to query the specified jobs of deleting media files from a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+   * ### QPS limit
+   * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryFpFileDeleteJobListRequest
+   * @return QueryFpFileDeleteJobListResponse
+   */
   async queryFpFileDeleteJobList(request: QueryFpFileDeleteJobListRequest): Promise<QueryFpFileDeleteJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryFpFileDeleteJobListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries media fingerprint analysis jobs. You can call this operation to query video fingerprint analysis jobs and text fingerprint analysis jobs.
+   *
+   * @description *   After a media fingerprint analysis job is submitted, the media fingerprinting service compares the fingerprints of the job input with those of the media files in the media fingerprint library. You can call this operation to query the job results.
+   * *   You can query the results of a text fingerprint analysis job only in the China (Shanghai) region.
+   * ### [](#qps)QPS limits
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryFpShotJobListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryFpShotJobListResponse
+   */
   async queryFpShotJobListWithOptions(request: QueryFpShotJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryFpShotJobListResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.endOfJobCreatedTimeRange)) {
+      query["EndOfJobCreatedTimeRange"] = request.endOfJobCreatedTimeRange;
+    }
+
     if (!Util.isUnset(request.jobIds)) {
       query["JobIds"] = request.jobIds;
+    }
+
+    if (!Util.isUnset(request.maximumPageSize)) {
+      query["MaximumPageSize"] = request.maximumPageSize;
+    }
+
+    if (!Util.isUnset(request.nextPageToken)) {
+      query["NextPageToken"] = request.nextPageToken;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -26794,12 +25617,24 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.pipelineId)) {
+      query["PipelineId"] = request.pipelineId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.startOfJobCreatedTimeRange)) {
+      query["StartOfJobCreatedTimeRange"] = request.startOfJobCreatedTimeRange;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26819,11 +25654,27 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryFpShotJobListResponse>(await this.callApi(params, req, runtime), new QueryFpShotJobListResponse({}));
   }
 
+  /**
+   * @summary Queries media fingerprint analysis jobs. You can call this operation to query video fingerprint analysis jobs and text fingerprint analysis jobs.
+   *
+   * @description *   After a media fingerprint analysis job is submitted, the media fingerprinting service compares the fingerprints of the job input with those of the media files in the media fingerprint library. You can call this operation to query the job results.
+   * *   You can query the results of a text fingerprint analysis job only in the China (Shanghai) region.
+   * ### [](#qps)QPS limits
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryFpShotJobListRequest
+   * @return QueryFpShotJobListResponse
+   */
   async queryFpShotJobList(request: QueryFpShotJobListRequest): Promise<QueryFpShotJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryFpShotJobListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryIProductionJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryIProductionJobResponse
+   */
   async queryIProductionJobWithOptions(request: QueryIProductionJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryIProductionJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26864,11 +25715,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryIProductionJobResponse>(await this.callApi(params, req, runtime), new QueryIProductionJobResponse({}));
   }
 
+  /**
+   * @param request QueryIProductionJobRequest
+   * @return QueryIProductionJobResponse
+   */
   async queryIProductionJob(request: QueryIProductionJobRequest): Promise<QueryIProductionJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryIProductionJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries transcoding jobs at a time by job ID.
+   *
+   * @description *   By default, returned jobs are sorted in descending order by CreationTime.
+   * *   You can call this operation to query up to 10 transcoding jobs at a time.
+   * *   If you do not set the JobIds parameter, the `InvalidParameter` error code is returned.
+   * ## QPS limit
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   *
+   * @param request QueryJobListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryJobListResponse
+   */
   async queryJobListWithOptions(request: QueryJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryJobListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26909,11 +25777,34 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryJobListResponse>(await this.callApi(params, req, runtime), new QueryJobListResponse({}));
   }
 
+  /**
+   * @summary Queries transcoding jobs at a time by job ID.
+   *
+   * @description *   By default, returned jobs are sorted in descending order by CreationTime.
+   * *   You can call this operation to query up to 10 transcoding jobs at a time.
+   * *   If you do not set the JobIds parameter, the `InvalidParameter` error code is returned.
+   * ## QPS limit
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   *
+   * @param request QueryJobListRequest
+   * @return QueryJobListResponse
+   */
   async queryJobList(request: QueryJobListRequest): Promise<QueryJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryJobListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a content moderation job.
+   *
+   * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryMediaCensorJobDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMediaCensorJobDetailResponse
+   */
   async queryMediaCensorJobDetailWithOptions(request: QueryMediaCensorJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaCensorJobDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26962,11 +25853,32 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMediaCensorJobDetailResponse>(await this.callApi(params, req, runtime), new QueryMediaCensorJobDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a content moderation job.
+   *
+   * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryMediaCensorJobDetailRequest
+   * @return QueryMediaCensorJobDetailResponse
+   */
   async queryMediaCensorJobDetail(request: QueryMediaCensorJobDetailRequest): Promise<QueryMediaCensorJobDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMediaCensorJobDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries content moderation jobs.
+   *
+   * @description You can call this operation to query only the content moderation jobs within three months.
+   * ### QPS limit
+   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryMediaCensorJobListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMediaCensorJobListResponse
+   */
   async queryMediaCensorJobListWithOptions(request: QueryMediaCensorJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaCensorJobListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26974,8 +25886,8 @@ export default class Client extends OpenApi {
       query["EndOfJobCreatedTimeRange"] = request.endOfJobCreatedTimeRange;
     }
 
-    if (!Util.isUnset(request.jobId)) {
-      query["JobId"] = request.jobId;
+    if (!Util.isUnset(request.jobIds)) {
+      query["JobIds"] = request.jobIds;
     }
 
     if (!Util.isUnset(request.maximumPageSize)) {
@@ -27031,11 +25943,34 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMediaCensorJobListResponse>(await this.callApi(params, req, runtime), new QueryMediaCensorJobListResponse({}));
   }
 
+  /**
+   * @summary Queries content moderation jobs.
+   *
+   * @description You can call this operation to query only the content moderation jobs within three months.
+   * ### QPS limit
+   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryMediaCensorJobListRequest
+   * @return QueryMediaCensorJobListResponse
+   */
   async queryMediaCensorJobList(request: QueryMediaCensorJobListRequest): Promise<QueryMediaCensorJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMediaCensorJobListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the results of media information analysis jobs.
+   *
+   * @description *   In asynchronous mode, the media information can be retrieved only after the Message Service (MNS) callback of **submitting a media information job** is returned. If you have not retrieved the media information for a long period, the job may have failed.
+   * *   You can call this operation to query up to 10 media information analysis jobs at a time.
+   * *   By default, returned jobs are sorted in descending order by CreationTime.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryMediaInfoJobListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMediaInfoJobListResponse
+   */
   async queryMediaInfoJobListWithOptions(request: QueryMediaInfoJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaInfoJobListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27076,11 +26011,34 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMediaInfoJobListResponse>(await this.callApi(params, req, runtime), new QueryMediaInfoJobListResponse({}));
   }
 
+  /**
+   * @summary Queries the results of media information analysis jobs.
+   *
+   * @description *   In asynchronous mode, the media information can be retrieved only after the Message Service (MNS) callback of **submitting a media information job** is returned. If you have not retrieved the media information for a long period, the job may have failed.
+   * *   You can call this operation to query up to 10 media information analysis jobs at a time.
+   * *   By default, returned jobs are sorted in descending order by CreationTime.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryMediaInfoJobListRequest
+   * @return QueryMediaInfoJobListResponse
+   */
   async queryMediaInfoJobList(request: QueryMediaInfoJobListRequest): Promise<QueryMediaInfoJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMediaInfoJobListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries media files based on media file IDs.
+   *
+   * @description You can call this operation to query up to 10 media files at a time.
+   * ## QPS limit
+   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   *
+   * @param request QueryMediaListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMediaListResponse
+   */
   async queryMediaListWithOptions(request: QueryMediaListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27137,11 +26095,34 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMediaListResponse>(await this.callApi(params, req, runtime), new QueryMediaListResponse({}));
   }
 
+  /**
+   * @summary Queries media files based on media file IDs.
+   *
+   * @description You can call this operation to query up to 10 media files at a time.
+   * ## QPS limit
+   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   *
+   * @param request QueryMediaListRequest
+   * @return QueryMediaListResponse
+   */
   async queryMediaList(request: QueryMediaListRequest): Promise<QueryMediaListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMediaListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries media files based on their Object Storage Service (OSS) URLs.
+   *
+   * @description *   You can call this operation to query up to 10 media files at a time.
+   * *   Before you call this operation, you must call the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation to add media files.
+   * *   You can call this operation to query only media files that are processed in a workflow. To obtain comprehensive information about a media file that is newly uploaded to OSS, you can call this operation after the corresponding workflow is complete. To query media files that are not processed in a workflow, you must call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/29220.html) operation to submit a media information analysis job. After the job is complete, you can query the information about the media files.
+   * ## QPS limit
+   * You can call this API operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   *
+   * @param request QueryMediaListByURLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMediaListByURLResponse
+   */
   async queryMediaListByURLWithOptions(request: QueryMediaListByURLRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaListByURLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27198,11 +26179,35 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMediaListByURLResponse>(await this.callApi(params, req, runtime), new QueryMediaListByURLResponse({}));
   }
 
+  /**
+   * @summary Queries media files based on their Object Storage Service (OSS) URLs.
+   *
+   * @description *   You can call this operation to query up to 10 media files at a time.
+   * *   Before you call this operation, you must call the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation to add media files.
+   * *   You can call this operation to query only media files that are processed in a workflow. To obtain comprehensive information about a media file that is newly uploaded to OSS, you can call this operation after the corresponding workflow is complete. To query media files that are not processed in a workflow, you must call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/29220.html) operation to submit a media information analysis job. After the job is complete, you can query the information about the media files.
+   * ## QPS limit
+   * You can call this API operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   *
+   * @param request QueryMediaListByURLRequest
+   * @return QueryMediaListByURLResponse
+   */
   async queryMediaListByURL(request: QueryMediaListByURLRequest): Promise<QueryMediaListByURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMediaListByURLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries media workflow execution instances.
+   *
+   * @description *   You can call this operation to query a maximum of 10 media workflow execution instances at a time.
+   * *   Before you call this operation, make sure that the workflow pipeline is enabled. Otherwise, the workflow may not run as expected. For example, the following exceptions may occur: the workflow node is invalid and jobs created in the workflow cannot be executed.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryMediaWorkflowExecutionListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMediaWorkflowExecutionListResponse
+   */
   async queryMediaWorkflowExecutionListWithOptions(request: QueryMediaWorkflowExecutionListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaWorkflowExecutionListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27243,11 +26248,33 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMediaWorkflowExecutionListResponse>(await this.callApi(params, req, runtime), new QueryMediaWorkflowExecutionListResponse({}));
   }
 
+  /**
+   * @summary Queries media workflow execution instances.
+   *
+   * @description *   You can call this operation to query a maximum of 10 media workflow execution instances at a time.
+   * *   Before you call this operation, make sure that the workflow pipeline is enabled. Otherwise, the workflow may not run as expected. For example, the following exceptions may occur: the workflow node is invalid and jobs created in the workflow cannot be executed.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryMediaWorkflowExecutionListRequest
+   * @return QueryMediaWorkflowExecutionListResponse
+   */
   async queryMediaWorkflowExecutionList(request: QueryMediaWorkflowExecutionListRequest): Promise<QueryMediaWorkflowExecutionListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMediaWorkflowExecutionListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries registered media workflows.
+   *
+   * @description You can call this operation to query up to 10 media workflows at a time.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryMediaWorkflowListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMediaWorkflowListResponse
+   */
   async queryMediaWorkflowListWithOptions(request: QueryMediaWorkflowListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaWorkflowListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27288,11 +26315,33 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMediaWorkflowListResponse>(await this.callApi(params, req, runtime), new QueryMediaWorkflowListResponse({}));
   }
 
+  /**
+   * @summary Queries registered media workflows.
+   *
+   * @description You can call this operation to query up to 10 media workflows at a time.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryMediaWorkflowListRequest
+   * @return QueryMediaWorkflowListResponse
+   */
   async queryMediaWorkflowList(request: QueryMediaWorkflowListRequest): Promise<QueryMediaWorkflowListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMediaWorkflowListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries an ApsaraVideo Media Processing (MPS) queue by using the ID of the queue.
+   *
+   * @description *   You can call this operation to query up to 10 MPS queues at a time.
+   * *   If `"Code": "InvalidIdentity.ServiceDisabled","Message": "The request identity was not allowed operated.","Recommend"` is returned after you call this operation, check whether the RAM user that you use is assigned the AliyunMTSDefaultRole role to obtain the permissions on MPS and whether your Alibaba Cloud account has overdue payments.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryPipelineListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPipelineListResponse
+   */
   async queryPipelineListWithOptions(request: QueryPipelineListRequest, runtime: $Util.RuntimeOptions): Promise<QueryPipelineListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27333,11 +26382,27 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPipelineListResponse>(await this.callApi(params, req, runtime), new QueryPipelineListResponse({}));
   }
 
+  /**
+   * @summary Queries an ApsaraVideo Media Processing (MPS) queue by using the ID of the queue.
+   *
+   * @description *   You can call this operation to query up to 10 MPS queues at a time.
+   * *   If `"Code": "InvalidIdentity.ServiceDisabled","Message": "The request identity was not allowed operated.","Recommend"` is returned after you call this operation, check whether the RAM user that you use is assigned the AliyunMTSDefaultRole role to obtain the permissions on MPS and whether your Alibaba Cloud account has overdue payments.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryPipelineListRequest
+   * @return QueryPipelineListResponse
+   */
   async queryPipelineList(request: QueryPipelineListRequest): Promise<QueryPipelineListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPipelineListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QuerySmarttagJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySmarttagJobResponse
+   */
   async querySmarttagJobWithOptions(request: QuerySmarttagJobRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmarttagJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27382,11 +26447,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySmarttagJobResponse>(await this.callApi(params, req, runtime), new QuerySmarttagJobResponse({}));
   }
 
+  /**
+   * @param request QuerySmarttagJobRequest
+   * @return QuerySmarttagJobResponse
+   */
   async querySmarttagJob(request: QuerySmarttagJobRequest): Promise<QuerySmarttagJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySmarttagJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the analysis template of a smart tagging job.
+   *
+   * @description If you call this operation to query the information about a smart tagging template, you must specify the template ID. Otherwise, the operation returns the information about all the templates that are created by the current RAM user.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QuerySmarttagTemplateListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySmarttagTemplateListResponse
+   */
   async querySmarttagTemplateListWithOptions(request: QuerySmarttagTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmarttagTemplateListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27427,11 +26507,34 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySmarttagTemplateListResponse>(await this.callApi(params, req, runtime), new QuerySmarttagTemplateListResponse({}));
   }
 
+  /**
+   * @summary Queries the analysis template of a smart tagging job.
+   *
+   * @description If you call this operation to query the information about a smart tagging template, you must specify the template ID. Otherwise, the operation returns the information about all the templates that are created by the current RAM user.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QuerySmarttagTemplateListRequest
+   * @return QuerySmarttagTemplateListResponse
+   */
   async querySmarttagTemplateList(request: QuerySmarttagTemplateListRequest): Promise<QuerySmarttagTemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySmarttagTemplateListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries snapshot jobs.
+   *
+   * @description The status of the snapshot jobs that you want to query.
+   * *   **Submitted**: The job was submitted.
+   * *   **Snapshoting**: The job is being processed.
+   * *   **Success**: The job was successfully processed.
+   * *   **Fail**: The job failed.
+   *
+   * @param request QuerySnapshotJobListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySnapshotJobListResponse
+   */
   async querySnapshotJobListWithOptions(request: QuerySnapshotJobListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySnapshotJobListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27496,11 +26599,32 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySnapshotJobListResponse>(await this.callApi(params, req, runtime), new QuerySnapshotJobListResponse({}));
   }
 
+  /**
+   * @summary Queries snapshot jobs.
+   *
+   * @description The status of the snapshot jobs that you want to query.
+   * *   **Submitted**: The job was submitted.
+   * *   **Snapshoting**: The job is being processed.
+   * *   **Success**: The job was successfully processed.
+   * *   **Fail**: The job failed.
+   *
+   * @param request QuerySnapshotJobListRequest
+   * @return QuerySnapshotJobListResponse
+   */
   async querySnapshotJobList(request: QuerySnapshotJobListRequest): Promise<QuerySnapshotJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySnapshotJobListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query up to 10 transcoding templates at a time.
+   *
+   * @description The IDs of the transcoding templates that you want to query. You can query up to 10 transcoding templates at a time. Separate multiple IDs of custom transcoding templates with commas (,).
+   *
+   * @param request QueryTemplateListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTemplateListResponse
+   */
   async queryTemplateListWithOptions(request: QueryTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTemplateListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27541,44 +26665,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTemplateListResponse>(await this.callApi(params, req, runtime), new QueryTemplateListResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query up to 10 transcoding templates at a time.
+   *
+   * @description The IDs of the transcoding templates that you want to query. You can query up to 10 transcoding templates at a time. Separate multiple IDs of custom transcoding templates with commas (,).
+   *
+   * @param request QueryTemplateListRequest
+   * @return QueryTemplateListResponse
+   */
   async queryTemplateList(request: QueryTemplateListRequest): Promise<QueryTemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTemplateListWithOptions(request, runtime);
   }
 
-  async queryVideoQualityJobWithOptions(request: QueryVideoQualityJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryVideoQualityJobResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.jobId)) {
-      query["JobId"] = request.jobId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      query["UserId"] = request.userId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryVideoQualityJob",
-      version: "2014-06-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryVideoQualityJobResponse>(await this.callApi(params, req, runtime), new QueryVideoQualityJobResponse({}));
-  }
-
-  async queryVideoQualityJob(request: QueryVideoQualityJobRequest): Promise<QueryVideoQualityJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryVideoQualityJobWithOptions(request, runtime);
-  }
-
+  /**
+   * @summary Queries watermark templates.
+   *
+   * @description You can call this operation to query up to 10 watermark templates at a time.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryWaterMarkTemplateListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryWaterMarkTemplateListResponse
+   */
   async queryWaterMarkTemplateListWithOptions(request: QueryWaterMarkTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<QueryWaterMarkTemplateListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27619,11 +26729,33 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryWaterMarkTemplateListResponse>(await this.callApi(params, req, runtime), new QueryWaterMarkTemplateListResponse({}));
   }
 
+  /**
+   * @summary Queries watermark templates.
+   *
+   * @description You can call this operation to query up to 10 watermark templates at a time.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request QueryWaterMarkTemplateListRequest
+   * @return QueryWaterMarkTemplateListResponse
+   */
   async queryWaterMarkTemplateList(request: QueryWaterMarkTemplateListRequest): Promise<QueryWaterMarkTemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryWaterMarkTemplateListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Registers a custom face.
+   *
+   * @description *   You can call this operation to register only one custom face at a time.
+   * *   A maximum of 10 images can be registered for a custom face.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request RegisterCustomFaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RegisterCustomFaceResponse
+   */
   async registerCustomFaceWithOptions(request: RegisterCustomFaceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterCustomFaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27672,20 +26804,44 @@ export default class Client extends OpenApi {
     return $tea.cast<RegisterCustomFaceResponse>(await this.callApi(params, req, runtime), new RegisterCustomFaceResponse({}));
   }
 
+  /**
+   * @summary Registers a custom face.
+   *
+   * @description *   You can call this operation to register only one custom face at a time.
+   * *   A maximum of 10 images can be registered for a custom face.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request RegisterCustomFaceRequest
+   * @return RegisterCustomFaceResponse
+   */
   async registerCustomFace(request: RegisterCustomFaceRequest): Promise<RegisterCustomFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerCustomFaceWithOptions(request, runtime);
   }
 
-  async reportFpShotJobResultWithOptions(request: ReportFpShotJobResultRequest, runtime: $Util.RuntimeOptions): Promise<ReportFpShotJobResultResponse> {
+  /**
+   * @param request RegisterCustomViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RegisterCustomViewResponse
+   */
+  async registerCustomViewWithOptions(request: RegisterCustomViewRequest, runtime: $Util.RuntimeOptions): Promise<RegisterCustomViewResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.details)) {
-      query["Details"] = request.details;
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
     }
 
-    if (!Util.isUnset(request.jobId)) {
-      query["JobId"] = request.jobId;
+    if (!Util.isUnset(request.customEntityId)) {
+      query["CustomEntityId"] = request.customEntityId;
+    }
+
+    if (!Util.isUnset(request.customGroupId)) {
+      query["CustomGroupId"] = request.customGroupId;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      query["ImageUrl"] = request.imageUrl;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -27704,15 +26860,11 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.result)) {
-      query["Result"] = request.result;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ReportFpShotJobResult",
+      action: "RegisterCustomView",
       version: "2014-06-18",
       protocol: "HTTPS",
       pathname: "/",
@@ -27722,14 +26874,29 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReportFpShotJobResultResponse>(await this.callApi(params, req, runtime), new ReportFpShotJobResultResponse({}));
+    return $tea.cast<RegisterCustomViewResponse>(await this.callApi(params, req, runtime), new RegisterCustomViewResponse({}));
   }
 
-  async reportFpShotJobResult(request: ReportFpShotJobResultRequest): Promise<ReportFpShotJobResultResponse> {
+  /**
+   * @param request RegisterCustomViewRequest
+   * @return RegisterCustomViewResponse
+   */
+  async registerCustomView(request: RegisterCustomViewRequest): Promise<RegisterCustomViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.reportFpShotJobResultWithOptions(request, runtime);
+    return await this.registerCustomViewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries media workflows in the specified state.
+   *
+   * @description You can call this operation to query media workflows in the specified state. If you do not specify the state, all media workflows are queried by default.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SearchMediaWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchMediaWorkflowResponse
+   */
   async searchMediaWorkflowWithOptions(request: SearchMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaWorkflowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27778,11 +26945,32 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchMediaWorkflowResponse>(await this.callApi(params, req, runtime), new SearchMediaWorkflowResponse({}));
   }
 
+  /**
+   * @summary Queries media workflows in the specified state.
+   *
+   * @description You can call this operation to query media workflows in the specified state. If you do not specify the state, all media workflows are queried by default.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SearchMediaWorkflowRequest
+   * @return SearchMediaWorkflowResponse
+   */
   async searchMediaWorkflow(request: SearchMediaWorkflowRequest): Promise<SearchMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchMediaWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Searches for ApsaraVideo Media Processing (MPS) queues in the specified state.
+   *
+   * @description You can call this operation to query MPS queues in the specified state. If you do not specify the state, all MPS queues are queried by default.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SearchPipelineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchPipelineResponse
+   */
   async searchPipelineWithOptions(request: SearchPipelineRequest, runtime: $Util.RuntimeOptions): Promise<SearchPipelineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27831,14 +27019,37 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchPipelineResponse>(await this.callApi(params, req, runtime), new SearchPipelineResponse({}));
   }
 
+  /**
+   * @summary Searches for ApsaraVideo Media Processing (MPS) queues in the specified state.
+   *
+   * @description You can call this operation to query MPS queues in the specified state. If you do not specify the state, all MPS queues are queried by default.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SearchPipelineRequest
+   * @return SearchPipelineResponse
+   */
   async searchPipeline(request: SearchPipelineRequest): Promise<SearchPipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchPipelineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query custom transcoding templates in the specified state.
+   *
+   * @description You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SearchTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchTemplateResponse
+   */
   async searchTemplateWithOptions(request: SearchTemplateRequest, runtime: $Util.RuntimeOptions): Promise<SearchTemplateResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.namePrefix)) {
+      query["NamePrefix"] = request.namePrefix;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -27884,11 +27095,28 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchTemplateResponse>(await this.callApi(params, req, runtime), new SearchTemplateResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query custom transcoding templates in the specified state.
+   *
+   * @description You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SearchTemplateRequest
+   * @return SearchTemplateResponse
+   */
   async searchTemplate(request: SearchTemplateRequest): Promise<SearchTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Searches for watermark templates.
+   *
+   * @description The total number of returned entries.
+   *
+   * @param request SearchWaterMarkTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchWaterMarkTemplateResponse
+   */
   async searchWaterMarkTemplateWithOptions(request: SearchWaterMarkTemplateRequest, runtime: $Util.RuntimeOptions): Promise<SearchWaterMarkTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27937,11 +27165,31 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchWaterMarkTemplateResponse>(await this.callApi(params, req, runtime), new SearchWaterMarkTemplateResponse({}));
   }
 
+  /**
+   * @summary Searches for watermark templates.
+   *
+   * @description The total number of returned entries.
+   *
+   * @param request SearchWaterMarkTemplateRequest
+   * @return SearchWaterMarkTemplateResponse
+   */
   async searchWaterMarkTemplate(request: SearchWaterMarkTemplateRequest): Promise<SearchWaterMarkTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchWaterMarkTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a preset template analysis job.
+   *
+   * @description *   After you call the SubmitAnalysisJob operation to submit a preset template analysis job, ApsaraVideo Media Processing (MPS) intelligently analyzes the input file of the job and recommends a suitable preset template. You can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html) operation to query the analysis result or enable asynchronous notifications to receive the analysis result.
+   * *   The analysis result is retained only for two weeks after it is generated. The analysis result is deleted after two weeks. If you use the recommended preset template in a transcoding job after two weeks, the job fails, and the `AnalysisResultNotFound` error code is returned.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitAnalysisJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitAnalysisJobResponse
+   */
   async submitAnalysisJobWithOptions(request: SubmitAnalysisJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAnalysisJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27998,84 +27246,33 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitAnalysisJobResponse>(await this.callApi(params, req, runtime), new SubmitAnalysisJobResponse({}));
   }
 
+  /**
+   * @summary Submits a preset template analysis job.
+   *
+   * @description *   After you call the SubmitAnalysisJob operation to submit a preset template analysis job, ApsaraVideo Media Processing (MPS) intelligently analyzes the input file of the job and recommends a suitable preset template. You can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html) operation to query the analysis result or enable asynchronous notifications to receive the analysis result.
+   * *   The analysis result is retained only for two weeks after it is generated. The analysis result is deleted after two weeks. If you use the recommended preset template in a transcoding job after two weeks, the job fails, and the `AnalysisResultNotFound` error code is returned.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitAnalysisJobRequest
+   * @return SubmitAnalysisJobResponse
+   */
   async submitAnalysisJob(request: SubmitAnalysisJobRequest): Promise<SubmitAnalysisJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAnalysisJobWithOptions(request, runtime);
   }
 
-  async submitEditingJobsWithOptions(request: SubmitEditingJobsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitEditingJobsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.editingInputs)) {
-      query["EditingInputs"] = request.editingInputs;
-    }
-
-    if (!Util.isUnset(request.editingJobOssFileRoleArn)) {
-      query["EditingJobOssFileRoleArn"] = request.editingJobOssFileRoleArn;
-    }
-
-    if (!Util.isUnset(request.editingJobOssFileUid)) {
-      query["EditingJobOssFileUid"] = request.editingJobOssFileUid;
-    }
-
-    if (!Util.isUnset(request.editingJobOutputs)) {
-      query["EditingJobOutputs"] = request.editingJobOutputs;
-    }
-
-    if (!Util.isUnset(request.editingJobURL)) {
-      query["EditingJobURL"] = request.editingJobURL;
-    }
-
-    if (!Util.isUnset(request.outputBucket)) {
-      query["OutputBucket"] = request.outputBucket;
-    }
-
-    if (!Util.isUnset(request.outputLocation)) {
-      query["OutputLocation"] = request.outputLocation;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.pipelineId)) {
-      query["PipelineId"] = request.pipelineId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SubmitEditingJobs",
-      version: "2014-06-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SubmitEditingJobsResponse>(await this.callApi(params, req, runtime), new SubmitEditingJobsResponse({}));
-  }
-
-  async submitEditingJobs(request: SubmitEditingJobsRequest): Promise<SubmitEditingJobsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitEditingJobsWithOptions(request, runtime);
-  }
-
+  /**
+   * @summary Submits a job of clearing or deleting a media fingerprint library.
+   *
+   * @description You can call this operation to clear or delete the specified media fingerprint library based on the library ID. If you clear a media fingerprint library, the content in the library is deleted, but the library is not deleted. If you delete a media fingerprint library, both the library and the content in the library are deleted. If you do not specify the operation type, the system clears the media fingerprint library by default.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitFpDBDeleteJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitFpDBDeleteJobResponse
+   */
   async submitFpDBDeleteJobWithOptions(request: SubmitFpDBDeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFpDBDeleteJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28128,11 +27325,34 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitFpDBDeleteJobResponse>(await this.callApi(params, req, runtime), new SubmitFpDBDeleteJobResponse({}));
   }
 
+  /**
+   * @summary Submits a job of clearing or deleting a media fingerprint library.
+   *
+   * @description You can call this operation to clear or delete the specified media fingerprint library based on the library ID. If you clear a media fingerprint library, the content in the library is deleted, but the library is not deleted. If you delete a media fingerprint library, both the library and the content in the library are deleted. If you do not specify the operation type, the system clears the media fingerprint library by default.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitFpDBDeleteJobRequest
+   * @return SubmitFpDBDeleteJobResponse
+   */
   async submitFpDBDeleteJob(request: SubmitFpDBDeleteJobRequest): Promise<SubmitFpDBDeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitFpDBDeleteJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a job of deleting media files from a media fingerprint library.
+   *
+   * @description ## [](#)Limits
+   * *   You can call this operation to delete up to 200 media files from a media fingerprint library at a time.
+   * *   This operation is available in the following regions: China (Beijing), China (Hangzhou), China (Shanghai), and Singapore.
+   * ## [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitFpFileDeleteJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitFpFileDeleteJobResponse
+   */
   async submitFpFileDeleteJobWithOptions(request: SubmitFpFileDeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFpFileDeleteJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28154,6 +27374,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pipelineId)) {
       query["PipelineId"] = request.pipelineId;
+    }
+
+    if (!Util.isUnset(request.primaryKeys)) {
+      query["PrimaryKeys"] = request.primaryKeys;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -28185,11 +27409,40 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitFpFileDeleteJobResponse>(await this.callApi(params, req, runtime), new SubmitFpFileDeleteJobResponse({}));
   }
 
+  /**
+   * @summary Submits a job of deleting media files from a media fingerprint library.
+   *
+   * @description ## [](#)Limits
+   * *   You can call this operation to delete up to 200 media files from a media fingerprint library at a time.
+   * *   This operation is available in the following regions: China (Beijing), China (Hangzhou), China (Shanghai), and Singapore.
+   * ## [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitFpFileDeleteJobRequest
+   * @return SubmitFpFileDeleteJobResponse
+   */
   async submitFpFileDeleteJob(request: SubmitFpFileDeleteJobRequest): Promise<SubmitFpFileDeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitFpFileDeleteJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a media fingerprint analysis job to query the media fingerprint repository for a media file with the identical or similar fingerprint as the input file.
+   *
+   * @description *   You can call this operation to submit a video, audio, image, or text fingerprint analysis job.
+   * *   This operation asynchronously submits a job. The query results may not have been generated when the response is returned. After the results are generated, an asynchronous message is returned.
+   * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
+   * *   The input file of the job must be in one of the following formats:
+   *     *   Image formats: JPEG, PNG, and BMP.
+   *     *   Video formats: MP4, AVI, MKV, MPG, TS, MOV, FLV, MXF.
+   *     *   Video encoding formats: MPEG2, MPEG4, H264, HEVC, and WMV.
+   * ### QPS limit
+   * You can call this operation up to 150 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitFpShotJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitFpShotJobResponse
+   */
   async submitFpShotJobWithOptions(request: SubmitFpShotJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFpShotJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28242,11 +27495,37 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitFpShotJobResponse>(await this.callApi(params, req, runtime), new SubmitFpShotJobResponse({}));
   }
 
+  /**
+   * @summary Submits a media fingerprint analysis job to query the media fingerprint repository for a media file with the identical or similar fingerprint as the input file.
+   *
+   * @description *   You can call this operation to submit a video, audio, image, or text fingerprint analysis job.
+   * *   This operation asynchronously submits a job. The query results may not have been generated when the response is returned. After the results are generated, an asynchronous message is returned.
+   * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
+   * *   The input file of the job must be in one of the following formats:
+   *     *   Image formats: JPEG, PNG, and BMP.
+   *     *   Video formats: MP4, AVI, MKV, MPG, TS, MOV, FLV, MXF.
+   *     *   Video encoding formats: MPEG2, MPEG4, H264, HEVC, and WMV.
+   * ### QPS limit
+   * You can call this operation up to 150 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitFpShotJobRequest
+   * @return SubmitFpShotJobResponse
+   */
   async submitFpShotJob(request: SubmitFpShotJobRequest): Promise<SubmitFpShotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitFpShotJobWithOptions(request, runtime);
   }
 
+  /**
+   * @description *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
+   * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
+   * ### [](#qps)QPS limit
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitIProductionJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitIProductionJobResponse
+   */
   async submitIProductionJobWithOptions(request: SubmitIProductionJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIProductionJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28319,11 +27598,36 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitIProductionJobResponse>(await this.callApi(params, req, runtime), new SubmitIProductionJobResponse({}));
   }
 
+  /**
+   * @description *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
+   * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
+   * ### [](#qps)QPS limit
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitIProductionJobRequest
+   * @return SubmitIProductionJobResponse
+   */
   async submitIProductionJob(request: SubmitIProductionJobRequest): Promise<SubmitIProductionJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitIProductionJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits transcoding jobs. If the transcoding jobs and workflows created in the ApsaraVideo Media Processing (MPS) console cannot meet your business requirements, you can call the SubmitJobs operation to submit transcoding jobs. Specify transcoding parameters as required when you call the SubmitJobs operation.
+   *
+   * @description *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
+   * *   An input file can be up to 100 GB in size. If the size of the input file exceeds this limit, the job may fail.
+   * *   If you use an **intelligent preset template** to transcode an input file, you must first call the [SubmitAnalysisJob](https://help.aliyun.com/document_detail/29223.html) operation to submit a preset template analysis job. After the analysis job is complete, you can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html)operation to obtain the available preset templates for the input file. When you submit a transcoding job, set TemplateId to the ID of an available preset template. If you specify a preset template that is not in the available preset templates, the transcoding job fails.
+   * *   If you use a **static preset template** to transcode an input file, you do not need to submit a preset template analysis job.
+   * *   If you want to use multiple accounts in MPS, you can create Resource Access Management (RAM) users by using your Alibaba Cloud account. For more information, see [Create a RAM user and grant permissions to the RAM user](https://help.aliyun.com/document_detail/42841.html). If the Alibaba Cloud account that is used to query transcoding jobs is not the one that is used to submit the transcoding jobs, no data is returned.
+   * *   For information about transcoding FAQ, see [FAQ about MPS](https://help.aliyun.com/document_detail/38986.html).
+   * ### [](#qps)QPS limits
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitJobsResponse
+   */
   async submitJobsWithOptions(request: SubmitJobsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28380,11 +27684,37 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitJobsResponse>(await this.callApi(params, req, runtime), new SubmitJobsResponse({}));
   }
 
+  /**
+   * @summary Submits transcoding jobs. If the transcoding jobs and workflows created in the ApsaraVideo Media Processing (MPS) console cannot meet your business requirements, you can call the SubmitJobs operation to submit transcoding jobs. Specify transcoding parameters as required when you call the SubmitJobs operation.
+   *
+   * @description *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
+   * *   An input file can be up to 100 GB in size. If the size of the input file exceeds this limit, the job may fail.
+   * *   If you use an **intelligent preset template** to transcode an input file, you must first call the [SubmitAnalysisJob](https://help.aliyun.com/document_detail/29223.html) operation to submit a preset template analysis job. After the analysis job is complete, you can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html)operation to obtain the available preset templates for the input file. When you submit a transcoding job, set TemplateId to the ID of an available preset template. If you specify a preset template that is not in the available preset templates, the transcoding job fails.
+   * *   If you use a **static preset template** to transcode an input file, you do not need to submit a preset template analysis job.
+   * *   If you want to use multiple accounts in MPS, you can create Resource Access Management (RAM) users by using your Alibaba Cloud account. For more information, see [Create a RAM user and grant permissions to the RAM user](https://help.aliyun.com/document_detail/42841.html). If the Alibaba Cloud account that is used to query transcoding jobs is not the one that is used to submit the transcoding jobs, no data is returned.
+   * *   For information about transcoding FAQ, see [FAQ about MPS](https://help.aliyun.com/document_detail/38986.html).
+   * ### [](#qps)QPS limits
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitJobsRequest
+   * @return SubmitJobsResponse
+   */
   async submitJobs(request: SubmitJobsRequest): Promise<SubmitJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitJobsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a content moderation job.
+   *
+   * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue and then scheduled, queued, and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/91779.html) operation or configure an asynchronous notification to obtain the job result.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitMediaCensorJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitMediaCensorJobResponse
+   */
   async submitMediaCensorJobWithOptions(request: SubmitMediaCensorJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaCensorJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28457,11 +27787,33 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitMediaCensorJobResponse>(await this.callApi(params, req, runtime), new SubmitMediaCensorJobResponse({}));
   }
 
+  /**
+   * @summary Submits a content moderation job.
+   *
+   * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue and then scheduled, queued, and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/91779.html) operation or configure an asynchronous notification to obtain the job result.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitMediaCensorJobRequest
+   * @return SubmitMediaCensorJobResponse
+   */
   async submitMediaCensorJob(request: SubmitMediaCensorJobRequest): Promise<SubmitMediaCensorJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitMediaCensorJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a media information analysis job.
+   *
+   * @description After you call the SubmitMediaInfoJob operation, ApsaraVideo Media Processing (MPS) analyzes the input media file and generates the analysis results. You can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/29221.html) operation to query the analysis results.
+   * > We recommend that you submit a media information analysis job after you confirm that the media file is uploaded to Object Storage Service (OSS). You can configure upload callbacks to be notified of the upload status of files.
+   * ### QPS limit
+   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitMediaInfoJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitMediaInfoJobResponse
+   */
   async submitMediaInfoJobWithOptions(request: SubmitMediaInfoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaInfoJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28514,11 +27866,27 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitMediaInfoJobResponse>(await this.callApi(params, req, runtime), new SubmitMediaInfoJobResponse({}));
   }
 
+  /**
+   * @summary Submits a media information analysis job.
+   *
+   * @description After you call the SubmitMediaInfoJob operation, ApsaraVideo Media Processing (MPS) analyzes the input media file and generates the analysis results. You can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/29221.html) operation to query the analysis results.
+   * > We recommend that you submit a media information analysis job after you confirm that the media file is uploaded to Object Storage Service (OSS). You can configure upload callbacks to be notified of the upload status of files.
+   * ### QPS limit
+   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitMediaInfoJobRequest
+   * @return SubmitMediaInfoJobResponse
+   */
   async submitMediaInfoJob(request: SubmitMediaInfoJobRequest): Promise<SubmitMediaInfoJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitMediaInfoJobWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SubmitSmarttagJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitSmarttagJobResponse
+   */
   async submitSmarttagJobWithOptions(request: SubmitSmarttagJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSmarttagJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28558,6 +27926,10 @@ export default class Client extends OpenApi {
       query["PipelineId"] = request.pipelineId;
     }
 
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -28595,11 +27967,28 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitSmarttagJobResponse>(await this.callApi(params, req, runtime), new SubmitSmarttagJobResponse({}));
   }
 
+  /**
+   * @param request SubmitSmarttagJobRequest
+   * @return SubmitSmarttagJobResponse
+   */
   async submitSmarttagJob(request: SubmitSmarttagJobRequest): Promise<SubmitSmarttagJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitSmarttagJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a snapshot job.
+   *
+   * @description *   Only JPG images can be generated by calling this operation.
+   * *   Asynchronous mode: This operation may return a response before snapshots are captured. Snapshot jobs are queued in the background and asynchronously processed by ApsaraVideo Media Processing (MPS). If the **Interval** or **Num** parameter is set, the snapshot job is processed in asynchronous mode. For more information about FAQ about capturing snapshots, see [FAQ about taking snapshots](https://help.aliyun.com/document_detail/60805.html).
+   * *   Notifications: When you submit a snapshot job, the **PipelineId** parameter is required. An asynchronous message is sent only after the notification feature is enabled for the MPS queue.
+   * ### QPS limit
+   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitSnapshotJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitSnapshotJobResponse
+   */
   async submitSnapshotJobWithOptions(request: SubmitSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSnapshotJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28652,76 +28041,32 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitSnapshotJobResponse>(await this.callApi(params, req, runtime), new SubmitSnapshotJobResponse({}));
   }
 
+  /**
+   * @summary Submits a snapshot job.
+   *
+   * @description *   Only JPG images can be generated by calling this operation.
+   * *   Asynchronous mode: This operation may return a response before snapshots are captured. Snapshot jobs are queued in the background and asynchronously processed by ApsaraVideo Media Processing (MPS). If the **Interval** or **Num** parameter is set, the snapshot job is processed in asynchronous mode. For more information about FAQ about capturing snapshots, see [FAQ about taking snapshots](https://help.aliyun.com/document_detail/60805.html).
+   * *   Notifications: When you submit a snapshot job, the **PipelineId** parameter is required. An asynchronous message is sent only after the notification feature is enabled for the MPS queue.
+   * ### QPS limit
+   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request SubmitSnapshotJobRequest
+   * @return SubmitSnapshotJobResponse
+   */
   async submitSnapshotJob(request: SubmitSnapshotJobRequest): Promise<SubmitSnapshotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitSnapshotJobWithOptions(request, runtime);
   }
 
-  async submitVideoQualityJobWithOptions(request: SubmitVideoQualityJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitVideoQualityJobResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.input)) {
-      query["Input"] = request.input;
-    }
-
-    if (!Util.isUnset(request.jobParams)) {
-      query["JobParams"] = request.jobParams;
-    }
-
-    if (!Util.isUnset(request.modelId)) {
-      query["ModelId"] = request.modelId;
-    }
-
-    if (!Util.isUnset(request.notifyUrl)) {
-      query["NotifyUrl"] = request.notifyUrl;
-    }
-
-    if (!Util.isUnset(request.output)) {
-      query["Output"] = request.output;
-    }
-
-    if (!Util.isUnset(request.pipelineId)) {
-      query["PipelineId"] = request.pipelineId;
-    }
-
-    if (!Util.isUnset(request.scheduleParams)) {
-      query["ScheduleParams"] = request.scheduleParams;
-    }
-
-    if (!Util.isUnset(request.sourceType)) {
-      query["SourceType"] = request.sourceType;
-    }
-
-    if (!Util.isUnset(request.userData)) {
-      query["UserData"] = request.userData;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      query["UserId"] = request.userId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SubmitVideoQualityJob",
-      version: "2014-06-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SubmitVideoQualityJobResponse>(await this.callApi(params, req, runtime), new SubmitVideoQualityJobResponse({}));
-  }
-
-  async submitVideoQualityJob(request: SubmitVideoQualityJobRequest): Promise<SubmitVideoQualityJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitVideoQualityJobWithOptions(request, runtime);
-  }
-
+  /**
+   * @summary The description of the figure. The description can be up to 512 characters in length.
+   *
+   * @description The response parameters.
+   *
+   * @param request TagCustomPersonRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagCustomPersonResponse
+   */
   async tagCustomPersonWithOptions(request: TagCustomPersonRequest, runtime: $Util.RuntimeOptions): Promise<TagCustomPersonResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28782,11 +28127,31 @@ export default class Client extends OpenApi {
     return $tea.cast<TagCustomPersonResponse>(await this.callApi(params, req, runtime), new TagCustomPersonResponse({}));
   }
 
+  /**
+   * @summary The description of the figure. The description can be up to 512 characters in length.
+   *
+   * @description The response parameters.
+   *
+   * @param request TagCustomPersonRequest
+   * @return TagCustomPersonResponse
+   */
   async tagCustomPerson(request: TagCustomPersonRequest): Promise<TagCustomPersonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagCustomPersonWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unbinds an input media bucket from the media library.
+   *
+   * @description # Usage notes
+   * You can call this operation to unbind an input media bucket from the media library based on the name of the output media bucket.
+   * # QPS limits
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UnbindInputBucketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnbindInputBucketResponse
+   */
   async unbindInputBucketWithOptions(request: UnbindInputBucketRequest, runtime: $Util.RuntimeOptions): Promise<UnbindInputBucketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28831,11 +28196,33 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindInputBucketResponse>(await this.callApi(params, req, runtime), new UnbindInputBucketResponse({}));
   }
 
+  /**
+   * @summary Unbinds an input media bucket from the media library.
+   *
+   * @description # Usage notes
+   * You can call this operation to unbind an input media bucket from the media library based on the name of the output media bucket.
+   * # QPS limits
+   * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UnbindInputBucketRequest
+   * @return UnbindInputBucketResponse
+   */
   async unbindInputBucket(request: UnbindInputBucketRequest): Promise<UnbindInputBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindInputBucketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
+   * ## QPS limit
+   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   *
+   * @description The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
+   *
+   * @param request UnbindOutputBucketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnbindOutputBucketResponse
+   */
   async unbindOutputBucketWithOptions(request: UnbindOutputBucketRequest, runtime: $Util.RuntimeOptions): Promise<UnbindOutputBucketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28876,11 +28263,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindOutputBucketResponse>(await this.callApi(params, req, runtime), new UnbindOutputBucketResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
+   * ## QPS limit
+   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   *
+   * @description The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
+   *
+   * @param request UnbindOutputBucketRequest
+   * @return UnbindOutputBucketResponse
+   */
   async unbindOutputBucket(request: UnbindOutputBucketRequest): Promise<UnbindOutputBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindOutputBucketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+   *
+   * @description You can call this operation to delete a specific custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UnregisterCustomFaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnregisterCustomFaceResponse
+   */
   async unregisterCustomFaceWithOptions(request: UnregisterCustomFaceRequest, runtime: $Util.RuntimeOptions): Promise<UnregisterCustomFaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28929,11 +28337,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UnregisterCustomFaceResponse>(await this.callApi(params, req, runtime), new UnregisterCustomFaceResponse({}));
   }
 
+  /**
+   * @summary Deletes a custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+   *
+   * @description You can call this operation to delete a specific custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UnregisterCustomFaceRequest
+   * @return UnregisterCustomFaceResponse
+   */
   async unregisterCustomFace(request: UnregisterCustomFaceRequest): Promise<UnregisterCustomFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unregisterCustomFaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the basic information about a media file.
+   *
+   * @description The basic information that you can update by calling this operation includes the title, description, and category of a media file. This operation applies to a full update. You must set all the parameters unless you want to replace the value of a specific parameter with a NULL value.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateMediaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMediaResponse
+   */
   async updateMediaWithOptions(request: UpdateMediaRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28994,11 +28423,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMediaResponse>(await this.callApi(params, req, runtime), new UpdateMediaResponse({}));
   }
 
+  /**
+   * @summary Updates the basic information about a media file.
+   *
+   * @description The basic information that you can update by calling this operation includes the title, description, and category of a media file. This operation applies to a full update. You must set all the parameters unless you want to replace the value of a specific parameter with a NULL value.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateMediaRequest
+   * @return UpdateMediaResponse
+   */
   async updateMedia(request: UpdateMediaRequest): Promise<UpdateMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMediaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the category to which a media file belongs.
+   *
+   * @description You can call this operation to update only the category of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateMediaCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMediaCategoryResponse
+   */
   async updateMediaCategoryWithOptions(request: UpdateMediaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29043,11 +28493,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMediaCategoryResponse>(await this.callApi(params, req, runtime), new UpdateMediaCategoryResponse({}));
   }
 
+  /**
+   * @summary Updates the category to which a media file belongs.
+   *
+   * @description You can call this operation to update only the category of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateMediaCategoryRequest
+   * @return UpdateMediaCategoryResponse
+   */
   async updateMediaCategory(request: UpdateMediaCategoryRequest): Promise<UpdateMediaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMediaCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the thumbnail of a media file.
+   *
+   * @description You can call this operation to update only the thumbnail of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+   * ## Limits on QPS
+   * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   *
+   * @param request UpdateMediaCoverRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMediaCoverResponse
+   */
   async updateMediaCoverWithOptions(request: UpdateMediaCoverRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaCoverResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29092,11 +28563,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMediaCoverResponse>(await this.callApi(params, req, runtime), new UpdateMediaCoverResponse({}));
   }
 
+  /**
+   * @summary Updates the thumbnail of a media file.
+   *
+   * @description You can call this operation to update only the thumbnail of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+   * ## Limits on QPS
+   * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   *
+   * @param request UpdateMediaCoverRequest
+   * @return UpdateMediaCoverResponse
+   */
   async updateMediaCover(request: UpdateMediaCoverRequest): Promise<UpdateMediaCoverResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMediaCoverWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the publishing status of a media file.
+   *
+   * @description The published state indicates that the access control list (ACL) of media playback resources and snapshot files is set to inherit the ACL of the bucket to which they belong. The unpublished state indicates that the ACL of media playback resources and snapshot files is set to private.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateMediaPublishStateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMediaPublishStateResponse
+   */
   async updateMediaPublishStateWithOptions(request: UpdateMediaPublishStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaPublishStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29141,16 +28633,43 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMediaPublishStateResponse>(await this.callApi(params, req, runtime), new UpdateMediaPublishStateResponse({}));
   }
 
+  /**
+   * @summary Updates the publishing status of a media file.
+   *
+   * @description The published state indicates that the access control list (ACL) of media playback resources and snapshot files is set to inherit the ACL of the bucket to which they belong. The unpublished state indicates that the ACL of media playback resources and snapshot files is set to private.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateMediaPublishStateRequest
+   * @return UpdateMediaPublishStateResponse
+   */
   async updateMediaPublishState(request: UpdateMediaPublishStateRequest): Promise<UpdateMediaPublishStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMediaPublishStateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the topology of a media workflow.
+   *
+   * @description *   You can call this operation to update the topology of a media workflow. To update the trigger mode of a media workflow, call the [UpdateMediaWorkflowTriggerMode](https://help.aliyun.com/document_detail/70372.html) operation.
+   * *   After you delete or deactivate a media workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
+   * <warning>Deleting or deactivating a workflow will not affect tasks that have already been submitted. If a workflow is deleted or deactivated after a task has been submitted, tasks that are already in the processing queue will not be canceled and will be executed normally and charged the corresponding fees.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).>
+   *
+   * @param request UpdateMediaWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMediaWorkflowResponse
+   */
   async updateMediaWorkflowWithOptions(request: UpdateMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaWorkflowResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.mediaWorkflowId)) {
       query["MediaWorkflowId"] = request.mediaWorkflowId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -29173,6 +28692,10 @@ export default class Client extends OpenApi {
       query["Topology"] = request.topology;
     }
 
+    if (!Util.isUnset(request.triggerMode)) {
+      query["TriggerMode"] = request.triggerMode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -29190,11 +28713,34 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMediaWorkflowResponse>(await this.callApi(params, req, runtime), new UpdateMediaWorkflowResponse({}));
   }
 
+  /**
+   * @summary Updates the topology of a media workflow.
+   *
+   * @description *   You can call this operation to update the topology of a media workflow. To update the trigger mode of a media workflow, call the [UpdateMediaWorkflowTriggerMode](https://help.aliyun.com/document_detail/70372.html) operation.
+   * *   After you delete or deactivate a media workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
+   * <warning>Deleting or deactivating a workflow will not affect tasks that have already been submitted. If a workflow is deleted or deactivated after a task has been submitted, tasks that are already in the processing queue will not be canceled and will be executed normally and charged the corresponding fees.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).>
+   *
+   * @param request UpdateMediaWorkflowRequest
+   * @return UpdateMediaWorkflowResponse
+   */
   async updateMediaWorkflow(request: UpdateMediaWorkflowRequest): Promise<UpdateMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMediaWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the trigger mode of a media workflow.
+   *
+   * @description You can call this operation only to modify the trigger mode of a media workflow. To modify other information about the workflow, call the [UpdateMediaWorkflow](https://help.aliyun.com/document_detail/44438.html) operation.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateMediaWorkflowTriggerModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMediaWorkflowTriggerModeResponse
+   */
   async updateMediaWorkflowTriggerModeWithOptions(request: UpdateMediaWorkflowTriggerModeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaWorkflowTriggerModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29239,14 +28785,40 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMediaWorkflowTriggerModeResponse>(await this.callApi(params, req, runtime), new UpdateMediaWorkflowTriggerModeResponse({}));
   }
 
+  /**
+   * @summary Updates the trigger mode of a media workflow.
+   *
+   * @description You can call this operation only to modify the trigger mode of a media workflow. To modify other information about the workflow, call the [UpdateMediaWorkflow](https://help.aliyun.com/document_detail/44438.html) operation.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateMediaWorkflowTriggerModeRequest
+   * @return UpdateMediaWorkflowTriggerModeResponse
+   */
   async updateMediaWorkflowTriggerMode(request: UpdateMediaWorkflowTriggerModeRequest): Promise<UpdateMediaWorkflowTriggerModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMediaWorkflowTriggerModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates an ApsaraVideo Media Processing (MPS) queue.
+   *
+   * @description *   You can call this operation to modify the name, status, and notification settings of the specified MPS queue.
+   * *   If a paused MPS queue is selected in a workflow or a job, such as a video review or media fingerprint job, the workflow or job fails.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdatePipelineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePipelineResponse
+   */
   async updatePipelineWithOptions(request: UpdatePipelineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.extendConfig)) {
+      query["ExtendConfig"] = request.extendConfig;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -29300,11 +28872,29 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePipelineResponse>(await this.callApi(params, req, runtime), new UpdatePipelineResponse({}));
   }
 
+  /**
+   * @summary Updates an ApsaraVideo Media Processing (MPS) queue.
+   *
+   * @description *   You can call this operation to modify the name, status, and notification settings of the specified MPS queue.
+   * *   If a paused MPS queue is selected in a workflow or a job, such as a video review or media fingerprint job, the workflow or job fails.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdatePipelineRequest
+   * @return UpdatePipelineResponse
+   */
   async updatePipeline(request: UpdatePipelineRequest): Promise<UpdatePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePipelineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新智能标签模板接口支持cpv
+   *
+   * @param request UpdateSmarttagTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSmarttagTemplateResponse
+   */
   async updateSmarttagTemplateWithOptions(request: UpdateSmarttagTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmarttagTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29342,6 +28932,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.labelVersion)) {
       query["LabelVersion"] = request.labelVersion;
+    }
+
+    if (!Util.isUnset(request.landmarkGroupIds)) {
+      query["LandmarkGroupIds"] = request.landmarkGroupIds;
+    }
+
+    if (!Util.isUnset(request.objectGroupIds)) {
+      query["ObjectGroupIds"] = request.objectGroupIds;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -29389,11 +28987,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSmarttagTemplateResponse>(await this.callApi(params, req, runtime), new UpdateSmarttagTemplateResponse({}));
   }
 
+  /**
+   * @summary 更新智能标签模板接口支持cpv
+   *
+   * @param request UpdateSmarttagTemplateRequest
+   * @return UpdateSmarttagTemplateResponse
+   */
   async updateSmarttagTemplate(request: UpdateSmarttagTemplateRequest): Promise<UpdateSmarttagTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSmarttagTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @description A custom transcoding template cannot be updated if it is being used by a job that has been submitted.The ID of the template. You can obtain the template ID from the response of the [AddTemplate](https://help.aliyun.com/document_detail/213306.html) operation.
+   * ### QPS limits
+   * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTemplateResponse
+   */
   async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29458,11 +29071,31 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
+  /**
+   * @description A custom transcoding template cannot be updated if it is being used by a job that has been submitted.The ID of the template. You can obtain the template ID from the response of the [AddTemplate](https://help.aliyun.com/document_detail/213306.html) operation.
+   * ### QPS limits
+   * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateTemplateRequest
+   * @return UpdateTemplateResponse
+   */
   async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the name and configurations of the specified watermark template.
+   *
+   * @description *   You can call this operation to update the information about a watermark template based on the ID of the watermark template. For example, you can update the name and configurations of a watermark template.
+   * *   A watermark template cannot be updated if it is being used by a job that has been submitted.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateWaterMarkTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWaterMarkTemplateResponse
+   */
   async updateWaterMarkTemplateWithOptions(request: UpdateWaterMarkTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWaterMarkTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29511,6 +29144,17 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWaterMarkTemplateResponse>(await this.callApi(params, req, runtime), new UpdateWaterMarkTemplateResponse({}));
   }
 
+  /**
+   * @summary Updates the name and configurations of the specified watermark template.
+   *
+   * @description *   You can call this operation to update the information about a watermark template based on the ID of the watermark template. For example, you can update the name and configurations of a watermark template.
+   * *   A watermark template cannot be updated if it is being used by a job that has been submitted.
+   * ### QPS limit
+   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *
+   * @param request UpdateWaterMarkTemplateRequest
+   * @return UpdateWaterMarkTemplateResponse
+   */
   async updateWaterMarkTemplate(request: UpdateWaterMarkTemplateRequest): Promise<UpdateWaterMarkTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWaterMarkTemplateWithOptions(request, runtime);
