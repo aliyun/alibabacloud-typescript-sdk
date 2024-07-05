@@ -1819,6 +1819,7 @@ export class Workspace extends $tea.Model {
 
 export class CreateJobRequest extends $tea.Model {
   codeSource?: CreateJobRequestCodeSource;
+  credentialConfig?: CredentialConfig;
   dataSources?: CreateJobRequestDataSources[];
   debuggerConfigContent?: string;
   displayName?: string;
@@ -1840,6 +1841,7 @@ export class CreateJobRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       codeSource: 'CodeSource',
+      credentialConfig: 'CredentialConfig',
       dataSources: 'DataSources',
       debuggerConfigContent: 'DebuggerConfigContent',
       displayName: 'DisplayName',
@@ -1864,6 +1866,7 @@ export class CreateJobRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       codeSource: CreateJobRequestCodeSource,
+      credentialConfig: CredentialConfig,
       dataSources: { 'type': 'array', 'itemType': CreateJobRequestDataSources },
       debuggerConfigContent: 'string',
       displayName: 'string',
@@ -4171,6 +4174,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.codeSource)) {
       body["CodeSource"] = request.codeSource;
+    }
+
+    if (!Util.isUnset(request.credentialConfig)) {
+      body["CredentialConfig"] = request.credentialConfig;
     }
 
     if (!Util.isUnset(request.dataSources)) {
