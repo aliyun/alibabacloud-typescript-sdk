@@ -3695,11 +3695,13 @@ export class DescribeDDosAllEventListResponse extends $tea.Model {
 export class DescribeDDosEventAreaRequest extends $tea.Model {
   eventType?: string;
   ip?: string;
+  range?: number;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
       eventType: 'EventType',
       ip: 'Ip',
+      range: 'Range',
       startTime: 'StartTime',
     };
   }
@@ -3708,6 +3710,7 @@ export class DescribeDDosEventAreaRequest extends $tea.Model {
     return {
       eventType: 'string',
       ip: 'string',
+      range: 'number',
       startTime: 'number',
     };
   }
@@ -3839,11 +3842,13 @@ export class DescribeDDosEventAttackTypeResponse extends $tea.Model {
 export class DescribeDDosEventIspRequest extends $tea.Model {
   eventType?: string;
   ip?: string;
+  range?: number;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
       eventType: 'EventType',
       ip: 'Ip',
+      range: 'Range',
       startTime: 'StartTime',
     };
   }
@@ -3852,6 +3857,7 @@ export class DescribeDDosEventIspRequest extends $tea.Model {
     return {
       eventType: 'string',
       ip: 'string',
+      range: 'number',
       startTime: 'number',
     };
   }
@@ -4200,6 +4206,84 @@ export class DescribeDefenseRecordsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDefenseRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDestinationPortEventRequest extends $tea.Model {
+  eventType?: string;
+  ip?: string;
+  range?: number;
+  region?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventType: 'EventType',
+      ip: 'Ip',
+      range: 'Range',
+      region: 'Region',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventType: 'string',
+      ip: 'string',
+      range: 'number',
+      region: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDestinationPortEventResponseBody extends $tea.Model {
+  portList?: DescribeDestinationPortEventResponseBodyPortList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      portList: 'PortList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      portList: { 'type': 'array', 'itemType': DescribeDestinationPortEventResponseBodyPortList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDestinationPortEventResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDestinationPortEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDestinationPortEventResponseBody,
     };
   }
 
@@ -13661,6 +13745,28 @@ export class DescribeDefenseRecordsResponseBodyDefenseRecords extends $tea.Model
   }
 }
 
+export class DescribeDestinationPortEventResponseBodyPortList extends $tea.Model {
+  dstPort?: string;
+  inPkts?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPort: 'DstPort',
+      inPkts: 'InPkts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPort: 'string',
+      inPkts: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainAttackEventsResponseBodyDomainAttackEvents extends $tea.Model {
   domain?: string;
   endTime?: number;
@@ -17747,10 +17853,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+   *
    * @param request CreateWebCCRuleRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return CreateWebCCRuleResponse
    */
+  // Deprecated
   async createWebCCRuleWithOptions(request: CreateWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateWebCCRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17808,9 +17917,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+   *
    * @param request CreateWebCCRuleRequest
    * @return CreateWebCCRuleResponse
    */
+  // Deprecated
   async createWebCCRule(request: CreateWebCCRuleRequest): Promise<CreateWebCCRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createWebCCRuleWithOptions(request, runtime);
@@ -18329,12 +18441,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead.
+   *
    * @summary Deletes a custom frequency control rule of a website.
    *
    * @param request DeleteWebCCRuleRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DeleteWebCCRuleResponse
    */
+  // Deprecated
   async deleteWebCCRuleWithOptions(request: DeleteWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebCCRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18368,11 +18483,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead.
+   *
    * @summary Deletes a custom frequency control rule of a website.
    *
    * @param request DeleteWebCCRuleRequest
    * @return DeleteWebCCRuleResponse
    */
+  // Deprecated
   async deleteWebCCRule(request: DeleteWebCCRuleRequest): Promise<DeleteWebCCRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWebCCRuleWithOptions(request, runtime);
@@ -19224,6 +19342,10 @@ export default class Client extends OpenApi {
       query["Ip"] = request.ip;
     }
 
+    if (!Util.isUnset(request.range)) {
+      query["Range"] = request.range;
+    }
+
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -19330,6 +19452,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ip)) {
       query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.range)) {
+      query["Range"] = request.range;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -19586,6 +19712,64 @@ export default class Client extends OpenApi {
   async describeDefenseRecords(request: DescribeDefenseRecordsRequest): Promise<DescribeDefenseRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询目的端口事件
+   *
+   * @param request DescribeDestinationPortEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDestinationPortEventResponse
+   */
+  async describeDestinationPortEventWithOptions(request: DescribeDestinationPortEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDestinationPortEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.range)) {
+      query["Range"] = request.range;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDestinationPortEvent",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDestinationPortEventResponse>(await this.callApi(params, req, runtime), new DescribeDestinationPortEventResponse({}));
+  }
+
+  /**
+   * @summary 查询目的端口事件
+   *
+   * @param request DescribeDestinationPortEventRequest
+   * @return DescribeDestinationPortEventResponse
+   */
+  async describeDestinationPortEvent(request: DescribeDestinationPortEventRequest): Promise<DescribeDestinationPortEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDestinationPortEventWithOptions(request, runtime);
   }
 
   /**
@@ -23017,12 +23201,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+   *
    * @summary Queries the custom frequency control rules that are created for a website.
    *
    * @param request DescribeWebCCRulesRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeWebCCRulesResponse
    */
+  // Deprecated
   async describeWebCCRulesWithOptions(request: DescribeWebCCRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebCCRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23060,11 +23247,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+   *
    * @summary Queries the custom frequency control rules that are created for a website.
    *
    * @param request DescribeWebCCRulesRequest
    * @return DescribeWebCCRulesResponse
    */
+  // Deprecated
   async describeWebCCRules(request: DescribeWebCCRulesRequest): Promise<DescribeWebCCRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebCCRulesWithOptions(request, runtime);
@@ -25429,10 +25619,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+   *
    * @param request ModifyWebCCRuleRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ModifyWebCCRuleResponse
    */
+  // Deprecated
   async modifyWebCCRuleWithOptions(request: ModifyWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCCRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25490,9 +25683,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+   *
    * @param request ModifyWebCCRuleRequest
    * @return ModifyWebCCRuleResponse
    */
+  // Deprecated
   async modifyWebCCRule(request: ModifyWebCCRuleRequest): Promise<ModifyWebCCRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebCCRuleWithOptions(request, runtime);
