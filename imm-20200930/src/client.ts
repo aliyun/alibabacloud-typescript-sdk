@@ -671,11 +671,13 @@ export class Element extends $tea.Model {
 
 export class ElementContent extends $tea.Model {
   content?: string;
+  timeRange?: number[];
   type?: string;
   URL?: string;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
+      timeRange: 'TimeRange',
       type: 'Type',
       URL: 'URL',
     };
@@ -684,6 +686,7 @@ export class ElementContent extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       content: 'string',
+      timeRange: { 'type': 'array', 'itemType': 'number' },
       type: 'string',
       URL: 'string',
     };
@@ -946,6 +949,7 @@ export class File extends $tea.Model {
   fileCreateTime?: string;
   fileHash?: string;
   fileModifiedTime?: string;
+  fileStatus?: string;
   filename?: string;
   formatLongName?: string;
   formatName?: string;
@@ -978,6 +982,8 @@ export class File extends $tea.Model {
   produceTime?: string;
   programCount?: number;
   projectName?: string;
+  reason?: string;
+  sceneElements?: SceneElement[];
   semanticTypes?: string[];
   serverSideDataEncryption?: string;
   serverSideEncryption?: string;
@@ -1028,6 +1034,7 @@ export class File extends $tea.Model {
       fileCreateTime: 'FileCreateTime',
       fileHash: 'FileHash',
       fileModifiedTime: 'FileModifiedTime',
+      fileStatus: 'FileStatus',
       filename: 'Filename',
       formatLongName: 'FormatLongName',
       formatName: 'FormatName',
@@ -1060,6 +1067,8 @@ export class File extends $tea.Model {
       produceTime: 'ProduceTime',
       programCount: 'ProgramCount',
       projectName: 'ProjectName',
+      reason: 'Reason',
+      sceneElements: 'SceneElements',
       semanticTypes: 'SemanticTypes',
       serverSideDataEncryption: 'ServerSideDataEncryption',
       serverSideEncryption: 'ServerSideEncryption',
@@ -1113,6 +1122,7 @@ export class File extends $tea.Model {
       fileCreateTime: 'string',
       fileHash: 'string',
       fileModifiedTime: 'string',
+      fileStatus: 'string',
       filename: 'string',
       formatLongName: 'string',
       formatName: 'string',
@@ -1145,6 +1155,8 @@ export class File extends $tea.Model {
       produceTime: 'string',
       programCount: 'number',
       projectName: 'string',
+      reason: 'string',
+      sceneElements: { 'type': 'array', 'itemType': SceneElement },
       semanticTypes: { 'type': 'array', 'itemType': 'string' },
       serverSideDataEncryption: 'string',
       serverSideEncryption: 'string',
@@ -2031,6 +2043,28 @@ export class Runtime extends $tea.Model {
     return {
       hyperparameters: Hyperparameters,
       resource: Resource,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SceneElement extends $tea.Model {
+  frameTimes?: number[];
+  timeRange?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      frameTimes: 'FrameTimes',
+      timeRange: 'TimeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      frameTimes: { 'type': 'array', 'itemType': 'number' },
+      timeRange: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
@@ -13680,6 +13714,7 @@ export class TargetAudioFilterAudio extends $tea.Model {
 export class TargetAudioTranscodeAudio extends $tea.Model {
   bitrate?: number;
   bitrateOption?: string;
+  bitsPerSample?: number;
   channel?: number;
   codec?: string;
   quality?: number;
@@ -13689,6 +13724,7 @@ export class TargetAudioTranscodeAudio extends $tea.Model {
     return {
       bitrate: 'Bitrate',
       bitrateOption: 'BitrateOption',
+      bitsPerSample: 'BitsPerSample',
       channel: 'Channel',
       codec: 'Codec',
       quality: 'Quality',
@@ -13701,6 +13737,7 @@ export class TargetAudioTranscodeAudio extends $tea.Model {
     return {
       bitrate: 'number',
       bitrateOption: 'string',
+      bitsPerSample: 'number',
       channel: 'number',
       codec: 'string',
       quality: 'number',
