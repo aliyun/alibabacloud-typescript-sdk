@@ -9994,6 +9994,90 @@ export class ListCasesResponse extends $tea.Model {
   }
 }
 
+export class ListCategoriesRequest extends $tea.Model {
+  categoryId?: string;
+  instanceId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      instanceId: 'InstanceId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      instanceId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCategoriesResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCategoriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCategoriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCategoriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCommonTicketFieldsRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
@@ -40746,6 +40830,52 @@ export default class Client extends OpenApi {
   async listCases(request: ListCasesRequest): Promise<ListCasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCasesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListCategoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCategoriesResponse
+   */
+  async listCategoriesWithOptions(request: ListCategoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListCategoriesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCategories",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCategoriesResponse>(await this.callApi(params, req, runtime), new ListCategoriesResponse({}));
+  }
+
+  /**
+   * @param request ListCategoriesRequest
+   * @return ListCategoriesResponse
+   */
+  async listCategories(request: ListCategoriesRequest): Promise<ListCategoriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCategoriesWithOptions(request, runtime);
   }
 
   /**
