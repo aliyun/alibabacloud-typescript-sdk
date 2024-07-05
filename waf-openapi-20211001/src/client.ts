@@ -8227,6 +8227,75 @@ export class ModifyTemplateResourcesResponse extends $tea.Model {
   }
 }
 
+export class ReleaseInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SyncProductInstanceRequest extends $tea.Model {
   instanceId?: string;
   regionId?: string;
@@ -11683,7 +11752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上传国密证书
+   * @summary Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
    *
    * @param request CreateSM2CertRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -11742,7 +11811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上传国密证书
+   * @summary Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
    *
    * @param request CreateSM2CertRequest
    * @return CreateSM2CertResponse
@@ -17282,6 +17351,56 @@ export default class Client extends OpenApi {
   async modifyTemplateResources(request: ModifyTemplateResourcesRequest): Promise<ModifyTemplateResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTemplateResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 释放实例
+   *
+   * @param request ReleaseInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseInstanceResponse
+   */
+  async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseInstance",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseInstanceResponse({}));
+  }
+
+  /**
+   * @summary 释放实例
+   *
+   * @param request ReleaseInstanceRequest
+   * @return ReleaseInstanceResponse
+   */
+  async releaseInstance(request: ReleaseInstanceRequest): Promise<ReleaseInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseInstanceWithOptions(request, runtime);
   }
 
   /**
