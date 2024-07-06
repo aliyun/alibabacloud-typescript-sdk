@@ -5047,6 +5047,93 @@ export class ExportDoNotCallNumbersResponse extends $tea.Model {
   }
 }
 
+export class FinishTicketTaskRequest extends $tea.Model {
+  comment?: string;
+  instanceId?: string;
+  taskId?: string;
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      instanceId: 'InstanceId',
+      taskId: 'TaskId',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      instanceId: 'string',
+      taskId: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishTicketTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishTicketTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FinishTicketTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FinishTicketTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAccessChannelOfStagingRequest extends $tea.Model {
   searchPattern?: string;
   static names(): { [key: string]: string } {
@@ -37920,6 +38007,56 @@ export default class Client extends OpenApi {
   async exportDoNotCallNumbers(request: ExportDoNotCallNumbersRequest): Promise<ExportDoNotCallNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportDoNotCallNumbersWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request FinishTicketTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FinishTicketTaskResponse
+   */
+  async finishTicketTaskWithOptions(request: FinishTicketTaskRequest, runtime: $Util.RuntimeOptions): Promise<FinishTicketTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FinishTicketTask",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FinishTicketTaskResponse>(await this.callApi(params, req, runtime), new FinishTicketTaskResponse({}));
+  }
+
+  /**
+   * @param request FinishTicketTaskRequest
+   * @return FinishTicketTaskResponse
+   */
+  async finishTicketTask(request: FinishTicketTaskRequest): Promise<FinishTicketTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.finishTicketTaskWithOptions(request, runtime);
   }
 
   /**
