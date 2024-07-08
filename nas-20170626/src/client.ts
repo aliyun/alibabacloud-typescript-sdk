@@ -6908,10 +6908,12 @@ export class ModifyDataFlowAutoRefreshResponse extends $tea.Model {
 export class ModifyFileSystemRequest extends $tea.Model {
   description?: string;
   fileSystemId?: string;
+  options?: ModifyFileSystemRequestOptions;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       fileSystemId: 'FileSystemId',
+      options: 'Options',
     };
   }
 
@@ -6919,6 +6921,32 @@ export class ModifyFileSystemRequest extends $tea.Model {
     return {
       description: 'string',
       fileSystemId: 'string',
+      options: ModifyFileSystemRequestOptions,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFileSystemShrinkRequest extends $tea.Model {
+  description?: string;
+  fileSystemId?: string;
+  optionsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      fileSystemId: 'FileSystemId',
+      optionsShrink: 'Options',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      fileSystemId: 'string',
+      optionsShrink: 'string',
     };
   }
 
@@ -9584,6 +9612,25 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets ex
   }
 }
 
+export class DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions extends $tea.Model {
+  enableOplock?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableOplock: 'EnableOplock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableOplock: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystemPackagesPackage extends $tea.Model {
   expiredTime?: string;
   packageId?: string;
@@ -9711,6 +9758,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
   meteredIASize?: number;
   meteredSize?: number;
   mountTargets?: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets;
+  options?: DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions;
   packages?: DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages;
   protocolType?: string;
   regionId?: string;
@@ -9739,6 +9787,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
       meteredIASize: 'MeteredIASize',
       meteredSize: 'MeteredSize',
       mountTargets: 'MountTargets',
+      options: 'Options',
       packages: 'Packages',
       protocolType: 'ProtocolType',
       regionId: 'RegionId',
@@ -9770,6 +9819,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
       meteredIASize: 'number',
       meteredSize: 'number',
       mountTargets: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets,
+      options: DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions,
       packages: DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages,
       protocolType: 'string',
       regionId: 'string',
@@ -10973,6 +11023,25 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFileSystemRequestOptions extends $tea.Model {
+  enableOplock?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableOplock: 'EnableOplock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableOplock: 'boolean',
     };
   }
 
@@ -15644,7 +15713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether a specified directory contains files stored in the IA storage medium or whether a specified file is stored in the IA storage medium.
+   * @summary Queries whether a directory contains files that are stored in the Infrequent Access (IA) or Archive storage class, or whether a file is stored in the IA or Archive storage class.
    *
    * @description Only General-purpose NAS file systems support this operation.
    *
@@ -15681,7 +15750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether a specified directory contains files stored in the IA storage medium or whether a specified file is stored in the IA storage medium.
+   * @summary Queries whether a directory contains files that are stored in the Infrequent Access (IA) or Archive storage class, or whether a file is stored in the IA or Archive storage class.
    *
    * @description Only General-purpose NAS file systems support this operation.
    *
@@ -16438,12 +16507,18 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies the description of a file system.
    *
-   * @param request ModifyFileSystemRequest
+   * @param tmpReq ModifyFileSystemRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ModifyFileSystemResponse
    */
-  async modifyFileSystemWithOptions(request: ModifyFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFileSystemResponse> {
-    Util.validateModel(request);
+  async modifyFileSystemWithOptions(tmpReq: ModifyFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFileSystemResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyFileSystemShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.options)) {
+      request.optionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.options, "Options", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
@@ -16451,6 +16526,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.optionsShrink)) {
+      query["Options"] = request.optionsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -17159,7 +17238,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Creates a directory quota for a file system.
    *
-   * @description Only General-purpose NFS file systems support the directory quota feature.
+   * @description Only General-purpose Apsara File Storage NAS (NAS) file systems support the directory quota feature.
    *
    * @param request SetDirQuotaRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -17216,7 +17295,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Creates a directory quota for a file system.
    *
-   * @description Only General-purpose NFS file systems support the directory quota feature.
+   * @description Only General-purpose Apsara File Storage NAS (NAS) file systems support the directory quota feature.
    *
    * @param request SetDirQuotaRequest
    * @return SetDirQuotaResponse
