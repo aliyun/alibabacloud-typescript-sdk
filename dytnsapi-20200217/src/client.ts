@@ -916,30 +916,36 @@ export class DescribePhoneNumberOnlineTimeResponse extends $tea.Model {
 
 export class DescribePhoneNumberOperatorAttributeRequest extends $tea.Model {
   authCode?: string;
+  flowName?: string;
   inputNumber?: string;
   mask?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  resultCount?: string;
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
+      flowName: 'FlowName',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      resultCount: 'ResultCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       authCode: 'string',
+      flowName: 'string',
       inputNumber: 'string',
       mask: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      resultCount: 'string',
     };
   }
 
@@ -949,12 +955,14 @@ export class DescribePhoneNumberOperatorAttributeRequest extends $tea.Model {
 }
 
 export class DescribePhoneNumberOperatorAttributeResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: DescribePhoneNumberOperatorAttributeResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -964,6 +972,7 @@ export class DescribePhoneNumberOperatorAttributeResponseBody extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: DescribePhoneNumberOperatorAttributeResponseBodyData,
       message: 'string',
@@ -5137,6 +5146,10 @@ export default class Client extends OpenApi {
       query["AuthCode"] = request.authCode;
     }
 
+    if (!Util.isUnset(request.flowName)) {
+      query["FlowName"] = request.flowName;
+    }
+
     if (!Util.isUnset(request.inputNumber)) {
       query["InputNumber"] = request.inputNumber;
     }
@@ -5155,6 +5168,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resultCount)) {
+      query["ResultCount"] = request.resultCount;
     }
 
     let req = new $OpenApi.OpenApiRequest({
