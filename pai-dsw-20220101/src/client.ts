@@ -190,6 +190,7 @@ export class CreateIdleInstanceCullerResponse extends $tea.Model {
 
 export class CreateInstanceRequest extends $tea.Model {
   accessibility?: string;
+  affinity?: CreateInstanceRequestAffinity;
   cloudDisks?: CreateInstanceRequestCloudDisks[];
   datasets?: CreateInstanceRequestDatasets[];
   driver?: string;
@@ -209,6 +210,7 @@ export class CreateInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      affinity: 'Affinity',
       cloudDisks: 'CloudDisks',
       datasets: 'Datasets',
       driver: 'Driver',
@@ -231,6 +233,7 @@ export class CreateInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      affinity: CreateInstanceRequestAffinity,
       cloudDisks: { 'type': 'array', 'itemType': CreateInstanceRequestCloudDisks },
       datasets: { 'type': 'array', 'itemType': CreateInstanceRequestDatasets },
       driver: 'string',
@@ -799,6 +802,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   acceleratorType?: string;
   accessibility?: string;
   accumulatedRunningTimeInMs?: number;
+  affinity?: GetInstanceResponseBodyAffinity;
   cloudDisks?: GetInstanceResponseBodyCloudDisks[];
   code?: string;
   datasets?: GetInstanceResponseBodyDatasets[];
@@ -845,6 +849,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       acceleratorType: 'AcceleratorType',
       accessibility: 'Accessibility',
       accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
+      affinity: 'Affinity',
       cloudDisks: 'CloudDisks',
       code: 'Code',
       datasets: 'Datasets',
@@ -894,6 +899,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       acceleratorType: 'string',
       accessibility: 'string',
       accumulatedRunningTimeInMs: 'number',
+      affinity: GetInstanceResponseBodyAffinity,
       cloudDisks: { 'type': 'array', 'itemType': GetInstanceResponseBodyCloudDisks },
       code: 'string',
       datasets: { 'type': 'array', 'itemType': GetInstanceResponseBodyDatasets },
@@ -2305,6 +2311,7 @@ export class StopInstanceResponse extends $tea.Model {
 
 export class UpdateInstanceRequest extends $tea.Model {
   accessibility?: string;
+  affinity?: UpdateInstanceRequestAffinity;
   cloudDisks?: UpdateInstanceRequestCloudDisks[];
   datasets?: UpdateInstanceRequestDatasets[];
   disassociateDatasets?: boolean;
@@ -2324,6 +2331,7 @@ export class UpdateInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      affinity: 'Affinity',
       cloudDisks: 'CloudDisks',
       datasets: 'Datasets',
       disassociateDatasets: 'DisassociateDatasets',
@@ -2346,6 +2354,7 @@ export class UpdateInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      affinity: UpdateInstanceRequestAffinity,
       cloudDisks: { 'type': 'array', 'itemType': UpdateInstanceRequestCloudDisks },
       datasets: { 'type': 'array', 'itemType': UpdateInstanceRequestDatasets },
       disassociateDatasets: 'boolean',
@@ -2493,6 +2502,44 @@ export class ForwardInfoResponseConnectInfo extends $tea.Model {
       intranet: ForwardInfoResponseConnectInfoIntranet,
       message: 'string',
       phase: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestAffinityCPU extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestAffinity extends $tea.Model {
+  CPU?: CreateInstanceRequestAffinityCPU;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: CreateInstanceRequestAffinityCPU,
     };
   }
 
@@ -2689,6 +2736,44 @@ export class CreateInstanceSnapshotRequestLabels extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyAffinityCPU extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyAffinity extends $tea.Model {
+  CPU?: GetInstanceResponseBodyAffinityCPU;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: GetInstanceResponseBodyAffinityCPU,
     };
   }
 
@@ -3310,6 +3395,44 @@ export class ListInstanceSnapshotResponseBodySnapshots extends $tea.Model {
   }
 }
 
+export class ListInstancesResponseBodyInstancesAffinityCPU extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesAffinity extends $tea.Model {
+  CPU?: ListInstancesResponseBodyInstancesAffinityCPU;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: ListInstancesResponseBodyInstancesAffinityCPU,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyInstancesCloudDisks extends $tea.Model {
   capacity?: string;
   mountPath?: string;
@@ -3608,6 +3731,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
   acceleratorType?: string;
   accessibility?: string;
   accumulatedRunningTimeInMs?: number;
+  affinity?: ListInstancesResponseBodyInstancesAffinity;
   cloudDisks?: ListInstancesResponseBodyInstancesCloudDisks[];
   datasets?: ListInstancesResponseBodyInstancesDatasets[];
   driver?: string;
@@ -3648,6 +3772,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       acceleratorType: 'AcceleratorType',
       accessibility: 'Accessibility',
       accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
+      affinity: 'Affinity',
       cloudDisks: 'CloudDisks',
       datasets: 'Datasets',
       driver: 'Driver',
@@ -3691,6 +3816,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       acceleratorType: 'string',
       accessibility: 'string',
       accumulatedRunningTimeInMs: 'number',
+      affinity: ListInstancesResponseBodyInstancesAffinity,
       cloudDisks: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesCloudDisks },
       datasets: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesDatasets },
       driver: 'string',
@@ -3726,6 +3852,44 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       workspaceId: 'string',
       workspaceName: 'string',
       workspaceSource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequestAffinityCPU extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequestAffinity extends $tea.Model {
+  CPU?: UpdateInstanceRequestAffinityCPU;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: UpdateInstanceRequestAffinityCPU,
     };
   }
 
@@ -3937,6 +4101,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessibility)) {
       body["Accessibility"] = request.accessibility;
+    }
+
+    if (!Util.isUnset(request.affinity)) {
+      body["Affinity"] = request.affinity;
     }
 
     if (!Util.isUnset(request.cloudDisks)) {
@@ -5145,6 +5313,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessibility)) {
       body["Accessibility"] = request.accessibility;
+    }
+
+    if (!Util.isUnset(request.affinity)) {
+      body["Affinity"] = request.affinity;
     }
 
     if (!Util.isUnset(request.cloudDisks)) {
