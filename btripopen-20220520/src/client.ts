@@ -15110,121 +15110,6 @@ export class HotelStaticInfoResponse extends $tea.Model {
   }
 }
 
-export class HotelSuggestHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsBtripSoCorpToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsBtripSoCorpToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotelSuggestRequest extends $tea.Model {
-  btripUserId?: string;
-  checkIn?: string;
-  checkOut?: string;
-  cityCode?: string;
-  keyword?: string;
-  searchType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      btripUserId: 'btrip_user_id',
-      checkIn: 'check_in',
-      checkOut: 'check_out',
-      cityCode: 'city_code',
-      keyword: 'keyword',
-      searchType: 'search_type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      btripUserId: 'string',
-      checkIn: 'string',
-      checkOut: 'string',
-      cityCode: 'string',
-      keyword: 'string',
-      searchType: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotelSuggestResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  module?: HotelSuggestResponseBodyModule;
-  requestId?: string;
-  success?: boolean;
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      module: 'module',
-      requestId: 'requestId',
-      success: 'success',
-      traceId: 'traceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      module: HotelSuggestResponseBodyModule,
-      requestId: 'string',
-      success: 'boolean',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotelSuggestResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: HotelSuggestResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: HotelSuggestResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class IeFlightBillSettlementQueryHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -44142,6 +44027,10 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   fuPointFee?: number;
   hotelName?: string;
   index?: string;
+  insOrderId?: string;
+  insuranceNumber?: string;
+  insurancePrice?: number;
+  insuranceProductName?: string;
   invoiceTitle?: string;
   isEarlyDeparture?: string;
   isNegotiation?: string;
@@ -44221,6 +44110,10 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       fuPointFee: 'fu_point_fee',
       hotelName: 'hotel_name',
       index: 'index',
+      insOrderId: 'ins_order_id',
+      insuranceNumber: 'insurance_number',
+      insurancePrice: 'insurance_price',
+      insuranceProductName: 'insurance_product_name',
       invoiceTitle: 'invoice_title',
       isEarlyDeparture: 'is_early_departure',
       isNegotiation: 'is_negotiation',
@@ -44303,6 +44196,10 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       fuPointFee: 'number',
       hotelName: 'string',
       index: 'string',
+      insOrderId: 'string',
+      insuranceNumber: 'string',
+      insurancePrice: 'number',
+      insuranceProductName: 'string',
       invoiceTitle: 'string',
       isEarlyDeparture: 'string',
       isNegotiation: 'string',
@@ -46371,6 +46268,9 @@ export class HotelOrderPreValidateResponseBodyModule extends $tea.Model {
 }
 
 export class HotelOrderQueryResponseBodyModuleHotelInfo extends $tea.Model {
+  brandCode?: string;
+  brandGroup?: string;
+  brandName?: string;
   checkIn?: number;
   checkOut?: number;
   city?: string;
@@ -46384,6 +46284,9 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $tea.Model {
   roomType?: string;
   static names(): { [key: string]: string } {
     return {
+      brandCode: 'brand_code',
+      brandGroup: 'brand_group',
+      brandName: 'brand_name',
       checkIn: 'check_in',
       checkOut: 'check_out',
       city: 'city',
@@ -46400,6 +46303,9 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      brandCode: 'string',
+      brandGroup: 'string',
+      brandName: 'string',
       checkIn: 'number',
       checkOut: 'number',
       city: 'string',
@@ -47615,78 +47521,6 @@ export class HotelStaticInfoResponseBodyModule extends $tea.Model {
   }
 }
 
-export class HotelSuggestResponseBodyModulePopularSuggestInfosPopularInfos extends $tea.Model {
-  displayName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      displayName: 'display_name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      displayName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotelSuggestResponseBodyModulePopularSuggestInfos extends $tea.Model {
-  icon?: string;
-  popularInfos?: HotelSuggestResponseBodyModulePopularSuggestInfosPopularInfos[];
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      icon: 'icon',
-      popularInfos: 'popular_infos',
-      title: 'title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      icon: 'string',
-      popularInfos: { 'type': 'array', 'itemType': HotelSuggestResponseBodyModulePopularSuggestInfosPopularInfos },
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotelSuggestResponseBodyModule extends $tea.Model {
-  guessSuggestInfos?: KeywordSuggestInfo[];
-  keywordSuggestInfos?: KeywordSuggestInfo[];
-  popularSuggestInfos?: HotelSuggestResponseBodyModulePopularSuggestInfos[];
-  tips?: string;
-  static names(): { [key: string]: string } {
-    return {
-      guessSuggestInfos: 'guess_suggest_infos',
-      keywordSuggestInfos: 'keyword_suggest_infos',
-      popularSuggestInfos: 'popular_suggest_infos',
-      tips: 'tips',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      guessSuggestInfos: { 'type': 'array', 'itemType': KeywordSuggestInfo },
-      keywordSuggestInfos: { 'type': 'array', 'itemType': KeywordSuggestInfo },
-      popularSuggestInfos: { 'type': 'array', 'itemType': HotelSuggestResponseBodyModulePopularSuggestInfos },
-      tips: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
   advanceDay?: number;
   airlineCorpCode?: string;
@@ -48353,6 +48187,7 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
   amountWithTax?: string;
   amountWithoutTax?: string;
   billDate?: string;
+  category?: number;
   checkCode?: string;
   costCenter?: string;
   department?: string;
@@ -48367,7 +48202,9 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
   invoiceLocation?: string;
   invoiceNo?: string;
   invoiceTitle?: string;
+  invoiceType?: number;
   machineCode?: string;
+  ofdOssUrl?: string;
   orderId?: number;
   ossUrl?: string;
   passenger?: string;
@@ -48388,11 +48225,13 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
   taxAmount?: string;
   taxRate?: string;
   totalAmountInWords?: string;
+  xmlOssUrl?: string;
   static names(): { [key: string]: string } {
     return {
       amountWithTax: 'amount_with_tax',
       amountWithoutTax: 'amount_without_tax',
       billDate: 'bill_date',
+      category: 'category',
       checkCode: 'check_code',
       costCenter: 'cost_center',
       department: 'department',
@@ -48407,7 +48246,9 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       invoiceLocation: 'invoice_location',
       invoiceNo: 'invoice_no',
       invoiceTitle: 'invoice_title',
+      invoiceType: 'invoice_type',
       machineCode: 'machine_code',
+      ofdOssUrl: 'ofd_oss_url',
       orderId: 'order_id',
       ossUrl: 'oss_url',
       passenger: 'passenger',
@@ -48428,6 +48269,7 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       taxAmount: 'tax_amount',
       taxRate: 'tax_rate',
       totalAmountInWords: 'total_amount_in_words',
+      xmlOssUrl: 'xml_oss_url',
     };
   }
 
@@ -48436,6 +48278,7 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       amountWithTax: 'string',
       amountWithoutTax: 'string',
       billDate: 'string',
+      category: 'number',
       checkCode: 'string',
       costCenter: 'string',
       department: 'string',
@@ -48450,7 +48293,9 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       invoiceLocation: 'string',
       invoiceNo: 'string',
       invoiceTitle: 'string',
+      invoiceType: 'number',
       machineCode: 'string',
+      ofdOssUrl: 'string',
       orderId: 'number',
       ossUrl: 'string',
       passenger: 'string',
@@ -48471,6 +48316,7 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       taxAmount: 'string',
       taxRate: 'string',
       totalAmountInWords: 'string',
+      xmlOssUrl: 'string',
     };
   }
 
@@ -53065,6 +52911,7 @@ export class MealBillSettlementQueryResponseBodyModule extends $tea.Model {
 }
 
 export class MealOrderDetailQueryResponseBodyModule extends $tea.Model {
+  applyId?: number;
   corpCodeOrderId?: string;
   corpId?: string;
   corpPayAmount?: number;
@@ -53085,6 +52932,7 @@ export class MealOrderDetailQueryResponseBodyModule extends $tea.Model {
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      applyId: 'apply_id',
       corpCodeOrderId: 'corp_code_order_id',
       corpId: 'corp_id',
       corpPayAmount: 'corp_pay_amount',
@@ -53108,6 +52956,7 @@ export class MealOrderDetailQueryResponseBodyModule extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applyId: 'number',
       corpCodeOrderId: 'string',
       corpId: 'string',
       corpPayAmount: 'number',
@@ -55279,6 +55128,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   businessTripResult?: string;
   capitalDirection?: string;
   cascadeDepartment?: string;
+  changeAffiliateNo?: string;
+  changeApplyId?: string;
   changeFee?: number;
   changeResult?: string;
   coachNo?: string;
@@ -55306,6 +55157,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   printTicketPrice?: number;
   projectCode?: string;
   projectName?: string;
+  refundAffiliateNo?: string;
+  refundApplyId?: string;
   refundFee?: number;
   refundReason?: string;
   remark?: string;
@@ -55319,6 +55172,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   settlementTime?: string;
   settlementType?: string;
   shortTicketNo?: string;
+  speedPackageFee?: number;
   status?: number;
   taxRate?: string;
   thirdItineraryId?: string;
@@ -55355,6 +55209,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       businessTripResult: 'business_trip_result',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
+      changeAffiliateNo: 'change_affiliate_no',
+      changeApplyId: 'change_apply_id',
       changeFee: 'change_fee',
       changeResult: 'change_result',
       coachNo: 'coach_no',
@@ -55382,6 +55238,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       printTicketPrice: 'print_ticket_price',
       projectCode: 'project_code',
       projectName: 'project_name',
+      refundAffiliateNo: 'refund_affiliate_no',
+      refundApplyId: 'refund_apply_id',
       refundFee: 'refund_fee',
       refundReason: 'refund_reason',
       remark: 'remark',
@@ -55395,6 +55253,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       shortTicketNo: 'short_ticket_no',
+      speedPackageFee: 'speed_package_fee',
       status: 'status',
       taxRate: 'tax_rate',
       thirdItineraryId: 'third_itinerary_id',
@@ -55434,6 +55293,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       businessTripResult: 'string',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
+      changeAffiliateNo: 'string',
+      changeApplyId: 'string',
       changeFee: 'number',
       changeResult: 'string',
       coachNo: 'string',
@@ -55461,6 +55322,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       printTicketPrice: 'number',
       projectCode: 'string',
       projectName: 'string',
+      refundAffiliateNo: 'string',
+      refundApplyId: 'string',
       refundFee: 'number',
       refundReason: 'string',
       remark: 'string',
@@ -55474,6 +55337,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       settlementTime: 'string',
       settlementType: 'string',
       shortTicketNo: 'string',
+      speedPackageFee: 'number',
       status: 'number',
       taxRate: 'string',
       thirdItineraryId: 'string',
@@ -67620,80 +67484,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelStaticInfoHeaders({ });
     return await this.hotelStaticInfoWithOptions(request, headers, runtime);
-  }
-
-  /**
-   * @summary 酒店关键词搜索
-   *
-   * @param request HotelSuggestRequest
-   * @param headers HotelSuggestHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return HotelSuggestResponse
-   */
-  async hotelSuggestWithOptions(request: HotelSuggestRequest, headers: HotelSuggestHeaders, runtime: $Util.RuntimeOptions): Promise<HotelSuggestResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.btripUserId)) {
-      query["btrip_user_id"] = request.btripUserId;
-    }
-
-    if (!Util.isUnset(request.checkIn)) {
-      query["check_in"] = request.checkIn;
-    }
-
-    if (!Util.isUnset(request.checkOut)) {
-      query["check_out"] = request.checkOut;
-    }
-
-    if (!Util.isUnset(request.cityCode)) {
-      query["city_code"] = request.cityCode;
-    }
-
-    if (!Util.isUnset(request.keyword)) {
-      query["keyword"] = request.keyword;
-    }
-
-    if (!Util.isUnset(request.searchType)) {
-      query["search_type"] = request.searchType;
-    }
-
-    let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
-      realHeaders = headers.commonHeaders;
-    }
-
-    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
-      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: realHeaders,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "HotelSuggest",
-      version: "2022-05-20",
-      protocol: "HTTPS",
-      pathname: `/dtb-hotel/v1/suggest-infos`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<HotelSuggestResponse>(await this.callApi(params, req, runtime), new HotelSuggestResponse({}));
-  }
-
-  /**
-   * @summary 酒店关键词搜索
-   *
-   * @param request HotelSuggestRequest
-   * @return HotelSuggestResponse
-   */
-  async hotelSuggest(request: HotelSuggestRequest): Promise<HotelSuggestResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new HotelSuggestHeaders({ });
-    return await this.hotelSuggestWithOptions(request, headers, runtime);
   }
 
   /**
