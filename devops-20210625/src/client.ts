@@ -565,6 +565,135 @@ export class CreateBranchResponse extends $tea.Model {
   }
 }
 
+export class CreateChangeRequestRequest extends $tea.Model {
+  appCodeRepoSn?: string;
+  autoDeleteBranchWhenEnd?: boolean;
+  branchName?: string;
+  createBranch?: boolean;
+  ownerAccountId?: string;
+  ownerId?: string;
+  title?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCodeRepoSn: 'appCodeRepoSn',
+      autoDeleteBranchWhenEnd: 'autoDeleteBranchWhenEnd',
+      branchName: 'branchName',
+      createBranch: 'createBranch',
+      ownerAccountId: 'ownerAccountId',
+      ownerId: 'ownerId',
+      title: 'title',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCodeRepoSn: 'string',
+      autoDeleteBranchWhenEnd: 'boolean',
+      branchName: 'string',
+      createBranch: 'boolean',
+      ownerAccountId: 'string',
+      ownerId: 'string',
+      title: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChangeRequestResponseBody extends $tea.Model {
+  appCodeRepoSn?: string;
+  appName?: string;
+  autoDeleteBranchWhenEnd?: boolean;
+  branch?: string;
+  creatorAccountId?: string;
+  creatorId?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  name?: string;
+  originBranch?: string;
+  originBranchRevisionSha?: string;
+  ownerAccountId?: string;
+  ownerId?: string;
+  sn?: string;
+  state?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCodeRepoSn: 'appCodeRepoSn',
+      appName: 'appName',
+      autoDeleteBranchWhenEnd: 'autoDeleteBranchWhenEnd',
+      branch: 'branch',
+      creatorAccountId: 'creatorAccountId',
+      creatorId: 'creatorId',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      name: 'name',
+      originBranch: 'originBranch',
+      originBranchRevisionSha: 'originBranchRevisionSha',
+      ownerAccountId: 'ownerAccountId',
+      ownerId: 'ownerId',
+      sn: 'sn',
+      state: 'state',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCodeRepoSn: 'string',
+      appName: 'string',
+      autoDeleteBranchWhenEnd: 'boolean',
+      branch: 'string',
+      creatorAccountId: 'string',
+      creatorId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      name: 'string',
+      originBranch: 'string',
+      originBranchRevisionSha: 'string',
+      ownerAccountId: 'string',
+      ownerId: 'string',
+      sn: 'string',
+      state: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChangeRequestResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateChangeRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateChangeRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCheckRunRequest extends $tea.Model {
   accessToken?: string;
   annotations?: CreateCheckRunRequestAnnotations[];
@@ -10201,6 +10330,256 @@ export class ListApplicationsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListApplicationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChangeRequestWorkflowExecutionsRequest extends $tea.Model {
+  orderBy?: string;
+  organizationId?: string;
+  page?: number;
+  perPage?: number;
+  releaseStageSn?: string;
+  releaseWorkflowSn?: string;
+  sort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderBy: 'orderBy',
+      organizationId: 'organizationId',
+      page: 'page',
+      perPage: 'perPage',
+      releaseStageSn: 'releaseStageSn',
+      releaseWorkflowSn: 'releaseWorkflowSn',
+      sort: 'sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderBy: 'string',
+      organizationId: 'string',
+      page: 'number',
+      perPage: 'number',
+      releaseStageSn: 'string',
+      releaseWorkflowSn: 'string',
+      sort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChangeRequestWorkflowExecutionsResponseBody extends $tea.Model {
+  current?: number;
+  pageSize?: number;
+  pages?: number;
+  records?: any[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'current',
+      pageSize: 'pageSize',
+      pages: 'pages',
+      records: 'records',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      pageSize: 'number',
+      pages: 'number',
+      records: { 'type': 'array', 'itemType': 'any' },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChangeRequestWorkflowExecutionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListChangeRequestWorkflowExecutionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListChangeRequestWorkflowExecutionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChangeRequestsRequest extends $tea.Model {
+  appNameList?: string[];
+  displayNameKeyword?: string;
+  nextToken?: string;
+  orderBy?: string;
+  organizationId?: string;
+  ownerIdList?: string[];
+  page?: number;
+  pagination?: string;
+  perPage?: number;
+  sort?: string;
+  stateList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      appNameList: 'appNameList',
+      displayNameKeyword: 'displayNameKeyword',
+      nextToken: 'nextToken',
+      orderBy: 'orderBy',
+      organizationId: 'organizationId',
+      ownerIdList: 'ownerIdList',
+      page: 'page',
+      pagination: 'pagination',
+      perPage: 'perPage',
+      sort: 'sort',
+      stateList: 'stateList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appNameList: { 'type': 'array', 'itemType': 'string' },
+      displayNameKeyword: 'string',
+      nextToken: 'string',
+      orderBy: 'string',
+      organizationId: 'string',
+      ownerIdList: { 'type': 'array', 'itemType': 'string' },
+      page: 'number',
+      pagination: 'string',
+      perPage: 'number',
+      sort: 'string',
+      stateList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChangeRequestsShrinkRequest extends $tea.Model {
+  appNameListShrink?: string;
+  displayNameKeyword?: string;
+  nextToken?: string;
+  orderBy?: string;
+  organizationId?: string;
+  ownerIdListShrink?: string;
+  page?: number;
+  pagination?: string;
+  perPage?: number;
+  sort?: string;
+  stateListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appNameListShrink: 'appNameList',
+      displayNameKeyword: 'displayNameKeyword',
+      nextToken: 'nextToken',
+      orderBy: 'orderBy',
+      organizationId: 'organizationId',
+      ownerIdListShrink: 'ownerIdList',
+      page: 'page',
+      pagination: 'pagination',
+      perPage: 'perPage',
+      sort: 'sort',
+      stateListShrink: 'stateList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appNameListShrink: 'string',
+      displayNameKeyword: 'string',
+      nextToken: 'string',
+      orderBy: 'string',
+      organizationId: 'string',
+      ownerIdListShrink: 'string',
+      page: 'number',
+      pagination: 'string',
+      perPage: 'number',
+      sort: 'string',
+      stateListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChangeRequestsResponseBody extends $tea.Model {
+  current?: number;
+  data?: any[];
+  nextToken?: string;
+  pages?: number;
+  perPage?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'current',
+      data: 'data',
+      nextToken: 'nextToken',
+      pages: 'pages',
+      perPage: 'perPage',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      data: { 'type': 'array', 'itemType': 'any' },
+      nextToken: 'string',
+      pages: 'number',
+      perPage: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChangeRequestsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListChangeRequestsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListChangeRequestsResponseBody,
     };
   }
 
@@ -34527,6 +34906,81 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 创建变更
+   *
+   * @param request CreateChangeRequestRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateChangeRequestResponse
+   */
+  async createChangeRequestWithOptions(appName: string, request: CreateChangeRequestRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateChangeRequestResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appCodeRepoSn)) {
+      body["appCodeRepoSn"] = request.appCodeRepoSn;
+    }
+
+    if (!Util.isUnset(request.autoDeleteBranchWhenEnd)) {
+      body["autoDeleteBranchWhenEnd"] = request.autoDeleteBranchWhenEnd;
+    }
+
+    if (!Util.isUnset(request.branchName)) {
+      body["branchName"] = request.branchName;
+    }
+
+    if (!Util.isUnset(request.createBranch)) {
+      body["createBranch"] = request.createBranch;
+    }
+
+    if (!Util.isUnset(request.ownerAccountId)) {
+      body["ownerAccountId"] = request.ownerAccountId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      body["ownerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateChangeRequest",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/changeRequests`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateChangeRequestResponse>(await this.callApi(params, req, runtime), new CreateChangeRequestResponse({}));
+  }
+
+  /**
+   * @summary 创建变更
+   *
+   * @param request CreateChangeRequestRequest
+   * @return CreateChangeRequestResponse
+   */
+  async createChangeRequest(appName: string, request: CreateChangeRequestRequest): Promise<CreateChangeRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createChangeRequestWithOptions(appName, request, headers, runtime);
+  }
+
+  /**
    * @summary 添加检查运行记录
    *
    * @param request CreateCheckRunRequest
@@ -41205,6 +41659,174 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listApplicationsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询变更研发流程运行记录
+   *
+   * @param request ListChangeRequestWorkflowExecutionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListChangeRequestWorkflowExecutionsResponse
+   */
+  async listChangeRequestWorkflowExecutionsWithOptions(appName: string, sn: string, request: ListChangeRequestWorkflowExecutionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListChangeRequestWorkflowExecutionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.perPage)) {
+      query["perPage"] = request.perPage;
+    }
+
+    if (!Util.isUnset(request.releaseStageSn)) {
+      query["releaseStageSn"] = request.releaseStageSn;
+    }
+
+    if (!Util.isUnset(request.releaseWorkflowSn)) {
+      query["releaseWorkflowSn"] = request.releaseWorkflowSn;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["sort"] = request.sort;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListChangeRequestWorkflowExecutions",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/changeRequests/${OpenApiUtil.getEncodeParam(sn)}/executions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListChangeRequestWorkflowExecutionsResponse>(await this.callApi(params, req, runtime), new ListChangeRequestWorkflowExecutionsResponse({}));
+  }
+
+  /**
+   * @summary 查询变更研发流程运行记录
+   *
+   * @param request ListChangeRequestWorkflowExecutionsRequest
+   * @return ListChangeRequestWorkflowExecutionsResponse
+   */
+  async listChangeRequestWorkflowExecutions(appName: string, sn: string, request: ListChangeRequestWorkflowExecutionsRequest): Promise<ListChangeRequestWorkflowExecutionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listChangeRequestWorkflowExecutionsWithOptions(appName, sn, request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询变更列表
+   *
+   * @param tmpReq ListChangeRequestsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListChangeRequestsResponse
+   */
+  async listChangeRequestsWithOptions(appName: string, tmpReq: ListChangeRequestsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListChangeRequestsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListChangeRequestsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.appNameList)) {
+      request.appNameListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appNameList, "appNameList", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.ownerIdList)) {
+      request.ownerIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ownerIdList, "ownerIdList", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.stateList)) {
+      request.stateListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stateList, "stateList", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appNameListShrink)) {
+      query["appNameList"] = request.appNameListShrink;
+    }
+
+    if (!Util.isUnset(request.displayNameKeyword)) {
+      query["displayNameKeyword"] = request.displayNameKeyword;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.ownerIdListShrink)) {
+      query["ownerIdList"] = request.ownerIdListShrink;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pagination)) {
+      query["pagination"] = request.pagination;
+    }
+
+    if (!Util.isUnset(request.perPage)) {
+      query["perPage"] = request.perPage;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.stateListShrink)) {
+      query["stateList"] = request.stateListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListChangeRequests",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/changeRequests`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListChangeRequestsResponse>(await this.callApi(params, req, runtime), new ListChangeRequestsResponse({}));
+  }
+
+  /**
+   * @summary 查询变更列表
+   *
+   * @param request ListChangeRequestsRequest
+   * @return ListChangeRequestsResponse
+   */
+  async listChangeRequests(appName: string, request: ListChangeRequestsRequest): Promise<ListChangeRequestsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listChangeRequestsWithOptions(appName, request, headers, runtime);
   }
 
   /**
