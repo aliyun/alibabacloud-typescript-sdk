@@ -3268,6 +3268,153 @@ export class DescribeCdnDomainStagingConfigResponse extends $tea.Model {
   }
 }
 
+export class DescribeCdnFullDomainsBlockIPConfigRequest extends $tea.Model {
+  IPList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      IPList: 'IPList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnFullDomainsBlockIPConfigResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnFullDomainsBlockIPConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCdnFullDomainsBlockIPConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCdnFullDomainsBlockIPConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnFullDomainsBlockIPHistoryRequest extends $tea.Model {
+  endTime?: string;
+  IPList?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      IPList: 'IPList',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      IPList: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnFullDomainsBlockIPHistoryResponseBody extends $tea.Model {
+  code?: number;
+  description?: string;
+  IPBlockInfo?: DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      description: 'Description',
+      IPBlockInfo: 'IPBlockInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      description: 'string',
+      IPBlockInfo: { 'type': 'array', 'itemType': DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnFullDomainsBlockIPHistoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCdnFullDomainsBlockIPHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCdnFullDomainsBlockIPHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCdnHttpsDomainListRequest extends $tea.Model {
   keyword?: string;
   pageNumber?: number;
@@ -12088,6 +12235,84 @@ export class SetCdnDomainStagingConfigResponse extends $tea.Model {
   }
 }
 
+export class SetCdnFullDomainsBlockIPRequest extends $tea.Model {
+  blockInterval?: number;
+  IPList?: string;
+  operationType?: string;
+  updateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      blockInterval: 'BlockInterval',
+      IPList: 'IPList',
+      operationType: 'OperationType',
+      updateType: 'UpdateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockInterval: 'number',
+      IPList: 'string',
+      operationType: 'string',
+      updateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetCdnFullDomainsBlockIPResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetCdnFullDomainsBlockIPResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetCdnFullDomainsBlockIPResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetCdnFullDomainsBlockIPResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetDomainServerCertificateRequest extends $tea.Model {
   certName?: string;
   certType?: string;
@@ -13851,6 +14076,31 @@ export class DescribeCdnDomainStagingConfigResponseBodyDomainConfigs extends $te
       functionArgs: { 'type': 'array', 'itemType': DescribeCdnDomainStagingConfigResponseBodyDomainConfigsFunctionArgs },
       functionName: 'string',
       parentId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo extends $tea.Model {
+  blockIP?: string;
+  deliverTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      blockIP: 'BlockIP',
+      deliverTime: 'DeliverTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockIP: 'string',
+      deliverTime: 'string',
       status: 'string',
     };
   }
@@ -17449,29 +17699,10 @@ export class DescribeDomainsUsageByDayResponseBodyUsageTotal extends $tea.Model 
   }
 }
 
-export class DescribeEsExceptionDataResponseBodyContentsPoints extends $tea.Model {
-  points?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      points: 'Points',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      points: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeEsExceptionDataResponseBodyContents extends $tea.Model {
   columns?: string[];
   name?: string;
-  points?: DescribeEsExceptionDataResponseBodyContentsPoints[];
+  points?: string[];
   static names(): { [key: string]: string } {
     return {
       columns: 'Columns',
@@ -17484,7 +17715,7 @@ export class DescribeEsExceptionDataResponseBodyContents extends $tea.Model {
     return {
       columns: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
-      points: { 'type': 'array', 'itemType': DescribeEsExceptionDataResponseBodyContentsPoints },
+      points: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -21205,6 +21436,98 @@ export default class Client extends OpenApi {
   async describeCdnDomainStagingConfig(request: DescribeCdnDomainStagingConfigRequest): Promise<DescribeCdnDomainStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCdnDomainStagingConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 获取海量封禁全量配置
+   *
+   * @param request DescribeCdnFullDomainsBlockIPConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCdnFullDomainsBlockIPConfigResponse
+   */
+  async describeCdnFullDomainsBlockIPConfigWithOptions(request: DescribeCdnFullDomainsBlockIPConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnFullDomainsBlockIPConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.IPList)) {
+      body["IPList"] = request.IPList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCdnFullDomainsBlockIPConfig",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCdnFullDomainsBlockIPConfigResponse>(await this.callApi(params, req, runtime), new DescribeCdnFullDomainsBlockIPConfigResponse({}));
+  }
+
+  /**
+   * @summary 获取海量封禁全量配置
+   *
+   * @param request DescribeCdnFullDomainsBlockIPConfigRequest
+   * @return DescribeCdnFullDomainsBlockIPConfigResponse
+   */
+  async describeCdnFullDomainsBlockIPConfig(request: DescribeCdnFullDomainsBlockIPConfigRequest): Promise<DescribeCdnFullDomainsBlockIPConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCdnFullDomainsBlockIPConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询用户海量封禁历史
+   *
+   * @param request DescribeCdnFullDomainsBlockIPHistoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCdnFullDomainsBlockIPHistoryResponse
+   */
+  async describeCdnFullDomainsBlockIPHistoryWithOptions(request: DescribeCdnFullDomainsBlockIPHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnFullDomainsBlockIPHistoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.IPList)) {
+      body["IPList"] = request.IPList;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCdnFullDomainsBlockIPHistory",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCdnFullDomainsBlockIPHistoryResponse>(await this.callApi(params, req, runtime), new DescribeCdnFullDomainsBlockIPHistoryResponse({}));
+  }
+
+  /**
+   * @summary 查询用户海量封禁历史
+   *
+   * @param request DescribeCdnFullDomainsBlockIPHistoryRequest
+   * @return DescribeCdnFullDomainsBlockIPHistoryResponse
+   */
+  async describeCdnFullDomainsBlockIPHistory(request: DescribeCdnFullDomainsBlockIPHistoryRequest): Promise<DescribeCdnFullDomainsBlockIPHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCdnFullDomainsBlockIPHistoryWithOptions(request, runtime);
   }
 
   /**
@@ -27833,6 +28156,60 @@ export default class Client extends OpenApi {
   async setCdnDomainStagingConfig(request: SetCdnDomainStagingConfigRequest): Promise<SetCdnDomainStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setCdnDomainStagingConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 配置CDN上的海量封禁功能
+   *
+   * @param request SetCdnFullDomainsBlockIPRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetCdnFullDomainsBlockIPResponse
+   */
+  async setCdnFullDomainsBlockIPWithOptions(request: SetCdnFullDomainsBlockIPRequest, runtime: $Util.RuntimeOptions): Promise<SetCdnFullDomainsBlockIPResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.blockInterval)) {
+      body["BlockInterval"] = request.blockInterval;
+    }
+
+    if (!Util.isUnset(request.IPList)) {
+      body["IPList"] = request.IPList;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      body["OperationType"] = request.operationType;
+    }
+
+    if (!Util.isUnset(request.updateType)) {
+      body["UpdateType"] = request.updateType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetCdnFullDomainsBlockIP",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetCdnFullDomainsBlockIPResponse>(await this.callApi(params, req, runtime), new SetCdnFullDomainsBlockIPResponse({}));
+  }
+
+  /**
+   * @summary 配置CDN上的海量封禁功能
+   *
+   * @param request SetCdnFullDomainsBlockIPRequest
+   * @return SetCdnFullDomainsBlockIPResponse
+   */
+  async setCdnFullDomainsBlockIP(request: SetCdnFullDomainsBlockIPRequest): Promise<SetCdnFullDomainsBlockIPResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setCdnFullDomainsBlockIPWithOptions(request, runtime);
   }
 
   /**
