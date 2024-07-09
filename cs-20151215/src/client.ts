@@ -9455,6 +9455,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   periodUnit?: string;
   platform?: string;
   privatePoolOptions?: CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions;
+  ramRoleName?: string;
   rdsInstances?: string[];
   scalingPolicy?: string;
   securityGroupId?: string;
@@ -9502,6 +9503,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       periodUnit: 'period_unit',
       platform: 'platform',
       privatePoolOptions: 'private_pool_options',
+      ramRoleName: 'ram_role_name',
       rdsInstances: 'rds_instances',
       scalingPolicy: 'scaling_policy',
       securityGroupId: 'security_group_id',
@@ -9552,6 +9554,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       periodUnit: 'string',
       platform: 'string',
       privatePoolOptions: CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions,
+      ramRoleName: 'string',
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
       scalingPolicy: 'string',
       securityGroupId: 'string',
@@ -10243,6 +10246,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   platform?: string;
   privatePoolOptions?: DescribeClusterNodePoolDetailResponseBodyScalingGroupPrivatePoolOptions;
   ramPolicy?: string;
+  ramRoleName?: string;
   rdsInstances?: string[];
   scalingGroupId?: string;
   scalingPolicy?: string;
@@ -10292,6 +10296,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       platform: 'platform',
       privatePoolOptions: 'private_pool_options',
       ramPolicy: 'ram_policy',
+      ramRoleName: 'ram_role_name',
       rdsInstances: 'rds_instances',
       scalingGroupId: 'scaling_group_id',
       scalingPolicy: 'scaling_policy',
@@ -10344,6 +10349,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       platform: 'string',
       privatePoolOptions: DescribeClusterNodePoolDetailResponseBodyScalingGroupPrivatePoolOptions,
       ramPolicy: 'string',
+      ramRoleName: 'string',
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
       scalingGroupId: 'string',
       scalingPolicy: 'string',
@@ -10801,6 +10807,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   platform?: string;
   privatePoolOptions?: DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupPrivatePoolOptions;
   ramPolicy?: string;
+  ramRoleName?: string;
   rdsInstances?: string[];
   scalingGroupId?: string;
   scalingPolicy?: string;
@@ -10850,6 +10857,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       platform: 'platform',
       privatePoolOptions: 'private_pool_options',
       ramPolicy: 'ram_policy',
+      ramRoleName: 'ram_role_name',
       rdsInstances: 'rds_instances',
       scalingGroupId: 'scaling_group_id',
       scalingPolicy: 'scaling_policy',
@@ -10902,6 +10910,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       platform: 'string',
       privatePoolOptions: DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupPrivatePoolOptions,
       ramPolicy: 'string',
+      ramRoleName: 'string',
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
       scalingGroupId: 'string',
       scalingPolicy: 'string',
@@ -17489,7 +17498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改资源删除保护配置
+   * @summary Queries whether the deletion protection feature is enabled for the specified resources. The resources that you can query include namespaces and Services.
    *
    * @param request DescribeResourcesDeleteProtectionRequest
    * @param headers map
@@ -17526,7 +17535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改资源删除保护配置
+   * @summary Queries whether the deletion protection feature is enabled for the specified resources. The resources that you can query include namespaces and Services.
    *
    * @param request DescribeResourcesDeleteProtectionRequest
    * @return DescribeResourcesDeleteProtectionResponse
@@ -20619,7 +20628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改资源删除保护配置
+   * @summary Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services.
    *
    * @param request UpdateResourcesDeleteProtectionRequest
    * @param headers map
@@ -20664,7 +20673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改资源删除保护配置
+   * @summary Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services.
    *
    * @param request UpdateResourcesDeleteProtectionRequest
    * @return UpdateResourcesDeleteProtectionResponse
