@@ -660,6 +660,121 @@ export class RetrieveResponse extends $tea.Model {
   }
 }
 
+export class SubmitIndexAddDocumentsJobRequest extends $tea.Model {
+  categoryIds?: string[];
+  documentIds?: string[];
+  indexId?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryIds: 'CategoryIds',
+      documentIds: 'DocumentIds',
+      indexId: 'IndexId',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryIds: { 'type': 'array', 'itemType': 'string' },
+      documentIds: { 'type': 'array', 'itemType': 'string' },
+      indexId: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIndexAddDocumentsJobShrinkRequest extends $tea.Model {
+  categoryIdsShrink?: string;
+  documentIdsShrink?: string;
+  indexId?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryIdsShrink: 'CategoryIds',
+      documentIdsShrink: 'DocumentIds',
+      indexId: 'IndexId',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryIdsShrink: 'string',
+      documentIdsShrink: 'string',
+      indexId: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIndexAddDocumentsJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: SubmitIndexAddDocumentsJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitIndexAddDocumentsJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIndexAddDocumentsJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitIndexAddDocumentsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitIndexAddDocumentsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitIndexJobRequest extends $tea.Model {
   indexId?: string;
   static names(): { [key: string]: string } {
@@ -1030,6 +1145,25 @@ export class RetrieveResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       nodes: { 'type': 'array', 'itemType': RetrieveResponseBodyDataNodes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIndexAddDocumentsJobResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
     };
   }
 
@@ -1486,6 +1620,73 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.retrieveWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 知识索引
+   *
+   * @param tmpReq SubmitIndexAddDocumentsJobRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitIndexAddDocumentsJobResponse
+   */
+  async submitIndexAddDocumentsJobWithOptions(WorkspaceId: string, tmpReq: SubmitIndexAddDocumentsJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitIndexAddDocumentsJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitIndexAddDocumentsJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.categoryIds)) {
+      request.categoryIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categoryIds, "CategoryIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.documentIds)) {
+      request.documentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentIds, "DocumentIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryIdsShrink)) {
+      query["CategoryIds"] = request.categoryIdsShrink;
+    }
+
+    if (!Util.isUnset(request.documentIdsShrink)) {
+      query["DocumentIds"] = request.documentIdsShrink;
+    }
+
+    if (!Util.isUnset(request.indexId)) {
+      query["IndexId"] = request.indexId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitIndexAddDocumentsJob",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/index/add_documents_to_index`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitIndexAddDocumentsJobResponse>(await this.callApi(params, req, runtime), new SubmitIndexAddDocumentsJobResponse({}));
+  }
+
+  /**
+   * @summary 知识索引
+   *
+   * @param request SubmitIndexAddDocumentsJobRequest
+   * @return SubmitIndexAddDocumentsJobResponse
+   */
+  async submitIndexAddDocumentsJob(WorkspaceId: string, request: SubmitIndexAddDocumentsJobRequest): Promise<SubmitIndexAddDocumentsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitIndexAddDocumentsJobWithOptions(WorkspaceId, request, headers, runtime);
   }
 
   /**
