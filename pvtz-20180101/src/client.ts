@@ -1457,6 +1457,7 @@ export class DescribeResolverEndpointsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   status?: string;
+  vpcRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       keyword: 'Keyword',
@@ -1464,6 +1465,7 @@ export class DescribeResolverEndpointsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       status: 'Status',
+      vpcRegionId: 'VpcRegionId',
     };
   }
 
@@ -1474,6 +1476,7 @@ export class DescribeResolverEndpointsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       status: 'string',
+      vpcRegionId: 'string',
     };
   }
 
@@ -3075,12 +3078,14 @@ export class UpdateResolverEndpointResponse extends $tea.Model {
 }
 
 export class UpdateResolverRuleRequest extends $tea.Model {
+  endpointId?: string;
   forwardIp?: UpdateResolverRuleRequestForwardIp[];
   lang?: string;
   name?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
+      endpointId: 'EndpointId',
       forwardIp: 'ForwardIp',
       lang: 'Lang',
       name: 'Name',
@@ -3090,6 +3095,7 @@ export class UpdateResolverRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endpointId: 'string',
       forwardIp: { 'type': 'array', 'itemType': UpdateResolverRuleRequestForwardIp },
       lang: 'string',
       name: 'string',
@@ -4768,6 +4774,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Creates an endpoint.
+   *
+   * @param request AddResolverEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddResolverEndpointResponse
+   */
   async addResolverEndpointWithOptions(request: AddResolverEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AddResolverEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4812,11 +4825,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddResolverEndpointResponse>(await this.callApi(params, req, runtime), new AddResolverEndpointResponse({}));
   }
 
+  /**
+   * @summary Creates an endpoint.
+   *
+   * @param request AddResolverEndpointRequest
+   * @return AddResolverEndpointResponse
+   */
   async addResolverEndpoint(request: AddResolverEndpointRequest): Promise<AddResolverEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addResolverEndpointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a forwarding rule.
+   *
+   * @param request AddResolverRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddResolverRuleResponse
+   */
   async addResolverRuleWithOptions(request: AddResolverRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddResolverRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4861,11 +4887,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddResolverRuleResponse>(await this.callApi(params, req, runtime), new AddResolverRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a forwarding rule.
+   *
+   * @param request AddResolverRuleRequest
+   * @return AddResolverRuleResponse
+   */
   async addResolverRule(request: AddResolverRuleRequest): Promise<AddResolverRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addResolverRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
+   *
+   * @param request AddUserVpcAuthorizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserVpcAuthorizationResponse
+   */
   async addUserVpcAuthorizationWithOptions(request: AddUserVpcAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<AddUserVpcAuthorizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4902,11 +4941,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserVpcAuthorizationResponse>(await this.callApi(params, req, runtime), new AddUserVpcAuthorizationResponse({}));
   }
 
+  /**
+   * @summary Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
+   *
+   * @param request AddUserVpcAuthorizationRequest
+   * @return AddUserVpcAuthorizationResponse
+   */
   async addUserVpcAuthorization(request: AddUserVpcAuthorizationRequest): Promise<AddUserVpcAuthorizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserVpcAuthorizationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a zone.
+   *
+   * @param request AddZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddZoneResponse
+   */
   async addZoneWithOptions(request: AddZoneRequest, runtime: $Util.RuntimeOptions): Promise<AddZoneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4959,11 +5011,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddZoneResponse>(await this.callApi(params, req, runtime), new AddZoneResponse({}));
   }
 
+  /**
+   * @summary Creates a zone.
+   *
+   * @param request AddZoneRequest
+   * @return AddZoneResponse
+   */
   async addZone(request: AddZoneRequest): Promise<AddZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addZoneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a Domain Name System (DNS) record for a zone.
+   *
+   * @param request AddZoneRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddZoneRecordResponse
+   */
   async addZoneRecordWithOptions(request: AddZoneRecordRequest, runtime: $Util.RuntimeOptions): Promise<AddZoneRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5032,11 +5097,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddZoneRecordResponse>(await this.callApi(params, req, runtime), new AddZoneRecordResponse({}));
   }
 
+  /**
+   * @summary Adds a Domain Name System (DNS) record for a zone.
+   *
+   * @param request AddZoneRecordRequest
+   * @return AddZoneRecordResponse
+   */
   async addZoneRecord(request: AddZoneRecordRequest): Promise<AddZoneRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addZoneRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates a forwarding rule with virtual private clouds (VPCs).
+   *
+   * @param request BindResolverRuleVpcRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindResolverRuleVpcResponse
+   */
   async bindResolverRuleVpcWithOptions(request: BindResolverRuleVpcRequest, runtime: $Util.RuntimeOptions): Promise<BindResolverRuleVpcResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5069,11 +5147,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BindResolverRuleVpcResponse>(await this.callApi(params, req, runtime), new BindResolverRuleVpcResponse({}));
   }
 
+  /**
+   * @summary Associates a forwarding rule with virtual private clouds (VPCs).
+   *
+   * @param request BindResolverRuleVpcRequest
+   * @return BindResolverRuleVpcResponse
+   */
   async bindResolverRuleVpc(request: BindResolverRuleVpcRequest): Promise<BindResolverRuleVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindResolverRuleVpcWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Binds a zone to virtual private clouds (VPCs) or unbinds a zone from VPCs.
+   *
+   * @param request BindZoneVpcRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindZoneVpcResponse
+   */
   async bindZoneVpcWithOptions(request: BindZoneVpcRequest, runtime: $Util.RuntimeOptions): Promise<BindZoneVpcResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5114,11 +5205,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BindZoneVpcResponse>(await this.callApi(params, req, runtime), new BindZoneVpcResponse({}));
   }
 
+  /**
+   * @summary Binds a zone to virtual private clouds (VPCs) or unbinds a zone from VPCs.
+   *
+   * @param request BindZoneVpcRequest
+   * @return BindZoneVpcResponse
+   */
   async bindZoneVpc(request: BindZoneVpcRequest): Promise<BindZoneVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindZoneVpcWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether the name of a zone is valid based on specific rules.
+   *
+   * @param request CheckZoneNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckZoneNameResponse
+   */
   async checkZoneNameWithOptions(request: CheckZoneNameRequest, runtime: $Util.RuntimeOptions): Promise<CheckZoneNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5151,11 +5255,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckZoneNameResponse>(await this.callApi(params, req, runtime), new CheckZoneNameResponse({}));
   }
 
+  /**
+   * @summary Checks whether the name of a zone is valid based on specific rules.
+   *
+   * @param request CheckZoneNameRequest
+   * @return CheckZoneNameResponse
+   */
   async checkZoneName(request: CheckZoneNameRequest): Promise<CheckZoneNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkZoneNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an endpoint.
+   *
+   * @param request DeleteResolverEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteResolverEndpointResponse
+   */
   async deleteResolverEndpointWithOptions(request: DeleteResolverEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteResolverEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5184,11 +5301,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteResolverEndpointResponse>(await this.callApi(params, req, runtime), new DeleteResolverEndpointResponse({}));
   }
 
+  /**
+   * @summary Deletes an endpoint.
+   *
+   * @param request DeleteResolverEndpointRequest
+   * @return DeleteResolverEndpointResponse
+   */
   async deleteResolverEndpoint(request: DeleteResolverEndpointRequest): Promise<DeleteResolverEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteResolverEndpointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a forwarding rule.
+   *
+   * @param request DeleteResolverRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteResolverRuleResponse
+   */
   async deleteResolverRuleWithOptions(request: DeleteResolverRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteResolverRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5217,11 +5347,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteResolverRuleResponse>(await this.callApi(params, req, runtime), new DeleteResolverRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a forwarding rule.
+   *
+   * @param request DeleteResolverRuleRequest
+   * @return DeleteResolverRuleResponse
+   */
   async deleteResolverRule(request: DeleteResolverRuleRequest): Promise<DeleteResolverRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteResolverRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an account whose one or more virtual private clouds (VPCs) are associated with a private zone.
+   *
+   * @param request DeleteUserVpcAuthorizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserVpcAuthorizationResponse
+   */
   async deleteUserVpcAuthorizationWithOptions(request: DeleteUserVpcAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserVpcAuthorizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5250,11 +5393,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserVpcAuthorizationResponse>(await this.callApi(params, req, runtime), new DeleteUserVpcAuthorizationResponse({}));
   }
 
+  /**
+   * @summary Deletes an account whose one or more virtual private clouds (VPCs) are associated with a private zone.
+   *
+   * @param request DeleteUserVpcAuthorizationRequest
+   * @return DeleteUserVpcAuthorizationResponse
+   */
   async deleteUserVpcAuthorization(request: DeleteUserVpcAuthorizationRequest): Promise<DeleteUserVpcAuthorizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserVpcAuthorizationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a zone.
+   *
+   * @param request DeleteZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteZoneResponse
+   */
   async deleteZoneWithOptions(request: DeleteZoneRequest, runtime: $Util.RuntimeOptions): Promise<DeleteZoneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5291,11 +5447,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteZoneResponse>(await this.callApi(params, req, runtime), new DeleteZoneResponse({}));
   }
 
+  /**
+   * @summary Deletes a zone.
+   *
+   * @param request DeleteZoneRequest
+   * @return DeleteZoneResponse
+   */
   async deleteZone(request: DeleteZoneRequest): Promise<DeleteZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteZoneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a Domain Name System (DNS) record of a zone.
+   *
+   * @param request DeleteZoneRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteZoneRecordResponse
+   */
   async deleteZoneRecordWithOptions(request: DeleteZoneRecordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteZoneRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5332,11 +5501,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteZoneRecordResponse>(await this.callApi(params, req, runtime), new DeleteZoneRecordResponse({}));
   }
 
+  /**
+   * @summary Deletes a Domain Name System (DNS) record of a zone.
+   *
+   * @param request DeleteZoneRecordRequest
+   * @return DeleteZoneRecordResponse
+   */
   async deleteZoneRecord(request: DeleteZoneRecordRequest): Promise<DeleteZoneRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteZoneRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of operation logs.
+   *
+   * @param request DescribeChangeLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeChangeLogsResponse
+   */
   async describeChangeLogsWithOptions(request: DescribeChangeLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChangeLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5393,11 +5575,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeChangeLogsResponse>(await this.callApi(params, req, runtime), new DescribeChangeLogsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of operation logs.
+   *
+   * @param request DescribeChangeLogsRequest
+   * @return DescribeChangeLogsResponse
+   */
   async describeChangeLogs(request: DescribeChangeLogsRequest): Promise<DescribeChangeLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChangeLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of available regions.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5442,11 +5637,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of available regions.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about Domain Name System (DNS) requests.
+   *
+   * @param request DescribeRequestGraphRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRequestGraphResponse
+   */
   async describeRequestGraphWithOptions(request: DescribeRequestGraphRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRequestGraphResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5499,11 +5707,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRequestGraphResponse>(await this.callApi(params, req, runtime), new DescribeRequestGraphResponse({}));
   }
 
+  /**
+   * @summary Queries the information about Domain Name System (DNS) requests.
+   *
+   * @param request DescribeRequestGraphRequest
+   * @return DescribeRequestGraphResponse
+   */
   async describeRequestGraph(request: DescribeRequestGraphRequest): Promise<DescribeRequestGraphResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRequestGraphWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of available zones.
+   *
+   * @param request DescribeResolverAvailableZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResolverAvailableZonesResponse
+   */
   async describeResolverAvailableZonesWithOptions(request: DescribeResolverAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResolverAvailableZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5536,11 +5757,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResolverAvailableZonesResponse>(await this.callApi(params, req, runtime), new DescribeResolverAvailableZonesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of available zones.
+   *
+   * @param request DescribeResolverAvailableZonesRequest
+   * @return DescribeResolverAvailableZonesResponse
+   */
   async describeResolverAvailableZones(request: DescribeResolverAvailableZonesRequest): Promise<DescribeResolverAvailableZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResolverAvailableZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about an endpoint.
+   *
+   * @param request DescribeResolverEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResolverEndpointResponse
+   */
   async describeResolverEndpointWithOptions(request: DescribeResolverEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResolverEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5569,11 +5803,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResolverEndpointResponse>(await this.callApi(params, req, runtime), new DescribeResolverEndpointResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an endpoint.
+   *
+   * @param request DescribeResolverEndpointRequest
+   * @return DescribeResolverEndpointResponse
+   */
   async describeResolverEndpoint(request: DescribeResolverEndpointRequest): Promise<DescribeResolverEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResolverEndpointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of endpoints.
+   *
+   * @param request DescribeResolverEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResolverEndpointsResponse
+   */
   async describeResolverEndpointsWithOptions(request: DescribeResolverEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResolverEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5597,6 +5844,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!Util.isUnset(request.vpcRegionId)) {
+      query["VpcRegionId"] = request.vpcRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5614,11 +5865,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResolverEndpointsResponse>(await this.callApi(params, req, runtime), new DescribeResolverEndpointsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of endpoints.
+   *
+   * @param request DescribeResolverEndpointsRequest
+   * @return DescribeResolverEndpointsResponse
+   */
   async describeResolverEndpoints(request: DescribeResolverEndpointsRequest): Promise<DescribeResolverEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResolverEndpointsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a forwarding rule.
+   *
+   * @param request DescribeResolverRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResolverRuleResponse
+   */
   async describeResolverRuleWithOptions(request: DescribeResolverRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResolverRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5647,11 +5911,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResolverRuleResponse>(await this.callApi(params, req, runtime), new DescribeResolverRuleResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a forwarding rule.
+   *
+   * @param request DescribeResolverRuleRequest
+   * @return DescribeResolverRuleResponse
+   */
   async describeResolverRule(request: DescribeResolverRuleRequest): Promise<DescribeResolverRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResolverRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of forwarding rules.
+   *
+   * @param request DescribeResolverRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResolverRulesResponse
+   */
   async describeResolverRulesWithOptions(request: DescribeResolverRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResolverRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5696,11 +5973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResolverRulesResponse>(await this.callApi(params, req, runtime), new DescribeResolverRulesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of forwarding rules.
+   *
+   * @param request DescribeResolverRulesRequest
+   * @return DescribeResolverRulesResponse
+   */
   async describeResolverRules(request: DescribeResolverRulesRequest): Promise<DescribeResolverRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResolverRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics on the Domain Name System (DNS) requests received on the previous day.
+   *
+   * @param request DescribeStatisticSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeStatisticSummaryResponse
+   */
   async describeStatisticSummaryWithOptions(request: DescribeStatisticSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStatisticSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5729,11 +6019,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeStatisticSummaryResponse>(await this.callApi(params, req, runtime), new DescribeStatisticSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on the Domain Name System (DNS) requests received on the previous day.
+   *
+   * @param request DescribeStatisticSummaryRequest
+   * @return DescribeStatisticSummaryResponse
+   */
   async describeStatisticSummary(request: DescribeStatisticSummaryRequest): Promise<DescribeStatisticSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeStatisticSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a hostname synchronization task.
+   *
+   * @param request DescribeSyncEcsHostTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSyncEcsHostTaskResponse
+   */
   async describeSyncEcsHostTaskWithOptions(request: DescribeSyncEcsHostTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSyncEcsHostTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5762,11 +6065,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSyncEcsHostTaskResponse>(await this.callApi(params, req, runtime), new DescribeSyncEcsHostTaskResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a hostname synchronization task.
+   *
+   * @param request DescribeSyncEcsHostTaskRequest
+   * @return DescribeSyncEcsHostTaskResponse
+   */
   async describeSyncEcsHostTask(request: DescribeSyncEcsHostTaskRequest): Promise<DescribeSyncEcsHostTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSyncEcsHostTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of existing tags.
+   *
+   * @param request DescribeTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagsResponse
+   */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5803,11 +6119,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of existing tags.
+   *
+   * @param request DescribeTagsRequest
+   * @return DescribeTagsResponse
+   */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of accounts whose virtual private clouds (VPCs) are associated with a private zone.
+   *
+   * @param request DescribeUserVpcAuthorizationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserVpcAuthorizationsResponse
+   */
   async describeUserVpcAuthorizationsWithOptions(request: DescribeUserVpcAuthorizationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserVpcAuthorizationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5844,11 +6173,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserVpcAuthorizationsResponse>(await this.callApi(params, req, runtime), new DescribeUserVpcAuthorizationsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of accounts whose virtual private clouds (VPCs) are associated with a private zone.
+   *
+   * @param request DescribeUserVpcAuthorizationsRequest
+   * @return DescribeUserVpcAuthorizationsResponse
+   */
   async describeUserVpcAuthorizations(request: DescribeUserVpcAuthorizationsRequest): Promise<DescribeUserVpcAuthorizationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserVpcAuthorizationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a zone.
+   *
+   * @param request DescribeZoneInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZoneInfoResponse
+   */
   async describeZoneInfoWithOptions(request: DescribeZoneInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZoneInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5877,11 +6219,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZoneInfoResponse>(await this.callApi(params, req, runtime), new DescribeZoneInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a zone.
+   *
+   * @param request DescribeZoneInfoRequest
+   * @return DescribeZoneInfoResponse
+   */
   async describeZoneInfo(request: DescribeZoneInfoRequest): Promise<DescribeZoneInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZoneInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of Domain Name System (DNS) records for a zone.
+   *
+   * @param request DescribeZoneRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZoneRecordsResponse
+   */
   async describeZoneRecordsWithOptions(request: DescribeZoneRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZoneRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5934,11 +6289,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZoneRecordsResponse>(await this.callApi(params, req, runtime), new DescribeZoneRecordsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of Domain Name System (DNS) records for a zone.
+   *
+   * @param request DescribeZoneRecordsRequest
+   * @return DescribeZoneRecordsResponse
+   */
   async describeZoneRecords(request: DescribeZoneRecordsRequest): Promise<DescribeZoneRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZoneRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of zones and a list of virtual private clouds (VPCs) that are bound to the zones.
+   *
+   * @description We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs to which a zone is bound, you can call the DescribeZoneInfo operation based on the zone ID.
+   *
+   * @param request DescribeZoneVpcTreeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZoneVpcTreeResponse
+   */
   async describeZoneVpcTreeWithOptions(request: DescribeZoneVpcTreeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZoneVpcTreeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5967,11 +6337,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZoneVpcTreeResponse>(await this.callApi(params, req, runtime), new DescribeZoneVpcTreeResponse({}));
   }
 
+  /**
+   * @summary Queries a list of zones and a list of virtual private clouds (VPCs) that are bound to the zones.
+   *
+   * @description We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs to which a zone is bound, you can call the DescribeZoneInfo operation based on the zone ID.
+   *
+   * @param request DescribeZoneVpcTreeRequest
+   * @return DescribeZoneVpcTreeResponse
+   */
   async describeZoneVpcTree(request: DescribeZoneVpcTreeRequest): Promise<DescribeZoneVpcTreeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZoneVpcTreeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of zones for a user.
+   *
+   * @param request DescribeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6036,11 +6421,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of zones for a user.
+   *
+   * @param request DescribeZonesRequest
+   * @return DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of tags added to one or more resources.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6085,11 +6483,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of tags added to one or more resources.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Moves a zone to another resource group.
+   *
+   * @param request MoveResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6126,11 +6537,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Moves a zone to another resource group.
+   *
+   * @param request MoveResourceGroupRequest
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures the recursive resolution proxy feature.
+   *
+   * @param request SetProxyPatternRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetProxyPatternResponse
+   */
   async setProxyPatternWithOptions(request: SetProxyPatternRequest, runtime: $Util.RuntimeOptions): Promise<SetProxyPatternResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6171,11 +6595,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetProxyPatternResponse>(await this.callApi(params, req, runtime), new SetProxyPatternResponse({}));
   }
 
+  /**
+   * @summary Configures the recursive resolution proxy feature.
+   *
+   * @param request SetProxyPatternRequest
+   * @return SetProxyPatternResponse
+   */
   async setProxyPattern(request: SetProxyPatternRequest): Promise<SetProxyPatternResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setProxyPatternWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Specifies the status of a Domain Name System (DNS) record for a zone.
+   *
+   * @param request SetZoneRecordStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetZoneRecordStatusResponse
+   */
   async setZoneRecordStatusWithOptions(request: SetZoneRecordStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetZoneRecordStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6216,11 +6653,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetZoneRecordStatusResponse>(await this.callApi(params, req, runtime), new SetZoneRecordStatusResponse({}));
   }
 
+  /**
+   * @summary Specifies the status of a Domain Name System (DNS) record for a zone.
+   *
+   * @param request SetZoneRecordStatusRequest
+   * @return SetZoneRecordStatusResponse
+   */
   async setZoneRecordStatus(request: SetZoneRecordStatusRequest): Promise<SetZoneRecordStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setZoneRecordStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds tags to resources.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6261,11 +6711,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Adds tags to resources.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from resources.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6306,11 +6769,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from resources.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of a Domain Name System (DNS) record that is added for a zone.
+   *
+   * @param request UpdateRecordRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRecordRemarkResponse
+   */
   async updateRecordRemarkWithOptions(request: UpdateRecordRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRecordRemarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6347,11 +6823,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRecordRemarkResponse>(await this.callApi(params, req, runtime), new UpdateRecordRemarkResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of a Domain Name System (DNS) record that is added for a zone.
+   *
+   * @param request UpdateRecordRemarkRequest
+   * @return UpdateRecordRemarkResponse
+   */
   async updateRecordRemark(request: UpdateRecordRemarkRequest): Promise<UpdateRecordRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRecordRemarkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an endpoint.
+   *
+   * @param request UpdateResolverEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateResolverEndpointResponse
+   */
   async updateResolverEndpointWithOptions(request: UpdateResolverEndpointRequest, runtime: $Util.RuntimeOptions): Promise<UpdateResolverEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6388,14 +6877,31 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateResolverEndpointResponse>(await this.callApi(params, req, runtime), new UpdateResolverEndpointResponse({}));
   }
 
+  /**
+   * @summary Modifies an endpoint.
+   *
+   * @param request UpdateResolverEndpointRequest
+   * @return UpdateResolverEndpointResponse
+   */
   async updateResolverEndpoint(request: UpdateResolverEndpointRequest): Promise<UpdateResolverEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateResolverEndpointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a forwarding rule.
+   *
+   * @param request UpdateResolverRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateResolverRuleResponse
+   */
   async updateResolverRuleWithOptions(request: UpdateResolverRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateResolverRuleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
     if (!Util.isUnset(request.forwardIp)) {
       query["ForwardIp"] = request.forwardIp;
     }
@@ -6429,11 +6935,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateResolverRuleResponse>(await this.callApi(params, req, runtime), new UpdateResolverRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies a forwarding rule.
+   *
+   * @param request UpdateResolverRuleRequest
+   * @return UpdateResolverRuleResponse
+   */
   async updateResolverRule(request: UpdateResolverRuleRequest): Promise<UpdateResolverRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateResolverRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates and updates a hostname synchronize task.
+   *
+   * @param request UpdateSyncEcsHostTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSyncEcsHostTaskResponse
+   */
   async updateSyncEcsHostTaskWithOptions(request: UpdateSyncEcsHostTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSyncEcsHostTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6470,11 +6989,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSyncEcsHostTaskResponse>(await this.callApi(params, req, runtime), new UpdateSyncEcsHostTaskResponse({}));
   }
 
+  /**
+   * @summary Creates and updates a hostname synchronize task.
+   *
+   * @param request UpdateSyncEcsHostTaskRequest
+   * @return UpdateSyncEcsHostTaskResponse
+   */
   async updateSyncEcsHostTask(request: UpdateSyncEcsHostTaskRequest): Promise<UpdateSyncEcsHostTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSyncEcsHostTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a Domain Name System (DNS) record of a zone.
+   *
+   * @param request UpdateZoneRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateZoneRecordResponse
+   */
   async updateZoneRecordWithOptions(request: UpdateZoneRecordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateZoneRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6539,11 +7071,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateZoneRecordResponse>(await this.callApi(params, req, runtime), new UpdateZoneRecordResponse({}));
   }
 
+  /**
+   * @summary Modifies a Domain Name System (DNS) record of a zone.
+   *
+   * @param request UpdateZoneRecordRequest
+   * @return UpdateZoneRecordResponse
+   */
   async updateZoneRecord(request: UpdateZoneRecordRequest): Promise<UpdateZoneRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateZoneRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of a zone.
+   *
+   * @param request UpdateZoneRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateZoneRemarkResponse
+   */
   async updateZoneRemarkWithOptions(request: UpdateZoneRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateZoneRemarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6584,6 +7129,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateZoneRemarkResponse>(await this.callApi(params, req, runtime), new UpdateZoneRemarkResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of a zone.
+   *
+   * @param request UpdateZoneRemarkRequest
+   * @return UpdateZoneRemarkResponse
+   */
   async updateZoneRemark(request: UpdateZoneRemarkRequest): Promise<UpdateZoneRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateZoneRemarkWithOptions(request, runtime);
