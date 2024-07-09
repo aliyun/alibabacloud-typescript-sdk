@@ -196,6 +196,7 @@ export class CreateInstanceRequest extends $tea.Model {
   driver?: string;
   ecsSpec?: string;
   environmentVariables?: { [key: string]: string };
+  imageAuth?: string;
   imageId?: string;
   imageUrl?: string;
   instanceName?: string;
@@ -216,6 +217,7 @@ export class CreateInstanceRequest extends $tea.Model {
       driver: 'Driver',
       ecsSpec: 'EcsSpec',
       environmentVariables: 'EnvironmentVariables',
+      imageAuth: 'ImageAuth',
       imageId: 'ImageId',
       imageUrl: 'ImageUrl',
       instanceName: 'InstanceName',
@@ -239,6 +241,7 @@ export class CreateInstanceRequest extends $tea.Model {
       driver: 'string',
       ecsSpec: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      imageAuth: 'string',
       imageId: 'string',
       imageUrl: 'string',
       instanceName: 'string',
@@ -813,6 +816,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   gmtModifiedTime?: string;
   httpStatusCode?: number;
   idleInstanceCuller?: GetInstanceResponseBodyIdleInstanceCuller;
+  imageAuth?: string;
   imageId?: string;
   imageName?: string;
   imageUrl?: string;
@@ -860,6 +864,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       gmtModifiedTime: 'GmtModifiedTime',
       httpStatusCode: 'HttpStatusCode',
       idleInstanceCuller: 'IdleInstanceCuller',
+      imageAuth: 'ImageAuth',
       imageId: 'ImageId',
       imageName: 'ImageName',
       imageUrl: 'ImageUrl',
@@ -910,6 +915,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       gmtModifiedTime: 'string',
       httpStatusCode: 'number',
       idleInstanceCuller: GetInstanceResponseBodyIdleInstanceCuller,
+      imageAuth: 'string',
       imageId: 'string',
       imageName: 'string',
       imageUrl: 'string',
@@ -2320,6 +2326,7 @@ export class UpdateInstanceRequest extends $tea.Model {
   disassociateVpc?: boolean;
   driver?: string;
   ecsSpec?: string;
+  imageAuth?: string;
   imageId?: string;
   imageUrl?: string;
   instanceName?: string;
@@ -2340,6 +2347,7 @@ export class UpdateInstanceRequest extends $tea.Model {
       disassociateVpc: 'DisassociateVpc',
       driver: 'Driver',
       ecsSpec: 'EcsSpec',
+      imageAuth: 'ImageAuth',
       imageId: 'ImageId',
       imageUrl: 'ImageUrl',
       instanceName: 'InstanceName',
@@ -2363,6 +2371,7 @@ export class UpdateInstanceRequest extends $tea.Model {
       disassociateVpc: 'boolean',
       driver: 'string',
       ecsSpec: 'string',
+      imageAuth: 'string',
       imageId: 'string',
       imageUrl: 'string',
       instanceName: 'string',
@@ -3740,6 +3749,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
   idleInstanceCuller?: ListInstancesResponseBodyInstancesIdleInstanceCuller;
+  imageAuth?: string;
   imageId?: string;
   imageName?: string;
   imageUrl?: string;
@@ -3781,6 +3791,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       idleInstanceCuller: 'IdleInstanceCuller',
+      imageAuth: 'ImageAuth',
       imageId: 'ImageId',
       imageName: 'ImageName',
       imageUrl: 'ImageUrl',
@@ -3825,6 +3836,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       idleInstanceCuller: ListInstancesResponseBodyInstancesIdleInstanceCuller,
+      imageAuth: 'string',
       imageId: 'string',
       imageName: 'string',
       imageUrl: 'string',
@@ -4125,6 +4137,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.environmentVariables)) {
       body["EnvironmentVariables"] = request.environmentVariables;
+    }
+
+    if (!Util.isUnset(request.imageAuth)) {
+      body["ImageAuth"] = request.imageAuth;
     }
 
     if (!Util.isUnset(request.imageId)) {
@@ -5349,6 +5365,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ecsSpec)) {
       body["EcsSpec"] = request.ecsSpec;
+    }
+
+    if (!Util.isUnset(request.imageAuth)) {
+      body["ImageAuth"] = request.imageAuth;
     }
 
     if (!Util.isUnset(request.imageId)) {
