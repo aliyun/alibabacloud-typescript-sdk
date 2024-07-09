@@ -127,6 +127,52 @@ export class FilePermissionMember extends $tea.Model {
   }
 }
 
+export class Permission extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  destCidrIp?: string;
+  ipProtocol?: string;
+  nicType?: string;
+  policy?: string;
+  portRange?: string;
+  priority?: string;
+  sourceCidrIp?: string;
+  sourcePortRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      destCidrIp: 'DestCidrIp',
+      ipProtocol: 'IpProtocol',
+      nicType: 'NicType',
+      policy: 'Policy',
+      portRange: 'PortRange',
+      priority: 'Priority',
+      sourceCidrIp: 'SourceCidrIp',
+      sourcePortRange: 'SourcePortRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      destCidrIp: 'string',
+      ipProtocol: 'string',
+      nicType: 'string',
+      policy: 'string',
+      portRange: 'string',
+      priority: 'string',
+      sourceCidrIp: 'string',
+      sourcePortRange: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ActivateOfficeSiteRequest extends $tea.Model {
   officeSiteId?: string;
   regionId?: string;
@@ -198,12 +244,14 @@ export class AddDesktopOversoldUserGroupRequest extends $tea.Model {
   name?: string;
   oversoldGroupId?: string;
   policyGroupId?: string;
+  tag?: AddDesktopOversoldUserGroupRequestTag[];
   static names(): { [key: string]: string } {
     return {
       imageId: 'ImageId',
       name: 'Name',
       oversoldGroupId: 'OversoldGroupId',
       policyGroupId: 'PolicyGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -213,6 +261,7 @@ export class AddDesktopOversoldUserGroupRequest extends $tea.Model {
       name: 'string',
       oversoldGroupId: 'string',
       policyGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': AddDesktopOversoldUserGroupRequestTag },
     };
   }
 
@@ -1990,6 +2039,8 @@ export class CreateADConnectorDirectoryResponse extends $tea.Model {
 
 export class CreateADConnectorOfficeSiteRequest extends $tea.Model {
   adHostname?: string;
+  backupDCHostname?: string;
+  backupDns?: string;
   bandwidth?: number;
   cenId?: string;
   cenOwnerId?: number;
@@ -2012,6 +2063,8 @@ export class CreateADConnectorOfficeSiteRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       adHostname: 'AdHostname',
+      backupDCHostname: 'BackupDCHostname',
+      backupDns: 'BackupDns',
       bandwidth: 'Bandwidth',
       cenId: 'CenId',
       cenOwnerId: 'CenOwnerId',
@@ -2037,6 +2090,8 @@ export class CreateADConnectorOfficeSiteRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       adHostname: 'string',
+      backupDCHostname: 'string',
+      backupDns: 'string',
       bandwidth: 'number',
       cenId: 'string',
       cenOwnerId: 'number',
@@ -2816,6 +2871,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
   resetType?: number;
   scaleStrategyId?: string;
   stopDuration?: number;
+  tag?: CreateDesktopGroupRequestTag[];
   volumeEncryptionEnabled?: boolean;
   volumeEncryptionKey?: string;
   vpcId?: string;
@@ -2856,6 +2912,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
       resetType: 'ResetType',
       scaleStrategyId: 'ScaleStrategyId',
       stopDuration: 'StopDuration',
+      tag: 'Tag',
       volumeEncryptionEnabled: 'VolumeEncryptionEnabled',
       volumeEncryptionKey: 'VolumeEncryptionKey',
       vpcId: 'VpcId',
@@ -2899,6 +2956,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
       resetType: 'number',
       scaleStrategyId: 'string',
       stopDuration: 'number',
+      tag: { 'type': 'array', 'itemType': CreateDesktopGroupRequestTag },
       volumeEncryptionEnabled: 'boolean',
       volumeEncryptionKey: 'string',
       vpcId: 'string',
@@ -3584,6 +3642,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
   html5FileTransfer?: string;
   internetCommunicationProtocol?: string;
   localDrive?: string;
+  maxReconnectTime?: number;
   name?: string;
   netRedirect?: string;
   preemptLogin?: string;
@@ -3639,6 +3698,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
       localDrive: 'LocalDrive',
+      maxReconnectTime: 'MaxReconnectTime',
       name: 'Name',
       netRedirect: 'NetRedirect',
       preemptLogin: 'PreemptLogin',
@@ -3697,6 +3757,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
       localDrive: 'string',
+      maxReconnectTime: 'number',
       name: 'string',
       netRedirect: 'string',
       preemptLogin: 'string',
@@ -6235,6 +6296,7 @@ export class DescribeDesktopGroupsRequest extends $tea.Model {
   protocolType?: string;
   regionId?: string;
   status?: number;
+  tag?: DescribeDesktopGroupsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       bundleId: 'BundleId',
@@ -6253,6 +6315,7 @@ export class DescribeDesktopGroupsRequest extends $tea.Model {
       protocolType: 'ProtocolType',
       regionId: 'RegionId',
       status: 'Status',
+      tag: 'Tag',
     };
   }
 
@@ -6274,6 +6337,7 @@ export class DescribeDesktopGroupsRequest extends $tea.Model {
       protocolType: 'string',
       regionId: 'string',
       status: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeDesktopGroupsRequestTag },
     };
   }
 
@@ -6651,6 +6715,7 @@ export class DescribeDesktopOversoldUserGroupResponse extends $tea.Model {
 }
 
 export class DescribeDesktopSessionsRequest extends $tea.Model {
+  checkOsSession?: boolean;
   desktopId?: string[];
   desktopName?: string;
   endTime?: string;
@@ -6661,8 +6726,10 @@ export class DescribeDesktopSessionsRequest extends $tea.Model {
   regionId?: string;
   sessionStatus?: string;
   startTime?: string;
+  subPayType?: string;
   static names(): { [key: string]: string } {
     return {
+      checkOsSession: 'CheckOsSession',
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
       endTime: 'EndTime',
@@ -6673,11 +6740,13 @@ export class DescribeDesktopSessionsRequest extends $tea.Model {
       regionId: 'RegionId',
       sessionStatus: 'SessionStatus',
       startTime: 'StartTime',
+      subPayType: 'SubPayType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      checkOsSession: 'boolean',
       desktopId: { 'type': 'array', 'itemType': 'string' },
       desktopName: 'string',
       endTime: 'string',
@@ -6688,6 +6757,7 @@ export class DescribeDesktopSessionsRequest extends $tea.Model {
       regionId: 'string',
       sessionStatus: 'string',
       startTime: 'string',
+      subPayType: 'string',
     };
   }
 
@@ -6851,7 +6921,9 @@ export class DescribeDesktopsRequest extends $tea.Model {
   endUserId?: string[];
   excludedEndUserId?: string[];
   expiredTime?: string;
+  fillResourceGroup?: boolean;
   filterDesktopGroup?: boolean;
+  gpuInstanceGroupId?: string;
   groupId?: string;
   imageId?: string[];
   managementFlag?: string;
@@ -6863,9 +6935,12 @@ export class DescribeDesktopsRequest extends $tea.Model {
   osTypes?: string[];
   policyGroupId?: string;
   protocolType?: string;
+  qosRuleId?: string;
   queryFotaUpdate?: boolean;
   regionId?: string;
+  resourceGroupId?: string;
   snapshotPolicyId?: string;
+  subPayType?: string;
   tag?: DescribeDesktopsRequestTag[];
   userName?: string;
   static names(): { [key: string]: string } {
@@ -6881,7 +6956,9 @@ export class DescribeDesktopsRequest extends $tea.Model {
       endUserId: 'EndUserId',
       excludedEndUserId: 'ExcludedEndUserId',
       expiredTime: 'ExpiredTime',
+      fillResourceGroup: 'FillResourceGroup',
       filterDesktopGroup: 'FilterDesktopGroup',
+      gpuInstanceGroupId: 'GpuInstanceGroupId',
       groupId: 'GroupId',
       imageId: 'ImageId',
       managementFlag: 'ManagementFlag',
@@ -6893,9 +6970,12 @@ export class DescribeDesktopsRequest extends $tea.Model {
       osTypes: 'OsTypes',
       policyGroupId: 'PolicyGroupId',
       protocolType: 'ProtocolType',
+      qosRuleId: 'QosRuleId',
       queryFotaUpdate: 'QueryFotaUpdate',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       snapshotPolicyId: 'SnapshotPolicyId',
+      subPayType: 'SubPayType',
       tag: 'Tag',
       userName: 'UserName',
     };
@@ -6914,7 +6994,9 @@ export class DescribeDesktopsRequest extends $tea.Model {
       endUserId: { 'type': 'array', 'itemType': 'string' },
       excludedEndUserId: { 'type': 'array', 'itemType': 'string' },
       expiredTime: 'string',
+      fillResourceGroup: 'boolean',
       filterDesktopGroup: 'boolean',
+      gpuInstanceGroupId: 'string',
       groupId: 'string',
       imageId: { 'type': 'array', 'itemType': 'string' },
       managementFlag: 'string',
@@ -6926,9 +7008,12 @@ export class DescribeDesktopsRequest extends $tea.Model {
       osTypes: { 'type': 'array', 'itemType': 'string' },
       policyGroupId: 'string',
       protocolType: 'string',
+      qosRuleId: 'string',
       queryFotaUpdate: 'boolean',
       regionId: 'string',
+      resourceGroupId: 'string',
       snapshotPolicyId: 'string',
+      subPayType: 'string',
       tag: { 'type': 'array', 'itemType': DescribeDesktopsRequestTag },
       userName: 'string',
     };
@@ -10256,6 +10341,7 @@ export class ExportDesktopGroupInfoRequest extends $tea.Model {
   officeSiteId?: string;
   policyGroupId?: string;
   regionId?: string;
+  tag?: ExportDesktopGroupInfoRequestTag[];
   static names(): { [key: string]: string } {
     return {
       chargeType: 'ChargeType',
@@ -10269,6 +10355,7 @@ export class ExportDesktopGroupInfoRequest extends $tea.Model {
       officeSiteId: 'OfficeSiteId',
       policyGroupId: 'PolicyGroupId',
       regionId: 'RegionId',
+      tag: 'Tag',
     };
   }
 
@@ -10285,6 +10372,7 @@ export class ExportDesktopGroupInfoRequest extends $tea.Model {
       officeSiteId: 'string',
       policyGroupId: 'string',
       regionId: 'string',
+      tag: { 'type': 'array', 'itemType': ExportDesktopGroupInfoRequestTag },
     };
   }
 
@@ -11939,6 +12027,8 @@ export class ModifyADConnectorDirectoryResponse extends $tea.Model {
 
 export class ModifyADConnectorOfficeSiteRequest extends $tea.Model {
   adHostname?: string;
+  backupDCHostname?: string;
+  backupDns?: string;
   dnsAddress?: string[];
   domainName?: string;
   domainPassword?: string;
@@ -11953,6 +12043,8 @@ export class ModifyADConnectorOfficeSiteRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       adHostname: 'AdHostname',
+      backupDCHostname: 'BackupDCHostname',
+      backupDns: 'BackupDns',
       dnsAddress: 'DnsAddress',
       domainName: 'DomainName',
       domainPassword: 'DomainPassword',
@@ -11970,6 +12062,8 @@ export class ModifyADConnectorOfficeSiteRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       adHostname: 'string',
+      backupDCHostname: 'string',
+      backupDns: 'string',
       dnsAddress: { 'type': 'array', 'itemType': 'string' },
       domainName: 'string',
       domainPassword: 'string',
@@ -13398,6 +13492,8 @@ export class ModifyDesktopSpecRequest extends $tea.Model {
   desktopType?: string;
   promotionId?: string;
   regionId?: string;
+  resourceSpecs?: ModifyDesktopSpecRequestResourceSpecs[];
+  resourceType?: string;
   rootDiskSizeGib?: number;
   userDiskPerformanceLevel?: string;
   userDiskSizeGib?: number;
@@ -13408,6 +13504,8 @@ export class ModifyDesktopSpecRequest extends $tea.Model {
       desktopType: 'DesktopType',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resourceSpecs: 'ResourceSpecs',
+      resourceType: 'ResourceType',
       rootDiskSizeGib: 'RootDiskSizeGib',
       userDiskPerformanceLevel: 'UserDiskPerformanceLevel',
       userDiskSizeGib: 'UserDiskSizeGib',
@@ -13421,6 +13519,8 @@ export class ModifyDesktopSpecRequest extends $tea.Model {
       desktopType: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resourceSpecs: { 'type': 'array', 'itemType': ModifyDesktopSpecRequestResourceSpecs },
+      resourceType: 'string',
       rootDiskSizeGib: 'number',
       userDiskPerformanceLevel: 'string',
       userDiskSizeGib: 'number',
@@ -13434,10 +13534,12 @@ export class ModifyDesktopSpecRequest extends $tea.Model {
 
 export class ModifyDesktopSpecResponseBody extends $tea.Model {
   orderId?: string;
+  orderIds?: number[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
+      orderIds: 'OrderIds',
       requestId: 'RequestId',
     };
   }
@@ -13445,6 +13547,7 @@ export class ModifyDesktopSpecResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       orderId: 'string',
+      orderIds: { 'type': 'array', 'itemType': 'number' },
       requestId: 'string',
     };
   }
@@ -14376,6 +14479,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
   html5FileTransfer?: string;
   internetCommunicationProtocol?: string;
   localDrive?: string;
+  maxReconnectTime?: number;
   name?: string;
   netRedirect?: string;
   policyGroupId?: string;
@@ -14434,6 +14538,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
       localDrive: 'LocalDrive',
+      maxReconnectTime: 'MaxReconnectTime',
       name: 'Name',
       netRedirect: 'NetRedirect',
       policyGroupId: 'PolicyGroupId',
@@ -14495,6 +14600,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
       localDrive: 'string',
+      maxReconnectTime: 'number',
       name: 'string',
       netRedirect: 'string',
       policyGroupId: 'string',
@@ -14892,12 +14998,14 @@ export class RebootDesktopsResponse extends $tea.Model {
 export class RebuildDesktopsRequest extends $tea.Model {
   desktopId?: string[];
   imageId?: string;
+  language?: string;
   operateType?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       desktopId: 'DesktopId',
       imageId: 'ImageId',
+      language: 'Language',
       operateType: 'OperateType',
       regionId: 'RegionId',
     };
@@ -14907,6 +15015,7 @@ export class RebuildDesktopsRequest extends $tea.Model {
     return {
       desktopId: { 'type': 'array', 'itemType': 'string' },
       imageId: 'string',
+      language: 'string',
       operateType: 'string',
       regionId: 'string',
     };
@@ -15294,6 +15403,7 @@ export class RenewDesktopOversoldGroupResponse extends $tea.Model {
 
 export class RenewDesktopsRequest extends $tea.Model {
   autoPay?: boolean;
+  autoRenew?: boolean;
   desktopId?: string[];
   period?: number;
   periodUnit?: string;
@@ -15303,6 +15413,7 @@ export class RenewDesktopsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
       desktopId: 'DesktopId',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -15315,6 +15426,7 @@ export class RenewDesktopsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      autoRenew: 'boolean',
       desktopId: { 'type': 'array', 'itemType': 'string' },
       period: 'number',
       periodUnit: 'string',
@@ -16112,6 +16224,75 @@ export class SetDesktopGroupTimerStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetDesktopGroupTimerStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDesktopMaintenanceRequest extends $tea.Model {
+  desktopIds?: string[];
+  mode?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desktopIds: 'DesktopIds',
+      mode: 'Mode',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desktopIds: { 'type': 'array', 'itemType': 'string' },
+      mode: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDesktopMaintenanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDesktopMaintenanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDesktopMaintenanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetDesktopMaintenanceResponseBody,
     };
   }
 
@@ -17265,6 +17446,28 @@ export class FilePermissionMemberCdsIdentity extends $tea.Model {
   }
 }
 
+export class AddDesktopOversoldUserGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddDesktopOversoldUserGroupResponseBodyData extends $tea.Model {
   userGroupId?: string;
   static names(): { [key: string]: string } {
@@ -17535,6 +17738,28 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrder extends $tea
     return {
       conflictCds: { 'type': 'array', 'itemType': CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds },
       conflictOrder: { 'type': 'array', 'itemType': CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDesktopGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -18445,6 +18670,28 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $tea.Model
   }
 }
 
+export class DescribeDesktopGroupsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus extends $tea.Model {
   count?: number;
   status?: string;
@@ -18459,6 +18706,28 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus extend
     return {
       count: 'number',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDesktopGroupsResponseBodyDesktopGroupsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -18512,6 +18781,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $tea.Model {
   subnetId?: string;
   systemDiskCategory?: string;
   systemDiskSize?: number;
+  tags?: DescribeDesktopGroupsResponseBodyDesktopGroupsTags[];
   version?: number;
   volumeEncryptionEnabled?: boolean;
   volumeEncryptionKey?: string;
@@ -18561,6 +18831,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $tea.Model {
       subnetId: 'SubnetId',
       systemDiskCategory: 'SystemDiskCategory',
       systemDiskSize: 'SystemDiskSize',
+      tags: 'Tags',
       version: 'Version',
       volumeEncryptionEnabled: 'VolumeEncryptionEnabled',
       volumeEncryptionKey: 'VolumeEncryptionKey',
@@ -18613,6 +18884,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $tea.Model {
       subnetId: 'string',
       systemDiskCategory: 'string',
       systemDiskSize: 'number',
+      tags: { 'type': 'array', 'itemType': DescribeDesktopGroupsResponseBodyDesktopGroupsTags },
       version: 'number',
       volumeEncryptionEnabled: 'boolean',
       volumeEncryptionKey: 'string',
@@ -18813,12 +19085,14 @@ export class DescribeDesktopSessionsResponseBodySessions extends $tea.Model {
   latestConnectionTime?: number;
   officeSiteId?: string;
   officeSiteName?: string;
+  osSessionStatus?: string;
   osType?: string;
   protocolType?: string;
   sessionEndTime?: string;
   sessionIdleTime?: number;
   sessionStartTime?: string;
   sessionStatus?: string;
+  subPayType?: string;
   totalConnectionTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18832,12 +19106,14 @@ export class DescribeDesktopSessionsResponseBodySessions extends $tea.Model {
       latestConnectionTime: 'LatestConnectionTime',
       officeSiteId: 'OfficeSiteId',
       officeSiteName: 'OfficeSiteName',
+      osSessionStatus: 'OsSessionStatus',
       osType: 'OsType',
       protocolType: 'ProtocolType',
       sessionEndTime: 'SessionEndTime',
       sessionIdleTime: 'SessionIdleTime',
       sessionStartTime: 'SessionStartTime',
       sessionStatus: 'SessionStatus',
+      subPayType: 'SubPayType',
       totalConnectionTime: 'TotalConnectionTime',
     };
   }
@@ -18854,12 +19130,14 @@ export class DescribeDesktopSessionsResponseBodySessions extends $tea.Model {
       latestConnectionTime: 'number',
       officeSiteId: 'string',
       officeSiteName: 'string',
+      osSessionStatus: 'string',
       osType: 'string',
       protocolType: 'string',
       sessionEndTime: 'string',
       sessionIdleTime: 'number',
       sessionStartTime: 'string',
       sessionStatus: 'string',
+      subPayType: 'string',
       totalConnectionTime: 'number',
     };
   }
@@ -18996,6 +19274,28 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $tea.Model {
   }
 }
 
+export class DescribeDesktopsResponseBodyDesktopsResourceGroups extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDesktopsResponseBodyDesktopsSessions extends $tea.Model {
   endUserId?: string;
   establishmentTime?: string;
@@ -19091,6 +19391,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $tea.Model {
   policyGroupNameList?: string[];
   progress?: string;
   protocolType?: string;
+  resourceGroups?: DescribeDesktopsResponseBodyDesktopsResourceGroups[];
   sessionType?: string;
   sessions?: DescribeDesktopsResponseBodyDesktopsSessions[];
   snapshotPolicyId?: string;
@@ -19152,6 +19453,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $tea.Model {
       policyGroupNameList: 'PolicyGroupNameList',
       progress: 'Progress',
       protocolType: 'ProtocolType',
+      resourceGroups: 'ResourceGroups',
       sessionType: 'SessionType',
       sessions: 'Sessions',
       snapshotPolicyId: 'SnapshotPolicyId',
@@ -19216,6 +19518,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $tea.Model {
       policyGroupNameList: { 'type': 'array', 'itemType': 'string' },
       progress: 'string',
       protocolType: 'string',
+      resourceGroups: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktopsResourceGroups },
       sessionType: 'string',
       sessions: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktopsSessions },
       snapshotPolicyId: 'string',
@@ -19517,6 +19820,9 @@ export class DescribeDirectoriesResponseBodyDirectoriesLogs extends $tea.Model {
 
 export class DescribeDirectoriesResponseBodyDirectories extends $tea.Model {
   ADConnectors?: DescribeDirectoriesResponseBodyDirectoriesADConnectors[];
+  adHostname?: string;
+  backupDCHostname?: string;
+  backupDns?: string;
   creationTime?: string;
   customSecurityGroupId?: string;
   desktopAccessType?: string;
@@ -19547,6 +19853,9 @@ export class DescribeDirectoriesResponseBodyDirectories extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ADConnectors: 'ADConnectors',
+      adHostname: 'AdHostname',
+      backupDCHostname: 'BackupDCHostname',
+      backupDns: 'BackupDns',
       creationTime: 'CreationTime',
       customSecurityGroupId: 'CustomSecurityGroupId',
       desktopAccessType: 'DesktopAccessType',
@@ -19580,6 +19889,9 @@ export class DescribeDirectoriesResponseBodyDirectories extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ADConnectors: { 'type': 'array', 'itemType': DescribeDirectoriesResponseBodyDirectoriesADConnectors },
+      adHostname: 'string',
+      backupDCHostname: 'string',
+      backupDns: 'string',
       creationTime: 'string',
       customSecurityGroupId: 'string',
       desktopAccessType: 'string',
@@ -20328,6 +20640,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
   status?: string;
   subDnsAddress?: string[];
   subDomainName?: string;
+  subnetMode?: string;
   totalEdsCount?: number;
   totalEdsCountForGroup?: number;
   trustPassword?: string;
@@ -20378,6 +20691,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       status: 'Status',
       subDnsAddress: 'SubDnsAddress',
       subDomainName: 'SubDomainName',
+      subnetMode: 'SubnetMode',
       totalEdsCount: 'TotalEdsCount',
       totalEdsCountForGroup: 'TotalEdsCountForGroup',
       trustPassword: 'TrustPassword',
@@ -20431,6 +20745,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       status: 'string',
       subDnsAddress: { 'type': 'array', 'itemType': 'string' },
       subDomainName: 'string',
+      subnetMode: 'string',
       totalEdsCount: 'number',
       totalEdsCountForGroup: 'number',
       trustPassword: 'string',
@@ -20621,12 +20936,14 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
   cameraRedirect?: string;
   clientTypes?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes[];
   clipboard?: string;
+  colorEnhancement?: string;
   cpuDownGradeDuration?: number;
   cpuProcessors?: string[];
   cpuProtectedMode?: string;
   cpuRateLimit?: number;
   cpuSampleDuration?: number;
   cpuSingleRateLimit?: number;
+  displayMode?: string;
   domainList?: string;
   domainResolveRule?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule[];
   domainResolveRuleType?: string;
@@ -20638,6 +20955,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
   html5FileTransfer?: string;
   internetCommunicationProtocol?: string;
   localDrive?: string;
+  maxReconnectTime?: number;
   memoryDownGradeDuration?: number;
   memoryProcessors?: string[];
   memoryProtectedMode?: string;
@@ -20653,6 +20971,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
   preemptLogin?: string;
   preemptLoginUsers?: string[];
   printerRedirection?: string;
+  qualityEnhancement?: string;
   recordContent?: string;
   recordContentExpires?: number;
   recording?: string;
@@ -20667,8 +20986,16 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
   remoteCoordinate?: string;
   scope?: string;
   scopeValue?: string[];
+  smoothEnhancement?: string;
+  streamingMode?: string;
+  targetFps?: number;
   usbRedirect?: string;
   usbSupplyRedirectRule?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule[];
+  videoEncAvgKbps?: number;
+  videoEncMaxQP?: number;
+  videoEncMinQP?: number;
+  videoEncPeakKbps?: number;
+  videoEncPolicy?: string;
   videoRedirect?: string;
   visualQuality?: string;
   watermark?: string;
@@ -20693,12 +21020,14 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       cameraRedirect: 'CameraRedirect',
       clientTypes: 'ClientTypes',
       clipboard: 'Clipboard',
+      colorEnhancement: 'ColorEnhancement',
       cpuDownGradeDuration: 'CpuDownGradeDuration',
       cpuProcessors: 'CpuProcessors',
       cpuProtectedMode: 'CpuProtectedMode',
       cpuRateLimit: 'CpuRateLimit',
       cpuSampleDuration: 'CpuSampleDuration',
       cpuSingleRateLimit: 'CpuSingleRateLimit',
+      displayMode: 'DisplayMode',
       domainList: 'DomainList',
       domainResolveRule: 'DomainResolveRule',
       domainResolveRuleType: 'DomainResolveRuleType',
@@ -20710,6 +21039,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
       localDrive: 'LocalDrive',
+      maxReconnectTime: 'MaxReconnectTime',
       memoryDownGradeDuration: 'MemoryDownGradeDuration',
       memoryProcessors: 'MemoryProcessors',
       memoryProtectedMode: 'MemoryProtectedMode',
@@ -20725,6 +21055,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       preemptLogin: 'PreemptLogin',
       preemptLoginUsers: 'PreemptLoginUsers',
       printerRedirection: 'PrinterRedirection',
+      qualityEnhancement: 'QualityEnhancement',
       recordContent: 'RecordContent',
       recordContentExpires: 'RecordContentExpires',
       recording: 'Recording',
@@ -20739,8 +21070,16 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       remoteCoordinate: 'RemoteCoordinate',
       scope: 'Scope',
       scopeValue: 'ScopeValue',
+      smoothEnhancement: 'SmoothEnhancement',
+      streamingMode: 'StreamingMode',
+      targetFps: 'TargetFps',
       usbRedirect: 'UsbRedirect',
       usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
+      videoEncAvgKbps: 'VideoEncAvgKbps',
+      videoEncMaxQP: 'VideoEncMaxQP',
+      videoEncMinQP: 'VideoEncMinQP',
+      videoEncPeakKbps: 'VideoEncPeakKbps',
+      videoEncPolicy: 'VideoEncPolicy',
       videoRedirect: 'VideoRedirect',
       visualQuality: 'VisualQuality',
       watermark: 'Watermark',
@@ -20768,12 +21107,14 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       cameraRedirect: 'string',
       clientTypes: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes },
       clipboard: 'string',
+      colorEnhancement: 'string',
       cpuDownGradeDuration: 'number',
       cpuProcessors: { 'type': 'array', 'itemType': 'string' },
       cpuProtectedMode: 'string',
       cpuRateLimit: 'number',
       cpuSampleDuration: 'number',
       cpuSingleRateLimit: 'number',
+      displayMode: 'string',
       domainList: 'string',
       domainResolveRule: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule },
       domainResolveRuleType: 'string',
@@ -20785,6 +21126,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
       localDrive: 'string',
+      maxReconnectTime: 'number',
       memoryDownGradeDuration: 'number',
       memoryProcessors: { 'type': 'array', 'itemType': 'string' },
       memoryProtectedMode: 'string',
@@ -20800,6 +21142,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       preemptLogin: 'string',
       preemptLoginUsers: { 'type': 'array', 'itemType': 'string' },
       printerRedirection: 'string',
+      qualityEnhancement: 'string',
       recordContent: 'string',
       recordContentExpires: 'number',
       recording: 'string',
@@ -20814,8 +21157,16 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       remoteCoordinate: 'string',
       scope: 'string',
       scopeValue: { 'type': 'array', 'itemType': 'string' },
+      smoothEnhancement: 'string',
+      streamingMode: 'string',
+      targetFps: 'number',
       usbRedirect: 'string',
       usbSupplyRedirectRule: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule },
+      videoEncAvgKbps: 'number',
+      videoEncMaxQP: 'number',
+      videoEncMinQP: 'number',
+      videoEncPeakKbps: 'number',
+      videoEncPolicy: 'string',
       videoRedirect: 'string',
       visualQuality: 'string',
       watermark: 'string',
@@ -20843,11 +21194,19 @@ export class DescribePriceRequestBundleModels extends $tea.Model {
   amount?: number;
   bundleId?: string;
   duration?: number;
+  instanceType?: string;
+  osType?: string;
+  rootDiskId?: string;
+  userDiskId?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
       bundleId: 'BundleId',
       duration: 'Duration',
+      instanceType: 'InstanceType',
+      osType: 'OsType',
+      rootDiskId: 'RootDiskId',
+      userDiskId: 'UserDiskId',
     };
   }
 
@@ -20856,6 +21215,10 @@ export class DescribePriceRequestBundleModels extends $tea.Model {
       amount: 'number',
       bundleId: 'string',
       duration: 'number',
+      instanceType: 'string',
+      osType: 'string',
+      rootDiskId: 'string',
+      userDiskId: 'string',
     };
   }
 
@@ -21622,6 +21985,28 @@ export class DisconnectDesktopSessionsResponseBodyInvalidSessions extends $tea.M
   }
 }
 
+export class ExportDesktopGroupInfoRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportDesktopListInfoRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -22250,6 +22635,31 @@ export class ModifyDesktopOversoldUserGroupResponseBodyData extends $tea.Model {
   }
 }
 
+export class ModifyDesktopSpecRequestResourceSpecs extends $tea.Model {
+  desktopId?: string;
+  rootDiskSizeGib?: number;
+  userDiskSizeGib?: number;
+  static names(): { [key: string]: string } {
+    return {
+      desktopId: 'DesktopId',
+      rootDiskSizeGib: 'RootDiskSizeGib',
+      userDiskSizeGib: 'UserDiskSizeGib',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desktopId: 'string',
+      rootDiskSizeGib: 'number',
+      userDiskSizeGib: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDesktopTimerRequestDesktopTimers extends $tea.Model {
   allowClientSetting?: boolean;
   cronExpression?: string;
@@ -22811,11 +23221,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
-    *
-    * @param request ActivateOfficeSiteRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ActivateOfficeSiteResponse
+   * @summary Unlocks a convenience office network that is automatically locked due to a long idle period of time.
+   *
+   * @description If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
+   *
+   * @param request ActivateOfficeSiteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ActivateOfficeSiteResponse
    */
   async activateOfficeSiteWithOptions(request: ActivateOfficeSiteRequest, runtime: $Util.RuntimeOptions): Promise<ActivateOfficeSiteResponse> {
     Util.validateModel(request);
@@ -22846,16 +23258,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
-    *
-    * @param request ActivateOfficeSiteRequest
-    * @return ActivateOfficeSiteResponse
+   * @summary Unlocks a convenience office network that is automatically locked due to a long idle period of time.
+   *
+   * @description If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
+   *
+   * @param request ActivateOfficeSiteRequest
+   * @return ActivateOfficeSiteResponse
    */
   async activateOfficeSite(request: ActivateOfficeSiteRequest): Promise<ActivateOfficeSiteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.activateOfficeSiteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 添加桌面超卖用户组
+   *
+   * @param request AddDesktopOversoldUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDesktopOversoldUserGroupResponse
+   */
   async addDesktopOversoldUserGroupWithOptions(request: AddDesktopOversoldUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddDesktopOversoldUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22875,6 +23296,10 @@ export default class Client extends OpenApi {
       query["PolicyGroupId"] = request.policyGroupId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22892,17 +23317,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDesktopOversoldUserGroupResponse>(await this.callApi(params, req, runtime), new AddDesktopOversoldUserGroupResponse({}));
   }
 
+  /**
+   * @summary 添加桌面超卖用户组
+   *
+   * @param request AddDesktopOversoldUserGroupRequest
+   * @return AddDesktopOversoldUserGroupResponse
+   */
   async addDesktopOversoldUserGroup(request: AddDesktopOversoldUserGroupRequest): Promise<AddDesktopOversoldUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDesktopOversoldUserGroupWithOptions(request, runtime);
   }
 
   /**
-    * You can add only one device to a tenant.
-    *
-    * @param request AddDevicesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddDevicesResponse
+   * @summary Adds trusted devices.
+   *
+   * @description Each device can be registered in only one Alibaba Cloud account. If you register a device that has been registered in another Alibaba Cloud account, an error is reported.
+   *
+   * @param request AddDevicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDevicesResponse
    */
   async addDevicesWithOptions(request: AddDevicesRequest, runtime: $Util.RuntimeOptions): Promise<AddDevicesResponse> {
     Util.validateModel(request);
@@ -22937,10 +23370,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can add only one device to a tenant.
-    *
-    * @param request AddDevicesRequest
-    * @return AddDevicesResponse
+   * @summary Adds trusted devices.
+   *
+   * @description Each device can be registered in only one Alibaba Cloud account. If you register a device that has been registered in another Alibaba Cloud account, an error is reported.
+   *
+   * @param request AddDevicesRequest
+   * @return AddDevicesResponse
    */
   async addDevices(request: AddDevicesRequest): Promise<AddDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22948,11 +23383,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
-    *
-    * @param tmpReq AddFilePermissionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddFilePermissionResponse
+   * @summary Shares a folder of a cloud disk with other users.
+   *
+   * @description You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+   *
+   * @param tmpReq AddFilePermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddFilePermissionResponse
    */
   async addFilePermissionWithOptions(tmpReq: AddFilePermissionRequest, runtime: $Util.RuntimeOptions): Promise<AddFilePermissionResponse> {
     Util.validateModel(tmpReq);
@@ -23005,16 +23442,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
-    *
-    * @param request AddFilePermissionRequest
-    * @return AddFilePermissionResponse
+   * @summary Shares a folder of a cloud disk with other users.
+   *
+   * @description You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+   *
+   * @param request AddFilePermissionRequest
+   * @return AddFilePermissionResponse
    */
   async addFilePermission(request: AddFilePermissionRequest): Promise<AddFilePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addFilePermissionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds authorized end users of a desktop group.
+   *
+   * @param request AddUserToDesktopGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserToDesktopGroupResponse
+   */
   async addUserToDesktopGroupWithOptions(request: AddUserToDesktopGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToDesktopGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23055,11 +23501,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserToDesktopGroupResponse>(await this.callApi(params, req, runtime), new AddUserToDesktopGroupResponse({}));
   }
 
+  /**
+   * @summary Adds authorized end users of a desktop group.
+   *
+   * @param request AddUserToDesktopGroupRequest
+   * @return AddUserToDesktopGroupResponse
+   */
   async addUserToDesktopGroup(request: AddUserToDesktopGroupRequest): Promise<AddUserToDesktopGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserToDesktopGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 添加用户到超卖用户组
+   *
+   * @param request AddUserToDesktopOversoldUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserToDesktopOversoldUserGroupResponse
+   */
   async addUserToDesktopOversoldUserGroupWithOptions(request: AddUserToDesktopOversoldUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToDesktopOversoldUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23096,18 +23555,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserToDesktopOversoldUserGroupResponse>(await this.callApi(params, req, runtime), new AddUserToDesktopOversoldUserGroupResponse({}));
   }
 
+  /**
+   * @summary 添加用户到超卖用户组
+   *
+   * @param request AddUserToDesktopOversoldUserGroupRequest
+   * @return AddUserToDesktopOversoldUserGroupResponse
+   */
   async addUserToDesktopOversoldUserGroup(request: AddUserToDesktopOversoldUserGroupRequest): Promise<AddUserToDesktopOversoldUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserToDesktopOversoldUserGroupWithOptions(request, runtime);
   }
 
   /**
-    * You can also associate an automatic snapshot policy with a cloud desktop in the Elastic Desktop Service (EDS) console. To do so, perform the following steps: 1. Log on to the EDS console. 2. Choose Desktops and Groups > Desktops in the left-side navigation pane. 3. Find the cloud desktop that you want to manage on the Cloud Desktops page and choose More > Change Automatic Snapshot Policy in the Actions column. 4. Configure a policy for the cloud desktop as prompted in the Change Automatic Snapshot Policy panel.
-    * After you associate an automatic snapshot policy with the cloud desktop, the system creates snapshots for the cloud desktop based on the policy.
-    *
-    * @param request ApplyAutoSnapshotPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ApplyAutoSnapshotPolicyResponse
+   * @summary Apply an automatic snapshot policy to cloud computers. After the automatic snapshot policy is applied to the cloud computers, Elastic Desktop Service automatically creates snapshots for the cloud computers based on the time specified in the automatic snapshot policy.
+   *
+   * @description You can also associate an automatic snapshot policy with a cloud desktop in the Elastic Desktop Service (EDS) console. To do so, perform the following steps: 1. Log on to the EDS console. 2. Choose Desktops and Groups > Desktops in the left-side navigation pane. 3. Find the cloud desktop that you want to manage on the Cloud Desktops page and choose More > Change Automatic Snapshot Policy in the Actions column. 4. Configure a policy for the cloud desktop as prompted in the Change Automatic Snapshot Policy panel.
+   * After you associate an automatic snapshot policy with the cloud desktop, the system creates snapshots for the cloud desktop based on the policy.
+   *
+   * @param request ApplyAutoSnapshotPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyAutoSnapshotPolicyResponse
    */
   async applyAutoSnapshotPolicyWithOptions(request: ApplyAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ApplyAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
@@ -23142,17 +23609,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can also associate an automatic snapshot policy with a cloud desktop in the Elastic Desktop Service (EDS) console. To do so, perform the following steps: 1. Log on to the EDS console. 2. Choose Desktops and Groups > Desktops in the left-side navigation pane. 3. Find the cloud desktop that you want to manage on the Cloud Desktops page and choose More > Change Automatic Snapshot Policy in the Actions column. 4. Configure a policy for the cloud desktop as prompted in the Change Automatic Snapshot Policy panel.
-    * After you associate an automatic snapshot policy with the cloud desktop, the system creates snapshots for the cloud desktop based on the policy.
-    *
-    * @param request ApplyAutoSnapshotPolicyRequest
-    * @return ApplyAutoSnapshotPolicyResponse
+   * @summary Apply an automatic snapshot policy to cloud computers. After the automatic snapshot policy is applied to the cloud computers, Elastic Desktop Service automatically creates snapshots for the cloud computers based on the time specified in the automatic snapshot policy.
+   *
+   * @description You can also associate an automatic snapshot policy with a cloud desktop in the Elastic Desktop Service (EDS) console. To do so, perform the following steps: 1. Log on to the EDS console. 2. Choose Desktops and Groups > Desktops in the left-side navigation pane. 3. Find the cloud desktop that you want to manage on the Cloud Desktops page and choose More > Change Automatic Snapshot Policy in the Actions column. 4. Configure a policy for the cloud desktop as prompted in the Change Automatic Snapshot Policy panel.
+   * After you associate an automatic snapshot policy with the cloud desktop, the system creates snapshots for the cloud desktop based on the policy.
+   *
+   * @param request ApplyAutoSnapshotPolicyRequest
+   * @return ApplyAutoSnapshotPolicyResponse
    */
   async applyAutoSnapshotPolicy(request: ApplyAutoSnapshotPolicyRequest): Promise<ApplyAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Applies for the coordinate permissions.
+   *
+   * @param request ApplyCoordinatePrivilegeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyCoordinatePrivilegeResponse
+   */
   async applyCoordinatePrivilegeWithOptions(request: ApplyCoordinatePrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<ApplyCoordinatePrivilegeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23193,11 +23669,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyCoordinatePrivilegeResponse>(await this.callApi(params, req, runtime), new ApplyCoordinatePrivilegeResponse({}));
   }
 
+  /**
+   * @summary Applies for the coordinate permissions.
+   *
+   * @param request ApplyCoordinatePrivilegeRequest
+   * @return ApplyCoordinatePrivilegeResponse
+   */
   async applyCoordinatePrivilege(request: ApplyCoordinatePrivilegeRequest): Promise<ApplyCoordinatePrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyCoordinatePrivilegeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+   *
+   * @param request ApplyCoordinationForMonitoringRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyCoordinationForMonitoringResponse
+   */
   async applyCoordinationForMonitoringWithOptions(request: ApplyCoordinationForMonitoringRequest, runtime: $Util.RuntimeOptions): Promise<ApplyCoordinationForMonitoringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23242,17 +23731,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyCoordinationForMonitoringResponse>(await this.callApi(params, req, runtime), new ApplyCoordinationForMonitoringResponse({}));
   }
 
+  /**
+   * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+   *
+   * @param request ApplyCoordinationForMonitoringRequest
+   * @return ApplyCoordinationForMonitoringResponse
+   */
   async applyCoordinationForMonitoring(request: ApplyCoordinationForMonitoringRequest): Promise<ApplyCoordinationForMonitoringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyCoordinationForMonitoringWithOptions(request, runtime);
   }
 
   /**
-    * The cloud computers for which you want to allow image updates must be in the Running state.
-    *
-    * @param request ApproveFotaUpdateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ApproveFotaUpdateResponse
+   * @summary Allows you to upgrade images.
+   *
+   * @description The cloud computers for which you want to allow image updates must be in the Running state.
+   *
+   * @param request ApproveFotaUpdateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApproveFotaUpdateResponse
    */
   async approveFotaUpdateWithOptions(request: ApproveFotaUpdateRequest, runtime: $Util.RuntimeOptions): Promise<ApproveFotaUpdateResponse> {
     Util.validateModel(request);
@@ -23287,16 +23784,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud computers for which you want to allow image updates must be in the Running state.
-    *
-    * @param request ApproveFotaUpdateRequest
-    * @return ApproveFotaUpdateResponse
+   * @summary Allows you to upgrade images.
+   *
+   * @description The cloud computers for which you want to allow image updates must be in the Running state.
+   *
+   * @param request ApproveFotaUpdateRequest
+   * @return ApproveFotaUpdateResponse
    */
   async approveFotaUpdate(request: ApproveFotaUpdateRequest): Promise<ApproveFotaUpdateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.approveFotaUpdateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
+   *
+   * @param request AssociateNetworkPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateNetworkPackageResponse
+   */
   async associateNetworkPackageWithOptions(request: AssociateNetworkPackageRequest, runtime: $Util.RuntimeOptions): Promise<AssociateNetworkPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23329,20 +23835,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateNetworkPackageResponse>(await this.callApi(params, req, runtime), new AssociateNetworkPackageResponse({}));
   }
 
+  /**
+   * @summary Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
+   *
+   * @param request AssociateNetworkPackageRequest
+   * @return AssociateNetworkPackageResponse
+   */
   async associateNetworkPackage(request: AssociateNetworkPackageRequest): Promise<AssociateNetworkPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateNetworkPackageWithOptions(request, runtime);
   }
 
   /**
-    * Prerequisites
-    * *   A CEN instance is created.
-    * *   The office network is an advanced office network, and the account system type is convenient account.
-    * >  The office network is added to the CEN instance when you create the instance. An office network can be added to only one CEN instance.
-    *
-    * @param request AttachCenRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachCenResponse
+   * @summary Binds an advanced office network to a Cloud Enterprise Network (CEN) instance.
+   *
+   * @description Prerequisites
+   * *   A CEN instance is created.
+   * *   The office network is an advanced office network, and the account system type is convenient account.
+   * >  The office network is added to the CEN instance when you create the instance. An office network can be added to only one CEN instance.
+   *
+   * @param request AttachCenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachCenResponse
    */
   async attachCenWithOptions(request: AttachCenRequest, runtime: $Util.RuntimeOptions): Promise<AttachCenResponse> {
     Util.validateModel(request);
@@ -23385,19 +23899,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Prerequisites
-    * *   A CEN instance is created.
-    * *   The office network is an advanced office network, and the account system type is convenient account.
-    * >  The office network is added to the CEN instance when you create the instance. An office network can be added to only one CEN instance.
-    *
-    * @param request AttachCenRequest
-    * @return AttachCenResponse
+   * @summary Binds an advanced office network to a Cloud Enterprise Network (CEN) instance.
+   *
+   * @description Prerequisites
+   * *   A CEN instance is created.
+   * *   The office network is an advanced office network, and the account system type is convenient account.
+   * >  The office network is added to the CEN instance when you create the instance. An office network can be added to only one CEN instance.
+   *
+   * @param request AttachCenRequest
+   * @return AttachCenResponse
    */
   async attachCen(request: AttachCenRequest): Promise<AttachCenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachCenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Binds a hardware client to a user.
+   *
+   * @param request AttachEndUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachEndUserResponse
+   */
   async attachEndUserWithOptions(request: AttachEndUserRequest, runtime: $Util.RuntimeOptions): Promise<AttachEndUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23446,11 +23969,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachEndUserResponse>(await this.callApi(params, req, runtime), new AttachEndUserResponse({}));
   }
 
+  /**
+   * @summary Binds a hardware client to a user.
+   *
+   * @param request AttachEndUserRequest
+   * @return AttachEndUserResponse
+   */
   async attachEndUser(request: AttachEndUserRequest): Promise<AttachEndUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachEndUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Cancels an automatic snapshot policy for cloud computers.
+   *
+   * @param request CancelAutoSnapshotPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelAutoSnapshotPolicyResponse
+   */
   async cancelAutoSnapshotPolicyWithOptions(request: CancelAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CancelAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23483,11 +24019,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new CancelAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+   * @summary Cancels an automatic snapshot policy for cloud computers.
+   *
+   * @param request CancelAutoSnapshotPolicyRequest
+   * @return CancelAutoSnapshotPolicyResponse
+   */
   async cancelAutoSnapshotPolicy(request: CancelAutoSnapshotPolicyRequest): Promise<CancelAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Cancels a file sharing task.
+   *
+   * @param request CancelCdsFileShareLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelCdsFileShareLinkResponse
+   */
   async cancelCdsFileShareLinkWithOptions(request: CancelCdsFileShareLinkRequest, runtime: $Util.RuntimeOptions): Promise<CancelCdsFileShareLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23516,11 +24065,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelCdsFileShareLinkResponse>(await this.callApi(params, req, runtime), new CancelCdsFileShareLinkResponse({}));
   }
 
+  /**
+   * @summary Cancels a file sharing task.
+   *
+   * @param request CancelCdsFileShareLinkRequest
+   * @return CancelCdsFileShareLinkResponse
+   */
   async cancelCdsFileShareLink(request: CancelCdsFileShareLinkRequest): Promise<CancelCdsFileShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelCdsFileShareLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Cancels monitoring on stream collaboration.
+   *
+   * @param request CancelCoordinationForMonitoringRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelCoordinationForMonitoringResponse
+   */
   async cancelCoordinationForMonitoringWithOptions(request: CancelCoordinationForMonitoringRequest, runtime: $Util.RuntimeOptions): Promise<CancelCoordinationForMonitoringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23557,11 +24119,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelCoordinationForMonitoringResponse>(await this.callApi(params, req, runtime), new CancelCoordinationForMonitoringResponse({}));
   }
 
+  /**
+   * @summary Cancels monitoring on stream collaboration.
+   *
+   * @param request CancelCoordinationForMonitoringRequest
+   * @return CancelCoordinationForMonitoringResponse
+   */
   async cancelCoordinationForMonitoring(request: CancelCoordinationForMonitoringRequest): Promise<CancelCoordinationForMonitoringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelCoordinationForMonitoringWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Cancels the operation of copying an image to another region.
+   *
+   * @param request CancelCopyImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelCopyImageResponse
+   */
   async cancelCopyImageWithOptions(request: CancelCopyImageRequest, runtime: $Util.RuntimeOptions): Promise<CancelCopyImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23590,11 +24165,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelCopyImageResponse>(await this.callApi(params, req, runtime), new CancelCopyImageResponse({}));
   }
 
+  /**
+   * @summary Cancels the operation of copying an image to another region.
+   *
+   * @param request CancelCopyImageRequest
+   * @return CancelCopyImageResponse
+   */
   async cancelCopyImage(request: CancelCopyImageRequest): Promise<CancelCopyImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelCopyImageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Clones an existing policy.
+   *
+   * @param request ClonePolicyGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ClonePolicyGroupResponse
+   */
   async clonePolicyGroupWithOptions(request: ClonePolicyGroupRequest, runtime: $Util.RuntimeOptions): Promise<ClonePolicyGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23627,11 +24215,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ClonePolicyGroupResponse>(await this.callApi(params, req, runtime), new ClonePolicyGroupResponse({}));
   }
 
+  /**
+   * @summary Clones an existing policy.
+   *
+   * @param request ClonePolicyGroupRequest
+   * @return ClonePolicyGroupResponse
+   */
   async clonePolicyGroup(request: ClonePolicyGroupRequest): Promise<ClonePolicyGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.clonePolicyGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Completes a file uploading task.
+   *
+   * @param request CompleteCdsFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CompleteCdsFileResponse
+   */
   async completeCdsFileWithOptions(request: CompleteCdsFileRequest, runtime: $Util.RuntimeOptions): Promise<CompleteCdsFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23676,11 +24277,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CompleteCdsFileResponse>(await this.callApi(params, req, runtime), new CompleteCdsFileResponse({}));
   }
 
+  /**
+   * @summary Completes a file uploading task.
+   *
+   * @param request CompleteCdsFileRequest
+   * @return CompleteCdsFileResponse
+   */
   async completeCdsFile(request: CompleteCdsFileRequest): Promise<CompleteCdsFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.completeCdsFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures a conditional forwarder and trust relationship for a high-definition experience (HDX)-based office network (formerly workspace). You can call the operation to configure a trust relationship for an enterprise Active Directory (AD) office network.
+   *
+   * @param request ConfigADConnectorTrustRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigADConnectorTrustResponse
+   */
   async configADConnectorTrustWithOptions(request: ConfigADConnectorTrustRequest, runtime: $Util.RuntimeOptions): Promise<ConfigADConnectorTrustResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23717,11 +24331,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigADConnectorTrustResponse>(await this.callApi(params, req, runtime), new ConfigADConnectorTrustResponse({}));
   }
 
+  /**
+   * @summary Configures a conditional forwarder and trust relationship for a high-definition experience (HDX)-based office network (formerly workspace). You can call the operation to configure a trust relationship for an enterprise Active Directory (AD) office network.
+   *
+   * @param request ConfigADConnectorTrustRequest
+   * @return ConfigADConnectorTrustResponse
+   */
   async configADConnectorTrust(request: ConfigADConnectorTrustRequest): Promise<ConfigADConnectorTrustResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configADConnectorTrustWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ConfigADConnectorUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigADConnectorUserResponse
+   */
   async configADConnectorUserWithOptions(request: ConfigADConnectorUserRequest, runtime: $Util.RuntimeOptions): Promise<ConfigADConnectorUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23762,11 +24387,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigADConnectorUserResponse>(await this.callApi(params, req, runtime), new ConfigADConnectorUserResponse({}));
   }
 
+  /**
+   * @param request ConfigADConnectorUserRequest
+   * @return ConfigADConnectorUserResponse
+   */
   async configADConnectorUser(request: ConfigADConnectorUserRequest): Promise<ConfigADConnectorUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configADConnectorUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Copies a file or a directory.
+   *
+   * @param request CopyCdsFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopyCdsFileResponse
+   */
   async copyCdsFileWithOptions(request: CopyCdsFileRequest, runtime: $Util.RuntimeOptions): Promise<CopyCdsFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23823,11 +24459,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyCdsFileResponse>(await this.callApi(params, req, runtime), new CopyCdsFileResponse({}));
   }
 
+  /**
+   * @summary Copies a file or a directory.
+   *
+   * @param request CopyCdsFileRequest
+   * @return CopyCdsFileResponse
+   */
   async copyCdsFile(request: CopyCdsFileRequest): Promise<CopyCdsFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyCdsFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Copy an image to another region. If you want to share an image across regions, you can call this operation to copy the image to the destination region and then share the image.
+   *
+   * @param request CopyImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopyImageResponse
+   */
   async copyImageWithOptions(request: CopyImageRequest, runtime: $Util.RuntimeOptions): Promise<CopyImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23868,17 +24517,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyImageResponse>(await this.callApi(params, req, runtime), new CopyImageResponse({}));
   }
 
+  /**
+   * @summary Copy an image to another region. If you want to share an image across regions, you can call this operation to copy the image to the destination region and then share the image.
+   *
+   * @param request CopyImageRequest
+   * @return CopyImageResponse
+   */
   async copyImage(request: CopyImageRequest): Promise<CopyImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyImageWithOptions(request, runtime);
   }
 
   /**
-    * An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](~~188395~~).
-    *
-    * @param request CreateADConnectorDirectoryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateADConnectorDirectoryResponse
+   * @summary Creates a directory of the Active Directory (AD) type.
+   *
+   * @description An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   *
+   * @param request CreateADConnectorDirectoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateADConnectorDirectoryResponse
    */
   async createADConnectorDirectoryWithOptions(request: CreateADConnectorDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateADConnectorDirectoryResponse> {
     Util.validateModel(request);
@@ -23953,10 +24610,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](~~188395~~).
-    *
-    * @param request CreateADConnectorDirectoryRequest
-    * @return CreateADConnectorDirectoryResponse
+   * @summary Creates a directory of the Active Directory (AD) type.
+   *
+   * @description An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   *
+   * @param request CreateADConnectorDirectoryRequest
+   * @return CreateADConnectorDirectoryResponse
    */
   async createADConnectorDirectory(request: CreateADConnectorDirectoryRequest): Promise<CreateADConnectorDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23964,23 +24623,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create an enterprise AD office network, the system automatically creates an AD connector to connect to an enterprise AD. You are charged for the AD connector. For more information, see [Billing overview](~~188395~~).
-    * After you call this operation to create an AD office network, you must perform the following steps to complete AD domain setting:
-    * 1.  Configure a conditional forwarder in a Domain Name System (DNS) server.
-    * 2.  Configure a trust relationship in an AD domain controller and call the [ConfigADConnectorTrust](~~311258~~) operation to configure the trust relationship with the AD office network.
-    * 3.  Call the [ListUserAdOrganizationUnits](~~311259~~) operation to query a list of organizational units (OUs) of the AD domain, and call the [ConfigADConnectorUser](~~311262~~) operation to specify an OU and administrator for the AD office network.
-    *     >  When you create the AD office network, take note of the DomainUserName and DomainPassword parameters. If you specify the parameters, you need to only configure a conditional forwarder. If you do not specify the parameters, you must configure a conditional forwarder, trust relationship, and OU as prompted.
-    * For more information, see [Create and manage enterprise AD office networks](~~214469~~).
-    *
-    * @param request CreateADConnectorOfficeSiteRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateADConnectorOfficeSiteResponse
+   * @summary Creates an enterprise Active Directory (AD) office network (formerly workspace). Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+   *
+   * @description When you create an enterprise AD office network, the system automatically creates an AD connector to connect to an enterprise AD. You are charged for the AD connector. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   * After you call this operation to create an AD office network, you must perform the following steps to complete AD domain setting:
+   * 1.  Configure a conditional forwarder in a Domain Name System (DNS) server.
+   * 2.  Configure a trust relationship in an AD domain controller and call the [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) operation to configure the trust relationship with the AD office network.
+   * 3.  Call the [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) operation to query a list of organizational units (OUs) of the AD domain, and call the [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) operation to specify an OU and administrator for the AD office network.
+   *     >  When you create the AD office network, take note of the DomainUserName and DomainPassword parameters. If you specify the parameters, you need to only configure a conditional forwarder. If you do not specify the parameters, you must configure a conditional forwarder, trust relationship, and OU as prompted.
+   * For more information, see [Create and manage enterprise AD office networks](https://help.aliyun.com/document_detail/214469.html).
+   *
+   * @param request CreateADConnectorOfficeSiteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateADConnectorOfficeSiteResponse
    */
   async createADConnectorOfficeSiteWithOptions(request: CreateADConnectorOfficeSiteRequest, runtime: $Util.RuntimeOptions): Promise<CreateADConnectorOfficeSiteResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.adHostname)) {
       query["AdHostname"] = request.adHostname;
+    }
+
+    if (!Util.isUnset(request.backupDCHostname)) {
+      query["BackupDCHostname"] = request.backupDCHostname;
+    }
+
+    if (!Util.isUnset(request.backupDns)) {
+      query["BackupDns"] = request.backupDns;
     }
 
     if (!Util.isUnset(request.bandwidth)) {
@@ -24077,22 +24746,31 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create an enterprise AD office network, the system automatically creates an AD connector to connect to an enterprise AD. You are charged for the AD connector. For more information, see [Billing overview](~~188395~~).
-    * After you call this operation to create an AD office network, you must perform the following steps to complete AD domain setting:
-    * 1.  Configure a conditional forwarder in a Domain Name System (DNS) server.
-    * 2.  Configure a trust relationship in an AD domain controller and call the [ConfigADConnectorTrust](~~311258~~) operation to configure the trust relationship with the AD office network.
-    * 3.  Call the [ListUserAdOrganizationUnits](~~311259~~) operation to query a list of organizational units (OUs) of the AD domain, and call the [ConfigADConnectorUser](~~311262~~) operation to specify an OU and administrator for the AD office network.
-    *     >  When you create the AD office network, take note of the DomainUserName and DomainPassword parameters. If you specify the parameters, you need to only configure a conditional forwarder. If you do not specify the parameters, you must configure a conditional forwarder, trust relationship, and OU as prompted.
-    * For more information, see [Create and manage enterprise AD office networks](~~214469~~).
-    *
-    * @param request CreateADConnectorOfficeSiteRequest
-    * @return CreateADConnectorOfficeSiteResponse
+   * @summary Creates an enterprise Active Directory (AD) office network (formerly workspace). Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+   *
+   * @description When you create an enterprise AD office network, the system automatically creates an AD connector to connect to an enterprise AD. You are charged for the AD connector. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   * After you call this operation to create an AD office network, you must perform the following steps to complete AD domain setting:
+   * 1.  Configure a conditional forwarder in a Domain Name System (DNS) server.
+   * 2.  Configure a trust relationship in an AD domain controller and call the [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) operation to configure the trust relationship with the AD office network.
+   * 3.  Call the [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) operation to query a list of organizational units (OUs) of the AD domain, and call the [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) operation to specify an OU and administrator for the AD office network.
+   *     >  When you create the AD office network, take note of the DomainUserName and DomainPassword parameters. If you specify the parameters, you need to only configure a conditional forwarder. If you do not specify the parameters, you must configure a conditional forwarder, trust relationship, and OU as prompted.
+   * For more information, see [Create and manage enterprise AD office networks](https://help.aliyun.com/document_detail/214469.html).
+   *
+   * @param request CreateADConnectorOfficeSiteRequest
+   * @return CreateADConnectorOfficeSiteResponse
    */
   async createADConnectorOfficeSite(request: CreateADConnectorOfficeSiteRequest): Promise<CreateADConnectorOfficeSiteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createADConnectorOfficeSiteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an Apsara File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+   *
+   * @param request CreateAndBindNasFileSystemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAndBindNasFileSystemResponse
+   */
   async createAndBindNasFileSystemWithOptions(request: CreateAndBindNasFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<CreateAndBindNasFileSystemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24145,17 +24823,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAndBindNasFileSystemResponse>(await this.callApi(params, req, runtime), new CreateAndBindNasFileSystemResponse({}));
   }
 
+  /**
+   * @summary Creates an Apsara File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+   *
+   * @param request CreateAndBindNasFileSystemRequest
+   * @return CreateAndBindNasFileSystemResponse
+   */
   async createAndBindNasFileSystem(request: CreateAndBindNasFileSystemRequest): Promise<CreateAndBindNasFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAndBindNasFileSystemWithOptions(request, runtime);
   }
 
   /**
-    * You can call the operation to create an automatic snapshot policy based on a CRON expression. Then, the system automatically creates snapshots of a cloud desktop based on the policy.
-    *
-    * @param request CreateAutoSnapshotPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAutoSnapshotPolicyResponse
+   * @summary Creates an automatic snapshot policy. WUYING WorkSpace automatically creates snapshots based on the time specified by the cron expression in the automatic snapshot policy.
+   *
+   * @description You can call the operation to create an automatic snapshot policy based on a CRON expression. Then, the system automatically creates snapshots of a cloud desktop based on the policy.
+   *
+   * @param request CreateAutoSnapshotPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAutoSnapshotPolicyResponse
    */
   async createAutoSnapshotPolicyWithOptions(request: CreateAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
@@ -24194,10 +24880,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the operation to create an automatic snapshot policy based on a CRON expression. Then, the system automatically creates snapshots of a cloud desktop based on the policy.
-    *
-    * @param request CreateAutoSnapshotPolicyRequest
-    * @return CreateAutoSnapshotPolicyResponse
+   * @summary Creates an automatic snapshot policy. WUYING WorkSpace automatically creates snapshots based on the time specified by the cron expression in the automatic snapshot policy.
+   *
+   * @description You can call the operation to create an automatic snapshot policy based on a CRON expression. Then, the system automatically creates snapshots of a cloud desktop based on the policy.
+   *
+   * @param request CreateAutoSnapshotPolicyRequest
+   * @return CreateAutoSnapshotPolicyResponse
    */
   async createAutoSnapshotPolicy(request: CreateAutoSnapshotPolicyRequest): Promise<CreateAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24205,11 +24893,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Cloud computer templates include system templates and custom templates. A system template is the default template provided by Alibaba Cloud. You can call this operation to create a custom template.
-    *
-    * @param request CreateBundleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBundleResponse
+   * @summary Creates a custom cloud computer template.
+   *
+   * @description Cloud computer templates include system templates and custom templates. A system template is the default template provided by Alibaba Cloud. You can call this operation to create a custom template.
+   *
+   * @param request CreateBundleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBundleResponse
    */
   async createBundleWithOptions(request: CreateBundleRequest, runtime: $Util.RuntimeOptions): Promise<CreateBundleResponse> {
     Util.validateModel(request);
@@ -24272,10 +24962,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Cloud computer templates include system templates and custom templates. A system template is the default template provided by Alibaba Cloud. You can call this operation to create a custom template.
-    *
-    * @param request CreateBundleRequest
-    * @return CreateBundleResponse
+   * @summary Creates a custom cloud computer template.
+   *
+   * @description Cloud computer templates include system templates and custom templates. A system template is the default template provided by Alibaba Cloud. You can call this operation to create a custom template.
+   *
+   * @param request CreateBundleRequest
+   * @return CreateBundleResponse
    */
   async createBundle(request: CreateBundleRequest): Promise<CreateBundleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24283,11 +24975,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
-    *
-    * @param request CreateCdsFileRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateCdsFileResponse
+   * @summary Uploads a file to a cloud disk.
+   *
+   * @description After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
+   *
+   * @param request CreateCdsFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCdsFileResponse
    */
   async createCdsFileWithOptions(request: CreateCdsFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdsFileResponse> {
     Util.validateModel(request);
@@ -24350,16 +25044,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
-    *
-    * @param request CreateCdsFileRequest
-    * @return CreateCdsFileResponse
+   * @summary Uploads a file to a cloud disk.
+   *
+   * @description After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
+   *
+   * @param request CreateCdsFileRequest
+   * @return CreateCdsFileResponse
    */
   async createCdsFile(request: CreateCdsFileRequest): Promise<CreateCdsFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCdsFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a file sharing task.
+   *
+   * @param request CreateCdsFileShareLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCdsFileShareLinkResponse
+   */
   async createCdsFileShareLinkWithOptions(request: CreateCdsFileShareLinkRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdsFileShareLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24436,11 +25139,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCdsFileShareLinkResponse>(await this.callApi(params, req, runtime), new CreateCdsFileShareLinkResponse({}));
   }
 
+  /**
+   * @summary Creates a file sharing task.
+   *
+   * @param request CreateCdsFileShareLinkRequest
+   * @return CreateCdsFileShareLinkResponse
+   */
   async createCdsFileShareLink(request: CreateCdsFileShareLinkRequest): Promise<CreateCdsFileShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCdsFileShareLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a cloud disk.
+   *
+   * @param request CreateCloudDriveServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCloudDriveServiceResponse
+   */
   async createCloudDriveServiceWithOptions(request: CreateCloudDriveServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudDriveServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24529,11 +25245,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCloudDriveServiceResponse>(await this.callApi(params, req, runtime), new CreateCloudDriveServiceResponse({}));
   }
 
+  /**
+   * @summary Creates a cloud disk.
+   *
+   * @param request CreateCloudDriveServiceRequest
+   * @return CreateCloudDriveServiceResponse
+   */
   async createCloudDriveService(request: CreateCloudDriveServiceRequest): Promise<CreateCloudDriveServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCloudDriveServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates the users of a cloud disk.
+   *
+   * @param request CreateCloudDriveUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCloudDriveUsersResponse
+   */
   async createCloudDriveUsersWithOptions(request: CreateCloudDriveUsersRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudDriveUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24570,19 +25299,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCloudDriveUsersResponse>(await this.callApi(params, req, runtime), new CreateCloudDriveUsersResponse({}));
   }
 
+  /**
+   * @summary Creates the users of a cloud disk.
+   *
+   * @param request CreateCloudDriveUsersRequest
+   * @return CreateCloudDriveUsersResponse
+   */
   async createCloudDriveUsers(request: CreateCloudDriveUsersRequest): Promise<CreateCloudDriveUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCloudDriveUsersWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation to create a desktop group, make sure that the following operations are complete:
-    * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](~~290959~~) of desktop groups.
-    * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
-    *
-    * @param request CreateDesktopGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDesktopGroupResponse
+   * @summary Creates a cloud computer pool (formerly desktop group).
+   *
+   * @description Before you call this operation to create a desktop group, make sure that the following operations are complete:
+   * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](https://help.aliyun.com/document_detail/290959.html) of desktop groups.
+   * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
+   *
+   * @param request CreateDesktopGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDesktopGroupResponse
    */
   async createDesktopGroupWithOptions(request: CreateDesktopGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDesktopGroupResponse> {
     Util.validateModel(request);
@@ -24727,6 +25464,10 @@ export default class Client extends OpenApi {
       query["StopDuration"] = request.stopDuration;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.volumeEncryptionEnabled)) {
       query["VolumeEncryptionEnabled"] = request.volumeEncryptionEnabled;
     }
@@ -24757,18 +25498,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation to create a desktop group, make sure that the following operations are complete:
-    * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](~~290959~~) of desktop groups.
-    * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
-    *
-    * @param request CreateDesktopGroupRequest
-    * @return CreateDesktopGroupResponse
+   * @summary Creates a cloud computer pool (formerly desktop group).
+   *
+   * @description Before you call this operation to create a desktop group, make sure that the following operations are complete:
+   * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](https://help.aliyun.com/document_detail/290959.html) of desktop groups.
+   * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
+   *
+   * @param request CreateDesktopGroupRequest
+   * @return CreateDesktopGroupResponse
    */
   async createDesktopGroup(request: CreateDesktopGroupRequest): Promise<CreateDesktopGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDesktopGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建桌面超卖组
+   *
+   * @param request CreateDesktopOversoldGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDesktopOversoldGroupResponse
+   */
   async createDesktopOversoldGroupWithOptions(request: CreateDesktopOversoldGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDesktopOversoldGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24853,23 +25603,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDesktopOversoldGroupResponse>(await this.callApi(params, req, runtime), new CreateDesktopOversoldGroupResponse({}));
   }
 
+  /**
+   * @summary 创建桌面超卖组
+   *
+   * @param request CreateDesktopOversoldGroupRequest
+   * @return CreateDesktopOversoldGroupResponse
+   */
   async createDesktopOversoldGroup(request: CreateDesktopOversoldGroupRequest): Promise<CreateDesktopOversoldGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDesktopOversoldGroupWithOptions(request, runtime);
   }
 
   /**
-    * Before you create cloud computers, complete the following preparations:
-    * *   An office network (formerly called workspace) and users are created. For more information, see:
-    *     *   Convenience office network: [CreateSimpleOfficeSite](~~215416~~) and [CreateUsers](~~437832~~).
-    *     *   Active Directory (AD) office network: [CreateADConnectorOfficeSite](~~215417~~) and [Create an AD user](~~188619~~).
-    * *   Make sure a cloud computer template exists. If no cloud computer template exists, call the [CreateBundle](~~188883~~) operation to create a template.
-    * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](~~188889~~) operation to create a policy.
-    * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
-    *
-    * @param request CreateDesktopsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDesktopsResponse
+   * @summary Creates cloud computers. If you specify end users when you create cloud computers, the cloud computers are assigned to the end users after the cloud computers are created.
+   *
+   * @description Before you create cloud computers, complete the following preparations:
+   * *   An office network (formerly called workspace) and users are created. For more information, see:
+   *     *   Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+   *     *   Active Directory (AD) office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create an AD user](https://help.aliyun.com/document_detail/188619.html).
+   * *   Make sure a cloud computer template exists. If no cloud computer template exists, call the [CreateBundle](https://help.aliyun.com/document_detail/188883.html) operation to create a template.
+   * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) operation to create a policy.
+   * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
+   *
+   * @param request CreateDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDesktopsResponse
    */
   async createDesktopsWithOptions(request: CreateDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<CreateDesktopsResponse> {
     Util.validateModel(request);
@@ -25004,22 +25762,31 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you create cloud computers, complete the following preparations:
-    * *   An office network (formerly called workspace) and users are created. For more information, see:
-    *     *   Convenience office network: [CreateSimpleOfficeSite](~~215416~~) and [CreateUsers](~~437832~~).
-    *     *   Active Directory (AD) office network: [CreateADConnectorOfficeSite](~~215417~~) and [Create an AD user](~~188619~~).
-    * *   Make sure a cloud computer template exists. If no cloud computer template exists, call the [CreateBundle](~~188883~~) operation to create a template.
-    * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](~~188889~~) operation to create a policy.
-    * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
-    *
-    * @param request CreateDesktopsRequest
-    * @return CreateDesktopsResponse
+   * @summary Creates cloud computers. If you specify end users when you create cloud computers, the cloud computers are assigned to the end users after the cloud computers are created.
+   *
+   * @description Before you create cloud computers, complete the following preparations:
+   * *   An office network (formerly called workspace) and users are created. For more information, see:
+   *     *   Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+   *     *   Active Directory (AD) office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create an AD user](https://help.aliyun.com/document_detail/188619.html).
+   * *   Make sure a cloud computer template exists. If no cloud computer template exists, call the [CreateBundle](https://help.aliyun.com/document_detail/188883.html) operation to create a template.
+   * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) operation to create a policy.
+   * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
+   *
+   * @param request CreateDesktopsRequest
+   * @return CreateDesktopsResponse
    */
   async createDesktops(request: CreateDesktopsRequest): Promise<CreateDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDesktopsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the disk encryption feature and adds the service-linked role that is encrypted by Cloud Drive Service to a Resource Access Management (RAM) user.
+   *
+   * @param request CreateDiskEncryptionServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDiskEncryptionServiceResponse
+   */
   async createDiskEncryptionServiceWithOptions(request: CreateDiskEncryptionServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskEncryptionServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25044,11 +25811,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDiskEncryptionServiceResponse>(await this.callApi(params, req, runtime), new CreateDiskEncryptionServiceResponse({}));
   }
 
+  /**
+   * @summary Enables the disk encryption feature and adds the service-linked role that is encrypted by Cloud Drive Service to a Resource Access Management (RAM) user.
+   *
+   * @param request CreateDiskEncryptionServiceRequest
+   * @return CreateDiskEncryptionServiceResponse
+   */
   async createDiskEncryptionService(request: CreateDiskEncryptionServiceRequest): Promise<CreateDiskEncryptionServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDiskEncryptionServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a custom image based on a deployed cloud computer. Then, you can use the custom image to create cloud computers that have the same configurations. This prevents the repeated settings when you create cloud computers.
+   *
+   * @param request CreateImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateImageResponse
+   */
   async createImageWithOptions(request: CreateImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25105,11 +25885,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImageResponse>(await this.callApi(params, req, runtime), new CreateImageResponse({}));
   }
 
+  /**
+   * @summary Creates a custom image based on a deployed cloud computer. Then, you can use the custom image to create cloud computers that have the same configurations. This prevents the repeated settings when you create cloud computers.
+   *
+   * @param request CreateImageRequest
+   * @return CreateImageResponse
+   */
   async createImage(request: CreateImageRequest): Promise<CreateImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateNASFileSystemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNASFileSystemResponse
+   */
   async createNASFileSystemWithOptions(request: CreateNASFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<CreateNASFileSystemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25154,11 +25945,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNASFileSystemResponse>(await this.callApi(params, req, runtime), new CreateNASFileSystemResponse({}));
   }
 
+  /**
+   * @param request CreateNASFileSystemRequest
+   * @return CreateNASFileSystemResponse
+   */
   async createNASFileSystem(request: CreateNASFileSystemRequest): Promise<CreateNASFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNASFileSystemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a premium bandwidth plan for an office network.
+   *
+   * @param request CreateNetworkPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNetworkPackageResponse
+   */
   async createNetworkPackageWithOptions(request: CreateNetworkPackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25219,17 +26021,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNetworkPackageResponse>(await this.callApi(params, req, runtime), new CreateNetworkPackageResponse({}));
   }
 
+  /**
+   * @summary Creates a premium bandwidth plan for an office network.
+   *
+   * @param request CreateNetworkPackageRequest
+   * @return CreateNetworkPackageResponse
+   */
   async createNetworkPackage(request: CreateNetworkPackageRequest): Promise<CreateNetworkPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkPackageWithOptions(request, runtime);
   }
 
   /**
-    * A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](~~189345~~).
-    *
-    * @param request CreatePolicyGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreatePolicyGroupResponse
+   * @summary Creates a policy.
+   *
+   * @description A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+   *
+   * @param request CreatePolicyGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePolicyGroupResponse
    */
   async createPolicyGroupWithOptions(request: CreatePolicyGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyGroupResponse> {
     Util.validateModel(request);
@@ -25300,6 +26110,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.localDrive)) {
       query["LocalDrive"] = request.localDrive;
+    }
+
+    if (!Util.isUnset(request.maxReconnectTime)) {
+      query["MaxReconnectTime"] = request.maxReconnectTime;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -25464,10 +26278,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](~~189345~~).
-    *
-    * @param request CreatePolicyGroupRequest
-    * @return CreatePolicyGroupResponse
+   * @summary Creates a policy.
+   *
+   * @description A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+   *
+   * @param request CreatePolicyGroupRequest
+   * @return CreatePolicyGroupResponse
    */
   async createPolicyGroup(request: CreatePolicyGroupRequest): Promise<CreatePolicyGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25475,13 +26291,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you create a RAM directory, complete the following preparations:
-    * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by WUYING Workspace.
-    * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by WUYING Workspace. You can call the [DescribeZones](~~196648~~) operation to obtain the most recent zone list for a region supported by WUYING Workspace.
-    *
-    * @param request CreateRAMDirectoryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateRAMDirectoryResponse
+   * @summary Creates a Resource Access Management (RAM) directory.
+   *
+   * @description Before you create a RAM directory, complete the following preparations:
+   * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by Elastic Desktop Service.
+   * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by Elastic Desktop Service. You can call the [DescribeZones](https://help.aliyun.com/document_detail/196648.html) operation to obtain the most recent zone list for a region supported by Elastic Desktop Service
+   *
+   * @param request CreateRAMDirectoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRAMDirectoryResponse
    */
   async createRAMDirectoryWithOptions(request: CreateRAMDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateRAMDirectoryResponse> {
     Util.validateModel(request);
@@ -25528,18 +26346,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you create a RAM directory, complete the following preparations:
-    * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by WUYING Workspace.
-    * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by WUYING Workspace. You can call the [DescribeZones](~~196648~~) operation to obtain the most recent zone list for a region supported by WUYING Workspace.
-    *
-    * @param request CreateRAMDirectoryRequest
-    * @return CreateRAMDirectoryResponse
+   * @summary Creates a Resource Access Management (RAM) directory.
+   *
+   * @description Before you create a RAM directory, complete the following preparations:
+   * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by Elastic Desktop Service.
+   * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by Elastic Desktop Service. You can call the [DescribeZones](https://help.aliyun.com/document_detail/196648.html) operation to obtain the most recent zone list for a region supported by Elastic Desktop Service
+   *
+   * @param request CreateRAMDirectoryRequest
+   * @return CreateRAMDirectoryResponse
    */
   async createRAMDirectory(request: CreateRAMDirectoryRequest): Promise<CreateRAMDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRAMDirectoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an office network of the convenience account type. Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+   *
+   * @param request CreateSimpleOfficeSiteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSimpleOfficeSiteResponse
+   */
   async createSimpleOfficeSiteWithOptions(request: CreateSimpleOfficeSiteRequest, runtime: $Util.RuntimeOptions): Promise<CreateSimpleOfficeSiteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25616,17 +26443,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSimpleOfficeSiteResponse>(await this.callApi(params, req, runtime), new CreateSimpleOfficeSiteResponse({}));
   }
 
+  /**
+   * @summary Creates an office network of the convenience account type. Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+   *
+   * @param request CreateSimpleOfficeSiteRequest
+   * @return CreateSimpleOfficeSiteResponse
+   */
   async createSimpleOfficeSite(request: CreateSimpleOfficeSiteRequest): Promise<CreateSimpleOfficeSiteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSimpleOfficeSiteWithOptions(request, runtime);
   }
 
   /**
-    * The cloud computer must be in the **Running** or **Stopped** state.
-    *
-    * @param request CreateSnapshotRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateSnapshotResponse
+   * @summary Create a snapshot for a disk of a cloud computer to back up or restore the data on the disk.
+   *
+   * @description The cloud computer must be in the **Running** or **Stopped** state.
+   *
+   * @param request CreateSnapshotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSnapshotResponse
    */
   async createSnapshotWithOptions(request: CreateSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
     Util.validateModel(request);
@@ -25669,16 +26504,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud computer must be in the **Running** or **Stopped** state.
-    *
-    * @param request CreateSnapshotRequest
-    * @return CreateSnapshotResponse
+   * @summary Create a snapshot for a disk of a cloud computer to back up or restore the data on the disk.
+   *
+   * @description The cloud computer must be in the **Running** or **Stopped** state.
+   *
+   * @param request CreateSnapshotRequest
+   * @return CreateSnapshotResponse
    */
   async createSnapshot(request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSnapshotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an automatic snapshot policy.
+   *
+   * @param request DeleteAutoSnapshotPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAutoSnapshotPolicyResponse
+   */
   async deleteAutoSnapshotPolicyWithOptions(request: DeleteAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25707,11 +26551,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new DeleteAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+   * @summary Deletes an automatic snapshot policy.
+   *
+   * @param request DeleteAutoSnapshotPolicyRequest
+   * @return DeleteAutoSnapshotPolicyResponse
+   */
   async deleteAutoSnapshotPolicy(request: DeleteAutoSnapshotPolicyRequest): Promise<DeleteAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes custom cloud computer templates.
+   *
+   * @param request DeleteBundlesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBundlesResponse
+   */
   async deleteBundlesWithOptions(request: DeleteBundlesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBundlesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25740,11 +26597,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBundlesResponse>(await this.callApi(params, req, runtime), new DeleteBundlesResponse({}));
   }
 
+  /**
+   * @summary Deletes custom cloud computer templates.
+   *
+   * @param request DeleteBundlesRequest
+   * @return DeleteBundlesResponse
+   */
   async deleteBundles(request: DeleteBundlesRequest): Promise<DeleteBundlesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBundlesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a file from a cloud disk in Cloud Drive Service.
+   *
+   * @param request DeleteCdsFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCdsFileResponse
+   */
   async deleteCdsFileWithOptions(request: DeleteCdsFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCdsFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25785,11 +26655,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCdsFileResponse>(await this.callApi(params, req, runtime), new DeleteCdsFileResponse({}));
   }
 
+  /**
+   * @summary Deletes a file from a cloud disk in Cloud Drive Service.
+   *
+   * @param request DeleteCdsFileRequest
+   * @return DeleteCdsFileResponse
+   */
   async deleteCdsFile(request: DeleteCdsFileRequest): Promise<DeleteCdsFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCdsFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes team spaces.
+   *
+   * @param request DeleteCloudDriveGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCloudDriveGroupsResponse
+   */
   async deleteCloudDriveGroupsWithOptions(request: DeleteCloudDriveGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCloudDriveGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25822,11 +26705,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCloudDriveGroupsResponse>(await this.callApi(params, req, runtime), new DeleteCloudDriveGroupsResponse({}));
   }
 
+  /**
+   * @summary Deletes team spaces.
+   *
+   * @param request DeleteCloudDriveGroupsRequest
+   * @return DeleteCloudDriveGroupsResponse
+   */
   async deleteCloudDriveGroups(request: DeleteCloudDriveGroupsRequest): Promise<DeleteCloudDriveGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCloudDriveGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除无影网盘中的终端用户
+   *
+   * @param request DeleteCloudDriveUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCloudDriveUsersResponse
+   */
   async deleteCloudDriveUsersWithOptions(request: DeleteCloudDriveUsersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCloudDriveUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25859,19 +26755,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCloudDriveUsersResponse>(await this.callApi(params, req, runtime), new DeleteCloudDriveUsersResponse({}));
   }
 
+  /**
+   * @summary 删除无影网盘中的终端用户
+   *
+   * @param request DeleteCloudDriveUsersRequest
+   * @return DeleteCloudDriveUsersResponse
+   */
   async deleteCloudDriveUsers(request: DeleteCloudDriveUsersRequest): Promise<DeleteCloudDriveUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCloudDriveUsersWithOptions(request, runtime);
   }
 
   /**
-    * *   Before you delete a desktop group, make sure that cloud desktops in the desktop group are not connected and no users are authorized to use the cloud desktops.
-    * *   You cannot delete a subscription desktop group when cloud desktops in the group are in valid period.
-    * *   If you delete a pay-as-you-go desktop group, cloud desktops in the group are deleted.
-    *
-    * @param request DeleteDesktopGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDesktopGroupResponse
+   * @summary Releases a desktop group.
+   *
+   * @description *   Before you delete a desktop group, make sure that cloud desktops in the desktop group are not connected and no users are authorized to use the cloud desktops.
+   * *   You cannot delete a subscription desktop group when cloud desktops in the group are in valid period.
+   * *   If you delete a pay-as-you-go desktop group, cloud desktops in the group are deleted.
+   *
+   * @param request DeleteDesktopGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDesktopGroupResponse
    */
   async deleteDesktopGroupWithOptions(request: DeleteDesktopGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDesktopGroupResponse> {
     Util.validateModel(request);
@@ -25902,18 +26806,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you delete a desktop group, make sure that cloud desktops in the desktop group are not connected and no users are authorized to use the cloud desktops.
-    * *   You cannot delete a subscription desktop group when cloud desktops in the group are in valid period.
-    * *   If you delete a pay-as-you-go desktop group, cloud desktops in the group are deleted.
-    *
-    * @param request DeleteDesktopGroupRequest
-    * @return DeleteDesktopGroupResponse
+   * @summary Releases a desktop group.
+   *
+   * @description *   Before you delete a desktop group, make sure that cloud desktops in the desktop group are not connected and no users are authorized to use the cloud desktops.
+   * *   You cannot delete a subscription desktop group when cloud desktops in the group are in valid period.
+   * *   If you delete a pay-as-you-go desktop group, cloud desktops in the group are deleted.
+   *
+   * @param request DeleteDesktopGroupRequest
+   * @return DeleteDesktopGroupResponse
    */
   async deleteDesktopGroup(request: DeleteDesktopGroupRequest): Promise<DeleteDesktopGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDesktopGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Releases pay-as-you-go cloud computers or expired subscription cloud computers.
+   *
+   * @param request DeleteDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDesktopsResponse
+   */
   async deleteDesktopsWithOptions(request: DeleteDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDesktopsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25942,17 +26855,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDesktopsResponse>(await this.callApi(params, req, runtime), new DeleteDesktopsResponse({}));
   }
 
+  /**
+   * @summary Releases pay-as-you-go cloud computers or expired subscription cloud computers.
+   *
+   * @param request DeleteDesktopsRequest
+   * @return DeleteDesktopsResponse
+   */
   async deleteDesktops(request: DeleteDesktopsRequest): Promise<DeleteDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDesktopsWithOptions(request, runtime);
   }
 
   /**
-    * You can call the operation to manage client devices.
-    *
-    * @param request DeleteDevicesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDevicesResponse
+   * @summary Deletes trusted devices.
+   *
+   * @description You can call the operation to manage client devices.
+   *
+   * @param request DeleteDevicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDevicesResponse
    */
   async deleteDevicesWithOptions(request: DeleteDevicesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDevicesResponse> {
     Util.validateModel(request);
@@ -25991,10 +26912,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the operation to manage client devices.
-    *
-    * @param request DeleteDevicesRequest
-    * @return DeleteDevicesResponse
+   * @summary Deletes trusted devices.
+   *
+   * @description You can call the operation to manage client devices.
+   *
+   * @param request DeleteDevicesRequest
+   * @return DeleteDevicesResponse
    */
   async deleteDevices(request: DeleteDevicesRequest): Promise<DeleteDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26002,11 +26925,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot delete a directory that has a cloud computer or is used by a cloud computer.
-    *
-    * @param request DeleteDirectoriesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDirectoriesResponse
+   * @summary Deletes one or more directories.
+   *
+   * @description You cannot delete a directory that has a cloud computer or is used by a cloud computer.
+   *
+   * @param request DeleteDirectoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDirectoriesResponse
    */
   async deleteDirectoriesWithOptions(request: DeleteDirectoriesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDirectoriesResponse> {
     Util.validateModel(request);
@@ -26037,16 +26962,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot delete a directory that has a cloud computer or is used by a cloud computer.
-    *
-    * @param request DeleteDirectoriesRequest
-    * @return DeleteDirectoriesResponse
+   * @summary Deletes one or more directories.
+   *
+   * @description You cannot delete a directory that has a cloud computer or is used by a cloud computer.
+   *
+   * @param request DeleteDirectoriesRequest
+   * @return DeleteDirectoriesResponse
    */
   async deleteDirectories(request: DeleteDirectoriesRequest): Promise<DeleteDirectoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDirectoriesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteEduRoomRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEduRoomResponse
+   */
   async deleteEduRoomWithOptions(request: DeleteEduRoomRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEduRoomResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26075,18 +27007,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEduRoomResponse>(await this.callApi(params, req, runtime), new DeleteEduRoomResponse({}));
   }
 
+  /**
+   * @param request DeleteEduRoomRequest
+   * @return DeleteEduRoomResponse
+   */
   async deleteEduRoom(request: DeleteEduRoomRequest): Promise<DeleteEduRoomResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEduRoomWithOptions(request, runtime);
   }
 
   /**
-    * *   Images include system images and custom images. System images cannot be deleted.
-    * *   If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](~~436972~~) operation to delete the cloud computer template before you delete the image.
-    *
-    * @param request DeleteImagesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteImagesResponse
+   * @summary Deletes one or more custom images.
+   *
+   * @description *   Images include system images and custom images. System images cannot be deleted.
+   * *   If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](https://help.aliyun.com/document_detail/436972.html) operation to delete the cloud computer template before you delete the image.
+   *
+   * @param request DeleteImagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteImagesResponse
    */
   async deleteImagesWithOptions(request: DeleteImagesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImagesResponse> {
     Util.validateModel(request);
@@ -26121,11 +27059,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Images include system images and custom images. System images cannot be deleted.
-    * *   If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](~~436972~~) operation to delete the cloud computer template before you delete the image.
-    *
-    * @param request DeleteImagesRequest
-    * @return DeleteImagesResponse
+   * @summary Deletes one or more custom images.
+   *
+   * @description *   Images include system images and custom images. System images cannot be deleted.
+   * *   If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](https://help.aliyun.com/document_detail/436972.html) operation to delete the cloud computer template before you delete the image.
+   *
+   * @param request DeleteImagesRequest
+   * @return DeleteImagesResponse
    */
   async deleteImages(request: DeleteImagesRequest): Promise<DeleteImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26133,12 +27073,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
-    * ><warning>If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.></warning>
-    *
-    * @param request DeleteNASFileSystemsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteNASFileSystemsResponse
+   * @summary Deletes NAS file systems.
+   *
+   * @description Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
+   * >Warning: If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
+   *
+   * @param request DeleteNASFileSystemsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNASFileSystemsResponse
    */
   async deleteNASFileSystemsWithOptions(request: DeleteNASFileSystemsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNASFileSystemsResponse> {
     Util.validateModel(request);
@@ -26169,17 +27111,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
-    * ><warning>If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.></warning>
-    *
-    * @param request DeleteNASFileSystemsRequest
-    * @return DeleteNASFileSystemsResponse
+   * @summary Deletes NAS file systems.
+   *
+   * @description Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
+   * >Warning: If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
+   *
+   * @param request DeleteNASFileSystemsRequest
+   * @return DeleteNASFileSystemsResponse
    */
   async deleteNASFileSystems(request: DeleteNASFileSystemsRequest): Promise<DeleteNASFileSystemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNASFileSystemsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes one or more premium bandwidth plans.
+   *
+   * @param request DeleteNetworkPackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNetworkPackagesResponse
+   */
   async deleteNetworkPackagesWithOptions(request: DeleteNetworkPackagesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkPackagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26208,20 +27159,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkPackagesResponse>(await this.callApi(params, req, runtime), new DeleteNetworkPackagesResponse({}));
   }
 
+  /**
+   * @summary Deletes one or more premium bandwidth plans.
+   *
+   * @param request DeleteNetworkPackagesRequest
+   * @return DeleteNetworkPackagesResponse
+   */
   async deleteNetworkPackages(request: DeleteNetworkPackagesRequest): Promise<DeleteNetworkPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkPackagesWithOptions(request, runtime);
   }
 
   /**
-    * Before you delete an office network, make sure that the following operations are complete:
-    * *   All cloud computers in the office network are released.
-    * *   The data that you want to retain is backed up.
-    * >  Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
-    *
-    * @param request DeleteOfficeSitesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteOfficeSitesResponse
+   * @summary Deletes office networks (formerly workspaces).
+   *
+   * @description Before you delete an office network, make sure that the following operations are complete:
+   * *   All cloud computers in the office network are released.
+   * *   The data that you want to retain is backed up.
+   * >  Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
+   *
+   * @param request DeleteOfficeSitesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteOfficeSitesResponse
    */
   async deleteOfficeSitesWithOptions(request: DeleteOfficeSitesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOfficeSitesResponse> {
     Util.validateModel(request);
@@ -26252,19 +27211,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete an office network, make sure that the following operations are complete:
-    * *   All cloud computers in the office network are released.
-    * *   The data that you want to retain is backed up.
-    * >  Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
-    *
-    * @param request DeleteOfficeSitesRequest
-    * @return DeleteOfficeSitesResponse
+   * @summary Deletes office networks (formerly workspaces).
+   *
+   * @description Before you delete an office network, make sure that the following operations are complete:
+   * *   All cloud computers in the office network are released.
+   * *   The data that you want to retain is backed up.
+   * >  Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
+   *
+   * @param request DeleteOfficeSitesRequest
+   * @return DeleteOfficeSitesResponse
    */
   async deleteOfficeSites(request: DeleteOfficeSitesRequest): Promise<DeleteOfficeSitesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteOfficeSitesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes one or more custom policies.
+   *
+   * @param request DeletePolicyGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePolicyGroupsResponse
+   */
   async deletePolicyGroupsWithOptions(request: DeletePolicyGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26293,17 +27261,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePolicyGroupsResponse>(await this.callApi(params, req, runtime), new DeletePolicyGroupsResponse({}));
   }
 
+  /**
+   * @summary Deletes one or more custom policies.
+   *
+   * @param request DeletePolicyGroupsRequest
+   * @return DeletePolicyGroupsResponse
+   */
   async deletePolicyGroups(request: DeletePolicyGroupsRequest): Promise<DeletePolicyGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePolicyGroupsWithOptions(request, runtime);
   }
 
   /**
-    * If the IDs of the snapshots that you specify do not exist, requests are ignored.
-    *
-    * @param request DeleteSnapshotRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteSnapshotResponse
+   * @summary Deletes one or more snapshots.
+   *
+   * @description If the IDs of the snapshots that you specify do not exist, requests are ignored.
+   *
+   * @param request DeleteSnapshotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSnapshotResponse
    */
   async deleteSnapshotWithOptions(request: DeleteSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotResponse> {
     Util.validateModel(request);
@@ -26334,10 +27310,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the IDs of the snapshots that you specify do not exist, requests are ignored.
-    *
-    * @param request DeleteSnapshotRequest
-    * @return DeleteSnapshotResponse
+   * @summary Deletes one or more snapshots.
+   *
+   * @description If the IDs of the snapshots that you specify do not exist, requests are ignored.
+   *
+   * @param request DeleteSnapshotRequest
+   * @return DeleteSnapshotResponse
    */
   async deleteSnapshot(request: DeleteSnapshotRequest): Promise<DeleteSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26345,11 +27323,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
-    *
-    * @param request DeleteVirtualMFADeviceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVirtualMFADeviceResponse
+   * @summary Delete virtual multi-factor authentication (MFA) devices.
+   *
+   * @description If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
+   *
+   * @param request DeleteVirtualMFADeviceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVirtualMFADeviceResponse
    */
   async deleteVirtualMFADeviceWithOptions(request: DeleteVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualMFADeviceResponse> {
     Util.validateModel(request);
@@ -26380,16 +27360,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
-    *
-    * @param request DeleteVirtualMFADeviceRequest
-    * @return DeleteVirtualMFADeviceResponse
+   * @summary Delete virtual multi-factor authentication (MFA) devices.
+   *
+   * @description If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
+   *
+   * @param request DeleteVirtualMFADeviceRequest
+   * @return DeleteVirtualMFADeviceResponse
    */
   async deleteVirtualMFADevice(request: DeleteVirtualMFADeviceRequest): Promise<DeleteVirtualMFADeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVirtualMFADeviceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an access control list (ACL) of an office network or a cloud computer.
+   *
+   * @param request DescribeAclEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAclEntriesResponse
+   */
   async describeAclEntriesWithOptions(request: DescribeAclEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAclEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26430,17 +27419,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAclEntriesResponse>(await this.callApi(params, req, runtime), new DescribeAclEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an access control list (ACL) of an office network or a cloud computer.
+   *
+   * @param request DescribeAclEntriesRequest
+   * @return DescribeAclEntriesResponse
+   */
   async describeAclEntries(request: DescribeAclEntriesRequest): Promise<DescribeAclEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAclEntriesWithOptions(request, runtime);
   }
 
   /**
-    * You can view an automatic snapshot policy that is associated with a cloud desktop in the Elastic Desktop Service (EDS) console. To view the automatic snapshot policy, you can go to the EDS console, choose Deployment > Snapshots in the left-side navigation pane, and then view an automatic snapshot policy on the Snapshots page.
-    *
-    * @param request DescribeAutoSnapshotPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAutoSnapshotPolicyResponse
+   * @summary Queries the automatic snapshot policy.
+   *
+   * @description You can view an automatic snapshot policy that is associated with a cloud desktop in the Elastic Desktop Service (EDS) console. To view the automatic snapshot policy, you can go to the EDS console, choose Deployment > Snapshots in the left-side navigation pane, and then view an automatic snapshot policy on the Snapshots page.
+   *
+   * @param request DescribeAutoSnapshotPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAutoSnapshotPolicyResponse
    */
   async describeAutoSnapshotPolicyWithOptions(request: DescribeAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
@@ -26483,16 +27480,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can view an automatic snapshot policy that is associated with a cloud desktop in the Elastic Desktop Service (EDS) console. To view the automatic snapshot policy, you can go to the EDS console, choose Deployment > Snapshots in the left-side navigation pane, and then view an automatic snapshot policy on the Snapshots page.
-    *
-    * @param request DescribeAutoSnapshotPolicyRequest
-    * @return DescribeAutoSnapshotPolicyResponse
+   * @summary Queries the automatic snapshot policy.
+   *
+   * @description You can view an automatic snapshot policy that is associated with a cloud desktop in the Elastic Desktop Service (EDS) console. To view the automatic snapshot policy, you can go to the EDS console, choose Deployment > Snapshots in the left-side navigation pane, and then view an automatic snapshot policy on the Snapshots page.
+   *
+   * @param request DescribeAutoSnapshotPolicyRequest
+   * @return DescribeAutoSnapshotPolicyResponse
    */
   async describeAutoSnapshotPolicy(request: DescribeAutoSnapshotPolicyRequest): Promise<DescribeAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of cloud computer templates.
+   *
+   * @param request DescribeBundlesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBundlesResponse
+   */
   async describeBundlesWithOptions(request: DescribeBundlesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBundlesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26593,11 +27599,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBundlesResponse>(await this.callApi(params, req, runtime), new DescribeBundlesResponse({}));
   }
 
+  /**
+   * @summary Queries the details of cloud computer templates.
+   *
+   * @param request DescribeBundlesRequest
+   * @return DescribeBundlesResponse
+   */
   async describeBundles(request: DescribeBundlesRequest): Promise<DescribeBundlesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBundlesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries file sharing links of a cloud disk in Cloud Drive Service.
+   *
+   * @param request DescribeCdsFileShareLinksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCdsFileShareLinksResponse
+   */
   async describeCdsFileShareLinksWithOptions(request: DescribeCdsFileShareLinksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdsFileShareLinksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26646,11 +27665,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCdsFileShareLinksResponse>(await this.callApi(params, req, runtime), new DescribeCdsFileShareLinksResponse({}));
   }
 
+  /**
+   * @summary Queries file sharing links of a cloud disk in Cloud Drive Service.
+   *
+   * @param request DescribeCdsFileShareLinksRequest
+   * @return DescribeCdsFileShareLinksResponse
+   */
   async describeCdsFileShareLinks(request: DescribeCdsFileShareLinksRequest): Promise<DescribeCdsFileShareLinksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCdsFileShareLinksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of all Cloud Enterprise Network (CEN) instances within an Alibaba Cloud account.
+   *
+   * @param request DescribeCensRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCensResponse
+   */
   async describeCensWithOptions(request: DescribeCensRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCensResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26683,17 +27715,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCensResponse>(await this.callApi(params, req, runtime), new DescribeCensResponse({}));
   }
 
+  /**
+   * @summary Queries the details of all Cloud Enterprise Network (CEN) instances within an Alibaba Cloud account.
+   *
+   * @param request DescribeCensRequest
+   * @return DescribeCensResponse
+   */
   async describeCens(request: DescribeCensRequest): Promise<DescribeCensResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCensWithOptions(request, runtime);
   }
 
   /**
-    * You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
-    *
-    * @param request DescribeClientEventsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClientEventsResponse
+   * @summary Queries the operation logs of end users. For example, the logs record the events that end users start and stop cloud desktops, and disconnect desktop sessions.
+   *
+   * @description You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
+   *
+   * @param request DescribeClientEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClientEventsResponse
    */
   async describeClientEventsWithOptions(request: DescribeClientEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClientEventsResponse> {
     Util.validateModel(request);
@@ -26772,16 +27812,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
-    *
-    * @param request DescribeClientEventsRequest
-    * @return DescribeClientEventsResponse
+   * @summary Queries the operation logs of end users. For example, the logs record the events that end users start and stop cloud desktops, and disconnect desktop sessions.
+   *
+   * @description You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
+   *
+   * @param request DescribeClientEventsRequest
+   * @return DescribeClientEventsResponse
    */
   async describeClientEvents(request: DescribeClientEventsRequest): Promise<DescribeClientEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClientEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of authorized team spaces.
+   *
+   * @param request DescribeCloudDriveGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudDriveGroupsResponse
+   */
   async describeCloudDriveGroupsWithOptions(request: DescribeCloudDriveGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudDriveGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26850,11 +27899,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCloudDriveGroupsResponse>(await this.callApi(params, req, runtime), new DescribeCloudDriveGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of authorized team spaces.
+   *
+   * @param request DescribeCloudDriveGroupsRequest
+   * @return DescribeCloudDriveGroupsResponse
+   */
   async describeCloudDriveGroups(request: DescribeCloudDriveGroupsRequest): Promise<DescribeCloudDriveGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudDriveGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询pds用户权限
+   *
+   * @param request DescribeCloudDrivePermissionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudDrivePermissionsResponse
+   */
   async describeCloudDrivePermissionsWithOptions(request: DescribeCloudDrivePermissionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudDrivePermissionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26883,11 +27945,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCloudDrivePermissionsResponse>(await this.callApi(params, req, runtime), new DescribeCloudDrivePermissionsResponse({}));
   }
 
+  /**
+   * @summary 查询pds用户权限
+   *
+   * @param request DescribeCloudDrivePermissionsRequest
+   * @return DescribeCloudDrivePermissionsResponse
+   */
   async describeCloudDrivePermissions(request: DescribeCloudDrivePermissionsRequest): Promise<DescribeCloudDrivePermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudDrivePermissionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询所有无影网盘终端用户的信息
+   *
+   * @param request DescribeCloudDriveUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudDriveUsersResponse
+   */
   async describeCloudDriveUsersWithOptions(request: DescribeCloudDriveUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudDriveUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26928,11 +28003,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCloudDriveUsersResponse>(await this.callApi(params, req, runtime), new DescribeCloudDriveUsersResponse({}));
   }
 
+  /**
+   * @summary 查询所有无影网盘终端用户的信息
+   *
+   * @param request DescribeCloudDriveUsersRequest
+   * @return DescribeCloudDriveUsersResponse
+   */
   async describeCloudDriveUsers(request: DescribeCloudDriveUsersRequest): Promise<DescribeCloudDriveUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudDriveUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeCustomizedListHeadersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustomizedListHeadersResponse
+   */
   async describeCustomizedListHeadersWithOptions(request: DescribeCustomizedListHeadersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomizedListHeadersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26965,11 +28051,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustomizedListHeadersResponse>(await this.callApi(params, req, runtime), new DescribeCustomizedListHeadersResponse({}));
   }
 
+  /**
+   * @param request DescribeCustomizedListHeadersRequest
+   * @return DescribeCustomizedListHeadersResponse
+   */
   async describeCustomizedListHeaders(request: DescribeCustomizedListHeadersRequest): Promise<DescribeCustomizedListHeadersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomizedListHeadersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries sessions in a desktop group.
+   *
+   * @param request DescribeDesktopGroupSessionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDesktopGroupSessionsResponse
+   */
   async describeDesktopGroupSessionsWithOptions(request: DescribeDesktopGroupSessionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopGroupSessionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27022,11 +28119,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDesktopGroupSessionsResponse>(await this.callApi(params, req, runtime), new DescribeDesktopGroupSessionsResponse({}));
   }
 
+  /**
+   * @summary Queries sessions in a desktop group.
+   *
+   * @param request DescribeDesktopGroupSessionsRequest
+   * @return DescribeDesktopGroupSessionsResponse
+   */
   async describeDesktopGroupSessions(request: DescribeDesktopGroupSessionsRequest): Promise<DescribeDesktopGroupSessionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDesktopGroupSessionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of desktop groups.
+   *
+   * @param request DescribeDesktopGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDesktopGroupsResponse
+   */
   async describeDesktopGroupsWithOptions(request: DescribeDesktopGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27094,6 +28204,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -27111,11 +28225,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDesktopGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDesktopGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of desktop groups.
+   *
+   * @param request DescribeDesktopGroupsRequest
+   * @return DescribeDesktopGroupsResponse
+   */
   async describeDesktopGroups(request: DescribeDesktopGroupsRequest): Promise<DescribeDesktopGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDesktopGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the basic information about cloud computers.
+   *
+   * @param request DescribeDesktopInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDesktopInfoResponse
+   */
   async describeDesktopInfoWithOptions(request: DescribeDesktopInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27144,11 +28271,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDesktopInfoResponse>(await this.callApi(params, req, runtime), new DescribeDesktopInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the basic information about cloud computers.
+   *
+   * @param request DescribeDesktopInfoRequest
+   * @return DescribeDesktopInfoResponse
+   */
   async describeDesktopInfo(request: DescribeDesktopInfoRequest): Promise<DescribeDesktopInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDesktopInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询超卖组
+   *
+   * @param request DescribeDesktopOversoldGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDesktopOversoldGroupResponse
+   */
   async describeDesktopOversoldGroupWithOptions(request: DescribeDesktopOversoldGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopOversoldGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27181,11 +28321,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDesktopOversoldGroupResponse>(await this.callApi(params, req, runtime), new DescribeDesktopOversoldGroupResponse({}));
   }
 
+  /**
+   * @summary 查询超卖组
+   *
+   * @param request DescribeDesktopOversoldGroupRequest
+   * @return DescribeDesktopOversoldGroupResponse
+   */
   async describeDesktopOversoldGroup(request: DescribeDesktopOversoldGroupRequest): Promise<DescribeDesktopOversoldGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDesktopOversoldGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询超卖组用户
+   *
+   * @param request DescribeDesktopOversoldUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDesktopOversoldUserResponse
+   */
   async describeDesktopOversoldUserWithOptions(request: DescribeDesktopOversoldUserRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopOversoldUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27234,11 +28387,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDesktopOversoldUserResponse>(await this.callApi(params, req, runtime), new DescribeDesktopOversoldUserResponse({}));
   }
 
+  /**
+   * @summary 查询超卖组用户
+   *
+   * @param request DescribeDesktopOversoldUserRequest
+   * @return DescribeDesktopOversoldUserResponse
+   */
   async describeDesktopOversoldUser(request: DescribeDesktopOversoldUserRequest): Promise<DescribeDesktopOversoldUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDesktopOversoldUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询超卖用户组
+   *
+   * @param request DescribeDesktopOversoldUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDesktopOversoldUserGroupResponse
+   */
   async describeDesktopOversoldUserGroupWithOptions(request: DescribeDesktopOversoldUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopOversoldUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27275,21 +28441,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDesktopOversoldUserGroupResponse>(await this.callApi(params, req, runtime), new DescribeDesktopOversoldUserGroupResponse({}));
   }
 
+  /**
+   * @summary 查询超卖用户组
+   *
+   * @param request DescribeDesktopOversoldUserGroupRequest
+   * @return DescribeDesktopOversoldUserGroupResponse
+   */
   async describeDesktopOversoldUserGroup(request: DescribeDesktopOversoldUserGroupRequest): Promise<DescribeDesktopOversoldUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDesktopOversoldUserGroupWithOptions(request, runtime);
   }
 
   /**
-    * You can query data within the last 30 days.
-    *
-    * @param request DescribeDesktopSessionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDesktopSessionsResponse
+   * @summary Queries the detailed session information of a cloud computer.
+   *
+   * @description You can only query data within the last 30 days.
+   *
+   * @param request DescribeDesktopSessionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDesktopSessionsResponse
    */
   async describeDesktopSessionsWithOptions(request: DescribeDesktopSessionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopSessionsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.checkOsSession)) {
+      query["CheckOsSession"] = request.checkOsSession;
+    }
+
     if (!Util.isUnset(request.desktopId)) {
       query["DesktopId"] = request.desktopId;
     }
@@ -27330,6 +28508,10 @@ export default class Client extends OpenApi {
       query["StartTime"] = request.startTime;
     }
 
+    if (!Util.isUnset(request.subPayType)) {
+      query["SubPayType"] = request.subPayType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -27348,10 +28530,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can query data within the last 30 days.
-    *
-    * @param request DescribeDesktopSessionsRequest
-    * @return DescribeDesktopSessionsResponse
+   * @summary Queries the detailed session information of a cloud computer.
+   *
+   * @description You can only query data within the last 30 days.
+   *
+   * @param request DescribeDesktopSessionsRequest
+   * @return DescribeDesktopSessionsResponse
    */
   async describeDesktopSessions(request: DescribeDesktopSessionsRequest): Promise<DescribeDesktopSessionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27359,11 +28543,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
-    *
-    * @param request DescribeDesktopTypesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDesktopTypesResponse
+   * @summary Queries the instance types of cloud computers.
+   *
+   * @description When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
+   *
+   * @param request DescribeDesktopTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDesktopTypesResponse
    */
   async describeDesktopTypesWithOptions(request: DescribeDesktopTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopTypesResponse> {
     Util.validateModel(request);
@@ -27426,16 +28612,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
-    *
-    * @param request DescribeDesktopTypesRequest
-    * @return DescribeDesktopTypesResponse
+   * @summary Queries the instance types of cloud computers.
+   *
+   * @description When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
+   *
+   * @param request DescribeDesktopTypesRequest
+   * @return DescribeDesktopTypesResponse
    */
   async describeDesktopTypes(request: DescribeDesktopTypesRequest): Promise<DescribeDesktopTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDesktopTypesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Query the details of the cloud desktop.
+   *
+   * @param request DescribeDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDesktopsResponse
+   */
   async describeDesktopsWithOptions(request: DescribeDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27483,8 +28678,16 @@ export default class Client extends OpenApi {
       query["ExpiredTime"] = request.expiredTime;
     }
 
+    if (!Util.isUnset(request.fillResourceGroup)) {
+      query["FillResourceGroup"] = request.fillResourceGroup;
+    }
+
     if (!Util.isUnset(request.filterDesktopGroup)) {
       query["FilterDesktopGroup"] = request.filterDesktopGroup;
+    }
+
+    if (!Util.isUnset(request.gpuInstanceGroupId)) {
+      query["GpuInstanceGroupId"] = request.gpuInstanceGroupId;
     }
 
     if (!Util.isUnset(request.groupId)) {
@@ -27531,6 +28734,10 @@ export default class Client extends OpenApi {
       query["ProtocolType"] = request.protocolType;
     }
 
+    if (!Util.isUnset(request.qosRuleId)) {
+      query["QosRuleId"] = request.qosRuleId;
+    }
+
     if (!Util.isUnset(request.queryFotaUpdate)) {
       query["QueryFotaUpdate"] = request.queryFotaUpdate;
     }
@@ -27539,8 +28746,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.snapshotPolicyId)) {
       query["SnapshotPolicyId"] = request.snapshotPolicyId;
+    }
+
+    if (!Util.isUnset(request.subPayType)) {
+      query["SubPayType"] = request.subPayType;
     }
 
     if (!Util.isUnset(request.tag)) {
@@ -27568,11 +28783,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDesktopsResponse>(await this.callApi(params, req, runtime), new DescribeDesktopsResponse({}));
   }
 
+  /**
+   * @summary Query the details of the cloud desktop.
+   *
+   * @param request DescribeDesktopsRequest
+   * @return DescribeDesktopsResponse
+   */
   async describeDesktops(request: DescribeDesktopsRequest): Promise<DescribeDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDesktopsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the cloud computers in a cloud computer pool by billing method.
+   *
+   * @param request DescribeDesktopsInGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDesktopsInGroupResponse
+   */
   async describeDesktopsInGroupWithOptions(request: DescribeDesktopsInGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopsInGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27617,11 +28845,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDesktopsInGroupResponse>(await this.callApi(params, req, runtime), new DescribeDesktopsInGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the cloud computers in a cloud computer pool by billing method.
+   *
+   * @param request DescribeDesktopsInGroupRequest
+   * @return DescribeDesktopsInGroupResponse
+   */
   async describeDesktopsInGroup(request: DescribeDesktopsInGroupRequest): Promise<DescribeDesktopsInGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDesktopsInGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of trusted devices.
+   *
+   * @param request DescribeDevicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDevicesResponse
+   */
   async describeDevicesWithOptions(request: DescribeDevicesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDevicesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27678,11 +28919,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDevicesResponse>(await this.callApi(params, req, runtime), new DescribeDevicesResponse({}));
   }
 
+  /**
+   * @summary Queries the list of trusted devices.
+   *
+   * @param request DescribeDevicesRequest
+   * @return DescribeDevicesResponse
+   */
   async describeDevices(request: DescribeDevicesRequest): Promise<DescribeDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDevicesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of directories.
+   *
+   * @param request DescribeDirectoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDirectoriesResponse
+   */
   async describeDirectoriesWithOptions(request: DescribeDirectoriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDirectoriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27731,11 +28985,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDirectoriesResponse>(await this.callApi(params, req, runtime), new DescribeDirectoriesResponse({}));
   }
 
+  /**
+   * @summary Queries the details of directories.
+   *
+   * @param request DescribeDirectoriesRequest
+   * @return DescribeDirectoriesResponse
+   */
   async describeDirectories(request: DescribeDirectoriesRequest): Promise<DescribeDirectoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDirectoriesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeFlowMetricRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFlowMetricResponse
+   */
   async describeFlowMetricWithOptions(request: DescribeFlowMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27784,17 +29049,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFlowMetricResponse>(await this.callApi(params, req, runtime), new DescribeFlowMetricResponse({}));
   }
 
+  /**
+   * @param request DescribeFlowMetricRequest
+   * @return DescribeFlowMetricResponse
+   */
   async describeFlowMetric(request: DescribeFlowMetricRequest): Promise<DescribeFlowMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFlowMetricWithOptions(request, runtime);
   }
 
   /**
-    * > You can query only the traffic data in the last 90 days.
-    *
-    * @param request DescribeFlowStatisticRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeFlowStatisticResponse
+   * @summary Queries cloud computer-level traffic statistics of a single office network.
+   *
+   * @description > You can query only the traffic data in the last 90 days.
+   *
+   * @param request DescribeFlowStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFlowStatisticResponse
    */
   async describeFlowStatisticWithOptions(request: DescribeFlowStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowStatisticResponse> {
     Util.validateModel(request);
@@ -27841,16 +29112,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can query only the traffic data in the last 90 days.
-    *
-    * @param request DescribeFlowStatisticRequest
-    * @return DescribeFlowStatisticResponse
+   * @summary Queries cloud computer-level traffic statistics of a single office network.
+   *
+   * @description > You can query only the traffic data in the last 90 days.
+   *
+   * @param request DescribeFlowStatisticRequest
+   * @return DescribeFlowStatisticResponse
    */
   async describeFlowStatistic(request: DescribeFlowStatisticRequest): Promise<DescribeFlowStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFlowStatisticWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about the cloud computers whose images can be and are pending to be updated to the specified version.
+   *
+   * @param request DescribeFotaPendingDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFotaPendingDesktopsResponse
+   */
   async describeFotaPendingDesktopsWithOptions(request: DescribeFotaPendingDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFotaPendingDesktopsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -27871,11 +29151,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFotaPendingDesktopsResponse>(await this.callApi(params, req, runtime), new DescribeFotaPendingDesktopsResponse({}));
   }
 
+  /**
+   * @summary Queries information about the cloud computers whose images can be and are pending to be updated to the specified version.
+   *
+   * @param request DescribeFotaPendingDesktopsRequest
+   * @return DescribeFotaPendingDesktopsResponse
+   */
   async describeFotaPendingDesktops(request: DescribeFotaPendingDesktopsRequest): Promise<DescribeFotaPendingDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFotaPendingDesktopsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of update tasks.
+   *
+   * @param request DescribeFotaTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFotaTasksResponse
+   */
   async describeFotaTasksWithOptions(request: DescribeFotaTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFotaTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27924,11 +29217,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFotaTasksResponse>(await this.callApi(params, req, runtime), new DescribeFotaTasksResponse({}));
   }
 
+  /**
+   * @summary Queries a list of update tasks.
+   *
+   * @param request DescribeFotaTasksRequest
+   * @return DescribeFotaTasksResponse
+   */
   async describeFotaTasks(request: DescribeFotaTasksRequest): Promise<DescribeFotaTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFotaTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the applications and their processes of an end user.
+   *
+   * @param request DescribeGuestApplicationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGuestApplicationsResponse
+   */
   async describeGuestApplicationsWithOptions(request: DescribeGuestApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGuestApplicationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27961,11 +29267,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGuestApplicationsResponse>(await this.callApi(params, req, runtime), new DescribeGuestApplicationsResponse({}));
   }
 
+  /**
+   * @summary Queries the applications and their processes of an end user.
+   *
+   * @param request DescribeGuestApplicationsRequest
+   * @return DescribeGuestApplicationsResponse
+   */
   async describeGuestApplications(request: DescribeGuestApplicationsRequest): Promise<DescribeGuestApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGuestApplicationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the image modification records of cloud computers.
+   *
+   * @param request DescribeImageModifiedRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageModifiedRecordsResponse
+   */
   async describeImageModifiedRecordsWithOptions(request: DescribeImageModifiedRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageModifiedRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28002,17 +29321,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageModifiedRecordsResponse>(await this.callApi(params, req, runtime), new DescribeImageModifiedRecordsResponse({}));
   }
 
+  /**
+   * @summary Queries the image modification records of cloud computers.
+   *
+   * @param request DescribeImageModifiedRecordsRequest
+   * @return DescribeImageModifiedRecordsResponse
+   */
   async describeImageModifiedRecords(request: DescribeImageModifiedRecordsRequest): Promise<DescribeImageModifiedRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageModifiedRecordsWithOptions(request, runtime);
   }
 
   /**
-    * You can call the [ModifyImagePermission](~~436982~~) operation to share an image with another cloud computer user or unshare an image. You can call the DescribeImagePermission operation to obtain the Alibaba Cloud accounts with which the current image is shared.
-    *
-    * @param request DescribeImagePermissionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeImagePermissionResponse
+   * @summary Queries the recipient Alibaba Cloud accounts with which an image is shared.
+   *
+   * @description You can call the [ModifyImagePermission](https://help.aliyun.com/document_detail/436982.html) operation to share an image with another cloud computer user or unshare an image. You can call the DescribeImagePermission operation to obtain the Alibaba Cloud accounts with which the current image is shared.
+   *
+   * @param request DescribeImagePermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImagePermissionResponse
    */
   async describeImagePermissionWithOptions(request: DescribeImagePermissionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImagePermissionResponse> {
     Util.validateModel(request);
@@ -28043,16 +29370,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the [ModifyImagePermission](~~436982~~) operation to share an image with another cloud computer user or unshare an image. You can call the DescribeImagePermission operation to obtain the Alibaba Cloud accounts with which the current image is shared.
-    *
-    * @param request DescribeImagePermissionRequest
-    * @return DescribeImagePermissionResponse
+   * @summary Queries the recipient Alibaba Cloud accounts with which an image is shared.
+   *
+   * @description You can call the [ModifyImagePermission](https://help.aliyun.com/document_detail/436982.html) operation to share an image with another cloud computer user or unshare an image. You can call the DescribeImagePermission operation to obtain the Alibaba Cloud accounts with which the current image is shared.
+   *
+   * @param request DescribeImagePermissionRequest
+   * @return DescribeImagePermissionResponse
    */
   async describeImagePermission(request: DescribeImagePermissionRequest): Promise<DescribeImagePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImagePermissionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about images.
+   *
+   * @param request DescribeImagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImagesResponse
+   */
   async describeImagesWithOptions(request: DescribeImagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28133,18 +29469,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImagesResponse>(await this.callApi(params, req, runtime), new DescribeImagesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about images.
+   *
+   * @param request DescribeImagesRequest
+   * @return DescribeImagesResponse
+   */
   async describeImages(request: DescribeImagesRequest): Promise<DescribeImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImagesWithOptions(request, runtime);
   }
 
   /**
-    * *   After you run a command, it may not succeed. You can call this operation to query the execution result.
-    * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
-    *
-    * @param request DescribeInvocationsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInvocationsResponse
+   * @description *   After you run a command, it may not succeed. You can call this operation to query the execution result.
+   * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
+   *
+   * @param request DescribeInvocationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInvocationsResponse
    */
   async describeInvocationsWithOptions(request: DescribeInvocationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInvocationsResponse> {
     Util.validateModel(request);
@@ -28211,17 +29553,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After you run a command, it may not succeed. You can call this operation to query the execution result.
-    * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
-    *
-    * @param request DescribeInvocationsRequest
-    * @return DescribeInvocationsResponse
+   * @description *   After you run a command, it may not succeed. You can call this operation to query the execution result.
+   * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
+   *
+   * @param request DescribeInvocationsRequest
+   * @return DescribeInvocationsResponse
    */
   async describeInvocations(request: DescribeInvocationsRequest): Promise<DescribeInvocationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInvocationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Key Management Service (KMS) keys of users. The first time you call this operation, you can try to create a service key for Elastic Desktop Service (EDS) and call the operation to return results.
+   *
+   * @param request DescribeKmsKeysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeKmsKeysResponse
+   */
   async describeKmsKeysWithOptions(request: DescribeKmsKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKmsKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28246,11 +29595,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeKmsKeysResponse>(await this.callApi(params, req, runtime), new DescribeKmsKeysResponse({}));
   }
 
+  /**
+   * @summary Queries Key Management Service (KMS) keys of users. The first time you call this operation, you can try to create a service key for Elastic Desktop Service (EDS) and call the operation to return results.
+   *
+   * @param request DescribeKmsKeysRequest
+   * @return DescribeKmsKeysResponse
+   */
   async describeKmsKeys(request: DescribeKmsKeysRequest): Promise<DescribeKmsKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeKmsKeysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about Apsara File Storage NAS (NAS) file systems.
+   *
+   * @param request DescribeNASFileSystemsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNASFileSystemsResponse
+   */
   async describeNASFileSystemsWithOptions(request: DescribeNASFileSystemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNASFileSystemsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28295,11 +29657,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNASFileSystemsResponse>(await this.callApi(params, req, runtime), new DescribeNASFileSystemsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about Apsara File Storage NAS (NAS) file systems.
+   *
+   * @param request DescribeNASFileSystemsRequest
+   * @return DescribeNASFileSystemsResponse
+   */
   async describeNASFileSystems(request: DescribeNASFileSystemsRequest): Promise<DescribeNASFileSystemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNASFileSystemsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of one or more premium bandwidth plans.
+   *
+   * @param request DescribeNetworkPackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNetworkPackagesResponse
+   */
   async describeNetworkPackagesWithOptions(request: DescribeNetworkPackagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkPackagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28340,11 +29715,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNetworkPackagesResponse>(await this.callApi(params, req, runtime), new DescribeNetworkPackagesResponse({}));
   }
 
+  /**
+   * @summary Queries the details of one or more premium bandwidth plans.
+   *
+   * @param request DescribeNetworkPackagesRequest
+   * @return DescribeNetworkPackagesResponse
+   */
   async describeNetworkPackages(request: DescribeNetworkPackagesRequest): Promise<DescribeNetworkPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworkPackagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries office network properties, including office network ID, name, status, and creation time.
+   *
+   * @param request DescribeOfficeSitesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOfficeSitesResponse
+   */
   async describeOfficeSitesWithOptions(request: DescribeOfficeSitesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOfficeSitesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28389,11 +29777,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOfficeSitesResponse>(await this.callApi(params, req, runtime), new DescribeOfficeSitesResponse({}));
   }
 
+  /**
+   * @summary Queries office network properties, including office network ID, name, status, and creation time.
+   *
+   * @param request DescribeOfficeSitesRequest
+   * @return DescribeOfficeSitesResponse
+   */
   async describeOfficeSites(request: DescribeOfficeSitesRequest): Promise<DescribeOfficeSitesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOfficeSitesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about one or more policies.
+   *
+   * @param request DescribePolicyGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePolicyGroupsResponse
+   */
   async describePolicyGroupsWithOptions(request: DescribePolicyGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28434,22 +29835,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyGroupsResponse>(await this.callApi(params, req, runtime), new DescribePolicyGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about one or more policies.
+   *
+   * @param request DescribePolicyGroupsRequest
+   * @return DescribePolicyGroupsResponse
+   */
   async describePolicyGroups(request: DescribePolicyGroupsRequest): Promise<DescribePolicyGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePolicyGroupsWithOptions(request, runtime);
   }
 
   /**
-    * ## Usage notes
-    * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
-    * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
-    * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
-    * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
-    * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](~~188609~~).
-    *
-    * @param request DescribePriceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePriceResponse
+   * @summary Queries the price information of desktop resources in Elastic Desktop Service (EDS).
+   *
+   * @description ## Usage notes
+   * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
+   * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
+   * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
+   * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
+   * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](https://help.aliyun.com/document_detail/188609.html).
+   *
+   * @param request DescribePriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePriceResponse
    */
   async describePriceWithOptions(request: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
     Util.validateModel(request);
@@ -28600,21 +30009,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
-    * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
-    * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
-    * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
-    * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](~~188609~~).
-    *
-    * @param request DescribePriceRequest
-    * @return DescribePriceResponse
+   * @summary Queries the price information of desktop resources in Elastic Desktop Service (EDS).
+   *
+   * @description ## Usage notes
+   * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
+   * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
+   * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
+   * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
+   * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](https://help.aliyun.com/document_detail/188609.html).
+   *
+   * @param request DescribePriceRequest
+   * @return DescribePriceResponse
    */
   async describePrice(request: DescribePriceRequest): Promise<DescribePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePriceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询价格用于创建超卖组
+   *
+   * @param request DescribePriceForCreateDesktopOversoldGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePriceForCreateDesktopOversoldGroupResponse
+   */
   async describePriceForCreateDesktopOversoldGroupWithOptions(request: DescribePriceForCreateDesktopOversoldGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceForCreateDesktopOversoldGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28663,11 +30081,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePriceForCreateDesktopOversoldGroupResponse>(await this.callApi(params, req, runtime), new DescribePriceForCreateDesktopOversoldGroupResponse({}));
   }
 
+  /**
+   * @summary 查询价格用于创建超卖组
+   *
+   * @param request DescribePriceForCreateDesktopOversoldGroupRequest
+   * @return DescribePriceForCreateDesktopOversoldGroupResponse
+   */
   async describePriceForCreateDesktopOversoldGroup(request: DescribePriceForCreateDesktopOversoldGroupRequest): Promise<DescribePriceForCreateDesktopOversoldGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePriceForCreateDesktopOversoldGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询价格用于变配超卖组
+   *
+   * @param request DescribePriceForModifyDesktopOversoldGroupSaleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePriceForModifyDesktopOversoldGroupSaleResponse
+   */
   async describePriceForModifyDesktopOversoldGroupSaleWithOptions(request: DescribePriceForModifyDesktopOversoldGroupSaleRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceForModifyDesktopOversoldGroupSaleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28700,11 +30131,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePriceForModifyDesktopOversoldGroupSaleResponse>(await this.callApi(params, req, runtime), new DescribePriceForModifyDesktopOversoldGroupSaleResponse({}));
   }
 
+  /**
+   * @summary 查询价格用于变配超卖组
+   *
+   * @param request DescribePriceForModifyDesktopOversoldGroupSaleRequest
+   * @return DescribePriceForModifyDesktopOversoldGroupSaleResponse
+   */
   async describePriceForModifyDesktopOversoldGroupSale(request: DescribePriceForModifyDesktopOversoldGroupSaleRequest): Promise<DescribePriceForModifyDesktopOversoldGroupSaleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePriceForModifyDesktopOversoldGroupSaleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询价格用于续费超卖组
+   *
+   * @param request DescribePriceForRenewDesktopOversoldGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePriceForRenewDesktopOversoldGroupResponse
+   */
   async describePriceForRenewDesktopOversoldGroupWithOptions(request: DescribePriceForRenewDesktopOversoldGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceForRenewDesktopOversoldGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28737,11 +30181,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePriceForRenewDesktopOversoldGroupResponse>(await this.callApi(params, req, runtime), new DescribePriceForRenewDesktopOversoldGroupResponse({}));
   }
 
+  /**
+   * @summary 查询价格用于续费超卖组
+   *
+   * @param request DescribePriceForRenewDesktopOversoldGroupRequest
+   * @return DescribePriceForRenewDesktopOversoldGroupResponse
+   */
   async describePriceForRenewDesktopOversoldGroup(request: DescribePriceForRenewDesktopOversoldGroupRequest): Promise<DescribePriceForRenewDesktopOversoldGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePriceForRenewDesktopOversoldGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRecordingsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRecordingsResponse
+   */
   async describeRecordingsWithOptions(request: DescribeRecordingsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordingsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28798,11 +30253,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRecordingsResponse>(await this.callApi(params, req, runtime), new DescribeRecordingsResponse({}));
   }
 
+  /**
+   * @param request DescribeRecordingsRequest
+   * @return DescribeRecordingsResponse
+   */
   async describeRecordings(request: DescribeRecordingsRequest): Promise<DescribeRecordingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecordingsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Alibaba Cloud regions that are available for Elastic Desktop Service (EDS).
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28831,18 +30297,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the Alibaba Cloud regions that are available for Elastic Desktop Service (EDS).
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
-    * *   This is a central operation and can be called only by using services in the China (Shanghai) region.
-    * *   You can query session statistics for the past hour.
-    *
-    * @param request DescribeSessionStatisticRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSessionStatisticResponse
+   * @summary Queries the session statistics of a region.
+   *
+   * @description *   This is a central operation and can be called only by using services in the China (Shanghai) region.
+   * *   You can query session statistics for the past hour.
+   *
+   * @param request DescribeSessionStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSessionStatisticResponse
    */
   async describeSessionStatisticWithOptions(request: DescribeSessionStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSessionStatisticResponse> {
     Util.validateModel(request);
@@ -28889,17 +30363,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This is a central operation and can be called only by using services in the China (Shanghai) region.
-    * *   You can query session statistics for the past hour.
-    *
-    * @param request DescribeSessionStatisticRequest
-    * @return DescribeSessionStatisticResponse
+   * @summary Queries the session statistics of a region.
+   *
+   * @description *   This is a central operation and can be called only by using services in the China (Shanghai) region.
+   * *   You can query session statistics for the past hour.
+   *
+   * @param request DescribeSessionStatisticRequest
+   * @return DescribeSessionStatisticResponse
    */
   async describeSessionStatistic(request: DescribeSessionStatisticRequest): Promise<DescribeSessionStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSessionStatisticWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the snapshots that are created based on a cloud computer and the details of the snapshots.
+   *
+   * @param request DescribeSnapshotsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSnapshotsResponse
+   */
   async describeSnapshotsWithOptions(request: DescribeSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28968,11 +30451,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotsResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotsResponse({}));
   }
 
+  /**
+   * @summary Queries the snapshots that are created based on a cloud computer and the details of the snapshots.
+   *
+   * @param request DescribeSnapshotsRequest
+   * @return DescribeSnapshotsResponse
+   */
   async describeSnapshots(request: DescribeSnapshotsRequest): Promise<DescribeSnapshotsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnapshotsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询超卖组中用户连接数据
+   *
+   * @param request DescribeUserConnectTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserConnectTimeResponse
+   */
   async describeUserConnectTimeWithOptions(request: DescribeUserConnectTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserConnectTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29025,11 +30521,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserConnectTimeResponse>(await this.callApi(params, req, runtime), new DescribeUserConnectTimeResponse({}));
   }
 
+  /**
+   * @summary 查询超卖组中用户连接数据
+   *
+   * @param request DescribeUserConnectTimeRequest
+   * @return DescribeUserConnectTimeResponse
+   */
   async describeUserConnectTime(request: DescribeUserConnectTimeRequest): Promise<DescribeUserConnectTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserConnectTimeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the connection records of an authorized user to cloud computers in a cloud computer pool.
+   *
+   * @param request DescribeUserConnectionRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserConnectionRecordsResponse
+   */
   async describeUserConnectionRecordsWithOptions(request: DescribeUserConnectionRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserConnectionRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29102,11 +30611,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserConnectionRecordsResponse>(await this.callApi(params, req, runtime), new DescribeUserConnectionRecordsResponse({}));
   }
 
+  /**
+   * @summary Queries the connection records of an authorized user to cloud computers in a cloud computer pool.
+   *
+   * @param request DescribeUserConnectionRecordsRequest
+   * @return DescribeUserConnectionRecordsResponse
+   */
   async describeUserConnectionRecords(request: DescribeUserConnectionRecordsRequest): Promise<DescribeUserConnectionRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserConnectionRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of the user profile management (UPM) directory blacklist and whitelist.
+   *
+   * @param request DescribeUserProfilePathRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserProfilePathRulesResponse
+   */
   async describeUserProfilePathRulesWithOptions(request: DescribeUserProfilePathRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserProfilePathRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29139,11 +30661,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserProfilePathRulesResponse>(await this.callApi(params, req, runtime), new DescribeUserProfilePathRulesResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of the user profile management (UPM) directory blacklist and whitelist.
+   *
+   * @param request DescribeUserProfilePathRulesRequest
+   * @return DescribeUserProfilePathRulesResponse
+   */
   async describeUserProfilePathRules(request: DescribeUserProfilePathRulesRequest): Promise<DescribeUserProfilePathRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserProfilePathRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about authorized users in a cloud computer pool, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
+   *
+   * @param request DescribeUsersInGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUsersInGroupResponse
+   */
   async describeUsersInGroupWithOptions(request: DescribeUsersInGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsersInGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29204,11 +30739,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUsersInGroupResponse>(await this.callApi(params, req, runtime), new DescribeUsersInGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the information about authorized users in a cloud computer pool, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
+   *
+   * @param request DescribeUsersInGroupRequest
+   * @return DescribeUsersInGroupResponse
+   */
   async describeUsersInGroup(request: DescribeUsersInGroupRequest): Promise<DescribeUsersInGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUsersInGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the passwords of authorized users of a cloud computer.
+   *
+   * @param request DescribeUsersPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUsersPasswordResponse
+   */
   async describeUsersPasswordWithOptions(request: DescribeUsersPasswordRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsersPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29237,11 +30785,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUsersPasswordResponse>(await this.callApi(params, req, runtime), new DescribeUsersPasswordResponse({}));
   }
 
+  /**
+   * @summary Queries the passwords of authorized users of a cloud computer.
+   *
+   * @param request DescribeUsersPasswordRequest
+   * @return DescribeUsersPasswordResponse
+   */
   async describeUsersPassword(request: DescribeUsersPasswordRequest): Promise<DescribeUsersPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUsersPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries multi-factor authentication (MFA) devices that are bound to an Active Directory (AD) account.
+   *
+   * @param request DescribeVirtualMFADevicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVirtualMFADevicesResponse
+   */
   async describeVirtualMFADevicesWithOptions(request: DescribeVirtualMFADevicesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVirtualMFADevicesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29282,11 +30843,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVirtualMFADevicesResponse>(await this.callApi(params, req, runtime), new DescribeVirtualMFADevicesResponse({}));
   }
 
+  /**
+   * @summary Queries multi-factor authentication (MFA) devices that are bound to an Active Directory (AD) account.
+   *
+   * @param request DescribeVirtualMFADevicesRequest
+   * @return DescribeVirtualMFADevicesResponse
+   */
   async describeVirtualMFADevices(request: DescribeVirtualMFADevicesRequest): Promise<DescribeVirtualMFADevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVirtualMFADevicesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the zones in a region in which Elastic Desktop Service is supported.
+   *
+   * @param request DescribeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29315,11 +30889,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * @summary Queries the zones in a region in which Elastic Desktop Service is supported.
+   *
+   * @param request DescribeZonesRequest
+   * @return DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unbinds an advanced office network from a CEN instance.
+   *
+   * @param request DetachCenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachCenResponse
+   */
   async detachCenWithOptions(request: DetachCenRequest, runtime: $Util.RuntimeOptions): Promise<DetachCenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29348,11 +30935,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachCenResponse>(await this.callApi(params, req, runtime), new DetachCenResponse({}));
   }
 
+  /**
+   * @summary Unbinds an advanced office network from a CEN instance.
+   *
+   * @param request DetachCenRequest
+   * @return DetachCenResponse
+   */
   async detachCen(request: DetachCenRequest): Promise<DetachCenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachCenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unbinds a hardware client from a user.
+   *
+   * @param request DetachEndUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachEndUserResponse
+   */
   async detachEndUserWithOptions(request: DetachEndUserRequest, runtime: $Util.RuntimeOptions): Promise<DetachEndUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29397,11 +30997,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachEndUserResponse>(await this.callApi(params, req, runtime), new DetachEndUserResponse({}));
   }
 
+  /**
+   * @summary Unbinds a hardware client from a user.
+   *
+   * @param request DetachEndUserRequest
+   * @return DetachEndUserResponse
+   */
   async detachEndUser(request: DetachEndUserRequest): Promise<DetachEndUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachEndUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables cloud desktops in a desktop group.
+   *
+   * @param request DisableDesktopsInGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableDesktopsInGroupResponse
+   */
   async disableDesktopsInGroupWithOptions(request: DisableDesktopsInGroupRequest, runtime: $Util.RuntimeOptions): Promise<DisableDesktopsInGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29434,11 +31047,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableDesktopsInGroupResponse>(await this.callApi(params, req, runtime), new DisableDesktopsInGroupResponse({}));
   }
 
+  /**
+   * @summary Disables cloud desktops in a desktop group.
+   *
+   * @param request DisableDesktopsInGroupRequest
+   * @return DisableDesktopsInGroupResponse
+   */
   async disableDesktopsInGroup(request: DisableDesktopsInGroupRequest): Promise<DisableDesktopsInGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableDesktopsInGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disconnects from desktop sessions.
+   *
+   * @param request DisconnectDesktopSessionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisconnectDesktopSessionsResponse
+   */
   async disconnectDesktopSessionsWithOptions(request: DisconnectDesktopSessionsRequest, runtime: $Util.RuntimeOptions): Promise<DisconnectDesktopSessionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29471,11 +31097,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisconnectDesktopSessionsResponse>(await this.callApi(params, req, runtime), new DisconnectDesktopSessionsResponse({}));
   }
 
+  /**
+   * @summary Disconnects from desktop sessions.
+   *
+   * @param request DisconnectDesktopSessionsRequest
+   * @return DisconnectDesktopSessionsResponse
+   */
   async disconnectDesktopSessions(request: DisconnectDesktopSessionsRequest): Promise<DisconnectDesktopSessionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disconnectDesktopSessionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unbinds a premium bandwidth plan from an office network.
+   *
+   * @param request DissociateNetworkPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DissociateNetworkPackageResponse
+   */
   async dissociateNetworkPackageWithOptions(request: DissociateNetworkPackageRequest, runtime: $Util.RuntimeOptions): Promise<DissociateNetworkPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29504,11 +31143,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DissociateNetworkPackageResponse>(await this.callApi(params, req, runtime), new DissociateNetworkPackageResponse({}));
   }
 
+  /**
+   * @summary Unbinds a premium bandwidth plan from an office network.
+   *
+   * @param request DissociateNetworkPackageRequest
+   * @return DissociateNetworkPackageResponse
+   */
   async dissociateNetworkPackage(request: DissociateNetworkPackageRequest): Promise<DissociateNetworkPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dissociateNetworkPackageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Exports events that occur on a cloud desktop from an Alibaba Cloud Workspace client.
+   *
+   * @param request ExportClientEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportClientEventsResponse
+   */
   async exportClientEventsWithOptions(request: ExportClientEventsRequest, runtime: $Util.RuntimeOptions): Promise<ExportClientEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29577,11 +31229,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportClientEventsResponse>(await this.callApi(params, req, runtime), new ExportClientEventsResponse({}));
   }
 
+  /**
+   * @summary Exports events that occur on a cloud desktop from an Alibaba Cloud Workspace client.
+   *
+   * @param request ExportClientEventsRequest
+   * @return ExportClientEventsResponse
+   */
   async exportClientEvents(request: ExportClientEventsRequest): Promise<ExportClientEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportClientEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Exports cloud computer pools. The list of cloud computer pools is saved as an XLSX file. Each entry of cloud computer pool data includes the ID and name of the cloud computer pool, the ID and name of the office network, the cloud computer pool template, and the name of the security policy.
+   *
+   * @param request ExportDesktopGroupInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportDesktopGroupInfoResponse
+   */
   async exportDesktopGroupInfoWithOptions(request: ExportDesktopGroupInfoRequest, runtime: $Util.RuntimeOptions): Promise<ExportDesktopGroupInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29629,6 +31294,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -29646,32 +31315,40 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportDesktopGroupInfoResponse>(await this.callApi(params, req, runtime), new ExportDesktopGroupInfoResponse({}));
   }
 
+  /**
+   * @summary Exports cloud computer pools. The list of cloud computer pools is saved as an XLSX file. Each entry of cloud computer pool data includes the ID and name of the cloud computer pool, the ID and name of the office network, the cloud computer pool template, and the name of the security policy.
+   *
+   * @param request ExportDesktopGroupInfoRequest
+   * @return ExportDesktopGroupInfoResponse
+   */
   async exportDesktopGroupInfo(request: ExportDesktopGroupInfoRequest): Promise<ExportDesktopGroupInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportDesktopGroupInfoWithOptions(request, runtime);
   }
 
   /**
-    * The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
-    * *   Cloud computer ID and name
-    * *   Office network ID and name
-    * *   The instance type, OS and protocol of the cloud computer
-    * *   System disk and data disk of the cloud computer
-    * *   The status
-    * *   Purchase method
-    * *   The time when the cloud computer expires
-    * *   Remaining duration and total duration
-    * *   Number of assigned users and number of current users
-    * *   Office network type
-    * *   The time when the cloud computer was created
-    * *   Tags
-    * *   Encryption status
-    * *   IP
-    * *   The hostname
-    *
-    * @param request ExportDesktopListInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ExportDesktopListInfoResponse
+   * @summary Exports a cloud computer list as a CSV file.
+   *
+   * @description The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
+   * *   Cloud computer ID and name
+   * *   Office network ID and name
+   * *   The instance type, OS and protocol of the cloud computer
+   * *   System disk and data disk of the cloud computer
+   * *   The status
+   * *   Purchase method
+   * *   The time when the cloud computer expires
+   * *   Remaining duration and total duration
+   * *   Number of assigned users and number of current users
+   * *   Office network type
+   * *   The time when the cloud computer was created
+   * *   Tags
+   * *   Encryption status
+   * *   IP
+   * *   The hostname
+   *
+   * @param request ExportDesktopListInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportDesktopListInfoResponse
    */
   async exportDesktopListInfoWithOptions(request: ExportDesktopListInfoRequest, runtime: $Util.RuntimeOptions): Promise<ExportDesktopListInfoResponse> {
     Util.validateModel(request);
@@ -29754,31 +31431,40 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
-    * *   Cloud computer ID and name
-    * *   Office network ID and name
-    * *   The instance type, OS and protocol of the cloud computer
-    * *   System disk and data disk of the cloud computer
-    * *   The status
-    * *   Purchase method
-    * *   The time when the cloud computer expires
-    * *   Remaining duration and total duration
-    * *   Number of assigned users and number of current users
-    * *   Office network type
-    * *   The time when the cloud computer was created
-    * *   Tags
-    * *   Encryption status
-    * *   IP
-    * *   The hostname
-    *
-    * @param request ExportDesktopListInfoRequest
-    * @return ExportDesktopListInfoResponse
+   * @summary Exports a cloud computer list as a CSV file.
+   *
+   * @description The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
+   * *   Cloud computer ID and name
+   * *   Office network ID and name
+   * *   The instance type, OS and protocol of the cloud computer
+   * *   System disk and data disk of the cloud computer
+   * *   The status
+   * *   Purchase method
+   * *   The time when the cloud computer expires
+   * *   Remaining duration and total duration
+   * *   Number of assigned users and number of current users
+   * *   Office network type
+   * *   The time when the cloud computer was created
+   * *   Tags
+   * *   Encryption status
+   * *   IP
+   * *   The hostname
+   *
+   * @param request ExportDesktopListInfoRequest
+   * @return ExportDesktopListInfoResponse
    */
   async exportDesktopListInfo(request: ExportDesktopListInfoRequest): Promise<ExportDesktopListInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportDesktopListInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the information about an asynchronous task based on the value of the AsyncTaskId parameter that you obtain by calling the CopyCdsFile operation.
+   *
+   * @param request GetAsyncTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAsyncTaskResponse
+   */
   async getAsyncTaskWithOptions(request: GetAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29807,17 +31493,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsyncTaskResponse>(await this.callApi(params, req, runtime), new GetAsyncTaskResponse({}));
   }
 
+  /**
+   * @summary Obtains the information about an asynchronous task based on the value of the AsyncTaskId parameter that you obtain by calling the CopyCdsFile operation.
+   *
+   * @param request GetAsyncTaskRequest
+   * @return GetAsyncTaskResponse
+   */
   async getAsyncTask(request: GetAsyncTaskRequest): Promise<GetAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAsyncTaskWithOptions(request, runtime);
   }
 
   /**
-    * The cloud computer must be in the Running state.
-    *
-    * @param request GetConnectionTicketRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetConnectionTicketResponse
+   * @summary Obtains the credential that is used to connect to a cloud desktop.
+   *
+   * @description The cloud computer must be in the Running state.
+   *
+   * @param request GetConnectionTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetConnectionTicketResponse
    */
   async getConnectionTicketWithOptions(request: GetConnectionTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionTicketResponse> {
     Util.validateModel(request);
@@ -29880,16 +31574,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud computer must be in the Running state.
-    *
-    * @param request GetConnectionTicketRequest
-    * @return GetConnectionTicketResponse
+   * @summary Obtains the credential that is used to connect to a cloud desktop.
+   *
+   * @description The cloud computer must be in the Running state.
+   *
+   * @param request GetConnectionTicketRequest
+   * @return GetConnectionTicketResponse
    */
   async getConnectionTicket(request: GetConnectionTicketRequest): Promise<GetConnectionTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConnectionTicketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the credentials of the stream collaboration
+   *
+   * @param request GetCoordinateTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCoordinateTicketResponse
+   */
   async getCoordinateTicketWithOptions(request: GetCoordinateTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetCoordinateTicketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29930,11 +31633,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCoordinateTicketResponse>(await this.callApi(params, req, runtime), new GetCoordinateTicketResponse({}));
   }
 
+  /**
+   * @summary Obtains the credentials of the stream collaboration
+   *
+   * @param request GetCoordinateTicketRequest
+   * @return GetCoordinateTicketResponse
+   */
   async getCoordinateTicket(request: GetCoordinateTicketRequest): Promise<GetCoordinateTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCoordinateTicketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a cloud computer pool.
+   *
+   * @param request GetDesktopGroupDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDesktopGroupDetailResponse
+   */
   async getDesktopGroupDetailWithOptions(request: GetDesktopGroupDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDesktopGroupDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29963,11 +31679,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDesktopGroupDetailResponse>(await this.callApi(params, req, runtime), new GetDesktopGroupDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a cloud computer pool.
+   *
+   * @param request GetDesktopGroupDetailRequest
+   * @return GetDesktopGroupDetailResponse
+   */
   async getDesktopGroupDetail(request: GetDesktopGroupDetailRequest): Promise<GetDesktopGroupDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDesktopGroupDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether single sign-on (SSO) is enabled for a workspace.
+   *
+   * @param request GetOfficeSiteSsoStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOfficeSiteSsoStatusResponse
+   */
   async getOfficeSiteSsoStatusWithOptions(request: GetOfficeSiteSsoStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetOfficeSiteSsoStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29996,17 +31725,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOfficeSiteSsoStatusResponse>(await this.callApi(params, req, runtime), new GetOfficeSiteSsoStatusResponse({}));
   }
 
+  /**
+   * @summary Queries whether single sign-on (SSO) is enabled for a workspace.
+   *
+   * @param request GetOfficeSiteSsoStatusRequest
+   * @return GetOfficeSiteSsoStatusResponse
+   */
   async getOfficeSiteSsoStatus(request: GetOfficeSiteSsoStatusRequest): Promise<GetOfficeSiteSsoStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOfficeSiteSsoStatusWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
-    *
-    * @param request GetSpMetadataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetSpMetadataResponse
+   * @summary Obtains the metadata of a Security Assertion Markup Language (SAML) 2.0-based service provider (SP).
+   *
+   * @description You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
+   *
+   * @param request GetSpMetadataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSpMetadataResponse
    */
   async getSpMetadataWithOptions(request: GetSpMetadataRequest, runtime: $Util.RuntimeOptions): Promise<GetSpMetadataResponse> {
     Util.validateModel(request);
@@ -30041,10 +31778,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
-    *
-    * @param request GetSpMetadataRequest
-    * @return GetSpMetadataResponse
+   * @summary Obtains the metadata of a Security Assertion Markup Language (SAML) 2.0-based service provider (SP).
+   *
+   * @description You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
+   *
+   * @param request GetSpMetadataRequest
+   * @return GetSpMetadataResponse
    */
   async getSpMetadata(request: GetSpMetadataRequest): Promise<GetSpMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30052,11 +31791,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
-    *
-    * @param request HibernateDesktopsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return HibernateDesktopsResponse
+   * @summary Hibernates cloud desktops.
+   *
+   * @description Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
+   *
+   * @param request HibernateDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HibernateDesktopsResponse
    */
   async hibernateDesktopsWithOptions(request: HibernateDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<HibernateDesktopsResponse> {
     Util.validateModel(request);
@@ -30087,16 +31828,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
-    *
-    * @param request HibernateDesktopsRequest
-    * @return HibernateDesktopsResponse
+   * @summary Hibernates cloud desktops.
+   *
+   * @description Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
+   *
+   * @param request HibernateDesktopsRequest
+   * @return HibernateDesktopsResponse
    */
   async hibernateDesktops(request: HibernateDesktopsRequest): Promise<HibernateDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.hibernateDesktopsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the files in a cloud disk.
+   *
+   * @param tmpReq ListCdsFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCdsFilesResponse
+   */
   async listCdsFilesWithOptions(tmpReq: ListCdsFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListCdsFilesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListCdsFilesShrinkRequest({ });
@@ -30163,17 +31913,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCdsFilesResponse>(await this.callApi(params, req, runtime), new ListCdsFilesResponse({}));
   }
 
+  /**
+   * @summary Queries the files in a cloud disk.
+   *
+   * @param request ListCdsFilesRequest
+   * @return ListCdsFilesResponse
+   */
   async listCdsFiles(request: ListCdsFilesRequest): Promise<ListCdsFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCdsFilesWithOptions(request, runtime);
   }
 
   /**
-    * If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
-    *
-    * @param request ListDirectoryUsersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDirectoryUsersResponse
+   * @summary Obtains the user information in the AD system if you use an AD directory to connect to an AD system.
+   *
+   * @description If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
+   *
+   * @param request ListDirectoryUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDirectoryUsersResponse
    */
   async listDirectoryUsersWithOptions(request: ListDirectoryUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListDirectoryUsersResponse> {
     Util.validateModel(request);
@@ -30220,16 +31978,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
-    *
-    * @param request ListDirectoryUsersRequest
-    * @return ListDirectoryUsersResponse
+   * @summary Obtains the user information in the AD system if you use an AD directory to connect to an AD system.
+   *
+   * @description If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
+   *
+   * @param request ListDirectoryUsersRequest
+   * @return ListDirectoryUsersResponse
    */
   async listDirectoryUsers(request: ListDirectoryUsersRequest): Promise<ListDirectoryUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDirectoryUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about shared files of cloud disks.
+   *
+   * @param request ListFilePermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFilePermissionResponse
+   */
   async listFilePermissionWithOptions(request: ListFilePermissionRequest, runtime: $Util.RuntimeOptions): Promise<ListFilePermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30270,11 +32037,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFilePermissionResponse>(await this.callApi(params, req, runtime), new ListFilePermissionResponse({}));
   }
 
+  /**
+   * @summary Queries the information about shared files of cloud disks.
+   *
+   * @param request ListFilePermissionRequest
+   * @return ListFilePermissionResponse
+   */
   async listFilePermission(request: ListFilePermissionRequest): Promise<ListFilePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFilePermissionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about an office network, including its status, cloud computer quantity, virtual private cloud (VPC) type, and more.
+   *
+   * @param request ListOfficeSiteOverviewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOfficeSiteOverviewResponse
+   */
   async listOfficeSiteOverviewWithOptions(request: ListOfficeSiteOverviewRequest, runtime: $Util.RuntimeOptions): Promise<ListOfficeSiteOverviewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30319,11 +32099,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOfficeSiteOverviewResponse>(await this.callApi(params, req, runtime), new ListOfficeSiteOverviewResponse({}));
   }
 
+  /**
+   * @summary Queries information about an office network, including its status, cloud computer quantity, virtual private cloud (VPC) type, and more.
+   *
+   * @param request ListOfficeSiteOverviewRequest
+   * @return ListOfficeSiteOverviewResponse
+   */
   async listOfficeSiteOverview(request: ListOfficeSiteOverviewRequest): Promise<ListOfficeSiteOverviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOfficeSiteOverviewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about Active Directory (AD) users after an enterprise AD office network (formerly workspace) interconnects to an AD domain.
+   *
+   * @param request ListOfficeSiteUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOfficeSiteUsersResponse
+   */
   async listOfficeSiteUsersWithOptions(request: ListOfficeSiteUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListOfficeSiteUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30368,17 +32161,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOfficeSiteUsersResponse>(await this.callApi(params, req, runtime), new ListOfficeSiteUsersResponse({}));
   }
 
+  /**
+   * @summary Queries information about Active Directory (AD) users after an enterprise AD office network (formerly workspace) interconnects to an AD domain.
+   *
+   * @param request ListOfficeSiteUsersRequest
+   * @return ListOfficeSiteUsersResponse
+   */
   async listOfficeSiteUsers(request: ListOfficeSiteUsersRequest): Promise<ListOfficeSiteUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOfficeSiteUsersWithOptions(request, runtime);
   }
 
   /**
-    * You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
-    *
-    * @param request ListTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTagResourcesResponse
+   * @summary Queries the tags of cloud computers.
+   *
+   * @description You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -30425,16 +32226,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
-    *
-    * @param request ListTagResourcesRequest
-    * @return ListTagResourcesResponse
+   * @summary Queries the tags of cloud computers.
+   *
+   * @description You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the organizational units (OUs) of an Active Directory (AD) domain that is connected to an enterprise AD office network (formerly workspace).
+   *
+   * @param request ListUserAdOrganizationUnitsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserAdOrganizationUnitsResponse
+   */
   async listUserAdOrganizationUnitsWithOptions(request: ListUserAdOrganizationUnitsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserAdOrganizationUnitsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30475,17 +32285,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserAdOrganizationUnitsResponse>(await this.callApi(params, req, runtime), new ListUserAdOrganizationUnitsResponse({}));
   }
 
+  /**
+   * @summary Obtains the organizational units (OUs) of an Active Directory (AD) domain that is connected to an enterprise AD office network (formerly workspace).
+   *
+   * @param request ListUserAdOrganizationUnitsRequest
+   * @return ListUserAdOrganizationUnitsResponse
+   */
   async listUserAdOrganizationUnits(request: ListUserAdOrganizationUnitsRequest): Promise<ListUserAdOrganizationUnitsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserAdOrganizationUnitsWithOptions(request, runtime);
   }
 
   /**
-    * After a virtual MFA device is locked, its status changes to LOCKED. The Active Directory (AD) user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](~~206212~~) operation to unlock the device.
-    *
-    * @param request LockVirtualMFADeviceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return LockVirtualMFADeviceResponse
+   * @summary Locks a multi-factor authentication (MFA) device that is in the NORMAL state.
+   *
+   * @description After a virtual MFA device is locked, its status changes to LOCKED. The Active Directory (AD) user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](https://help.aliyun.com/document_detail/206212.html) operation to unlock the device.
+   *
+   * @param request LockVirtualMFADeviceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LockVirtualMFADeviceResponse
    */
   async lockVirtualMFADeviceWithOptions(request: LockVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<LockVirtualMFADeviceResponse> {
     Util.validateModel(request);
@@ -30516,16 +32334,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After a virtual MFA device is locked, its status changes to LOCKED. The Active Directory (AD) user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](~~206212~~) operation to unlock the device.
-    *
-    * @param request LockVirtualMFADeviceRequest
-    * @return LockVirtualMFADeviceResponse
+   * @summary Locks a multi-factor authentication (MFA) device that is in the NORMAL state.
+   *
+   * @description After a virtual MFA device is locked, its status changes to LOCKED. The Active Directory (AD) user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](https://help.aliyun.com/document_detail/206212.html) operation to unlock the device.
+   *
+   * @param request LockVirtualMFADeviceRequest
+   * @return LockVirtualMFADeviceResponse
    */
   async lockVirtualMFADevice(request: LockVirtualMFADeviceRequest): Promise<LockVirtualMFADeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.lockVirtualMFADeviceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Migrates cloud computers from the current office network (formerly called workspace) to the new office network.
+   *
+   * @param request MigrateDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MigrateDesktopsResponse
+   */
   async migrateDesktopsWithOptions(request: MigrateDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<MigrateDesktopsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30558,11 +32385,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MigrateDesktopsResponse>(await this.callApi(params, req, runtime), new MigrateDesktopsResponse({}));
   }
 
+  /**
+   * @summary Migrates cloud computers from the current office network (formerly called workspace) to the new office network.
+   *
+   * @param request MigrateDesktopsRequest
+   * @return MigrateDesktopsResponse
+   */
   async migrateDesktops(request: MigrateDesktopsRequest): Promise<MigrateDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.migrateDesktopsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Update the protocols of images to Adaptive Streaming Protocol (ASP).
+   *
+   * @param request MigrateImageProtocolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MigrateImageProtocolResponse
+   */
   async migrateImageProtocolWithOptions(request: MigrateImageProtocolRequest, runtime: $Util.RuntimeOptions): Promise<MigrateImageProtocolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30595,17 +32435,25 @@ export default class Client extends OpenApi {
     return $tea.cast<MigrateImageProtocolResponse>(await this.callApi(params, req, runtime), new MigrateImageProtocolResponse({}));
   }
 
+  /**
+   * @summary Update the protocols of images to Adaptive Streaming Protocol (ASP).
+   *
+   * @param request MigrateImageProtocolRequest
+   * @return MigrateImageProtocolResponse
+   */
   async migrateImageProtocol(request: MigrateImageProtocolRequest): Promise<MigrateImageProtocolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.migrateImageProtocolWithOptions(request, runtime);
   }
 
   /**
-    * You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
-    *
-    * @param request ModifyADConnectorDirectoryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyADConnectorDirectoryResponse
+   * @summary Modifies an Active Directory (AD) directory.
+   *
+   * @description You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
+   *
+   * @param request ModifyADConnectorDirectoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyADConnectorDirectoryResponse
    */
   async modifyADConnectorDirectoryWithOptions(request: ModifyADConnectorDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyADConnectorDirectoryResponse> {
     Util.validateModel(request);
@@ -30676,10 +32524,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
-    *
-    * @param request ModifyADConnectorDirectoryRequest
-    * @return ModifyADConnectorDirectoryResponse
+   * @summary Modifies an Active Directory (AD) directory.
+   *
+   * @description You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
+   *
+   * @param request ModifyADConnectorDirectoryRequest
+   * @return ModifyADConnectorDirectoryResponse
    */
   async modifyADConnectorDirectory(request: ModifyADConnectorDirectoryRequest): Promise<ModifyADConnectorDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30687,17 +32537,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can modify parameters of domain names and Domain Name System (DNS) for enterprise AD office networks that are in the `ERROR` or `REGISTERED` state. The parameters include `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
-    *
-    * @param request ModifyADConnectorOfficeSiteRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyADConnectorOfficeSiteResponse
+   * @summary Modifies the basic properties of an enterprise Active Directory (AD) office network, such as the office network name and domain names of the enterprise AD subdomains.
+   *
+   * @description You can modify parameters of domain names and Domain Name System (DNS) for enterprise AD office networks that are in the `ERROR` or `REGISTERED` state. The parameters include `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+   *
+   * @param request ModifyADConnectorOfficeSiteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyADConnectorOfficeSiteResponse
    */
   async modifyADConnectorOfficeSiteWithOptions(request: ModifyADConnectorOfficeSiteRequest, runtime: $Util.RuntimeOptions): Promise<ModifyADConnectorOfficeSiteResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.adHostname)) {
       query["AdHostname"] = request.adHostname;
+    }
+
+    if (!Util.isUnset(request.backupDCHostname)) {
+      query["BackupDCHostname"] = request.backupDCHostname;
+    }
+
+    if (!Util.isUnset(request.backupDns)) {
+      query["BackupDns"] = request.backupDns;
     }
 
     if (!Util.isUnset(request.dnsAddress)) {
@@ -30762,10 +32622,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can modify parameters of domain names and Domain Name System (DNS) for enterprise AD office networks that are in the `ERROR` or `REGISTERED` state. The parameters include `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
-    *
-    * @param request ModifyADConnectorOfficeSiteRequest
-    * @return ModifyADConnectorOfficeSiteResponse
+   * @summary Modifies the basic properties of an enterprise Active Directory (AD) office network, such as the office network name and domain names of the enterprise AD subdomains.
+   *
+   * @description You can modify parameters of domain names and Domain Name System (DNS) for enterprise AD office networks that are in the `ERROR` or `REGISTERED` state. The parameters include `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+   *
+   * @param request ModifyADConnectorOfficeSiteRequest
+   * @return ModifyADConnectorOfficeSiteResponse
    */
   async modifyADConnectorOfficeSite(request: ModifyADConnectorOfficeSiteRequest): Promise<ModifyADConnectorOfficeSiteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30773,11 +32635,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can set different Internet access control policies at different granularities to achieve the effect of composite policies. For example, you can disable the Internet access on the office network granularity and enable the Internet access on specific cloud computer granularity. The effect is that all cloud computers in the office network except the specified cloud computers are not allowed to access the Internet.
-    *
-    * @param request ModifyAclEntriesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAclEntriesResponse
+   * @summary Modify the Internet access control policy on the office network or cloud computer granularity.
+   *
+   * @description You can set different Internet access control policies at different granularities to achieve the effect of composite policies. For example, you can disable the Internet access on the office network granularity and enable the Internet access on specific cloud computer granularity. The effect is that all cloud computers in the office network except the specified cloud computers are not allowed to access the Internet.
+   *
+   * @param request ModifyAclEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAclEntriesResponse
    */
   async modifyAclEntriesWithOptions(request: ModifyAclEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAclEntriesResponse> {
     Util.validateModel(request);
@@ -30816,16 +32680,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can set different Internet access control policies at different granularities to achieve the effect of composite policies. For example, you can disable the Internet access on the office network granularity and enable the Internet access on specific cloud computer granularity. The effect is that all cloud computers in the office network except the specified cloud computers are not allowed to access the Internet.
-    *
-    * @param request ModifyAclEntriesRequest
-    * @return ModifyAclEntriesResponse
+   * @summary Modify the Internet access control policy on the office network or cloud computer granularity.
+   *
+   * @description You can set different Internet access control policies at different granularities to achieve the effect of composite policies. For example, you can disable the Internet access on the office network granularity and enable the Internet access on specific cloud computer granularity. The effect is that all cloud computers in the office network except the specified cloud computers are not allowed to access the Internet.
+   *
+   * @param request ModifyAclEntriesRequest
+   * @return ModifyAclEntriesResponse
    */
   async modifyAclEntries(request: ModifyAclEntriesRequest): Promise<ModifyAclEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAclEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the parameters of an automatic snapshot policy, such as the policy name and snapshot retention period.
+   *
+   * @param request ModifyAutoSnapshotPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAutoSnapshotPolicyResponse
+   */
   async modifyAutoSnapshotPolicyWithOptions(request: ModifyAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30866,17 +32739,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new ModifyAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+   * @summary Modifies the parameters of an automatic snapshot policy, such as the policy name and snapshot retention period.
+   *
+   * @param request ModifyAutoSnapshotPolicyRequest
+   * @return ModifyAutoSnapshotPolicyResponse
+   */
   async modifyAutoSnapshotPolicy(request: ModifyAutoSnapshotPolicyRequest): Promise<ModifyAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
   /**
-    * Only custom desktop templates can be modified.
-    *
-    * @param request ModifyBundleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyBundleResponse
+   * @summary Modifies a custom cloud computer template.
+   *
+   * @description Only custom desktop templates can be modified.
+   *
+   * @param request ModifyBundleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBundleResponse
    */
   async modifyBundleWithOptions(request: ModifyBundleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBundleResponse> {
     Util.validateModel(request);
@@ -30923,16 +32804,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only custom desktop templates can be modified.
-    *
-    * @param request ModifyBundleRequest
-    * @return ModifyBundleResponse
+   * @summary Modifies a custom cloud computer template.
+   *
+   * @description Only custom desktop templates can be modified.
+   *
+   * @param request ModifyBundleRequest
+   * @return ModifyBundleResponse
    */
   async modifyBundle(request: ModifyBundleRequest): Promise<ModifyBundleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBundleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the files in a cloud disk.
+   *
+   * @param request ModifyCdsFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCdsFileResponse
+   */
   async modifyCdsFileWithOptions(request: ModifyCdsFileRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCdsFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30981,11 +32871,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCdsFileResponse>(await this.callApi(params, req, runtime), new ModifyCdsFileResponse({}));
   }
 
+  /**
+   * @summary Modifies the files in a cloud disk.
+   *
+   * @param request ModifyCdsFileRequest
+   * @return ModifyCdsFileResponse
+   */
   async modifyCdsFile(request: ModifyCdsFileRequest): Promise<ModifyCdsFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCdsFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the link for file sharing.
+   *
+   * @param request ModifyCdsFileShareLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCdsFileShareLinkResponse
+   */
   async modifyCdsFileShareLinkWithOptions(request: ModifyCdsFileShareLinkRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCdsFileShareLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31078,11 +32981,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCdsFileShareLinkResponse>(await this.callApi(params, req, runtime), new ModifyCdsFileShareLinkResponse({}));
   }
 
+  /**
+   * @summary Modifies the link for file sharing.
+   *
+   * @param request ModifyCdsFileShareLinkRequest
+   * @return ModifyCdsFileShareLinkResponse
+   */
   async modifyCdsFileShareLink(request: ModifyCdsFileShareLinkRequest): Promise<ModifyCdsFileShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCdsFileShareLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies team spaces.
+   *
+   * @param request ModifyCloudDriveGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCloudDriveGroupsResponse
+   */
   async modifyCloudDriveGroupsWithOptions(request: ModifyCloudDriveGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCloudDriveGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31123,11 +33039,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCloudDriveGroupsResponse>(await this.callApi(params, req, runtime), new ModifyCloudDriveGroupsResponse({}));
   }
 
+  /**
+   * @summary Modifies team spaces.
+   *
+   * @param request ModifyCloudDriveGroupsRequest
+   * @return ModifyCloudDriveGroupsResponse
+   */
   async modifyCloudDriveGroups(request: ModifyCloudDriveGroupsRequest): Promise<ModifyCloudDriveGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCloudDriveGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the user permissions on Cloud Drive Service, and configures users who have the download permissions and upload and download permissions. By default, the users that are not configured the preceding permissions only have the upload permissions.
+   *
+   * @param request ModifyCloudDrivePermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCloudDrivePermissionResponse
+   */
   async modifyCloudDrivePermissionWithOptions(request: ModifyCloudDrivePermissionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCloudDrivePermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31164,11 +33093,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCloudDrivePermissionResponse>(await this.callApi(params, req, runtime), new ModifyCloudDrivePermissionResponse({}));
   }
 
+  /**
+   * @summary Modifies the user permissions on Cloud Drive Service, and configures users who have the download permissions and upload and download permissions. By default, the users that are not configured the preceding permissions only have the upload permissions.
+   *
+   * @param request ModifyCloudDrivePermissionRequest
+   * @return ModifyCloudDrivePermissionResponse
+   */
   async modifyCloudDrivePermission(request: ModifyCloudDrivePermissionRequest): Promise<ModifyCloudDrivePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCloudDrivePermissionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改无影网盘终端用户的属性
+   *
+   * @param request ModifyCloudDriveUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCloudDriveUsersResponse
+   */
   async modifyCloudDriveUsersWithOptions(request: ModifyCloudDriveUsersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCloudDriveUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31209,11 +33151,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCloudDriveUsersResponse>(await this.callApi(params, req, runtime), new ModifyCloudDriveUsersResponse({}));
   }
 
+  /**
+   * @summary 修改无影网盘终端用户的属性
+   *
+   * @param request ModifyCloudDriveUsersRequest
+   * @return ModifyCloudDriveUsersResponse
+   */
   async modifyCloudDriveUsers(request: ModifyCloudDriveUsersRequest): Promise<ModifyCloudDriveUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCloudDriveUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the layouts of cloud computer list headers, such as the required fields and the display and hide settings.
+   *
+   * @param request ModifyCustomizedListHeadersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCustomizedListHeadersResponse
+   */
   async modifyCustomizedListHeadersWithOptions(request: ModifyCustomizedListHeadersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCustomizedListHeadersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31246,19 +33201,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCustomizedListHeadersResponse>(await this.callApi(params, req, runtime), new ModifyCustomizedListHeadersResponse({}));
   }
 
+  /**
+   * @summary Modifies the layouts of cloud computer list headers, such as the required fields and the display and hide settings.
+   *
+   * @param request ModifyCustomizedListHeadersRequest
+   * @return ModifyCustomizedListHeadersResponse
+   */
   async modifyCustomizedListHeaders(request: ModifyCustomizedListHeadersRequest): Promise<ModifyCustomizedListHeadersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCustomizedListHeadersWithOptions(request, runtime);
   }
 
   /**
-    * *   Before you call this operation, make sure that you fully understand the billing methods of cloud computers. For more information, see [Billing overview](~~188395~~).
-    * *   Before you call this operation, make sure that the cloud computers whose billing method you want to change are in the Running or Stopped state and you have no overdue payments in your Alibaba Cloud account.
-    * *   After the order payment is completed, the system starts to change the billing method of the cloud computers. During the change, you cannot perform operations, such as starting or stopping the cloud computers, and changing configurations of the cloud computers.
-    *
-    * @param request ModifyDesktopChargeTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDesktopChargeTypeResponse
+   * @summary Changes the billing method of cloud computers to subscription or pay-as-you-go.
+   *
+   * @description *   Before you call this operation, make sure that you fully understand the billing methods of cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   * *   Before you call this operation, make sure that the cloud computers whose billing method you want to change are in the Running or Stopped state and you have no overdue payments in your Alibaba Cloud account.
+   * *   After the order payment is completed, the system starts to change the billing method of the cloud computers. During the change, you cannot perform operations, such as starting or stopping the cloud computers, and changing configurations of the cloud computers.
+   *
+   * @param request ModifyDesktopChargeTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDesktopChargeTypeResponse
    */
   async modifyDesktopChargeTypeWithOptions(request: ModifyDesktopChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesktopChargeTypeResponse> {
     Util.validateModel(request);
@@ -31313,12 +33276,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call this operation, make sure that you fully understand the billing methods of cloud computers. For more information, see [Billing overview](~~188395~~).
-    * *   Before you call this operation, make sure that the cloud computers whose billing method you want to change are in the Running or Stopped state and you have no overdue payments in your Alibaba Cloud account.
-    * *   After the order payment is completed, the system starts to change the billing method of the cloud computers. During the change, you cannot perform operations, such as starting or stopping the cloud computers, and changing configurations of the cloud computers.
-    *
-    * @param request ModifyDesktopChargeTypeRequest
-    * @return ModifyDesktopChargeTypeResponse
+   * @summary Changes the billing method of cloud computers to subscription or pay-as-you-go.
+   *
+   * @description *   Before you call this operation, make sure that you fully understand the billing methods of cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   * *   Before you call this operation, make sure that the cloud computers whose billing method you want to change are in the Running or Stopped state and you have no overdue payments in your Alibaba Cloud account.
+   * *   After the order payment is completed, the system starts to change the billing method of the cloud computers. During the change, you cannot perform operations, such as starting or stopping the cloud computers, and changing configurations of the cloud computers.
+   *
+   * @param request ModifyDesktopChargeTypeRequest
+   * @return ModifyDesktopChargeTypeResponse
    */
   async modifyDesktopChargeType(request: ModifyDesktopChargeTypeRequest): Promise<ModifyDesktopChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31326,11 +33291,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
-    *
-    * @param request ModifyDesktopGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDesktopGroupResponse
+   * @summary Modifies the configurations of a cloud computer pool.
+   *
+   * @description After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
+   *
+   * @param request ModifyDesktopGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDesktopGroupResponse
    */
   async modifyDesktopGroupWithOptions(request: ModifyDesktopGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesktopGroupResponse> {
     Util.validateModel(request);
@@ -31457,10 +33424,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
-    *
-    * @param request ModifyDesktopGroupRequest
-    * @return ModifyDesktopGroupResponse
+   * @summary Modifies the configurations of a cloud computer pool.
+   *
+   * @description After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
+   *
+   * @param request ModifyDesktopGroupRequest
+   * @return ModifyDesktopGroupResponse
    */
   async modifyDesktopGroup(request: ModifyDesktopGroupRequest): Promise<ModifyDesktopGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31468,11 +33437,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The Windows cloud computer whose hostname you want to modify must be in an AD office network. After the hostname is modified, the cloud computer is re-created.
-    *
-    * @param request ModifyDesktopHostNameRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDesktopHostNameResponse
+   * @summary Modifies the hostname of a Windows cloud computer in the Active Directory (AD) office network.
+   *
+   * @description The Windows cloud computer whose hostname you want to modify must be in an AD office network. After the hostname is modified, the cloud computer is re-created.
+   *
+   * @param request ModifyDesktopHostNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDesktopHostNameResponse
    */
   async modifyDesktopHostNameWithOptions(request: ModifyDesktopHostNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesktopHostNameResponse> {
     Util.validateModel(request);
@@ -31507,16 +33478,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The Windows cloud computer whose hostname you want to modify must be in an AD office network. After the hostname is modified, the cloud computer is re-created.
-    *
-    * @param request ModifyDesktopHostNameRequest
-    * @return ModifyDesktopHostNameResponse
+   * @summary Modifies the hostname of a Windows cloud computer in the Active Directory (AD) office network.
+   *
+   * @description The Windows cloud computer whose hostname you want to modify must be in an AD office network. After the hostname is modified, the cloud computer is re-created.
+   *
+   * @param request ModifyDesktopHostNameRequest
+   * @return ModifyDesktopHostNameResponse
    */
   async modifyDesktopHostName(request: ModifyDesktopHostNameRequest): Promise<ModifyDesktopHostNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDesktopHostNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the name of a cloud computer to a new name.
+   *
+   * @param request ModifyDesktopNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDesktopNameResponse
+   */
   async modifyDesktopNameWithOptions(request: ModifyDesktopNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesktopNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31549,11 +33529,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDesktopNameResponse>(await this.callApi(params, req, runtime), new ModifyDesktopNameResponse({}));
   }
 
+  /**
+   * @summary Changes the name of a cloud computer to a new name.
+   *
+   * @param request ModifyDesktopNameRequest
+   * @return ModifyDesktopNameResponse
+   */
   async modifyDesktopName(request: ModifyDesktopNameRequest): Promise<ModifyDesktopNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDesktopNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改桌面超卖组
+   *
+   * @param request ModifyDesktopOversoldGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDesktopOversoldGroupResponse
+   */
   async modifyDesktopOversoldGroupWithOptions(request: ModifyDesktopOversoldGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesktopOversoldGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31618,11 +33611,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDesktopOversoldGroupResponse>(await this.callApi(params, req, runtime), new ModifyDesktopOversoldGroupResponse({}));
   }
 
+  /**
+   * @summary 修改桌面超卖组
+   *
+   * @param request ModifyDesktopOversoldGroupRequest
+   * @return ModifyDesktopOversoldGroupResponse
+   */
   async modifyDesktopOversoldGroup(request: ModifyDesktopOversoldGroupRequest): Promise<ModifyDesktopOversoldGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDesktopOversoldGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改桌面超卖组售卖数据
+   *
+   * @param request ModifyDesktopOversoldGroupSaleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDesktopOversoldGroupSaleResponse
+   */
   async modifyDesktopOversoldGroupSaleWithOptions(request: ModifyDesktopOversoldGroupSaleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesktopOversoldGroupSaleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31655,11 +33661,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDesktopOversoldGroupSaleResponse>(await this.callApi(params, req, runtime), new ModifyDesktopOversoldGroupSaleResponse({}));
   }
 
+  /**
+   * @summary 修改桌面超卖组售卖数据
+   *
+   * @param request ModifyDesktopOversoldGroupSaleRequest
+   * @return ModifyDesktopOversoldGroupSaleResponse
+   */
   async modifyDesktopOversoldGroupSale(request: ModifyDesktopOversoldGroupSaleRequest): Promise<ModifyDesktopOversoldGroupSaleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDesktopOversoldGroupSaleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改桌面超卖用户组
+   *
+   * @param request ModifyDesktopOversoldUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDesktopOversoldUserGroupResponse
+   */
   async modifyDesktopOversoldUserGroupWithOptions(request: ModifyDesktopOversoldUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesktopOversoldUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31700,26 +33719,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDesktopOversoldUserGroupResponse>(await this.callApi(params, req, runtime), new ModifyDesktopOversoldUserGroupResponse({}));
   }
 
+  /**
+   * @summary 修改桌面超卖用户组
+   *
+   * @param request ModifyDesktopOversoldUserGroupRequest
+   * @return ModifyDesktopOversoldUserGroupResponse
+   */
   async modifyDesktopOversoldUserGroup(request: ModifyDesktopOversoldUserGroupRequest): Promise<ModifyDesktopOversoldUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDesktopOversoldUserGroupWithOptions(request, runtime);
   }
 
   /**
-    * Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
-    * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](~~188609~~). You can call the [DescribeDesktopTypes](~~188882~~) operation to query the instance types supported by cloud computers.
-    * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
-    *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
-    *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
-    *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
-    *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
-    *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
-    *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
-    * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
-    *
-    * @param request ModifyDesktopSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDesktopSpecResponse
+   * @summary Changes the instance type of a cloud computer and scales up the disks of the cloud computer.
+   *
+   * @description Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
+   * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the instance types supported by cloud computers.
+   * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
+   *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
+   *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
+   *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
+   *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
+   *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
+   *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
+   * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
+   *
+   * @param request ModifyDesktopSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDesktopSpecResponse
    */
   async modifyDesktopSpecWithOptions(request: ModifyDesktopSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesktopSpecResponse> {
     Util.validateModel(request);
@@ -31742,6 +33769,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceSpecs)) {
+      query["ResourceSpecs"] = request.resourceSpecs;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
     }
 
     if (!Util.isUnset(request.rootDiskSizeGib)) {
@@ -31774,25 +33809,34 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
-    * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](~~188609~~). You can call the [DescribeDesktopTypes](~~188882~~) operation to query the instance types supported by cloud computers.
-    * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
-    *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
-    *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
-    *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
-    *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
-    *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
-    *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
-    * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
-    *
-    * @param request ModifyDesktopSpecRequest
-    * @return ModifyDesktopSpecResponse
+   * @summary Changes the instance type of a cloud computer and scales up the disks of the cloud computer.
+   *
+   * @description Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
+   * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the instance types supported by cloud computers.
+   * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
+   *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
+   *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
+   *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
+   *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
+   *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
+   *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
+   * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
+   *
+   * @param request ModifyDesktopSpecRequest
+   * @return ModifyDesktopSpecResponse
    */
   async modifyDesktopSpec(request: ModifyDesktopSpecRequest): Promise<ModifyDesktopSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDesktopSpecWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or modifies scheduled tasks on cloud computers, such as starting, stopping, restarting, and resetting cloud computers on schedule.
+   *
+   * @param request ModifyDesktopTimerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDesktopTimerResponse
+   */
   async modifyDesktopTimerWithOptions(request: ModifyDesktopTimerRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesktopTimerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31829,17 +33873,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDesktopTimerResponse>(await this.callApi(params, req, runtime), new ModifyDesktopTimerResponse({}));
   }
 
+  /**
+   * @summary Creates or modifies scheduled tasks on cloud computers, such as starting, stopping, restarting, and resetting cloud computers on schedule.
+   *
+   * @param request ModifyDesktopTimerRequest
+   * @return ModifyDesktopTimerResponse
+   */
   async modifyDesktopTimer(request: ModifyDesktopTimerRequest): Promise<ModifyDesktopTimerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDesktopTimerWithOptions(request, runtime);
   }
 
   /**
-    * The cloud desktops that you want to restart by calling this operation must be in the Running state.
-    *
-    * @param request ModifyDesktopsPolicyGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDesktopsPolicyGroupResponse
+   * @summary Modifies the policies that are configured for a cloud desktop.
+   *
+   * @description The cloud desktops that you want to restart by calling this operation must be in the Running state.
+   *
+   * @param request ModifyDesktopsPolicyGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDesktopsPolicyGroupResponse
    */
   async modifyDesktopsPolicyGroupWithOptions(request: ModifyDesktopsPolicyGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesktopsPolicyGroupResponse> {
     Util.validateModel(request);
@@ -31878,10 +33930,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud desktops that you want to restart by calling this operation must be in the Running state.
-    *
-    * @param request ModifyDesktopsPolicyGroupRequest
-    * @return ModifyDesktopsPolicyGroupResponse
+   * @summary Modifies the policies that are configured for a cloud desktop.
+   *
+   * @description The cloud desktops that you want to restart by calling this operation must be in the Running state.
+   *
+   * @param request ModifyDesktopsPolicyGroupRequest
+   * @return ModifyDesktopsPolicyGroupResponse
    */
   async modifyDesktopsPolicyGroup(request: ModifyDesktopsPolicyGroupRequest): Promise<ModifyDesktopsPolicyGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31889,20 +33943,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
-    * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
-    * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
-    * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
-    * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
-    * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
-    * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
-    * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
-    * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
-    * *   The changes do not affect your personal data on the cloud desktop.
-    *
-    * @param request ModifyDiskSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDiskSpecResponse
+   * @summary Changes the configurations of a cloud desktop, including the number of vCPUs, memory size, and disk size.
+   *
+   * @description You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
+   * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
+   * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
+   * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
+   * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
+   * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
+   * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
+   * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
+   * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
+   * *   The changes do not affect your personal data on the cloud desktop.
+   *
+   * @param request ModifyDiskSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDiskSpecResponse
    */
   async modifyDiskSpecWithOptions(request: ModifyDiskSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDiskSpecResponse> {
     Util.validateModel(request);
@@ -31949,19 +34005,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
-    * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
-    * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
-    * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
-    * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
-    * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
-    * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
-    * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
-    * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
-    * *   The changes do not affect your personal data on the cloud desktop.
-    *
-    * @param request ModifyDiskSpecRequest
-    * @return ModifyDiskSpecResponse
+   * @summary Changes the configurations of a cloud desktop, including the number of vCPUs, memory size, and disk size.
+   *
+   * @description You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
+   * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
+   * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
+   * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
+   * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
+   * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
+   * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
+   * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
+   * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
+   * *   The changes do not affect your personal data on the cloud desktop.
+   *
+   * @param request ModifyDiskSpecRequest
+   * @return ModifyDiskSpecResponse
    */
   async modifyDiskSpec(request: ModifyDiskSpecRequest): Promise<ModifyDiskSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31969,13 +34027,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The cloud computer must be in the Running state.
-    * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](~~436815~~) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
-    * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
-    *
-    * @param request ModifyEntitlementRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyEntitlementResponse
+   * @summary Assigns a cloud computer to end users and removes all original end users of the cloud computer.
+   *
+   * @description *   The cloud computer must be in the Running state.
+   * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+   * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+   *
+   * @param request ModifyEntitlementRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyEntitlementResponse
    */
   async modifyEntitlementWithOptions(request: ModifyEntitlementRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEntitlementResponse> {
     Util.validateModel(request);
@@ -32010,12 +34070,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The cloud computer must be in the Running state.
-    * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](~~436815~~) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
-    * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
-    *
-    * @param request ModifyEntitlementRequest
-    * @return ModifyEntitlementResponse
+   * @summary Assigns a cloud computer to end users and removes all original end users of the cloud computer.
+   *
+   * @description *   The cloud computer must be in the Running state.
+   * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+   * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+   *
+   * @param request ModifyEntitlementRequest
+   * @return ModifyEntitlementResponse
    */
   async modifyEntitlement(request: ModifyEntitlementRequest): Promise<ModifyEntitlementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32023,11 +34085,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to modify the attributes of only custom images that are in the Available state.
-    *
-    * @param request ModifyImageAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyImageAttributeResponse
+   * @summary Modifies the attributes of an image, including the name and description of the image.
+   *
+   * @description You can call this operation to modify the attributes of only custom images that are in the Available state.
+   *
+   * @param request ModifyImageAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyImageAttributeResponse
    */
   async modifyImageAttributeWithOptions(request: ModifyImageAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyImageAttributeResponse> {
     Util.validateModel(request);
@@ -32066,10 +34130,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to modify the attributes of only custom images that are in the Available state.
-    *
-    * @param request ModifyImageAttributeRequest
-    * @return ModifyImageAttributeResponse
+   * @summary Modifies the attributes of an image, including the name and description of the image.
+   *
+   * @description You can call this operation to modify the attributes of only custom images that are in the Available state.
+   *
+   * @param request ModifyImageAttributeRequest
+   * @return ModifyImageAttributeResponse
    */
   async modifyImageAttribute(request: ModifyImageAttributeRequest): Promise<ModifyImageAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32077,23 +34143,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Security of shared images
-    * WUYING Workspace cannot guarantee the integrity and security of shared images. When you use a shared image, you must make sure that the image comes from a trusted sharer or account, and you are legally responsible for using the shared image.
-    * ### [](#)Quota and billing
-    * *   A shared image does not count against the image quotas of principals to which the image is shared.
-    * *   After a principal uses a shared image to create a cloud computer, the sharer is not charged for the shared image.
-    * *   You are not charged for shared images.
-    * ### [](#)Supported sharing behaviors
-    * *   You can share custom images with other Alibaba Cloud accounts.
-    * *   You can share custom images between accounts in the China site (aliyun.com) and the international site (alibabacloud.com).
-    * ### [](#)Unsupported sharing behaviors
-    * *   You cannot share images that are shared by other Alibaba Cloud accounts.
-    * *   You cannot share encrypted images.
-    * *   You cannot share images across regions. If you want to share an image across regions, you must copy the image to the destination region and then share the image. For more information, see [CopyImage](~~436978~~).
-    *
-    * @param request ModifyImagePermissionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyImagePermissionResponse
+   * @summary Shares an image with other Alibaba Cloud accounts, or unshares an image from the recipient Alibaba Cloud accounts.
+   *
+   * @description ### [](#)Security of shared images
+   * Elastic Desktop Service cannot guarantee the integrity and security of shared images. When you use a shared image, you must make sure that the image comes from a trusted sharer or account, and you are legally responsible for using the shared image.
+   * ### [](#)Quota and billing
+   * *   A shared image does not count against the image quotas of principals to which the image is shared.
+   * *   After a principal uses a shared image to create a cloud computer, the sharer is not charged for the shared image.
+   * *   You are not charged for shared images.
+   * ### [](#)Supported sharing behaviors
+   * *   You can share custom images with other Alibaba Cloud accounts.
+   * *   You can share custom images between accounts in the China site (aliyun.com) and the international site (alibabacloud.com).
+   * ### [](#)Unsupported sharing behaviors
+   * *   You cannot share images that are shared by other Alibaba Cloud accounts.
+   * *   You cannot share encrypted images.
+   * *   You cannot share images across regions. If you want to share an image across regions, you must copy the image to the destination region and then share the image. For more information, see [CopyImage](https://help.aliyun.com/document_detail/436978.html).
+   *
+   * @param request ModifyImagePermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyImagePermissionResponse
    */
   async modifyImagePermissionWithOptions(request: ModifyImagePermissionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyImagePermissionResponse> {
     Util.validateModel(request);
@@ -32132,22 +34200,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Security of shared images
-    * WUYING Workspace cannot guarantee the integrity and security of shared images. When you use a shared image, you must make sure that the image comes from a trusted sharer or account, and you are legally responsible for using the shared image.
-    * ### [](#)Quota and billing
-    * *   A shared image does not count against the image quotas of principals to which the image is shared.
-    * *   After a principal uses a shared image to create a cloud computer, the sharer is not charged for the shared image.
-    * *   You are not charged for shared images.
-    * ### [](#)Supported sharing behaviors
-    * *   You can share custom images with other Alibaba Cloud accounts.
-    * *   You can share custom images between accounts in the China site (aliyun.com) and the international site (alibabacloud.com).
-    * ### [](#)Unsupported sharing behaviors
-    * *   You cannot share images that are shared by other Alibaba Cloud accounts.
-    * *   You cannot share encrypted images.
-    * *   You cannot share images across regions. If you want to share an image across regions, you must copy the image to the destination region and then share the image. For more information, see [CopyImage](~~436978~~).
-    *
-    * @param request ModifyImagePermissionRequest
-    * @return ModifyImagePermissionResponse
+   * @summary Shares an image with other Alibaba Cloud accounts, or unshares an image from the recipient Alibaba Cloud accounts.
+   *
+   * @description ### [](#)Security of shared images
+   * Elastic Desktop Service cannot guarantee the integrity and security of shared images. When you use a shared image, you must make sure that the image comes from a trusted sharer or account, and you are legally responsible for using the shared image.
+   * ### [](#)Quota and billing
+   * *   A shared image does not count against the image quotas of principals to which the image is shared.
+   * *   After a principal uses a shared image to create a cloud computer, the sharer is not charged for the shared image.
+   * *   You are not charged for shared images.
+   * ### [](#)Supported sharing behaviors
+   * *   You can share custom images with other Alibaba Cloud accounts.
+   * *   You can share custom images between accounts in the China site (aliyun.com) and the international site (alibabacloud.com).
+   * ### [](#)Unsupported sharing behaviors
+   * *   You cannot share images that are shared by other Alibaba Cloud accounts.
+   * *   You cannot share encrypted images.
+   * *   You cannot share images across regions. If you want to share an image across regions, you must copy the image to the destination region and then share the image. For more information, see [CopyImage](https://help.aliyun.com/document_detail/436978.html).
+   *
+   * @param request ModifyImagePermissionRequest
+   * @return ModifyImagePermissionResponse
    */
   async modifyImagePermission(request: ModifyImagePermissionRequest): Promise<ModifyImagePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32155,11 +34225,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](~~62621~~) operation to create a mount target.
-    *
-    * @param request ModifyNASDefaultMountTargetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyNASDefaultMountTargetResponse
+   * @summary Modifies the mount target of an Apsara File Storage NAS (NAS) file system.
+   *
+   * @description When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
+   *
+   * @param request ModifyNASDefaultMountTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNASDefaultMountTargetResponse
    */
   async modifyNASDefaultMountTargetWithOptions(request: ModifyNASDefaultMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNASDefaultMountTargetResponse> {
     Util.validateModel(request);
@@ -32194,16 +34266,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](~~62621~~) operation to create a mount target.
-    *
-    * @param request ModifyNASDefaultMountTargetRequest
-    * @return ModifyNASDefaultMountTargetResponse
+   * @summary Modifies the mount target of an Apsara File Storage NAS (NAS) file system.
+   *
+   * @description When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
+   *
+   * @param request ModifyNASDefaultMountTargetRequest
+   * @return ModifyNASDefaultMountTargetResponse
    */
   async modifyNASDefaultMountTarget(request: ModifyNASDefaultMountTargetRequest): Promise<ModifyNASDefaultMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNASDefaultMountTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the bandwidth of a premium bandwidth plan.
+   *
+   * @param request ModifyNetworkPackageBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNetworkPackageBandwidthResponse
+   */
   async modifyNetworkPackageBandwidthWithOptions(request: ModifyNetworkPackageBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNetworkPackageBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32244,17 +34325,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNetworkPackageBandwidthResponse>(await this.callApi(params, req, runtime), new ModifyNetworkPackageBandwidthResponse({}));
   }
 
+  /**
+   * @summary Modifies the bandwidth of a premium bandwidth plan.
+   *
+   * @param request ModifyNetworkPackageBandwidthRequest
+   * @return ModifyNetworkPackageBandwidthResponse
+   */
   async modifyNetworkPackageBandwidth(request: ModifyNetworkPackageBandwidthRequest): Promise<ModifyNetworkPackageBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNetworkPackageBandwidthWithOptions(request, runtime);
   }
 
   /**
-    * If you want to temporarily disable the Internet access of your cloud computer after the Internet access is enabled for your cloud computer, you can disable the premium bandwidth plan and restore it as needed.
-    *
-    * @param request ModifyNetworkPackageEnabledRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyNetworkPackageEnabledResponse
+   * @summary Restores or disables a premium bandwidth plan.
+   *
+   * @description If you want to temporarily disable the Internet access of your cloud computer after the Internet access is enabled for your cloud computer, you can disable the premium bandwidth plan and restore it as needed.
+   *
+   * @param request ModifyNetworkPackageEnabledRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNetworkPackageEnabledResponse
    */
   async modifyNetworkPackageEnabledWithOptions(request: ModifyNetworkPackageEnabledRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNetworkPackageEnabledResponse> {
     Util.validateModel(request);
@@ -32289,16 +34378,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you want to temporarily disable the Internet access of your cloud computer after the Internet access is enabled for your cloud computer, you can disable the premium bandwidth plan and restore it as needed.
-    *
-    * @param request ModifyNetworkPackageEnabledRequest
-    * @return ModifyNetworkPackageEnabledResponse
+   * @summary Restores or disables a premium bandwidth plan.
+   *
+   * @description If you want to temporarily disable the Internet access of your cloud computer after the Internet access is enabled for your cloud computer, you can disable the premium bandwidth plan and restore it as needed.
+   *
+   * @param request ModifyNetworkPackageEnabledRequest
+   * @return ModifyNetworkPackageEnabledResponse
    */
   async modifyNetworkPackageEnabled(request: ModifyNetworkPackageEnabledRequest): Promise<ModifyNetworkPackageEnabledResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNetworkPackageEnabledWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the basic properties of an office network, including the name and local administrator permission settings.
+   *
+   * @param request ModifyOfficeSiteAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyOfficeSiteAttributeResponse
+   */
   async modifyOfficeSiteAttributeWithOptions(request: ModifyOfficeSiteAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyOfficeSiteAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32347,11 +34445,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyOfficeSiteAttributeResponse>(await this.callApi(params, req, runtime), new ModifyOfficeSiteAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the basic properties of an office network, including the name and local administrator permission settings.
+   *
+   * @param request ModifyOfficeSiteAttributeRequest
+   * @return ModifyOfficeSiteAttributeResponse
+   */
   async modifyOfficeSiteAttribute(request: ModifyOfficeSiteAttributeRequest): Promise<ModifyOfficeSiteAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyOfficeSiteAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the communication between cloud computers in an office network (formerly workspace). If you enable the communication between cloud computers in an office network, the cloud computers can access each other.
+   *
+   * @param request ModifyOfficeSiteCrossDesktopAccessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyOfficeSiteCrossDesktopAccessResponse
+   */
   async modifyOfficeSiteCrossDesktopAccessWithOptions(request: ModifyOfficeSiteCrossDesktopAccessRequest, runtime: $Util.RuntimeOptions): Promise<ModifyOfficeSiteCrossDesktopAccessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32384,11 +34495,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyOfficeSiteCrossDesktopAccessResponse>(await this.callApi(params, req, runtime), new ModifyOfficeSiteCrossDesktopAccessResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the communication between cloud computers in an office network (formerly workspace). If you enable the communication between cloud computers in an office network, the cloud computers can access each other.
+   *
+   * @param request ModifyOfficeSiteCrossDesktopAccessRequest
+   * @return ModifyOfficeSiteCrossDesktopAccessResponse
+   */
   async modifyOfficeSiteCrossDesktopAccess(request: ModifyOfficeSiteCrossDesktopAccessRequest): Promise<ModifyOfficeSiteCrossDesktopAccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyOfficeSiteCrossDesktopAccessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables multi-factor authentication (MFA) for an enterprise Active Directory (AD) office network (formerly workspace).
+   *
+   * @param request ModifyOfficeSiteMfaEnabledRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyOfficeSiteMfaEnabledResponse
+   */
   async modifyOfficeSiteMfaEnabledWithOptions(request: ModifyOfficeSiteMfaEnabledRequest, runtime: $Util.RuntimeOptions): Promise<ModifyOfficeSiteMfaEnabledResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32421,11 +34545,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyOfficeSiteMfaEnabledResponse>(await this.callApi(params, req, runtime), new ModifyOfficeSiteMfaEnabledResponse({}));
   }
 
+  /**
+   * @summary Enables or disables multi-factor authentication (MFA) for an enterprise Active Directory (AD) office network (formerly workspace).
+   *
+   * @param request ModifyOfficeSiteMfaEnabledRequest
+   * @return ModifyOfficeSiteMfaEnabledResponse
+   */
   async modifyOfficeSiteMfaEnabled(request: ModifyOfficeSiteMfaEnabledRequest): Promise<ModifyOfficeSiteMfaEnabledResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyOfficeSiteMfaEnabledWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a policy.
+   *
+   * @param request ModifyPolicyGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPolicyGroupResponse
+   */
   async modifyPolicyGroupWithOptions(request: ModifyPolicyGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32495,6 +34632,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.localDrive)) {
       query["LocalDrive"] = request.localDrive;
+    }
+
+    if (!Util.isUnset(request.maxReconnectTime)) {
+      query["MaxReconnectTime"] = request.maxReconnectTime;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -32670,17 +34811,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPolicyGroupResponse>(await this.callApi(params, req, runtime), new ModifyPolicyGroupResponse({}));
   }
 
+  /**
+   * @summary Modifies a policy.
+   *
+   * @param request ModifyPolicyGroupRequest
+   * @return ModifyPolicyGroupResponse
+   */
   async modifyPolicyGroup(request: ModifyPolicyGroupRequest): Promise<ModifyPolicyGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPolicyGroupWithOptions(request, runtime);
   }
 
   /**
-    * You can modify end users only for cloud computers that are in the Running state.
-    *
-    * @param request ModifyUserEntitlementRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyUserEntitlementResponse
+   * @summary Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+   *
+   * @description You can modify end users only for cloud computers that are in the Running state.
+   *
+   * @param request ModifyUserEntitlementRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyUserEntitlementResponse
    */
   async modifyUserEntitlementWithOptions(request: ModifyUserEntitlementRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserEntitlementResponse> {
     Util.validateModel(request);
@@ -32719,16 +34868,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can modify end users only for cloud computers that are in the Running state.
-    *
-    * @param request ModifyUserEntitlementRequest
-    * @return ModifyUserEntitlementResponse
+   * @summary Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+   *
+   * @description You can modify end users only for cloud computers that are in the Running state.
+   *
+   * @param request ModifyUserEntitlementRequest
+   * @return ModifyUserEntitlementResponse
    */
   async modifyUserEntitlement(request: ModifyUserEntitlementRequest): Promise<ModifyUserEntitlementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyUserEntitlementWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the end users of a cloud computer pool into new end users.
+   *
+   * @param request ModifyUserToDesktopGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyUserToDesktopGroupResponse
+   */
   async modifyUserToDesktopGroupWithOptions(request: ModifyUserToDesktopGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserToDesktopGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32765,11 +34923,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyUserToDesktopGroupResponse>(await this.callApi(params, req, runtime), new ModifyUserToDesktopGroupResponse({}));
   }
 
+  /**
+   * @summary Changes the end users of a cloud computer pool into new end users.
+   *
+   * @param request ModifyUserToDesktopGroupRequest
+   * @return ModifyUserToDesktopGroupResponse
+   */
   async modifyUserToDesktopGroup(request: ModifyUserToDesktopGroupRequest): Promise<ModifyUserToDesktopGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyUserToDesktopGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Move files or folders.
+   *
+   * @param request MoveCdsFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveCdsFileResponse
+   */
   async moveCdsFileWithOptions(request: MoveCdsFileRequest, runtime: $Util.RuntimeOptions): Promise<MoveCdsFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32818,17 +34989,25 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveCdsFileResponse>(await this.callApi(params, req, runtime), new MoveCdsFileResponse({}));
   }
 
+  /**
+   * @summary Move files or folders.
+   *
+   * @param request MoveCdsFileRequest
+   * @return MoveCdsFileResponse
+   */
   async moveCdsFile(request: MoveCdsFileRequest): Promise<MoveCdsFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveCdsFileWithOptions(request, runtime);
   }
 
   /**
-    * The cloud computers that you want to restart must be in the Running state.
-    *
-    * @param request RebootDesktopsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RebootDesktopsResponse
+   * @summary Restart cloud computers.
+   *
+   * @description The cloud computers that you want to restart must be in the Running state.
+   *
+   * @param request RebootDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebootDesktopsResponse
    */
   async rebootDesktopsWithOptions(request: RebootDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<RebootDesktopsResponse> {
     Util.validateModel(request);
@@ -32859,10 +35038,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud computers that you want to restart must be in the Running state.
-    *
-    * @param request RebootDesktopsRequest
-    * @return RebootDesktopsResponse
+   * @summary Restart cloud computers.
+   *
+   * @description The cloud computers that you want to restart must be in the Running state.
+   *
+   * @param request RebootDesktopsRequest
+   * @return RebootDesktopsResponse
    */
   async rebootDesktops(request: RebootDesktopsRequest): Promise<RebootDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32870,16 +35051,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you change the image of a cloud computer, take note of the following limits:
-    * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
-    * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
-    * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
-    * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
-    * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
-    *
-    * @param request RebuildDesktopsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RebuildDesktopsResponse
+   * @summary Recreates cloud computers.
+   *
+   * @description Before you change the image of a cloud computer, take note of the following limits:
+   * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
+   * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
+   * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
+   * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
+   * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
+   *
+   * @param request RebuildDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebuildDesktopsResponse
    */
   async rebuildDesktopsWithOptions(request: RebuildDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<RebuildDesktopsResponse> {
     Util.validateModel(request);
@@ -32890,6 +35073,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.imageId)) {
       query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
     }
 
     if (!Util.isUnset(request.operateType)) {
@@ -32918,21 +35105,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you change the image of a cloud computer, take note of the following limits:
-    * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
-    * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
-    * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
-    * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
-    * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
-    *
-    * @param request RebuildDesktopsRequest
-    * @return RebuildDesktopsResponse
+   * @summary Recreates cloud computers.
+   *
+   * @description Before you change the image of a cloud computer, take note of the following limits:
+   * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
+   * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
+   * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
+   * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
+   * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
+   *
+   * @param request RebuildDesktopsRequest
+   * @return RebuildDesktopsResponse
    */
   async rebuildDesktops(request: RebuildDesktopsRequest): Promise<RebuildDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebuildDesktopsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes the file sharing feature of a folder in a cloud disk.
+   *
+   * @param tmpReq RemoveFilePermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveFilePermissionResponse
+   */
   async removeFilePermissionWithOptions(tmpReq: RemoveFilePermissionRequest, runtime: $Util.RuntimeOptions): Promise<RemoveFilePermissionResponse> {
     Util.validateModel(tmpReq);
     let request = new RemoveFilePermissionShrinkRequest({ });
@@ -32983,11 +35179,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveFilePermissionResponse>(await this.callApi(params, req, runtime), new RemoveFilePermissionResponse({}));
   }
 
+  /**
+   * @summary Removes the file sharing feature of a folder in a cloud disk.
+   *
+   * @param request RemoveFilePermissionRequest
+   * @return RemoveFilePermissionResponse
+   */
   async removeFilePermission(request: RemoveFilePermissionRequest): Promise<RemoveFilePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeFilePermissionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes authorized users of cloud computer pools. The removed users can no longer connect to cloud computers in the cloud computer pool.
+   *
+   * @param request RemoveUserFromDesktopGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveUserFromDesktopGroupResponse
+   */
   async removeUserFromDesktopGroupWithOptions(request: RemoveUserFromDesktopGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromDesktopGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33024,11 +35233,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveUserFromDesktopGroupResponse>(await this.callApi(params, req, runtime), new RemoveUserFromDesktopGroupResponse({}));
   }
 
+  /**
+   * @summary Removes authorized users of cloud computer pools. The removed users can no longer connect to cloud computers in the cloud computer pool.
+   *
+   * @param request RemoveUserFromDesktopGroupRequest
+   * @return RemoveUserFromDesktopGroupResponse
+   */
   async removeUserFromDesktopGroup(request: RemoveUserFromDesktopGroupRequest): Promise<RemoveUserFromDesktopGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeUserFromDesktopGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 移除超卖用户组用户
+   *
+   * @param request RemoveUserFromDesktopOversoldUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveUserFromDesktopOversoldUserGroupResponse
+   */
   async removeUserFromDesktopOversoldUserGroupWithOptions(request: RemoveUserFromDesktopOversoldUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromDesktopOversoldUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33065,11 +35287,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveUserFromDesktopOversoldUserGroupResponse>(await this.callApi(params, req, runtime), new RemoveUserFromDesktopOversoldUserGroupResponse({}));
   }
 
+  /**
+   * @summary 移除超卖用户组用户
+   *
+   * @param request RemoveUserFromDesktopOversoldUserGroupRequest
+   * @return RemoveUserFromDesktopOversoldUserGroupResponse
+   */
   async removeUserFromDesktopOversoldUserGroup(request: RemoveUserFromDesktopOversoldUserGroupRequest): Promise<RemoveUserFromDesktopOversoldUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeUserFromDesktopOversoldUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 续费桌面超卖组
+   *
+   * @param request RenewDesktopOversoldGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewDesktopOversoldGroupResponse
+   */
   async renewDesktopOversoldGroupWithOptions(request: RenewDesktopOversoldGroupRequest, runtime: $Util.RuntimeOptions): Promise<RenewDesktopOversoldGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33102,16 +35337,33 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewDesktopOversoldGroupResponse>(await this.callApi(params, req, runtime), new RenewDesktopOversoldGroupResponse({}));
   }
 
+  /**
+   * @summary 续费桌面超卖组
+   *
+   * @param request RenewDesktopOversoldGroupRequest
+   * @return RenewDesktopOversoldGroupResponse
+   */
   async renewDesktopOversoldGroup(request: RenewDesktopOversoldGroupRequest): Promise<RenewDesktopOversoldGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewDesktopOversoldGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Renew subscription cloud computers.
+   *
+   * @param request RenewDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewDesktopsResponse
+   */
   async renewDesktopsWithOptions(request: RenewDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<RenewDesktopsResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
     }
 
     if (!Util.isUnset(request.desktopId)) {
@@ -33155,11 +35407,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewDesktopsResponse>(await this.callApi(params, req, runtime), new RenewDesktopsResponse({}));
   }
 
+  /**
+   * @summary Renew subscription cloud computers.
+   *
+   * @param request RenewDesktopsRequest
+   * @return RenewDesktopsResponse
+   */
   async renewDesktops(request: RenewDesktopsRequest): Promise<RenewDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewDesktopsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Renews premium bandwidth plans.
+   *
+   * @param request RenewNetworkPackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewNetworkPackagesResponse
+   */
   async renewNetworkPackagesWithOptions(request: RenewNetworkPackagesRequest, runtime: $Util.RuntimeOptions): Promise<RenewNetworkPackagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33204,17 +35469,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewNetworkPackagesResponse>(await this.callApi(params, req, runtime), new RenewNetworkPackagesResponse({}));
   }
 
+  /**
+   * @summary Renews premium bandwidth plans.
+   *
+   * @param request RenewNetworkPackagesRequest
+   * @return RenewNetworkPackagesResponse
+   */
   async renewNetworkPackages(request: RenewNetworkPackagesRequest): Promise<RenewNetworkPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewNetworkPackagesWithOptions(request, runtime);
   }
 
   /**
-    * > You can call this operation to reset only cloud computers in a cloud computer pool.
-    *
-    * @param request ResetDesktopsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResetDesktopsResponse
+   * @summary Resets cloud computers.
+   *
+   * @description > You can call this operation to reset only cloud computers in a cloud computer pool.
+   *
+   * @param request ResetDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetDesktopsResponse
    */
   async resetDesktopsWithOptions(request: ResetDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<ResetDesktopsResponse> {
     Util.validateModel(request);
@@ -33269,10 +35542,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation to reset only cloud computers in a cloud computer pool.
-    *
-    * @param request ResetDesktopsRequest
-    * @return ResetDesktopsResponse
+   * @summary Resets cloud computers.
+   *
+   * @description > You can call this operation to reset only cloud computers in a cloud computer pool.
+   *
+   * @param request ResetDesktopsRequest
+   * @return ResetDesktopsResponse
    */
   async resetDesktops(request: ResetDesktopsRequest): Promise<ResetDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33280,11 +35555,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
-    *
-    * @param request ResetNASDefaultMountTargetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResetNASDefaultMountTargetResponse
+   * @summary Resets the mount target of an Apsara File Storage NAS (NAS) file system.
+   *
+   * @description When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+   *
+   * @param request ResetNASDefaultMountTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetNASDefaultMountTargetResponse
    */
   async resetNASDefaultMountTargetWithOptions(request: ResetNASDefaultMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<ResetNASDefaultMountTargetResponse> {
     Util.validateModel(request);
@@ -33315,10 +35592,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
-    *
-    * @param request ResetNASDefaultMountTargetRequest
-    * @return ResetNASDefaultMountTargetResponse
+   * @summary Resets the mount target of an Apsara File Storage NAS (NAS) file system.
+   *
+   * @description When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+   *
+   * @param request ResetNASDefaultMountTargetRequest
+   * @return ResetNASDefaultMountTargetResponse
    */
   async resetNASDefaultMountTarget(request: ResetNASDefaultMountTargetRequest): Promise<ResetNASDefaultMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33326,14 +35605,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the following operations are performed:
-    * *   The data that you want to retain is backed up.
-    *     > The disk restoration operation is irreversible. After you call this operation, the disk is restored to the status at the point in time when the snapshot was created. Data that is generated between the snapshot creation time and the current time is lost. Before you restore the disk based on the snapshot, make sure that you back up data.
-    * *   The cloud computer to which the disk belongs is stopped.
-    *
-    * @param request ResetSnapshotRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResetSnapshotResponse
+   * @summary Restores the data of a disk from a snapshot.
+   *
+   * @description Before you call this operation, make sure that the following operations are performed:
+   * *   The data that you want to retain is backed up.
+   *     > The disk restoration operation is irreversible. After you call this operation, the disk is restored to the status at the point in time when the snapshot was created. Data that is generated between the snapshot creation time and the current time is lost. Before you restore the disk based on the snapshot, make sure that you back up data.
+   * *   The cloud computer to which the disk belongs is stopped.
+   *
+   * @param request ResetSnapshotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetSnapshotResponse
    */
   async resetSnapshotWithOptions(request: ResetSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<ResetSnapshotResponse> {
     Util.validateModel(request);
@@ -33364,19 +35645,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the following operations are performed:
-    * *   The data that you want to retain is backed up.
-    *     > The disk restoration operation is irreversible. After you call this operation, the disk is restored to the status at the point in time when the snapshot was created. Data that is generated between the snapshot creation time and the current time is lost. Before you restore the disk based on the snapshot, make sure that you back up data.
-    * *   The cloud computer to which the disk belongs is stopped.
-    *
-    * @param request ResetSnapshotRequest
-    * @return ResetSnapshotResponse
+   * @summary Restores the data of a disk from a snapshot.
+   *
+   * @description Before you call this operation, make sure that the following operations are performed:
+   * *   The data that you want to retain is backed up.
+   *     > The disk restoration operation is irreversible. After you call this operation, the disk is restored to the status at the point in time when the snapshot was created. Data that is generated between the snapshot creation time and the current time is lost. Before you restore the disk based on the snapshot, make sure that you back up data.
+   * *   The cloud computer to which the disk belongs is stopped.
+   *
+   * @param request ResetSnapshotRequest
+   * @return ResetSnapshotResponse
    */
   async resetSnapshot(request: ResetSnapshotRequest): Promise<ResetSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetSnapshotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Revokes the coordinate permissions.
+   *
+   * @param request RevokeCoordinatePrivilegeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeCoordinatePrivilegeResponse
+   */
   async revokeCoordinatePrivilegeWithOptions(request: RevokeCoordinatePrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<RevokeCoordinatePrivilegeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33417,17 +35707,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeCoordinatePrivilegeResponse>(await this.callApi(params, req, runtime), new RevokeCoordinatePrivilegeResponse({}));
   }
 
+  /**
+   * @summary Revokes the coordinate permissions.
+   *
+   * @param request RevokeCoordinatePrivilegeRequest
+   * @return RevokeCoordinatePrivilegeResponse
+   */
   async revokeCoordinatePrivilege(request: RevokeCoordinatePrivilegeRequest): Promise<RevokeCoordinatePrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeCoordinatePrivilegeWithOptions(request, runtime);
   }
 
   /**
-    * You can use the RunCommand operation to run scripts only on Windows cloud desktops.
-    *
-    * @param request RunCommandRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RunCommandResponse
+   * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
+   *
+   * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
+   *
+   * @param request RunCommandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunCommandResponse
    */
   async runCommandWithOptions(request: RunCommandRequest, runtime: $Util.RuntimeOptions): Promise<RunCommandResponse> {
     Util.validateModel(request);
@@ -33478,10 +35776,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use the RunCommand operation to run scripts only on Windows cloud desktops.
-    *
-    * @param request RunCommandRequest
-    * @return RunCommandResponse
+   * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
+   *
+   * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
+   *
+   * @param request RunCommandRequest
+   * @return RunCommandResponse
    */
   async runCommand(request: RunCommandRequest): Promise<RunCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33489,11 +35789,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must call this operation to obtain the verification code that is required when you bind an advanced office network to a CEN instance that belongs to another Alibaba Cloud account. After you call this operation, the system sends a verification code to the email address associated with the Alibaba Cloud account to which the CEN instance belongs.
-    *
-    * @param request SendVerifyCodeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SendVerifyCodeResponse
+   * @summary Obtains the verification code that is required when you bind an advanced office network to a Cloud Enterprise Network (CEN) instance that belongs to another Alibaba Cloud account.
+   *
+   * @description You must call this operation to obtain the verification code that is required when you bind an advanced office network to a CEN instance that belongs to another Alibaba Cloud account. After you call this operation, the system sends a verification code to the email address associated with the Alibaba Cloud account to which the CEN instance belongs.
+   *
+   * @param request SendVerifyCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SendVerifyCodeResponse
    */
   async sendVerifyCodeWithOptions(request: SendVerifyCodeRequest, runtime: $Util.RuntimeOptions): Promise<SendVerifyCodeResponse> {
     Util.validateModel(request);
@@ -33528,16 +35830,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must call this operation to obtain the verification code that is required when you bind an advanced office network to a CEN instance that belongs to another Alibaba Cloud account. After you call this operation, the system sends a verification code to the email address associated with the Alibaba Cloud account to which the CEN instance belongs.
-    *
-    * @param request SendVerifyCodeRequest
-    * @return SendVerifyCodeResponse
+   * @summary Obtains the verification code that is required when you bind an advanced office network to a Cloud Enterprise Network (CEN) instance that belongs to another Alibaba Cloud account.
+   *
+   * @description You must call this operation to obtain the verification code that is required when you bind an advanced office network to a CEN instance that belongs to another Alibaba Cloud account. After you call this operation, the system sends a verification code to the email address associated with the Alibaba Cloud account to which the CEN instance belongs.
+   *
+   * @param request SendVerifyCodeRequest
+   * @return SendVerifyCodeResponse
    */
   async sendVerifyCode(request: SendVerifyCodeRequest): Promise<SendVerifyCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendVerifyCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures an auto scaling policy for a multi-session cloud computer. Elastic Desktop Service allows multiple end users to share a cloud computer in a multi-session cloud computer pool. This helps save costs.
+   *
+   * @param request SetDesktopGroupScaleTimerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDesktopGroupScaleTimerResponse
+   */
   async setDesktopGroupScaleTimerWithOptions(request: SetDesktopGroupScaleTimerRequest, runtime: $Util.RuntimeOptions): Promise<SetDesktopGroupScaleTimerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33570,11 +35881,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDesktopGroupScaleTimerResponse>(await this.callApi(params, req, runtime), new SetDesktopGroupScaleTimerResponse({}));
   }
 
+  /**
+   * @summary Configures an auto scaling policy for a multi-session cloud computer. Elastic Desktop Service allows multiple end users to share a cloud computer in a multi-session cloud computer pool. This helps save costs.
+   *
+   * @param request SetDesktopGroupScaleTimerRequest
+   * @return SetDesktopGroupScaleTimerResponse
+   */
   async setDesktopGroupScaleTimer(request: SetDesktopGroupScaleTimerRequest): Promise<SetDesktopGroupScaleTimerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDesktopGroupScaleTimerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures a scheduled task for a cloud computer pool, such as starting, stopping, restarting or resting cloud computers in the pool.
+   *
+   * @param request SetDesktopGroupTimerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDesktopGroupTimerResponse
+   */
   async setDesktopGroupTimerWithOptions(request: SetDesktopGroupTimerRequest, runtime: $Util.RuntimeOptions): Promise<SetDesktopGroupTimerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33619,11 +35943,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDesktopGroupTimerResponse>(await this.callApi(params, req, runtime), new SetDesktopGroupTimerResponse({}));
   }
 
+  /**
+   * @summary Configures a scheduled task for a cloud computer pool, such as starting, stopping, restarting or resting cloud computers in the pool.
+   *
+   * @param request SetDesktopGroupTimerRequest
+   * @return SetDesktopGroupTimerResponse
+   */
   async setDesktopGroupTimer(request: SetDesktopGroupTimerRequest): Promise<SetDesktopGroupTimerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDesktopGroupTimerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sets the status of a scheduled task for a cloud computer pool. For example, you enable or disable the scheduled task.
+   *
+   * @param request SetDesktopGroupTimerStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDesktopGroupTimerStatusResponse
+   */
   async setDesktopGroupTimerStatusWithOptions(request: SetDesktopGroupTimerStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDesktopGroupTimerStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33660,17 +35997,75 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDesktopGroupTimerStatusResponse>(await this.callApi(params, req, runtime), new SetDesktopGroupTimerStatusResponse({}));
   }
 
+  /**
+   * @summary Sets the status of a scheduled task for a cloud computer pool. For example, you enable or disable the scheduled task.
+   *
+   * @param request SetDesktopGroupTimerStatusRequest
+   * @return SetDesktopGroupTimerStatusResponse
+   */
   async setDesktopGroupTimerStatus(request: SetDesktopGroupTimerStatusRequest): Promise<SetDesktopGroupTimerStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDesktopGroupTimerStatusWithOptions(request, runtime);
   }
 
   /**
-    * This operation is supported only for AD directories, not for RAM directories.
-    *
-    * @param request SetDirectorySsoStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetDirectorySsoStatusResponse
+   * @summary 设置桌面维护模式
+   *
+   * @param request SetDesktopMaintenanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDesktopMaintenanceResponse
+   */
+  async setDesktopMaintenanceWithOptions(request: SetDesktopMaintenanceRequest, runtime: $Util.RuntimeOptions): Promise<SetDesktopMaintenanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.desktopIds)) {
+      query["DesktopIds"] = request.desktopIds;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetDesktopMaintenance",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDesktopMaintenanceResponse>(await this.callApi(params, req, runtime), new SetDesktopMaintenanceResponse({}));
+  }
+
+  /**
+   * @summary 设置桌面维护模式
+   *
+   * @param request SetDesktopMaintenanceRequest
+   * @return SetDesktopMaintenanceResponse
+   */
+  async setDesktopMaintenance(request: SetDesktopMaintenanceRequest): Promise<SetDesktopMaintenanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDesktopMaintenanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Configures the single sign-on (SSO) status of an Active Directory (AD) directory.
+   *
+   * @description This operation is supported only for AD directories, not for RAM directories.
+   *
+   * @param request SetDirectorySsoStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDirectorySsoStatusResponse
    */
   async setDirectorySsoStatusWithOptions(request: SetDirectorySsoStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDirectorySsoStatusResponse> {
     Util.validateModel(request);
@@ -33705,10 +36100,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is supported only for AD directories, not for RAM directories.
-    *
-    * @param request SetDirectorySsoStatusRequest
-    * @return SetDirectorySsoStatusResponse
+   * @summary Configures the single sign-on (SSO) status of an Active Directory (AD) directory.
+   *
+   * @description This operation is supported only for AD directories, not for RAM directories.
+   *
+   * @param request SetDirectorySsoStatusRequest
+   * @return SetDirectorySsoStatusResponse
    */
   async setDirectorySsoStatus(request: SetDirectorySsoStatusRequest): Promise<SetDirectorySsoStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33716,11 +36113,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
-    *
-    * @param request SetIdpMetadataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetIdpMetadataResponse
+   * @summary Uploads the metadata of a Security Assertion Markup Language (SAML) 2.0-based identity provider (IdP).
+   *
+   * @description You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
+   *
+   * @param request SetIdpMetadataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetIdpMetadataResponse
    */
   async setIdpMetadataWithOptions(request: SetIdpMetadataRequest, runtime: $Util.RuntimeOptions): Promise<SetIdpMetadataResponse> {
     Util.validateModel(request);
@@ -33759,16 +36158,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
-    *
-    * @param request SetIdpMetadataRequest
-    * @return SetIdpMetadataResponse
+   * @summary Uploads the metadata of a Security Assertion Markup Language (SAML) 2.0-based identity provider (IdP).
+   *
+   * @description You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
+   *
+   * @param request SetIdpMetadataRequest
+   * @return SetIdpMetadataResponse
    */
   async setIdpMetadata(request: SetIdpMetadataRequest): Promise<SetIdpMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setIdpMetadataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables single sign-on (SSO) for a workspace.
+   *
+   * @param request SetOfficeSiteSsoStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetOfficeSiteSsoStatusResponse
+   */
   async setOfficeSiteSsoStatusWithOptions(request: SetOfficeSiteSsoStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetOfficeSiteSsoStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33801,11 +36209,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetOfficeSiteSsoStatusResponse>(await this.callApi(params, req, runtime), new SetOfficeSiteSsoStatusResponse({}));
   }
 
+  /**
+   * @summary Enables or disables single sign-on (SSO) for a workspace.
+   *
+   * @param request SetOfficeSiteSsoStatusRequest
+   * @return SetOfficeSiteSsoStatusResponse
+   */
   async setOfficeSiteSsoStatus(request: SetOfficeSiteSsoStatusRequest): Promise<SetOfficeSiteSsoStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setOfficeSiteSsoStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures directories in the blacklist and whitelist based on the user profile management (UPM) feature.
+   *
+   * @param tmpReq SetUserProfilePathRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetUserProfilePathRulesResponse
+   */
   async setUserProfilePathRulesWithOptions(tmpReq: SetUserProfilePathRulesRequest, runtime: $Util.RuntimeOptions): Promise<SetUserProfilePathRulesResponse> {
     Util.validateModel(tmpReq);
     let request = new SetUserProfilePathRulesShrinkRequest({ });
@@ -33848,17 +36269,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SetUserProfilePathRulesResponse>(await this.callApi(params, req, runtime), new SetUserProfilePathRulesResponse({}));
   }
 
+  /**
+   * @summary Configures directories in the blacklist and whitelist based on the user profile management (UPM) feature.
+   *
+   * @param request SetUserProfilePathRulesRequest
+   * @return SetUserProfilePathRulesResponse
+   */
   async setUserProfilePathRules(request: SetUserProfilePathRulesRequest): Promise<SetUserProfilePathRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setUserProfilePathRulesWithOptions(request, runtime);
   }
 
   /**
-    * The cloud computers that you want to start must be in the Stopped state.
-    *
-    * @param request StartDesktopsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartDesktopsResponse
+   * @summary Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+   *
+   * @description The cloud computers that you want to start must be in the Stopped state.
+   *
+   * @param request StartDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartDesktopsResponse
    */
   async startDesktopsWithOptions(request: StartDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<StartDesktopsResponse> {
     Util.validateModel(request);
@@ -33889,10 +36318,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud computers that you want to start must be in the Stopped state.
-    *
-    * @param request StartDesktopsRequest
-    * @return StartDesktopsResponse
+   * @summary Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+   *
+   * @description The cloud computers that you want to start must be in the Stopped state.
+   *
+   * @param request StartDesktopsRequest
+   * @return StartDesktopsResponse
    */
   async startDesktops(request: StartDesktopsRequest): Promise<StartDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33900,11 +36331,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud computers that you want to stop must be in the Running state.
-    *
-    * @param request StopDesktopsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopDesktopsResponse
+   * @summary Stop cloud computers that are in the Running state. After the operation is successfully called, the cloud computers enter the Stopped state.
+   *
+   * @description The cloud computers that you want to stop must be in the Running state.
+   *
+   * @param request StopDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopDesktopsResponse
    */
   async stopDesktopsWithOptions(request: StopDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<StopDesktopsResponse> {
     Util.validateModel(request);
@@ -33939,10 +36372,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud computers that you want to stop must be in the Running state.
-    *
-    * @param request StopDesktopsRequest
-    * @return StopDesktopsResponse
+   * @summary Stop cloud computers that are in the Running state. After the operation is successfully called, the cloud computers enter the Stopped state.
+   *
+   * @description The cloud computers that you want to stop must be in the Running state.
+   *
+   * @param request StopDesktopsRequest
+   * @return StopDesktopsResponse
    */
   async stopDesktops(request: StopDesktopsRequest): Promise<StopDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33950,11 +36385,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
-    *
-    * @param request StopInvocationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopInvocationResponse
+   * @summary Stops a Cloud Assistant command that is running on one or more cloud desktops.
+   *
+   * @description When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
+   *
+   * @param request StopInvocationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopInvocationResponse
    */
   async stopInvocationWithOptions(request: StopInvocationRequest, runtime: $Util.RuntimeOptions): Promise<StopInvocationResponse> {
     Util.validateModel(request);
@@ -33989,10 +36426,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
-    *
-    * @param request StopInvocationRequest
-    * @return StopInvocationResponse
+   * @summary Stops a Cloud Assistant command that is running on one or more cloud desktops.
+   *
+   * @description When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
+   *
+   * @param request StopInvocationRequest
+   * @return StopInvocationResponse
    */
   async stopInvocation(request: StopInvocationRequest): Promise<StopInvocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34000,11 +36439,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If TagKey is specified, the new TagValue value overrides the original TagValue value.
-    *
-    * @param request TagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourcesResponse
+   * @summary Adds tags to cloud computers. This allows you to filter and manage cloud computers by tag.
+   *
+   * @description If TagKey is specified, the new TagValue value overrides the original TagValue value.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -34043,16 +36484,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If TagKey is specified, the new TagValue value overrides the original TagValue value.
-    *
-    * @param request TagResourcesRequest
-    * @return TagResourcesResponse
+   * @summary Adds tags to cloud computers. This allows you to filter and manage cloud computers by tag.
+   *
+   * @description If TagKey is specified, the new TagValue value overrides the original TagValue value.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 解绑用户桌面
+   *
+   * @param request UnbindUserDesktopRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnbindUserDesktopResponse
+   */
   async unbindUserDesktopWithOptions(request: UnbindUserDesktopRequest, runtime: $Util.RuntimeOptions): Promise<UnbindUserDesktopResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34097,11 +36547,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindUserDesktopResponse>(await this.callApi(params, req, runtime), new UnbindUserDesktopResponse({}));
   }
 
+  /**
+   * @summary 解绑用户桌面
+   *
+   * @param request UnbindUserDesktopRequest
+   * @return UnbindUserDesktopResponse
+   */
   async unbindUserDesktop(request: UnbindUserDesktopRequest): Promise<UnbindUserDesktopResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindUserDesktopWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unlocks a virtual multi-factor authentication (MFA) device that is in the LOCKED state.
+   *
+   * @param request UnlockVirtualMFADeviceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnlockVirtualMFADeviceResponse
+   */
   async unlockVirtualMFADeviceWithOptions(request: UnlockVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnlockVirtualMFADeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34130,11 +36593,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnlockVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new UnlockVirtualMFADeviceResponse({}));
   }
 
+  /**
+   * @summary Unlocks a virtual multi-factor authentication (MFA) device that is in the LOCKED state.
+   *
+   * @param request UnlockVirtualMFADeviceRequest
+   * @return UnlockVirtualMFADeviceResponse
+   */
   async unlockVirtualMFADevice(request: UnlockVirtualMFADeviceRequest): Promise<UnlockVirtualMFADeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unlockVirtualMFADeviceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from cloud computers. After you remove a tag, if the tag is not added to a cloud computer, the tag is automatically deleted.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34175,17 +36651,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from cloud computers. After you remove a tag, if the tag is not added to a cloud computer, the tag is automatically deleted.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the WUYING Workspace console and choose **Operations > Image Updates** in the left-side navigation pane.
-    *
-    * @param request UpdateFotaTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateFotaTaskResponse
+   * @summary Enables or disables the auto-push feature for an image update task.
+   *
+   * @description You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the Elastic Desktop Service console and choose **Operations > Image Updates** in the left-side navigation pane.
+   *
+   * @param request UpdateFotaTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFotaTaskResponse
    */
   async updateFotaTaskWithOptions(request: UpdateFotaTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFotaTaskResponse> {
     Util.validateModel(request);
@@ -34220,10 +36704,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the WUYING Workspace console and choose **Operations > Image Updates** in the left-side navigation pane.
-    *
-    * @param request UpdateFotaTaskRequest
-    * @return UpdateFotaTaskResponse
+   * @summary Enables or disables the auto-push feature for an image update task.
+   *
+   * @description You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the Elastic Desktop Service console and choose **Operations > Image Updates** in the left-side navigation pane.
+   *
+   * @param request UpdateFotaTaskRequest
+   * @return UpdateFotaTaskResponse
    */
   async updateFotaTask(request: UpdateFotaTaskRequest): Promise<UpdateFotaTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34231,11 +36717,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can upload only Windows images.
-    *
-    * @param request UploadImageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UploadImageResponse
+   * @summary Uploads your custom Windows image.
+   *
+   * @description >  You can upload only Windows images.
+   *
+   * @param request UploadImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadImageResponse
    */
   async uploadImageWithOptions(request: UploadImageRequest, runtime: $Util.RuntimeOptions): Promise<UploadImageResponse> {
     Util.validateModel(request);
@@ -34302,16 +36790,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can upload only Windows images.
-    *
-    * @param request UploadImageRequest
-    * @return UploadImageResponse
+   * @summary Uploads your custom Windows image.
+   *
+   * @description >  You can upload only Windows images.
+   *
+   * @param request UploadImageRequest
+   * @return UploadImageResponse
    */
   async uploadImage(request: UploadImageRequest): Promise<UploadImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadImageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Verifies the ID of a Cloud Enterprise Network (CEN) instance and the ID of the Alibaba Cloud account to which the instance belongs and checks whether a CIDR block conflict exists between the routes of the instance and the IPv4 CIDR blocks of the associated office network.
+   *
+   * @param request VerifyCenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyCenResponse
+   */
   async verifyCenWithOptions(request: VerifyCenRequest, runtime: $Util.RuntimeOptions): Promise<VerifyCenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34352,11 +36849,22 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyCenResponse>(await this.callApi(params, req, runtime), new VerifyCenResponse({}));
   }
 
+  /**
+   * @summary Verifies the ID of a Cloud Enterprise Network (CEN) instance and the ID of the Alibaba Cloud account to which the instance belongs and checks whether a CIDR block conflict exists between the routes of the instance and the IPv4 CIDR blocks of the associated office network.
+   *
+   * @param request VerifyCenRequest
+   * @return VerifyCenResponse
+   */
   async verifyCen(request: VerifyCenRequest): Promise<VerifyCenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyCenWithOptions(request, runtime);
   }
 
+  /**
+   * @param request WakeupDesktopsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return WakeupDesktopsResponse
+   */
   async wakeupDesktopsWithOptions(request: WakeupDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<WakeupDesktopsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34385,6 +36893,10 @@ export default class Client extends OpenApi {
     return $tea.cast<WakeupDesktopsResponse>(await this.callApi(params, req, runtime), new WakeupDesktopsResponse({}));
   }
 
+  /**
+   * @param request WakeupDesktopsRequest
+   * @return WakeupDesktopsResponse
+   */
   async wakeupDesktops(request: WakeupDesktopsRequest): Promise<WakeupDesktopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.wakeupDesktopsWithOptions(request, runtime);
