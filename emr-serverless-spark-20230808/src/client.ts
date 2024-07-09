@@ -1272,6 +1272,7 @@ export class ListReleaseVersionsResponse extends $tea.Model {
 }
 
 export class ListSessionClustersRequest extends $tea.Model {
+  kind?: string;
   maxResults?: number;
   nextToken?: string;
   queueName?: string;
@@ -1279,6 +1280,7 @@ export class ListSessionClustersRequest extends $tea.Model {
   sessionClusterId?: string;
   static names(): { [key: string]: string } {
     return {
+      kind: 'kind',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
       queueName: 'queueName',
@@ -1289,6 +1291,7 @@ export class ListSessionClustersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      kind: 'string',
       maxResults: 'number',
       nextToken: 'string',
       queueName: 'string',
@@ -2281,26 +2284,36 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
   applicationConfigs?: ListSessionClustersResponseBodySessionClustersApplicationConfigs[];
   autoStartConfiguration?: ListSessionClustersResponseBodySessionClustersAutoStartConfiguration;
   autoStopConfiguration?: ListSessionClustersResponseBodySessionClustersAutoStopConfiguration;
+  domain?: string;
+  draftId?: string;
+  kind?: string;
   name?: string;
   queueName?: string;
+  releaseVersion?: string;
   sessionClusterId?: string;
   state?: string;
   stateChangeReason?: ListSessionClustersResponseBodySessionClustersStateChangeReason;
   userId?: string;
   userName?: string;
+  webUI?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       applicationConfigs: 'applicationConfigs',
       autoStartConfiguration: 'autoStartConfiguration',
       autoStopConfiguration: 'autoStopConfiguration',
+      domain: 'domain',
+      draftId: 'draftId',
+      kind: 'kind',
       name: 'name',
       queueName: 'queueName',
+      releaseVersion: 'releaseVersion',
       sessionClusterId: 'sessionClusterId',
       state: 'state',
       stateChangeReason: 'stateChangeReason',
       userId: 'userId',
       userName: 'userName',
+      webUI: 'webUI',
       workspaceId: 'workspaceId',
     };
   }
@@ -2310,13 +2323,18 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
       applicationConfigs: { 'type': 'array', 'itemType': ListSessionClustersResponseBodySessionClustersApplicationConfigs },
       autoStartConfiguration: ListSessionClustersResponseBodySessionClustersAutoStartConfiguration,
       autoStopConfiguration: ListSessionClustersResponseBodySessionClustersAutoStopConfiguration,
+      domain: 'string',
+      draftId: 'string',
+      kind: 'string',
       name: 'string',
       queueName: 'string',
+      releaseVersion: 'string',
       sessionClusterId: 'string',
       state: 'string',
       stateChangeReason: ListSessionClustersResponseBodySessionClustersStateChangeReason,
       userId: 'string',
       userName: 'string',
+      webUI: 'string',
       workspaceId: 'string',
     };
   }
@@ -2575,7 +2593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加用户
+   * @summary Adds a RAM user or RAM role to a workspace as a member.
    *
    * @param request AddMembersRequest
    * @param headers map
@@ -2618,7 +2636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加用户
+   * @summary Adds a RAM user or RAM role to a workspace as a member.
    *
    * @param request AddMembersRequest
    * @return AddMembersResponse
@@ -2630,7 +2648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消jobRun作业
+   * @summary Terminates a Spark job.
    *
    * @param request CancelJobRunRequest
    * @param headers map
@@ -2663,7 +2681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消jobRun作业
+   * @summary Terminates a Spark job.
    *
    * @param request CancelJobRunRequest
    * @return CancelJobRunResponse
@@ -2742,7 +2760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务
+   * @summary Obtain the job details.
    *
    * @param request GetJobRunRequest
    * @param headers map
@@ -2775,7 +2793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务
+   * @summary Obtain the job details.
    *
    * @param request GetJobRunRequest
    * @return GetJobRunResponse
@@ -2832,7 +2850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 给用户授权Role列表
+   * @summary Assigns a specified role to users.
    *
    * @param request GrantRoleToUsersRequest
    * @param headers map
@@ -2875,7 +2893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 给用户授权Role列表
+   * @summary Assigns a specified role to users.
    *
    * @param request GrantRoleToUsersRequest
    * @return GrantRoleToUsersResponse
@@ -2887,7 +2905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询run列表
+   * @summary Queries a list of Spark jobs.
    *
    * @param tmpReq ListJobRunsRequest
    * @param headers map
@@ -2982,7 +3000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询run列表
+   * @summary Queries a list of Spark jobs.
    *
    * @param request ListJobRunsRequest
    * @return ListJobRunsResponse
@@ -3061,6 +3079,10 @@ export default class Client extends OpenApi {
   async listSessionClustersWithOptions(workspaceId: string, request: ListSessionClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSessionClustersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.kind)) {
+      query["kind"] = request.kind;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["maxResults"] = request.maxResults;
     }
@@ -3161,7 +3183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看工作空间列表
+   * @summary Queries a list of workspaces.
    *
    * @param request ListWorkspacesRequest
    * @param headers map
@@ -3210,7 +3232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看工作空间列表
+   * @summary Queries a list of workspaces.
    *
    * @param request ListWorkspacesRequest
    * @return ListWorkspacesResponse
@@ -3222,7 +3244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动作业
+   * @summary Starts a Spark job.
    *
    * @param request StartJobRunRequest
    * @param headers map
@@ -3297,7 +3319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动作业
+   * @summary Starts a Spark job.
    *
    * @param request StartJobRunRequest
    * @return StartJobRunResponse
