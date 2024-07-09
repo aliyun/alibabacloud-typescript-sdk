@@ -2195,6 +2195,7 @@ export class GetJobRequest extends $tea.Model {
 export class GetJobResponseBody extends $tea.Model {
   clusterId?: string;
   codeSource?: GetJobResponseBodyCodeSource;
+  credentialConfig?: CredentialConfig;
   dataSources?: GetJobResponseBodyDataSources[];
   displayName?: string;
   duration?: number;
@@ -2235,6 +2236,7 @@ export class GetJobResponseBody extends $tea.Model {
     return {
       clusterId: 'ClusterId',
       codeSource: 'CodeSource',
+      credentialConfig: 'CredentialConfig',
       dataSources: 'DataSources',
       displayName: 'DisplayName',
       duration: 'Duration',
@@ -2278,6 +2280,7 @@ export class GetJobResponseBody extends $tea.Model {
     return {
       clusterId: 'string',
       codeSource: GetJobResponseBodyCodeSource,
+      credentialConfig: CredentialConfig,
       dataSources: { 'type': 'array', 'itemType': GetJobResponseBodyDataSources },
       displayName: 'string',
       duration: 'number',
