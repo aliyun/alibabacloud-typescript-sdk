@@ -2298,6 +2298,7 @@ export class DescribeCloudResourcesRequest extends $tea.Model {
   resourceDomain?: string;
   resourceFunction?: string;
   resourceInstanceId?: string;
+  resourceInstanceName?: string;
   resourceManagerResourceGroupId?: string;
   resourceName?: string;
   resourceProduct?: string;
@@ -2313,6 +2314,7 @@ export class DescribeCloudResourcesRequest extends $tea.Model {
       resourceDomain: 'ResourceDomain',
       resourceFunction: 'ResourceFunction',
       resourceInstanceId: 'ResourceInstanceId',
+      resourceInstanceName: 'ResourceInstanceName',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       resourceName: 'ResourceName',
       resourceProduct: 'ResourceProduct',
@@ -2331,6 +2333,7 @@ export class DescribeCloudResourcesRequest extends $tea.Model {
       resourceDomain: 'string',
       resourceFunction: 'string',
       resourceInstanceId: 'string',
+      resourceInstanceName: 'string',
       resourceManagerResourceGroupId: 'string',
       resourceName: 'string',
       resourceProduct: 'string',
@@ -2386,6 +2389,78 @@ export class DescribeCloudResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCloudResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCnameCountRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCnameCountResponseBody extends $tea.Model {
+  cnameCount?: DescribeCnameCountResponseBodyCnameCount;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cnameCount: 'CnameCount',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cnameCount: DescribeCnameCountResponseBodyCnameCount,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCnameCountResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCnameCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCnameCountResponseBody,
     };
   }
 
@@ -4654,6 +4729,8 @@ export class DescribeProductInstancesRequest extends $tea.Model {
   pageSize?: number;
   regionId?: string;
   resourceInstanceId?: string;
+  resourceInstanceIp?: string;
+  resourceInstanceName?: string;
   resourceIp?: string;
   resourceManagerResourceGroupId?: string;
   resourceName?: string;
@@ -4667,6 +4744,8 @@ export class DescribeProductInstancesRequest extends $tea.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       resourceInstanceId: 'ResourceInstanceId',
+      resourceInstanceIp: 'ResourceInstanceIp',
+      resourceInstanceName: 'ResourceInstanceName',
       resourceIp: 'ResourceIp',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       resourceName: 'ResourceName',
@@ -4683,6 +4762,8 @@ export class DescribeProductInstancesRequest extends $tea.Model {
       pageSize: 'number',
       regionId: 'string',
       resourceInstanceId: 'string',
+      resourceInstanceIp: 'string',
+      resourceInstanceName: 'string',
       resourceIp: 'string',
       resourceManagerResourceGroupId: 'string',
       resourceName: 'string',
@@ -8914,10 +8995,15 @@ export class DescribeCertsResponseBodyCerts extends $tea.Model {
 }
 
 export class DescribeCloudResourcesResponseBodyCloudResources extends $tea.Model {
+  httpPortCount?: number;
+  httpsPortCount?: number;
   ownerUserId?: string;
   resourceDomain?: string;
   resourceFunction?: string;
   resourceInstance?: string;
+  resourceInstanceId?: string;
+  resourceInstanceIp?: string;
+  resourceInstanceName?: string;
   resourceName?: string;
   resourceProduct?: string;
   resourceRegionId?: string;
@@ -8925,10 +9011,15 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $tea.Model
   resourceService?: string;
   static names(): { [key: string]: string } {
     return {
+      httpPortCount: 'HttpPortCount',
+      httpsPortCount: 'HttpsPortCount',
       ownerUserId: 'OwnerUserId',
       resourceDomain: 'ResourceDomain',
       resourceFunction: 'ResourceFunction',
       resourceInstance: 'ResourceInstance',
+      resourceInstanceId: 'ResourceInstanceId',
+      resourceInstanceIp: 'ResourceInstanceIp',
+      resourceInstanceName: 'ResourceInstanceName',
       resourceName: 'ResourceName',
       resourceProduct: 'ResourceProduct',
       resourceRegionId: 'ResourceRegionId',
@@ -8939,15 +9030,45 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      httpPortCount: 'number',
+      httpsPortCount: 'number',
       ownerUserId: 'string',
       resourceDomain: 'string',
       resourceFunction: 'string',
       resourceInstance: 'string',
+      resourceInstanceId: 'string',
+      resourceInstanceIp: 'string',
+      resourceInstanceName: 'string',
       resourceName: 'string',
       resourceProduct: 'string',
       resourceRegionId: 'string',
       resourceRouteName: 'string',
       resourceService: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCnameCountResponseBodyCnameCount extends $tea.Model {
+  cname?: number;
+  hybridCloudCname?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cname: 'Cname',
+      hybridCloudCname: 'HybridCloudCname',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cname: 'number',
+      hybridCloudCname: 'number',
+      total: 'number',
     };
   }
 
@@ -10473,6 +10594,8 @@ export class DescribeProductInstancesResponseBodyProductInstancesResourcePorts e
 export class DescribeProductInstancesResponseBodyProductInstances extends $tea.Model {
   ownerUserId?: string;
   resourceInstanceId?: string;
+  resourceInstanceIp?: string;
+  resourceInstanceName?: string;
   resourceIp?: string;
   resourceName?: string;
   resourcePorts?: DescribeProductInstancesResponseBodyProductInstancesResourcePorts[];
@@ -10482,6 +10605,8 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $tea.M
     return {
       ownerUserId: 'OwnerUserId',
       resourceInstanceId: 'ResourceInstanceId',
+      resourceInstanceIp: 'ResourceInstanceIp',
+      resourceInstanceName: 'ResourceInstanceName',
       resourceIp: 'ResourceIp',
       resourceName: 'ResourceName',
       resourcePorts: 'ResourcePorts',
@@ -10494,6 +10619,8 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $tea.M
     return {
       ownerUserId: 'string',
       resourceInstanceId: 'string',
+      resourceInstanceIp: 'string',
+      resourceInstanceName: 'string',
       resourceIp: 'string',
       resourceName: 'string',
       resourcePorts: { 'type': 'array', 'itemType': DescribeProductInstancesResponseBodyProductInstancesResourcePorts },
@@ -12967,6 +13094,10 @@ export default class Client extends OpenApi {
       query["ResourceInstanceId"] = request.resourceInstanceId;
     }
 
+    if (!Util.isUnset(request.resourceInstanceName)) {
+      query["ResourceInstanceName"] = request.resourceInstanceName;
+    }
+
     if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
       query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
@@ -13013,6 +13144,56 @@ export default class Client extends OpenApi {
   async describeCloudResources(request: DescribeCloudResourcesRequest): Promise<DescribeCloudResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询Cname接入的数量
+   *
+   * @param request DescribeCnameCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCnameCountResponse
+   */
+  async describeCnameCountWithOptions(request: DescribeCnameCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCnameCountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCnameCount",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCnameCountResponse>(await this.callApi(params, req, runtime), new DescribeCnameCountResponse({}));
+  }
+
+  /**
+   * @summary 查询Cname接入的数量
+   *
+   * @param request DescribeCnameCountRequest
+   * @return DescribeCnameCountResponse
+   */
+  async describeCnameCount(request: DescribeCnameCountRequest): Promise<DescribeCnameCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCnameCountWithOptions(request, runtime);
   }
 
   /**
@@ -14705,6 +14886,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceInstanceId)) {
       query["ResourceInstanceId"] = request.resourceInstanceId;
+    }
+
+    if (!Util.isUnset(request.resourceInstanceIp)) {
+      query["ResourceInstanceIp"] = request.resourceInstanceIp;
+    }
+
+    if (!Util.isUnset(request.resourceInstanceName)) {
+      query["ResourceInstanceName"] = request.resourceInstanceName;
     }
 
     if (!Util.isUnset(request.resourceIp)) {
@@ -17354,7 +17543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 释放实例
+   * @summary Releases a Web Application Firewall (WAF) 3.0 instance.
    *
    * @param request ReleaseInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -17393,7 +17582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 释放实例
+   * @summary Releases a Web Application Firewall (WAF) 3.0 instance.
    *
    * @param request ReleaseInstanceRequest
    * @return ReleaseInstanceResponse
