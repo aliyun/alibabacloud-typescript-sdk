@@ -80,6 +80,75 @@ export class CreateDocumentAnalyzeTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateImageAnalyzeTaskRequest extends $tea.Model {
+  document?: CreateImageAnalyzeTaskRequestDocument;
+  static names(): { [key: string]: string } {
+    return {
+      document: 'document',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      document: CreateImageAnalyzeTaskRequestDocument,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageAnalyzeTaskResponseBody extends $tea.Model {
+  latency?: number;
+  requestId?: string;
+  result?: CreateImageAnalyzeTaskResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      latency: 'latency',
+      requestId: 'request_id',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      latency: 'number',
+      requestId: 'string',
+      result: CreateImageAnalyzeTaskResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageAnalyzeTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateImageAnalyzeTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateImageAnalyzeTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDocumentAnalyzeTaskStatusRequest extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -294,6 +363,153 @@ export class GetDocumentSplitResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDocumentSplitResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageAnalyzeTaskStatusRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageAnalyzeTaskStatusResponseBody extends $tea.Model {
+  latency?: number;
+  requestId?: string;
+  result?: GetImageAnalyzeTaskStatusResponseBodyResult;
+  usage?: GetImageAnalyzeTaskStatusResponseBodyUsage;
+  static names(): { [key: string]: string } {
+    return {
+      latency: 'latency',
+      requestId: 'request_id',
+      result: 'result',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      latency: 'number',
+      requestId: 'string',
+      result: GetImageAnalyzeTaskStatusResponseBodyResult,
+      usage: GetImageAnalyzeTaskStatusResponseBodyUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageAnalyzeTaskStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetImageAnalyzeTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetImageAnalyzeTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueryAnalysisRequest extends $tea.Model {
+  history?: GetQueryAnalysisRequestHistory[];
+  query?: string;
+  static names(): { [key: string]: string } {
+    return {
+      history: 'history',
+      query: 'query',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      history: { 'type': 'array', 'itemType': GetQueryAnalysisRequestHistory },
+      query: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueryAnalysisResponseBody extends $tea.Model {
+  latency?: number;
+  requestId?: string;
+  result?: GetQueryAnalysisResponseBodyResult;
+  usage?: GetQueryAnalysisResponseBodyUsage;
+  static names(): { [key: string]: string } {
+    return {
+      latency: 'latency',
+      requestId: 'request_id',
+      result: 'result',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      latency: 'number',
+      requestId: 'string',
+      result: GetQueryAnalysisResponseBodyResult,
+      usage: GetQueryAnalysisResponseBodyUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueryAnalysisResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueryAnalysisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetQueryAnalysisResponseBody,
     };
   }
 
@@ -602,6 +818,53 @@ export class CreateDocumentAnalyzeTaskResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreateImageAnalyzeTaskRequestDocument extends $tea.Model {
+  content?: string;
+  fileName?: string;
+  fileType?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      fileName: 'file_name',
+      fileType: 'file_type',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      fileName: 'string',
+      fileType: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageAnalyzeTaskResponseBodyResult extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDocumentAnalyzeTaskStatusResponseBodyResultData extends $tea.Model {
   content?: string;
   contentType?: string;
@@ -629,11 +892,13 @@ export class GetDocumentAnalyzeTaskStatusResponseBodyResultData extends $tea.Mod
 
 export class GetDocumentAnalyzeTaskStatusResponseBodyResult extends $tea.Model {
   data?: GetDocumentAnalyzeTaskStatusResponseBodyResultData;
+  error?: string;
   status?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
+      error: 'error',
       status: 'status',
       taskId: 'task_id',
     };
@@ -642,6 +907,7 @@ export class GetDocumentAnalyzeTaskStatusResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: GetDocumentAnalyzeTaskStatusResponseBodyResultData,
+      error: 'string',
       status: 'string',
       taskId: 'string',
     };
@@ -900,6 +1166,153 @@ export class GetDocumentSplitResponseBodyUsage extends $tea.Model {
   }
 }
 
+export class GetImageAnalyzeTaskStatusResponseBodyResultData extends $tea.Model {
+  content?: string;
+  contentType?: string;
+  pageNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      contentType: 'content_type',
+      pageNum: 'page_num',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      contentType: 'string',
+      pageNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageAnalyzeTaskStatusResponseBodyResult extends $tea.Model {
+  data?: GetImageAnalyzeTaskStatusResponseBodyResultData;
+  error?: string;
+  status?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      error: 'error',
+      status: 'status',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetImageAnalyzeTaskStatusResponseBodyResultData,
+      error: 'string',
+      status: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageAnalyzeTaskStatusResponseBodyUsage extends $tea.Model {
+  pvCount?: number;
+  tokenCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pvCount: 'pv_count',
+      tokenCount: 'token_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pvCount: 'number',
+      tokenCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueryAnalysisRequestHistory extends $tea.Model {
+  content?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueryAnalysisResponseBodyResult extends $tea.Model {
+  intent?: string;
+  queries?: string[];
+  query?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intent: 'intent',
+      queries: 'queries',
+      query: 'query',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intent: 'string',
+      queries: { 'type': 'array', 'itemType': 'string' },
+      query: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueryAnalysisResponseBodyUsage extends $tea.Model {
+  inputTokens?: number;
+  outputTokens?: number;
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'input_tokens',
+      outputTokens: 'output_tokens',
+      totalTokens: 'total_tokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTextEmbeddingResponseBodyResultEmbeddings extends $tea.Model {
   embedding?: number[];
   index?: number;
@@ -1123,7 +1536,7 @@ export default class Client extends OpenApi {
 
 
   /**
-   * @summary 创建异步提取任务
+   * @summary 创建文档解析异步提取任务
    *
    * @param request CreateDocumentAnalyzeTaskRequest
    * @param headers map
@@ -1160,7 +1573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建异步提取任务
+   * @summary 创建文档解析异步提取任务
    *
    * @param request CreateDocumentAnalyzeTaskRequest
    * @return CreateDocumentAnalyzeTaskResponse
@@ -1172,7 +1585,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异步提取任务状态
+   * @summary 创建图片解析异步提取任务
+   *
+   * @param request CreateImageAnalyzeTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateImageAnalyzeTaskResponse
+   */
+  async createImageAnalyzeTaskWithOptions(workspaceName: string, serviceId: string, request: CreateImageAnalyzeTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateImageAnalyzeTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.document)) {
+      body["document"] = request.document;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateImageAnalyzeTask",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/image-analyze/${serviceId}/async`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateImageAnalyzeTaskResponse>(await this.execute(params, req, runtime), new CreateImageAnalyzeTaskResponse({}));
+  }
+
+  /**
+   * @summary 创建图片解析异步提取任务
+   *
+   * @param request CreateImageAnalyzeTaskRequest
+   * @return CreateImageAnalyzeTaskResponse
+   */
+  async createImageAnalyzeTask(workspaceName: string, serviceId: string, request: CreateImageAnalyzeTaskRequest): Promise<CreateImageAnalyzeTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createImageAnalyzeTaskWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取文档解析异步提取任务状态
    *
    * @param request GetDocumentAnalyzeTaskStatusRequest
    * @param headers map
@@ -1205,7 +1663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异步提取任务状态
+   * @summary 获取文档解析异步提取任务状态
    *
    * @param request GetDocumentAnalyzeTaskStatusRequest
    * @return GetDocumentAnalyzeTaskStatusResponse
@@ -1312,6 +1770,100 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDocumentSplitWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取图片解析异步提取任务状态
+   *
+   * @param request GetImageAnalyzeTaskStatusRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetImageAnalyzeTaskStatusResponse
+   */
+  async getImageAnalyzeTaskStatusWithOptions(workspaceName: string, serviceId: string, request: GetImageAnalyzeTaskStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetImageAnalyzeTaskStatusResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["task_id"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetImageAnalyzeTaskStatus",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/image-analyze/${serviceId}/async/task-status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetImageAnalyzeTaskStatusResponse>(await this.execute(params, req, runtime), new GetImageAnalyzeTaskStatusResponse({}));
+  }
+
+  /**
+   * @summary 获取图片解析异步提取任务状态
+   *
+   * @param request GetImageAnalyzeTaskStatusRequest
+   * @return GetImageAnalyzeTaskStatusResponse
+   */
+  async getImageAnalyzeTaskStatus(workspaceName: string, serviceId: string, request: GetImageAnalyzeTaskStatusRequest): Promise<GetImageAnalyzeTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getImageAnalyzeTaskStatusWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取query分析结果
+   *
+   * @param request GetQueryAnalysisRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQueryAnalysisResponse
+   */
+  async getQueryAnalysisWithOptions(workspaceName: string, serviceId: string, request: GetQueryAnalysisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQueryAnalysisResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.history)) {
+      body["history"] = request.history;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["query"] = request.query;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetQueryAnalysis",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/query-analyze/${serviceId}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetQueryAnalysisResponse>(await this.execute(params, req, runtime), new GetQueryAnalysisResponse({}));
+  }
+
+  /**
+   * @summary 获取query分析结果
+   *
+   * @param request GetQueryAnalysisRequest
+   * @return GetQueryAnalysisResponse
+   */
+  async getQueryAnalysis(workspaceName: string, serviceId: string, request: GetQueryAnalysisRequest): Promise<GetQueryAnalysisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getQueryAnalysisWithOptions(workspaceName, serviceId, request, headers, runtime);
   }
 
   /**
