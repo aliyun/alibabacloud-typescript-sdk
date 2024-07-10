@@ -12156,8 +12156,188 @@ export class GetCustomerListResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties extends $tea.Model {
+  attrApiCode?: string;
+  moduleApiCode?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attrApiCode: 'AttrApiCode',
+      moduleApiCode: 'ModuleApiCode',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attrApiCode: 'string',
+      moduleApiCode: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties extends $tea.Model {
+  billModuleProperties?: GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties[];
+  static names(): { [key: string]: string } {
+    return {
+      billModuleProperties: 'billModuleProperties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billModuleProperties: { 'type': 'array', 'itemType': GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig extends $tea.Model {
+  apiCode?: string;
+  billModuleProperties?: GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties;
+  code?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiCode: 'ApiCode',
+      billModuleProperties: 'BillModuleProperties',
+      code: 'Code',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiCode: 'string',
+      billModuleProperties: GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties,
+      code: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig extends $tea.Model {
+  billModuleConfig?: GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      billModuleConfig: 'billModuleConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billModuleConfig: { 'type': 'array', 'itemType': GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties extends $tea.Model {
+  code?: string;
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties extends $tea.Model {
+  moduleProperties?: GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties[];
+  static names(): { [key: string]: string } {
+    return {
+      moduleProperties: 'moduleProperties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleProperties: { 'type': 'array', 'itemType': GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig extends $tea.Model {
+  code?: string;
+  moduleProperties?: GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      moduleProperties: 'ModuleProperties',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      moduleProperties: GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties,
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig extends $tea.Model {
+  originalModuleConfig?: GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      originalModuleConfig: 'originalModuleConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originalModuleConfig: { 'type': 'array', 'itemType': GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   afterTaxAmount?: string;
+  billModuleConfig?: GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig;
   commodityCode?: string;
   config?: string;
   createTime?: string;
@@ -12169,6 +12349,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   orderSubType?: string;
   orderType?: string;
   originalConfig?: string;
+  originalModuleConfig?: GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig;
   paymentCurrency?: string;
   paymentStatus?: string;
   paymentTime?: string;
@@ -12188,6 +12369,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       afterTaxAmount: 'AfterTaxAmount',
+      billModuleConfig: 'BillModuleConfig',
       commodityCode: 'CommodityCode',
       config: 'Config',
       createTime: 'CreateTime',
@@ -12199,6 +12381,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
       orderSubType: 'OrderSubType',
       orderType: 'OrderType',
       originalConfig: 'OriginalConfig',
+      originalModuleConfig: 'OriginalModuleConfig',
       paymentCurrency: 'PaymentCurrency',
       paymentStatus: 'PaymentStatus',
       paymentTime: 'PaymentTime',
@@ -12221,6 +12404,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       afterTaxAmount: 'string',
+      billModuleConfig: GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig,
       commodityCode: 'string',
       config: 'string',
       createTime: 'string',
@@ -12232,6 +12416,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
       orderSubType: 'string',
       orderType: 'string',
       originalConfig: 'string',
+      originalModuleConfig: GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig,
       paymentCurrency: 'string',
       paymentStatus: 'string',
       paymentTime: 'string',
