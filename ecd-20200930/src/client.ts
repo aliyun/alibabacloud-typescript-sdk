@@ -8394,6 +8394,7 @@ export class DescribeOfficeSitesRequest extends $tea.Model {
   officeSiteId?: string[];
   officeSiteType?: string;
   regionId?: string;
+  securityProtection?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8402,6 +8403,7 @@ export class DescribeOfficeSitesRequest extends $tea.Model {
       officeSiteId: 'OfficeSiteId',
       officeSiteType: 'OfficeSiteType',
       regionId: 'RegionId',
+      securityProtection: 'SecurityProtection',
       status: 'Status',
     };
   }
@@ -8413,6 +8415,7 @@ export class DescribeOfficeSitesRequest extends $tea.Model {
       officeSiteId: { 'type': 'array', 'itemType': 'string' },
       officeSiteType: 'string',
       regionId: 'string',
+      securityProtection: 'string',
       status: 'string',
     };
   }
@@ -8426,11 +8429,13 @@ export class DescribeOfficeSitesResponseBody extends $tea.Model {
   nextToken?: string;
   officeSites?: DescribeOfficeSitesResponseBodyOfficeSites[];
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
       officeSites: 'OfficeSites',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -8439,6 +8444,7 @@ export class DescribeOfficeSitesResponseBody extends $tea.Model {
       nextToken: 'string',
       officeSites: { 'type': 'array', 'itemType': DescribeOfficeSitesResponseBodyOfficeSites },
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -20635,6 +20641,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
   rdsLicenseAddress?: string;
   rdsLicenseDomainName?: string;
   rdsLicenseStatus?: string;
+  securityProtection?: string;
   ssoEnabled?: boolean;
   ssoType?: string;
   status?: string;
@@ -20686,6 +20693,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       rdsLicenseAddress: 'RdsLicenseAddress',
       rdsLicenseDomainName: 'RdsLicenseDomainName',
       rdsLicenseStatus: 'RdsLicenseStatus',
+      securityProtection: 'SecurityProtection',
       ssoEnabled: 'SsoEnabled',
       ssoType: 'SsoType',
       status: 'Status',
@@ -20740,6 +20748,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       rdsLicenseAddress: 'string',
       rdsLicenseDomainName: 'string',
       rdsLicenseStatus: 'string',
+      securityProtection: 'string',
       ssoEnabled: 'boolean',
       ssoType: 'string',
       status: 'string',
@@ -29754,6 +29763,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityProtection)) {
+      query["SecurityProtection"] = request.securityProtection;
     }
 
     if (!Util.isUnset(request.status)) {
