@@ -564,6 +564,83 @@ export class CertConfig extends $tea.Model {
   }
 }
 
+export class Container extends $tea.Model {
+  args?: string;
+  command?: string;
+  environmentVariables?: { [key: string]: string };
+  image?: string;
+  metricsCollectConfig?: MetricsCollectConfig;
+  port?: number;
+  requestConcurrency?: number;
+  requestTimeout?: number;
+  resources?: ContainerResources;
+  SLSCollectConfigs?: SLSCollectConfigs;
+  startupProbe?: StartupProbe;
+  webNASConfig?: WebNASConfig;
+  webOSSConfig?: WebOSSConfig;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      command: 'Command',
+      environmentVariables: 'EnvironmentVariables',
+      image: 'Image',
+      metricsCollectConfig: 'MetricsCollectConfig',
+      port: 'Port',
+      requestConcurrency: 'RequestConcurrency',
+      requestTimeout: 'RequestTimeout',
+      resources: 'Resources',
+      SLSCollectConfigs: 'SLSCollectConfigs',
+      startupProbe: 'StartupProbe',
+      webNASConfig: 'WebNASConfig',
+      webOSSConfig: 'WebOSSConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      command: 'string',
+      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      image: 'string',
+      metricsCollectConfig: MetricsCollectConfig,
+      port: 'number',
+      requestConcurrency: 'number',
+      requestTimeout: 'number',
+      resources: ContainerResources,
+      SLSCollectConfigs: SLSCollectConfigs,
+      startupProbe: StartupProbe,
+      webNASConfig: WebNASConfig,
+      webOSSConfig: WebOSSConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContainerResources extends $tea.Model {
+  cpu?: number;
+  memory?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memory: 'Memory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memory: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationInput extends $tea.Model {
   applicationName?: string;
   args?: string;
@@ -803,6 +880,74 @@ export class CreateSlsResourceResponse extends $tea.Model {
   }
 }
 
+export class CreateWebApplicationInput extends $tea.Model {
+  applicationName?: string;
+  description?: string;
+  revisionConfig?: RevisionConfig;
+  webNetworkConfig?: WebNetworkConfig;
+  webScalingConfig?: WebScalingConfig;
+  webTrafficConfig?: WebTrafficConfig;
+  static names(): { [key: string]: string } {
+    return {
+      applicationName: 'ApplicationName',
+      description: 'Description',
+      revisionConfig: 'RevisionConfig',
+      webNetworkConfig: 'WebNetworkConfig',
+      webScalingConfig: 'WebScalingConfig',
+      webTrafficConfig: 'WebTrafficConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationName: 'string',
+      description: 'string',
+      revisionConfig: RevisionConfig,
+      webNetworkConfig: WebNetworkConfig,
+      webScalingConfig: WebScalingConfig,
+      webTrafficConfig: WebTrafficConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWebCustomDomainInput extends $tea.Model {
+  defaultForwardingAppName?: string;
+  domainName?: string;
+  protocol?: string;
+  webCertConfig?: WebCertConfig;
+  webTLSConfig?: WebTLSConfig;
+  webWAFConfig?: WebWAFConfig;
+  static names(): { [key: string]: string } {
+    return {
+      defaultForwardingAppName: 'DefaultForwardingAppName',
+      domainName: 'DomainName',
+      protocol: 'Protocol',
+      webCertConfig: 'WebCertConfig',
+      webTLSConfig: 'WebTLSConfig',
+      webWAFConfig: 'WebWAFConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultForwardingAppName: 'string',
+      domainName: 'string',
+      protocol: 'string',
+      webCertConfig: WebCertConfig,
+      webTLSConfig: WebTLSConfig,
+      webWAFConfig: WebWAFConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CustomDNS extends $tea.Model {
   dnsOptions?: DNSOption[];
   nameServers?: string[];
@@ -956,6 +1101,141 @@ export class DNSOption extends $tea.Model {
     return {
       name: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceLogsOutput extends $tea.Model {
+  webLogEntrys?: WebLogEntry[];
+  static names(): { [key: string]: string } {
+    return {
+      webLogEntrys: 'WebLogEntrys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      webLogEntrys: { 'type': 'array', 'itemType': WebLogEntry },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebAppStaticsOutput extends $tea.Model {
+  length?: number;
+  webAppStatics?: WebStaticsInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      length: 'Length',
+      webAppStatics: 'WebAppStatics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      length: 'number',
+      webAppStatics: { 'type': 'array', 'itemType': WebStaticsInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebStaticsQueryOutput extends $tea.Model {
+  length?: number;
+  webStatics?: WebStaticsInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      length: 'Length',
+      webStatics: 'WebStatics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      length: 'number',
+      webStatics: { 'type': 'array', 'itemType': WebStaticsInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecAction extends $tea.Model {
+  command?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      command: 'command',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalErrorSAEWeb extends $tea.Model {
+  code?: number;
+  errorCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      errorCode: 'errorCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GRPCAction extends $tea.Model {
+  port?: number;
+  service?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'port',
+      service: 'service',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      service: 'string',
     };
   }
 
@@ -1197,6 +1477,59 @@ export class GetQuotaOutput extends $tea.Model {
       requestId: 'string',
       instanceLimit: 'number',
       instanceUsed: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HTTPGetAction extends $tea.Model {
+  host?: string;
+  httpHeaders?: HTTPHeader[];
+  path?: string;
+  port?: number;
+  scheme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'Host',
+      httpHeaders: 'HttpHeaders',
+      path: 'Path',
+      port: 'Port',
+      scheme: 'Scheme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      httpHeaders: { 'type': 'array', 'itemType': HTTPHeader },
+      path: 'string',
+      port: 'number',
+      scheme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HTTPHeader extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
     };
   }
 
@@ -1707,6 +2040,221 @@ export class ListStaticsQueryResponse extends $tea.Model {
   }
 }
 
+export class ListWebApplicationInstancesBody extends $tea.Model {
+  code?: number;
+  data?: ListWebInstancesOutput;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListWebInstancesOutput,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebApplicationRevisionsBody extends $tea.Model {
+  code?: number;
+  data?: ListWebApplicationRevisionsOutput;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListWebApplicationRevisionsOutput,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebApplicationRevisionsOutput extends $tea.Model {
+  nextToken?: string;
+  revisions?: Revision[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      revisions: 'Revisions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      revisions: { 'type': 'array', 'itemType': Revision },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebApplicationsBody extends $tea.Model {
+  code?: number;
+  data?: ListWebApplicationsOutput;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListWebApplicationsOutput,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebApplicationsOutput extends $tea.Model {
+  nextToken?: string;
+  webApplicationWithInstanceCount?: WebApplicationWithInstanceCount[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      webApplicationWithInstanceCount: 'WebApplicationWithInstanceCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      webApplicationWithInstanceCount: { 'type': 'array', 'itemType': WebApplicationWithInstanceCount },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebCustomDomainBody extends $tea.Model {
+  code?: number;
+  data?: ListWebCustomDomainOutput;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListWebCustomDomainOutput,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebCustomDomainOutput extends $tea.Model {
+  nextToken?: string;
+  webCustomDomains?: WebCustomDomain[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      webCustomDomains: 'WebCustomDomains',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      webCustomDomains: { 'type': 'array', 'itemType': WebCustomDomain },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebInstancesOutput extends $tea.Model {
+  currentError?: string;
+  webInstances?: WebInstanceInfo[];
+  webVersionStatus?: { [key: string]: WebVersionStatus };
+  static names(): { [key: string]: string } {
+    return {
+      currentError: 'CurrentError',
+      webInstances: 'WebInstances',
+      webVersionStatus: 'WebVersionStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentError: 'string',
+      webInstances: { 'type': 'array', 'itemType': WebInstanceInfo },
+      webVersionStatus: { 'type': 'map', 'keyType': 'string', 'valueType': WebVersionStatus },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LogConfig extends $tea.Model {
   enableInstanceMetrics?: boolean;
   enableRequestMetrics?: boolean;
@@ -1818,6 +2366,31 @@ export class MetricInfo extends $tea.Model {
   }
 }
 
+export class MetricsCollectConfig extends $tea.Model {
+  enablePushToUserSLS?: boolean;
+  logstoreName?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablePushToUserSLS: 'EnablePushToUserSLS',
+      logstoreName: 'LogstoreName',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePushToUserSLS: 'boolean',
+      logstoreName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class NASConfig extends $tea.Model {
   mountPoints?: NASMountConfig[];
   static names(): { [key: string]: string } {
@@ -1884,14 +2457,12 @@ export class OSSMountConfig extends $tea.Model {
 export class OSSMountPoint extends $tea.Model {
   bucketName?: string;
   bucketPath?: string;
-  endpoint?: string;
   mountDir?: string;
   readOnly?: boolean;
   static names(): { [key: string]: string } {
     return {
       bucketName: 'bucketName',
       bucketPath: 'bucketPath',
-      endpoint: 'endpoint',
       mountDir: 'mountDir',
       readOnly: 'readOnly',
     };
@@ -1901,7 +2472,6 @@ export class OSSMountPoint extends $tea.Model {
     return {
       bucketName: 'string',
       bucketPath: 'string',
-      endpoint: 'string',
       mountDir: 'string',
       readOnly: 'boolean',
     };
@@ -2119,6 +2689,28 @@ export class Probe extends $tea.Model {
   }
 }
 
+export class ProbeHandler extends $tea.Model {
+  httpGet?: HTTPGetAction;
+  tcpSocket?: TCPSocketAction;
+  static names(): { [key: string]: string } {
+    return {
+      httpGet: 'HttpGet',
+      tcpSocket: 'TcpSocket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpGet: HTTPGetAction,
+      tcpSocket: TCPSocketAction,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PublishApplicationVersionInput extends $tea.Model {
   description?: string;
   static names(): { [key: string]: string } {
@@ -2130,6 +2722,90 @@ export class PublishApplicationVersionInput extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishWebApplicationRevisionInput extends $tea.Model {
+  containers?: Container[];
+  description?: string;
+  enableArmsMetrics?: boolean;
+  takeEffect?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      containers: 'Containers',
+      description: 'Description',
+      enableArmsMetrics: 'EnableArmsMetrics',
+      takeEffect: 'TakeEffect',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containers: { 'type': 'array', 'itemType': Container },
+      description: 'string',
+      enableArmsMetrics: 'boolean',
+      takeEffect: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Revision extends $tea.Model {
+  createdTime?: string;
+  description?: string;
+  revisionConfig?: RevisionConfig;
+  revisionId?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      description: 'Description',
+      revisionConfig: 'RevisionConfig',
+      revisionId: 'RevisionId',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      description: 'string',
+      revisionConfig: RevisionConfig,
+      revisionId: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevisionConfig extends $tea.Model {
+  containers?: Container[];
+  enableArmsMetrics?: boolean;
+  webNetworkConfig?: WebNetworkConfig;
+  static names(): { [key: string]: string } {
+    return {
+      containers: 'Containers',
+      enableArmsMetrics: 'EnableArmsMetrics',
+      webNetworkConfig: 'WebNetworkConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containers: { 'type': 'array', 'itemType': Container },
+      enableArmsMetrics: 'boolean',
+      webNetworkConfig: WebNetworkConfig,
     };
   }
 
@@ -2171,6 +2847,59 @@ export class RoutePolicy extends $tea.Model {
     return {
       condition: 'string',
       policyItems: { 'type': 'array', 'itemType': PolicyItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SLSCollectConfig extends $tea.Model {
+  logPath?: string;
+  logType?: string;
+  logstoreName?: string;
+  logtailName?: string;
+  machineGroup?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logPath: 'LogPath',
+      logType: 'LogType',
+      logstoreName: 'LogstoreName',
+      logtailName: 'LogtailName',
+      machineGroup: 'MachineGroup',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logPath: 'string',
+      logType: 'string',
+      logstoreName: 'string',
+      logtailName: 'string',
+      machineGroup: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SLSCollectConfigs extends $tea.Model {
+  collectConfigs?: SLSCollectConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      collectConfigs: 'CollectConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectConfigs: { 'type': 'array', 'itemType': SLSCollectConfig },
     };
   }
 
@@ -2301,6 +3030,37 @@ export class SourceCodeRepoBranch extends $tea.Model {
   }
 }
 
+export class StartupProbe extends $tea.Model {
+  failureThreshold?: number;
+  initialDelaySeconds?: number;
+  periodSeconds?: number;
+  probeHandler?: ProbeHandler;
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failureThreshold: 'FailureThreshold',
+      initialDelaySeconds: 'InitialDelaySeconds',
+      periodSeconds: 'PeriodSeconds',
+      probeHandler: 'ProbeHandler',
+      timeoutSeconds: 'TimeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failureThreshold: 'number',
+      initialDelaySeconds: 'number',
+      periodSeconds: 'number',
+      probeHandler: ProbeHandler,
+      timeoutSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StaticsInfo extends $tea.Model {
   activeCPUUsage?: number;
   cost?: number;
@@ -2376,6 +3136,28 @@ export class Submenu extends $tea.Model {
       submenuDesc: 'string',
       submenuType: 'string',
       submenus: { 'type': 'array', 'itemType': Submenu },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TCPSocketAction extends $tea.Model {
+  host?: string;
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'Host',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      port: 'number',
     };
   }
 
@@ -2750,6 +3532,109 @@ export class UpdateCustomDomainInput extends $tea.Model {
   }
 }
 
+export class UpdateWebApplicationInput extends $tea.Model {
+  description?: string;
+  webNetworkConfig?: WebNetworkConfig;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      webNetworkConfig: 'WebNetworkConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      webNetworkConfig: WebNetworkConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWebApplicationScalingConfigInput extends $tea.Model {
+  maximumInstanceCount?: number;
+  minimumInstanceCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maximumInstanceCount: 'MaximumInstanceCount',
+      minimumInstanceCount: 'MinimumInstanceCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maximumInstanceCount: 'number',
+      minimumInstanceCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWebApplicationTrafficConfigInput extends $tea.Model {
+  authType?: string;
+  disableURLInternet?: boolean;
+  revisionsTrafficWeight?: { [key: string]: number };
+  webAclConfig?: WebAclConfig;
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'AuthType',
+      disableURLInternet: 'DisableURLInternet',
+      revisionsTrafficWeight: 'RevisionsTrafficWeight',
+      webAclConfig: 'WebAclConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      disableURLInternet: 'boolean',
+      revisionsTrafficWeight: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      webAclConfig: WebAclConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWebCustomDomainInput extends $tea.Model {
+  defaultForwardingAppName?: string;
+  protocol?: string;
+  webCertConfig?: WebCertConfig;
+  webTLSConfig?: WebTLSConfig;
+  webWAFConfig?: WebWAFConfig;
+  static names(): { [key: string]: string } {
+    return {
+      defaultForwardingAppName: 'DefaultForwardingAppName',
+      protocol: 'Protocol',
+      webCertConfig: 'WebCertConfig',
+      webTLSConfig: 'WebTLSConfig',
+      webWAFConfig: 'WebWAFConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultForwardingAppName: 'string',
+      protocol: 'string',
+      webCertConfig: WebCertConfig,
+      webTLSConfig: WebTLSConfig,
+      webWAFConfig: WebWAFConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VPCConfig extends $tea.Model {
   anytunnelViaENI?: boolean;
   role?: string;
@@ -2845,6 +3730,757 @@ export class WAFConfig extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       enableWAF: 'enableWAF',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableWAF: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebAclConfig extends $tea.Model {
+  webAclEntries?: WebAclEntryConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      webAclEntries: 'WebAclEntries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      webAclEntries: { 'type': 'array', 'itemType': WebAclEntryConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebAclEntryConfig extends $tea.Model {
+  entry?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entry: 'Entry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entry: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebApplication extends $tea.Model {
+  applicationId?: string;
+  applicationName?: string;
+  createdTime?: string;
+  description?: string;
+  internetURL?: string;
+  intranetURL?: string;
+  lastModifiedTime?: string;
+  namespaceId?: string;
+  revisionConfig?: RevisionConfig;
+  vpcId?: string;
+  webScalingConfig?: WebScalingConfig;
+  webTrafficConfig?: WebTrafficConfig;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      applicationName: 'ApplicationName',
+      createdTime: 'CreatedTime',
+      description: 'Description',
+      internetURL: 'InternetURL',
+      intranetURL: 'IntranetURL',
+      lastModifiedTime: 'LastModifiedTime',
+      namespaceId: 'NamespaceId',
+      revisionConfig: 'RevisionConfig',
+      vpcId: 'VpcId',
+      webScalingConfig: 'WebScalingConfig',
+      webTrafficConfig: 'WebTrafficConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      applicationName: 'string',
+      createdTime: 'string',
+      description: 'string',
+      internetURL: 'string',
+      intranetURL: 'string',
+      lastModifiedTime: 'string',
+      namespaceId: 'string',
+      revisionConfig: RevisionConfig,
+      vpcId: 'string',
+      webScalingConfig: WebScalingConfig,
+      webTrafficConfig: WebTrafficConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebApplicationBody extends $tea.Model {
+  code?: number;
+  data?: WebApplication;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: WebApplication,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebApplicationInstanceLogsBody extends $tea.Model {
+  code?: number;
+  data?: DescribeInstanceLogsOutput;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeInstanceLogsOutput,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebApplicationResourceStaticsBody extends $tea.Model {
+  code?: number;
+  data?: DescribeWebAppStaticsOutput;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeWebAppStaticsOutput,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebApplicationRevisionBody extends $tea.Model {
+  code?: number;
+  data?: Revision;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: Revision,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebApplicationScalingConfigBody extends $tea.Model {
+  code?: number;
+  data?: WebScalingConfig;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: WebScalingConfig,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebApplicationStatus extends $tea.Model {
+  instanceCount?: number;
+  webScalingConfig?: WebScalingConfig;
+  static names(): { [key: string]: string } {
+    return {
+      instanceCount: 'InstanceCount',
+      webScalingConfig: 'WebScalingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceCount: 'number',
+      webScalingConfig: WebScalingConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebApplicationTrafficConfigBody extends $tea.Model {
+  code?: number;
+  data?: WebTrafficConfig;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: WebTrafficConfig,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebApplicationWithInstanceCount extends $tea.Model {
+  instanceCount?: number;
+  webApplication?: WebApplication;
+  static names(): { [key: string]: string } {
+    return {
+      instanceCount: 'InstanceCount',
+      webApplication: 'WebApplication',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceCount: 'number',
+      webApplication: WebApplication,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebApplicationWithStatus extends $tea.Model {
+  status?: WebApplicationStatus;
+  webApplication?: WebApplication;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      webApplication: 'WebApplication',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: WebApplicationStatus,
+      webApplication: WebApplication,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebCertConfig extends $tea.Model {
+  certName?: string;
+  certificate?: string;
+  privateKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certName: 'CertName',
+      certificate: 'Certificate',
+      privateKey: 'PrivateKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certName: 'string',
+      certificate: 'string',
+      privateKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebCustomDomain extends $tea.Model {
+  accountId?: string;
+  createdTime?: string;
+  defaultForwardingAppName?: string;
+  domainName?: string;
+  lastModifiedTime?: string;
+  namespaceId?: string;
+  protocol?: string;
+  webCertConfig?: WebCertConfig;
+  webTLSConfig?: WebTLSConfig;
+  webWAFConfig?: WebWAFConfig;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      createdTime: 'CreatedTime',
+      defaultForwardingAppName: 'DefaultForwardingAppName',
+      domainName: 'DomainName',
+      lastModifiedTime: 'LastModifiedTime',
+      namespaceId: 'NamespaceId',
+      protocol: 'Protocol',
+      webCertConfig: 'WebCertConfig',
+      webTLSConfig: 'WebTLSConfig',
+      webWAFConfig: 'WebWAFConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      createdTime: 'string',
+      defaultForwardingAppName: 'string',
+      domainName: 'string',
+      lastModifiedTime: 'string',
+      namespaceId: 'string',
+      protocol: 'string',
+      webCertConfig: WebCertConfig,
+      webTLSConfig: WebTLSConfig,
+      webWAFConfig: WebWAFConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebCustomDomainBody extends $tea.Model {
+  code?: number;
+  data?: WebCustomDomain;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: WebCustomDomain,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebInstanceInfo extends $tea.Model {
+  imageUrl?: string;
+  instanceId?: string;
+  status?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+      instanceId: 'InstanceId',
+      status: 'Status',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+      instanceId: 'string',
+      status: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebLogEntry extends $tea.Model {
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebNASConfig extends $tea.Model {
+  mountPoints?: WebNASMountPoint[];
+  static names(): { [key: string]: string } {
+    return {
+      mountPoints: 'MountPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPoints: { 'type': 'array', 'itemType': WebNASMountPoint },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebNASMountPoint extends $tea.Model {
+  mountDir?: string;
+  nasAddr?: string;
+  nasPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountDir: 'MountDir',
+      nasAddr: 'NasAddr',
+      nasPath: 'NasPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountDir: 'string',
+      nasAddr: 'string',
+      nasPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebNetworkConfig extends $tea.Model {
+  internetAccess?: boolean;
+  securityGroupId?: string;
+  vSwitchIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      internetAccess: 'InternetAccess',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchIds: 'VSwitchIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internetAccess: 'boolean',
+      securityGroupId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebOSSConfig extends $tea.Model {
+  mountPoints?: WebOSSMountPoint[];
+  static names(): { [key: string]: string } {
+    return {
+      mountPoints: 'MountPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPoints: { 'type': 'array', 'itemType': WebOSSMountPoint },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebOSSMountPoint extends $tea.Model {
+  bucketName?: string;
+  bucketPath?: string;
+  mountDir?: string;
+  readOnly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      bucketPath: 'BucketPath',
+      mountDir: 'MountDir',
+      readOnly: 'ReadOnly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      bucketPath: 'string',
+      mountDir: 'string',
+      readOnly: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebScalingConfig extends $tea.Model {
+  maximumInstanceCount?: number;
+  minimumInstanceCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maximumInstanceCount: 'MaximumInstanceCount',
+      minimumInstanceCount: 'MinimumInstanceCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maximumInstanceCount: 'number',
+      minimumInstanceCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebStaticsInfo extends $tea.Model {
+  cpuUsage?: number;
+  internetTrafficOut?: number;
+  invocations?: number;
+  memoryUsage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpuUsage: 'CpuUsage',
+      internetTrafficOut: 'InternetTrafficOut',
+      invocations: 'Invocations',
+      memoryUsage: 'MemoryUsage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuUsage: 'number',
+      internetTrafficOut: 'number',
+      invocations: 'number',
+      memoryUsage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebTLSConfig extends $tea.Model {
+  cipherSuites?: string[];
+  maxVersion?: string;
+  minVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cipherSuites: 'CipherSuites',
+      maxVersion: 'MaxVersion',
+      minVersion: 'MinVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cipherSuites: { 'type': 'array', 'itemType': 'string' },
+      maxVersion: 'string',
+      minVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebTrafficConfig extends $tea.Model {
+  authType?: string;
+  disableInternetURL?: boolean;
+  revisionsTrafficWeight?: { [key: string]: number };
+  webAclConfig?: WebAclConfig;
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'AuthType',
+      disableInternetURL: 'DisableInternetURL',
+      revisionsTrafficWeight: 'RevisionsTrafficWeight',
+      webAclConfig: 'WebAclConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      disableInternetURL: 'boolean',
+      revisionsTrafficWeight: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      webAclConfig: WebAclConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebVersionStatus extends $tea.Model {
+  errorMessage?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebWAFConfig extends $tea.Model {
+  enableWAF?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableWAF: 'EnableWAF',
     };
   }
 
@@ -4480,6 +6116,100 @@ export class CreateSecretResponse extends $tea.Model {
   }
 }
 
+export class CreateWebApplicationRequest extends $tea.Model {
+  namespaceId?: string;
+  body?: CreateWebApplicationInput;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+      body: CreateWebApplicationInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWebApplicationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWebCustomDomainRequest extends $tea.Model {
+  namespaceId?: string;
+  body?: CreateWebCustomDomainInput;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+      body: CreateWebCustomDomainInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWebCustomDomainResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebCustomDomainBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebCustomDomainBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteApplicationRequest extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -5207,6 +6937,138 @@ export class DeleteSecretResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSecretResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebApplicationRequest extends $tea.Model {
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebApplicationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebApplicationRevisionRequest extends $tea.Model {
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebApplicationRevisionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationRevisionBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationRevisionBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebCustomDomainRequest extends $tea.Model {
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebCustomDomainResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebCustomDomainBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebCustomDomainBody,
     };
   }
 
@@ -7759,6 +9621,323 @@ export class DescribeSecretResponse extends $tea.Model {
   }
 }
 
+export class DescribeWebApplicationRequest extends $tea.Model {
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebApplicationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebApplicationResourceStaticsRequest extends $tea.Model {
+  endTime?: number;
+  namespaceId?: string;
+  regionId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      namespaceId: 'NamespaceId',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      namespaceId: 'string',
+      regionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebApplicationResourceStaticsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationResourceStaticsBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationResourceStaticsBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebApplicationRevisionRequest extends $tea.Model {
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebApplicationRevisionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationRevisionBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationRevisionBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebApplicationScalingConfigRequest extends $tea.Model {
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebApplicationScalingConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationScalingConfigBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationScalingConfigBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebApplicationTrafficConfigRequest extends $tea.Model {
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebApplicationTrafficConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationTrafficConfigBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationTrafficConfigBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebCustomDomainRequest extends $tea.Model {
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebCustomDomainResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebCustomDomainBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebCustomDomainBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebInstanceLogsRequest extends $tea.Model {
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebInstanceLogsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationInstanceLogsBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationInstanceLogsBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableApplicationScalingRuleRequest extends $tea.Model {
   appId?: string;
   scalingRuleName?: string;
@@ -9826,6 +12005,264 @@ export class ListTagResourcesResponse extends $tea.Model {
   }
 }
 
+export class ListWebApplicationInstancesRequest extends $tea.Model {
+  endTime?: number;
+  instanceIds?: string[];
+  limit?: string;
+  namespaceId?: string;
+  startTime?: number;
+  statuses?: string[];
+  versionIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceIds: 'InstanceIds',
+      limit: 'Limit',
+      namespaceId: 'NamespaceId',
+      startTime: 'StartTime',
+      statuses: 'Statuses',
+      versionIds: 'VersionIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      limit: 'string',
+      namespaceId: 'string',
+      startTime: 'number',
+      statuses: { 'type': 'array', 'itemType': 'string' },
+      versionIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebApplicationInstancesShrinkRequest extends $tea.Model {
+  endTime?: number;
+  instanceIdsShrink?: string;
+  limit?: string;
+  namespaceId?: string;
+  startTime?: number;
+  statusesShrink?: string;
+  versionIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceIdsShrink: 'InstanceIds',
+      limit: 'Limit',
+      namespaceId: 'NamespaceId',
+      startTime: 'StartTime',
+      statusesShrink: 'Statuses',
+      versionIdsShrink: 'VersionIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      instanceIdsShrink: 'string',
+      limit: 'string',
+      namespaceId: 'string',
+      startTime: 'number',
+      statusesShrink: 'string',
+      versionIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebApplicationInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWebApplicationInstancesBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWebApplicationInstancesBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebApplicationRevisionsRequest extends $tea.Model {
+  limit?: number;
+  namespaceId?: string;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'Limit',
+      namespaceId: 'NamespaceId',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      namespaceId: 'string',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebApplicationRevisionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWebApplicationRevisionsBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWebApplicationRevisionsBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebApplicationsRequest extends $tea.Model {
+  limit?: number;
+  namespaceId?: string;
+  nextToken?: string;
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'Limit',
+      namespaceId: 'NamespaceId',
+      nextToken: 'NextToken',
+      prefix: 'Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      namespaceId: 'string',
+      nextToken: 'string',
+      prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebApplicationsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWebApplicationsBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWebApplicationsBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebCustomDomainsRequest extends $tea.Model {
+  applicationId?: string;
+  limit?: number;
+  namespaceId?: string;
+  nextToken?: string;
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      limit: 'Limit',
+      namespaceId: 'NamespaceId',
+      nextToken: 'NextToken',
+      prefix: 'Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      limit: 'number',
+      namespaceId: 'string',
+      nextToken: 'string',
+      prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebCustomDomainsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWebCustomDomainBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWebCustomDomainBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OpenSaeServiceResponseBody extends $tea.Model {
   orderId?: string;
   requestId?: string;
@@ -9865,6 +12302,53 @@ export class OpenSaeServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: OpenSaeServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishWebApplicationRevisionRequest extends $tea.Model {
+  namespaceId?: string;
+  body?: PublishWebApplicationRevisionInput;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+      body: PublishWebApplicationRevisionInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishWebApplicationRevisionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationRevisionBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationRevisionBody,
     };
   }
 
@@ -10569,6 +13053,50 @@ export class StartApplicationResponse extends $tea.Model {
   }
 }
 
+export class StartWebApplicationRequest extends $tea.Model {
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWebApplicationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopApplicationRequest extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -10642,6 +13170,50 @@ export class StopApplicationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopApplicationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopWebApplicationRequest extends $tea.Model {
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopWebApplicationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationBody,
     };
   }
 
@@ -12130,6 +14702,194 @@ export class UpdateSecretResponse extends $tea.Model {
   }
 }
 
+export class UpdateWebApplicationRequest extends $tea.Model {
+  namespaceId?: string;
+  body?: UpdateWebApplicationInput;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+      body: UpdateWebApplicationInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWebApplicationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWebApplicationScalingConfigRequest extends $tea.Model {
+  namespaceId?: string;
+  body?: UpdateWebApplicationScalingConfigInput;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+      body: UpdateWebApplicationScalingConfigInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWebApplicationScalingConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationScalingConfigBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationScalingConfigBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWebApplicationTrafficConfigRequest extends $tea.Model {
+  namespaceId?: string;
+  body?: UpdateWebApplicationTrafficConfigInput;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+      body: UpdateWebApplicationTrafficConfigInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWebApplicationTrafficConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebApplicationTrafficConfigBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebApplicationTrafficConfigBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWebCustomDomainRequest extends $tea.Model {
+  namespaceId?: string;
+  body?: UpdateWebCustomDomainInput;
+  static names(): { [key: string]: string } {
+    return {
+      namespaceId: 'NamespaceId',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaceId: 'string',
+      body: UpdateWebCustomDomainInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWebCustomDomainResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebCustomDomainBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebCustomDomainBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AppStackInstanceEndpoints extends $tea.Model {
   address?: string;
   name?: string;
@@ -12302,12 +15062,14 @@ export class BuildPipelineDeployConfig extends $tea.Model {
   maximumInstanceCount?: number;
   minimumInstanceCount?: number;
   updateApplicationInput?: string;
+  updateTraffic?: boolean;
   static names(): { [key: string]: string } {
     return {
       alwaysAllocateCPU: 'AlwaysAllocateCPU',
       maximumInstanceCount: 'MaximumInstanceCount',
       minimumInstanceCount: 'MinimumInstanceCount',
       updateApplicationInput: 'UpdateApplicationInput',
+      updateTraffic: 'UpdateTraffic',
     };
   }
 
@@ -12317,6 +15079,7 @@ export class BuildPipelineDeployConfig extends $tea.Model {
       maximumInstanceCount: 'number',
       minimumInstanceCount: 'number',
       updateApplicationInput: 'string',
+      updateTraffic: 'boolean',
     };
   }
 
@@ -12516,12 +15279,14 @@ export class BuildPipelineRunDeployConfig extends $tea.Model {
   maximumInstanceCount?: number;
   minimumInstanceCount?: number;
   updateApplicationInput?: string;
+  updateTraffic?: boolean;
   static names(): { [key: string]: string } {
     return {
       alwaysAllocateCPU: 'AlwaysAllocateCPU',
       maximumInstanceCount: 'MaximumInstanceCount',
       minimumInstanceCount: 'MinimumInstanceCount',
       updateApplicationInput: 'UpdateApplicationInput',
+      updateTraffic: 'UpdateTraffic',
     };
   }
 
@@ -12531,6 +15296,7 @@ export class BuildPipelineRunDeployConfig extends $tea.Model {
       maximumInstanceCount: 'number',
       minimumInstanceCount: 'number',
       updateApplicationInput: 'string',
+      updateTraffic: 'boolean',
     };
   }
 
@@ -20123,6 +22889,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 创建应用
+   *
+   * @param request CreateWebApplicationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWebApplicationResponse
+   */
+  async createWebApplicationWithOptions(request: CreateWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWebApplicationResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWebApplication",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/applications`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWebApplicationResponse>(await this.callApi(params, req, runtime), new CreateWebApplicationResponse({}));
+  }
+
+  /**
+   * @summary 创建应用
+   *
+   * @param request CreateWebApplicationRequest
+   * @return CreateWebApplicationResponse
+   */
+  async createWebApplication(request: CreateWebApplicationRequest): Promise<CreateWebApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWebApplicationWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 新建自定义域名
+   *
+   * @param request CreateWebCustomDomainRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWebCustomDomainResponse
+   */
+  async createWebCustomDomainWithOptions(request: CreateWebCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWebCustomDomainResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWebCustomDomain",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/custom-domains`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWebCustomDomainResponse>(await this.callApi(params, req, runtime), new CreateWebCustomDomainResponse({}));
+  }
+
+  /**
+   * @summary 新建自定义域名
+   *
+   * @param request CreateWebCustomDomainRequest
+   * @return CreateWebCustomDomainResponse
+   */
+  async createWebCustomDomain(request: CreateWebCustomDomainRequest): Promise<CreateWebCustomDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWebCustomDomainWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @param request DeleteApplicationRequest
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
@@ -20525,6 +23383,141 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteSecretWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 删除应用
+   *
+   * @param request DeleteWebApplicationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWebApplicationResponse
+   */
+  async deleteWebApplicationWithOptions(ApplicationId: string, request: DeleteWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWebApplicationResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWebApplication",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/applications/${OpenApiUtil.getEncodeParam(ApplicationId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWebApplicationResponse>(await this.callApi(params, req, runtime), new DeleteWebApplicationResponse({}));
+  }
+
+  /**
+   * @summary 删除应用
+   *
+   * @param request DeleteWebApplicationRequest
+   * @return DeleteWebApplicationResponse
+   */
+  async deleteWebApplication(ApplicationId: string, request: DeleteWebApplicationRequest): Promise<DeleteWebApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWebApplicationWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 删除应用版本
+   *
+   * @param request DeleteWebApplicationRevisionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWebApplicationRevisionResponse
+   */
+  async deleteWebApplicationRevisionWithOptions(ApplicationId: string, RevisionId: string, request: DeleteWebApplicationRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWebApplicationRevisionResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWebApplicationRevision",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/application-revisions/${OpenApiUtil.getEncodeParam(ApplicationId)}/revisions/${OpenApiUtil.getEncodeParam(RevisionId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWebApplicationRevisionResponse>(await this.callApi(params, req, runtime), new DeleteWebApplicationRevisionResponse({}));
+  }
+
+  /**
+   * @summary 删除应用版本
+   *
+   * @param request DeleteWebApplicationRevisionRequest
+   * @return DeleteWebApplicationRevisionResponse
+   */
+  async deleteWebApplicationRevision(ApplicationId: string, RevisionId: string, request: DeleteWebApplicationRevisionRequest): Promise<DeleteWebApplicationRevisionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWebApplicationRevisionWithOptions(ApplicationId, RevisionId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 删除自定义域名
+   *
+   * @param request DeleteWebCustomDomainRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWebCustomDomainResponse
+   */
+  async deleteWebCustomDomainWithOptions(DomainName: string, request: DeleteWebCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWebCustomDomainResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWebCustomDomain",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/custom-domains/${OpenApiUtil.getEncodeParam(DomainName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWebCustomDomainResponse>(await this.callApi(params, req, runtime), new DeleteWebCustomDomainResponse({}));
+  }
+
+  /**
+   * @summary 删除自定义域名
+   *
+   * @param request DeleteWebCustomDomainRequest
+   * @return DeleteWebCustomDomainResponse
+   */
+  async deleteWebCustomDomain(DomainName: string, request: DeleteWebCustomDomainRequest): Promise<DeleteWebCustomDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWebCustomDomainWithOptions(DomainName, request, headers, runtime);
   }
 
   /**
@@ -22100,6 +25093,333 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 获取应用信息
+   *
+   * @param request DescribeWebApplicationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebApplicationResponse
+   */
+  async describeWebApplicationWithOptions(ApplicationId: string, request: DescribeWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebApplicationResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWebApplication",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/applications/${OpenApiUtil.getEncodeParam(ApplicationId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWebApplicationResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationResponse({}));
+  }
+
+  /**
+   * @summary 获取应用信息
+   *
+   * @param request DescribeWebApplicationRequest
+   * @return DescribeWebApplicationResponse
+   */
+  async describeWebApplication(ApplicationId: string, request: DescribeWebApplicationRequest): Promise<DescribeWebApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeWebApplicationWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 应用资源用量统计
+   *
+   * @param request DescribeWebApplicationResourceStaticsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebApplicationResourceStaticsResponse
+   */
+  async describeWebApplicationResourceStaticsWithOptions(ApplicationId: string, request: DescribeWebApplicationResourceStaticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebApplicationResourceStaticsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWebApplicationResourceStatics",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/applications-observability/${OpenApiUtil.getEncodeParam(ApplicationId)}/resource`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWebApplicationResourceStaticsResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationResourceStaticsResponse({}));
+  }
+
+  /**
+   * @summary 应用资源用量统计
+   *
+   * @param request DescribeWebApplicationResourceStaticsRequest
+   * @return DescribeWebApplicationResourceStaticsResponse
+   */
+  async describeWebApplicationResourceStatics(ApplicationId: string, request: DescribeWebApplicationResourceStaticsRequest): Promise<DescribeWebApplicationResourceStaticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeWebApplicationResourceStaticsWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取应用版本
+   *
+   * @param request DescribeWebApplicationRevisionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebApplicationRevisionResponse
+   */
+  async describeWebApplicationRevisionWithOptions(ApplicationId: string, RevisionId: string, request: DescribeWebApplicationRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebApplicationRevisionResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWebApplicationRevision",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/application-revisions/${OpenApiUtil.getEncodeParam(ApplicationId)}/revisions/${OpenApiUtil.getEncodeParam(RevisionId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWebApplicationRevisionResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationRevisionResponse({}));
+  }
+
+  /**
+   * @summary 获取应用版本
+   *
+   * @param request DescribeWebApplicationRevisionRequest
+   * @return DescribeWebApplicationRevisionResponse
+   */
+  async describeWebApplicationRevision(ApplicationId: string, RevisionId: string, request: DescribeWebApplicationRevisionRequest): Promise<DescribeWebApplicationRevisionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeWebApplicationRevisionWithOptions(ApplicationId, RevisionId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 弹性配置详情
+   *
+   * @param request DescribeWebApplicationScalingConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebApplicationScalingConfigResponse
+   */
+  async describeWebApplicationScalingConfigWithOptions(ApplicationId: string, request: DescribeWebApplicationScalingConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebApplicationScalingConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWebApplicationScalingConfig",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/application-scaling/${OpenApiUtil.getEncodeParam(ApplicationId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWebApplicationScalingConfigResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationScalingConfigResponse({}));
+  }
+
+  /**
+   * @summary 弹性配置详情
+   *
+   * @param request DescribeWebApplicationScalingConfigRequest
+   * @return DescribeWebApplicationScalingConfigResponse
+   */
+  async describeWebApplicationScalingConfig(ApplicationId: string, request: DescribeWebApplicationScalingConfigRequest): Promise<DescribeWebApplicationScalingConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeWebApplicationScalingConfigWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 流量配置详情
+   *
+   * @param request DescribeWebApplicationTrafficConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebApplicationTrafficConfigResponse
+   */
+  async describeWebApplicationTrafficConfigWithOptions(ApplicationId: string, request: DescribeWebApplicationTrafficConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebApplicationTrafficConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWebApplicationTrafficConfig",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/application-traffic/${OpenApiUtil.getEncodeParam(ApplicationId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWebApplicationTrafficConfigResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationTrafficConfigResponse({}));
+  }
+
+  /**
+   * @summary 流量配置详情
+   *
+   * @param request DescribeWebApplicationTrafficConfigRequest
+   * @return DescribeWebApplicationTrafficConfigResponse
+   */
+  async describeWebApplicationTrafficConfig(ApplicationId: string, request: DescribeWebApplicationTrafficConfigRequest): Promise<DescribeWebApplicationTrafficConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeWebApplicationTrafficConfigWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取域名.
+   *
+   * @param request DescribeWebCustomDomainRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebCustomDomainResponse
+   */
+  async describeWebCustomDomainWithOptions(DomainName: string, request: DescribeWebCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebCustomDomainResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWebCustomDomain",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/custom-domains/${OpenApiUtil.getEncodeParam(DomainName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWebCustomDomainResponse>(await this.callApi(params, req, runtime), new DescribeWebCustomDomainResponse({}));
+  }
+
+  /**
+   * @summary 获取域名.
+   *
+   * @param request DescribeWebCustomDomainRequest
+   * @return DescribeWebCustomDomainResponse
+   */
+  async describeWebCustomDomain(DomainName: string, request: DescribeWebCustomDomainRequest): Promise<DescribeWebCustomDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeWebCustomDomainWithOptions(DomainName, request, headers, runtime);
+  }
+
+  /**
+   * @summary 应用实例日志
+   *
+   * @param request DescribeWebInstanceLogsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebInstanceLogsResponse
+   */
+  async describeWebInstanceLogsWithOptions(ApplicationId: string, InstanceId: string, request: DescribeWebInstanceLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebInstanceLogsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWebInstanceLogs",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/applications-observability/${OpenApiUtil.getEncodeParam(ApplicationId)}/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWebInstanceLogsResponse>(await this.callApi(params, req, runtime), new DescribeWebInstanceLogsResponse({}));
+  }
+
+  /**
+   * @summary 应用实例日志
+   *
+   * @param request DescribeWebInstanceLogsRequest
+   * @return DescribeWebInstanceLogsResponse
+   */
+  async describeWebInstanceLogs(ApplicationId: string, InstanceId: string, request: DescribeWebInstanceLogsRequest): Promise<DescribeWebInstanceLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeWebInstanceLogsWithOptions(ApplicationId, InstanceId, request, headers, runtime);
+  }
+
+  /**
    * @param request DisableApplicationScalingRuleRequest
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
@@ -23439,6 +26759,260 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 应用实例列表
+   *
+   * @param tmpReq ListWebApplicationInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWebApplicationInstancesResponse
+   */
+  async listWebApplicationInstancesWithOptions(ApplicationId: string, tmpReq: ListWebApplicationInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWebApplicationInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListWebApplicationInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.statuses)) {
+      request.statusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statuses, "Statuses", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.versionIds)) {
+      request.versionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.versionIds, "VersionIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.statusesShrink)) {
+      query["Statuses"] = request.statusesShrink;
+    }
+
+    if (!Util.isUnset(request.versionIdsShrink)) {
+      query["VersionIds"] = request.versionIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWebApplicationInstances",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/applications-observability/${OpenApiUtil.getEncodeParam(ApplicationId)}/instances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWebApplicationInstancesResponse>(await this.callApi(params, req, runtime), new ListWebApplicationInstancesResponse({}));
+  }
+
+  /**
+   * @summary 应用实例列表
+   *
+   * @param request ListWebApplicationInstancesRequest
+   * @return ListWebApplicationInstancesResponse
+   */
+  async listWebApplicationInstances(ApplicationId: string, request: ListWebApplicationInstancesRequest): Promise<ListWebApplicationInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWebApplicationInstancesWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 版本列表
+   *
+   * @param request ListWebApplicationRevisionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWebApplicationRevisionsResponse
+   */
+  async listWebApplicationRevisionsWithOptions(ApplicationId: string, request: ListWebApplicationRevisionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWebApplicationRevisionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWebApplicationRevisions",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/application-revisions/${OpenApiUtil.getEncodeParam(ApplicationId)}/revisions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWebApplicationRevisionsResponse>(await this.callApi(params, req, runtime), new ListWebApplicationRevisionsResponse({}));
+  }
+
+  /**
+   * @summary 版本列表
+   *
+   * @param request ListWebApplicationRevisionsRequest
+   * @return ListWebApplicationRevisionsResponse
+   */
+  async listWebApplicationRevisions(ApplicationId: string, request: ListWebApplicationRevisionsRequest): Promise<ListWebApplicationRevisionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWebApplicationRevisionsWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 应用列表
+   *
+   * @param request ListWebApplicationsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWebApplicationsResponse
+   */
+  async listWebApplicationsWithOptions(request: ListWebApplicationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWebApplicationsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      query["Prefix"] = request.prefix;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWebApplications",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/applications`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWebApplicationsResponse>(await this.callApi(params, req, runtime), new ListWebApplicationsResponse({}));
+  }
+
+  /**
+   * @summary 应用列表
+   *
+   * @param request ListWebApplicationsRequest
+   * @return ListWebApplicationsResponse
+   */
+  async listWebApplications(request: ListWebApplicationsRequest): Promise<ListWebApplicationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWebApplicationsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 自定义域名列表.
+   *
+   * @param request ListWebCustomDomainsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWebCustomDomainsResponse
+   */
+  async listWebCustomDomainsWithOptions(request: ListWebCustomDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWebCustomDomainsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      query["Prefix"] = request.prefix;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWebCustomDomains",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/custom-domains`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWebCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListWebCustomDomainsResponse({}));
+  }
+
+  /**
+   * @summary 自定义域名列表.
+   *
+   * @param request ListWebCustomDomainsRequest
+   * @return ListWebCustomDomainsResponse
+   */
+  async listWebCustomDomains(request: ListWebCustomDomainsRequest): Promise<ListWebCustomDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWebCustomDomainsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @summary Activates the Serverless App Engine (SAE) service for free.
    *
    * @description > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
@@ -23476,6 +27050,52 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.openSaeServiceWithOptions(headers, runtime);
+  }
+
+  /**
+   * @summary 新建版本
+   *
+   * @param request PublishWebApplicationRevisionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishWebApplicationRevisionResponse
+   */
+  async publishWebApplicationRevisionWithOptions(ApplicationId: string, request: PublishWebApplicationRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishWebApplicationRevisionResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PublishWebApplicationRevision",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/application-revisions/${OpenApiUtil.getEncodeParam(ApplicationId)}/revisions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishWebApplicationRevisionResponse>(await this.callApi(params, req, runtime), new PublishWebApplicationRevisionResponse({}));
+  }
+
+  /**
+   * @summary 新建版本
+   *
+   * @param request PublishWebApplicationRevisionRequest
+   * @return PublishWebApplicationRevisionResponse
+   */
+  async publishWebApplicationRevision(ApplicationId: string, request: PublishWebApplicationRevisionRequest): Promise<PublishWebApplicationRevisionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.publishWebApplicationRevisionWithOptions(ApplicationId, request, headers, runtime);
   }
 
   /**
@@ -23907,6 +27527,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 启动应用
+   *
+   * @param request StartWebApplicationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartWebApplicationResponse
+   */
+  async startWebApplicationWithOptions(ApplicationId: string, request: StartWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartWebApplicationResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartWebApplication",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/application-ops/${OpenApiUtil.getEncodeParam(ApplicationId)}/start`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartWebApplicationResponse>(await this.callApi(params, req, runtime), new StartWebApplicationResponse({}));
+  }
+
+  /**
+   * @summary 启动应用
+   *
+   * @param request StartWebApplicationRequest
+   * @return StartWebApplicationResponse
+   */
+  async startWebApplication(ApplicationId: string, request: StartWebApplicationRequest): Promise<StartWebApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startWebApplicationWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
    * @summary 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
    *
    * @param request StopApplicationRequest
@@ -23949,6 +27614,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopApplicationWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 停止应用
+   *
+   * @param request StopWebApplicationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopWebApplicationResponse
+   */
+  async stopWebApplicationWithOptions(ApplicationId: string, request: StopWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopWebApplicationResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopWebApplication",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/application-ops/${OpenApiUtil.getEncodeParam(ApplicationId)}/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopWebApplicationResponse>(await this.callApi(params, req, runtime), new StopWebApplicationResponse({}));
+  }
+
+  /**
+   * @summary 停止应用
+   *
+   * @param request StopWebApplicationRequest
+   * @return StopWebApplicationResponse
+   */
+  async stopWebApplication(ApplicationId: string, request: StopWebApplicationRequest): Promise<StopWebApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopWebApplicationWithOptions(ApplicationId, request, headers, runtime);
   }
 
   /**
@@ -24974,6 +28684,190 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateSecretWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 更新应用
+   *
+   * @param request UpdateWebApplicationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWebApplicationResponse
+   */
+  async updateWebApplicationWithOptions(ApplicationId: string, request: UpdateWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWebApplicationResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateWebApplication",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/applications/${OpenApiUtil.getEncodeParam(ApplicationId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateWebApplicationResponse>(await this.callApi(params, req, runtime), new UpdateWebApplicationResponse({}));
+  }
+
+  /**
+   * @summary 更新应用
+   *
+   * @param request UpdateWebApplicationRequest
+   * @return UpdateWebApplicationResponse
+   */
+  async updateWebApplication(ApplicationId: string, request: UpdateWebApplicationRequest): Promise<UpdateWebApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWebApplicationWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 更新弹性配置
+   *
+   * @param request UpdateWebApplicationScalingConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWebApplicationScalingConfigResponse
+   */
+  async updateWebApplicationScalingConfigWithOptions(ApplicationId: string, request: UpdateWebApplicationScalingConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWebApplicationScalingConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateWebApplicationScalingConfig",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/application-scaling/${OpenApiUtil.getEncodeParam(ApplicationId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateWebApplicationScalingConfigResponse>(await this.callApi(params, req, runtime), new UpdateWebApplicationScalingConfigResponse({}));
+  }
+
+  /**
+   * @summary 更新弹性配置
+   *
+   * @param request UpdateWebApplicationScalingConfigRequest
+   * @return UpdateWebApplicationScalingConfigResponse
+   */
+  async updateWebApplicationScalingConfig(ApplicationId: string, request: UpdateWebApplicationScalingConfigRequest): Promise<UpdateWebApplicationScalingConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWebApplicationScalingConfigWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 更新流量配置
+   *
+   * @param request UpdateWebApplicationTrafficConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWebApplicationTrafficConfigResponse
+   */
+  async updateWebApplicationTrafficConfigWithOptions(ApplicationId: string, request: UpdateWebApplicationTrafficConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWebApplicationTrafficConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateWebApplicationTrafficConfig",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/application-traffic/${OpenApiUtil.getEncodeParam(ApplicationId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateWebApplicationTrafficConfigResponse>(await this.callApi(params, req, runtime), new UpdateWebApplicationTrafficConfigResponse({}));
+  }
+
+  /**
+   * @summary 更新流量配置
+   *
+   * @param request UpdateWebApplicationTrafficConfigRequest
+   * @return UpdateWebApplicationTrafficConfigResponse
+   */
+  async updateWebApplicationTrafficConfig(ApplicationId: string, request: UpdateWebApplicationTrafficConfigRequest): Promise<UpdateWebApplicationTrafficConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWebApplicationTrafficConfigWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 更新自定义域名.
+   *
+   * @param request UpdateWebCustomDomainRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWebCustomDomainResponse
+   */
+  async updateWebCustomDomainWithOptions(DomainName: string, request: UpdateWebCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWebCustomDomainResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateWebCustomDomain",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v2/api/web/custom-domains/${OpenApiUtil.getEncodeParam(DomainName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateWebCustomDomainResponse>(await this.callApi(params, req, runtime), new UpdateWebCustomDomainResponse({}));
+  }
+
+  /**
+   * @summary 更新自定义域名.
+   *
+   * @param request UpdateWebCustomDomainRequest
+   * @return UpdateWebCustomDomainResponse
+   */
+  async updateWebCustomDomain(DomainName: string, request: UpdateWebCustomDomainRequest): Promise<UpdateWebCustomDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWebCustomDomainWithOptions(DomainName, request, headers, runtime);
   }
 
 }
