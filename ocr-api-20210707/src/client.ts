@@ -2754,6 +2754,109 @@ export class RecognizeGeneralResponse extends $tea.Model {
   }
 }
 
+export class RecognizeGeneralStructureRequest extends $tea.Model {
+  keys?: string[];
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      keys: 'Keys',
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keys: { 'type': 'array', 'itemType': 'string' },
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeGeneralStructureShrinkRequest extends $tea.Model {
+  keysShrink?: string;
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      keysShrink: 'Keys',
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keysShrink: 'string',
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeGeneralStructureResponseBody extends $tea.Model {
+  code?: string;
+  data?: RecognizeGeneralStructureResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RecognizeGeneralStructureResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeGeneralStructureResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RecognizeGeneralStructureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeGeneralStructureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeHKIdcardRequest extends $tea.Model {
   url?: string;
   body?: Readable;
@@ -7362,6 +7465,81 @@ export class RecognizeAllTextResponseBodyData extends $tea.Model {
   }
 }
 
+export class RecognizeGeneralStructureResponseBodyDataSubImagesKvInfo extends $tea.Model {
+  data?: any;
+  kvCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      kvCount: 'KvCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      kvCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeGeneralStructureResponseBodyDataSubImages extends $tea.Model {
+  angle?: number;
+  kvInfo?: RecognizeGeneralStructureResponseBodyDataSubImagesKvInfo;
+  subImageId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      kvInfo: 'KvInfo',
+      subImageId: 'SubImageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      kvInfo: RecognizeGeneralStructureResponseBodyDataSubImagesKvInfo,
+      subImageId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeGeneralStructureResponseBodyData extends $tea.Model {
+  height?: number;
+  subImageCount?: number;
+  subImages?: RecognizeGeneralStructureResponseBodyDataSubImages[];
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      subImageCount: 'SubImageCount',
+      subImages: 'SubImages',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      subImageCount: 'number',
+      subImages: { 'type': 'array', 'itemType': RecognizeGeneralStructureResponseBodyDataSubImages },
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -9053,6 +9231,60 @@ export default class Client extends OpenApi {
   async recognizeGeneral(request: RecognizeGeneralRequest): Promise<RecognizeGeneralResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeGeneralWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary DocMaster
+   *
+   * @param tmpReq RecognizeGeneralStructureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecognizeGeneralStructureResponse
+   */
+  async recognizeGeneralStructureWithOptions(tmpReq: RecognizeGeneralStructureRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeGeneralStructureResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RecognizeGeneralStructureShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.keys)) {
+      request.keysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.keys, "Keys", "simple");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.keysShrink)) {
+      query["Keys"] = request.keysShrink;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: tmpReq.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeGeneralStructure",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeGeneralStructureResponse>(await this.callApi(params, req, runtime), new RecognizeGeneralStructureResponse({}));
+  }
+
+  /**
+   * @summary DocMaster
+   *
+   * @param request RecognizeGeneralStructureRequest
+   * @return RecognizeGeneralStructureResponse
+   */
+  async recognizeGeneralStructure(request: RecognizeGeneralStructureRequest): Promise<RecognizeGeneralStructureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeGeneralStructureWithOptions(request, runtime);
   }
 
   /**
