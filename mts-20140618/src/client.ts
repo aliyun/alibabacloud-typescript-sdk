@@ -3242,6 +3242,165 @@ export class QueryAnalysisJobListResponse extends $tea.Model {
   }
 }
 
+export class QueryCopyrightExtractJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightExtractJobResponseBody extends $tea.Model {
+  data?: QueryCopyrightExtractJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: QueryCopyrightExtractJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightExtractJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCopyrightExtractJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCopyrightExtractJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightJobRequest extends $tea.Model {
+  createTimeEnd?: number;
+  createTimeStart?: number;
+  jobId?: string;
+  level?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      jobId: 'JobId',
+      level: 'Level',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimeEnd: 'number',
+      createTimeStart: 'number',
+      jobId: 'string',
+      level: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightJobResponseBody extends $tea.Model {
+  data?: QueryCopyrightJobResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryCopyrightJobResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCopyrightJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCopyrightJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryFpDBDeleteJobListRequest extends $tea.Model {
   jobIds?: string;
   ownerAccount?: string;
@@ -4733,6 +4892,237 @@ export class QueryTemplateListResponse extends $tea.Model {
   }
 }
 
+export class QueryTraceAbJobRequest extends $tea.Model {
+  jobId?: string;
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceAbJobResponseBody extends $tea.Model {
+  data?: QueryTraceAbJobResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryTraceAbJobResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceAbJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTraceAbJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTraceAbJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceExtractJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceExtractJobResponseBody extends $tea.Model {
+  data?: QueryTraceExtractJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: QueryTraceExtractJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceExtractJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTraceExtractJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTraceExtractJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceM3u8JobRequest extends $tea.Model {
+  createTimeEnd?: number;
+  createTimeStart?: number;
+  jobId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      jobId: 'JobId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimeEnd: 'number',
+      createTimeStart: 'number',
+      jobId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceM3u8JobResponseBody extends $tea.Model {
+  data?: QueryTraceM3u8JobResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryTraceM3u8JobResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceM3u8JobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTraceM3u8JobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTraceM3u8JobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryWaterMarkTemplateListRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -5442,6 +5832,192 @@ export class SubmitAnalysisJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitAnalysisJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractJobRequest extends $tea.Model {
+  callBack?: string;
+  input?: string;
+  params?: string;
+  url?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callBack: 'CallBack',
+      input: 'Input',
+      params: 'Params',
+      url: 'Url',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callBack: 'string',
+      input: 'string',
+      params: 'string',
+      url: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractJobResponseBody extends $tea.Model {
+  data?: SubmitCopyrightExtractJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitCopyrightExtractJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitCopyrightExtractJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitCopyrightExtractJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobRequest extends $tea.Model {
+  callBack?: string;
+  description?: string;
+  input?: string;
+  level?: string;
+  message?: string;
+  output?: string;
+  params?: string;
+  startTime?: string;
+  totalTime?: string;
+  url?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callBack: 'CallBack',
+      description: 'Description',
+      input: 'Input',
+      level: 'Level',
+      message: 'Message',
+      output: 'Output',
+      params: 'Params',
+      startTime: 'StartTime',
+      totalTime: 'TotalTime',
+      url: 'Url',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callBack: 'string',
+      description: 'string',
+      input: 'string',
+      level: 'string',
+      message: 'string',
+      output: 'string',
+      params: 'string',
+      startTime: 'string',
+      totalTime: 'string',
+      url: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobResponseBody extends $tea.Model {
+  data?: SubmitCopyrightJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitCopyrightJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitCopyrightJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitCopyrightJobResponseBody,
     };
   }
 
@@ -6285,6 +6861,267 @@ export class SubmitSnapshotJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitSnapshotJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbJobRequest extends $tea.Model {
+  callBack?: string;
+  cipherBase64ed?: string;
+  input?: string;
+  level?: string;
+  output?: string;
+  startTime?: string;
+  totalTime?: string;
+  url?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callBack: 'CallBack',
+      cipherBase64ed: 'CipherBase64ed',
+      input: 'Input',
+      level: 'Level',
+      output: 'Output',
+      startTime: 'StartTime',
+      totalTime: 'TotalTime',
+      url: 'Url',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callBack: 'string',
+      cipherBase64ed: 'string',
+      input: 'string',
+      level: 'string',
+      output: 'string',
+      startTime: 'string',
+      totalTime: 'string',
+      url: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbJobResponseBody extends $tea.Model {
+  data?: SubmitTraceAbJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitTraceAbJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTraceAbJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitTraceAbJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractJobRequest extends $tea.Model {
+  callBack?: string;
+  input?: string;
+  params?: string;
+  url?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callBack: 'CallBack',
+      input: 'Input',
+      params: 'Params',
+      url: 'Url',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callBack: 'string',
+      input: 'string',
+      params: 'string',
+      url: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractJobResponseBody extends $tea.Model {
+  data?: SubmitTraceExtractJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitTraceExtractJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTraceExtractJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitTraceExtractJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceM3u8JobRequest extends $tea.Model {
+  keyUri?: string;
+  mediaId?: string;
+  output?: string;
+  params?: string;
+  trace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyUri: 'KeyUri',
+      mediaId: 'MediaId',
+      output: 'Output',
+      params: 'Params',
+      trace: 'Trace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyUri: 'string',
+      mediaId: 'string',
+      output: 'string',
+      params: 'string',
+      trace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceM3u8JobResponseBody extends $tea.Model {
+  data?: SubmitTraceM3u8JobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitTraceM3u8JobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceM3u8JobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTraceM3u8JobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitTraceM3u8JobResponseBody,
     };
   }
 
@@ -11478,6 +12315,77 @@ export class QueryAnalysisJobListResponseBodyNonExistAnalysisJobIds extends $tea
   static types(): { [key: string]: any } {
     return {
       string: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightExtractJobResponseBodyData extends $tea.Model {
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightJobResponseBodyData extends $tea.Model {
+  callback?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  input?: string;
+  jobId?: string;
+  level?: number;
+  message?: string;
+  output?: string;
+  result?: string;
+  status?: string;
+  userData?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callback: 'Callback',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      input: 'Input',
+      jobId: 'JobId',
+      level: 'Level',
+      message: 'Message',
+      output: 'Output',
+      result: 'Result',
+      status: 'Status',
+      userData: 'UserData',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callback: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      input: 'string',
+      jobId: 'string',
+      level: 'number',
+      message: 'string',
+      output: 'string',
+      result: 'string',
+      status: 'string',
+      userData: 'string',
+      userId: 'number',
     };
   }
 
@@ -18242,6 +19150,120 @@ export class QueryTemplateListResponseBodyTemplateList extends $tea.Model {
   }
 }
 
+export class QueryTraceAbJobResponseBodyData extends $tea.Model {
+  callback?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  input?: string;
+  jobId?: string;
+  level?: number;
+  mediaId?: string;
+  output?: string;
+  result?: string;
+  status?: string;
+  userData?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callback: 'Callback',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      input: 'Input',
+      jobId: 'JobId',
+      level: 'Level',
+      mediaId: 'MediaId',
+      output: 'Output',
+      result: 'Result',
+      status: 'Status',
+      userData: 'UserData',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callback: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      input: 'string',
+      jobId: 'string',
+      level: 'number',
+      mediaId: 'string',
+      output: 'string',
+      result: 'string',
+      status: 'string',
+      userData: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceExtractJobResponseBodyData extends $tea.Model {
+  trace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      trace: 'Trace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceM3u8JobResponseBodyData extends $tea.Model {
+  gmtCreate?: number;
+  gmtModified?: number;
+  jobId?: string;
+  mediaId?: string;
+  output?: string;
+  status?: string;
+  trace?: string;
+  userData?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+      output: 'Output',
+      status: 'Status',
+      trace: 'Trace',
+      userData: 'UserData',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      jobId: 'string',
+      mediaId: 'string',
+      output: 'string',
+      status: 'string',
+      trace: 'string',
+      userData: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryWaterMarkTemplateListResponseBodyNonExistWids extends $tea.Model {
   string?: string[];
   static names(): { [key: string]: string } {
@@ -19476,6 +20498,44 @@ export class SubmitAnalysisJobResponseBodyAnalysisJob extends $tea.Model {
       state: 'string',
       templateList: SubmitAnalysisJobResponseBodyAnalysisJobTemplateList,
       userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
     };
   }
 
@@ -21856,6 +22916,66 @@ export class SubmitSnapshotJobResponseBodySnapshotJob extends $tea.Model {
       state: 'string',
       tileCount: 'string',
       userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceM3u8JobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
     };
   }
 
@@ -25447,6 +26567,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询版权水印提取任务
+   *
+   * @param request QueryCopyrightExtractJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryCopyrightExtractJobResponse
+   */
+  async queryCopyrightExtractJobWithOptions(request: QueryCopyrightExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryCopyrightExtractJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCopyrightExtractJob",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCopyrightExtractJobResponse>(await this.callApi(params, req, runtime), new QueryCopyrightExtractJobResponse({}));
+  }
+
+  /**
+   * @summary 查询版权水印提取任务
+   *
+   * @param request QueryCopyrightExtractJobRequest
+   * @return QueryCopyrightExtractJobResponse
+   */
+  async queryCopyrightExtractJob(request: QueryCopyrightExtractJobRequest): Promise<QueryCopyrightExtractJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCopyrightExtractJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询视频版权水印任务
+   *
+   * @param request QueryCopyrightJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryCopyrightJobResponse
+   */
+  async queryCopyrightJobWithOptions(request: QueryCopyrightJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryCopyrightJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCopyrightJob",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCopyrightJobResponse>(await this.callApi(params, req, runtime), new QueryCopyrightJobResponse({}));
+  }
+
+  /**
+   * @summary 查询视频版权水印任务
+   *
+   * @param request QueryCopyrightJobRequest
+   * @return QueryCopyrightJobResponse
+   */
+  async queryCopyrightJob(request: QueryCopyrightJobRequest): Promise<QueryCopyrightJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCopyrightJobWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Queries the jobs of clearing or deleting a media fingerprint library.
    *
    * @description You can call this operation to query the specified jobs of clearing or deleting a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
@@ -26679,6 +27903,152 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询视频溯源水印ab流任务
+   *
+   * @param request QueryTraceAbJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTraceAbJobResponse
+   */
+  async queryTraceAbJobWithOptions(request: QueryTraceAbJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryTraceAbJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTraceAbJob",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTraceAbJobResponse>(await this.callApi(params, req, runtime), new QueryTraceAbJobResponse({}));
+  }
+
+  /**
+   * @summary 查询视频溯源水印ab流任务
+   *
+   * @param request QueryTraceAbJobRequest
+   * @return QueryTraceAbJobResponse
+   */
+  async queryTraceAbJob(request: QueryTraceAbJobRequest): Promise<QueryTraceAbJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryTraceAbJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询溯源水印提取任务
+   *
+   * @param request QueryTraceExtractJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTraceExtractJobResponse
+   */
+  async queryTraceExtractJobWithOptions(request: QueryTraceExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryTraceExtractJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTraceExtractJob",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTraceExtractJobResponse>(await this.callApi(params, req, runtime), new QueryTraceExtractJobResponse({}));
+  }
+
+  /**
+   * @summary 查询溯源水印提取任务
+   *
+   * @param request QueryTraceExtractJobRequest
+   * @return QueryTraceExtractJobResponse
+   */
+  async queryTraceExtractJob(request: QueryTraceExtractJobRequest): Promise<QueryTraceExtractJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryTraceExtractJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询视频溯源水印m3u8任务
+   *
+   * @param request QueryTraceM3u8JobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTraceM3u8JobResponse
+   */
+  async queryTraceM3u8JobWithOptions(request: QueryTraceM3u8JobRequest, runtime: $Util.RuntimeOptions): Promise<QueryTraceM3u8JobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTraceM3u8Job",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTraceM3u8JobResponse>(await this.callApi(params, req, runtime), new QueryTraceM3u8JobResponse({}));
+  }
+
+  /**
+   * @summary 查询视频溯源水印m3u8任务
+   *
+   * @param request QueryTraceM3u8JobRequest
+   * @return QueryTraceM3u8JobResponse
+   */
+  async queryTraceM3u8Job(request: QueryTraceM3u8JobRequest): Promise<QueryTraceM3u8JobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryTraceM3u8JobWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Queries watermark templates.
    *
    * @description You can call this operation to query up to 10 watermark templates at a time.
@@ -27260,6 +28630,146 @@ export default class Client extends OpenApi {
   async submitAnalysisJob(request: SubmitAnalysisJobRequest): Promise<SubmitAnalysisJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAnalysisJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 提交版权水印提取任务
+   *
+   * @param request SubmitCopyrightExtractJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitCopyrightExtractJobResponse
+   */
+  async submitCopyrightExtractJobWithOptions(request: SubmitCopyrightExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCopyrightExtractJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callBack)) {
+      query["CallBack"] = request.callBack;
+    }
+
+    if (!Util.isUnset(request.input)) {
+      query["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitCopyrightExtractJob",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitCopyrightExtractJobResponse>(await this.callApi(params, req, runtime), new SubmitCopyrightExtractJobResponse({}));
+  }
+
+  /**
+   * @summary 提交版权水印提取任务
+   *
+   * @param request SubmitCopyrightExtractJobRequest
+   * @return SubmitCopyrightExtractJobResponse
+   */
+  async submitCopyrightExtractJob(request: SubmitCopyrightExtractJobRequest): Promise<SubmitCopyrightExtractJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitCopyrightExtractJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 提交视频版权水印
+   *
+   * @param request SubmitCopyrightJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitCopyrightJobResponse
+   */
+  async submitCopyrightJobWithOptions(request: SubmitCopyrightJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCopyrightJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callBack)) {
+      query["CallBack"] = request.callBack;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.input)) {
+      query["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.output)) {
+      query["Output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.totalTime)) {
+      query["TotalTime"] = request.totalTime;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitCopyrightJob",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitCopyrightJobResponse>(await this.callApi(params, req, runtime), new SubmitCopyrightJobResponse({}));
+  }
+
+  /**
+   * @summary 提交视频版权水印
+   *
+   * @param request SubmitCopyrightJobRequest
+   * @return SubmitCopyrightJobResponse
+   */
+  async submitCopyrightJob(request: SubmitCopyrightJobRequest): Promise<SubmitCopyrightJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitCopyrightJobWithOptions(request, runtime);
   }
 
   /**
@@ -28056,6 +29566,196 @@ export default class Client extends OpenApi {
   async submitSnapshotJob(request: SubmitSnapshotJobRequest): Promise<SubmitSnapshotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitSnapshotJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 提交视频溯源水印ab流任务
+   *
+   * @param request SubmitTraceAbJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitTraceAbJobResponse
+   */
+  async submitTraceAbJobWithOptions(request: SubmitTraceAbJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTraceAbJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callBack)) {
+      query["CallBack"] = request.callBack;
+    }
+
+    if (!Util.isUnset(request.cipherBase64ed)) {
+      query["CipherBase64ed"] = request.cipherBase64ed;
+    }
+
+    if (!Util.isUnset(request.input)) {
+      query["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.output)) {
+      query["Output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.totalTime)) {
+      query["TotalTime"] = request.totalTime;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitTraceAbJob",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTraceAbJobResponse>(await this.callApi(params, req, runtime), new SubmitTraceAbJobResponse({}));
+  }
+
+  /**
+   * @summary 提交视频溯源水印ab流任务
+   *
+   * @param request SubmitTraceAbJobRequest
+   * @return SubmitTraceAbJobResponse
+   */
+  async submitTraceAbJob(request: SubmitTraceAbJobRequest): Promise<SubmitTraceAbJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitTraceAbJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 提交溯源水印提取任务
+   *
+   * @param request SubmitTraceExtractJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitTraceExtractJobResponse
+   */
+  async submitTraceExtractJobWithOptions(request: SubmitTraceExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTraceExtractJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callBack)) {
+      query["CallBack"] = request.callBack;
+    }
+
+    if (!Util.isUnset(request.input)) {
+      query["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitTraceExtractJob",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTraceExtractJobResponse>(await this.callApi(params, req, runtime), new SubmitTraceExtractJobResponse({}));
+  }
+
+  /**
+   * @summary 提交溯源水印提取任务
+   *
+   * @param request SubmitTraceExtractJobRequest
+   * @return SubmitTraceExtractJobResponse
+   */
+  async submitTraceExtractJob(request: SubmitTraceExtractJobRequest): Promise<SubmitTraceExtractJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitTraceExtractJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 提交视频溯源水印m3u8文件任务
+   *
+   * @param request SubmitTraceM3u8JobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitTraceM3u8JobResponse
+   */
+  async submitTraceM3u8JobWithOptions(request: SubmitTraceM3u8JobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTraceM3u8JobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyUri)) {
+      query["KeyUri"] = request.keyUri;
+    }
+
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.output)) {
+      query["Output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.trace)) {
+      query["Trace"] = request.trace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitTraceM3u8Job",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTraceM3u8JobResponse>(await this.callApi(params, req, runtime), new SubmitTraceM3u8JobResponse({}));
+  }
+
+  /**
+   * @summary 提交视频溯源水印m3u8文件任务
+   *
+   * @param request SubmitTraceM3u8JobRequest
+   * @return SubmitTraceM3u8JobResponse
+   */
+  async submitTraceM3u8Job(request: SubmitTraceM3u8JobRequest): Promise<SubmitTraceM3u8JobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitTraceM3u8JobWithOptions(request, runtime);
   }
 
   /**
