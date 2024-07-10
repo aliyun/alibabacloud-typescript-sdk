@@ -128,6 +128,230 @@ export class CreateTextFileResponse extends $tea.Model {
   }
 }
 
+export class RunContractResultGenerationRequest extends $tea.Model {
+  appId?: string;
+  assistant?: RunContractResultGenerationRequestAssistant;
+  stream?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'appId',
+      assistant: 'assistant',
+      stream: 'stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      assistant: RunContractResultGenerationRequestAssistant,
+      stream: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationShrinkRequest extends $tea.Model {
+  appId?: string;
+  assistantShrink?: string;
+  stream?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'appId',
+      assistantShrink: 'assistant',
+      stream: 'stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      assistantShrink: 'string',
+      stream: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  output?: RunContractResultGenerationResponseBodyOutput;
+  requestId?: string;
+  success?: boolean;
+  usage?: RunContractResultGenerationResponseBodyUsage;
+  httpStatusCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      output: 'Output',
+      requestId: 'RequestId',
+      success: 'Success',
+      usage: 'Usage',
+      httpStatusCode: 'httpStatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      output: RunContractResultGenerationResponseBodyOutput,
+      requestId: 'string',
+      success: 'boolean',
+      usage: RunContractResultGenerationResponseBodyUsage,
+      httpStatusCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunContractResultGenerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunContractResultGenerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractRuleGenerationRequest extends $tea.Model {
+  appId?: string;
+  assistant?: RunContractRuleGenerationRequestAssistant;
+  stream?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'appId',
+      assistant: 'assistant',
+      stream: 'stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      assistant: RunContractRuleGenerationRequestAssistant,
+      stream: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractRuleGenerationShrinkRequest extends $tea.Model {
+  appId?: string;
+  assistantShrink?: string;
+  stream?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'appId',
+      assistantShrink: 'assistant',
+      stream: 'stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      assistantShrink: 'string',
+      stream: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractRuleGenerationResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  output?: RunContractRuleGenerationResponseBodyOutput;
+  requestId?: string;
+  success?: boolean;
+  usage?: RunContractRuleGenerationResponseBodyUsage;
+  httpStatusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      output: 'Output',
+      requestId: 'RequestId',
+      success: 'Success',
+      usage: 'Usage',
+      httpStatusCode: 'httpStatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      output: RunContractRuleGenerationResponseBodyOutput,
+      requestId: 'string',
+      success: 'boolean',
+      usage: RunContractRuleGenerationResponseBodyUsage,
+      httpStatusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractRuleGenerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunContractRuleGenerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunContractRuleGenerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunLegalAdviceConsultationRequest extends $tea.Model {
   appId?: string;
   assistant?: RunLegalAdviceConsultationRequestAssistant;
@@ -269,6 +493,368 @@ export class CreateTextFileResponseBodyData extends $tea.Model {
       textFileId: 'string',
       textFileName: 'string',
       textFileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationRequestAssistantMetaDataCustomRuleConfigCustomRules extends $tea.Model {
+  riskLevel?: string;
+  ruleDesc?: string;
+  ruleTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      riskLevel: 'riskLevel',
+      ruleDesc: 'ruleDesc',
+      ruleTitle: 'ruleTitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      riskLevel: 'string',
+      ruleDesc: 'string',
+      ruleTitle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationRequestAssistantMetaDataCustomRuleConfig extends $tea.Model {
+  customRules?: RunContractResultGenerationRequestAssistantMetaDataCustomRuleConfigCustomRules[];
+  static names(): { [key: string]: string } {
+    return {
+      customRules: 'customRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customRules: { 'type': 'array', 'itemType': RunContractResultGenerationRequestAssistantMetaDataCustomRuleConfigCustomRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationRequestAssistantMetaDataRules extends $tea.Model {
+  riskLevel?: string;
+  ruleSequence?: string;
+  ruleTag?: string;
+  ruleTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      riskLevel: 'riskLevel',
+      ruleSequence: 'ruleSequence',
+      ruleTag: 'ruleTag',
+      ruleTitle: 'ruleTitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      riskLevel: 'string',
+      ruleSequence: 'string',
+      ruleTag: 'string',
+      ruleTitle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationRequestAssistantMetaData extends $tea.Model {
+  customRuleConfig?: RunContractResultGenerationRequestAssistantMetaDataCustomRuleConfig;
+  fileId?: string;
+  position?: string;
+  ruleTaskId?: string;
+  rules?: RunContractResultGenerationRequestAssistantMetaDataRules[];
+  static names(): { [key: string]: string } {
+    return {
+      customRuleConfig: 'customRuleConfig',
+      fileId: 'fileId',
+      position: 'position',
+      ruleTaskId: 'ruleTaskId',
+      rules: 'rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customRuleConfig: RunContractResultGenerationRequestAssistantMetaDataCustomRuleConfig,
+      fileId: 'string',
+      position: 'string',
+      ruleTaskId: 'string',
+      rules: { 'type': 'array', 'itemType': RunContractResultGenerationRequestAssistantMetaDataRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationRequestAssistant extends $tea.Model {
+  metaData?: RunContractResultGenerationRequestAssistantMetaData;
+  type?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metaData: 'metaData',
+      type: 'type',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metaData: RunContractResultGenerationRequestAssistantMetaData,
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationResponseBodyOutputResultSubRisks extends $tea.Model {
+  originalContent?: string;
+  resultContent?: string;
+  resultType?: string;
+  riskBrief?: string;
+  riskClause?: string;
+  riskExplain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      originalContent: 'originalContent',
+      resultContent: 'resultContent',
+      resultType: 'resultType',
+      riskBrief: 'riskBrief',
+      riskClause: 'riskClause',
+      riskExplain: 'riskExplain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originalContent: 'string',
+      resultContent: 'string',
+      resultType: 'string',
+      riskBrief: 'string',
+      riskClause: 'string',
+      riskExplain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationResponseBodyOutputResult extends $tea.Model {
+  examineBrief?: string;
+  examineResult?: string;
+  riskLevel?: string;
+  ruleSequence?: string;
+  ruleTag?: string;
+  ruleTitle?: string;
+  subRisks?: RunContractResultGenerationResponseBodyOutputResultSubRisks[];
+  static names(): { [key: string]: string } {
+    return {
+      examineBrief: 'examineBrief',
+      examineResult: 'examineResult',
+      riskLevel: 'riskLevel',
+      ruleSequence: 'ruleSequence',
+      ruleTag: 'ruleTag',
+      ruleTitle: 'ruleTitle',
+      subRisks: 'subRisks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      examineBrief: 'string',
+      examineResult: 'string',
+      riskLevel: 'string',
+      ruleSequence: 'string',
+      ruleTag: 'string',
+      ruleTitle: 'string',
+      subRisks: { 'type': 'array', 'itemType': RunContractResultGenerationResponseBodyOutputResultSubRisks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationResponseBodyOutput extends $tea.Model {
+  result?: RunContractResultGenerationResponseBodyOutputResult;
+  resultTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+      resultTaskId: 'resultTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: RunContractResultGenerationResponseBodyOutputResult,
+      resultTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractResultGenerationResponseBodyUsage extends $tea.Model {
+  input?: number;
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      input: 'input',
+      unit: 'unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      input: 'number',
+      unit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractRuleGenerationRequestAssistantMetaData extends $tea.Model {
+  fileId?: string;
+  position?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'fileId',
+      position: 'position',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+      position: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractRuleGenerationRequestAssistant extends $tea.Model {
+  metaData?: RunContractRuleGenerationRequestAssistantMetaData;
+  type?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metaData: 'metaData',
+      type: 'type',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metaData: RunContractRuleGenerationRequestAssistantMetaData,
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractRuleGenerationResponseBodyOutputRules extends $tea.Model {
+  riskLevel?: string;
+  ruleSequence?: string;
+  ruleTag?: string;
+  ruleTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      riskLevel: 'riskLevel',
+      ruleSequence: 'ruleSequence',
+      ruleTag: 'ruleTag',
+      ruleTitle: 'ruleTitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      riskLevel: 'string',
+      ruleSequence: 'string',
+      ruleTag: 'string',
+      ruleTitle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractRuleGenerationResponseBodyOutput extends $tea.Model {
+  ruleTaskId?: string;
+  rules?: RunContractRuleGenerationResponseBodyOutputRules[];
+  static names(): { [key: string]: string } {
+    return {
+      ruleTaskId: 'ruleTaskId',
+      rules: 'rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleTaskId: 'string',
+      rules: { 'type': 'array', 'itemType': RunContractRuleGenerationResponseBodyOutputRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContractRuleGenerationResponseBodyUsage extends $tea.Model {
+  input?: number;
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      input: 'input',
+      unit: 'unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      input: 'number',
+      unit: 'string',
     };
   }
 
@@ -524,6 +1110,124 @@ export default class Client extends OpenApi {
 
     let createTextFileResp = await this.createTextFileWithOptions(WorkspaceId, createTextFileReq, headers, runtime);
     return createTextFileResp;
+  }
+
+  /**
+   * @summary 生成合同审查结果
+   *
+   * @param tmpReq RunContractResultGenerationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunContractResultGenerationResponse
+   */
+  async runContractResultGenerationWithOptions(workspaceId: string, tmpReq: RunContractResultGenerationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunContractResultGenerationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunContractResultGenerationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.assistant)) {
+      request.assistantShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assistant, "assistant", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["appId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.assistantShrink)) {
+      body["assistant"] = request.assistantShrink;
+    }
+
+    if (!Util.isUnset(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunContractResultGeneration",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/farui/contract/result/genarate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunContractResultGenerationResponse>(await this.callApi(params, req, runtime), new RunContractResultGenerationResponse({}));
+  }
+
+  /**
+   * @summary 生成合同审查结果
+   *
+   * @param request RunContractResultGenerationRequest
+   * @return RunContractResultGenerationResponse
+   */
+  async runContractResultGeneration(workspaceId: string, request: RunContractResultGenerationRequest): Promise<RunContractResultGenerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runContractResultGenerationWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 生成合同审查规则
+   *
+   * @param tmpReq RunContractRuleGenerationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunContractRuleGenerationResponse
+   */
+  async runContractRuleGenerationWithOptions(workspaceId: string, tmpReq: RunContractRuleGenerationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunContractRuleGenerationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunContractRuleGenerationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.assistant)) {
+      request.assistantShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assistant, "assistant", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["appId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.assistantShrink)) {
+      body["assistant"] = request.assistantShrink;
+    }
+
+    if (!Util.isUnset(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunContractRuleGeneration",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/farui/contract/rule/genarate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunContractRuleGenerationResponse>(await this.callApi(params, req, runtime), new RunContractRuleGenerationResponse({}));
+  }
+
+  /**
+   * @summary 生成合同审查规则
+   *
+   * @param request RunContractRuleGenerationRequest
+   * @return RunContractRuleGenerationResponse
+   */
+  async runContractRuleGeneration(workspaceId: string, request: RunContractRuleGenerationRequest): Promise<RunContractRuleGenerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runContractRuleGenerationWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
