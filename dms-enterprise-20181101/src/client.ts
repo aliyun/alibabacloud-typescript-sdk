@@ -975,6 +975,7 @@ export class ApproveOrderRequest extends $tea.Model {
   newApprover?: number;
   newApproverList?: string;
   oldApprover?: number;
+  realLoginUserUid?: string;
   tid?: number;
   workflowInstanceId?: number;
   static names(): { [key: string]: string } {
@@ -986,6 +987,7 @@ export class ApproveOrderRequest extends $tea.Model {
       newApprover: 'NewApprover',
       newApproverList: 'NewApproverList',
       oldApprover: 'OldApprover',
+      realLoginUserUid: 'RealLoginUserUid',
       tid: 'Tid',
       workflowInstanceId: 'WorkflowInstanceId',
     };
@@ -1000,6 +1002,7 @@ export class ApproveOrderRequest extends $tea.Model {
       newApprover: 'number',
       newApproverList: 'string',
       oldApprover: 'number',
+      realLoginUserUid: 'string',
       tid: 'number',
       workflowInstanceId: 'number',
     };
@@ -1852,6 +1855,7 @@ export class CreateDataCorrectOrderRequest extends $tea.Model {
   attachmentKey?: string;
   comment?: string;
   param?: CreateDataCorrectOrderRequestParam;
+  realLoginUserUid?: string;
   relatedUserList?: number[];
   tid?: number;
   static names(): { [key: string]: string } {
@@ -1859,6 +1863,7 @@ export class CreateDataCorrectOrderRequest extends $tea.Model {
       attachmentKey: 'AttachmentKey',
       comment: 'Comment',
       param: 'Param',
+      realLoginUserUid: 'RealLoginUserUid',
       relatedUserList: 'RelatedUserList',
       tid: 'Tid',
     };
@@ -1869,6 +1874,7 @@ export class CreateDataCorrectOrderRequest extends $tea.Model {
       attachmentKey: 'string',
       comment: 'string',
       param: CreateDataCorrectOrderRequestParam,
+      realLoginUserUid: 'string',
       relatedUserList: { 'type': 'array', 'itemType': 'number' },
       tid: 'number',
     };
@@ -1883,6 +1889,7 @@ export class CreateDataCorrectOrderShrinkRequest extends $tea.Model {
   attachmentKey?: string;
   comment?: string;
   paramShrink?: string;
+  realLoginUserUid?: string;
   relatedUserListShrink?: string;
   tid?: number;
   static names(): { [key: string]: string } {
@@ -1890,6 +1897,7 @@ export class CreateDataCorrectOrderShrinkRequest extends $tea.Model {
       attachmentKey: 'AttachmentKey',
       comment: 'Comment',
       paramShrink: 'Param',
+      realLoginUserUid: 'RealLoginUserUid',
       relatedUserListShrink: 'RelatedUserList',
       tid: 'Tid',
     };
@@ -1900,6 +1908,7 @@ export class CreateDataCorrectOrderShrinkRequest extends $tea.Model {
       attachmentKey: 'string',
       comment: 'string',
       paramShrink: 'string',
+      realLoginUserUid: 'string',
       relatedUserListShrink: 'string',
       tid: 'number',
     };
@@ -2089,6 +2098,7 @@ export class CreateDataExportOrderRequest extends $tea.Model {
   comment?: string;
   parentId?: number;
   pluginParam?: CreateDataExportOrderRequestPluginParam;
+  realLoginUserUid?: string;
   relatedUserList?: number[];
   tid?: number;
   static names(): { [key: string]: string } {
@@ -2097,6 +2107,7 @@ export class CreateDataExportOrderRequest extends $tea.Model {
       comment: 'Comment',
       parentId: 'ParentId',
       pluginParam: 'PluginParam',
+      realLoginUserUid: 'RealLoginUserUid',
       relatedUserList: 'RelatedUserList',
       tid: 'Tid',
     };
@@ -2108,6 +2119,7 @@ export class CreateDataExportOrderRequest extends $tea.Model {
       comment: 'string',
       parentId: 'number',
       pluginParam: CreateDataExportOrderRequestPluginParam,
+      realLoginUserUid: 'string',
       relatedUserList: { 'type': 'array', 'itemType': 'number' },
       tid: 'number',
     };
@@ -2123,6 +2135,7 @@ export class CreateDataExportOrderShrinkRequest extends $tea.Model {
   comment?: string;
   parentId?: number;
   pluginParamShrink?: string;
+  realLoginUserUid?: string;
   relatedUserListShrink?: string;
   tid?: number;
   static names(): { [key: string]: string } {
@@ -2131,6 +2144,7 @@ export class CreateDataExportOrderShrinkRequest extends $tea.Model {
       comment: 'Comment',
       parentId: 'ParentId',
       pluginParamShrink: 'PluginParam',
+      realLoginUserUid: 'RealLoginUserUid',
       relatedUserListShrink: 'RelatedUserList',
       tid: 'Tid',
     };
@@ -2142,6 +2156,7 @@ export class CreateDataExportOrderShrinkRequest extends $tea.Model {
       comment: 'string',
       parentId: 'number',
       pluginParamShrink: 'string',
+      realLoginUserUid: 'string',
       relatedUserListShrink: 'string',
       tid: 'number',
     };
@@ -5665,11 +5680,13 @@ export class EnableUserResponse extends $tea.Model {
 export class ExecuteDataCorrectRequest extends $tea.Model {
   actionDetail?: { [key: string]: any };
   orderId?: number;
+  realLoginUserUid?: string;
   tid?: string;
   static names(): { [key: string]: string } {
     return {
       actionDetail: 'ActionDetail',
       orderId: 'OrderId',
+      realLoginUserUid: 'RealLoginUserUid',
       tid: 'Tid',
     };
   }
@@ -5678,6 +5695,7 @@ export class ExecuteDataCorrectRequest extends $tea.Model {
     return {
       actionDetail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       orderId: 'number',
+      realLoginUserUid: 'string',
       tid: 'string',
     };
   }
@@ -5690,11 +5708,13 @@ export class ExecuteDataCorrectRequest extends $tea.Model {
 export class ExecuteDataCorrectShrinkRequest extends $tea.Model {
   actionDetailShrink?: string;
   orderId?: number;
+  realLoginUserUid?: string;
   tid?: string;
   static names(): { [key: string]: string } {
     return {
       actionDetailShrink: 'ActionDetail',
       orderId: 'OrderId',
+      realLoginUserUid: 'RealLoginUserUid',
       tid: 'Tid',
     };
   }
@@ -5703,6 +5723,7 @@ export class ExecuteDataCorrectShrinkRequest extends $tea.Model {
     return {
       actionDetailShrink: 'string',
       orderId: 'number',
+      realLoginUserUid: 'string',
       tid: 'string',
     };
   }
@@ -5768,11 +5789,13 @@ export class ExecuteDataCorrectResponse extends $tea.Model {
 export class ExecuteDataExportRequest extends $tea.Model {
   actionDetail?: { [key: string]: any };
   orderId?: number;
+  realLoginUserUid?: string;
   tid?: number;
   static names(): { [key: string]: string } {
     return {
       actionDetail: 'ActionDetail',
       orderId: 'OrderId',
+      realLoginUserUid: 'RealLoginUserUid',
       tid: 'Tid',
     };
   }
@@ -5781,6 +5804,7 @@ export class ExecuteDataExportRequest extends $tea.Model {
     return {
       actionDetail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       orderId: 'number',
+      realLoginUserUid: 'string',
       tid: 'number',
     };
   }
@@ -5793,11 +5817,13 @@ export class ExecuteDataExportRequest extends $tea.Model {
 export class ExecuteDataExportShrinkRequest extends $tea.Model {
   actionDetailShrink?: string;
   orderId?: number;
+  realLoginUserUid?: string;
   tid?: number;
   static names(): { [key: string]: string } {
     return {
       actionDetailShrink: 'ActionDetail',
       orderId: 'OrderId',
+      realLoginUserUid: 'RealLoginUserUid',
       tid: 'Tid',
     };
   }
@@ -5806,6 +5832,7 @@ export class ExecuteDataExportShrinkRequest extends $tea.Model {
     return {
       actionDetailShrink: 'string',
       orderId: 'number',
+      realLoginUserUid: 'string',
       tid: 'number',
     };
   }
@@ -7245,10 +7272,12 @@ export class GetDataCronClearTaskDetailListResponse extends $tea.Model {
 
 export class GetDataExportDownloadURLRequest extends $tea.Model {
   orderId?: number;
+  realLoginUserUid?: string;
   tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
+      realLoginUserUid: 'RealLoginUserUid',
       tid: 'Tid',
     };
   }
@@ -7256,6 +7285,7 @@ export class GetDataExportDownloadURLRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       orderId: 'number',
+      realLoginUserUid: 'string',
       tid: 'number',
     };
   }
@@ -18030,10 +18060,12 @@ export class StopTaskFlowInstanceResponse extends $tea.Model {
 
 export class SubmitOrderApprovalRequest extends $tea.Model {
   orderId?: number;
+  realLoginUserUid?: string;
   tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
+      realLoginUserUid: 'RealLoginUserUid',
       tid: 'Tid',
     };
   }
@@ -18041,6 +18073,7 @@ export class SubmitOrderApprovalRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       orderId: 'number',
+      realLoginUserUid: 'string',
       tid: 'number',
     };
   }
@@ -30834,6 +30867,10 @@ export default class Client extends OpenApi {
       query["OldApprover"] = request.oldApprover;
     }
 
+    if (!Util.isUnset(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
+    }
+
     if (!Util.isUnset(request.tid)) {
       query["Tid"] = request.tid;
     }
@@ -31315,7 +31352,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates data archiving tickets.
+   * @summary Creates a data archiving ticket to archive data to destinations such as dedicated storage space or ApsaraDB RDS for MySQL instances.
+   *
+   * @description You can call this API operation only for database instances that are managed in Security Collaboration mode.
    *
    * @param tmpReq CreateDataArchiveOrderRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -31376,7 +31415,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates data archiving tickets.
+   * @summary Creates a data archiving ticket to archive data to destinations such as dedicated storage space or ApsaraDB RDS for MySQL instances.
+   *
+   * @description You can call this API operation only for database instances that are managed in Security Collaboration mode.
    *
    * @param request CreateDataArchiveOrderRequest
    * @return CreateDataArchiveOrderResponse
@@ -31418,6 +31459,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.paramShrink)) {
       query["Param"] = request.paramShrink;
+    }
+
+    if (!Util.isUnset(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
     }
 
     if (!Util.isUnset(request.relatedUserListShrink)) {
@@ -31566,6 +31611,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pluginParamShrink)) {
       query["PluginParam"] = request.pluginParamShrink;
+    }
+
+    if (!Util.isUnset(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
     }
 
     if (!Util.isUnset(request.relatedUserListShrink)) {
@@ -33830,6 +33879,10 @@ export default class Client extends OpenApi {
       query["OrderId"] = request.orderId;
     }
 
+    if (!Util.isUnset(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
+    }
+
     if (!Util.isUnset(request.tid)) {
       query["Tid"] = request.tid;
     }
@@ -33884,6 +33937,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.orderId)) {
       query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
     }
 
     if (!Util.isUnset(request.tid)) {
@@ -34768,6 +34825,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.orderId)) {
       query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
     }
 
     if (!Util.isUnset(request.tid)) {
@@ -36467,7 +36528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取结构设计项目的流程信息
+   * @summary Queries the information about a schema design ticket, such as the current node of the ticket, whether the ticket can be returned to the schema design node, and the publishing strategy.
    *
    * @param request GetTableDesignProjectFlowRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -36502,7 +36563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取结构设计项目的流程信息
+   * @summary Queries the information about a schema design ticket, such as the current node of the ticket, whether the ticket can be returned to the schema design node, and the publishing strategy.
    *
    * @param request GetTableDesignProjectFlowRequest
    * @return GetTableDesignProjectFlowResponse
@@ -36513,7 +36574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取结构设计项目的详细信息
+   * @summary Queries the information about the project and change base database of a schema design ticket, such as the state of the ticket, the ID of the user who created the ticket, and the name and ID of the change base database.
    *
    * @param request GetTableDesignProjectInfoRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -36548,7 +36609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取结构设计项目的详细信息
+   * @summary Queries the information about the project and change base database of a schema design ticket, such as the state of the ticket, the ID of the user who created the ticket, and the name and ID of the change base database.
    *
    * @param request GetTableDesignProjectInfoRequest
    * @return GetTableDesignProjectInfoResponse
@@ -41716,6 +41777,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.orderId)) {
       query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
     }
 
     if (!Util.isUnset(request.tid)) {
