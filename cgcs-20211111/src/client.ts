@@ -1029,6 +1029,78 @@ export class DeleteAppVersionResponse extends $tea.Model {
   }
 }
 
+export class DescribeInstanceStatsInfoRequest extends $tea.Model {
+  districtIds?: string[];
+  instanceTypes?: string[];
+  projectIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      districtIds: 'DistrictIds',
+      instanceTypes: 'InstanceTypes',
+      projectIds: 'ProjectIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      districtIds: { 'type': 'array', 'itemType': 'string' },
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
+      projectIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceStatsInfoResponseBody extends $tea.Model {
+  data?: DescribeInstanceStatsInfoResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeInstanceStatsInfoResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceStatsInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceStatsInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceStatsInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAdaptationRequest extends $tea.Model {
   adaptApplyId?: number;
   appVersionId?: string;
@@ -3522,6 +3594,46 @@ export class CreateAppSessionSyncResponseBodyBizInfo extends $tea.Model {
   }
 }
 
+export class DescribeInstanceStatsInfoResponseBodyData extends $tea.Model {
+  districtId?: string;
+  instanceType?: string;
+  operatingInstanceCount?: number;
+  projectId?: string;
+  releasingInstanceCount?: number;
+  reservingInstanceCount?: number;
+  runningInstanceCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      districtId: 'DistrictId',
+      instanceType: 'InstanceType',
+      operatingInstanceCount: 'OperatingInstanceCount',
+      projectId: 'ProjectId',
+      releasingInstanceCount: 'ReleasingInstanceCount',
+      reservingInstanceCount: 'ReservingInstanceCount',
+      runningInstanceCount: 'RunningInstanceCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      districtId: 'string',
+      instanceType: 'string',
+      operatingInstanceCount: 'number',
+      projectId: 'string',
+      releasingInstanceCount: 'number',
+      reservingInstanceCount: 'number',
+      runningInstanceCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAdaptationResponseBodyAdaptTarget extends $tea.Model {
   bitRate?: number;
   frameRate?: number;
@@ -4667,6 +4779,40 @@ export default class Client extends OpenApi {
   async deleteAppVersion(request: DeleteAppVersionRequest): Promise<DeleteAppVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeInstanceStatsInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceStatsInfoResponse
+   */
+  async describeInstanceStatsInfoWithOptions(request: DescribeInstanceStatsInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceStatsInfoResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceStatsInfo",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceStatsInfoResponse>(await this.callApi(params, req, runtime), new DescribeInstanceStatsInfoResponse({}));
+  }
+
+  /**
+   * @param request DescribeInstanceStatsInfoRequest
+   * @return DescribeInstanceStatsInfoResponse
+   */
+  async describeInstanceStatsInfo(request: DescribeInstanceStatsInfoRequest): Promise<DescribeInstanceStatsInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceStatsInfoWithOptions(request, runtime);
   }
 
   /**
