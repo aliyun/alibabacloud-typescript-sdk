@@ -111,9 +111,9 @@ export class CreateAccountResponseBody extends $tea.Model {
 }
 
 export class CreateAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -192,9 +192,9 @@ export class CreateBindingResponseBody extends $tea.Model {
 }
 
 export class CreateBindingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBindingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBindingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -224,6 +224,7 @@ export class CreateExchangeRequest extends $tea.Model {
   instanceId?: string;
   internal?: boolean;
   virtualHost?: string;
+  XDelayedType?: string;
   static names(): { [key: string]: string } {
     return {
       alternateExchange: 'AlternateExchange',
@@ -233,6 +234,7 @@ export class CreateExchangeRequest extends $tea.Model {
       instanceId: 'InstanceId',
       internal: 'Internal',
       virtualHost: 'VirtualHost',
+      XDelayedType: 'XDelayedType',
     };
   }
 
@@ -245,6 +247,7 @@ export class CreateExchangeRequest extends $tea.Model {
       instanceId: 'string',
       internal: 'boolean',
       virtualHost: 'string',
+      XDelayedType: 'string',
     };
   }
 
@@ -273,9 +276,9 @@ export class CreateExchangeResponseBody extends $tea.Model {
 }
 
 export class CreateExchangeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateExchangeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateExchangeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -312,6 +315,7 @@ export class CreateInstanceRequest extends $tea.Model {
   queueCapacity?: number;
   renewStatus?: string;
   renewalDurationUnit?: string;
+  serverlessChargeType?: string;
   storageSize?: number;
   supportEip?: boolean;
   supportTracing?: boolean;
@@ -332,6 +336,7 @@ export class CreateInstanceRequest extends $tea.Model {
       queueCapacity: 'QueueCapacity',
       renewStatus: 'RenewStatus',
       renewalDurationUnit: 'RenewalDurationUnit',
+      serverlessChargeType: 'ServerlessChargeType',
       storageSize: 'StorageSize',
       supportEip: 'SupportEip',
       supportTracing: 'SupportTracing',
@@ -355,6 +360,7 @@ export class CreateInstanceRequest extends $tea.Model {
       queueCapacity: 'number',
       renewStatus: 'string',
       renewalDurationUnit: 'string',
+      serverlessChargeType: 'string',
       storageSize: 'number',
       supportEip: 'boolean',
       supportTracing: 'boolean',
@@ -399,9 +405,9 @@ export class CreateInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -492,9 +498,9 @@ export class CreateQueueResponseBody extends $tea.Model {
 }
 
 export class CreateQueueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateQueueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -558,9 +564,9 @@ export class CreateVirtualHostResponseBody extends $tea.Model {
 }
 
 export class CreateVirtualHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVirtualHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVirtualHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -636,9 +642,9 @@ export class DeleteAccountResponseBody extends $tea.Model {
 }
 
 export class DeleteAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -714,9 +720,9 @@ export class DeleteBindingResponseBody extends $tea.Model {
 }
 
 export class DeleteBindingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBindingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBindingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -783,9 +789,9 @@ export class DeleteExchangeResponseBody extends $tea.Model {
 }
 
 export class DeleteExchangeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteExchangeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteExchangeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -852,9 +858,9 @@ export class DeleteQueueResponseBody extends $tea.Model {
 }
 
 export class DeleteQueueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteQueueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -918,9 +924,9 @@ export class DeleteVirtualHostResponseBody extends $tea.Model {
 }
 
 export class DeleteVirtualHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVirtualHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVirtualHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -984,9 +990,9 @@ export class GetMetadataAmountResponseBody extends $tea.Model {
 }
 
 export class GetMetadataAmountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMetadataAmountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMetadataAmountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1059,9 +1065,9 @@ export class ListAccountsResponseBody extends $tea.Model {
 }
 
 export class ListAccountsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAccountsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccountsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1134,9 +1140,9 @@ export class ListBindingsResponseBody extends $tea.Model {
 }
 
 export class ListBindingsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBindingsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBindingsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1221,9 +1227,9 @@ export class ListDownStreamBindingsResponseBody extends $tea.Model {
 }
 
 export class ListDownStreamBindingsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDownStreamBindingsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDownStreamBindingsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1308,9 +1314,9 @@ export class ListExchangeUpStreamBindingsResponseBody extends $tea.Model {
 }
 
 export class ListExchangeUpStreamBindingsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListExchangeUpStreamBindingsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListExchangeUpStreamBindingsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1383,9 +1389,9 @@ export class ListExchangesResponseBody extends $tea.Model {
 }
 
 export class ListExchangesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListExchangesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListExchangesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1452,9 +1458,9 @@ export class ListInstancesResponseBody extends $tea.Model {
 }
 
 export class ListInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1530,9 +1536,9 @@ export class ListQueueConsumersResponseBody extends $tea.Model {
 }
 
 export class ListQueueConsumersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListQueueConsumersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQueueConsumersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1608,9 +1614,9 @@ export class ListQueueUpStreamBindingsResponseBody extends $tea.Model {
 }
 
 export class ListQueueUpStreamBindingsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListQueueUpStreamBindingsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQueueUpStreamBindingsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1683,9 +1689,9 @@ export class ListQueuesResponseBody extends $tea.Model {
 }
 
 export class ListQueuesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListQueuesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQueuesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1755,9 +1761,9 @@ export class ListVirtualHostsResponseBody extends $tea.Model {
 }
 
 export class ListVirtualHostsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVirtualHostsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVirtualHostsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1771,6 +1777,120 @@ export class ListVirtualHostsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListVirtualHostsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequest extends $tea.Model {
+  clientToken?: string;
+  instanceId?: string;
+  instanceType?: string;
+  maxConnections?: number;
+  maxEipTps?: number;
+  maxPrivateTps?: number;
+  modifyType?: string;
+  queueCapacity?: number;
+  serverlessChargeType?: string;
+  storageSize?: number;
+  supportEip?: boolean;
+  supportTracing?: boolean;
+  tracingStorageTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      maxConnections: 'MaxConnections',
+      maxEipTps: 'MaxEipTps',
+      maxPrivateTps: 'MaxPrivateTps',
+      modifyType: 'ModifyType',
+      queueCapacity: 'QueueCapacity',
+      serverlessChargeType: 'ServerlessChargeType',
+      storageSize: 'StorageSize',
+      supportEip: 'SupportEip',
+      supportTracing: 'SupportTracing',
+      tracingStorageTime: 'TracingStorageTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      maxConnections: 'number',
+      maxEipTps: 'number',
+      maxPrivateTps: 'number',
+      modifyType: 'string',
+      queueCapacity: 'number',
+      serverlessChargeType: 'string',
+      storageSize: 'number',
+      supportEip: 'boolean',
+      supportTracing: 'boolean',
+      tracingStorageTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceResponseBody extends $tea.Model {
+  code?: number;
+  data?: any;
+  message?: string;
+  requestId?: string;
+  statusCode?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'any',
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateInstanceResponseBody,
     };
   }
 
@@ -1833,9 +1953,9 @@ export class UpdateInstanceNameResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceNameResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2502,10 +2622,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    *
-    * @param request CreateAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAccountResponse
+   * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+   *
+   * @param request CreateAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccountResponse
    */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
@@ -2552,15 +2673,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    *
-    * @param request CreateAccountRequest
-    * @return CreateAccountResponse
+   * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+   *
+   * @param request CreateAccountRequest
+   * @return CreateAccountResponse
    */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+   *
+   * @param request CreateBindingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBindingResponse
+   */
   async createBindingWithOptions(request: CreateBindingRequest, runtime: $Util.RuntimeOptions): Promise<CreateBindingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2609,11 +2738,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBindingResponse>(await this.callApi(params, req, runtime), new CreateBindingResponse({}));
   }
 
+  /**
+   * @summary Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+   *
+   * @param request CreateBindingRequest
+   * @return CreateBindingResponse
+   */
   async createBinding(request: CreateBindingRequest): Promise<CreateBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBindingWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+   *
+   * @param request CreateExchangeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateExchangeResponse
+   */
   async createExchangeWithOptions(request: CreateExchangeRequest, runtime: $Util.RuntimeOptions): Promise<CreateExchangeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2645,6 +2787,10 @@ export default class Client extends OpenApi {
       body["VirtualHost"] = request.virtualHost;
     }
 
+    if (!Util.isUnset(request.XDelayedType)) {
+      body["XDelayedType"] = request.XDelayedType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -2662,11 +2808,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateExchangeResponse>(await this.callApi(params, req, runtime), new CreateExchangeResponse({}));
   }
 
+  /**
+   * @summary Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+   *
+   * @param request CreateExchangeRequest
+   * @return CreateExchangeResponse
+   */
   async createExchange(request: CreateExchangeRequest): Promise<CreateExchangeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createExchangeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建实例-基于 openAPI 构建南天门购买工单信息数据
+   *
+   * @param request CreateInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
+   */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2726,6 +2885,10 @@ export default class Client extends OpenApi {
       query["RenewalDurationUnit"] = request.renewalDurationUnit;
     }
 
+    if (!Util.isUnset(request.serverlessChargeType)) {
+      query["ServerlessChargeType"] = request.serverlessChargeType;
+    }
+
     if (!Util.isUnset(request.storageSize)) {
       query["StorageSize"] = request.storageSize;
     }
@@ -2759,11 +2922,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
+  /**
+   * @summary 创建实例-基于 openAPI 构建南天门购买工单信息数据
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
+   */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+   *
+   * @param request CreateQueueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQueueResponse
+   */
   async createQueueWithOptions(request: CreateQueueRequest, runtime: $Util.RuntimeOptions): Promise<CreateQueueResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2828,11 +3004,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQueueResponse>(await this.callApi(params, req, runtime), new CreateQueueResponse({}));
   }
 
+  /**
+   * @summary Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+   *
+   * @param request CreateQueueRequest
+   * @return CreateQueueResponse
+   */
   async createQueue(request: CreateQueueRequest): Promise<CreateQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQueueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a vhost. A vhost is used to logically isolate resources. Each vhost manages its own exchanges, queues, and bindings. Applications can run on independent vhosts in a secure manner. This way, the business of an application is not affected by other applications. Before you connect producers and consumers to an ApsaraMQ for RabbitMQ instance, you must specify vhosts for the producers and consumers.
+   *
+   * @param request CreateVirtualHostRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVirtualHostResponse
+   */
   async createVirtualHostWithOptions(request: CreateVirtualHostRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualHostResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2861,11 +3050,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVirtualHostResponse>(await this.callApi(params, req, runtime), new CreateVirtualHostResponse({}));
   }
 
+  /**
+   * @summary Creates a vhost. A vhost is used to logically isolate resources. Each vhost manages its own exchanges, queues, and bindings. Applications can run on independent vhosts in a secure manner. This way, the business of an application is not affected by other applications. Before you connect producers and consumers to an ApsaraMQ for RabbitMQ instance, you must specify vhosts for the producers and consumers.
+   *
+   * @param request CreateVirtualHostRequest
+   * @return CreateVirtualHostResponse
+   */
   async createVirtualHost(request: CreateVirtualHostRequest): Promise<CreateVirtualHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVirtualHostWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a pair of username and password.
+   *
+   * @param request DeleteAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccountResponse
+   */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2894,11 +3096,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
   }
 
+  /**
+   * @summary Deletes a pair of username and password.
+   *
+   * @param request DeleteAccountRequest
+   * @return DeleteAccountResponse
+   */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a binding to unbind a queue or an exchange from a source exchange.
+   *
+   * @param request DeleteBindingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBindingResponse
+   */
   async deleteBindingWithOptions(request: DeleteBindingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBindingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2943,19 +3158,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBindingResponse>(await this.callApi(params, req, runtime), new DeleteBindingResponse({}));
   }
 
+  /**
+   * @summary Deletes a binding to unbind a queue or an exchange from a source exchange.
+   *
+   * @param request DeleteBindingRequest
+   * @return DeleteBindingResponse
+   */
   async deleteBinding(request: DeleteBindingRequest): Promise<DeleteBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBindingWithOptions(request, runtime);
   }
 
   /**
-    * ## [](#)Usage notes
-    * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
-    * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
-    *
-    * @param request DeleteExchangeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteExchangeResponse
+   * @summary Deletes an exchange.
+   *
+   * @description ## [](#)Usage notes
+   * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
+   * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+   *
+   * @param request DeleteExchangeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteExchangeResponse
    */
   async deleteExchangeWithOptions(request: DeleteExchangeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExchangeResponse> {
     Util.validateModel(request);
@@ -2990,18 +3213,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Usage notes
-    * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
-    * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
-    *
-    * @param request DeleteExchangeRequest
-    * @return DeleteExchangeResponse
+   * @summary Deletes an exchange.
+   *
+   * @description ## [](#)Usage notes
+   * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
+   * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+   *
+   * @param request DeleteExchangeRequest
+   * @return DeleteExchangeResponse
    */
   async deleteExchange(request: DeleteExchangeRequest): Promise<DeleteExchangeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteExchangeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a queue.
+   *
+   * @param request DeleteQueueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteQueueResponse
+   */
   async deleteQueueWithOptions(request: DeleteQueueRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQueueResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3034,17 +3266,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteQueueResponse>(await this.callApi(params, req, runtime), new DeleteQueueResponse({}));
   }
 
+  /**
+   * @summary Deletes a queue.
+   *
+   * @param request DeleteQueueRequest
+   * @return DeleteQueueResponse
+   */
   async deleteQueue(request: DeleteQueueRequest): Promise<DeleteQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteQueueWithOptions(request, runtime);
   }
 
   /**
-    * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
-    *
-    * @param request DeleteVirtualHostRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVirtualHostResponse
+   * @summary Deletes a virtual host (vhost).
+   *
+   * @description Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+   *
+   * @param request DeleteVirtualHostRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVirtualHostResponse
    */
   async deleteVirtualHostWithOptions(request: DeleteVirtualHostRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualHostResponse> {
     Util.validateModel(request);
@@ -3075,16 +3315,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
-    *
-    * @param request DeleteVirtualHostRequest
-    * @return DeleteVirtualHostResponse
+   * @summary Deletes a virtual host (vhost).
+   *
+   * @description Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+   *
+   * @param request DeleteVirtualHostRequest
+   * @return DeleteVirtualHostResponse
    */
   async deleteVirtualHost(request: DeleteVirtualHostRequest): Promise<DeleteVirtualHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVirtualHostWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+   *
+   * @param request GetMetadataAmountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetadataAmountResponse
+   */
   async getMetadataAmountWithOptions(request: GetMetadataAmountRequest, runtime: $Util.RuntimeOptions): Promise<GetMetadataAmountResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3105,11 +3354,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetadataAmountResponse>(await this.callApi(params, req, runtime), new GetMetadataAmountResponse({}));
   }
 
+  /**
+   * @summary Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+   *
+   * @param request GetMetadataAmountRequest
+   * @return GetMetadataAmountResponse
+   */
   async getMetadataAmount(request: GetMetadataAmountRequest): Promise<GetMetadataAmountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetadataAmountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the static username and password of an ApsaraMQ for RabbitMQ.
+   *
+   * @param request ListAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAccountsResponse
+   */
   async listAccountsWithOptions(request: ListAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3134,11 +3396,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAccountsResponse>(await this.callApi(params, req, runtime), new ListAccountsResponse({}));
   }
 
+  /**
+   * @summary Queries the static username and password of an ApsaraMQ for RabbitMQ.
+   *
+   * @param request ListAccountsRequest
+   * @return ListAccountsResponse
+   */
   async listAccounts(request: ListAccountsRequest): Promise<ListAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+   *
+   * @param request ListBindingsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBindingsResponse
+   */
   async listBindingsWithOptions(request: ListBindingsRequest, runtime: $Util.RuntimeOptions): Promise<ListBindingsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3159,11 +3434,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBindingsResponse>(await this.callApi(params, req, runtime), new ListBindingsResponse({}));
   }
 
+  /**
+   * @summary Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+   *
+   * @param request ListBindingsRequest
+   * @return ListBindingsResponse
+   */
   async listBindings(request: ListBindingsRequest): Promise<ListBindingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBindingsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all exchanges or queues to which an exchange is bound.
+   *
+   * @param request ListDownStreamBindingsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDownStreamBindingsResponse
+   */
   async listDownStreamBindingsWithOptions(request: ListDownStreamBindingsRequest, runtime: $Util.RuntimeOptions): Promise<ListDownStreamBindingsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3184,11 +3472,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDownStreamBindingsResponse>(await this.callApi(params, req, runtime), new ListDownStreamBindingsResponse({}));
   }
 
+  /**
+   * @summary Queries all exchanges or queues to which an exchange is bound.
+   *
+   * @param request ListDownStreamBindingsRequest
+   * @return ListDownStreamBindingsResponse
+   */
   async listDownStreamBindings(request: ListDownStreamBindingsRequest): Promise<ListDownStreamBindingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDownStreamBindingsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all queues or exchanges that are bound to an exchange.
+   *
+   * @param request ListExchangeUpStreamBindingsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExchangeUpStreamBindingsResponse
+   */
   async listExchangeUpStreamBindingsWithOptions(request: ListExchangeUpStreamBindingsRequest, runtime: $Util.RuntimeOptions): Promise<ListExchangeUpStreamBindingsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3209,11 +3510,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExchangeUpStreamBindingsResponse>(await this.callApi(params, req, runtime), new ListExchangeUpStreamBindingsResponse({}));
   }
 
+  /**
+   * @summary Queries all queues or exchanges that are bound to an exchange.
+   *
+   * @param request ListExchangeUpStreamBindingsRequest
+   * @return ListExchangeUpStreamBindingsResponse
+   */
   async listExchangeUpStreamBindings(request: ListExchangeUpStreamBindingsRequest): Promise<ListExchangeUpStreamBindingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExchangeUpStreamBindingsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all exchanges that are created in a virtual host (vhost).
+   *
+   * @param request ListExchangesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExchangesResponse
+   */
   async listExchangesWithOptions(request: ListExchangesRequest, runtime: $Util.RuntimeOptions): Promise<ListExchangesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3234,11 +3548,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExchangesResponse>(await this.callApi(params, req, runtime), new ListExchangesResponse({}));
   }
 
+  /**
+   * @summary Queries all exchanges that are created in a virtual host (vhost).
+   *
+   * @param request ListExchangesRequest
+   * @return ListExchangesResponse
+   */
   async listExchanges(request: ListExchangesRequest): Promise<ListExchangesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExchangesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+   *
+   * @param request ListInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
+   */
   async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3259,17 +3586,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+   *
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
+   */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
   }
 
   /**
-    * ApsaraMQ for RabbitMQ allows you to query only online consumers.
-    *
-    * @param request ListQueueConsumersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListQueueConsumersResponse
+   * @summary Queries the online consumers of a queue.
+   *
+   * @description ApsaraMQ for RabbitMQ allows you to query only online consumers.
+   *
+   * @param request ListQueueConsumersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQueueConsumersResponse
    */
   async listQueueConsumersWithOptions(request: ListQueueConsumersRequest, runtime: $Util.RuntimeOptions): Promise<ListQueueConsumersResponse> {
     Util.validateModel(request);
@@ -3292,16 +3627,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ApsaraMQ for RabbitMQ allows you to query only online consumers.
-    *
-    * @param request ListQueueConsumersRequest
-    * @return ListQueueConsumersResponse
+   * @summary Queries the online consumers of a queue.
+   *
+   * @description ApsaraMQ for RabbitMQ allows you to query only online consumers.
+   *
+   * @param request ListQueueConsumersRequest
+   * @return ListQueueConsumersResponse
    */
   async listQueueConsumers(request: ListQueueConsumersRequest): Promise<ListQueueConsumersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQueueConsumersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the exchanges that are bound to a queue.
+   *
+   * @param request ListQueueUpStreamBindingsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQueueUpStreamBindingsResponse
+   */
   async listQueueUpStreamBindingsWithOptions(request: ListQueueUpStreamBindingsRequest, runtime: $Util.RuntimeOptions): Promise<ListQueueUpStreamBindingsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3322,11 +3666,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQueueUpStreamBindingsResponse>(await this.callApi(params, req, runtime), new ListQueueUpStreamBindingsResponse({}));
   }
 
+  /**
+   * @summary Queries the exchanges that are bound to a queue.
+   *
+   * @param request ListQueueUpStreamBindingsRequest
+   * @return ListQueueUpStreamBindingsResponse
+   */
   async listQueueUpStreamBindings(request: ListQueueUpStreamBindingsRequest): Promise<ListQueueUpStreamBindingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQueueUpStreamBindingsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+   *
+   * @param request ListQueuesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQueuesResponse
+   */
   async listQueuesWithOptions(request: ListQueuesRequest, runtime: $Util.RuntimeOptions): Promise<ListQueuesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3347,11 +3704,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQueuesResponse>(await this.callApi(params, req, runtime), new ListQueuesResponse({}));
   }
 
+  /**
+   * @summary Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+   *
+   * @param request ListQueuesRequest
+   * @return ListQueuesResponse
+   */
   async listQueues(request: ListQueuesRequest): Promise<ListQueuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQueuesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+   *
+   * @param request ListVirtualHostsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVirtualHostsResponse
+   */
   async listVirtualHostsWithOptions(request: ListVirtualHostsRequest, runtime: $Util.RuntimeOptions): Promise<ListVirtualHostsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3372,11 +3742,114 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVirtualHostsResponse>(await this.callApi(params, req, runtime), new ListVirtualHostsResponse({}));
   }
 
+  /**
+   * @summary Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+   *
+   * @param request ListVirtualHostsRequest
+   * @return ListVirtualHostsResponse
+   */
   async listVirtualHosts(request: ListVirtualHostsRequest): Promise<ListVirtualHostsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVirtualHostsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 变更实例，升降配
+   *
+   * @param request UpdateInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceResponse
+   */
+  async updateInstanceWithOptions(request: UpdateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.maxConnections)) {
+      query["MaxConnections"] = request.maxConnections;
+    }
+
+    if (!Util.isUnset(request.maxEipTps)) {
+      query["MaxEipTps"] = request.maxEipTps;
+    }
+
+    if (!Util.isUnset(request.maxPrivateTps)) {
+      query["MaxPrivateTps"] = request.maxPrivateTps;
+    }
+
+    if (!Util.isUnset(request.modifyType)) {
+      query["ModifyType"] = request.modifyType;
+    }
+
+    if (!Util.isUnset(request.queueCapacity)) {
+      query["QueueCapacity"] = request.queueCapacity;
+    }
+
+    if (!Util.isUnset(request.serverlessChargeType)) {
+      query["ServerlessChargeType"] = request.serverlessChargeType;
+    }
+
+    if (!Util.isUnset(request.storageSize)) {
+      query["StorageSize"] = request.storageSize;
+    }
+
+    if (!Util.isUnset(request.supportEip)) {
+      query["SupportEip"] = request.supportEip;
+    }
+
+    if (!Util.isUnset(request.supportTracing)) {
+      query["SupportTracing"] = request.supportTracing;
+    }
+
+    if (!Util.isUnset(request.tracingStorageTime)) {
+      query["TracingStorageTime"] = request.tracingStorageTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateInstance",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
+  }
+
+  /**
+   * @summary 变更实例，升降配
+   *
+   * @param request UpdateInstanceRequest
+   * @return UpdateInstanceResponse
+   */
+  async updateInstance(request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+   *
+   * @param request UpdateInstanceNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceNameResponse
+   */
   async updateInstanceNameWithOptions(request: UpdateInstanceNameRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3405,6 +3878,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceNameResponse>(await this.callApi(params, req, runtime), new UpdateInstanceNameResponse({}));
   }
 
+  /**
+   * @summary Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+   *
+   * @param request UpdateInstanceNameRequest
+   * @return UpdateInstanceNameResponse
+   */
   async updateInstanceName(request: UpdateInstanceNameRequest): Promise<UpdateInstanceNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceNameWithOptions(request, runtime);
