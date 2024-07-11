@@ -7946,6 +7946,78 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdateClusterAuditLogConfigRequest extends $tea.Model {
+  disable?: boolean;
+  slsProjectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disable: 'disable',
+      slsProjectName: 'sls_project_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disable: 'boolean',
+      slsProjectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClusterAuditLogConfigResponseBody extends $tea.Model {
+  clusterId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClusterAuditLogConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateClusterAuditLogConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateClusterAuditLogConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateContactGroupForAlertResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
@@ -20481,6 +20553,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.untagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 更新集群审计日志配置
+   *
+   * @param request UpdateClusterAuditLogConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateClusterAuditLogConfigResponse
+   */
+  async updateClusterAuditLogConfigWithOptions(clusterid: string, request: UpdateClusterAuditLogConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateClusterAuditLogConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.disable)) {
+      body["disable"] = request.disable;
+    }
+
+    if (!Util.isUnset(request.slsProjectName)) {
+      body["sls_project_name"] = request.slsProjectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateClusterAuditLogConfig",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterid)}/audit_log`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateClusterAuditLogConfigResponse>(await this.callApi(params, req, runtime), new UpdateClusterAuditLogConfigResponse({}));
+  }
+
+  /**
+   * @summary 更新集群审计日志配置
+   *
+   * @param request UpdateClusterAuditLogConfigRequest
+   * @return UpdateClusterAuditLogConfigResponse
+   */
+  async updateClusterAuditLogConfig(clusterid: string, request: UpdateClusterAuditLogConfigRequest): Promise<UpdateClusterAuditLogConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateClusterAuditLogConfigWithOptions(clusterid, request, headers, runtime);
   }
 
   /**
