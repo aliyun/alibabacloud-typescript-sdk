@@ -3249,6 +3249,7 @@ export class DescribeInstanceResponseBody extends $tea.Model {
   status?: string;
   tags?: DescribeInstanceResponseBodyTags;
   taskProgress?: string;
+  taskStatus?: string;
   vpcId?: string;
   vswitchId?: string;
   zoneId?: string;
@@ -3304,6 +3305,7 @@ export class DescribeInstanceResponseBody extends $tea.Model {
       status: 'Status',
       tags: 'Tags',
       taskProgress: 'TaskProgress',
+      taskStatus: 'TaskStatus',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
       zoneId: 'ZoneId',
@@ -3362,6 +3364,7 @@ export class DescribeInstanceResponseBody extends $tea.Model {
       status: 'string',
       tags: DescribeInstanceResponseBodyTags,
       taskProgress: 'string',
+      taskStatus: 'string',
       vpcId: 'string',
       vswitchId: 'string',
       zoneId: 'string',
@@ -3834,6 +3837,8 @@ export class DescribeMultiZoneClusterResponseBody extends $tea.Model {
   standbyZoneId?: string;
   status?: string;
   tags?: DescribeMultiZoneClusterResponseBodyTags;
+  taskProgress?: string;
+  taskStatus?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3887,6 +3892,8 @@ export class DescribeMultiZoneClusterResponseBody extends $tea.Model {
       standbyZoneId: 'StandbyZoneId',
       status: 'Status',
       tags: 'Tags',
+      taskProgress: 'TaskProgress',
+      taskStatus: 'TaskStatus',
       vpcId: 'VpcId',
     };
   }
@@ -3943,6 +3950,8 @@ export class DescribeMultiZoneClusterResponseBody extends $tea.Model {
       standbyZoneId: 'string',
       status: 'string',
       tags: DescribeMultiZoneClusterResponseBodyTags,
+      taskProgress: 'string',
+      taskStatus: 'string',
       vpcId: 'string',
     };
   }
@@ -11529,6 +11538,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AddUserHdfsInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserHdfsInfoResponse
+   */
   async addUserHdfsInfoWithOptions(request: AddUserHdfsInfoRequest, runtime: $Util.RuntimeOptions): Promise<AddUserHdfsInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11561,11 +11575,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserHdfsInfoResponse>(await this.callApi(params, req, runtime), new AddUserHdfsInfoResponse({}));
   }
 
+  /**
+   * @param request AddUserHdfsInfoRequest
+   * @return AddUserHdfsInfoResponse
+   */
   async addUserHdfsInfo(request: AddUserHdfsInfoRequest): Promise<AddUserHdfsInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserHdfsInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request AllocatePublicNetworkAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocatePublicNetworkAddressResponse
+   */
   async allocatePublicNetworkAddressWithOptions(request: AllocatePublicNetworkAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocatePublicNetworkAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11594,11 +11617,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocatePublicNetworkAddressResponse>(await this.callApi(params, req, runtime), new AllocatePublicNetworkAddressResponse({}));
   }
 
+  /**
+   * @param request AllocatePublicNetworkAddressRequest
+   * @return AllocatePublicNetworkAddressResponse
+   */
   async allocatePublicNetworkAddress(request: AllocatePublicNetworkAddressRequest): Promise<AllocatePublicNetworkAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocatePublicNetworkAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CancelActiveOperationTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelActiveOperationTasksResponse
+   */
   async cancelActiveOperationTasksWithOptions(request: CancelActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<CancelActiveOperationTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11643,11 +11675,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new CancelActiveOperationTasksResponse({}));
   }
 
+  /**
+   * @param request CancelActiveOperationTasksRequest
+   * @return CancelActiveOperationTasksResponse
+   */
   async cancelActiveOperationTasks(request: CancelActiveOperationTasksRequest): Promise<CancelActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelActiveOperationTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CheckComponentsVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckComponentsVersionResponse
+   */
   async checkComponentsVersionWithOptions(request: CheckComponentsVersionRequest, runtime: $Util.RuntimeOptions): Promise<CheckComponentsVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11676,11 +11717,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckComponentsVersionResponse>(await this.callApi(params, req, runtime), new CheckComponentsVersionResponse({}));
   }
 
+  /**
+   * @param request CheckComponentsVersionRequest
+   * @return CheckComponentsVersionResponse
+   */
   async checkComponentsVersion(request: CheckComponentsVersionRequest): Promise<CheckComponentsVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkComponentsVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CloseBackupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloseBackupResponse
+   */
   async closeBackupWithOptions(request: CloseBackupRequest, runtime: $Util.RuntimeOptions): Promise<CloseBackupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11705,11 +11755,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseBackupResponse>(await this.callApi(params, req, runtime), new CloseBackupResponse({}));
   }
 
+  /**
+   * @param request CloseBackupRequest
+   * @return CloseBackupResponse
+   */
   async closeBackup(request: CloseBackupRequest): Promise<CloseBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.closeBackupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ConvertInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConvertInstanceResponse
+   */
   async convertInstanceWithOptions(request: ConvertInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ConvertInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11746,11 +11805,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ConvertInstanceResponse>(await this.callApi(params, req, runtime), new ConvertInstanceResponse({}));
   }
 
+  /**
+   * @param request ConvertInstanceRequest
+   * @return ConvertInstanceResponse
+   */
   async convertInstance(request: ConvertInstanceRequest): Promise<ConvertInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.convertInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新建账户
+   *
+   * @param request CreateAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccountResponse
+   */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11783,11 +11853,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
   }
 
+  /**
+   * @summary 新建账户
+   *
+   * @param request CreateAccountRequest
+   * @return CreateAccountResponse
+   */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateBackupPlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBackupPlanResponse
+   */
   async createBackupPlanWithOptions(request: CreateBackupPlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11812,11 +11893,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBackupPlanResponse>(await this.callApi(params, req, runtime), new CreateBackupPlanResponse({}));
   }
 
+  /**
+   * @param request CreateBackupPlanRequest
+   * @return CreateBackupPlanResponse
+   */
   async createBackupPlan(request: CreateBackupPlanRequest): Promise<CreateBackupPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackupPlanWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateClusterResponse
+   */
   async createClusterWithOptions(request: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11921,11 +12011,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
   }
 
+  /**
+   * @param request CreateClusterRequest
+   * @return CreateClusterResponse
+   */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateGlobalResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGlobalResourceResponse
+   */
   async createGlobalResourceWithOptions(request: CreateGlobalResourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11966,11 +12065,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGlobalResourceResponse>(await this.callApi(params, req, runtime), new CreateGlobalResourceResponse({}));
   }
 
+  /**
+   * @param request CreateGlobalResourceRequest
+   * @return CreateGlobalResourceResponse
+   */
   async createGlobalResource(request: CreateGlobalResourceRequest): Promise<CreateGlobalResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGlobalResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateHBaseSlbServerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHBaseSlbServerResponse
+   */
   async createHBaseSlbServerWithOptions(request: CreateHBaseSlbServerRequest, runtime: $Util.RuntimeOptions): Promise<CreateHBaseSlbServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12003,11 +12111,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHBaseSlbServerResponse>(await this.callApi(params, req, runtime), new CreateHBaseSlbServerResponse({}));
   }
 
+  /**
+   * @param request CreateHBaseSlbServerRequest
+   * @return CreateHBaseSlbServerResponse
+   */
   async createHBaseSlbServer(request: CreateHBaseSlbServerRequest): Promise<CreateHBaseSlbServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHBaseSlbServerWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateHbaseHaSlbRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHbaseHaSlbResponse
+   */
   async createHbaseHaSlbWithOptions(request: CreateHbaseHaSlbRequest, runtime: $Util.RuntimeOptions): Promise<CreateHbaseHaSlbResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12048,11 +12165,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHbaseHaSlbResponse>(await this.callApi(params, req, runtime), new CreateHbaseHaSlbResponse({}));
   }
 
+  /**
+   * @param request CreateHbaseHaSlbRequest
+   * @return CreateHbaseHaSlbResponse
+   */
   async createHbaseHaSlb(request: CreateHbaseHaSlbRequest): Promise<CreateHbaseHaSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHbaseHaSlbWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMultiZoneClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMultiZoneClusterResponse
+   */
   async createMultiZoneClusterWithOptions(request: CreateMultiZoneClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateMultiZoneClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12189,11 +12315,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMultiZoneClusterResponse>(await this.callApi(params, req, runtime), new CreateMultiZoneClusterResponse({}));
   }
 
+  /**
+   * @param request CreateMultiZoneClusterRequest
+   * @return CreateMultiZoneClusterResponse
+   */
   async createMultiZoneCluster(request: CreateMultiZoneClusterRequest): Promise<CreateMultiZoneClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMultiZoneClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateRestorePlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRestorePlanResponse
+   */
   async createRestorePlanWithOptions(request: CreateRestorePlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateRestorePlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12238,11 +12373,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRestorePlanResponse>(await this.callApi(params, req, runtime), new CreateRestorePlanResponse({}));
   }
 
+  /**
+   * @param request CreateRestorePlanRequest
+   * @return CreateRestorePlanResponse
+   */
   async createRestorePlan(request: CreateRestorePlanRequest): Promise<CreateRestorePlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRestorePlanWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateServerlessClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServerlessClusterResponse
+   */
   async createServerlessClusterWithOptions(request: CreateServerlessClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateServerlessClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12335,11 +12479,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServerlessClusterResponse>(await this.callApi(params, req, runtime), new CreateServerlessClusterResponse({}));
   }
 
+  /**
+   * @param request CreateServerlessClusterRequest
+   * @return CreateServerlessClusterResponse
+   */
   async createServerlessCluster(request: CreateServerlessClusterRequest): Promise<CreateServerlessClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServerlessClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除账户
+   *
+   * @param request DeleteAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccountResponse
+   */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12368,11 +12523,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
   }
 
+  /**
+   * @summary 删除账户
+   *
+   * @param request DeleteAccountRequest
+   * @return DeleteAccountResponse
+   */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteGlobalResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGlobalResourceResponse
+   */
   async deleteGlobalResourceWithOptions(request: DeleteGlobalResourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12409,11 +12575,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGlobalResourceResponse>(await this.callApi(params, req, runtime), new DeleteGlobalResourceResponse({}));
   }
 
+  /**
+   * @param request DeleteGlobalResourceRequest
+   * @return DeleteGlobalResourceResponse
+   */
   async deleteGlobalResource(request: DeleteGlobalResourceRequest): Promise<DeleteGlobalResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGlobalResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteHBaseHaDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteHBaseHaDBResponse
+   */
   async deleteHBaseHaDBWithOptions(request: DeleteHBaseHaDBRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHBaseHaDBResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12442,11 +12617,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHBaseHaDBResponse>(await this.callApi(params, req, runtime), new DeleteHBaseHaDBResponse({}));
   }
 
+  /**
+   * @param request DeleteHBaseHaDBRequest
+   * @return DeleteHBaseHaDBResponse
+   */
   async deleteHBaseHaDB(request: DeleteHBaseHaDBRequest): Promise<DeleteHBaseHaDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHBaseHaDBWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteHBaseSlbServerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteHBaseSlbServerResponse
+   */
   async deleteHBaseSlbServerWithOptions(request: DeleteHBaseSlbServerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHBaseSlbServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12475,11 +12659,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHBaseSlbServerResponse>(await this.callApi(params, req, runtime), new DeleteHBaseSlbServerResponse({}));
   }
 
+  /**
+   * @param request DeleteHBaseSlbServerRequest
+   * @return DeleteHBaseSlbServerResponse
+   */
   async deleteHBaseSlbServer(request: DeleteHBaseSlbServerRequest): Promise<DeleteHBaseSlbServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHBaseSlbServerWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteHbaseHaSlbRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteHbaseHaSlbResponse
+   */
   async deleteHbaseHaSlbWithOptions(request: DeleteHbaseHaSlbRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHbaseHaSlbResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12512,11 +12705,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHbaseHaSlbResponse>(await this.callApi(params, req, runtime), new DeleteHbaseHaSlbResponse({}));
   }
 
+  /**
+   * @param request DeleteHbaseHaSlbRequest
+   * @return DeleteHbaseHaSlbResponse
+   */
   async deleteHbaseHaSlb(request: DeleteHbaseHaSlbRequest): Promise<DeleteHbaseHaSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHbaseHaSlbWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
+   */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12545,11 +12747,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
+  /**
+   * @param request DeleteInstanceRequest
+   * @return DeleteInstanceResponse
+   */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMultiZoneClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMultiZoneClusterResponse
+   */
   async deleteMultiZoneClusterWithOptions(request: DeleteMultiZoneClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMultiZoneClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12578,11 +12789,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMultiZoneClusterResponse>(await this.callApi(params, req, runtime), new DeleteMultiZoneClusterResponse({}));
   }
 
+  /**
+   * @param request DeleteMultiZoneClusterRequest
+   * @return DeleteMultiZoneClusterResponse
+   */
   async deleteMultiZoneCluster(request: DeleteMultiZoneClusterRequest): Promise<DeleteMultiZoneClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMultiZoneClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteServerlessClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServerlessClusterResponse
+   */
   async deleteServerlessClusterWithOptions(request: DeleteServerlessClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServerlessClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12615,11 +12835,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServerlessClusterResponse>(await this.callApi(params, req, runtime), new DeleteServerlessClusterResponse({}));
   }
 
+  /**
+   * @param request DeleteServerlessClusterRequest
+   * @return DeleteServerlessClusterResponse
+   */
   async deleteServerlessCluster(request: DeleteServerlessClusterRequest): Promise<DeleteServerlessClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServerlessClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteUserHdfsInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserHdfsInfoResponse
+   */
   async deleteUserHdfsInfoWithOptions(request: DeleteUserHdfsInfoRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserHdfsInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12648,11 +12877,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserHdfsInfoResponse>(await this.callApi(params, req, runtime), new DeleteUserHdfsInfoResponse({}));
   }
 
+  /**
+   * @param request DeleteUserHdfsInfoRequest
+   * @return DeleteUserHdfsInfoResponse
+   */
   async deleteUserHdfsInfo(request: DeleteUserHdfsInfoRequest): Promise<DeleteUserHdfsInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserHdfsInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询账户列表
+   *
+   * @param request DescribeAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccountsResponse
+   */
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12677,11 +12917,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountsResponse>(await this.callApi(params, req, runtime), new DescribeAccountsResponse({}));
   }
 
+  /**
+   * @summary 查询账户列表
+   *
+   * @param request DescribeAccountsRequest
+   * @return DescribeAccountsResponse
+   */
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeActiveOperationTaskTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeActiveOperationTaskTypeResponse
+   */
   async describeActiveOperationTaskTypeWithOptions(request: DescribeActiveOperationTaskTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTaskTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12726,11 +12977,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeActiveOperationTaskTypeResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTaskTypeResponse({}));
   }
 
+  /**
+   * @param request DescribeActiveOperationTaskTypeRequest
+   * @return DescribeActiveOperationTaskTypeResponse
+   */
   async describeActiveOperationTaskType(request: DescribeActiveOperationTaskTypeRequest): Promise<DescribeActiveOperationTaskTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeActiveOperationTaskTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeActiveOperationTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeActiveOperationTasksResponse
+   */
   async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12815,11 +13075,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
   }
 
+  /**
+   * @param request DescribeActiveOperationTasksRequest
+   * @return DescribeActiveOperationTasksResponse
+   */
   async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeActiveOperationTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAvailableResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12868,11 +13137,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourceResponse({}));
   }
 
+  /**
+   * @param request DescribeAvailableResourceRequest
+   * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeBackupPlanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupPlanConfigResponse
+   */
   async describeBackupPlanConfigWithOptions(request: DescribeBackupPlanConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPlanConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12897,11 +13175,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupPlanConfigResponse>(await this.callApi(params, req, runtime), new DescribeBackupPlanConfigResponse({}));
   }
 
+  /**
+   * @param request DescribeBackupPlanConfigRequest
+   * @return DescribeBackupPlanConfigResponse
+   */
   async describeBackupPlanConfig(request: DescribeBackupPlanConfigRequest): Promise<DescribeBackupPlanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPlanConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12926,11 +13213,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
   }
 
+  /**
+   * @param request DescribeBackupPolicyRequest
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeBackupStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupStatusResponse
+   */
   async describeBackupStatusWithOptions(request: DescribeBackupStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12955,11 +13251,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupStatusResponse>(await this.callApi(params, req, runtime), new DescribeBackupStatusResponse({}));
   }
 
+  /**
+   * @param request DescribeBackupStatusRequest
+   * @return DescribeBackupStatusResponse
+   */
   async describeBackupStatus(request: DescribeBackupStatusRequest): Promise<DescribeBackupStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeBackupSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupSummaryResponse
+   */
   async describeBackupSummaryWithOptions(request: DescribeBackupSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12992,11 +13297,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupSummaryResponse>(await this.callApi(params, req, runtime), new DescribeBackupSummaryResponse({}));
   }
 
+  /**
+   * @param request DescribeBackupSummaryRequest
+   * @return DescribeBackupSummaryResponse
+   */
   async describeBackupSummary(request: DescribeBackupSummaryRequest): Promise<DescribeBackupSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeBackupTablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupTablesResponse
+   */
   async describeBackupTablesWithOptions(request: DescribeBackupTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupTablesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13033,11 +13347,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupTablesResponse>(await this.callApi(params, req, runtime), new DescribeBackupTablesResponse({}));
   }
 
+  /**
+   * @param request DescribeBackupTablesRequest
+   * @return DescribeBackupTablesResponse
+   */
   async describeBackupTables(request: DescribeBackupTablesRequest): Promise<DescribeBackupTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupTablesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeBackupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupsResponse
+   */
   async describeBackupsWithOptions(request: DescribeBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13090,11 +13413,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupsResponse>(await this.callApi(params, req, runtime), new DescribeBackupsResponse({}));
   }
 
+  /**
+   * @param request DescribeBackupsRequest
+   * @return DescribeBackupsResponse
+   */
   async describeBackups(request: DescribeBackupsRequest): Promise<DescribeBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeClusterConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterConnectionResponse
+   */
   async describeClusterConnectionWithOptions(request: DescribeClusterConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13123,11 +13455,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterConnectionResponse>(await this.callApi(params, req, runtime), new DescribeClusterConnectionResponse({}));
   }
 
+  /**
+   * @param request DescribeClusterConnectionRequest
+   * @return DescribeClusterConnectionResponse
+   */
   async describeClusterConnection(request: DescribeClusterConnectionRequest): Promise<DescribeClusterConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeColdStorageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeColdStorageResponse
+   */
   async describeColdStorageWithOptions(request: DescribeColdStorageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeColdStorageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13152,11 +13493,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeColdStorageResponse>(await this.callApi(params, req, runtime), new DescribeColdStorageResponse({}));
   }
 
+  /**
+   * @param request DescribeColdStorageRequest
+   * @return DescribeColdStorageResponse
+   */
   async describeColdStorage(request: DescribeColdStorageRequest): Promise<DescribeColdStorageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeColdStorageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBInstanceUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceUsageResponse
+   */
   async describeDBInstanceUsageWithOptions(request: DescribeDBInstanceUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceUsageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13181,11 +13531,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceUsageResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceUsageResponse({}));
   }
 
+  /**
+   * @param request DescribeDBInstanceUsageRequest
+   * @return DescribeDBInstanceUsageResponse
+   */
   async describeDBInstanceUsage(request: DescribeDBInstanceUsageRequest): Promise<DescribeDBInstanceUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceUsageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDeletedInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDeletedInstancesResponse
+   */
   async describeDeletedInstancesWithOptions(request: DescribeDeletedInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeletedInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13218,11 +13577,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDeletedInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDeletedInstancesResponse({}));
   }
 
+  /**
+   * @param request DescribeDeletedInstancesRequest
+   * @return DescribeDeletedInstancesResponse
+   */
   async describeDeletedInstances(request: DescribeDeletedInstancesRequest): Promise<DescribeDeletedInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDeletedInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDiskWarningLineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDiskWarningLineResponse
+   */
   async describeDiskWarningLineWithOptions(request: DescribeDiskWarningLineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskWarningLineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13247,11 +13615,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiskWarningLineResponse>(await this.callApi(params, req, runtime), new DescribeDiskWarningLineResponse({}));
   }
 
+  /**
+   * @param request DescribeDiskWarningLineRequest
+   * @return DescribeDiskWarningLineResponse
+   */
   async describeDiskWarningLine(request: DescribeDiskWarningLineRequest): Promise<DescribeDiskWarningLineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiskWarningLineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEndpointsResponse
+   */
   async describeEndpointsWithOptions(request: DescribeEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13276,11 +13653,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEndpointsResponse>(await this.callApi(params, req, runtime), new DescribeEndpointsResponse({}));
   }
 
+  /**
+   * @param request DescribeEndpointsRequest
+   * @return DescribeEndpointsResponse
+   */
   async describeEndpoints(request: DescribeEndpointsRequest): Promise<DescribeEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEndpointsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceResponse
+   */
   async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13305,11 +13691,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
   }
 
+  /**
+   * @param request DescribeInstanceRequest
+   * @return DescribeInstanceResponse
+   */
   async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeInstanceTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceTypeResponse
+   */
   async describeInstanceTypeWithOptions(request: DescribeInstanceTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13334,11 +13729,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceTypeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTypeResponse({}));
   }
 
+  /**
+   * @param request DescribeInstanceTypeRequest
+   * @return DescribeInstanceTypeResponse
+   */
   async describeInstanceType(request: DescribeInstanceTypeRequest): Promise<DescribeInstanceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstancesResponse
+   */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13391,11 +13795,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
   }
 
+  /**
+   * @param request DescribeInstancesRequest
+   * @return DescribeInstancesResponse
+   */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeIpWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIpWhitelistResponse
+   */
   async describeIpWhitelistWithOptions(request: DescribeIpWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13420,11 +13833,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIpWhitelistResponse>(await this.callApi(params, req, runtime), new DescribeIpWhitelistResponse({}));
   }
 
+  /**
+   * @param request DescribeIpWhitelistRequest
+   * @return DescribeIpWhitelistResponse
+   */
   async describeIpWhitelist(request: DescribeIpWhitelistRequest): Promise<DescribeIpWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeMultiZoneAvailableRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMultiZoneAvailableRegionsResponse
+   */
   async describeMultiZoneAvailableRegionsWithOptions(request: DescribeMultiZoneAvailableRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMultiZoneAvailableRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13449,11 +13871,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMultiZoneAvailableRegionsResponse>(await this.callApi(params, req, runtime), new DescribeMultiZoneAvailableRegionsResponse({}));
   }
 
+  /**
+   * @param request DescribeMultiZoneAvailableRegionsRequest
+   * @return DescribeMultiZoneAvailableRegionsResponse
+   */
   async describeMultiZoneAvailableRegions(request: DescribeMultiZoneAvailableRegionsRequest): Promise<DescribeMultiZoneAvailableRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMultiZoneAvailableRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeMultiZoneAvailableResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMultiZoneAvailableResourceResponse
+   */
   async describeMultiZoneAvailableResourceWithOptions(request: DescribeMultiZoneAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMultiZoneAvailableResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13486,11 +13917,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMultiZoneAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeMultiZoneAvailableResourceResponse({}));
   }
 
+  /**
+   * @param request DescribeMultiZoneAvailableResourceRequest
+   * @return DescribeMultiZoneAvailableResourceResponse
+   */
   async describeMultiZoneAvailableResource(request: DescribeMultiZoneAvailableResourceRequest): Promise<DescribeMultiZoneAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMultiZoneAvailableResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeMultiZoneClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMultiZoneClusterResponse
+   */
   async describeMultiZoneClusterWithOptions(request: DescribeMultiZoneClusterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMultiZoneClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13515,11 +13955,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMultiZoneClusterResponse>(await this.callApi(params, req, runtime), new DescribeMultiZoneClusterResponse({}));
   }
 
+  /**
+   * @param request DescribeMultiZoneClusterRequest
+   * @return DescribeMultiZoneClusterResponse
+   */
   async describeMultiZoneCluster(request: DescribeMultiZoneClusterRequest): Promise<DescribeMultiZoneClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMultiZoneClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRecoverableTimeRangeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRecoverableTimeRangeResponse
+   */
   async describeRecoverableTimeRangeWithOptions(request: DescribeRecoverableTimeRangeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecoverableTimeRangeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13544,11 +13993,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRecoverableTimeRangeResponse>(await this.callApi(params, req, runtime), new DescribeRecoverableTimeRangeResponse({}));
   }
 
+  /**
+   * @param request DescribeRecoverableTimeRangeRequest
+   * @return DescribeRecoverableTimeRangeResponse
+   */
   async describeRecoverableTimeRange(request: DescribeRecoverableTimeRangeRequest): Promise<DescribeRecoverableTimeRangeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecoverableTimeRangeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13577,11 +14035,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRestoreFullDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRestoreFullDetailsResponse
+   */
   async describeRestoreFullDetailsWithOptions(request: DescribeRestoreFullDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreFullDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13618,11 +14085,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRestoreFullDetailsResponse>(await this.callApi(params, req, runtime), new DescribeRestoreFullDetailsResponse({}));
   }
 
+  /**
+   * @param request DescribeRestoreFullDetailsRequest
+   * @return DescribeRestoreFullDetailsResponse
+   */
   async describeRestoreFullDetails(request: DescribeRestoreFullDetailsRequest): Promise<DescribeRestoreFullDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRestoreFullDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRestoreIncrDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRestoreIncrDetailResponse
+   */
   async describeRestoreIncrDetailWithOptions(request: DescribeRestoreIncrDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreIncrDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13651,11 +14127,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRestoreIncrDetailResponse>(await this.callApi(params, req, runtime), new DescribeRestoreIncrDetailResponse({}));
   }
 
+  /**
+   * @param request DescribeRestoreIncrDetailRequest
+   * @return DescribeRestoreIncrDetailResponse
+   */
   async describeRestoreIncrDetail(request: DescribeRestoreIncrDetailRequest): Promise<DescribeRestoreIncrDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRestoreIncrDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRestoreSchemaDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRestoreSchemaDetailsResponse
+   */
   async describeRestoreSchemaDetailsWithOptions(request: DescribeRestoreSchemaDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreSchemaDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13692,11 +14177,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRestoreSchemaDetailsResponse>(await this.callApi(params, req, runtime), new DescribeRestoreSchemaDetailsResponse({}));
   }
 
+  /**
+   * @param request DescribeRestoreSchemaDetailsRequest
+   * @return DescribeRestoreSchemaDetailsResponse
+   */
   async describeRestoreSchemaDetails(request: DescribeRestoreSchemaDetailsRequest): Promise<DescribeRestoreSchemaDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRestoreSchemaDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRestoreSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRestoreSummaryResponse
+   */
   async describeRestoreSummaryWithOptions(request: DescribeRestoreSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13729,11 +14223,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRestoreSummaryResponse>(await this.callApi(params, req, runtime), new DescribeRestoreSummaryResponse({}));
   }
 
+  /**
+   * @param request DescribeRestoreSummaryRequest
+   * @return DescribeRestoreSummaryResponse
+   */
   async describeRestoreSummary(request: DescribeRestoreSummaryRequest): Promise<DescribeRestoreSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRestoreSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRestoreTablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRestoreTablesResponse
+   */
   async describeRestoreTablesWithOptions(request: DescribeRestoreTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreTablesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13762,11 +14265,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRestoreTablesResponse>(await this.callApi(params, req, runtime), new DescribeRestoreTablesResponse({}));
   }
 
+  /**
+   * @param request DescribeRestoreTablesRequest
+   * @return DescribeRestoreTablesResponse
+   */
   async describeRestoreTables(request: DescribeRestoreTablesRequest): Promise<DescribeRestoreTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRestoreTablesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeSecurityGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityGroupsResponse
+   */
   async describeSecurityGroupsWithOptions(request: DescribeSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13791,11 +14303,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityGroupsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityGroupsResponse({}));
   }
 
+  /**
+   * @param request DescribeSecurityGroupsRequest
+   * @return DescribeSecurityGroupsResponse
+   */
   async describeSecurityGroups(request: DescribeSecurityGroupsRequest): Promise<DescribeSecurityGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeServerlessClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServerlessClusterResponse
+   */
   async describeServerlessClusterWithOptions(request: DescribeServerlessClusterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServerlessClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13824,11 +14345,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServerlessClusterResponse>(await this.callApi(params, req, runtime), new DescribeServerlessClusterResponse({}));
   }
 
+  /**
+   * @param request DescribeServerlessClusterRequest
+   * @return DescribeServerlessClusterResponse
+   */
   async describeServerlessCluster(request: DescribeServerlessClusterRequest): Promise<DescribeServerlessClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeServerlessClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeSubDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSubDomainResponse
+   */
   async describeSubDomainWithOptions(request: DescribeSubDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSubDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13857,11 +14387,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSubDomainResponse>(await this.callApi(params, req, runtime), new DescribeSubDomainResponse({}));
   }
 
+  /**
+   * @param request DescribeSubDomainRequest
+   * @return DescribeSubDomainResponse
+   */
   async describeSubDomain(request: DescribeSubDomainRequest): Promise<DescribeSubDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSubDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request EnableHBaseueBackupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableHBaseueBackupResponse
+   */
   async enableHBaseueBackupWithOptions(request: EnableHBaseueBackupRequest, runtime: $Util.RuntimeOptions): Promise<EnableHBaseueBackupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13898,11 +14437,20 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableHBaseueBackupResponse>(await this.callApi(params, req, runtime), new EnableHBaseueBackupResponse({}));
   }
 
+  /**
+   * @param request EnableHBaseueBackupRequest
+   * @return EnableHBaseueBackupResponse
+   */
   async enableHBaseueBackup(request: EnableHBaseueBackupRequest): Promise<EnableHBaseueBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableHBaseueBackupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request EnableHBaseueModuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableHBaseueModuleResponse
+   */
   async enableHBaseueModuleWithOptions(request: EnableHBaseueModuleRequest, runtime: $Util.RuntimeOptions): Promise<EnableHBaseueModuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13995,11 +14543,20 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableHBaseueModuleResponse>(await this.callApi(params, req, runtime), new EnableHBaseueModuleResponse({}));
   }
 
+  /**
+   * @param request EnableHBaseueModuleRequest
+   * @return EnableHBaseueModuleResponse
+   */
   async enableHBaseueModule(request: EnableHBaseueModuleRequest): Promise<EnableHBaseueModuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableHBaseueModuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request EvaluateMultiZoneResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EvaluateMultiZoneResourceResponse
+   */
   async evaluateMultiZoneResourceWithOptions(request: EvaluateMultiZoneResourceRequest, runtime: $Util.RuntimeOptions): Promise<EvaluateMultiZoneResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14132,11 +14689,20 @@ export default class Client extends OpenApi {
     return $tea.cast<EvaluateMultiZoneResourceResponse>(await this.callApi(params, req, runtime), new EvaluateMultiZoneResourceResponse({}));
   }
 
+  /**
+   * @param request EvaluateMultiZoneResourceRequest
+   * @return EvaluateMultiZoneResourceResponse
+   */
   async evaluateMultiZoneResource(request: EvaluateMultiZoneResourceRequest): Promise<EvaluateMultiZoneResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.evaluateMultiZoneResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetMultimodeCmsUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMultimodeCmsUrlResponse
+   */
   async getMultimodeCmsUrlWithOptions(request: GetMultimodeCmsUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetMultimodeCmsUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14165,11 +14731,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMultimodeCmsUrlResponse>(await this.callApi(params, req, runtime), new GetMultimodeCmsUrlResponse({}));
   }
 
+  /**
+   * @param request GetMultimodeCmsUrlRequest
+   * @return GetMultimodeCmsUrlResponse
+   */
   async getMultimodeCmsUrl(request: GetMultimodeCmsUrlRequest): Promise<GetMultimodeCmsUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMultimodeCmsUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 授权账户权限
+   *
+   * @param request GrantRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantResponse
+   */
   async grantWithOptions(request: GrantRequest, runtime: $Util.RuntimeOptions): Promise<GrantResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14210,11 +14787,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantResponse>(await this.callApi(params, req, runtime), new GrantResponse({}));
   }
 
+  /**
+   * @summary 授权账户权限
+   *
+   * @param request GrantRequest
+   * @return GrantResponse
+   */
   async grant(request: GrantRequest): Promise<GrantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListHBaseInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHBaseInstancesResponse
+   */
   async listHBaseInstancesWithOptions(request: ListHBaseInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListHBaseInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14239,11 +14827,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHBaseInstancesResponse>(await this.callApi(params, req, runtime), new ListHBaseInstancesResponse({}));
   }
 
+  /**
+   * @param request ListHBaseInstancesRequest
+   * @return ListHBaseInstancesResponse
+   */
   async listHBaseInstances(request: ListHBaseInstancesRequest): Promise<ListHBaseInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHBaseInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListInstanceServiceConfigHistoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceServiceConfigHistoriesResponse
+   */
   async listInstanceServiceConfigHistoriesWithOptions(request: ListInstanceServiceConfigHistoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceServiceConfigHistoriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14276,11 +14873,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceServiceConfigHistoriesResponse>(await this.callApi(params, req, runtime), new ListInstanceServiceConfigHistoriesResponse({}));
   }
 
+  /**
+   * @param request ListInstanceServiceConfigHistoriesRequest
+   * @return ListInstanceServiceConfigHistoriesResponse
+   */
   async listInstanceServiceConfigHistories(request: ListInstanceServiceConfigHistoriesRequest): Promise<ListInstanceServiceConfigHistoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceServiceConfigHistoriesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListInstanceServiceConfigurationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceServiceConfigurationsResponse
+   */
   async listInstanceServiceConfigurationsWithOptions(request: ListInstanceServiceConfigurationsRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceServiceConfigurationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14313,11 +14919,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceServiceConfigurationsResponse>(await this.callApi(params, req, runtime), new ListInstanceServiceConfigurationsResponse({}));
   }
 
+  /**
+   * @param request ListInstanceServiceConfigurationsRequest
+   * @return ListInstanceServiceConfigurationsResponse
+   */
   async listInstanceServiceConfigurations(request: ListInstanceServiceConfigurationsRequest): Promise<ListInstanceServiceConfigurationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceServiceConfigurationsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14354,11 +14969,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagsResponse
+   */
   async listTagsWithOptions(request: ListTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14383,11 +15007,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
   }
 
+  /**
+   * @param request ListTagsRequest
+   * @return ListTagsResponse
+   */
   async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更改账户密码
+   *
+   * @param request ModifyAccountPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccountPasswordResponse
+   */
   async modifyAccountPasswordWithOptions(request: ModifyAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14420,11 +15055,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccountPasswordResponse>(await this.callApi(params, req, runtime), new ModifyAccountPasswordResponse({}));
   }
 
+  /**
+   * @summary 更改账户密码
+   *
+   * @param request ModifyAccountPasswordRequest
+   * @return ModifyAccountPasswordResponse
+   */
   async modifyAccountPassword(request: ModifyAccountPasswordRequest): Promise<ModifyAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyActiveOperationTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyActiveOperationTasksResponse
+   */
   async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14477,11 +15123,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
   }
 
+  /**
+   * @param request ModifyActiveOperationTasksRequest
+   * @return ModifyActiveOperationTasksResponse
+   */
   async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyActiveOperationTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyBackupPlanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBackupPlanConfigResponse
+   */
   async modifyBackupPlanConfigWithOptions(request: ModifyBackupPlanConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPlanConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14522,11 +15177,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackupPlanConfigResponse>(await this.callApi(params, req, runtime), new ModifyBackupPlanConfigResponse({}));
   }
 
+  /**
+   * @param request ModifyBackupPlanConfigRequest
+   * @return ModifyBackupPlanConfigResponse
+   */
   async modifyBackupPlanConfig(request: ModifyBackupPlanConfigRequest): Promise<ModifyBackupPlanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPlanConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14567,11 +15231,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
   }
 
+  /**
+   * @param request ModifyBackupPolicyRequest
+   * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyClusterDeletionProtectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClusterDeletionProtectionResponse
+   */
   async modifyClusterDeletionProtectionWithOptions(request: ModifyClusterDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClusterDeletionProtectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14600,11 +15273,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterDeletionProtectionResponse>(await this.callApi(params, req, runtime), new ModifyClusterDeletionProtectionResponse({}));
   }
 
+  /**
+   * @param request ModifyClusterDeletionProtectionRequest
+   * @return ModifyClusterDeletionProtectionResponse
+   */
   async modifyClusterDeletionProtection(request: ModifyClusterDeletionProtectionRequest): Promise<ModifyClusterDeletionProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyClusterDeletionProtectionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyDiskWarningLineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDiskWarningLineResponse
+   */
   async modifyDiskWarningLineWithOptions(request: ModifyDiskWarningLineRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDiskWarningLineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14633,11 +15315,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDiskWarningLineResponse>(await this.callApi(params, req, runtime), new ModifyDiskWarningLineResponse({}));
   }
 
+  /**
+   * @param request ModifyDiskWarningLineRequest
+   * @return ModifyDiskWarningLineResponse
+   */
   async modifyDiskWarningLine(request: ModifyDiskWarningLineRequest): Promise<ModifyDiskWarningLineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDiskWarningLineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyInstanceMaintainTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceMaintainTimeResponse
+   */
   async modifyInstanceMaintainTimeWithOptions(request: ModifyInstanceMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMaintainTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14670,11 +15361,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceMaintainTimeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceMaintainTimeResponse({}));
   }
 
+  /**
+   * @param request ModifyInstanceMaintainTimeRequest
+   * @return ModifyInstanceMaintainTimeResponse
+   */
   async modifyInstanceMaintainTime(request: ModifyInstanceMaintainTimeRequest): Promise<ModifyInstanceMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceMaintainTimeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyInstanceNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceNameResponse
+   */
   async modifyInstanceNameWithOptions(request: ModifyInstanceNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14715,11 +15415,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceNameResponse>(await this.callApi(params, req, runtime), new ModifyInstanceNameResponse({}));
   }
 
+  /**
+   * @param request ModifyInstanceNameRequest
+   * @return ModifyInstanceNameResponse
+   */
   async modifyInstanceName(request: ModifyInstanceNameRequest): Promise<ModifyInstanceNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceNameWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyInstanceServiceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceServiceConfigResponse
+   */
   async modifyInstanceServiceConfigWithOptions(request: ModifyInstanceServiceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceServiceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14760,11 +15469,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceServiceConfigResponse>(await this.callApi(params, req, runtime), new ModifyInstanceServiceConfigResponse({}));
   }
 
+  /**
+   * @param request ModifyInstanceServiceConfigRequest
+   * @return ModifyInstanceServiceConfigResponse
+   */
   async modifyInstanceServiceConfig(request: ModifyInstanceServiceConfigRequest): Promise<ModifyInstanceServiceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceServiceConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyInstanceTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceTypeResponse
+   */
   async modifyInstanceTypeWithOptions(request: ModifyInstanceTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14797,11 +15515,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceTypeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceTypeResponse({}));
   }
 
+  /**
+   * @param request ModifyInstanceTypeRequest
+   * @return ModifyInstanceTypeResponse
+   */
   async modifyInstanceType(request: ModifyInstanceTypeRequest): Promise<ModifyInstanceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyIpWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIpWhitelistResponse
+   */
   async modifyIpWhitelistWithOptions(request: ModifyIpWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14838,11 +15565,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIpWhitelistResponse>(await this.callApi(params, req, runtime), new ModifyIpWhitelistResponse({}));
   }
 
+  /**
+   * @param request ModifyIpWhitelistRequest
+   * @return ModifyIpWhitelistResponse
+   */
   async modifyIpWhitelist(request: ModifyIpWhitelistRequest): Promise<ModifyIpWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIpWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyMultiZoneClusterNodeTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyMultiZoneClusterNodeTypeResponse
+   */
   async modifyMultiZoneClusterNodeTypeWithOptions(request: ModifyMultiZoneClusterNodeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMultiZoneClusterNodeTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14879,11 +15615,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyMultiZoneClusterNodeTypeResponse>(await this.callApi(params, req, runtime), new ModifyMultiZoneClusterNodeTypeResponse({}));
   }
 
+  /**
+   * @param request ModifyMultiZoneClusterNodeTypeRequest
+   * @return ModifyMultiZoneClusterNodeTypeResponse
+   */
   async modifyMultiZoneClusterNodeType(request: ModifyMultiZoneClusterNodeTypeRequest): Promise<ModifyMultiZoneClusterNodeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyMultiZoneClusterNodeTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifySecurityGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityGroupsResponse
+   */
   async modifySecurityGroupsWithOptions(request: ModifySecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14912,11 +15657,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySecurityGroupsResponse>(await this.callApi(params, req, runtime), new ModifySecurityGroupsResponse({}));
   }
 
+  /**
+   * @param request ModifySecurityGroupsRequest
+   * @return ModifySecurityGroupsResponse
+   */
   async modifySecurityGroups(request: ModifySecurityGroupsRequest): Promise<ModifySecurityGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyUIAccountPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyUIAccountPasswordResponse
+   */
   async modifyUIAccountPasswordWithOptions(request: ModifyUIAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUIAccountPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14949,11 +15703,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyUIAccountPasswordResponse>(await this.callApi(params, req, runtime), new ModifyUIAccountPasswordResponse({}));
   }
 
+  /**
+   * @param request ModifyUIAccountPasswordRequest
+   * @return ModifyUIAccountPasswordResponse
+   */
   async modifyUIAccountPassword(request: ModifyUIAccountPasswordRequest): Promise<ModifyUIAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyUIAccountPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request MoveResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14982,11 +15745,20 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
+  /**
+   * @param request MoveResourceGroupRequest
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request OpenBackupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenBackupResponse
+   */
   async openBackupWithOptions(request: OpenBackupRequest, runtime: $Util.RuntimeOptions): Promise<OpenBackupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15011,11 +15783,20 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenBackupResponse>(await this.callApi(params, req, runtime), new OpenBackupResponse({}));
   }
 
+  /**
+   * @param request OpenBackupRequest
+   * @return OpenBackupResponse
+   */
   async openBackup(request: OpenBackupRequest): Promise<OpenBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openBackupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PurgeInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PurgeInstanceResponse
+   */
   async purgeInstanceWithOptions(request: PurgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<PurgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15040,11 +15821,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PurgeInstanceResponse>(await this.callApi(params, req, runtime), new PurgeInstanceResponse({}));
   }
 
+  /**
+   * @param request PurgeInstanceRequest
+   * @return PurgeInstanceResponse
+   */
   async purgeInstance(request: PurgeInstanceRequest): Promise<PurgeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.purgeInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryHBaseHaDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryHBaseHaDBResponse
+   */
   async queryHBaseHaDBWithOptions(request: QueryHBaseHaDBRequest, runtime: $Util.RuntimeOptions): Promise<QueryHBaseHaDBResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15069,11 +15859,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryHBaseHaDBResponse>(await this.callApi(params, req, runtime), new QueryHBaseHaDBResponse({}));
   }
 
+  /**
+   * @param request QueryHBaseHaDBRequest
+   * @return QueryHBaseHaDBResponse
+   */
   async queryHBaseHaDB(request: QueryHBaseHaDBRequest): Promise<QueryHBaseHaDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryHBaseHaDBWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryXpackRelateDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryXpackRelateDBResponse
+   */
   async queryXpackRelateDBWithOptions(request: QueryXpackRelateDBRequest, runtime: $Util.RuntimeOptions): Promise<QueryXpackRelateDBResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15106,11 +15905,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryXpackRelateDBResponse>(await this.callApi(params, req, runtime), new QueryXpackRelateDBResponse({}));
   }
 
+  /**
+   * @param request QueryXpackRelateDBRequest
+   * @return QueryXpackRelateDBResponse
+   */
   async queryXpackRelateDB(request: QueryXpackRelateDBRequest): Promise<QueryXpackRelateDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryXpackRelateDBWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RelateDbForHBaseHaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RelateDbForHBaseHaResponse
+   */
   async relateDbForHBaseHaWithOptions(request: RelateDbForHBaseHaRequest, runtime: $Util.RuntimeOptions): Promise<RelateDbForHBaseHaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15215,11 +16023,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RelateDbForHBaseHaResponse>(await this.callApi(params, req, runtime), new RelateDbForHBaseHaResponse({}));
   }
 
+  /**
+   * @param request RelateDbForHBaseHaRequest
+   * @return RelateDbForHBaseHaResponse
+   */
   async relateDbForHBaseHa(request: RelateDbForHBaseHaRequest): Promise<RelateDbForHBaseHaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.relateDbForHBaseHaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ReleasePublicNetworkAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleasePublicNetworkAddressResponse
+   */
   async releasePublicNetworkAddressWithOptions(request: ReleasePublicNetworkAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleasePublicNetworkAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15244,11 +16061,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleasePublicNetworkAddressResponse>(await this.callApi(params, req, runtime), new ReleasePublicNetworkAddressResponse({}));
   }
 
+  /**
+   * @param request ReleasePublicNetworkAddressRequest
+   * @return ReleasePublicNetworkAddressResponse
+   */
   async releasePublicNetworkAddress(request: ReleasePublicNetworkAddressRequest): Promise<ReleasePublicNetworkAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releasePublicNetworkAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RenewInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewInstanceResponse
+   */
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15281,11 +16107,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
   }
 
+  /**
+   * @param request RenewInstanceRequest
+   * @return RenewInstanceResponse
+   */
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResizeColdStorageSizeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResizeColdStorageSizeResponse
+   */
   async resizeColdStorageSizeWithOptions(request: ResizeColdStorageSizeRequest, runtime: $Util.RuntimeOptions): Promise<ResizeColdStorageSizeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15314,11 +16149,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResizeColdStorageSizeResponse>(await this.callApi(params, req, runtime), new ResizeColdStorageSizeResponse({}));
   }
 
+  /**
+   * @param request ResizeColdStorageSizeRequest
+   * @return ResizeColdStorageSizeResponse
+   */
   async resizeColdStorageSize(request: ResizeColdStorageSizeRequest): Promise<ResizeColdStorageSizeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resizeColdStorageSizeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResizeDiskSizeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResizeDiskSizeResponse
+   */
   async resizeDiskSizeWithOptions(request: ResizeDiskSizeRequest, runtime: $Util.RuntimeOptions): Promise<ResizeDiskSizeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15347,11 +16191,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResizeDiskSizeResponse>(await this.callApi(params, req, runtime), new ResizeDiskSizeResponse({}));
   }
 
+  /**
+   * @param request ResizeDiskSizeRequest
+   * @return ResizeDiskSizeResponse
+   */
   async resizeDiskSize(request: ResizeDiskSizeRequest): Promise<ResizeDiskSizeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resizeDiskSizeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResizeMultiZoneClusterDiskSizeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResizeMultiZoneClusterDiskSizeResponse
+   */
   async resizeMultiZoneClusterDiskSizeWithOptions(request: ResizeMultiZoneClusterDiskSizeRequest, runtime: $Util.RuntimeOptions): Promise<ResizeMultiZoneClusterDiskSizeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15384,11 +16237,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResizeMultiZoneClusterDiskSizeResponse>(await this.callApi(params, req, runtime), new ResizeMultiZoneClusterDiskSizeResponse({}));
   }
 
+  /**
+   * @param request ResizeMultiZoneClusterDiskSizeRequest
+   * @return ResizeMultiZoneClusterDiskSizeResponse
+   */
   async resizeMultiZoneClusterDiskSize(request: ResizeMultiZoneClusterDiskSizeRequest): Promise<ResizeMultiZoneClusterDiskSizeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resizeMultiZoneClusterDiskSizeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResizeMultiZoneClusterNodeCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResizeMultiZoneClusterNodeCountResponse
+   */
   async resizeMultiZoneClusterNodeCountWithOptions(request: ResizeMultiZoneClusterNodeCountRequest, runtime: $Util.RuntimeOptions): Promise<ResizeMultiZoneClusterNodeCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15441,11 +16303,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResizeMultiZoneClusterNodeCountResponse>(await this.callApi(params, req, runtime), new ResizeMultiZoneClusterNodeCountResponse({}));
   }
 
+  /**
+   * @param request ResizeMultiZoneClusterNodeCountRequest
+   * @return ResizeMultiZoneClusterNodeCountResponse
+   */
   async resizeMultiZoneClusterNodeCount(request: ResizeMultiZoneClusterNodeCountRequest): Promise<ResizeMultiZoneClusterNodeCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resizeMultiZoneClusterNodeCountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResizeNodeCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResizeNodeCountResponse
+   */
   async resizeNodeCountWithOptions(request: ResizeNodeCountRequest, runtime: $Util.RuntimeOptions): Promise<ResizeNodeCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15482,11 +16353,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResizeNodeCountResponse>(await this.callApi(params, req, runtime), new ResizeNodeCountResponse({}));
   }
 
+  /**
+   * @param request ResizeNodeCountRequest
+   * @return ResizeNodeCountResponse
+   */
   async resizeNodeCount(request: ResizeNodeCountRequest): Promise<ResizeNodeCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resizeNodeCountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RestartInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartInstanceResponse
+   */
   async restartInstanceWithOptions(request: RestartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15515,11 +16395,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartInstanceResponse>(await this.callApi(params, req, runtime), new RestartInstanceResponse({}));
   }
 
+  /**
+   * @param request RestartInstanceRequest
+   * @return RestartInstanceResponse
+   */
   async restartInstance(request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 回收账户权限
+   *
+   * @param request RevokeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeResponse
+   */
   async revokeWithOptions(request: RevokeRequest, runtime: $Util.RuntimeOptions): Promise<RevokeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15560,11 +16451,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeResponse>(await this.callApi(params, req, runtime), new RevokeResponse({}));
   }
 
+  /**
+   * @summary 回收账户权限
+   *
+   * @param request RevokeRequest
+   * @return RevokeResponse
+   */
   async revoke(request: RevokeRequest): Promise<RevokeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SwitchHbaseHaSlbRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchHbaseHaSlbResponse
+   */
   async switchHbaseHaSlbWithOptions(request: SwitchHbaseHaSlbRequest, runtime: $Util.RuntimeOptions): Promise<SwitchHbaseHaSlbResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15601,11 +16503,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchHbaseHaSlbResponse>(await this.callApi(params, req, runtime), new SwitchHbaseHaSlbResponse({}));
   }
 
+  /**
+   * @param request SwitchHbaseHaSlbRequest
+   * @return SwitchHbaseHaSlbResponse
+   */
   async switchHbaseHaSlb(request: SwitchHbaseHaSlbRequest): Promise<SwitchHbaseHaSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchHbaseHaSlbWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开通/关闭 扩展服务
+   *
+   * @param request SwitchServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchServiceResponse
+   */
   async switchServiceWithOptions(request: SwitchServiceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15638,11 +16551,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchServiceResponse>(await this.callApi(params, req, runtime), new SwitchServiceResponse({}));
   }
 
+  /**
+   * @summary 开通/关闭 扩展服务
+   *
+   * @param request SwitchServiceRequest
+   * @return SwitchServiceResponse
+   */
   async switchService(request: SwitchServiceRequest): Promise<SwitchServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15675,11 +16599,20 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UnTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnTagResourcesResponse
+   */
   async unTagResourcesWithOptions(request: UnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UnTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15716,11 +16649,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UnTagResourcesResponse>(await this.callApi(params, req, runtime), new UnTagResourcesResponse({}));
   }
 
+  /**
+   * @param request UnTagResourcesRequest
+   * @return UnTagResourcesResponse
+   */
   async unTagResources(request: UnTagResourcesRequest): Promise<UnTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpgradeMinorVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeMinorVersionResponse
+   */
   async upgradeMinorVersionWithOptions(request: UpgradeMinorVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeMinorVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15749,11 +16691,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeMinorVersionResponse>(await this.callApi(params, req, runtime), new UpgradeMinorVersionResponse({}));
   }
 
+  /**
+   * @param request UpgradeMinorVersionRequest
+   * @return UpgradeMinorVersionResponse
+   */
   async upgradeMinorVersion(request: UpgradeMinorVersionRequest): Promise<UpgradeMinorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeMinorVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpgradeMultiZoneClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeMultiZoneClusterResponse
+   */
   async upgradeMultiZoneClusterWithOptions(request: UpgradeMultiZoneClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeMultiZoneClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15798,11 +16749,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeMultiZoneClusterResponse>(await this.callApi(params, req, runtime), new UpgradeMultiZoneClusterResponse({}));
   }
 
+  /**
+   * @param request UpgradeMultiZoneClusterRequest
+   * @return UpgradeMultiZoneClusterResponse
+   */
   async upgradeMultiZoneCluster(request: UpgradeMultiZoneClusterRequest): Promise<UpgradeMultiZoneClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeMultiZoneClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request XpackRelateDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return XpackRelateDBResponse
+   */
   async xpackRelateDBWithOptions(request: XpackRelateDBRequest, runtime: $Util.RuntimeOptions): Promise<XpackRelateDBResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15835,6 +16795,10 @@ export default class Client extends OpenApi {
     return $tea.cast<XpackRelateDBResponse>(await this.callApi(params, req, runtime), new XpackRelateDBResponse({}));
   }
 
+  /**
+   * @param request XpackRelateDBRequest
+   * @return XpackRelateDBResponse
+   */
   async xpackRelateDB(request: XpackRelateDBRequest): Promise<XpackRelateDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.xpackRelateDBWithOptions(request, runtime);
