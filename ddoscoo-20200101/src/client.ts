@@ -16827,7 +16827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置安全概要属性
+   * @summary Configures the global mitigation policy feature, including the feature status and settings.
    *
    * @param request ConfigDomainSecurityProfileRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -16866,7 +16866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置安全概要属性
+   * @summary Configures the global mitigation policy feature, including the feature status and settings.
    *
    * @param request ConfigDomainSecurityProfileRequest
    * @return ConfigDomainSecurityProfileResponse
@@ -16935,7 +16935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置长连接
+   * @summary Configures the settings for back-to-origin persistent connections for a domain name.
    *
    * @param request ConfigL7UsKeepaliveRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -16970,7 +16970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置长连接
+   * @summary Configures the settings for back-to-origin persistent connections for a domain name.
    *
    * @param request ConfigL7UsKeepaliveRequest
    * @return ConfigL7UsKeepaliveResponse
@@ -17157,7 +17157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures blocked locations for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * @summary Configures blocked locations for an Anti-DDoS Proxy instance.
    *
    * @param request ConfigNetworkRegionBlockRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -17192,7 +17192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures blocked locations for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * @summary Configures blocked locations for an Anti-DDoS Proxy instance.
    *
    * @param request ConfigNetworkRegionBlockRequest
    * @return ConfigNetworkRegionBlockResponse
@@ -17785,12 +17785,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to multiple Anti-DDoS Pro instances at a time.
+   * @summary Adds tags to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
    *
-   * @description You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Pro instances at a time.
-   * > Anti-DDoS Premium does not support the tag feature.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
+   * >  Anti-DDoS Proxy (Outside Chinese Mainland) does not support the tag feature.
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request CreateTagResourcesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -17837,12 +17837,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to multiple Anti-DDoS Pro instances at a time.
+   * @summary Adds tags to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
    *
-   * @description You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Pro instances at a time.
-   * > Anti-DDoS Premium does not support the tag feature.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
+   * >  Anti-DDoS Proxy (Outside Chinese Mainland) does not support the tag feature.
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request CreateTagResourcesRequest
    * @return CreateTagResourcesResponse
@@ -17854,6 +17854,8 @@ export default class Client extends OpenApi {
 
   /**
    * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+   *
+   * @summary Creates a custom frequency control rule for a website.
    *
    * @param request CreateWebCCRuleRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -17918,6 +17920,8 @@ export default class Client extends OpenApi {
 
   /**
    * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+   *
+   * @summary Creates a custom frequency control rule for a website.
    *
    * @param request CreateWebCCRuleRequest
    * @return CreateWebCCRuleResponse
@@ -18369,12 +18373,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from Anti-DDoS Pro instances.
+   * @summary Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
    *
-   * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Pro instances.
-   * > Only Anti-DDoS Pro supports tags.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+   * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request DeleteTagResourcesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -18425,12 +18429,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from Anti-DDoS Pro instances.
+   * @summary Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
    *
-   * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Pro instances.
-   * > Only Anti-DDoS Pro supports tags.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+   * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request DeleteTagResourcesRequest
    * @return DeleteTagResourcesResponse
@@ -18443,7 +18447,7 @@ export default class Client extends OpenApi {
   /**
    * @deprecated OpenAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead.
    *
-   * @summary Deletes a custom frequency control rule of a website.
+   * @summary Deletes custom frequency control rules of a website.
    *
    * @param request DeleteWebCCRuleRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -18485,7 +18489,7 @@ export default class Client extends OpenApi {
   /**
    * @deprecated OpenAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead.
    *
-   * @summary Deletes a custom frequency control rule of a website.
+   * @summary Deletes custom frequency control rules of a website.
    *
    * @param request DeleteWebCCRuleRequest
    * @return DeleteWebCCRuleResponse
@@ -18497,7 +18501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除新版cc规则
+   * @summary Deletes custom frequency control rules of a website.
    *
    * @param request DeleteWebCCRuleV2Request
    * @param runtime runtime options for this request RuntimeOptions
@@ -18536,7 +18540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除新版cc规则
+   * @summary Deletes custom frequency control rules of a website.
    *
    * @param request DeleteWebCCRuleV2Request
    * @return DeleteWebCCRuleV2Response
@@ -19051,12 +19055,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
+   * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
    *
-   * @description This operation is used to query the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
-   * > This operation is suitable only for Anti-DDoS Pro.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request DescribeBlockStatusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -19091,12 +19095,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
+   * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
    *
-   * @description This operation is used to query the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
-   * > This operation is suitable only for Anti-DDoS Pro.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request DescribeBlockStatusRequest
    * @return DescribeBlockStatusResponse
@@ -19107,7 +19111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the certificate information about a website.
+   * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
    *
    * @param request DescribeCertsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -19142,7 +19146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the certificate information about a website.
+   * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
    *
    * @param request DescribeCertsRequest
    * @return DescribeCertsResponse
@@ -19195,7 +19199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the attack events launched against one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * @summary Queries the attack events launched against one or more Anti-DDoS Proxy instances.
    *
    * @param request DescribeDDoSEventsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -19246,7 +19250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the attack events launched against one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * @summary Queries the attack events launched against one or more Anti-DDoS Proxy instances.
    *
    * @param request DescribeDDoSEventsRequest
    * @return DescribeDDoSEventsResponse
@@ -19597,12 +19601,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on advanced mitigation sessions of an Anti-DDoS Premium instance.
+   * @summary Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
    *
-   * @description You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Premium instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of available global advanced mitigation sessions.
-   * > This operation is suitable only for Anti-DDoS Premium.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
+   * >  This operation is suitable only for Anti-DDoS Proxy (Outside Chinese Mainland).
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request DescribeDefenseCountStatisticsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -19633,12 +19637,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on advanced mitigation sessions of an Anti-DDoS Premium instance.
+   * @summary Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
    *
-   * @description You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Premium instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of available global advanced mitigation sessions.
-   * > This operation is suitable only for Anti-DDoS Premium.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
+   * >  This operation is suitable only for Anti-DDoS Proxy (Outside Chinese Mainland).
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request DescribeDefenseCountStatisticsRequest
    * @return DescribeDefenseCountStatisticsResponse
@@ -20539,7 +20543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 高防弹性qps曲线图
+   * @summary Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
    *
    * @param request DescribeElasticQpsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -20586,7 +20590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 高防弹性qps曲线图
+   * @summary Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
    *
    * @param request DescribeElasticQpsRequest
    * @return DescribeElasticQpsResponse
@@ -20597,7 +20601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询qps日95流量图
+   * @summary Queries the burstable QPS details of an Anti-DDoS Proxy instance.
    *
    * @param request DescribeElasticQpsRecordRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -20636,7 +20640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询qps日95流量图
+   * @summary Queries the burstable QPS details of an Anti-DDoS Proxy instance.
    *
    * @param request DescribeElasticQpsRecordRequest
    * @return DescribeElasticQpsRecordResponse
@@ -20977,7 +20981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on one or more Anti-DDoS Pro or Anti-DDoS Premium instances, such as the numbers of protected domain names and ports.
+   * @summary Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
    *
    * @param request DescribeInstanceStatisticsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -21008,7 +21012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on one or more Anti-DDoS Pro or Anti-DDoS Premium instances, such as the numbers of protected domain names and ports.
+   * @summary Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
    *
    * @param request DescribeInstanceStatisticsRequest
    * @return DescribeInstanceStatisticsResponse
@@ -21019,7 +21023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a specified Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * @summary Queries the status of a specified Anti-DDoS Proxy instance.
    *
    * @param request DescribeInstanceStatusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -21054,7 +21058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a specified Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * @summary Queries the status of a specified Anti-DDoS Proxy instance.
    *
    * @param request DescribeInstanceStatusRequest
    * @return DescribeInstanceStatusResponse
@@ -21201,7 +21205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询长连接
+   * @summary Queries the configuration of back-to-origin persistent connections of a domain name.
    *
    * @param request DescribeL7UsKeepaliveRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -21232,7 +21236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询长连接
+   * @summary Queries the configuration of back-to-origin persistent connections of a domain name.
    *
    * @param request DescribeL7UsKeepaliveRequest
    * @return DescribeL7UsKeepaliveResponse
@@ -21707,6 +21711,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
    * @param request DescribePortCcAttackTopIPRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribePortCcAttackTopIPResponse
@@ -21748,6 +21754,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
    * @param request DescribePortCcAttackTopIPRequest
    * @return DescribePortCcAttackTopIPResponse
    */
@@ -21815,7 +21823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * @summary Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
    *
    * @param request DescribePortConnsListRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -21866,7 +21874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * @summary Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
    *
    * @param request DescribePortConnsListRequest
    * @return DescribePortConnsListResponse
@@ -22639,12 +22647,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all tag keys and the Anti-DDoS Pro instances to which the tag keys are added.
+   * @summary Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
    *
-   * @description You can call this operation to query all tag keys and the Anti-DDoS Pro instances to which the tag keys are added by page.
-   * > The tag feature is suitable only for Anti-DDoS Pro.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
+   * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request DescribeTagKeysRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -22691,12 +22699,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all tag keys and the Anti-DDoS Pro instances to which the tag keys are added.
+   * @summary Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
    *
-   * @description You can call this operation to query all tag keys and the Anti-DDoS Pro instances to which the tag keys are added by page.
-   * > The tag feature is suitable only for Anti-DDoS Pro.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
+   * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request DescribeTagKeysRequest
    * @return DescribeTagKeysResponse
@@ -22707,12 +22715,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the tags that are added to an Anti-DDoS Pro instance.
+   * @summary Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
    *
-   * @description You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Pro instance.
-   * > Only Anti-DDoS Pro supports tags.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request DescribeTagResourcesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -22763,12 +22771,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the tags that are added to an Anti-DDoS Pro instance.
+   * @summary Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
    *
-   * @description You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Pro instance.
-   * > Only Anti-DDoS Pro supports tags.
-   * ### Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * @description You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
+   * ### [](#qps-)QPS limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    *
    * @param request DescribeTagResourcesRequest
    * @return DescribeTagResourcesResponse
@@ -23261,7 +23269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询新版cc规则
+   * @summary Queries the custom frequency control rules that are created for a website.
    *
    * @param request DescribeWebCCRulesV2Request
    * @param runtime runtime options for this request RuntimeOptions
@@ -23304,7 +23312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询新版cc规则
+   * @summary Queries the custom frequency control rules that are created for a website.
    *
    * @param request DescribeWebCCRulesV2Request
    * @return DescribeWebCCRulesV2Response
@@ -23549,6 +23557,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
+   *
    * @param request DescribeWebReportTopIpRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeWebReportTopIpResponse
@@ -23598,6 +23608,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
+   *
    * @param request DescribeWebReportTopIpRequest
    * @return DescribeWebReportTopIpResponse
    */
@@ -24309,9 +24321,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the Diversion from Origin Server configuration of an Anti-DDoS Pro instance.
+   * @summary Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
    *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
+   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    *
    * @param request ModifyBlockStatusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -24354,9 +24366,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the Diversion from Origin Server configuration of an Anti-DDoS Pro instance.
+   * @summary Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
    *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
+   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    *
    * @param request ModifyBlockStatusRequest
    * @return ModifyBlockStatusResponse
@@ -24487,9 +24499,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Pro instance.
+   * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
    *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
+   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    *
    * @param request ModifyElasticBandWidthRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -24524,9 +24536,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Pro instance.
+   * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
    *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
+   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    *
    * @param request ModifyElasticBandWidthRequest
    * @return ModifyElasticBandWidthResponse
@@ -24591,7 +24603,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启/关闭弹性QPS 首次模式直接生效
+   * @summary Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
+   *
+   * @description You can enable burstable QPS only for IPv4 instances.
    *
    * @param request ModifyElasticBizQpsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -24630,7 +24644,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启/关闭弹性QPS 首次模式直接生效
+   * @summary Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
+   *
+   * @description You can enable burstable QPS only for IPv4 instances.
    *
    * @param request ModifyElasticBizQpsRequest
    * @return ModifyElasticBizQpsResponse
@@ -24793,7 +24809,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Enables or disables HTTP/2 for the forwarding rule of a website.
    *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
+   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    *
    * @param request ModifyHttp2EnableRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -24834,7 +24850,7 @@ export default class Client extends OpenApi {
   /**
    * @summary Enables or disables HTTP/2 for the forwarding rule of a website.
    *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
+   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    *
    * @param request ModifyHttp2EnableRequest
    * @return ModifyHttp2EnableResponse
@@ -25107,7 +25123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改弹性qps模式
+   * @summary Switches between the metering methods of the burstable clean bandwidth feature.
    *
    * @param request ModifyQpsModeRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -25142,7 +25158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改弹性qps模式
+   * @summary Switches between the metering methods of the burstable clean bandwidth feature.
    *
    * @param request ModifyQpsModeRequest
    * @return ModifyQpsModeResponse
@@ -25573,7 +25589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 统一全局CC开关
+   * @summary Enables or disables the HTTP flood mitigation feature for a website.
    *
    * @param request ModifyWebCCGlobalSwitchRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -25608,7 +25624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 统一全局CC开关
+   * @summary Enables or disables the HTTP flood mitigation feature for a website.
    *
    * @param request ModifyWebCCGlobalSwitchRequest
    * @return ModifyWebCCGlobalSwitchResponse
@@ -25620,6 +25636,8 @@ export default class Client extends OpenApi {
 
   /**
    * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+   *
+   * @summary Modifies the custom frequency control rule of a website.
    *
    * @param request ModifyWebCCRuleRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -25684,6 +25702,8 @@ export default class Client extends OpenApi {
 
   /**
    * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+   *
+   * @summary Modifies the custom frequency control rule of a website.
    *
    * @param request ModifyWebCCRuleRequest
    * @return ModifyWebCCRuleResponse
@@ -26117,7 +26137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Switches service traffic to your Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
+   * @summary Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
    *
    * @description You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
    * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](https://help.aliyun.com/document_detail/157479.html) operation.
@@ -26161,7 +26181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Switches service traffic to your Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
+   * @summary Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
    *
    * @description You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
    * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](https://help.aliyun.com/document_detail/157479.html) operation.
