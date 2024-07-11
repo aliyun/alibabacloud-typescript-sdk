@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/mts20140618",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

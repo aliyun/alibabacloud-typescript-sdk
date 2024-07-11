@@ -6395,6 +6395,84 @@ export class SubmitIProductionJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitImageCopyrightRequest extends $tea.Model {
+  message?: string;
+  output?: string;
+  params?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      output: 'Output',
+      params: 'Params',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      output: 'string',
+      params: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitImageCopyrightResponseBody extends $tea.Model {
+  data?: SubmitImageCopyrightResponseBodyData;
+  message?: string;
+  requestId?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitImageCopyrightResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitImageCopyrightResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitImageCopyrightResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitImageCopyrightResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitJobsRequest extends $tea.Model {
   input?: string;
   outputBucket?: string;
@@ -20544,6 +20622,25 @@ export class SubmitCopyrightJobResponseBodyData extends $tea.Model {
   }
 }
 
+export class SubmitImageCopyrightResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitJobsResponseBodyJobResultListJobResultJobInput extends $tea.Model {
   bucket?: string;
   location?: string;
@@ -29120,6 +29217,56 @@ export default class Client extends OpenApi {
   async submitIProductionJob(request: SubmitIProductionJobRequest): Promise<SubmitIProductionJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitIProductionJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 提交图片版权水印任务
+   *
+   * @param request SubmitImageCopyrightRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitImageCopyrightResponse
+   */
+  async submitImageCopyrightWithOptions(request: SubmitImageCopyrightRequest, runtime: $Util.RuntimeOptions): Promise<SubmitImageCopyrightResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.output)) {
+      query["Output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitImageCopyright",
+      version: "2014-06-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitImageCopyrightResponse>(await this.callApi(params, req, runtime), new SubmitImageCopyrightResponse({}));
+  }
+
+  /**
+   * @summary 提交图片版权水印任务
+   *
+   * @param request SubmitImageCopyrightRequest
+   * @return SubmitImageCopyrightResponse
+   */
+  async submitImageCopyright(request: SubmitImageCopyrightRequest): Promise<SubmitImageCopyrightResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitImageCopyrightWithOptions(request, runtime);
   }
 
   /**
